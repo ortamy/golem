@@ -2,57 +2,43 @@
 
 **Метаданные файла**
 - **Файл:** `drafts/technical-debt.md`
-- **Версия:** 1.0
+- **Версия:** 1.1
 - **Дата создания:** 2026-05-28
-- **Статус:** Активный (пополняется после каждого изменения)
-- **Тема:** Список задач по синхронизации файлов репозитория. Что обновить, где поправить ссылки, что добавить в структуру.
-
----
-
-## 🔥 ВВЕДЕНИЕ
-
-Каждое изменение в репозитории тянет за собой обновление связанных файлов. Создали новый файл — нужно добавить в `structure.md`. Изменили метод — нужно обновить `README.md`. Разделили файл — нужно поправить ссылки в `chat-prompt.md`.
-
-Этот файл — рабочий список таких задач. Пополняется после каждого действия. Закрывается по мере выполнения.
-
----
-
-## 📜 ПРАВИЛА
-
-1. **Одна задача — одна строка с чекбоксом.**
-2. **Указывать точный путь к файлу и конкретное действие.**
-3. **Отмечать выполненное:** `[x]`.
-4. **Не дублировать.** Если задача уже есть — не добавлять такую же.
-5. **Просматривать в конце каждой сессии.** Что накопилось — закрывать.
+- **Последнее обновление:** 2026-06-02
+- **Причина обновления:** Актуализирован список задач. Добавлены новые из последней сессии.
+- **Статус:** Активный
 
 ---
 
 ## 📋 ТЕКУЩИЕ ЗАДАЧИ
 
-### Обновить структуру
+### Обновить существующие файлы
 
-- [ ] `structure.md` — добавить папку `instructions/exposure/` и 3 файла в ней
-- [ ] `structure.md` — добавить папку `instructions/templates/` и файл `concept-analysis-template.md`
-- [ ] `structure.md` — обновить количество файлов в `instructions/`
-- [ ] `structure.md` — добавить `drafts/technical-debt.md`
-
-### Обновить README
-
-- [ ] `README.md` — обновить структуру (папки `exposure/` и `templates/`)
+- [ ] `researches/derech-ha-gever.md` — заменить «Бог» → «Яхве», «вера» → «эмуна», «благословение» → «браха», «Бытие» → «Берешит»
+- [ ] `instructions/exposure/exposure-methods.md` — добавить «Метод пустыни», «Метод змея»
+- [ ] `structure.md` — добавить новые файлы: `researches/derech-ha-gever.md`, `researches/derech-ha-nachash.md`, `researches/minecraft-tanakh.md`, `researches/vatican.md`, `researches/yehoshua-research.md`, `researches/purpose-of-tanakh.md`, `researches/morashat-israel.md`, `researches/talmud-judaism.md`, `researches/karaism.md`, `researches/red-mitzraim.md`, `researches/ha-mashchit.md`
 - [ ] `README.md` — обновить количество файлов
-- [ ] `README.md` — добавить `archeology-methodology.md` в этап настройки нейросети
-- [ ] `README.md` — добавить `concept-analysis-template.md` в этап 6 (Шаблоны)
+- [ ] `chat-prompt.md` — обновить ссылки на новые файлы
 
-### Обновить ссылки в файлах
+### Создать новые файлы
 
-- [ ] `chat-prompt.md` — обновить раздел «Файлы репозитория» (указать новые пути к exposure)
-- [ ] `self-learning-template.md` — обновить ссылки на файлы exposure
-- [ ] `archeology-methodology.md` — добавить ссылку на `concept-analysis-template.md`
+- [ ] `terminology/midbar.md` — מִדְבָּר (пустыня). Пустыня как экзамен, а не наказание.
+- [ ] `terminology/levad.md` — לְבַד (один). Способность быть одному как признак свободы.
+- [ ] `terminology/arum.md` — עָרוּם (хитрый, проницательный). Связь с эйром.
+- [ ] `terminology/nachash.md` — נָּחָשׁ (змей). Мудрость, которая действует тихо.
+- [ ] `terminology/pachad.md` — создан? Требует проверки.
+- [ ] `terminology/erech-apayim.md` — создан? Требует проверки.
+- [ ] `terminology/yetzer-lev.md` — создан? Требует проверки.
+- [ ] `terminology/gibor.md` — создан? Требует проверки.
+- [ ] `terminology/shabbat.md` — создан? Требует проверки.
+- [ ] `terminology/tohu-va-vohu.md` — создан? Требует проверки.
+- [ ] `researches/galatim-two-systems.md` — Галатим: война двух систем
+- [ ] `researches/substitution-of-the-name.md` — кража Имени
 
-### Отметить выполненные задачи
+### Исправить
 
-- [ ] `drafts/optimization-log.md` — отметить выполненные задачи (разделение exposure, создание папок)
-- [ ] `drafts/optimization-log.md` — перенести невыполненные задачи в этот файл
+- [ ] `immanu-el.md` — в метаданных указано `researches/`, а файл лежит в `terminology/`. Исправить.
+- [ ] Проверить все файлы `terminology/` — везде ли в метаданных указана правильная папка
 
 ---
 
@@ -63,16 +49,42 @@
 - [x] Разделить `exposure-principles.md` на три файла
 - [x] Создать папку `instructions/exposure/`
 - [x] Создать `exposure/exposure-principles.md`
-- [x] Создать `exposure/exposure-methods.md` (v1.0)
-- [x] Создать `exposure/exposure-mechanisms.md` (v1.0)
+- [x] Создать `exposure/exposure-methods.md`
+- [x] Создать `exposure/exposure-mechanisms.md`
+- [x] Убрать `channel/` из структуры репозитория
+- [x] Обновить `README.md` (v2.1)
+- [x] Обновить `structure.md` (v1.2)
+- [x] Создать `drafts/ideas.md`
+- [x] Создать `drafts/questions.md`
+- [x] Создать `drafts/notes.md`
+- [x] Обновить `chat-prompt.md` (v1.3)
+- [x] Создать `image-map-template.md` (v1.1)
+- [x] Создать `self-learning-template.md` (v1.0)
+- [x] Создать `neural-network-plan.md` (v1.0)
+
+### 2026-06-01
+
+- [x] Разделить `exposure-principles.md` на три файла: принципы, методы, механизмы
+- [x] Создать папку `instructions/exposure/`
+- [x] Создать `exposure/exposure-principles.md`
+- [x] Создать `exposure/exposure-methods.md`
+- [x] Создать `exposure/exposure-mechanisms.md`
 - [x] Обновить `exposure-methods.md` до v1.1 (+3 метода)
 - [x] Обновить `exposure-mechanisms.md` до v1.1 (+9 приёмов)
+- [x] Обновить `exposure-mechanisms.md` до v1.2 (+дуализация, комбинации, remedies)
+- [x] Создать `exposure-distortions.md` — 7 типов искажений с приёмами
 - [x] Удалить старый `instructions/exposure-principles.md`
 - [x] Создать `instructions/templates/` и `concept-analysis-template.md`
 - [x] Создать `archeology-methodology.md`
-- [x] Создать `drafts/technical-debt.md` (этот файл)
+- [x] Создать `drafts/technical-debt.md`
+- [x] Создать `checkers/mivdak.md` — полный цикл аудита
+- [x] Обновить `chat-prompt.md` до v1.5
+- [x] Обновить `forbidden-words.md` до v1.2
 
----
+### 2026-06-02
 
-> **עֵד (Эд) — Свидетель.**
-> Порядок в репозитории — это порядок в мышлении. Долг висит, пока не заплатишь. Плати вовремя.
+- [x] Создать `researches/yehoshua-research.md` — историческое расследование
+- [x] Создать `terminology/yetzer-lev.md` — помышление сердца
+- [x] Создать `researches/derech-ha-gever.md` — путь мужчины
+- [x] Создать `researches/derech-ha-nachash.md` — путь змея
+- [x] Обновить `terminology/cherut.md` до v2.0 — свобода для верности
