@@ -2,202 +2,101 @@
 
 **Метаданные файла**
 - **Файл:** `structure.md`
-- **Версия:** 1.3
+- **Версия:** 1.4
 - **Дата создания:** 2026-05-28
-- **Последнее обновление:** 2026-06-02
-- **Причина обновления:** Добавлена папка `instructions/tahor/` с 6 файлами. Обновлён список файлов в `instructions/`, `terminology/`, `researches/`. Добавлена папка `checkers/`.
-- **Статус:** Активный (будет пополняться)
+- **Последнее обновление:** 2026-06-04
+- **Причина обновления:** Актуализирован список всех файлов. Добавлены новые папки и файлы за период 28.05–04.06.
+- **Статус:** Активный
 - **Тема:** Полная структура репозитория «Голем» со всеми папками, файлами и правилами именования.
 
 ---
 
-## 🔥 ВВЕДЕНИЕ
+## 📂 КОРЕНЬ
 
-Репозиторий «Голем» — это ковчег истины. Хранилище исследований, терминов, инструкций и готовых материалов для разоблачения лжи и возвращения к ивритскому оригиналу ТаНаХа.
-
-Структура выстроена так, чтобы любой файл можно было найти мгновенно. Каждая папка — столп. Каждый файл — кирпич.
+- `README.md`
+- `structure.md`
+- `instructions/`
+- `checkers/`
+- `terminology/`
+- `researches/`
+- `davar/`
+- `drafts/`
 
 ---
 
-## 📁 instructions/ — ИНСТРУКЦИИ И ШАБЛОНЫ
+## 📁 instructions/
 
-Правила работы, принципы, шаблоны, карты. Мозг проекта.
-
-- `chat-prompt.md` — шаблон промпта для нового чата
-- `research-template.md` — шаблон исследования (terminology + researches)
-- `self-learning-template.md` — шаблон самообучения нейросети
-- `research-principles.md` — принципы исследований (31 принцип)
-- `manifest.md` — манифест восстановления
-- `translation-methodology.md` — методология достоверного перевода
-- `transliteration-distortions.md` — ключевые транслитерации, искажающие смысл
-- `tree-method.md` — метод дерева: как проверять учение
-- `forbidden-words.md` — индекс запрещённых слов (краткие замены + ссылки)
-- `archeology-methodology.md` — метод археологии смыслов
+- `chat-prompt.md` — шаблон промпта (v1.7)
+- `research-template.md` — шаблон исследования
+- `self-learning-template.md` — шаблон самообучения
+- `research-principles.md` — 38 принципов (v2.2)
+- `manifest.md` — манифест
+- `translation-methodology.md` — методология перевода
+- `transliteration-distortions.md` — карта транслитераций
+- `tree-method.md` — метод дерева
+- `forbidden-words.md` — индекс запрещённых слов (v2.0)
+- `archeology-methodology.md` — археология смыслов
 - `image-map-template.md` — шаблон карты образов
-- `neural-network-plan.md` — план создания нейросети «Эд»
+- `neural-network-plan.md` — план нейросети (v2.0)
 
-### instructions/exposure/ — РАЗОБЛАЧЕНИЕ
+### instructions/exposure/
+- `exposure-principles.md`
+- `exposure-methods.md` (v1.3, 23 метода)
+- `exposure-mechanisms.md`
+- `exposure-distortions.md`
 
-- `exposure-principles.md` — основные принципы + критерии истины/лжи
-- `exposure-methods.md` — 20 методов разоблачения
-- `exposure-mechanisms.md` — 3 механизма подмены
-- `exposure-distortions.md` — 7 типов искажений с приёмами + remedies
+### instructions/tahor/
+- `religionims.md`
+- `grecisms.md`
+- `slavicisms.md`
+- `latinisms.md`
+- `names.md`
+- `phrases.md`
 
-### instructions/tahor/ — ОЧИЩЕНИЕ ЯЗЫКА
-
-- `religionims.md` — религионимы (40+ слов)
-- `grecisms.md` — грецизмы (30+ слов)
-- `slavicisms.md` — церковнославянизмы (25+ слов)
-- `latinisms.md` — латинизмы (10+ слов)
-- `names.md` — имена и названия (25+ имён)
-- `phrases.md` — фразы и выражения (14 фраз)
-
-### instructions/templates/ — ШАБЛОНЫ
-
-- `concept-analysis-template.md` — шаблон анализа понятия (семь врат)
+### instructions/templates/
+- `concept-analysis-template.md`
 
 ---
 
-## 📁 checkers/ — ЧЕКЕРЫ
+## 📁 checkers/
 
-Инструменты аудита текстов перед попаданием в репозиторий.
-
-- `mivdak.md` — полный цикл аудита (bdikah-check, mivdak-audit, tikun-fix)
-- `tikun-fix.md` — шаблон задач по обновлению
-
----
-
-## 📁 terminology/ — ТЕРМИНЫ
-
-Разбор слов. Каждое слово — отдельный файл. Иврит латиницей, через дефис.
-
-**Созданные файлы (30+):**
-- `etz-ha-daat.md` — дерево познания
-- `yir-at-yhwh.md` — видение Яхве
-- `ktav-ivri.md` — древнее письмо
-- `avodah-zarah.md` — чужая служба
-- `naaf.md` — нарушение союза
-- `shekel.md` — мера веса
-- `cherut.md` — свобода для верности
-- `bavel.md` — Вавилон
-- `ivri.md` — перешедший
-- `beit-ha-mikdash.md` — Дом Отделённости
-- `neshamah.md` — дыхание жизни
-- `lashon-ha-kodesh.md` — Язык Отделённости
-- `arur.md` — проклятие как ограничение
-- `asur.md` — связанный, ограниченный
-- `karet.md` — отсечение
-- `olam.md` — скрытый горизонт
-- `immanu-el.md` — Имману Эль
-- `golem.md` — неоформленная материя
-- `nefilim.md` — падшие
-- `gibor.md` — сильный, воин
-- `pachad.md` — страх-ужас
-- `erech-apayim.md` — долгое дыхание
-- `yetzer-lev.md` — помышление сердца
-- `shabbat.md` — Шаббат
-- `tohu-va-vohu.md` — пустота и безвидность
-- `mene-tekel.md` — мене, текел, упарсин
-- `shlem-avon.md` — мера кривизны
-- `elilim.md` — ничтожные
-- `tefilah.md` — самоисследование
-- `davar.md` — слово, дело
-- `mishkan.md` — переносной Дом
-
----
-
-## 📁 researches/ — ИССЛЕДОВАНИЯ
-
-Разбор явлений, систем, событий, доктрин. Иврит латиницей, через дефис.
-
-**Созданные файлы (15+):**
-- `mitzraim-system.md` — система Мицраима
-- `purpose-of-tanakh.md` — цель ТаНаХа
-- `morashat-israel.md` — наследие Израиля
-- `talmud-judaism.md` — талмудический иудаизм
-- `karaism.md` — караимы
-- `red-mitzraim.md` — красный Мицраим
-- `ha-mashchit.md` — губитель
-- `yehoshua-research.md` — Йехошуа
-- `vatican.md` — Ватикан
-- `minecraft-tanakh.md` — Minecraft и ТаНаХ
-- `derech-ha-gever.md` — путь мужчины
-- `derech-ha-nachash.md` — путь змея
-- `history-of-banks.md` — история банков
-- `history-of-religion.md` — история систем верований
-- `history-of-medicine.md` — история медицины
-- `history-of-politics.md` — история политики
-- `history-of-economy.md` — история экономики
-- `history-of-school.md` — история школы
-- `history-of-prison.md` — история тюрьмы
-
----
-
-## 📁 davar/ — ЯЗЫК ДАВАР
-
-Язык архитектуры творения. Слово и дело — одно.
-
-- `README.md` — концепция
-- `manifest.md` — манифест Давара
-- `structure.md` — структура проекта
-- `roadmap.md` — план разработки
-- `spec/grammar.md` — грамматика
-- `spec/types.md` — типы
-- `spec/semantics.md` — семантика
-- `spec/limits.md` — пределы
-- `spec/shabbat.md` — Шаббат
-- `spec/growth.md` — система дерева
-- `examples/01-social-network.md` — пример: социальная сеть
-
----
-
-## 📁 drafts/ — ЧЕРНОВИКИ
-
-Идеи, заметки, вопросы, техдолг.
-
-- `ideas.md` — идеи для исследований
-- `questions.md` — вопросы
-- `notes.md` — заметки
-- `technical-debt.md` — технический долг
+- `bdikah-checker.md` — проверка религионимов
+- `mivdak.md` — аудит полезности (v2.0)
 - `tikun-fix.md` — задачи по обновлению
-- `platform-idea.md` — концепция платформы
-- `davar-language.md` — концепция языка Давар
+- `factcheck.md` — проверка фактов
 
 ---
 
-## ⚖️ ПРАВИЛА ИМЕНОВАНИЯ ФАЙЛОВ
+## 📁 terminology/ (35+)
 
-- **Основной стандарт:** иврит латиницей, через дефис
-- **Допустимо:** английский в отдельных случаях
-- **Запрещено:** русский в названиях файлов
-- **Черновики:** свободно, без русского
+- `arur.md`, `asur.md`, `avar-atid.md`, `avodah-zarah.md`, `bavel.md`, `beit-ha-mikdash.md`, `cherut.md`, `davar.md`, `elilim.md`, `erech-apayim.md`, `etz-ha-daat.md`, `gibor.md`, `golem.md`, `immanu-el.md`, `ivri.md`, `karet.md`, `koach.md`, `ktav-ivri.md`, `lashon-ha-kodesh.md`, `mene-tekel.md`, `mishkan.md`, `naaf.md`, `nefilim.md`, `neshamah.md`, `olam.md`, `pachad.md`, `shabbat.md`, `shekel.md`, `shlem-avon.md`, `shmitah.md`, `tefilah.md`, `tohu-va-vohu.md`, `yir-at-yhwh.md`, `yetzer-lev.md`
 
 ---
 
-## ⚖️ ПРАВИЛА ОФОРМЛЕНИЯ
+## 📁 researches/ (25+)
 
-- **Формат:** Markdown (md)
-- **Иврит + транслитерация + перевод** для каждого стиха
-- **Без таблиц.** Только списки
-- **Эмодзи** в заголовках разделов
-- **Заголовки разделов** — на иврите с переводом
-- **Весь файл — один md-блок.** Монолит
+- `balaam-strategy.md`, `derech-ha-gever.md`, `derech-ha-nachash.md`, `digital-coliseum.md`, `ha-mashchit.md`, `heart-vs-brain.md`, `history-of-banks.md`, `history-of-economy.md`, `history-of-languages.md`, `history-of-medicine.md`, `history-of-politics.md`, `history-of-prison.md`, `history-of-religion.md`, `history-of-school.md`, `karaism.md`, `minecraft-tanakh.md`, `mitzraim-system.md`, `morashat-israel.md`, `purpose-of-tanakh.md`, `red-mitzraim.md`, `remnant-israel.md`, `russia-empire.md`, `slavic-substrate.md`, `state-as-symptom.md`, `talmud-judaism.md`, `vatican.md`, `yehoshua-research.md`
 
 ---
 
-## 📊 ТЕКУЩИЙ СТАТУС
+## 📁 davar/
 
-- `instructions/` — 12 файлов
-- `instructions/exposure/` — 4 файла
-- `instructions/tahor/` — 6 файлов
-- `instructions/templates/` — 1 файл
-- `checkers/` — 2 файла
-- `terminology/` — 30+ файлов
-- `researches/` — 19 файлов
-- `davar/` — 11 файлов
-- `drafts/` — 7 файлов
+- `README.md`, `manifest.md`, `structure.md`, `roadmap.md`
+- `spec/grammar.md`, `spec/types.md`, `spec/semantics.md`, `spec/limits.md`, `spec/shabbat.md`, `spec/growth.md`
+- `examples/01-social-network.md`
 
 ---
 
-> **עֵד (Эд) — Свидетель.**
-> Структура — это порядок. Порядок — это сила. Храни структуру. Истина победит.
+## 📁 drafts/
+
+- `ideas.md`, `questions.md`, `notes.md`, `technical-debt.md`, `tikun-fix.md`, `platform-idea.md`, `davar-language.md`, `retrospective.md`
+
+---
+
+## ⚖️ ПРАВИЛА
+
+- Именование: иврит латиницей через дефис
+- Формат: Markdown, без таблиц
+- Иврит + транслитерация + перевод для стихов
+- Без религионимов в авторской речи
+- Один md-блок на файл — монолит
