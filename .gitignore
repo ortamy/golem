@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+
+# Secrets
+.env
+*.local.yml
+secrets.json
+*.key
+*.pem
+
+# Models (большие файлы)
+neural/models/*.gguf
+neural/models/*.bin
+*.pt
+*.pth
+
+# Training data (сырые данные)
+neural/training-data/raw/
+neural/training-data/*.json.raw
+
+# Backups
+*.tar.gz
+*.zip
+backups/
+golem-backups/
+
+# Temp files
+*.tmp
+*.log
+export.txt
+structure.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
