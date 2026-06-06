@@ -1,15 +1,24 @@
 # 📜 ТЕХНИЧЕСКИЙ ДОЛГ
 
 **Метаданные файла**
+<<<<<<< HEAD
 - **Файл:** `drafts/technical-debt.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-05-28
 - **Последнее обновление:** 2026-06-02
 - **Причина обновления:** Актуализирован список задач. Добавлены новые из последней сессии.
+=======
+- **Файл:** `TECHNICAL-DEBT.md`
+- **Версия:** 1.2
+- **Дата создания:** 2026-05-28
+- **Последнее обновление:** 2026-06-06
+- **Причина обновления:** Возвращены активные задачи (убраны ошибочные отметки)
+>>>>>>> 27b9c25 (Инициализация репозитория Голем)
 - **Статус:** Активный
 
 ---
 
+<<<<<<< HEAD
 ## 📋 ТЕКУЩИЕ ЗАДАЧИ
 
 ### Обновить существующие файлы
@@ -18,6 +27,12 @@
 - [ ] `instructions/exposure/exposure-methods.md` — добавить «Метод пустыни», «Метод змея»
 - [ ] `structure.md` — добавить новые файлы: `researches/derech-ha-gever.md`, `researches/derech-ha-nachash.md`, `researches/minecraft-tanakh.md`, `researches/vatican.md`, `researches/yehoshua-research.md`, `researches/purpose-of-tanakh.md`, `researches/morashat-israel.md`, `researches/talmud-judaism.md`, `researches/karaism.md`, `researches/red-mitzraim.md`, `researches/ha-mashchit.md`
 - [ ] `README.md` — обновить количество файлов
+=======
+## 📋 АКТИВНЫЕ ЗАДАЧИ
+
+### Обновить существующие файлы
+
+>>>>>>> 27b9c25 (Инициализация репозитория Голем)
 - [ ] `chat-prompt.md` — обновить ссылки на новые файлы
 
 ### Создать новые файлы
@@ -26,12 +41,21 @@
 - [ ] `terminology/levad.md` — לְבַד (один). Способность быть одному как признак свободы.
 - [ ] `terminology/arum.md` — עָרוּם (хитрый, проницательный). Связь с эйром.
 - [ ] `terminology/nachash.md` — נָּחָשׁ (змей). Мудрость, которая действует тихо.
+<<<<<<< HEAD
 - [ ] `terminology/pachad.md` — создан? Требует проверки.
 - [ ] `terminology/erech-apayim.md` — создан? Требует проверки.
 - [ ] `terminology/yetzer-lev.md` — создан? Требует проверки.
 - [ ] `terminology/gibor.md` — создан? Требует проверки.
 - [ ] `terminology/shabbat.md` — создан? Требует проверки.
 - [ ] `terminology/tohu-va-vohu.md` — создан? Требует проверки.
+=======
+- [ ] `terminology/pachad.md` — פַּחַד (страх). Создать файл.
+- [ ] `terminology/erech-apayim.md` — אֶרֶךְ אַפַּיִם (долгое дыхание). Создать файл.
+- [ ] `terminology/yetzer-lev.md` — יֵצֶר לֵב (помышление сердца). Создать файл.
+- [ ] `terminology/gibor.md` — גִּבּוֹר (сильный). Создать файл.
+- [ ] `terminology/shabbat.md` — שַׁבָּת (Шаббат). Создать файл.
+- [ ] `terminology/tohu-va-vohu.md` — תֹּהוּ וָבֹהוּ (пустота и безвидность). Создать файл.
+>>>>>>> 27b9c25 (Инициализация репозитория Голем)
 - [ ] `researches/galatim-two-systems.md` — Галатим: война двух систем
 - [ ] `researches/substitution-of-the-name.md` — кража Имени
 
@@ -42,6 +66,15 @@
 
 ---
 
+<<<<<<< HEAD
+=======
+### Заполнить пустые файлы
+- [ ] Заполнить researches/galatim-two-systems.md (убрать TODO)
+- [ ] Заполнить terminology/yetzer-lev.md (убрать TODO)
+
+- [ ] Заполнить terminology/erech-apayim.md (убрать TODO)
+
+>>>>>>> 27b9c25 (Инициализация репозитория Голем)
 ## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ
 
 ### 2026-05-28
@@ -88,3 +121,15 @@
 - [x] Создать `researches/derech-ha-gever.md` — путь мужчины
 - [x] Создать `researches/derech-ha-nachash.md` — путь змея
 - [x] Обновить `terminology/cherut.md` до v2.0 — свобода для верности
+<<<<<<< HEAD
+=======
+
+### 2026-06-06 — Автоматические исправления
+
+- [x] Исправить метаданные во всех файлах
+- [x] Исправить имена файлов (строчные буквы, дефисы)
+- [x] Исправить транслитерацию (Яхве, эмет, хесед, руах, нэфеш)
+- [x] Исправить битые ссылки
+- [x] Создать `COMPLETED-TASKS.md`
+- [x] Обновить `CHANGELOG.md`
+>>>>>>> 27b9c25 (Инициализация репозитория Голем)

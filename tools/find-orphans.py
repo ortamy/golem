@@ -1,103 +1,72 @@
-#!/usr/bin/env python3
-# find-orphans.py — поиск файлов, на которые никто не ссылается
-
+# tools/find-orphans.py
+import sys
 import re
 from pathlib import Path
-from collections import defaultdict
+from progress import show_progress, finish_progress
 
 REPO_ROOT = Path(__file__).parent.parent
-TARGET_DIRS = ['terminology', 'researches', 'instructions', 'checkers', 'davar']
-IGNORE_FILES = {'README.md', 'structure.md', 'GLOSSARY.md', 'STATS.md'}
+IGNORE_DIRS = {'.git', 'tools', 'drafts', 'ideas', '__pycache__', 'reports', 'neural'}
 
 
-def find_all_md_files() -> dict:
-    """Находит все md-файлы в репозитории"""
+def find_all_md_files():
     files = {}
     for md_file in REPO_ROOT.rglob('*.md'):
         if '.git' in str(md_file):
             continue
         rel_path = str(md_file.relative_to(REPO_ROOT))
+        parts = Path(rel_path).parts
+        if parts[0] in IGNORE_DIRS:
+            continue
         files[rel_path] = md_file
     return files
 
 
-def extract_all_links() -> set:
-    """Извлекает все ссылки из всех файлов"""
+def extract_links(content: str) -> set:
     links = set()
-    
-    link_pattern = re.compile(r'\]\(([^\)]+\.md)\)')
-    
-    for md_file in REPO_ROOT.rglob('*.md'):
-        if '.git' in str(md_file):
-            continue
-        
-        with open(md_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-        
-        matches = link_pattern.findall(content)
-        for match in matches:
-            if match.startswith('http'):
-                continue
-            if match.startswith('/'):
-                match = match[1:]
+    pattern = re.compile(r'\]\(([^\)]+\.md)\)')
+    matches = pattern.findall(content)
+    for match in matches:
+        if not match.startswith("http"):
             links.add(match)
-    
     return links
 
 
-def normalize_path(link: str, source_file: str = "") -> str:
-    """Нормализует путь ссылки"""
-    if link.startswith('./'):
-        link = link[2:]
-    if link.startswith('../'):
-        parts = link.split('/')
-        link = '/'.join(parts[1:])
-    return link
-
-
-def is_ignored(file_path: str) -> bool:
-    """Проверяет, нужно ли игнорировать файл"""
-    if file_path in IGNORE_FILES:
-        return True
-    for ignore in IGNORE_FILES:
-        if file_path.endswith(ignore):
-            return True
-    return False
-
-
 def main():
-    print("🔍 ПОИСК ФАЙЛОВ-СИРОТ")
-    print("=====================")
-    print("")
+    print("\n👻 ПОИСК ФАЙЛОВ-СИРОТ")
+    print("=" * 50)
     
-    all_files = find_all_md_files()
-    all_links = extract_all_links()
+    files = find_all_md_files()
+    total = len(files)
     
-    referenced = set()
-    for link in all_links:
-        normalized = normalize_path(link)
-        referenced.add(normalized)
+    print(f"Найдено файлов: {total}")
+    print("Анализ ссылок...\n")
     
-    orphans = []
-    for file_path in all_files:
-        if is_ignored(file_path):
-            continue
-        if file_path not in referenced:
-            orphans.append(file_path)
+    linked_files = set()
+    for i, (rel_path, full_path) in enumerate(files.items(), 1):
+        with open(full_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        links = extract_links(content)
+        for link in links:
+            linked_files.add(link)
+        show_progress(i, total, "анализ", len(linked_files))
+    
+    finish_progress()
+    
+    orphans = [rel_path for rel_path in files if rel_path not in linked_files]
+    
+    print("\n\n" + "=" * 50)
     
     if orphans:
-        print("❌ ФАЙЛЫ-СИРОТЫ (на них нет ссылок):")
-        print("")
-        for orphan in sorted(orphans):
-            print(f"  • {orphan}")
-        print("")
-        print(f"📊 ИТОГО: {len(orphans)} файлов-сирот из {len(all_files)}")
-        print("")
-        print("💡 Совет: добавьте ссылки на эти файлы или удалите их")
+        print(f"\n⚠️ ФАЙЛОВ-СИРОТ: {len(orphans)}")
+        for orphan in orphans[:15]:
+            print(f"   • {orphan}")
+        if len(orphans) > 15:
+            print(f"   ... и ещё {len(orphans) - 15}")
     else:
-        print("✅ Все файлы имеют хотя бы одну ссылку")
-        print(f"📊 Всего файлов: {len(all_files)}")
+        print(f"\n✅ Файлов-сирот не найдено")
+    
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

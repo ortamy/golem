@@ -1,7 +1,11 @@
 # 📜 אַרְכֵאוֹלוֹגְיָה שֶׁל מַשְׁמָעֻיּוֹת — АРХЕОЛОГИЯ СМЫСЛОВ
 
 **Метаданные файла**
+<<<<<<< HEAD
 - **Файл:** `instructions/archeology-methodology.md`
+=======
+- **Файл:** `instructions\methodology\archeology-methodology.md`
+>>>>>>> 27b9c25 (Инициализация репозитория Голем)
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-28
 - **Источник:** адаптировано из «Archeology of Meanings» (English original)

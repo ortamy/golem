@@ -1,32 +1,21 @@
-# 🛠️ ИНСТРУМЕНТЫ АВТОМАТИЗАЦИИ
+# 🛠️ ИНСТРУКЦИЯ ПО ИСПОЛЬЗОВАНИЮ ИНСТРУМЕНТОВ
 
 **Метаданные файла**
 - **Файл:** `tools/README.md`
-- **Версия:** 1.1
+- **Версия:** 2.0
 - **Дата создания:** 2026-06-05
-- **Последнее обновление:** 2026-06-05
-- **Причина обновления:** Замена таблиц на списки
+- **Последнее обновление:** 2026-06-06
+- **Причина обновления:** Полное обновление документации после закрытия технического долга
 - **Статус:** Активный
-- **Тема:** Полная инструкция по использованию инструментов автоматизации проекта
+- **Тема:** Полная инструкция по использованию инструментов автоматизации проекта «Голем»
 
 ---
 
-## 📋 СПИСОК ИНСТРУМЕНТОВ
+## 🔥 ЧТО ЭТО
 
-- `check-naming.py` — проверка именования файлов
-- `add-metadata.py` — массовое добавление метаданных
-- `validate-metadata.py` — проверка корректности метаданных
-- `update-versions.py` — обновление версий и дат
-- `sync-structure.py` — синхронизация structure.md
-- `find-duplicates.py` — поиск дубликатов
-- `find-orphans.py` — поиск файлов-сирот
-- `check-links.py` — проверка битых ссылок
-- `generate-glossary.py` — генерация глоссария
-- `generate-nav.py` — генерация навигации для README
-- `stats-report.py` — статистика по репозиторию
-- `export-repo.sh` — выгрузка всех md в один файл
-- `backup.sh` — бэкап репозитория
-- `create-backup-scheduled.sh` — автоматический бэкап (cron)
+Папка `tools/` содержит все скрипты для автоматизации проверок, исправлений, генерации отчётов и управления проектом.
+
+**Главный инструмент — `golem.py`**. Он объединяет все остальные скрипты в единое меню.
 
 ---
 
@@ -34,239 +23,154 @@
 
 ```bash
 cd tools
-
-chmod +x *.sh
-
-python3 check-naming.py
-python3 validate-metadata.py
-python3 check-links.py
-python3 generate-glossary.py
-python3 sync-structure.py
-./backup.sh
+python golem.py
 ```
+
+После запуска откроется меню со всеми доступными действиями.
 
 ---
 
-## 🔧 ИНСТРУКЦИИ
+## 📋 ОПИСАНИЕ СКРИПТОВ
 
-### 1. CHECK-NAMING.PY
+**ГЛАВНЫЕ**
 
-Проверяет имена всех md-файлов по правилам.
+- `golem.py` — центральное меню, объединяет все инструменты
+- `auto-fix.py` — автоматическое выполнение задач из TECHNICAL-DEBT.md
+- `task-manager.py` — управление задачами (отметка выполненных)
+
+**ПРОВЕРКИ**
+
+- `check-naming.py` — проверка имён файлов (только латиница, дефис, нижний регистр)
+- `validate-metadata.py` — проверка и исправление метаданных
+- `check-links.py` — проверка и исправление битых ссылок
+- `find-duplicates.py` — поиск дубликатов и похожих файлов
+- `find-orphans.py` — поиск файлов, на которые нет ссылок
+- `consistency-checker.py` — полная проверка согласованности проекта
+
+**ГЕНЕРАЦИЯ**
+
+- `generate-glossary.py` — генерация GLOSSARY.md из терминов
+- `generate-nav.py` — генерация навигации для README.md
+- `stats-report.py` — генерация статистики (STATS.md)
+- `sync-structure.py` — синхронизация STRUCTURE.md с файловой системой
+
+**ОБНОВЛЕНИЕ**
+
+- `update-versions.py` — обновление версий в метаданных
+- `add-metadata.py` — массовое добавление метаданных
+
+**СЕРВИСНЫЕ**
+
+- `export-repo.sh` — экспорт всех md-файлов в один файл (export.txt)
+- `backup.sh` — создание бэкапа репозитория
+- `create-backup-scheduled.sh` — автоматический бэкап через cron
+
+---
+
+## 🔧 ЧАСТЫЕ СЦЕНАРИИ ИСПОЛЬЗОВАНИЯ
+
+**ПЕРЕД КОММИТОМ (быстрая проверка)**
 
 ```bash
-python3 check-naming.py
+cd tools
+python golem.py
+# Выбрать 1
 ```
 
-**Правила:**
-- только латиница (a-z)
-- дефис между словами
-- расширение .md
-- нижний регистр
-- без русских букв
-
-### 2. ADD-METADATA.PY
-
-Добавляет блоки метаданных в файлы.
+**ПОЛНЫЙ АУДИТ ПРОЕКТА**
 
 ```bash
-python3 add-metadata.py --dry-run
-python3 add-metadata.py
+cd tools
+python golem.py
+# Выбрать 6
 ```
 
-### 3. VALIDATE-METADATA.PY
-
-Проверяет корректность метаданных.
+**ИСПРАВЛЕНИЕ ОШИБОК**
 
 ```bash
-python3 validate-metadata.py
+cd tools
+python golem.py
+# Выбрать 2
 ```
 
-**Проверяет:**
-- наличие всех обязательных полей
-- формат версии (X.Y)
-- формат даты (ГГГГ-ММ-ДД)
-- корректность статуса
-- соответствие пути файла
-
-### 4. UPDATE-VERSIONS.PY
-
-Обновляет версии и даты.
+**ОБНОВЛЕНИЕ СТРУКТУРЫ ПОСЛЕ ДОБАВЛЕНИЯ ФАЙЛОВ**
 
 ```bash
-python3 update-versions.py --dry-run
-python3 update-versions.py --type minor
-python3 update-versions.py --type major
-python3 update-versions.py --all
+cd tools
+python golem.py
+# Выбрать j
 ```
 
-### 5. SYNC-STRUCTURE.PY
-
-Синхронизирует structure.md с файловой системой.
+**СОЗДАНИЕ НЕДОСТАЮЩИХ ТЕРМИНОВ**
 
 ```bash
-python3 sync-structure.py
+cd tools
+python auto-fix.py
 ```
 
-### 6. FIND-DUPLICATES.PY
-
-Ищет дублирующиеся файлы.
+**ПРОСМОТР СТАТИСТИКИ**
 
 ```bash
-python3 find-duplicates.py
-```
-
-**Находит:**
-- точные дубликаты
-- похожие имена
-- потенциальные дубликаты по ключевым словам
-
-### 7. FIND-ORPHANS.PY
-
-Ищет файлы, на которые никто не ссылается.
-
-```bash
-python3 find-orphans.py
-```
-
-### 8. CHECK-LINKS.PY
-
-Проверяет битые ссылки между файлами.
-
-```bash
-python3 check-links.py
-```
-
-### 9. GENERATE-GLOSSARY.PY
-
-Генерирует GLOSSARY.md из терминов.
-
-```bash
-python3 generate-glossary.py
-```
-
-### 10. GENERATE-NAV.PY
-
-Генерирует навигацию и вставляет в README.md.
-
-```bash
-python3 generate-nav.py
-```
-
-### 11. STATS-REPORT.PY
-
-Генерирует статистику по репозиторию в STATS.md.
-
-```bash
-python3 stats-report.py
-```
-
-### 12. EXPORT-REPO.SH
-
-Выгружает все md-файлы в один файл export.txt.
-
-```bash
-./export-repo.sh
-```
-
-### 13. BACKUP.SH
-
-Создаёт бэкап репозитория.
-
-```bash
-./backup.sh
-```
-
-### 14. CREATE-BACKUP-SCHEDULED.SH
-
-Для настройки автоматического бэкапа через cron.
-
-```bash
-chmod +x create-backup-scheduled.sh
-crontab -e
-# добавить: 0 2 * * * /путь/к/golem/tools/create-backup-scheduled.sh
+cd tools
+python golem.py
+# Выбрать 5 или g
 ```
 
 ---
 
 ## ⚠️ ВАЖНЫЕ ЗАМЕЧАНИЯ
 
-**ПЕРЕД ЗАПУСКОМ ADD-METADATA.PY**
+**ПЕРЕД ЗАПУСКОМ auto-fix.py**
 - сделайте бэкап: `./backup.sh`
-- запустите `--dry-run` сначала
-- проверьте результат на нескольких файлах
-
-**ПЕРЕД ЗАПУСКОМ UPDATE-VERSIONS.PY**
-- всегда используйте `--dry-run` первым
-- убедитесь, что изменения нужны
-- делайте коммит после обновления
+- запустите сначала проверки: `python golem.py` → `1`
 
 **ПРИ ОБНАРУЖЕНИИ ОШИБОК**
-- `check-naming.py` — переименуйте файлы вручную
-- `validate-metadata.py` — исправьте метаданные
-- `check-links.py` — обновите битые ссылки
-- `find-duplicates.py` — удалите или объедините дубликаты
+- сначала `consistency-checker.py --fix`
+- затем `validate-metadata.py --fix`
+- затем `check-links.py --fix`
 
----
+**ДЛЯ ПЕРВОГО ЗАПУСКА НА НОВОМ КОМПЬЮТЕРЕ**
 
-## 🔄 РЕКОМЕНДУЕМЫЙ ПОРЯДОК РАБОТЫ
-
-**ПЕРЕД КОММИТОМ**
-- `python3 check-naming.py`
-- `python3 validate-metadata.py`
-- `python3 check-links.py`
-
-**ПЕРИОДИЧЕСКИ (РАЗ В НЕДЕЛЮ)**
-- `python3 find-duplicates.py`
-- `python3 find-orphans.py`
-- `python3 stats-report.py`
-
-**ПОСЛЕ ДОБАВЛЕНИЯ НОВЫХ ФАЙЛОВ**
-- `python3 sync-structure.py`
-- `python3 generate-glossary.py`
-- `python3 generate-nav.py`
-
-**ПЕРЕД РЕЛИЗОМ**
-- `python3 update-versions.py --type minor`
-- `python3 stats-report.py`
-- `./backup.sh`
-
----
-
-## 📊 ПРИМЕРЫ ВЫВОДА
-
-**CHECK-NAMING.PY**
-```
-✅ Все 150 файлов названы корректно
-```
-
-**VALIDATE-METADATA.PY**
-```
-❌ ОШИБКИ:
-  📄 terminology/emet.md
-     • отсутствует поле: Статус:
-     • поле 'Версия': неверный формат: 1
-```
-
-**CHECK-LINKS.PY**
-```
-❌ БИТЫЕ ССЫЛКИ:
-  📄 README.md
-     • строка 42: structure.md → файл не существует
-```
-
-**FIND-DUPLICATES.PY**
-```
-⚠️ ПОТЕНЦИАЛЬНЫЕ ДУБЛИКАТЫ:
-  • terminology/emet.md
-    ↔ terminology/truth.md
-    схожесть: 85%
+```bash
+cd tools
+python golem.py
+# Выбрать 6 (полный аудит)
 ```
 
 ---
 
-## 🛠️ УСТРАНЕНИЕ ПРОБЛЕМ
+## 📁 ФАЙЛЫ, КОТОРЫЕ СОЗДАЮТСЯ СКРИПТАМИ
 
-- `permission denied` → `chmod +x *.sh`
-- `python3: command not found` → установите Python 3
-- `SyntaxError` → проверьте версию Python (нужен 3.6+)
-- файл не найден → убедитесь, что вы в папке `tools/`
+- `STATS.md` — статистика репозитория (stats-report.py)
+- `GLOSSARY.md` — глоссарий терминов (generate-glossary.py)
+- `export.txt` — экспорт всех md-файлов (export-repo.sh)
+- `COMPLETED-TASKS.md` — архив выполненных задач (task-manager.py)
+- `reports/` — архивные отчёты (stats-report.py)
+
+---
+
+## 🔄 ОБНОВЛЕНИЕ ИНСТРУМЕНТОВ
+
+Инструменты находятся в `tools/` и обновляются вместе с репозиторием.
+
+После `git pull` всегда запускайте:
+
+```bash
+cd tools
+python golem.py
+# Выбрать 6 (полный аудит)
+```
+
+---
+
+## 🛡️ ВОЗВРАЩЕНИЕ
+
+Эти инструменты — результат многих часов работы. Они проверяют, исправляют, генерируют и поддерживают проект в порядке.
+
+Используй `golem.py` как главную точку входа. Не нужно помнить имена всех скриптов.
+
+Путь Яхве — порядок. Инструменты помогают его поддерживать.
+
+---
+
+הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Путь Яхве

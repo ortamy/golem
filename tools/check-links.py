@@ -1,113 +1,72 @@
-#!/usr/bin/env python3
-# check-links.py — проверка битых ссылок в md-файлах
-
+# tools/check-links.py
+import sys
 import re
 from pathlib import Path
-from typing import Dict, List, Tuple, Set
+from progress import show_progress, finish_progress
 
 REPO_ROOT = Path(__file__).parent.parent
-IGNORE_DIRS = {'.git', 'tools', 'drafts', 'ideas', '__pycache__'}
-IGNORE_FILES = {'export.txt', 'structure.txt'}
+IGNORE_DIRS = {'.git', 'tools', 'drafts', 'ideas', '__pycache__', 'reports', 'neural'}
 
 
-def find_all_md_files() -> Dict[str, Path]:
-    """Находит все md-файлы в репозитории"""
+def find_all_md_files():
     files = {}
     for md_file in REPO_ROOT.rglob('*.md'):
-        rel_path = md_file.relative_to(REPO_ROOT)
-        parts = rel_path.parts
-        
+        if '.git' in str(md_file):
+            continue
+        rel_path = str(md_file.relative_to(REPO_ROOT))
+        parts = Path(rel_path).parts
         if parts[0] in IGNORE_DIRS:
             continue
-        if md_file.name in IGNORE_FILES:
-            continue
-        
-        files[str(rel_path)] = md_file
+        files[rel_path] = md_file
     return files
 
 
-def extract_links(content: str, source_file: str) -> List[Tuple[str, int]]:
-    """Извлекает все внутренние ссылки из файла"""
+def extract_links(content: str) -> list:
     links = []
-    
-    patterns = [
-        r'\[[^\]]+\]\(([^\)]+\.md)\)',
-        r'→\s+\[[^\]]+\]\(([^\)]+\.md)\)',
-        r'подробнее\]\(([^\)]+\.md)\)',
-    ]
-    
-    for line_num, line in enumerate(content.split('\n'), 1):
-        for pattern in patterns:
-            matches = re.findall(pattern, line)
-            for match in matches:
-                if not match.startswith('http'):
-                    links.append((match, line_num))
-    
+    pattern = re.compile(r'\]\(([^\)]+\.md)\)')
+    matches = pattern.findall(content)
+    for match in matches:
+        if not match.startswith("http"):
+            links.append(match)
     return links
 
 
-def resolve_link(link: str, source_file: str) -> bool:
-    """Проверяет, существует ли целевой файл"""
-    if link.startswith('/'):
-        target = REPO_ROOT / link.lstrip('/')
-    else:
-        source_dir = Path(source_file).parent
-        if source_dir == Path('.'):
-            source_dir = Path('')
-        target = REPO_ROOT / source_dir / link
-    
-    target = target.resolve()
-    return target.exists() and target.is_file()
-
-
-def check_links(files: Dict[str, Path]) -> Dict[str, List[Tuple[str, int]]]:
-    """Проверяет все ссылки во всех файлах"""
-    broken = {}
-    
-    for rel_path, full_path in files.items():
-        with open(full_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-        
-        links = extract_links(content, rel_path)
-        
-        for link, line_num in links:
-            if not resolve_link(link, rel_path):
-                if rel_path not in broken:
-                    broken[rel_path] = []
-                broken[rel_path].append((link, line_num))
-    
-    return broken
-
-
 def main():
-    print("🔗 ПРОВЕРКА ССЫЛОК")
-    print("==================")
-    print("")
+    print("\n🔗 ПРОВЕРКА ССЫЛОК")
+    print("=" * 50)
     
     files = find_all_md_files()
-    print(f"📊 Найдено файлов: {len(files)}")
-    print("")
+    total = len(files)
     
-    broken = check_links(files)
+    print(f"Найдено файлов: {total}")
+    print("Проверка ссылок...\n")
+    
+    broken = []
+    
+    for i, (rel_path, full_path) in enumerate(files.items(), 1):
+        with open(full_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        links = extract_links(content)
+        for link in links:
+            target = REPO_ROOT / link
+            if not target.exists():
+                broken.append((rel_path, link))
+        show_progress(i, total, "ссылки", len(broken))
+    
+    finish_progress()
+    print("\n\n" + "=" * 50)
     
     if broken:
-        print("❌ БИТЫЕ ССЫЛКИ:")
-        print("")
-        
-        total = 0
-        for source, links in broken.items():
-            print(f"  📄 {source}")
-            for link, line_num in links:
-                print(f"     • строка {line_num}: {link}")
-                total += 1
-            print("")
-        
-        print(f"📊 ИТОГО: {total} битых ссылок в {len(broken)} файлах")
+        print(f"\n❌ БИТЫХ ССЫЛОК: {len(broken)}")
+        for file_path, link in broken[:15]:
+            print(f"   • {file_path} → {link}")
+        if len(broken) > 15:
+            print(f"   ... и ещё {len(broken) - 15}")
+        return 1
     else:
-        print("✅ Все ссылки корректны")
-    
-    print("")
+        print(f"\n✅ Все ссылки корректны")
+        return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

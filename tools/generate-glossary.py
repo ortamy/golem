@@ -1,18 +1,16 @@
-#!/usr/bin/env python3
-# generate-glossary.py — создаёт GLOSSARY.md из файлов terminology/
-
-import os
+# tools/generate-glossary.py
+import sys
 import re
 from pathlib import Path
-from typing import Dict, List, Tuple
+from datetime import datetime
+from progress import show_progress, finish_progress
 
 REPO_ROOT = Path(__file__).parent.parent
 TERMINOLOGY_DIR = REPO_ROOT / "terminology"
 GLOSSARY_FILE = REPO_ROOT / "GLOSSARY.md"
 
 
-def extract_emoji_and_title(content: str) -> Tuple[str, str]:
-    """Извлекает эмоджи и заголовок из первого заголовка"""
+def extract_emoji_and_title(content: str):
     lines = content.split('\n')
     for line in lines:
         if line.startswith('# '):
@@ -25,7 +23,6 @@ def extract_emoji_and_title(content: str) -> Tuple[str, str]:
 
 
 def extract_topic(content: str) -> str:
-    """Извлекает тему из метаданных"""
     match = re.search(r'- \*\*Тема:\*\* (.+?)(?:\n|$)', content)
     if match:
         return match.group(1).strip()
@@ -33,11 +30,8 @@ def extract_topic(content: str) -> str:
 
 
 def extract_definition(content: str) -> str:
-    """Извлекает краткое определение (первый абзац после метаданных)"""
     lines = content.split('\n')
-    
     in_metadata = True
-    definition_lines = []
     
     for line in lines:
         if in_metadata:
@@ -54,15 +48,21 @@ def extract_definition(content: str) -> str:
     return ""
 
 
-def scan_terminology() -> List[Dict]:
-    """Сканирует папку terminology и собирает данные"""
-    terms = []
+def main():
+    print("\n📚 ГЕНЕРАЦИЯ ГЛОССАРИЯ")
+    print("=" * 50)
     
     if not TERMINOLOGY_DIR.exists():
         print(f"❌ Папка не найдена: {TERMINOLOGY_DIR}")
-        return terms
+        return 1
     
-    for md_file in sorted(TERMINOLOGY_DIR.glob("*.md")):
+    term_files = list(TERMINOLOGY_DIR.glob("*.md"))
+    total = len(term_files)
+    print(f"Найдено терминов: {total}")
+    print("Обработка...\n")
+    
+    terms = []
+    for i, md_file in enumerate(term_files, 1):
         with open(md_file, 'r', encoding='utf-8') as f:
             content = f.read()
         
@@ -80,30 +80,29 @@ def scan_terminology() -> List[Dict]:
             'path': str(rel_path),
             'file': md_file.name
         })
+        
+        show_progress(i, total, "термины", len(terms))
     
-    return terms
-
-
-def generate_glossary(terms: List[Dict]) -> str:
-    """Генерирует содержимое GLOSSARY.md"""
+    finish_progress()
+    
     lines = [
-        "# 📚 ГЛОССАРИЙ",
+        "# ГЛОССАРИЙ",
         "",
         "**Метаданные файла**",
         f"- **Файл:** `GLOSSARY.md`",
         f"- **Версия:** 1.0",
-        f"- **Дата создания:** {__import__('datetime').datetime.now().strftime('%Y-%m-%d')}",
+        f"- **Дата создания:** {datetime.now().strftime('%Y-%m-%d')}",
         f"- **Статус:** Активный",
-        f"- **Тема:** Краткий справочник всех терминов проекта",
+        f"- **Тема:** Краткий справочник всех терминов",
         "",
         "---",
         "",
-        "## 📖 АЛФАВИТНЫЙ УКАЗАТЕЛЬ",
+        "## АЛФАВИТНЫЙ УКАЗАТЕЛЬ",
         "",
     ]
     
     prev_letter = ""
-    for term in terms:
+    for term in sorted(terms, key=lambda x: x['name']):
         name = term['name'].upper()
         first_letter = name[0] if name else "#"
         
@@ -121,34 +120,18 @@ def generate_glossary(terms: List[Dict]) -> str:
         "",
         "---",
         "",
-        f"**📊 ИТОГО:** {len(terms)} терминов",
+        f"**Всего терминов:** {len(terms)}",
         "",
-        "🔄 Глоссарий обновляется автоматически командой: `python3 tools/generate-glossary.py`"
+        "Глоссарий обновляется автоматически: `python tools/generate-glossary.py`"
     ])
     
-    return '\n'.join(lines)
-
-
-def main():
-    print("📚 ГЕНЕРАЦИЯ ГЛОССАРИЯ")
-    print("======================")
-    print("")
-    
-    terms = scan_terminology()
-    print(f"📊 Найдено терминов: {len(terms)}")
-    
-    if not terms:
-        print("❌ Нет терминов для генерации")
-        return
-    
-    glossary_content = generate_glossary(terms)
-    
     with open(GLOSSARY_FILE, 'w', encoding='utf-8') as f:
-        f.write(glossary_content)
+        f.write('\n'.join(lines))
     
-    print(f"✅ Создан: {GLOSSARY_FILE}")
-    print(f"📝 Проверьте результат и сделайте git commit")
+    print(f"\n✅ Глоссарий сохранён: {GLOSSARY_FILE}")
+    print(f"✅ Всего терминов: {len(terms)}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

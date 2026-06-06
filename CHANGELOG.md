@@ -136,4 +136,55 @@
 
 ---
 
+<<<<<<< HEAD
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Путь Яхве
+=======
+הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Путь Яхве
+### Исправлено
+
+- Проверены метаданные в terminology/
+
+- Создано исследование: galatim-two-systems
+
+- Создан термин: yetzer-lev
+
+- Создан термин: erech-apayim
+
+- Проверить все файлы `terminology/` — везде ли в метаданных указана правильная папка
+
+- `immanu-el.md` — в метаданных указано `researches/`, а файл лежит в `terminology/`. Исправить.
+
+- `researches/substitution-of-the-name.md` — кража Имени
+
+- `researches/galatim-two-systems.md` — Галатим: война двух систем
+
+- `terminology/tohu-va-vohu.md` — создан? Требует проверки.
+
+- `terminology/shabbat.md` — создан? Требует проверки.
+
+- `terminology/gibor.md` — создан? Требует проверки.
+
+- `terminology/yetzer-lev.md` — создан? Требует проверки.
+
+- `terminology/erech-apayim.md` — создан? Требует проверки.
+
+- `terminology/pachad.md` — создан? Требует проверки.
+
+- `terminology/nachash.md` — נָּחָשׁ (змей). Мудрость, которая действует тихо.
+
+- `terminology/arum.md` — עָרוּם (хитрый, проницательный). Связь с эйром.
+
+- `terminology/levad.md` — לְבַד (один). Способность быть одному как признак свободы.
+
+- `terminology/midbar.md` — מִדְבָּר (пустыня). Пустыня как экзамен, а не наказание.
+
+- `chat-prompt.md` — обновить ссылки на новые файлы
+
+- `README.md` — обновить количество файлов
+
+- `structure.md` — добавить новые файлы: `researches/derech-ha-gever.md`, `researches/derech-ha-nachash.md`, `researches/minecraft-tanakh.md`, `researches/vatican.md`, `researches/yehoshua-research.md`, `researches/purpose-of-tanakh.md`, `researches/morashat-israel.md`, `researches/talmud-judaism.md`, `researches/karaism.md`, `researches/red-mitzraim.md`, `researches/ha-mashchit.md`
+
+- `instructions/exposure/exposure-methods.md` — добавить «Метод пустыни», «Метод змея» (📋 ТЕКУЩИЕ ЗАДАЧИ)
+
+- `researches/derech-ha-gever.md` — заменить «Бог» → «Яхве», «вера» → «эмуна», «благословение» → «браха», «Бытие» → «Берешит» (📋 ТЕКУЩИЕ ЗАДАЧИ)
+>>>>>>> 27b9c25 (Инициализация репозитория Голем)
