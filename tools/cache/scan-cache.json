@@ -24,11 +24,11 @@
     "clean": false
   },
   "terminology\\avon.md": {
-    "mtime": 1780955513.8232708,
+    "mtime": 1780955725.9430146,
     "clean": false
   },
   "terminology\\barach.md": {
-    "mtime": 1780955513.9081004,
+    "mtime": 1780955725.9457228,
     "clean": false
   },
   "terminology\\bavel.md": {
@@ -36,7 +36,7 @@
     "clean": false
   },
   "terminology\\bayit.md": {
-    "mtime": 1780955514.1077127,
+    "mtime": 1780955725.9502351,
     "clean": false
   },
   "terminology\\beit-ha-mikdash.md": {
@@ -44,35 +44,35 @@
     "clean": true
   },
   "terminology\\brit.md": {
-    "mtime": 1780955514.2973485,
+    "mtime": 1780955725.9577541,
     "clean": false
   },
   "terminology\\chamas.md": {
-    "mtime": 1780955111.1625862,
+    "mtime": 1780955725.9604137,
     "clean": true
   },
   "terminology\\cherut.md": {
-    "mtime": 1780955514.454487,
+    "mtime": 1780955725.9635952,
     "clean": false
   },
   "terminology\\chesed.md": {
-    "mtime": 1780955514.5412807,
+    "mtime": 1780955725.9668365,
     "clean": false
   },
   "terminology\\derech-apayim.md": {
-    "mtime": 1780955514.635133,
+    "mtime": 1780955725.9700263,
     "clean": false
   },
   "terminology\\derech.md": {
-    "mtime": 1780955514.7326813,
+    "mtime": 1780955725.9732099,
     "clean": false
   },
   "terminology\\el.md": {
-    "mtime": 1780955514.845093,
+    "mtime": 1780955725.9763808,
     "clean": false
   },
   "terminology\\elil.md": {
-    "mtime": 1780955514.9198701,
+    "mtime": 1780955725.9803736,
     "clean": false
   },
   "terminology\\elilim.md": {
@@ -80,11 +80,11 @@
     "clean": false
   },
   "terminology\\emet.md": {
-    "mtime": 1780955515.092034,
+    "mtime": 1780955725.9829106,
     "clean": false
   },
   "terminology\\emuna.md": {
-    "mtime": 1780955515.2123551,
+    "mtime": 1780955725.9871852,
     "clean": false
   },
   "terminology\\erech-apayim.md": {
@@ -96,11 +96,11 @@
     "clean": false
   },
   "terminology\\eved.md": {
-    "mtime": 1780955111.2558892,
+    "mtime": 1780955725.9933648,
     "clean": true
   },
   "terminology\\gerim.md": {
-    "mtime": 1780955515.4563856,
+    "mtime": 1780955725.9974825,
     "clean": false
   },
   "terminology\\gibor.md": {
@@ -108,11 +108,11 @@
     "clean": false
   },
   "terminology\\golem.md": {
-    "mtime": 1780955111.2763464,
+    "mtime": 1780955726.0018222,
     "clean": true
   },
   "terminology\\goyim.md": {
-    "mtime": 1780955111.281888,
+    "mtime": 1780955726.0048282,
     "clean": true
   },
   "terminology\\hacker.md": {
@@ -120,11 +120,11 @@
     "clean": false
   },
   "terminology\\heichal.md": {
-    "mtime": 1780955515.6729357,
+    "mtime": 1780955726.010217,
     "clean": false
   },
   "terminology\\het.md": {
-    "mtime": 1780955515.7392652,
+    "mtime": 1780955726.0132937,
     "clean": false
   },
   "terminology\\ivri.md": {
@@ -140,23 +140,23 @@
     "clean": false
   },
   "terminology\\kavod.md": {
-    "mtime": 1780955111.3288374,
+    "mtime": 1780955726.021446,
     "clean": true
   },
   "terminology\\kehillah.md": {
-    "mtime": 1780955516.0479822,
+    "mtime": 1780955726.0258756,
     "clean": false
   },
   "terminology\\koach.md": {
-    "mtime": 1780955516.1092904,
+    "mtime": 1780955726.0293026,
     "clean": false
   },
   "terminology\\kodesh.md": {
-    "mtime": 1780955516.1819756,
+    "mtime": 1780955726.0327344,
     "clean": false
   },
   "terminology\\kohen-hagadol.md": {
-    "mtime": 1780955516.249315,
+    "mtime": 1780955726.0367353,
     "clean": false
   },
   "terminology\\kohen.md": {
@@ -164,7 +164,7 @@
     "clean": false
   },
   "terminology\\korban.md": {
-    "mtime": 1780955516.3520145,
+    "mtime": 1780955726.0418239,
     "clean": false
   },
   "terminology\\ktav-ivri.md": {
@@ -184,11 +184,11 @@
     "clean": false
   },
   "terminology\\levav.md": {
-    "mtime": 1780955111.4258802,
+    "mtime": 1780955917.5972338,
     "clean": true
   },
   "terminology\\malach.md": {
-    "mtime": 1780955111.4351113,
+    "mtime": 1780955726.052989,
     "clean": true
   },
   "terminology\\malchut.md": {
@@ -212,19 +212,19 @@
     "clean": false
   },
   "terminology\\mikveh.md": {
-    "mtime": 1780955516.9153037,
+    "mtime": 1780955726.0621276,
     "clean": false
   },
   "terminology\\mishchah.md": {
-    "mtime": 1780955516.95632,
+    "mtime": 1780955726.065115,
     "clean": false
   },
   "terminology\\mishkan.md": {
-    "mtime": 1780955111.647561,
+    "mtime": 1780955726.0701804,
     "clean": true
   },
   "terminology\\mishpat.md": {
-    "mtime": 1780955517.0357196,
+    "mtime": 1780955726.074205,
     "clean": false
   },
   "terminology\\naaf.md": {
@@ -236,11 +236,11 @@
     "clean": false
   },
   "terminology\\navi.md": {
-    "mtime": 1780955517.2232535,
+    "mtime": 1780955726.0798848,
     "clean": false
   },
   "terminology\\nefesh.md": {
-    "mtime": 1780955517.2786236,
+    "mtime": 1780955726.0834374,
     "clean": false
   },
   "terminology\\neshamah.md": {
@@ -252,7 +252,7 @@
     "clean": true
   },
   "terminology\\nishmah.md": {
-    "mtime": 1780955517.4233024,
+    "mtime": 1780955726.0924997,
     "clean": false
   },
   "terminology\\olam.md": {
@@ -272,11 +272,11 @@
     "clean": false
   },
   "terminology\\panim.md": {
-    "mtime": 1780955517.680065,
+    "mtime": 1780955726.098623,
     "clean": false
   },
   "terminology\\pesel.md": {
-    "mtime": 1780955517.7360752,
+    "mtime": 1780955726.102638,
     "clean": false
   },
   "terminology\\ra.md": {
@@ -288,19 +288,19 @@
     "clean": false
   },
   "terminology\\resha.md": {
-    "mtime": 1780955111.7713263,
+    "mtime": 1780955726.1096256,
     "clean": true
   },
   "terminology\\ruach-hakodesh.md": {
-    "mtime": 1780955517.948949,
+    "mtime": 1780955726.1132412,
     "clean": false
   },
   "terminology\\ruach.md": {
-    "mtime": 1780955518.0163198,
+    "mtime": 1780955726.115692,
     "clean": false
   },
   "terminology\\satan.md": {
-    "mtime": 1780955518.1062582,
+    "mtime": 1780955726.1196914,
     "clean": false
   },
   "terminology\\shabbat.md": {
@@ -308,7 +308,7 @@
     "clean": false
   },
   "terminology\\shalom.md": {
-    "mtime": 1780955518.5483053,
+    "mtime": 1780955726.125781,
     "clean": false
   },
   "terminology\\sheerit.md": {
@@ -320,15 +320,15 @@
     "clean": false
   },
   "terminology\\shem.md": {
-    "mtime": 1780955518.8028631,
+    "mtime": 1780955726.1312332,
     "clean": false
   },
   "terminology\\sheol.md": {
-    "mtime": 1780955518.8985589,
+    "mtime": 1780955726.1336544,
     "clean": false
   },
   "terminology\\shlem-avon.md": {
-    "mtime": 1780955111.8544323,
+    "mtime": 1780955726.1376517,
     "clean": true
   },
   "terminology\\shmitah.md": {
@@ -340,31 +340,31 @@
     "clean": false
   },
   "terminology\\tohu-va-vohu.md": {
-    "mtime": 1780955111.8866625,
+    "mtime": 1780955726.1439164,
     "clean": true
   },
   "terminology\\torah.md": {
-    "mtime": 1780955519.471864,
+    "mtime": 1780955726.1459143,
     "clean": false
   },
   "terminology\\tov.md": {
-    "mtime": 1780955519.5830796,
+    "mtime": 1780955726.1499088,
     "clean": false
   },
   "terminology\\tshuva.md": {
-    "mtime": 1780955519.6865878,
+    "mtime": 1780955726.1539028,
     "clean": false
   },
   "terminology\\tvilah.md": {
-    "mtime": 1780955519.8040748,
+    "mtime": 1780955726.1586337,
     "clean": false
   },
   "terminology\\tzedek.md": {
-    "mtime": 1780955519.8821895,
+    "mtime": 1780955726.1608317,
     "clean": false
   },
   "terminology\\yeshuah.md": {
-    "mtime": 1780955519.9680984,
+    "mtime": 1780955726.164357,
     "clean": false
   },
   "terminology\\yetzer-lev.md": {
@@ -380,7 +380,7 @@
     "clean": false
   },
   "terminology\\yir-at-yhwh.md": {
-    "mtime": 1780955520.3333743,
+    "mtime": 1780955726.1715102,
     "clean": false
   },
   "terminology\\yovel.md": {

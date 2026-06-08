@@ -2,83 +2,86 @@
 
 **Метаданные файла**
 - **Файл:** `docs/TECHNICAL-DEBT.md`
-- **Версия:** 1.4
+- **Версия:** 1.5
 - **Дата создания:** 2026-05-28
-- **Последнее обновление:** 2026-06-08
-- **Причина обновления:** Перенос в docs/, удалены выполненные задачи, актуализирован список
+- **Последнее обновление:** 2026-06-09
+- **Причина обновления:** Переписаны все задачи в формате «глагол + объект»
 - **Статус:** Активный
-- **Тема:** ТЕХНИЧЕСКИЙ ДОЛГ
+
 ---
 
 ## 📋 АКТИВНЫЕ ЗАДАЧИ
 
-### Вычистить конфликты слияния Git (10 файлов)
+### Конфликты слияния Git
 
-- [ ] `instructions/image-map.md`
-- [ ] `instructions/images-catalogue.md`
-- [ ] `instructions/methodology/archeology-methodology.md`
-- [ ] `instructions/methodology/hebrew-reconstruction.md`
-- [ ] `instructions/methodology/translation-methodology.md`
-- [ ] `instructions/methodology/transliteration-distortions.md`
-- [ ] `instructions/methodology/tree-method.md`
-- [ ] `instructions/checkers/bdikah-checker.md`
-- [ ] `instructions/checkers/factcheck.md`
-- [ ] `instructions/checkers/mivdak.md`
+- [x] Убрать `<<<<<<< HEAD` / `>>>>>>>` в `instructions/image-map.md`
+- [x] Убрать `<<<<<<< HEAD` / `>>>>>>>` в `instructions/images-catalogue.md`
+- [x] Убрать `<<<<<<< HEAD` / `>>>>>>>` в `instructions/methodology/archeology-methodology.md`
+- [x] Убрать `<<<<<<< HEAD` / `>>>>>>>` в `instructions/methodology/hebrew-reconstruction.md`
+- [x] Убрать `<<<<<<< HEAD` / `>>>>>>>` в `instructions/methodology/translation-methodology.md`
+- [x] Убрать `<<<<<<< HEAD` / `>>>>>>>` в `instructions/methodology/transliteration-distortions.md`
+- [x] Убрать `<<<<<<< HEAD` / `>>>>>>>` в `instructions/methodology/tree-method.md`
+- [x] Убрать `<<<<<<< HEAD` / `>>>>>>>` в `instructions/checkers/bdikah-checker.md`
+- [x] Убрать `<<<<<<< HEAD` / `>>>>>>>` в `instructions/checkers/factcheck.md`
+- [x] Убрать `<<<<<<< HEAD` / `>>>>>>>` в `instructions/checkers/mivdak.md`
 
 ### Унифицировать папку checkers
 
-- [ ] Выбрать единую папку: `tools/checkers/` или `instructions/checkers/`
+- [ ] Выбрать единую папку для чекеров: `tools/checkers/` или `instructions/checkers/`
 - [ ] Перенести `.md`-чекеры в выбранную папку
-- [ ] Обновить ссылки в `chat-prompt.md`, `workflow.md`, `startup-checklist.md`
+- [ ] Обновить ссылки на чекеры в `chat-prompt.md`, `workflow.md`, `startup-checklist.md`
 
 ### Сократить chat-prompt.md
 
-- [ ] Вынести детали в отдельные файлы
-- [ ] Оставить только ядро: источник, имя, запреты, процесс, тон
+- [ ] Вынести детали из `chat-prompt.md` в отдельные файлы
+- [ ] Оставить в `chat-prompt.md` только ядро: источник, имя, запреты, процесс, тон
 
-### Создать новые файлы
+### Создать новые файлы терминов
 
-- [ ] `terminology/midbar.md` — מִדְבָּר (пустыня)
-- [ ] `terminology/levad.md` — לְבַד (один)
-- [ ] `terminology/arum.md` — עָרוּם (хитрый)
-- [ ] `terminology/nachash.md` — נָּחָשׁ (змей)
-- [ ] `terminology/pachad.md` — פַּחַד (страх)
-- [ ] `researches/galatim-two-systems.md` — Галатим: война двух систем
-- [ ] `researches/substitution-of-the-name.md` — кража Имени
+- [ ] Создать `terminology/midbar.md` — מִדְבָּר (пустыня как экзамен)
+- [ ] Создать `terminology/levad.md` — לְבַד (один как свобода)
+- [ ] Создать `terminology/arum.md` — עָרוּם (хитрый, проницательный)
+- [ ] Создать `terminology/nachash.md` — נָּחָשׁ (змей)
+- [ ] Создать `terminology/pachad.md` — פַּחַד (страх порабощающий)
+- [ ] Создать `researches/galatim-two-systems.md` — Галатим: война двух систем
+- [ ] Создать `researches/substitution-of-the-name.md` — кража Имени
 
 ### Заполнить пустые файлы
 
-- [ ] `researches/galatim-two-systems.md`
-- [ ] `terminology/yetzer-lev.md`
-- [ ] `terminology/erech-apayim.md`
+- [ ] Заполнить содержимым `researches/galatim-two-systems.md`
+- [ ] Заполнить содержимым `terminology/yetzer-lev.md`
+- [ ] Заполнить содержимым `terminology/erech-apayim.md`
 
 ### Системные проблемы
 
-- [ ] Исправить `immanu-el.md` — в метаданных `researches/`, файл в `terminology/`
+- [ ] Исправить путь в метаданных `immanu-el.md` (указано `researches/`, лежит в `terminology/`)
 - [ ] Проверить все файлы `terminology/` на правильность папки в метаданных
-- [ ] Создать `requirements.txt` для `tools/`
+- [ ] Создать `requirements.txt` для Python-инструментов в `tools/`
 - [ ] Проверить дубликаты: `or-tam.md`, `sheerit.md`, `platform-idea.md`, `davar-language.md`
 - [ ] Проверить работоспособность всех скриптов в подпапках `tools/`
 
 ### Обновить существующие файлы
 
-- [ ] `chat-prompt.md` — обновить ссылки
-- [ ] `README.md` — обновить статистику
+- [ ] Обновить ссылки в `chat-prompt.md`
+- [ ] Обновить статистику в `README.md`
 
 ---
 
-## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (2026-06-07 — 2026-06-08)
+## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (2026-06-07 — 2026-06-09)
 
 - [x] Перенести документацию в `docs/`
 - [x] Реорганизовать `tools/` по подпапкам
 - [x] Починить `check-links.py`, `find-orphans.py`
 - [x] Создать `check-religionisms.py`, `check-code-quality.py`, `clear-cache.py`
+- [x] Создать `check-metadata-consistency.py`, `check-empty-files.py`, `check-tahor-sync.py`
+- [x] Создать `consistency-checker.py`, `check-merge-conflicts.py`, `fix-metadata-fields.py`
+- [x] Создать `unify-metadata.py`, `validate-external-links.py`, `check-file-sizes.py`
 - [x] Создать `tools/lib/utils.py`
-- [x] Обновить `golem.py` до v3.5
-- [x] Удалить `SCTRUCTURE.md`
-- [x] Удалить `substitution-of-the-name` без `.md`
-- [x] Удалить `COMPLETED-TASKS.md` и `COMPLETED-TASKS.json`
+- [x] Обновить `golem.py` до v3.9
+- [x] Удалить `SCTRUCTURE.md`, `substitution-of-the-name` без `.md`, `COMPLETED-TASKS.*`
 - [x] Обновить `docs/CHANGELOG.md`, `docs/BACKLOG.md`, `docs/DECISIONS.md`, `docs/RETROSPECTIVE.md`, `docs/ROADMAP.md`
+- [x] Исправить `sync-structure.py`, `generate-glossary.py` (убрать `progress`)
+- [x] Исправить `task-manager.py` (путь к `docs/TECHNICAL-DEBT.md`)
 
 ---
 

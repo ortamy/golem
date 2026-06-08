@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# golem.py — единый скрипт для управления проектом (древовидное меню)
+# golem.py — единый скрипт для управления проектом (древовидное меню) v4.0
 
 import os
 import sys
@@ -26,7 +26,7 @@ TOOLS_DIR = Path(__file__).parent
 CACHE_DIR = TOOLS_DIR / "cache"
 CONFIG_FILE = CACHE_DIR / "golem-config.json"
 LOG_FILE = REPO_ROOT / "golem.log"
-VERSION = "3.8"
+VERSION = "4.0"
 
 current_lang = "ru"
 LANGUAGES = {}
@@ -70,11 +70,7 @@ PATHS = {
 SPINNER = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 LABEL_WIDTH = 45
 
-# =============================================================================
-# УТИЛИТЫ
-# =============================================================================
-
-def log_error(msg):
+def log(msg):
     try:
         with open(LOG_FILE, "a", encoding="utf-8") as f:
             f.write(f"{datetime.now().isoformat()} - {msg}\n")
@@ -152,65 +148,10 @@ def save_config():
         CACHE_DIR.mkdir(parents=True, exist_ok=True)
         CONFIG_FILE.write_text(json.dumps(config, ensure_ascii=False, indent=2), encoding="utf-8")
     except Exception as e:
-        log_error(f"config: {e}")
+        log(f"config: {e}")
 
 def t(key):
     return LANGUAGES.get(current_lang, LANGUAGES["ru"]).get(key, key)
-
-# =============================================================================
-# ЗАПУСК СКРИПТОВ
-# =============================================================================
-
-def run_script(stdscr, script_path, args=None, description=None):
-    if not script_path.exists():
-        _flash(stdscr, f"[X] {script_path.name} — {t('skipped')}")
-        return
-    try:
-        h, w = stdscr.getmaxyx()
-        msg = t('running').format(description or script_path.stem)
-        stdscr.addstr(h // 2, max(0, (w - len(msg)) // 2), msg, curses.A_BOLD)
-        stdscr.refresh()
-        curses.napms(400)
-        curses.endwin()
-        cmd = [sys.executable, str(script_path)]
-        if args:
-            cmd.extend(args)
-        subprocess.run(cmd, cwd=str(REPO_ROOT))
-        _wait_key()
-        curses.initscr()
-        stdscr.clear()
-        stdscr.refresh()
-    except Exception as e:
-        log_error(f"run: {script_path.name}: {e}")
-        print(f"\n{t('error_occurred')}: {e}")
-        _wait_key()
-        curses.initscr()
-        stdscr.clear()
-        stdscr.refresh()
-
-def run_bash_script(stdscr, script_path):
-    if not script_path.exists():
-        _flash(stdscr, f"[X] {script_path.name} — {t('skipped')}")
-        return
-    try:
-        h, w = stdscr.getmaxyx()
-        stdscr.addstr(h // 2, max(0, (w - len(t('running').format(script_path.stem))) // 2),
-                      t('running').format(script_path.stem), curses.A_BOLD)
-        stdscr.refresh()
-        curses.napms(400)
-        curses.endwin()
-        subprocess.run(['bash', str(script_path)], cwd=str(TOOLS_DIR))
-        _wait_key()
-        curses.initscr()
-        stdscr.clear()
-        stdscr.refresh()
-    except Exception as e:
-        log_error(f"bash: {script_path.name}: {e}")
-        print(f"\n{t('error_occurred')}: {e}")
-        _wait_key()
-        curses.initscr()
-        stdscr.clear()
-        stdscr.refresh()
 
 def _flash(stdscr, msg):
     try:
@@ -231,9 +172,56 @@ def _wait_key():
     except Exception:
         input()
 
-# =============================================================================
-# ИНТЕРФЕЙС
-# =============================================================================
+def _run_py(stdscr, script_path, args=None, description=None):
+    if not script_path.exists():
+        _flash(stdscr, f"[X] {script_path.name} — {t('skipped')}")
+        return
+    try:
+        h, w = stdscr.getmaxyx()
+        msg = t('running').format(description or script_path.stem)
+        stdscr.addstr(h // 2, max(0, (w - len(msg)) // 2), msg, curses.A_BOLD)
+        stdscr.refresh()
+        curses.napms(400)
+        curses.endwin()
+        cmd = [sys.executable, str(script_path)]
+        if args:
+            cmd.extend(args)
+        subprocess.run(cmd, cwd=str(REPO_ROOT))
+        _wait_key()
+        curses.initscr()
+        stdscr.clear()
+        stdscr.refresh()
+    except Exception as e:
+        log(f"run: {script_path.name}: {e}")
+        print(f"\n{t('error_occurred')}: {e}")
+        _wait_key()
+        curses.initscr()
+        stdscr.clear()
+        stdscr.refresh()
+
+def _run_sh(stdscr, script_path):
+    if not script_path.exists():
+        _flash(stdscr, f"[X] {script_path.name} — {t('skipped')}")
+        return
+    try:
+        h, w = stdscr.getmaxyx()
+        stdscr.addstr(h // 2, max(0, (w - len(t('running').format(script_path.stem))) // 2),
+                      t('running').format(script_path.stem), curses.A_BOLD)
+        stdscr.refresh()
+        curses.napms(400)
+        curses.endwin()
+        subprocess.run(['bash', str(script_path)], cwd=str(TOOLS_DIR))
+        _wait_key()
+        curses.initscr()
+        stdscr.clear()
+        stdscr.refresh()
+    except Exception as e:
+        log(f"bash: {script_path.name}: {e}")
+        print(f"\n{t('error_occurred')}: {e}")
+        _wait_key()
+        curses.initscr()
+        stdscr.clear()
+        stdscr.refresh()
 
 def draw_menu(stdscr, title_key, items, selected):
     h, w = stdscr.getmaxyx()
@@ -266,11 +254,7 @@ def menu_loop(stdscr, title_key, items, actions):
                 stdscr.clear(); stdscr.refresh()
             elif key in (27, curses.KEY_LEFT): return
         except KeyboardInterrupt: return
-        except Exception as e: log_error(f"menu {title_key}: {e}"); return
-
-# =============================================================================
-# МЕНЮ-РАЗДЕЛЫ
-# =============================================================================
+        except Exception as e: log(f"menu {title_key}: {e}"); return
 
 def menu_actions(stdscr):
     menu_loop(stdscr, 'actions',
@@ -292,80 +276,128 @@ def menu_checkers(stdscr):
                t('find_orphans'), t('check_empty_files'), t('check_consistency'),
                t('check_religionisms'), t('check_tahor_sync'), t('check_code_quality'),
                t('clear_cache'), t('back')],
-              [lambda: run_script(stdscr, PATHS["check_naming"]),
-               lambda: run_script(stdscr, PATHS["validate_metadata"]),
-               lambda: run_script(stdscr, PATHS["fix_metadata_fields"]),
-               lambda: run_script(stdscr, PATHS["check_links"]),
-               lambda: run_script(stdscr, PATHS["validate_external_links"]),
-               lambda: run_script(stdscr, PATHS["find_duplicates"]),
-               lambda: run_script(stdscr, PATHS["find_orphans"]),
-               lambda: run_script(stdscr, PATHS["check_empty_files"]),
-               lambda: run_script(stdscr, PATHS["consistency"]),
-               lambda: run_script(stdscr, PATHS["check_religionisms"]),
-               lambda: run_script(stdscr, PATHS["check_tahor_sync"]),
-               lambda: run_script(stdscr, PATHS["check_code_quality"]),
-               lambda: run_script(stdscr, PATHS["clear_cache"]), None])
+              [lambda: _run_py(stdscr, PATHS["check_naming"]),
+               lambda: _run_py(stdscr, PATHS["validate_metadata"]),
+               lambda: _run_py(stdscr, PATHS["fix_metadata_fields"]),
+               lambda: _run_py(stdscr, PATHS["check_links"]),
+               lambda: _run_py(stdscr, PATHS["validate_external_links"]),
+               lambda: _run_py(stdscr, PATHS["find_duplicates"]),
+               lambda: _run_py(stdscr, PATHS["find_orphans"]),
+               lambda: _run_py(stdscr, PATHS["check_empty_files"]),
+               lambda: _run_py(stdscr, PATHS["consistency"]),
+               lambda: _run_py(stdscr, PATHS["check_religionisms"]),
+               lambda: _run_py(stdscr, PATHS["check_tahor_sync"]),
+               lambda: _run_py(stdscr, PATHS["check_code_quality"]),
+               lambda: _run_py(stdscr, PATHS["clear_cache"]), None])
 
 def menu_generators(stdscr):
     menu_loop(stdscr, 'generators',
               [t('generate_glossary'), t('generate_navigation'), t('sync_structure'),
                t('unify_metadata'), t('generate_retrospective'), t('generate_changelog'),
                t('generate_index'), t('back')],
-              [lambda: run_script(stdscr, PATHS["generate_glossary"]),
-               lambda: run_script(stdscr, PATHS["generate_nav"]),
-               lambda: run_script(stdscr, PATHS["sync_structure"]),
-               lambda: run_script(stdscr, PATHS["unify_metadata"], ['--dry-run']),
-               lambda: run_script(stdscr, PATHS["generate_retrospective"]),
-               lambda: run_script(stdscr, PATHS["generate_changelog"], ['--dry-run']),
-               lambda: run_script(stdscr, PATHS["generate_index"]), None])
+              [lambda: _run_py(stdscr, PATHS["generate_glossary"]),
+               lambda: _run_py(stdscr, PATHS["generate_nav"]),
+               lambda: _run_py(stdscr, PATHS["sync_structure"]),
+               lambda: _run_py(stdscr, PATHS["unify_metadata"], ['--dry-run']),
+               lambda: _run_py(stdscr, PATHS["generate_retrospective"]),
+               lambda: _run_py(stdscr, PATHS["generate_changelog"], ['--dry-run']),
+               lambda: _run_py(stdscr, PATHS["generate_index"]), None])
 
 def menu_reports(stdscr):
     menu_loop(stdscr, 'reports',
               [t('stats'), t('check_file_sizes'), t('daily_report'), t('check_health'), t('back')],
-              [lambda: run_script(stdscr, PATHS["stats_report"]),
-               lambda: run_script(stdscr, PATHS["check_file_sizes"]),
-               lambda: run_script(stdscr, PATHS["daily_report"]),
-               lambda: run_script(stdscr, PATHS["check_health"]), None])
+              [lambda: _run_py(stdscr, PATHS["stats_report"]),
+               lambda: _run_py(stdscr, PATHS["check_file_sizes"]),
+               lambda: _run_py(stdscr, PATHS["daily_report"]),
+               lambda: _run_py(stdscr, PATHS["check_health"]), None])
 
 def menu_automation(stdscr):
     menu_loop(stdscr, 'automation',
               [t('add_metadata'), t('auto_fix'), t('task_manager'), t('idea_manager'),
                t('update_versions'), t('back')],
-              [lambda: run_script(stdscr, PATHS["add_metadata"]),
-               lambda: run_script(stdscr, PATHS["auto_fix"]),
-               lambda: run_script(stdscr, PATHS["task_manager"]),
-               lambda: run_script(stdscr, PATHS["idea_manager"]),
-               lambda: run_script(stdscr, PATHS["update_versions"], ['--dry-run']), None])
+              [lambda: _run_py(stdscr, PATHS["add_metadata"]),
+               lambda: _run_py(stdscr, PATHS["auto_fix"]),
+               lambda: _run_py(stdscr, PATHS["task_manager"]),
+               lambda: _run_py(stdscr, PATHS["idea_manager"]),
+               lambda: _run_py(stdscr, PATHS["update_versions"], ['--dry-run']), None])
 
 def menu_backup(stdscr):
     menu_loop(stdscr, 'backup',
               [t('export_repo'), t('backup_repo'), t('back')],
-              [lambda: run_bash_script(stdscr, PATHS["export_repo"]),
-               lambda: run_bash_script(stdscr, PATHS["backup_repo"]), None])
-
-# =============================================================================
-# КОМБО-ДЕЙСТВИЯ
-# =============================================================================
+              [lambda: _run_sh(stdscr, PATHS["export_repo"]),
+               lambda: _run_sh(stdscr, PATHS["backup_repo"]), None])
 
 def run_all_checks(stdscr):
-    # ... текущий код ...
+    scripts = [
+        (PATHS["check_naming"], t('check_file_naming')),
+        (PATHS["validate_metadata"], t('check_metadata')),
+        (PATHS["fix_metadata_fields"], t('fix_metadata_fields')),
+        (PATHS["check_links"], t('check_links')),
+        (PATHS["find_duplicates"], t('find_duplicates')),
+        (PATHS["find_orphans"], t('find_orphans')),
+        (PATHS["check_empty_files"], t('check_empty_files')),
+        (PATHS["consistency"], t('check_consistency')),
+        (PATHS["check_religionisms"], t('check_religionisms')),
+        (PATHS["check_tahor_sync"], t('check_tahor_sync')),
+        (PATHS["check_code_quality"], t('check_code_quality')),
+    ]
+    total = len(scripts)
+    results = []
+    curses.endwin()
 
-    # После сбора всех results — сохраняем лог
-    log_file = CACHE_DIR / f"checks_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
-    with open(log_file, 'w', encoding='utf-8') as f:
-        f.write("РЕЗУЛЬТАТЫ ПРОВЕРОК\n")
-        f.write("═" * 50 + "\n")
-        for name, status, files, issues in results:
-            if status == "ok":    f.write(f"✅ {name}\n")
-            elif status == "issues": f.write(f"❌ {name} — {issues} проблем\n")
-            elif status == "skip":   f.write(f"⏭️ {name} — не найден\n")
-        f.write(f"\nПройдено: {ok} | Проблем: {bad} | Пропущено: {skp}\n")
+    for i, (script_path, description) in enumerate(scripts, 1):
+        label = f"[{i:2d}/{total}] {description}".ljust(LABEL_WIDTH)
 
-    # На экран — коротко
-    print(f"\n{'═' * 50}")
-    print(f"✅ {ok} | ❌ {bad} | ⏭️ {skp}")
-    print(f"📄 Подробный отчёт: {log_file.name}")
-    print(f"{'═' * 50}")
+        if not script_path.exists():
+            print(f"{label} ⏭️ {t('not_found')}")
+            results.append((description, "skip", 0, 0))
+            continue
+
+        cmd = [sys.executable, str(script_path)]
+        proc = subprocess.Popen(cmd, cwd=str(REPO_ROOT), stdout=subprocess.PIPE,
+                                stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
+        si = 0
+        while proc.poll() is None:
+            sys.stdout.write(f"\r{label} {SPINNER[si % len(SPINNER)]} Выполняется...")
+            sys.stdout.flush()
+            si += 1
+            time.sleep(0.08)
+        proc.wait()
+        sys.stdout.write("\r" + " " * 80 + "\r")
+
+        output = proc.stdout.read() if proc.stdout else ""
+        found_files = re.search(r'(?:Найдено файлов|Всего)[:\s]*(\d+)', output)
+        found_issues = re.search(r'(?:Файлов с |ошибок|проблем|нарушений)[:\s]*(\d+)', output)
+        ok_msg = re.search(r'(✅|Все|корректны|не найдено)', output)
+
+        total_files = int(found_files.group(1)) if found_files else 0
+        issues = int(found_issues.group(1)) if found_issues else 0
+
+        if ok_msg or (proc.returncode == 0 and not found_issues):
+            print(f"{label} ✅ {total_files} файлов")
+            results.append((description, "ok", total_files, 0))
+        elif issues > 0:
+            print(f"{label} ❌ {issues} проблем")
+            results.append((description, "issues", 0, issues))
+        else:
+            print(f"{label} ✅ {total_files} файлов")
+            results.append((description, "ok", total_files, 0))
+
+    ok = sum(1 for _, s, _, _ in results if s == "ok")
+    bad = sum(1 for _, s, _, _ in results if s == "issues")
+    skp = sum(1 for _, s, _, _ in results if s == "skip")
+
+    print(f"\n{'═' * 50}\nРЕЗУЛЬТАТЫ\n{'═' * 50}")
+    for name, status, files, issues in results:
+        if status == "ok":    print(f"  ✅ {name}")
+        elif status == "issues": print(f"  ❌ {name} — {issues} проблем")
+        elif status == "skip":   print(f"  ⏭️ {name} — {t('not_found')}")
+    print(f"\n  Пройдено: {ok} | Проблем: {bad} | Пропущено: {skp}\n{'═' * 50}")
+
+    _wait_key()
+    curses.initscr()
+    stdscr.clear()
+    stdscr.refresh()
 
 def run_all_fixes(stdscr):
     scripts = [
@@ -378,16 +410,12 @@ def run_all_fixes(stdscr):
         (PATHS["generate_nav"], []),
     ]
     for script, args in scripts:
-        run_script(stdscr, script, args=args)
+        _run_py(stdscr, script, args=args)
 
 def run_full_audit(stdscr):
     run_all_checks(stdscr)
     run_all_fixes(stdscr)
-    run_script(stdscr, PATHS["stats_report"])
-
-# =============================================================================
-# ГЛАВНОЕ МЕНЮ
-# =============================================================================
+    _run_py(stdscr, PATHS["stats_report"])
 
 def main_menu(stdscr):
     items = [t('actions'), t('tools'), t('exit')]
@@ -407,7 +435,7 @@ def main_menu(stdscr):
             elif key in (27, curses.KEY_LEFT):
                 if sel == n - 1: break
         except KeyboardInterrupt: break
-        except Exception as e: log_error(f"main: {e}"); break
+        except Exception as e: log(f"main: {e}"); break
 
 def main():
     global current_lang
@@ -426,11 +454,10 @@ def main():
         curses.wrapper(main_menu)
     except KeyboardInterrupt: pass
     except Exception as e:
-        log_error(f"critical: {e}\n{traceback.format_exc()}")
+        log(f"critical: {e}\n{traceback.format_exc()}")
         print(f"\n\033[91m{t('error_occurred')}: {e}\033[0m")
     finally:
         print(f"\n\033[92m{t('goodbye')}\033[0m\n")
 
 if __name__ == "__main__":
     main()
-

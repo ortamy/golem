@@ -1,93 +1,101 @@
-#!/usr/bin/env python3
-# generate-index.py — генерация README.md для папок
-
+# tools/generators/generate-index.py — генерация индексов папок
 import sys
-import re
 from pathlib import Path
-from progress import show_progress, finish_progress
+from datetime import datetime
 
-REPO_ROOT = Path(__file__).parent.parent
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, REPO_ROOT
 
-TARGET_DIRS = {
-    'terminology': 'Термины',
-    'researches': 'Исследования',
-    'tools': 'Инструменты',
-    'ideas': 'Идеи',
-    'drafts': 'Черновики'
-}
+SCAN_DIRS = ["terminology", "researches", "instructions"]
+OUTPUT_FILE = REPO_ROOT / "docs" / "INDEX.md"
 
 
-def extract_emoji_and_title(file_path: Path) -> tuple:
-    """Извлекает эмодзи и заголовок из файла"""
-    try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            first_line = f.readline()
-            if first_line.startswith('# '):
-                header = first_line[2:].strip()
-                emoji_match = re.match(r'^([\U00010000-\U0010FFFF])\s+(.+)$', header)
-                if emoji_match:
-                    return emoji_match.group(1), emoji_match.group(2)
-                return "", header
-    except:
-        pass
-    return "", file_path.stem.replace('-', ' ').title()
+def extract_title(content: str) -> str:
+    for line in content.split('\n'):
+        if line.startswith('# '):
+            return line[2:].strip()
+    return ""
 
 
-def generate_index_for_folder(folder: str, display_name: str) -> str:
-    """Генерирует README.md для конкретной папки"""
-    folder_path = REPO_ROOT / folder
-    if not folder_path.exists():
-        return f"# {display_name}\n\nПапка не существует.\n"
-
-    md_files = list(folder_path.glob('*.md'))
-    md_files = [f for f in md_files if f.name not in ['README.md', 'STRUCTURE.md']]
-
-    lines = [
-        f"# {display_name}",
-        "",
-        f"**Всего файлов:** {len(md_files)}",
-        "",
-        "---",
-        "",
-        "## Список файлов",
-        ""
-    ]
-
-    for i, md_file in enumerate(md_files, 1):
-        emoji, title = extract_emoji_and_title(md_file)
-        emoji_str = f"{emoji} " if emoji else ""
-        lines.append(f"{i}. {emoji_str}[{title if title else md_file.stem}]({md_file.name})")
-
-    lines.extend([
-        "",
-        "---",
-        f"*Автоматически сгенерировано: `python tools/generate-index.py`*"
-    ])
-
-    return '\n'.join(lines)
+def extract_topic(content: str) -> str:
+    import re
+    match = re.search(r'[-*]\s*\*\*Тема:\*\*\s*(.+?)(?:\n|$)', content)
+    return match.group(1).strip() if match else ""
 
 
 def main():
-    print("\n📚 ГЕНЕРАЦИЯ ИНДЕКСОВ ДЛЯ ПАПОК")
-    print("=" * 50)
+    print_header("ГЕНЕРАЦИЯ ИНДЕКСА", "📑")
 
-    for i, (folder, display_name) in enumerate(TARGET_DIRS.items(), 1):
-        show_progress(i, len(TARGET_DIRS), folder)
+    all_files = []
+    for scan_dir in SCAN_DIRS:
+        dir_path = REPO_ROOT / scan_dir
+        if dir_path.exists():
+            all_files.extend(sorted(dir_path.rglob("*.md")))
 
-        content = generate_index_for_folder(folder, display_name)
-        index_file = REPO_ROOT / folder / "README.md"
+    total = len(all_files)
+    print(f"Найдено файлов: {total}")
 
-        with open(index_file, 'w', encoding='utf-8') as f:
-            f.write(content)
+    # Группируем по папкам
+    index = {}
+    for i, filepath in enumerate(all_files, 1):
+        content = read_file_safe(filepath)
+        if not content:
+            continue
 
-        print(f"\n   ✅ {folder}/README.md")
+        folder = str(filepath.parent.relative_to(REPO_ROOT)).replace('\\', '/')
+        rel_path = str(filepath.relative_to(REPO_ROOT)).replace('\\', '/')
+        title = extract_title(content)
+        topic = extract_topic(content)
+
+        if folder not in index:
+            index[folder] = []
+        index[folder].append({
+            "path": rel_path,
+            "name": filepath.stem,
+            "title": title or filepath.stem,
+            "topic": topic,
+        })
+
+        progress_bar(i, total, extra=f"папок: {len(index)}")
 
     finish_progress()
-    print("\n" + "=" * 50)
-    print(f"{'✅' if '✅' in str(locals()) else ''} Все индексы сгенерированы")
+
+    # Генерируем INDEX.md
+    today = datetime.now().strftime('%Y-%m-%d')
+    lines = [
+        "# ИНДЕКС РЕПОЗИТОРИЯ",
+        "",
+        "**Метаданные файла**",
+        f"- **Файл:** `docs/INDEX.md`",
+        f"- **Версия:** 1.0",
+        f"- **Дата создания:** {today}",
+        f"- **Последнее обновление:** {today}",
+        f"- **Причина обновления:** Автоматическая генерация",
+        f"- **Статус:** Активный",
+        f"- **Тема:** Индекс всех файлов репозитория",
+        "",
+        "---",
+        "",
+    ]
+
+    for folder in sorted(index.keys()):
+        lines.append(f"## {folder}/")
+        lines.append("")
+        for item in index[folder]:
+            topic_str = f" — {item['topic'][:80]}" if item.get('topic') else ""
+            lines.append(f"- **{item['title']}**{topic_str} → [{item['path']}]({item['path']})")
+        lines.append("")
+
+    lines.append("---")
+    lines.append(f"*Сгенерировано автоматически: {today}*")
+
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(lines))
+
+    print_success(f"Индекс сохранён: {OUTPUT_FILE} ({len(index)} папок)")
     return 0
 
 
 if __name__ == "__main__":
     sys.exit(main())
-
