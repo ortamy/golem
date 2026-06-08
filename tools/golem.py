@@ -24,11 +24,57 @@ TOOLS_DIR = Path(__file__).parent
 CACHE_DIR = TOOLS_DIR / "cache"
 CONFIG_FILE = CACHE_DIR / "golem-config.json"
 LOG_FILE = REPO_ROOT / "golem.log"
-VERSION = "3.3"
+VERSION = "3.6"
 
 current_lang = "ru"
 LANGUAGES = {}
 config = {}
+
+# =============================================================================
+# СТРУКТУРА ПУТЕЙ
+# =============================================================================
+D = TOOLS_DIR
+PATHS = {
+    # Чекеры
+    "check_naming":             D / "checkers" / "check-naming.py",
+    "validate_metadata":        D / "checkers" / "validate-metadata.py",
+    "check_links":              D / "checkers" / "check-links.py",
+    "find_duplicates":          D / "checkers" / "find-duplicates.py",
+    "find_orphans":             D / "checkers" / "find-orphans.py",
+    "consistency":              D / "checkers" / "consistency-checker.py",
+    "check_religionisms":       D / "checkers" / "check-religionisms.py",
+    "check_code_quality":       D / "checkers" / "check-code-quality.py",
+    "check_metadata_consistency": D / "checkers" / "check-metadata-consistency.py",
+    "check_empty_files":        D / "checkers" / "check-empty-files.py",
+    "check_tahor_sync":         D / "checkers" / "check-tahor-sync.py",
+    "validate_external_links":  D / "checkers" / "validate-external-links.py",
+    "clear_cache":              D / "checkers" / "clear-cache.py",
+
+    # Генераторы
+    "generate_glossary":        D / "generators" / "generate-glossary.py",
+    "generate_nav":             D / "generators" / "generate-nav.py",
+    "sync_structure":           D / "generators" / "sync-structure.py",
+    "generate_retrospective":   D / "generators" / "generate-retrospective.py",
+    "generate_changelog":       D / "generators" / "generate-changelog.py",
+    "generate_index":           D / "generators" / "generate-index.py",
+
+    # Отчёты
+    "stats_report":             D / "reports" / "stats-report.py",
+    "daily_report":             D / "reports" / "daily-report.py",
+    "check_health":             D / "reports" / "check-health.py",
+    "check_file_sizes":         D / "reports" / "check-file-sizes.py",
+
+    # Автоматизация
+    "add_metadata":             D / "automation" / "add-metadata.py",
+    "auto_fix":                 D / "automation" / "auto-fix.py",
+    "task_manager":             D / "automation" / "task-manager.py",
+    "idea_manager":             D / "automation" / "idea-manager.py",
+    "update_versions":          D / "automation" / "update-versions.py",
+
+    # Бэкап
+    "export_repo":              D / "backup" / "export-repo.sh",
+    "backup_repo":              D / "backup" / "backup.sh",
+}
 
 
 def log_error(error_msg):
@@ -47,29 +93,61 @@ def load_languages():
             "actions": "ДЕЙСТВИЯ",
             "tools": "ИНСТРУМЕНТЫ",
             "exit": "ВЫХОД",
+
             "run_all_checks": "Запустить все проверки",
             "run_all_fixes": "Запустить все исправления",
             "full_audit": "Полный аудит (проверки + исправления)",
-            "check_code_quality": "Проверить качество кода",
-            "check_religionisms": "Проверить религионимы",
-            "export_repo": "Экспорт репозитория",
-            "backup_repo": "Создать бэкап",
-            "update_versions": "Обновить версии",
+
             "checkers": "Чекеры",
+            "generators": "Генераторы",
+            "reports": "Отчёты",
+            "automation": "Автоматизация",
+            "backup": "Бэкап и экспорт",
+
+            # Чекеры
             "check_file_naming": "Проверка имён файлов",
             "check_metadata": "Проверка метаданных",
-            "check_links": "Проверка ссылок",
+            "check_links": "Проверка внутренних ссылок",
             "find_duplicates": "Поиск дубликатов",
             "find_orphans": "Поиск файлов-сирот",
             "check_consistency": "Проверка согласованности",
-            "stats": "Статистика репозитория",
+            "check_religionisms": "Проверить религионимы",
+            "check_code_quality": "Проверить качество кода",
+            "check_metadata_consistency": "Сверка путей в метаданных",
+            "check_empty_files": "Поиск пустых/незаполненных",
+            "check_tahor_sync": "Сверка tahor/ ↔ forbidden-words",
+            "validate_external_links": "Проверка внешних ссылок",
+            "clear_cache": "Очистить кэш",
+
+            # Генераторы
             "generate_glossary": "Генерация глоссария",
             "generate_navigation": "Генерация навигации",
             "sync_structure": "Синхронизация структуры",
             "generate_retrospective": "Ретроспектива",
             "generate_changelog": "Генерация CHANGELOG",
-            "back": "Назад",
-            "up_down": "Стрелки - выбор | Enter - вход | Esc - назад | q - выход",
+            "generate_index": "Индексы папок",
+
+            # Отчёты
+            "stats": "Статистика репозитория",
+            "daily_report": "Ежедневный отчёт",
+            "check_health": "Здоровье проекта",
+            "check_file_sizes": "Анализ размеров файлов",
+
+            # Автоматизация
+            "add_metadata": "Добавить метаданные",
+            "auto_fix": "Автофикс задач",
+            "task_manager": "Менеджер задач",
+            "idea_manager": "Управление идеями",
+            "update_versions": "Обновить версии",
+
+            # Бэкап
+            "export_repo": "Экспорт репозитория",
+            "backup_repo": "Создать бэкап",
+
+            # Общие
+            "back": "← Назад",
+            "running": "Выполняется: {}",
+            "up_down": "↑↓ выбор | Enter вход | Esc/← назад | q выход",
             "goodbye": "До свидания!",
             "not_found": "не найден",
             "press_enter": "Нажмите Enter для продолжения...",
@@ -82,29 +160,55 @@ def load_languages():
             "actions": "ACTIONS",
             "tools": "TOOLS",
             "exit": "EXIT",
+
             "run_all_checks": "Run all checks",
             "run_all_fixes": "Run all fixes",
             "full_audit": "Full audit (checks + fixes)",
-            "check_code_quality": "Check code quality",
-            "check_religionisms": "Check religionisms",
-            "export_repo": "Export repository",
-            "backup_repo": "Backup repository",
-            "update_versions": "Update versions",
+
             "checkers": "Checkers",
+            "generators": "Generators",
+            "reports": "Reports",
+            "automation": "Automation",
+            "backup": "Backup & Export",
+
             "check_file_naming": "Check file naming",
             "check_metadata": "Check metadata",
-            "check_links": "Check links",
+            "check_links": "Check internal links",
             "find_duplicates": "Find duplicates",
             "find_orphans": "Find orphans",
             "check_consistency": "Check consistency",
-            "stats": "Repository statistics",
+            "check_religionisms": "Check religionisms",
+            "check_code_quality": "Check code quality",
+            "check_metadata_consistency": "Check metadata paths",
+            "check_empty_files": "Find empty/unfilled",
+            "check_tahor_sync": "Sync tahor/ ↔ forbidden-words",
+            "validate_external_links": "Validate external links",
+            "clear_cache": "Clear cache",
+
             "generate_glossary": "Generate glossary",
             "generate_navigation": "Generate navigation",
             "sync_structure": "Sync structure",
             "generate_retrospective": "Retrospective",
             "generate_changelog": "Generate CHANGELOG",
-            "back": "Back",
-            "up_down": "Arrows - select | Enter - enter | Esc - back | q - quit",
+            "generate_index": "Folder index",
+
+            "stats": "Repository statistics",
+            "daily_report": "Daily report",
+            "check_health": "Project health",
+            "check_file_sizes": "File size analysis",
+
+            "add_metadata": "Add metadata",
+            "auto_fix": "Auto fix tasks",
+            "task_manager": "Task manager",
+            "idea_manager": "Idea manager",
+            "update_versions": "Update versions",
+
+            "export_repo": "Export repository",
+            "backup_repo": "Backup repository",
+
+            "back": "← Back",
+            "running": "Running: {}",
+            "up_down": "↑↓ select | Enter enter | Esc/← back | q quit",
             "goodbye": "Goodbye!",
             "not_found": "not found",
             "press_enter": "Press Enter to continue...",
@@ -112,41 +216,6 @@ def load_languages():
             "check_log": "Check golem.log",
             "skipped": "skipped (file missing)",
         },
-        "he": {
-            "title": "ГОЛЕМ v{}",
-            "actions": "ПЕУЛОТ",
-            "tools": "КЛИМ",
-            "exit": "ЕЦИА",
-            "run_all_checks": "hарэц эт коль hа-бдикот",
-            "run_all_fixes": "hарэц эт коль hа-тикуним",
-            "full_audit": "Бикорет малеа",
-            "check_code_quality": "Бдикат эйхут коде",
-            "check_religionisms": "Бдикат милим асурот",
-            "export_repo": "Йеца маагар",
-            "backup_repo": "Гибуй",
-            "update_versions": "Адкен гирсаот",
-            "checkers": "Бодким",
-            "check_file_naming": "Бдикат шмот кебацим",
-            "check_metadata": "Бдикат мета-нетуним",
-            "check_links": "Бдикат кишурим",
-            "find_duplicates": "Хипус кфилуёт",
-            "find_orphans": "Хипус кебацим йетомим",
-            "check_consistency": "Бдикат аквиют",
-            "stats": "Статистика",
-            "generate_glossary": "Йецират милон мунахим",
-            "generate_navigation": "Йецират нивут",
-            "sync_structure": "Синхрон мивне",
-            "generate_retrospective": "Ретроспектива",
-            "generate_changelog": "Йецират CHANGELOG",
-            "back": "Хазор",
-            "up_down": "Хицим - бхира | Enter - книса | Esc - хазор | q - ециа",
-            "goodbye": "Леhитраот!",
-            "not_found": "ло нимца",
-            "press_enter": "Лахац Enter леhамшех...",
-            "error_occurred": "Итра шагия",
-            "check_log": "Бедок эт golem.log",
-            "skipped": "дулаг (кебец хасер)",
-        }
     }
 
 
@@ -176,19 +245,19 @@ def t(key):
     return LANGUAGES.get(current_lang, LANGUAGES["ru"]).get(key, key)
 
 
-def run_script(stdscr, script_name, args=None):
-    script_path = TOOLS_DIR / script_name
+def run_script(stdscr, script_path, args=None, description=None):
     if not script_path.exists():
-        msg = f"[X] {script_name} — {t('skipped')}"
-        try:
-            stdscr.addstr(msg + "\n")
-            stdscr.refresh()
-            stdscr.getch()
-        except Exception:
-            print(msg)
+        msg = f"[X] {script_path.name} — {t('skipped')}"
+        _flash_message(stdscr, msg)
         return
 
     try:
+        height, width = stdscr.getmaxyx()
+        msg = t('running').format(description or script_path.stem)
+        stdscr.addstr(height // 2, max(0, (width - len(msg)) // 2), msg, curses.A_BOLD)
+        stdscr.refresh()
+        curses.napms(400)
+
         curses.endwin()
         cmd = [sys.executable, str(script_path)]
         if args:
@@ -196,7 +265,7 @@ def run_script(stdscr, script_name, args=None):
         subprocess.run(cmd, cwd=str(REPO_ROOT))
         input(f"\n{t('press_enter')}")
     except Exception as e:
-        log_error(f"Ошибка запуска {script_name}: {e}")
+        log_error(f"Ошибка запуска {script_path.name}: {e}")
         print(f"\n{t('error_occurred')}: {e}")
         input(f"\n{t('press_enter')}")
     finally:
@@ -204,29 +273,38 @@ def run_script(stdscr, script_name, args=None):
         stdscr.refresh()
 
 
-def run_bash_script(stdscr, script_name):
-    script_path = TOOLS_DIR / script_name
+def run_bash_script(stdscr, script_path):
     if not script_path.exists():
-        msg = f"[X] {script_name} — {t('skipped')}"
-        try:
-            stdscr.addstr(msg + "\n")
-            stdscr.refresh()
-            stdscr.getch()
-        except Exception:
-            print(msg)
+        msg = f"[X] {script_path.name} — {t('skipped')}"
+        _flash_message(stdscr, msg)
         return
 
     try:
+        height, width = stdscr.getmaxyx()
+        msg = t('running').format(script_path.stem)
+        stdscr.addstr(height // 2, max(0, (width - len(msg)) // 2), msg, curses.A_BOLD)
+        stdscr.refresh()
+        curses.napms(400)
+
         curses.endwin()
         subprocess.run(['bash', str(script_path)], cwd=str(TOOLS_DIR))
         input(f"\n{t('press_enter')}")
     except Exception as e:
-        log_error(f"Ошибка запуска {script_name}: {e}")
+        log_error(f"Ошибка запуска {script_path.name}: {e}")
         print(f"\n{t('error_occurred')}: {e}")
         input(f"\n{t('press_enter')}")
     finally:
         stdscr.clear()
         stdscr.refresh()
+
+
+def _flash_message(stdscr, msg):
+    try:
+        stdscr.addstr(msg + "\n")
+        stdscr.refresh()
+        stdscr.getch()
+    except Exception:
+        print(msg)
 
 
 def draw_menu(stdscr, title_key, items, selected):
@@ -261,7 +339,7 @@ def menu_loop(stdscr, title_key, items, actions):
             draw_menu(stdscr, title_key, items, selected)
             key = stdscr.getch()
 
-            if key in (ord('q'), ord('й'), ord('ע')):
+            if key in (ord('q'), ord('й')):
                 return
             elif key == curses.KEY_UP and selected > 0:
                 selected -= 1
@@ -284,21 +362,21 @@ def menu_loop(stdscr, title_key, items, actions):
             return
 
 
+# =============================================================================
+# МЕНЮ
+# =============================================================================
+
 def menu_actions(stdscr):
     items = [
         t('run_all_checks'),
         t('run_all_fixes'),
         t('full_audit'),
-        t('check_code_quality'),
-        t('check_religionisms'),
         t('back'),
     ]
     actions = [
         lambda: run_all_checks(stdscr),
         lambda: run_all_fixes(stdscr),
         lambda: run_full_audit(stdscr),
-        lambda: run_script(stdscr, 'check-code-quality.py'),
-        lambda: run_script(stdscr, 'check-religionisms.py'),
         None,
     ]
     menu_loop(stdscr, 'actions', items, actions)
@@ -307,20 +385,18 @@ def menu_actions(stdscr):
 def menu_tools(stdscr):
     items = [
         t('checkers'),
-        t('export_repo'),
-        t('backup_repo'),
-        t('update_versions'),
-        t('generate_retrospective'),
-        t('generate_changelog'),
+        t('generators'),
+        t('reports'),
+        t('automation'),
+        t('backup'),
         t('back'),
     ]
     actions = [
         lambda: menu_checkers(stdscr),
-        lambda: run_bash_script(stdscr, 'export-repo.sh'),
-        lambda: run_bash_script(stdscr, 'backup.sh'),
-        lambda: run_script(stdscr, 'update-versions.py', ['--dry-run']),
-        lambda: run_script(stdscr, 'generate-retrospective.py'),
-        lambda: run_script(stdscr, 'generate-changelog.py', ['--dry-run']),
+        lambda: menu_generators(stdscr),
+        lambda: menu_reports(stdscr),
+        lambda: menu_automation(stdscr),
+        lambda: menu_backup(stdscr),
         None,
     ]
     menu_loop(stdscr, 'tools', items, actions)
@@ -330,60 +406,157 @@ def menu_checkers(stdscr):
     items = [
         t('check_file_naming'),
         t('check_metadata'),
+        t('check_metadata_consistency'),
         t('check_links'),
+        t('validate_external_links'),
         t('find_duplicates'),
         t('find_orphans'),
+        t('check_empty_files'),
         t('check_consistency'),
-        t('stats'),
-        t('generate_glossary'),
-        t('generate_navigation'),
-        t('sync_structure'),
+        t('check_religionisms'),
+        t('check_tahor_sync'),
+        t('check_code_quality'),
+        t('clear_cache'),
         t('back'),
     ]
     actions = [
-        lambda: run_script(stdscr, 'check-naming.py'),
-        lambda: run_script(stdscr, 'validate-metadata.py'),
-        lambda: run_script(stdscr, 'check-links.py'),
-        lambda: run_script(stdscr, 'find-duplicates.py'),
-        lambda: run_script(stdscr, 'find-orphans.py'),
-        lambda: run_script(stdscr, 'consistency-checker.py'),
-        lambda: run_script(stdscr, 'stats-report.py'),
-        lambda: run_script(stdscr, 'generate-glossary.py'),
-        lambda: run_script(stdscr, 'generate-nav.py'),
-        lambda: run_script(stdscr, 'sync-structure.py'),
+        lambda: run_script(stdscr, PATHS["check_naming"], description=t('check_file_naming')),
+        lambda: run_script(stdscr, PATHS["validate_metadata"], description=t('check_metadata')),
+        lambda: run_script(stdscr, PATHS["check_metadata_consistency"], description=t('check_metadata_consistency')),
+        lambda: run_script(stdscr, PATHS["check_links"], description=t('check_links')),
+        lambda: run_script(stdscr, PATHS["validate_external_links"], description=t('validate_external_links')),
+        lambda: run_script(stdscr, PATHS["find_duplicates"], description=t('find_duplicates')),
+        lambda: run_script(stdscr, PATHS["find_orphans"], description=t('find_orphans')),
+        lambda: run_script(stdscr, PATHS["check_empty_files"], description=t('check_empty_files')),
+        lambda: run_script(stdscr, PATHS["consistency"], description=t('check_consistency')),
+        lambda: run_script(stdscr, PATHS["check_religionisms"], description=t('check_religionisms')),
+        lambda: run_script(stdscr, PATHS["check_tahor_sync"], description=t('check_tahor_sync')),
+        lambda: run_script(stdscr, PATHS["check_code_quality"], description=t('check_code_quality')),
+        lambda: run_script(stdscr, PATHS["clear_cache"], description=t('clear_cache')),
         None,
     ]
     menu_loop(stdscr, 'checkers', items, actions)
 
 
+def menu_generators(stdscr):
+    items = [
+        t('generate_glossary'),
+        t('generate_navigation'),
+        t('sync_structure'),
+        t('generate_retrospective'),
+        t('generate_changelog'),
+        t('generate_index'),
+        t('back'),
+    ]
+    actions = [
+        lambda: run_script(stdscr, PATHS["generate_glossary"], description=t('generate_glossary')),
+        lambda: run_script(stdscr, PATHS["generate_nav"], description=t('generate_navigation')),
+        lambda: run_script(stdscr, PATHS["sync_structure"], description=t('sync_structure')),
+        lambda: run_script(stdscr, PATHS["generate_retrospective"], description=t('generate_retrospective')),
+        lambda: run_script(stdscr, PATHS["generate_changelog"], ['--dry-run'], description=t('generate_changelog')),
+        lambda: run_script(stdscr, PATHS["generate_index"], description=t('generate_index')),
+        None,
+    ]
+    menu_loop(stdscr, 'generators', items, actions)
+
+
+def menu_reports(stdscr):
+    items = [
+        t('stats'),
+        t('check_file_sizes'),
+        t('daily_report'),
+        t('check_health'),
+        t('back'),
+    ]
+    actions = [
+        lambda: run_script(stdscr, PATHS["stats_report"], description=t('stats')),
+        lambda: run_script(stdscr, PATHS["check_file_sizes"], description=t('check_file_sizes')),
+        lambda: run_script(stdscr, PATHS["daily_report"], description=t('daily_report')),
+        lambda: run_script(stdscr, PATHS["check_health"], description=t('check_health')),
+        None,
+    ]
+    menu_loop(stdscr, 'reports', items, actions)
+
+
+def menu_automation(stdscr):
+    items = [
+        t('add_metadata'),
+        t('auto_fix'),
+        t('task_manager'),
+        t('idea_manager'),
+        t('update_versions'),
+        t('back'),
+    ]
+    actions = [
+        lambda: run_script(stdscr, PATHS["add_metadata"], description=t('add_metadata')),
+        lambda: run_script(stdscr, PATHS["auto_fix"], description=t('auto_fix')),
+        lambda: run_script(stdscr, PATHS["task_manager"], description=t('task_manager')),
+        lambda: run_script(stdscr, PATHS["idea_manager"], description=t('idea_manager')),
+        lambda: run_script(stdscr, PATHS["update_versions"], ['--dry-run'], description=t('update_versions')),
+        None,
+    ]
+    menu_loop(stdscr, 'automation', items, actions)
+
+
+def menu_backup(stdscr):
+    items = [
+        t('export_repo'),
+        t('backup_repo'),
+        t('back'),
+    ]
+    actions = [
+        lambda: run_bash_script(stdscr, PATHS["export_repo"]),
+        lambda: run_bash_script(stdscr, PATHS["backup_repo"]),
+        None,
+    ]
+    menu_loop(stdscr, 'backup', items, actions)
+
+
+# =============================================================================
+# КОМБО-ДЕЙСТВИЯ
+# =============================================================================
+
 def run_all_checks(stdscr):
     scripts = [
-        'check-naming.py', 'validate-metadata.py', 'check-links.py',
-        'find-duplicates.py', 'find-orphans.py', 'consistency-checker.py',
-        'check-religionisms.py', 'check-code-quality.py',
+        PATHS["check_naming"],
+        PATHS["validate_metadata"],
+        PATHS["check_metadata_consistency"],
+        PATHS["check_links"],
+        PATHS["find_duplicates"],
+        PATHS["find_orphans"],
+        PATHS["check_empty_files"],
+        PATHS["consistency"],
+        PATHS["check_religionisms"],
+        PATHS["check_tahor_sync"],
+        PATHS["check_code_quality"],
     ]
-    for script_name in scripts:
-        run_script(stdscr, script_name)
+    for script in scripts:
+        run_script(stdscr, script, description=script.stem)
 
 
 def run_all_fixes(stdscr):
     scripts = [
-        ('validate-metadata.py', ['--fix']),
-        ('check-religionisms.py', ['--fix']),
-        ('check-code-quality.py', ['--fix']),
-        ('sync-structure.py', []),
-        ('generate-glossary.py', []),
-        ('generate-nav.py', []),
+        (PATHS["validate_metadata"], ['--fix']),
+        (PATHS["check_metadata_consistency"], ['--fix']),
+        (PATHS["check_religionisms"], ['--fix']),
+        (PATHS["check_code_quality"], ['--fix']),
+        (PATHS["sync_structure"], []),
+        (PATHS["generate_glossary"], []),
+        (PATHS["generate_nav"], []),
     ]
-    for script_name, args in scripts:
-        run_script(stdscr, script_name, args)
+    for script, args in scripts:
+        run_script(stdscr, script, args=args, description=script.stem)
 
 
 def run_full_audit(stdscr):
     run_all_checks(stdscr)
     run_all_fixes(stdscr)
-    run_script(stdscr, 'stats-report.py')
+    run_script(stdscr, PATHS["stats_report"], description="stats")
 
+
+# =============================================================================
+# ГЛАВНОЕ МЕНЮ
+# =============================================================================
 
 def main_menu(stdscr):
     items = [t('actions'), t('tools'), t('exit')]
@@ -397,7 +570,7 @@ def main_menu(stdscr):
             draw_menu(stdscr, 'title', items, selected)
             key = stdscr.getch()
 
-            if key in (ord('q'), ord('й'), ord('ע')):
+            if key in (ord('q'), ord('й')):
                 break
             elif key == curses.KEY_UP and selected > 0:
                 selected -= 1
@@ -426,14 +599,13 @@ def main():
     load_config()
     saved_lang = config.get("language", "ru")
 
-    print("\nВыберите язык / Select language / вхар сафа:")
+    print("\nВыберите язык / Select language:")
     print("  1. Русский")
     print("  2. English")
-    print(f"  3. Иврит (по умолчанию: {saved_lang})")
-    print("  Enter — использовать сохранённый")
+    print(f"  Enter — сохранённый ({saved_lang})")
 
     choice = input("> ").strip()
-    lang_map = {"1": "ru", "2": "en", "3": "he"}
+    lang_map = {"1": "ru", "2": "en"}
     current_lang = lang_map.get(choice, saved_lang)
 
     if choice in lang_map:

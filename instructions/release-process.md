@@ -67,8 +67,8 @@
 - [ ] запустить все проверки: `python3 tools/menu.py` → пункт 16
 - [ ] убедиться, что нет критических ошибок
 - [ ] обновить версии во всех файлах: `python3 tools/update-versions.py --type minor`
-- [ ] обновить `CHANGELOG.md`
-- [ ] обновить `ROADMAP.md` (если нужно)
+- [ ] обновить `docs/CHANGELOG.md`
+- [ ] обновить `docs/ROADMAP.md` (если нужно)
 
 ### ВО ВРЕМЯ ВЫПУСКА
 

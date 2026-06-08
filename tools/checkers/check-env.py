@@ -123,32 +123,32 @@ def main():
     print("=" * 50)
     print(f"Репозиторий: {REPO_ROOT}")
     print("")
-    
+
     results = []
-    
+
     print("Python:")
     results.append(check_python())
-    
+
     print("\nGit:")
     results.append(check_git())
-    
+
     print("\nBash:")
     results.append(check_bash())
-    
+
     print("\nCurses:")
     results.append(check_curses())
-    
+
     print("\nДиск:")
     results.append(check_disk_space())
-    
+
     print("\nПрава на запись:")
     results.append(check_write_permissions())
-    
+
     print("\nПакеты Python:")
     results.append(check_dependencies())
-    
+
     print("\n" + "=" * 50)
-    
+
     if all(results):
         print(f"{GREEN}✅ ВСЕ ПРОВЕРКИ ПРОЙДЕНЫ. ОКРУЖЕНИЕ ГОТОВО.{NC}")
         return 0
@@ -159,3 +159,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

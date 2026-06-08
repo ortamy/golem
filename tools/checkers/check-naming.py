@@ -3,7 +3,7 @@ import sys
 import re
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parent.parent))
 from lib.utils import progress_bar, finish_progress, print_header, print_success, print_error, REPO_ROOT
 
 IGNORE_DIRS = {'.git', 'tools', 'drafts', 'ideas', '__pycache__', 'reports', 'neural'}
@@ -66,3 +66,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

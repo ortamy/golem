@@ -30,15 +30,15 @@ def parse_tasks() -> list:
     tasks = []
     if not TECH_DEBT_FILE.exists():
         return tasks
-    
+
     with open(TECH_DEBT_FILE, "r", encoding="utf-8") as f:
         lines = f.readlines()
-    
+
     for line in lines:
         match = re.match(r'^- \[( |x)\] (.+)$', line)
         if match and match.group(1) == " ":
             tasks.append(match.group(2).strip())
-    
+
     return tasks
 
 
@@ -46,7 +46,7 @@ def create_term_file(name: str, title: str, topic: str) -> bool:
     term_file = REPO_ROOT / "terminology" / f"{name}.md"
     if term_file.exists():
         return False
-    
+
     today = datetime.now().strftime("%Y-%m-%d")
     content = f"""# 📜 {title.upper()}
 
@@ -80,7 +80,7 @@ def create_research_file(name: str, title: str) -> bool:
     research_file = REPO_ROOT / "researches" / f"{name}.md"
     if research_file.exists():
         return False
-    
+
     today = datetime.now().strftime("%Y-%m-%d")
     content = f"""# 📖 {title.upper()}
 
@@ -109,7 +109,7 @@ TODO
 def execute_auto_tasks(tasks: list) -> list:
     """Выполняет автоматические задачи"""
     completed = []
-    
+
     terms = [
         ("midbar", "МИДБАР", "пустыня"),
         ("levad", "ЛЕВАД", "один"),
@@ -122,20 +122,20 @@ def execute_auto_tasks(tasks: list) -> list:
         ("shabbat", "ШАББАТ", "покой"),
         ("tohu-va-vohu", "ТОХУ ВА-ВОХУ", "пустота"),
     ]
-    
+
     for name, title, topic in terms:
         if create_term_file(name, title, topic):
             completed.append(f"Создан термин: {name}")
-    
+
     researches = [
         ("galatim-two-systems", "ГАЛАТИМ: ВОЙНА ДВУХ СИСТЕМ"),
         ("substitution-of-the-name", "КРАЖА ИМЕНИ"),
     ]
-    
+
     for name, title in researches:
         if create_research_file(name, title):
             completed.append(f"Создано исследование: {name}")
-    
+
     return completed
 
 
@@ -152,10 +152,10 @@ def mark_tasks_done(tasks: list, completed: list):
     """Отмечает выполненные задачи в TECHNICAL-DEBT.md"""
     if not TECH_DEBT_FILE.exists() or not completed:
         return
-    
+
     with open(TECH_DEBT_FILE, "r", encoding="utf-8") as f:
         lines = f.readlines()
-    
+
     new_lines = []
     for line in lines:
         match = re.match(r'^- \[( |x)\] (.+)$', line)
@@ -166,7 +166,7 @@ def mark_tasks_done(tasks: list, completed: list):
                     line = line.replace("- [ ]", "- [x]")
                     break
         new_lines.append(line)
-    
+
     with open(TECH_DEBT_FILE, "w", encoding="utf-8") as f:
         f.writelines(new_lines)
 
@@ -174,24 +174,25 @@ def mark_tasks_done(tasks: list, completed: list):
 def main():
     log(f"\n{BOLD}{BLUE}🔧 АВТОМАТИЧЕСКОЕ ВЫПОЛНЕНИЕ ЗАДАЧ{NC}")
     log("=" * 50)
-    
+
     tasks = parse_tasks()
     log(f"📋 Найдено задач: {len(tasks)}")
-    
+
     log("\n📝 Выполнение...")
     completed = execute_auto_tasks(tasks)
-    
+
     if update_chat_prompt():
         completed.append("Обновлён chat-prompt.md")
-    
+
     mark_tasks_done(tasks, completed)
-    
+
     log(f"\n{GREEN}✅ Выполнено задач: {len(completed)}{NC}")
     for task in completed:
         log(f"   • {task}", GREEN)
-    
+
     log(f"\n💡 Запустите 'python golem.py' для проверки", CYAN)
 
 
 if __name__ == "__main__":
     main()
+

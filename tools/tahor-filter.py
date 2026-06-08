@@ -24,7 +24,7 @@ BOLD = "\033[1m"
 def load_replacements():
     """Загружает замены из всех файлов tahor/"""
     replacements = {}
-    
+
     tahor_files = [
         "religionisms.md",
         "grecisms.md",
@@ -33,23 +33,23 @@ def load_replacements():
         "names.md",
         "phrases.md"
     ]
-    
+
     for filename in tahor_files:
         filepath = TAHOR_DIR / filename
         if not filepath.exists():
             continue
-        
+
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
-        
+
         pattern = r'- \*\*([^*]+)\*\*.*?→ ([^—\n]+)'
         matches = re.findall(pattern, content)
-        
+
         for religious_term, replacement in matches:
             religious_term = religious_term.strip()
             replacement = replacement.strip()
             replacements[religious_term] = replacement
-    
+
     return replacements
 
 
@@ -79,28 +79,28 @@ def replace_in_file(file_path: Path, replacements: dict, dry_run: bool = False) 
     """Заменяет религионимы в файле"""
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
-    
+
     original_content = content
     changes = []
-    
+
     for religious_term, replacement in replacements.items():
         if religious_term in content:
             count = content.count(religious_term)
             content = content.replace(religious_term, replacement)
             changes.append((religious_term, replacement, count))
-    
+
     if content != original_content:
         if not dry_run:
             backup_file(file_path)
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(content)
-        
+
         return {
             "file": str(file_path.relative_to(REPO_ROOT)),
             "changes": changes,
             "modified": True
         }
-    
+
     return {
         "file": str(file_path.relative_to(REPO_ROOT)),
         "changes": [],
@@ -124,43 +124,43 @@ def main():
     parser.add_argument('--file', '-f', type=str, help='Обработать только указанный файл')
     parser.add_argument('--verbose', '-v', action='store_true', help='Подробный вывод')
     args = parser.parse_args()
-    
+
     print(f"\n{BOLD}{BLUE}🛡️ TAHOR-FILTER — АВТОМАТИЧЕСКАЯ ЗАМЕНА РЕЛИГИОНИЗМОВ{NC}")
     print("=" * 70)
     print(f"Режим: {'ПРОБНЫЙ (без записи)' if args.dry_run else 'РЕАЛЬНЫЙ'}")
     print("")
-    
+
     print("📚 Загрузка замен из tahor/...")
     replacements = load_replacements()
     print(f"   Загружено замен: {len(replacements)}")
     print("")
-    
+
     if args.file:
         files = [REPO_ROOT / args.file]
     else:
         files = get_all_md_files()
-    
+
     print(f"📁 Найдено файлов: {len(files)}")
     print("")
-    
+
     results = []
     total = len(files)
-    
+
     for i, file_path in enumerate(files, 1):
         result = replace_in_file(file_path, replacements, args.dry_run)
         results.append(result)
         show_progress(i, total, file_path.name, len(result['changes']))
-    
+
     print("\n\n" + "=" * 70)
-    
+
     modified = [r for r in results if r['modified']]
-    
+
     if modified:
         print(f"\n{GREEN}✅ ОБРАБОТАНО: {len(modified)} файлов с изменениями{NC}")
-        
+
         total_changes = sum(len(r['changes']) for r in modified)
         print(f"   Всего замен: {total_changes}")
-        
+
         if args.verbose:
             print("\n📝 ДЕТАЛИЗАЦИЯ:")
             for result in modified[:20]:
@@ -173,16 +173,17 @@ def main():
                 print(f"\n   ... и ещё {len(modified) - 20} файлов")
     else:
         print(f"\n{YELLOW}⚠️ Файлов с изменениями не найдено{NC}")
-    
+
     if args.dry_run and modified:
         print(f"\n{YELLOW}💡 Пробный запуск завершён. Уберите --dry-run для реального применения.{NC}")
-    
+
     if not args.dry_run and modified:
         print(f"\n{GREEN}📦 Бэкапы сохранены в: {BACKUP_DIR}{NC}")
         print(f"💡 Для восстановления: cp -r {BACKUP_DIR}/* {REPO_ROOT}/")
-    
+
     print("")
 
 
 if __name__ == "__main__":
     main()
+

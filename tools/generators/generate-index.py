@@ -38,10 +38,10 @@ def generate_index_for_folder(folder: str, display_name: str) -> str:
     folder_path = REPO_ROOT / folder
     if not folder_path.exists():
         return f"# {display_name}\n\nПапка не существует.\n"
-    
+
     md_files = list(folder_path.glob('*.md'))
     md_files = [f for f in md_files if f.name not in ['README.md', 'STRUCTURE.md']]
-    
+
     lines = [
         f"# {display_name}",
         "",
@@ -52,36 +52,36 @@ def generate_index_for_folder(folder: str, display_name: str) -> str:
         "## Список файлов",
         ""
     ]
-    
+
     for i, md_file in enumerate(md_files, 1):
         emoji, title = extract_emoji_and_title(md_file)
         emoji_str = f"{emoji} " if emoji else ""
         lines.append(f"{i}. {emoji_str}[{title if title else md_file.stem}]({md_file.name})")
-    
+
     lines.extend([
         "",
         "---",
         f"*Автоматически сгенерировано: `python tools/generate-index.py`*"
     ])
-    
+
     return '\n'.join(lines)
 
 
 def main():
     print("\n📚 ГЕНЕРАЦИЯ ИНДЕКСОВ ДЛЯ ПАПОК")
     print("=" * 50)
-    
+
     for i, (folder, display_name) in enumerate(TARGET_DIRS.items(), 1):
         show_progress(i, len(TARGET_DIRS), folder)
-        
+
         content = generate_index_for_folder(folder, display_name)
         index_file = REPO_ROOT / folder / "README.md"
-        
+
         with open(index_file, 'w', encoding='utf-8') as f:
             f.write(content)
-        
+
         print(f"\n   ✅ {folder}/README.md")
-    
+
     finish_progress()
     print("\n" + "=" * 50)
     print(f"{'✅' if '✅' in str(locals()) else ''} Все индексы сгенерированы")
@@ -90,3 +90,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

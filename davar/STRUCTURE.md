@@ -12,7 +12,7 @@
 ## КОРЕНЬ DAVAR/
 
 - `README.md` — документация языка Давар, обзор концепций
-- `STRUCTURE.md` — этот файл, структура папки davar/
+- `docs/STRUCTURE.md` — этот файл, структура папки davar/
 - `davar-architecture.md` — архитектура языка, принципы, синтаксис
 
 ---
@@ -49,7 +49,7 @@
 ## СТАТУС ФАЙЛОВ
 
 - `README.md` — ✅ готов
-- `STRUCTURE.md` — ✅ готов
+- `docs/STRUCTURE.md` — ✅ готов
 - `davar-architecture.md` — ✅ готов
 - `spec/grammar.md` — ✅ есть (из репозитория)
 - `spec/types.md` — ✅ есть

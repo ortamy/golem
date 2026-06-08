@@ -141,10 +141,10 @@ python golem.py
 
 ## 📁 ФАЙЛЫ, КОТОРЫЕ СОЗДАЮТСЯ СКРИПТАМИ
 
-- `STATS.md` — статистика репозитория (stats-report.py)
-- `GLOSSARY.md` — глоссарий терминов (generate-glossary.py)
+- `docs/STATS.md` — статистика репозитория (stats-report.py)
+- `docs/GLOSSARY.md` — глоссарий терминов (generate-glossary.py)
 - `export.txt` — экспорт всех md-файлов (export-repo.sh)
-- `COMPLETED-TASKS.md` — архив выполненных задач (task-manager.py)
+- `docs/COMPLETED-TASKS.md` — архив выполненных задач (task-manager.py)
 - `reports/` — архивные отчёты (stats-report.py)
 
 ---

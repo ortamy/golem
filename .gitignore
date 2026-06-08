@@ -41,3 +41,6 @@ structure.txt
 # OS
 .DS_Store
 Thumbs.db
+
+# Бэкап документации
+docs_backup/

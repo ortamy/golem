@@ -69,10 +69,10 @@ def check_transliteration():
         "רוּחַ": "руах",
         "נֶפֶשׁ": "нэфеш",
     }
-    
+
     term_files = list(TERMINOLOGY_DIR.glob("*.md"))
     total = len(term_files)
-    
+
     for i, term_file in enumerate(term_files, 1):
         with open(term_file, "r", encoding="utf-8") as f:
             content = f.read()
@@ -80,55 +80,55 @@ def check_transliteration():
             if hebrew in content and expected.lower() not in content.lower():
                 issues.append((term_file.name, hebrew, expected))
         show_progress(i, total, "транслитерация", len(issues))
-    
+
     return issues
 
 
 def check_file_naming(files):
     issues = []
     allowed_name = re.compile(r'^[a-z][a-z0-9\-]*\.md$')
-    exceptions = {"README.md", "CHANGELOG.md", "BACKLOG.md", "CONTRIBUTORS.md", 
+    exceptions = {"README.md", "CHANGELOG.md", "BACKLOG.md", "CONTRIBUTORS.md",
                   "DECISIONS.md", "GLOSSARY.md", "RETROSPECTIVE.md", "ROADMAP.md",
                   "STRUCTURE.md", "TECHNICAL-DEBT.md", "STATS.md", "COMPLETED-TASKS.md"}
-    
+
     total = len(files)
     for i, (rel_path, full_path) in enumerate(files.items(), 1):
         name = full_path.name
         if name not in exceptions and not allowed_name.match(name):
             issues.append((rel_path, name))
         show_progress(i, total, "именование", len(issues))
-    
+
     return issues
 
 
 def main():
     print("\n✅ ПРОВЕРКА СОГЛАСОВАННОСТИ")
     print("=" * 50)
-    
+
     files = find_all_md_files()
     print(f"Найдено файлов: {len(files)}")
     print("")
-    
+
     print("1. Проверка битых ссылок...")
     broken = check_broken_links(files)
     finish_progress()
-    
+
     print("\n2. Проверка файлов-сирот...")
     orphans = check_orphan_files(files)
     finish_progress()
-    
+
     print("\n3. Проверка транслитерации...")
     translit = check_transliteration()
     finish_progress()
-    
+
     print("\n4. Проверка именования...")
     naming = check_file_naming(files)
     finish_progress()
-    
+
     print("\n\n" + "=" * 50)
-    
+
     total_issues = len(broken) + len(orphans) + len(translit) + len(naming)
-    
+
     if total_issues == 0:
         print("\n✅ ВСЕ ПРОВЕРКИ ПРОЙДЕНЫ. ПРОЕКТ В ПОРЯДКЕ.")
         return 0
@@ -147,3 +147,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

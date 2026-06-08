@@ -35,7 +35,7 @@ def run_checker(script_name):
     script_path = TOOLS_DIR / script_name
     if not script_path.exists():
         return "skip", f"скрипт не найден"
-    
+
     try:
         result = subprocess.run(
             [sys.executable, str(script_path)],
@@ -60,7 +60,7 @@ def run_checker(script_name):
 def main():
     print(f"\n{BOLD}{BLUE}🏥 ПРОВЕРКА ЗДОРОВЬЯ ПРОЕКТА{NC}")
     print("=" * 50)
-    
+
     checkers = [
         ('check-naming.py', 'Проверка имён'),
         ('validate-metadata.py', 'Проверка метаданных'),
@@ -69,19 +69,19 @@ def main():
         ('find-orphans.py', 'Поиск сирот'),
         ('consistency-checker.py', 'Проверка согласованности'),
     ]
-    
+
     results = {}
-    
+
     print("Запуск проверок...\n")
     for i, (checker, name) in enumerate(checkers, 1):
         show_progress(i, len(checkers), name)
         status, error = run_checker(checker)
         results[checker] = (status, error, name)
-    
+
     finish_progress()
     print("\n\n" + "=" * 50)
     print("\n📊 РЕЗУЛЬТАТЫ ПРОВЕРОК:\n")
-    
+
     all_ok = True
     for checker, (status, error, name) in results.items():
         if status == "ok":
@@ -92,9 +92,9 @@ def main():
         else:
             print(f"   {RED}❌{NC} {name} - {error}")
             all_ok = False
-    
+
     print("\n" + "=" * 50)
-    
+
     if all_ok:
         print(f"\n{GREEN}✅ ВСЕ ПРОВЕРКИ ПРОЙДЕНЫ. ПРОЕКТ ЗДОРОВ.{NC}")
         return 0
@@ -105,3 +105,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

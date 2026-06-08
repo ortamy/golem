@@ -72,12 +72,12 @@ def get_commits_categorized(days=7):
             text=True
         )
         commits = [line.strip() for line in result.stdout.strip().split('\n') if line]
-        
+
         categorized = defaultdict(list)
         for commit in commits[:50]:
             category = categorize_commit(commit)
             categorized[category].append(commit)
-        
+
         return categorized
     except:
         return {}
@@ -115,7 +115,7 @@ def get_active_risks():
     stats = get_stats()
     if stats.get('metadata_percent', '100') != '100':
         risks.append(f"⚠️ Метаданные: {stats.get('metadata_percent', '0')}% (цель: 100%)")
-    
+
     # Проверяем битые ссылки
     try:
         result = subprocess.run(
@@ -129,11 +129,11 @@ def get_active_risks():
             risks.append("🔗 Обнаружены битые ссылки")
     except:
         pass
-    
+
     # Проверяем нейросеть
     if not (REPO_ROOT / 'neural' / 'models' / 'ed-v1.gguf').exists():
         risks.append("🧠 Модель нейросети не обучена")
-    
+
     return risks
 
 
@@ -142,10 +142,10 @@ def get_next_steps():
     steps = []
     if not TECH_DEBT_FILE.exists():
         return steps
-    
+
     with open(TECH_DEBT_FILE, 'r', encoding='utf-8') as f:
         content = f.read()
-    
+
     # Ищем невыполненные задачи
     matches = re.findall(r'^- \[ \] (.+)$', content, re.MULTILINE)
     return matches[:10]
@@ -155,11 +155,11 @@ def get_progress_chart():
     """Генерирует ASCII-график прогресса"""
     stats = get_stats()
     metadata_percent = int(stats.get('metadata_percent', 100))
-    
+
     bar_len = 20
     filled = int(bar_len * metadata_percent / 100)
     bar = '█' * filled + '░' * (bar_len - filled)
-    
+
     return f"[{bar}] {metadata_percent}%"
 
 
@@ -167,15 +167,15 @@ def get_previous_version_stats():
     """Сравнивает с предыдущей версией ретроспективы"""
     if not RETROSPECTIVE_FILE.exists():
         return None
-    
+
     with open(RETROSPECTIVE_FILE, 'r', encoding='utf-8') as f:
         content = f.read()
-    
+
     match = re.search(r'- \*\*Всего md-файлов:\*\* (\d+)', content)
     old_files = match.group(1) if match else None
-    
+
     current_stats = get_stats()
-    
+
     if old_files and current_stats.get('total_files'):
         diff = int(current_stats['total_files']) - int(old_files)
         return {
@@ -190,20 +190,20 @@ def archive_old_retrospective():
     """Архивирует старую ретроспективу"""
     if not RETROSPECTIVE_FILE.exists():
         return
-    
+
     week_num = datetime.now().strftime("%Y-W%W")
     archive_file = REPORTS_DIR / f"retro-{week_num}.md"
-    
+
     # Проверяем, не архивировали ли уже на этой неделе
     if archive_file.exists():
         return
-    
+
     with open(RETROSPECTIVE_FILE, 'r', encoding='utf-8') as f:
         content = f.read()
-    
+
     with open(archive_file, 'w', encoding='utf-8') as f:
         f.write(content)
-    
+
     print(f"   📦 Архивировано: {archive_file.name}")
 
 
@@ -216,7 +216,7 @@ def generate_retrospective(version):
     next_steps = get_next_steps()
     progress_chart = get_progress_chart()
     comparison = get_previous_version_stats()
-    
+
     # Секция коммитов по категориям
     commits_section = ""
     if commits_categorized:
@@ -229,7 +229,7 @@ def generate_retrospective(version):
                 if len(commits) > 5:
                     commits_section += f"  - ... и ещё {len(commits) - 5}\n"
                 commits_section += "\n"
-    
+
     # Секция сравнения с прошлой неделей
     comparison_section = ""
     if comparison:
@@ -238,7 +238,7 @@ def generate_retrospective(version):
 
 - **Файлов:** {comparison['old_files']} → {comparison['new_files']} ({comparison['files_diff']})
 """
-    
+
     # Секция прогресса
     progress_section = f"""
 ## 📊 ПРОГРЕСС
@@ -251,7 +251,7 @@ def generate_retrospective(version):
 - **Технический долг:** закрыт
 
 """
-    
+
     # Секция рисков
     risks_section = ""
     if active_risks:
@@ -259,7 +259,7 @@ def generate_retrospective(version):
         for risk in active_risks:
             risks_section += f"- {risk}\n"
         risks_section += "\n"
-    
+
     # Секция следующих шагов
     steps_section = ""
     if next_steps:
@@ -267,7 +267,7 @@ def generate_retrospective(version):
         for i, step in enumerate(next_steps[:8], 1):
             steps_section += f"{i}. {step}\n"
         steps_section += "\n"
-    
+
     # Секция выполненных задач
     tasks_section = ""
     if completed_tasks:
@@ -277,7 +277,7 @@ def generate_retrospective(version):
         if len(completed_tasks) > 10:
             tasks_section += f"- ... и ещё {len(completed_tasks) - 10} задач\n"
         tasks_section += "\n"
-    
+
     content = f"""# РЕТРОСПЕКТИВА
 
 **Метаданные файла**
@@ -319,29 +319,29 @@ def generate_retrospective(version):
 
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Путь Яхве
 """
-    
+
     return content
 
 
 def main():
     print(f"\n{BLUE}📝 ГЕНЕРАЦИЯ РЕТРОСПЕКТИВЫ{NC}")
     print("=" * 50)
-    
+
     # Архивируем старую версию
     archive_old_retrospective()
-    
+
     # Получаем текущую версию и увеличиваем
     current_version = get_current_version()
     new_version = bump_version(current_version)
-    
+
     print(f"   Версия: {current_version} → {new_version}")
-    
+
     print("   Сбор данных из git лога...")
     new_content = generate_retrospective(new_version)
-    
+
     with open(RETROSPECTIVE_FILE, 'w', encoding='utf-8') as f:
         f.write(new_content)
-    
+
     print(f"\n{GREEN}✅ Ретроспектива обновлена:{NC} {RETROSPECTIVE_FILE}")
     print(f"   Новая версия: {new_version}")
     print(f"   Дата: {datetime.now().strftime('%Y-%m-%d')}")
@@ -350,3 +350,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

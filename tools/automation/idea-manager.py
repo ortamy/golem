@@ -29,10 +29,10 @@ def parse_ideas_from_file(file_path: Path) -> list:
     ideas = []
     if not file_path.exists():
         return ideas
-    
+
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
-    
+
     lines = content.split("\n")
     for line in lines:
         match = re.match(r'^- \[( |x)\] (.+)$', line)
@@ -58,14 +58,14 @@ def sync_ideas_with_tasks():
     """Автоматически синхронизирует идеи с TECHNICAL-DEBT.md"""
     ideas = parse_all_ideas()
     active_ideas = [i for i in ideas if not i["done"]]
-    
+
     if not TECH_DEBT_FILE.exists():
         log(f"❌ {TECH_DEBT_FILE} не найден", RED)
         return 0
-    
+
     with open(TECH_DEBT_FILE, "r", encoding="utf-8") as f:
         content = f.read()
-    
+
     added = 0
     for idea in active_ideas:
         task_line = f"- [ ] {idea['description']} (из идей: {idea['source']})"
@@ -73,7 +73,7 @@ def sync_ideas_with_tasks():
             with open(TECH_DEBT_FILE, "a", encoding="utf-8") as f:
                 f.write(f"{task_line}\n")
             added += 1
-    
+
     return added
 
 
@@ -82,7 +82,7 @@ def show_ideas_with_numbers(ideas: list):
     if not active:
         print(f"\n{GREEN}✅ Нет активных идей{NC}")
         return []
-    
+
     print(f"\n{BOLD}{CYAN}💡 АКТИВНЫЕ ИДЕИ{NC}")
     print("=" * 70)
     for i, idea in enumerate(active, 1):
@@ -96,28 +96,28 @@ def mark_idea_done(ideas: list, idx: int):
     if idx < 0 or idx >= len(active):
         log("❌ Неверный номер", RED)
         return
-    
+
     idea = active[idx]
     source_file = IDEAS_DIR / idea["source"]
-    
+
     if source_file.exists():
         with open(source_file, "r", encoding="utf-8") as f:
             lines = f.readlines()
-        
+
         new_lines = []
         for line in lines:
             if idea["description"] in line and "- [ ]" in line:
                 line = line.replace("- [ ]", "- [x]")
             new_lines.append(line)
-        
+
         with open(source_file, "w", encoding="utf-8") as f:
             f.writelines(new_lines)
-    
+
     today = datetime.now().strftime("%Y-%m-%d")
     if CHANGELOG_FILE.exists():
         with open(CHANGELOG_FILE, "a", encoding="utf-8") as f:
             f.write(f"- {idea['description']}\n")
-    
+
     log(f"✅ Отмечено: {idea['description'][:60]}", GREEN)
 
 
@@ -129,9 +129,9 @@ def main():
         print(f"  {BOLD}2{NC}   Отметить идею выполненной")
         print(f"  {BOLD}3{NC}   Синхронизировать с задачами")
         print(f"  {BOLD}0{NC}   Выход")
-        
+
         choice = input(f"\n{BOLD}👉 Выберите: {NC}").strip()
-        
+
         if choice == "0":
             break
         elif choice == "1":
@@ -149,9 +149,10 @@ def main():
             log(f"✅ Добавлено {added} идей в TECHNICAL-DEBT.md", GREEN)
         else:
             log("❌ Неверный выбор", RED)
-        
+
         input("\nНажмите Enter...")
 
 
 if __name__ == "__main__":
     main()
+

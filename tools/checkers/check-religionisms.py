@@ -1,12 +1,13 @@
-# tools/check-religionisms.py — поиск и исправление религионимов
+# tools/checkers/check-religionisms.py — поиск и исправление религионимов
 import sys
 import re
 import json
 import os
 from pathlib import Path
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parent.parent))
 from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, print_error, print_warning, print_hint, REPO_ROOT
 
 TAHOR_DIR = REPO_ROOT / "instructions" / "tahor"
@@ -14,8 +15,10 @@ FORBIDDEN_FILE = REPO_ROOT / "instructions" / "forbidden-words.md"
 CACHE_DIR = REPO_ROOT / "tools" / "cache"
 CACHE_FILE = CACHE_DIR / "religionisms-cache.json"
 SCAN_CACHE_FILE = CACHE_DIR / "scan-cache.json"
+DIRTY_CACHE_FILE = CACHE_DIR / "dirty-files.json"
 
 SCAN_DIRS = ["terminology", "researches"]
+WORKERS = min(8, os.cpu_count() or 4)
 
 CASES = {
     "male": {"gen": "а", "dat": "у", "acc": "а", "ins": "ом", "prep": "е",
@@ -38,7 +41,8 @@ def parse_religionisms_md(filepath):
     content = read_file_safe(filepath)
     for forbidden, correct in re.findall(r'`([^`]+)`\s*→\s*\S+\s*\(([^)]+)\)', content):
         forbidden, correct = forbidden.strip(), correct.strip().split(",")[0].strip()
-        if forbidden and correct:
+        # Берём только русские слова как запрещённые
+        if forbidden and correct and re.search(r'[а-яё]', forbidden, re.IGNORECASE):
             pairs[forbidden] = correct
     return pairs
 
@@ -72,8 +76,8 @@ def build_replacement_map():
     if CACHE_FILE.exists():
         try:
             cache = json.loads(read_file_safe(CACHE_FILE))
-            if cache.get("_version") == "2.2":
-                return cache["replacements"], cache["fast_filter"]
+            if cache.get("_version") == "2.4":
+                return cache["replacements"], cache["fast_filter"], re.compile(cache["mega_regex"])
         except Exception:
             pass
 
@@ -90,12 +94,25 @@ def build_replacement_map():
         else:
             replacements.update(generate_declensions(word, correct))
 
-    fast_filter = sorted({w[:4].lower() for w in replacements if len(w) >= 4})
-    cache_data = {"_version": "2.2", "replacements": replacements, "fast_filter": fast_filter}
+    # Оставляем только русские слова для поиска
+    ru_replacements = {w: c for w, c in replacements.items() if re.search(r'[а-яё]', w, re.IGNORECASE)}
+
+    fast_filter = sorted({w[:4].lower() for w in ru_replacements if len(w) >= 4})
+
+    # Мега-regex только из русских слов
+    sorted_words = sorted(ru_replacements.keys(), key=len, reverse=True)
+    mega_regex = re.compile(r'\b(' + '|'.join(re.escape(w) for w in sorted_words) + r')\b', re.IGNORECASE)
+
+    cache_data = {
+        "_version": "2.4",
+        "replacements": ru_replacements,
+        "fast_filter": fast_filter,
+        "mega_regex": mega_regex.pattern
+    }
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump(cache_data, f, ensure_ascii=False, indent=2)
 
-    return replacements, fast_filter
+    return ru_replacements, fast_filter, mega_regex
 
 
 def load_scan_cache():
@@ -113,43 +130,93 @@ def save_scan_cache(cache):
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
 
-def find_religionisms(text, replacements):
+def load_dirty_cache():
+    if DIRTY_CACHE_FILE.exists():
+        try:
+            return set(json.loads(read_file_safe(DIRTY_CACHE_FILE)))
+        except Exception:
+            pass
+    return set()
+
+
+def save_dirty_cache(dirty_set):
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    with open(DIRTY_CACHE_FILE, "w", encoding="utf-8") as f:
+        json.dump(sorted(dirty_set), f, ensure_ascii=False, indent=2)
+
+
+def find_religionisms_fast(text, mega_regex, replacements):
+    """Один regex-проход. Ищет только русские слова."""
     found = Counter()
     clean = re.sub(r'«[^»]*»|"[^"]*"|\'[^\']*\'', ' ', text)
-    for word in replacements:
-        matches = re.findall(rf'\b{re.escape(word)}\b', clean)
-        if matches:
-            found[word] += len(matches)
+    for match in mega_regex.finditer(clean):
+        word = match.group()
+        # Дополнительная проверка: слово должно быть в словаре (регистронезависимо)
+        if word.lower() in (w.lower() for w in replacements):
+            found[word] += 1
     return dict(found)
 
 
-def fix_religionisms(text, replacements):
+def fix_religionisms(text, replacements, mega_regex):
+    """Замена через один regex-проход."""
     count = 0
     quoted_map = {f"__Q{i}__": m.group() for i, m in enumerate(re.finditer(r'«[^»]*»|"[^"]*"|\'[^\']*\'', text))}
     for placeholder, original in quoted_map.items():
         text = text.replace(original, placeholder, 1)
 
-    for word in sorted(replacements, key=len, reverse=True):
-        correct = replacements[word]
-        def make_replacer(cw):
-            def replacer(match):
-                nonlocal count
-                count += 1
-                orig = match.group()
-                return cw[0].upper() + cw[1:] if orig[0].isupper() else cw
-            return replacer
-        text = re.sub(rf'\b{re.escape(word)}\b', make_replacer(correct), text)
+    def replacer(match):
+        nonlocal count
+        count += 1
+        word = match.group()
+        # Ищем в словаре регистронезависимо
+        word_lower = word.lower()
+        for w, correct in replacements.items():
+            if w.lower() == word_lower:
+                return correct[0].upper() + correct[1:] if word[0].isupper() else correct
+        return word
+
+    text = mega_regex.sub(replacer, text)
 
     for placeholder, original in quoted_map.items():
         text = text.replace(placeholder, original, 1)
     return text, count
 
 
-def scan_files(replacements, fast_filter, check_only=True):
+def check_one_file(md_file, replacements, fast_filter, mega_regex, scan_cache, check_only):
+    """Проверка одного файла (для многопоточности)."""
+    rel_path = str(md_file.relative_to(REPO_ROOT))
+    mtime = md_file.stat().st_mtime
+
+    if check_only and rel_path in scan_cache and scan_cache[rel_path].get("mtime") == mtime and scan_cache[rel_path].get("clean"):
+        return None, None, True
+
+    content = read_file_safe(md_file)
+    if content is None:
+        return None, None, True
+
+    if not any(prefix in content.lower() for prefix in fast_filter):
+        return rel_path, {"mtime": mtime, "clean": True}, True
+
+    found = find_religionisms_fast(content, mega_regex, replacements)
+    if found:
+        result = {"mtime": mtime, "clean": False}
+        if not check_only:
+            fixed, reps = fix_religionisms(content, replacements, mega_regex)
+            if reps > 0:
+                with open(md_file, "w", encoding="utf-8") as f:
+                    f.write(fixed)
+                result = {"mtime": os.path.getmtime(md_file), "clean": False}
+        return rel_path, result, found
+    else:
+        return rel_path, {"mtime": mtime, "clean": True}, True
+
+
+def scan_files(replacements, fast_filter, mega_regex, check_only=True):
     total_found = Counter()
     files_with_issues = []
     total_replacements = 0
     scan_cache = load_scan_cache()
+    dirty_set = load_dirty_cache()
 
     all_files = []
     for scan_dir in SCAN_DIRS:
@@ -157,51 +224,67 @@ def scan_files(replacements, fast_filter, check_only=True):
         if dir_path.exists():
             all_files.extend(sorted(dir_path.rglob("*.md")))
 
-    total = len(all_files)
+    if dirty_set and check_only:
+        dirty_files = []
+        clean_files = []
+        for f in all_files:
+            rel = str(f.relative_to(REPO_ROOT))
+            if rel in dirty_set:
+                dirty_files.append(f)
+            else:
+                mtime = f.stat().st_mtime
+                if rel in scan_cache and scan_cache[rel].get("mtime") == mtime and scan_cache[rel].get("clean"):
+                    clean_files.append(f)
+                else:
+                    dirty_files.append(f)
+        skipped = len(clean_files)
+        all_files = dirty_files
+    else:
+        skipped = 0
+
+    total = len(all_files) + skipped
     if total == 0:
         return {}, [], 0
 
-    skipped = 0
-    for i, md_file in enumerate(all_files, 1):
-        rel_path = str(md_file.relative_to(REPO_ROOT))
-        mtime = md_file.stat().st_mtime
+    completed = skipped
+    new_dirty = set()
 
-        if check_only and rel_path in scan_cache and scan_cache[rel_path].get("mtime") == mtime and scan_cache[rel_path].get("clean"):
-            skipped += 1
-            progress_bar(i, total, extra=f"пропущено: {skipped} | найдено: {len(files_with_issues)}")
-            continue
-
-        content = read_file_safe(md_file)
-        if content is None:
-            continue
-
-        if not any(prefix in content.lower() for prefix in fast_filter):
-            scan_cache[rel_path] = {"mtime": mtime, "clean": True}
-            skipped += 1
-            progress_bar(i, total, extra=f"пропущено: {skipped} | найдено: {len(files_with_issues)}")
-            continue
-
-        found = find_religionisms(content, replacements)
-        if found:
-            files_with_issues.append((rel_path, found))
-            for word, cnt in found.items():
-                total_found[word] += cnt
-            scan_cache[rel_path] = {"mtime": mtime, "clean": False}
-
-            if not check_only:
-                fixed, reps = fix_religionisms(content, replacements)
-                if reps > 0:
-                    with open(md_file, "w", encoding="utf-8") as f:
-                        f.write(fixed)
-                    total_replacements += reps
-                    scan_cache[rel_path] = {"mtime": os.path.getmtime(md_file), "clean": False}
-        else:
-            scan_cache[rel_path] = {"mtime": mtime, "clean": True}
-
-        progress_bar(i, total, extra=f"пропущено: {skipped} | найдено: {len(files_with_issues)}")
+    if not check_only:
+        for i, md_file in enumerate(all_files, 1):
+            rel_path, result, found = check_one_file(md_file, replacements, fast_filter, mega_regex, scan_cache, check_only)
+            if result:
+                scan_cache[rel_path] = result
+            if found and found is not True:
+                files_with_issues.append((rel_path, found))
+                for word, cnt in found.items():
+                    total_found[word] += cnt
+                new_dirty.add(rel_path)
+                if not check_only:
+                    total_replacements += 1
+            elif found is True:
+                new_dirty.discard(rel_path)
+            completed += 1
+            progress_bar(completed, total, extra=f"найдено: {len(files_with_issues)}")
+    else:
+        with ThreadPoolExecutor(max_workers=WORKERS) as executor:
+            futures = {executor.submit(check_one_file, f, replacements, fast_filter, mega_regex, scan_cache, check_only): f for f in all_files}
+            for future in as_completed(futures):
+                rel_path, result, found = future.result()
+                if result:
+                    scan_cache[rel_path] = result
+                if found and found is not True:
+                    files_with_issues.append((rel_path, found))
+                    for word, cnt in found.items():
+                        total_found[word] += cnt
+                    new_dirty.add(rel_path)
+                elif found is True:
+                    new_dirty.discard(rel_path)
+                completed += 1
+                progress_bar(completed, total, extra=f"потоков: {WORKERS} | найдено: {len(files_with_issues)}")
 
     finish_progress()
     save_scan_cache(scan_cache)
+    save_dirty_cache(new_dirty)
     return dict(total_found), files_with_issues, total_replacements
 
 
@@ -210,20 +293,20 @@ def main():
     rebuild_cache = "--rebuild" in sys.argv
 
     if rebuild_cache:
-        for f in (CACHE_FILE, SCAN_CACHE_FILE):
+        for f in (CACHE_FILE, SCAN_CACHE_FILE, DIRTY_CACHE_FILE):
             if f.exists():
                 f.unlink()
         print("🗑️ Кэш удалён.")
 
     print_header("ЗАГРУЗКА СЛОВАРЯ ЗАМЕН", "📖")
-    replacements, fast_filter = build_replacement_map()
-    print(f"✅ Загружено слов: {len(replacements)}")
+    replacements, fast_filter, mega_regex = build_replacement_map()
+    print(f"✅ Загружено русских слов: {len(replacements)}")
     print(f"⚡ Быстрый фильтр: {len(fast_filter)} префиксов")
 
     print_header("ПРОВЕРКА НА РЕЛИГИОНИЗМЫ" if check_only else "ИСПРАВЛЕНИЕ РЕЛИГИОНИЗМОВ",
                  "🔍" if check_only else "🔧")
 
-    total_found, files_with_issues, total_replacements = scan_files(replacements, fast_filter, check_only)
+    total_found, files_with_issues, total_replacements = scan_files(replacements, fast_filter, mega_regex, check_only)
 
     if not files_with_issues:
         print_success("Религионизмов не найдено")
@@ -246,8 +329,8 @@ def main():
         print(f"  ... и ещё {len(files_with_issues) - 15} файлов")
 
     if check_only:
-        print_hint("Для исправления: python tools/check-religionisms.py --fix")
-        print_hint("Перестроить кэш:  python tools/check-religionisms.py --rebuild")
+        print_hint("Для исправления: python tools/checkers/check-religionisms.py --fix")
+        print_hint("Перестроить кэш:  python tools/checkers/check-religionisms.py --rebuild")
     else:
         print_success(f"Исправлено: {total_replacements} замен в {len(files_with_issues)} файлах")
 

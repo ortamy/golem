@@ -4,7 +4,7 @@ import ast
 from pathlib import Path
 from collections import Counter
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parent.parent))
 from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, print_error, print_warning, print_hint, ask_yes_no, REPO_ROOT
 
 SCAN_DIRS = ["tools"]
@@ -180,3 +180,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 from difflib import SequenceMatcher
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parent.parent))
 from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, print_error, REPO_ROOT
 
 TARGET_DIRS = ['terminology', 'researches']
@@ -61,3 +61,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

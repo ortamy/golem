@@ -51,17 +51,17 @@ def print_menu():
 def run_script(script_name, *args):
     """Запускает python или bash скрипт"""
     script_path = TOOLS_DIR / script_name
-    
+
     if not script_path.exists():
         print(f"❌ Скрипт не найден: {script_name}")
         return
-    
+
     cmd = []
     if script_name.endswith('.py'):
         cmd = [sys.executable, str(script_path)] + list(args)
     elif script_name.endswith('.sh'):
         cmd = ['bash', str(script_path)] + list(args)
-    
+
     print(f"\n▶️  Запуск: {script_name}\n")
     subprocess.run(cmd)
     print("\n✅ Завершено. Нажмите Enter для продолжения...")
@@ -82,7 +82,7 @@ def run_updates():
     if confirm.lower() != 'y':
         print("Отменено")
         return
-    
+
     run_script('add-metadata.py')
     run_script('update-versions.py', '--type', 'minor')
     run_script('sync-structure.py')
@@ -101,9 +101,9 @@ def main():
         clear_screen()
         print_header()
         print_menu()
-        
+
         choice = input("👉 Выберите действие: ").strip()
-        
+
         if choice == '0':
             print("До свидания!")
             break
