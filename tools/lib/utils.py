@@ -68,3 +68,4 @@ def ask_yes_no(question):
     """Задаёт вопрос y/n."""
     answer = input(f"{question} (y/n): ").strip().lower()
     return answer in ('y', 'yes', 'д', 'да')
+

@@ -1,20 +1,19 @@
-# tools/sync-structure.py
+# tools/generators/sync-structure.py — синхронизация STRUCTURE.md
 import sys
 from pathlib import Path
 from datetime import datetime
-from progress import show_progress, finish_progress
 
-REPO_ROOT = Path(__file__).parent.parent
-STRUCTURE_FILE = REPO_ROOT / "STRUCTURE.md"
-IGNORE_DIRS = {'.git', 'tools', 'drafts', 'ideas', '__pycache__', 'reports', 'neural'}
-IGNORE_FILES = {'STRUCTURE.md', 'structure.txt', 'README.md', 'BACKLOG.md', 'CHANGELOG.md',
-                'DECISIONS.md', 'ROADMAP.md', 'TECHNICAL-DEBT.md', 'GLOSSARY.md',
-                'RETROSPECTIVE.md', 'STATS.md', 'CONTRIBUTORS.md', 'COMPLETED-TASKS.md'}
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from lib.utils import print_header, print_success, REPO_ROOT
+
+STRUCTURE_FILE = REPO_ROOT / "docs" / "STRUCTURE.md"
+IGNORE_DIRS = {'.git', 'tools', 'drafts', 'ideas', '__pycache__', 'reports', 'neural', '.venv', 'docs_backup'}
+IGNORE_FILES = {'STRUCTURE.md', 'structure.txt', 'README.md', 'golem.log', '.gitignore', 'export-repo.sh'}
 
 
 def scan_files(path: Path, prefix: str = "") -> list:
     lines = []
-    items = sorted([p for p in path.iterdir() if p.name not in IGNORE_DIRS])
+    items = sorted([p for p in path.iterdir() if p.name not in IGNORE_DIRS and not p.name.startswith('.')])
 
     dirs = [p for p in items if p.is_dir()]
     files = [p for p in items if p.is_file() and p.suffix == '.md' and p.name not in IGNORE_FILES]
@@ -35,10 +34,11 @@ def generate_structure() -> str:
     content = f"""# СТРУКТУРА РЕПОЗИТОРИЯ
 
 **Метаданные файла**
-- **Файл:** `STRUCTURE.md`
-- **Версия:** 2.4
+- **Файл:** `docs/STRUCTURE.md`
+- **Версия:** 2.5
 - **Дата создания:** 2026-05-28
 - **Последнее обновление:** {today}
+- **Причина обновления:** Автоматическая синхронизация
 - **Статус:** Активный
 - **Тема:** Полная структура репозитория «Голем»
 
@@ -51,42 +51,42 @@ def generate_structure() -> str:
     root_items = []
     for item in sorted(REPO_ROOT.iterdir()):
         name = item.name
-        if name in IGNORE_DIRS or name in IGNORE_FILES:
+        if name in IGNORE_DIRS or name.startswith('.'):
             continue
         if item.is_dir():
             root_items.append(f"- `{name}/`")
-        elif item.is_file() and item.suffix == '.md':
+        elif item.is_file() and item.suffix == '.md' and name not in IGNORE_FILES:
             root_items.append(f"- `{name}`")
 
     content += "\n".join(root_items) + "\n"
 
-    # Собираем все папки для сканирования
     dirs_to_scan = [d for d in sorted(REPO_ROOT.iterdir())
-                    if d.is_dir() and d.name not in IGNORE_DIRS and d.name not in IGNORE_FILES]
+                    if d.is_dir() and d.name not in IGNORE_DIRS and not d.name.startswith('.')]
 
-    for i, d in enumerate(dirs_to_scan):
-        show_progress(i + 1, len(dirs_to_scan), f"сканирование {d.name}")
+    for d in dirs_to_scan:
         content += f"\n## {d.name}/\n\n"
         files = scan_files(d, "    ")
-        content += "\n".join(files) + "\n"
+        if files:
+            content += "\n".join(files) + "\n"
+        else:
+            content += "    *(пусто)*\n"
 
-    finish_progress()
     return content
 
 
 def main():
-    print("\n🔄 СИНХРОНИЗАЦИЯ STRUCTURE.MD")
-    print("=" * 50)
+    print_header("СИНХРОНИЗАЦИЯ STRUCTURE.MD", "🔄")
 
-    print("Генерация структуры...")
     new_content = generate_structure()
 
+    STRUCTURE_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(STRUCTURE_FILE, 'w', encoding='utf-8') as f:
         f.write(new_content)
 
-    print(f"\n✅ Обновлено: {STRUCTURE_FILE}")
+    print_success(f"Обновлено: {STRUCTURE_FILE}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
 

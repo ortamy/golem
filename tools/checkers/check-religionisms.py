@@ -1,4 +1,4 @@
-# tools/checkers/check-religionisms.py — поиск и исправление религионимов
+# tools/checkers/check-religionisms.py — поиск и исправление религионимов (с защитой метаданных)
 import sys
 import re
 import json
@@ -34,6 +34,40 @@ CASES = {
 INDECLINABLE = {"хэн", "руах", "нэфеш", "тоху ва-воху"}
 
 
+# =============================================================================
+# ЗАЩИТА МЕТАДАННЫХ
+# =============================================================================
+
+def extract_metadata_block(content: str) -> tuple:
+    if '**Метаданные файла**' not in content:
+        return -1, -1
+    start = content.find('**Метаданные файла**')
+    rest = content[start:]
+    end_match = re.search(r'\n---|\n# |\n## ', rest[30:])
+    end = start + 30 + end_match.start() if end_match else len(content)
+    return start, end
+
+
+def protect_metadata(content: str) -> tuple:
+    start, end = extract_metadata_block(content)
+    if start == -1:
+        return content, ""
+    original = content[start:end]
+    placeholder = f"__METADATA_BLOCK_{hash(original) & 0x7FFFFFFF}__"
+    return content[:start] + placeholder + content[end:], original
+
+
+def restore_metadata(text: str, original_metadata: str) -> str:
+    match = re.search(r'__METADATA_BLOCK_\d+__', text)
+    if match:
+        return text[:match.start()] + original_metadata + text[match.end():]
+    return text
+
+
+# =============================================================================
+# ПАРСИНГ СЛОВАРЕЙ
+# =============================================================================
+
 def parse_religionisms_md(filepath):
     pairs = {}
     if not filepath.exists():
@@ -41,7 +75,6 @@ def parse_religionisms_md(filepath):
     content = read_file_safe(filepath)
     for forbidden, correct in re.findall(r'`([^`]+)`\s*→\s*\S+\s*\(([^)]+)\)', content):
         forbidden, correct = forbidden.strip(), correct.strip().split(",")[0].strip()
-        # Берём только русские слова как запрещённые
         if forbidden and correct and re.search(r'[а-яё]', forbidden, re.IGNORECASE):
             pairs[forbidden] = correct
     return pairs
@@ -73,13 +106,21 @@ def generate_declensions(word, base_form):
 def build_replacement_map():
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Автосброс: проверяем дату исходников
     if CACHE_FILE.exists():
-        try:
-            cache = json.loads(read_file_safe(CACHE_FILE))
-            if cache.get("_version") == "2.4":
-                return cache["replacements"], cache["fast_filter"], re.compile(cache["mega_regex"])
-        except Exception:
-            pass
+        cache_mtime = CACHE_FILE.stat().st_mtime
+        sources_newer = False
+        for src in [FORBIDDEN_FILE] + list(TAHOR_DIR.glob("*.md")):
+            if src.exists() and src.stat().st_mtime > cache_mtime:
+                sources_newer = True
+                break
+        if not sources_newer:
+            try:
+                cache = json.loads(read_file_safe(CACHE_FILE))
+                if cache.get("_version") == "2.5":
+                    return cache["replacements"], cache["fast_filter"], re.compile(cache["mega_regex"])
+            except Exception:
+                pass
 
     pairs = {}
     pairs.update(parse_forbidden_words(FORBIDDEN_FILE))
@@ -94,17 +135,13 @@ def build_replacement_map():
         else:
             replacements.update(generate_declensions(word, correct))
 
-    # Оставляем только русские слова для поиска
     ru_replacements = {w: c for w, c in replacements.items() if re.search(r'[а-яё]', w, re.IGNORECASE)}
-
     fast_filter = sorted({w[:4].lower() for w in ru_replacements if len(w) >= 4})
-
-    # Мега-regex только из русских слов
     sorted_words = sorted(ru_replacements.keys(), key=len, reverse=True)
     mega_regex = re.compile(r'\b(' + '|'.join(re.escape(w) for w in sorted_words) + r')\b', re.IGNORECASE)
 
     cache_data = {
-        "_version": "2.4",
+        "_version": "2.5",
         "replacements": ru_replacements,
         "fast_filter": fast_filter,
         "mega_regex": mega_regex.pattern
@@ -114,6 +151,10 @@ def build_replacement_map():
 
     return ru_replacements, fast_filter, mega_regex
 
+
+# =============================================================================
+# КЭШИ
+# =============================================================================
 
 def load_scan_cache():
     if SCAN_CACHE_FILE.exists():
@@ -145,45 +186,50 @@ def save_dirty_cache(dirty_set):
         json.dump(sorted(dirty_set), f, ensure_ascii=False, indent=2)
 
 
+# =============================================================================
+# ПОИСК И ЗАМЕНА
+# =============================================================================
+
 def find_religionisms_fast(text, mega_regex, replacements):
-    """Один regex-проход. Ищет только русские слова."""
     found = Counter()
     clean = re.sub(r'«[^»]*»|"[^"]*"|\'[^\']*\'', ' ', text)
     for match in mega_regex.finditer(clean):
         word = match.group()
-        # Дополнительная проверка: слово должно быть в словаре (регистронезависимо)
         if word.lower() in (w.lower() for w in replacements):
             found[word] += 1
     return dict(found)
 
 
 def fix_religionisms(text, replacements, mega_regex):
-    """Замена через один regex-проход."""
+    protected, metadata = protect_metadata(text)
     count = 0
-    quoted_map = {f"__Q{i}__": m.group() for i, m in enumerate(re.finditer(r'«[^»]*»|"[^"]*"|\'[^\']*\'', text))}
+    quoted_map = {f"__Q{i}__": m.group() for i, m in enumerate(re.finditer(r'«[^»]*»|"[^"]*"|\'[^\']*\'', protected))}
     for placeholder, original in quoted_map.items():
-        text = text.replace(original, placeholder, 1)
+        protected = protected.replace(original, placeholder, 1)
 
     def replacer(match):
         nonlocal count
         count += 1
         word = match.group()
-        # Ищем в словаре регистронезависимо
-        word_lower = word.lower()
+        wl = word.lower()
         for w, correct in replacements.items():
-            if w.lower() == word_lower:
+            if w.lower() == wl:
                 return correct[0].upper() + correct[1:] if word[0].isupper() else correct
         return word
 
-    text = mega_regex.sub(replacer, text)
-
+    protected = mega_regex.sub(replacer, protected)
     for placeholder, original in quoted_map.items():
-        text = text.replace(placeholder, original, 1)
-    return text, count
+        protected = protected.replace(placeholder, original, 1)
+    if metadata:
+        protected = restore_metadata(protected, metadata)
+    return protected, count
 
+
+# =============================================================================
+# ПРОВЕРКА ФАЙЛОВ
+# =============================================================================
 
 def check_one_file(md_file, replacements, fast_filter, mega_regex, scan_cache, check_only):
-    """Проверка одного файла (для многопоточности)."""
     rel_path = str(md_file.relative_to(REPO_ROOT))
     mtime = md_file.stat().st_mtime
 
@@ -197,7 +243,9 @@ def check_one_file(md_file, replacements, fast_filter, mega_regex, scan_cache, c
     if not any(prefix in content.lower() for prefix in fast_filter):
         return rel_path, {"mtime": mtime, "clean": True}, True
 
-    found = find_religionisms_fast(content, mega_regex, replacements)
+    body, _ = protect_metadata(content)
+    found = find_religionisms_fast(body, mega_regex, replacements)
+
     if found:
         result = {"mtime": mtime, "clean": False}
         if not check_only:
@@ -225,8 +273,7 @@ def scan_files(replacements, fast_filter, mega_regex, check_only=True):
             all_files.extend(sorted(dir_path.rglob("*.md")))
 
     if dirty_set and check_only:
-        dirty_files = []
-        clean_files = []
+        dirty_files, clean_files = [], []
         for f in all_files:
             rel = str(f.relative_to(REPO_ROOT))
             if rel in dirty_set:
@@ -288,9 +335,19 @@ def scan_files(replacements, fast_filter, mega_regex, check_only=True):
     return dict(total_found), files_with_issues, total_replacements
 
 
+# =============================================================================
+# MAIN
+# =============================================================================
+
 def main():
     check_only = "--fix" not in sys.argv
     rebuild_cache = "--rebuild" in sys.argv
+
+    # Автосброс кэша сканирования при --fix
+    if not check_only:
+        for f in (SCAN_CACHE_FILE, DIRTY_CACHE_FILE):
+            if f.exists():
+                f.unlink()
 
     if rebuild_cache:
         for f in (CACHE_FILE, SCAN_CACHE_FILE, DIRTY_CACHE_FILE):
@@ -302,6 +359,7 @@ def main():
     replacements, fast_filter, mega_regex = build_replacement_map()
     print(f"✅ Загружено русских слов: {len(replacements)}")
     print(f"⚡ Быстрый фильтр: {len(fast_filter)} префиксов")
+    print(f"🛡️ Метаданные защищены от замен")
 
     print_header("ПРОВЕРКА НА РЕЛИГИОНИЗМЫ" if check_only else "ИСПРАВЛЕНИЕ РЕЛИГИОНИЗМОВ",
                  "🔍" if check_only else "🔧")

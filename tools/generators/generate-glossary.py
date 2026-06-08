@@ -1,21 +1,21 @@
-# tools/generate-glossary.py
+# tools/generators/generate-glossary.py — генерация глоссария
 import sys
 import re
 from pathlib import Path
 from datetime import datetime
-from progress import show_progress, finish_progress
 
-REPO_ROOT = Path(__file__).parent.parent
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, print_error, REPO_ROOT
+
 TERMINOLOGY_DIR = REPO_ROOT / "terminology"
-GLOSSARY_FILE = REPO_ROOT / "GLOSSARY.md"
+GLOSSARY_FILE = REPO_ROOT / "docs" / "GLOSSARY.md"
 
 
 def extract_emoji_and_title(content: str):
-    lines = content.split('\n')
-    for line in lines:
+    for line in content.split('\n'):
         if line.startswith('# '):
             header = line[2:].strip()
-            emoji_match = re.match(r'^([\U00010000-\U0010FFFF])\s+(.+)$', header)
+            emoji_match = re.match(r'^([^\w\s])\s+(.+)$', header)
             if emoji_match:
                 return emoji_match.group(1), emoji_match.group(2)
             return "", header
@@ -23,75 +23,70 @@ def extract_emoji_and_title(content: str):
 
 
 def extract_topic(content: str) -> str:
-    match = re.search(r'- \*\*Тема:\*\* (.+?)(?:\n|$)', content)
-    if match:
-        return match.group(1).strip()
-    return ""
+    match = re.search(r'[-*]\s*\*\*Тема:\*\*\s*(.+?)(?:\n|$)', content)
+    return match.group(1).strip() if match else ""
 
 
 def extract_definition(content: str) -> str:
     lines = content.split('\n')
     in_metadata = True
-
     for line in lines:
         if in_metadata:
-            if line.strip() == "" or not line.startswith('-'):
+            if not line.strip() or not line.startswith('-'):
                 in_metadata = False
             continue
-
         if line.strip() and not line.startswith('#'):
-            clean = re.sub(r'^[\*\-\–]\s*', '', line)
-            clean = clean.strip()
+            clean = re.sub(r'^[\*\-\–]\s*', '', line).strip()
             if len(clean) > 10:
                 return clean[:200]
-
     return ""
 
 
 def main():
-    print("\n📚 ГЕНЕРАЦИЯ ГЛОССАРИЯ")
-    print("=" * 50)
+    print_header("ГЕНЕРАЦИЯ ГЛОССАРИЯ", "📚")
 
     if not TERMINOLOGY_DIR.exists():
-        print(f"❌ Папка не найдена: {TERMINOLOGY_DIR}")
+        print_error(f"Папка не найдена: {TERMINOLOGY_DIR}")
         return 1
 
-    term_files = list(TERMINOLOGY_DIR.glob("*.md"))
+    term_files = sorted(TERMINOLOGY_DIR.glob("*.md"))
     total = len(term_files)
     print(f"Найдено терминов: {total}")
-    print("Обработка...\n")
 
     terms = []
     for i, md_file in enumerate(term_files, 1):
-        with open(md_file, 'r', encoding='utf-8') as f:
-            content = f.read()
+        content = read_file_safe(md_file)
+        if not content:
+            continue
 
         emoji, title = extract_emoji_and_title(content)
         topic = extract_topic(content)
         definition = extract_definition(content)
-
-        rel_path = md_file.relative_to(REPO_ROOT)
+        rel_path = str(md_file.relative_to(REPO_ROOT)).replace('\\', '/')
 
         terms.append({
-            'name': title if title else md_file.stem,
+            'name': title or md_file.stem,
             'emoji': emoji,
-            'topic': topic if topic else definition[:50],
+            'topic': topic or definition[:50],
             'definition': definition,
-            'path': str(rel_path),
-            'file': md_file.name
+            'path': rel_path,
         })
 
-        show_progress(i, total, "термины", len(terms))
+        progress_bar(i, total, extra=f"терминов: {len(terms)}")
 
     finish_progress()
+
+    today = datetime.now().strftime('%Y-%m-%d')
 
     lines = [
         "# ГЛОССАРИЙ",
         "",
         "**Метаданные файла**",
-        f"- **Файл:** `GLOSSARY.md`",
-        f"- **Версия:** 1.0",
-        f"- **Дата создания:** {datetime.now().strftime('%Y-%m-%d')}",
+        f"- **Файл:** `docs/GLOSSARY.md`",
+        f"- **Версия:** 1.2",
+        f"- **Дата создания:** 2026-06-08",
+        f"- **Последнее обновление:** {today}",
+        f"- **Причина обновления:** Автоматическая генерация",
         f"- **Статус:** Активный",
         f"- **Тема:** Краткий справочник всех терминов",
         "",
@@ -102,9 +97,9 @@ def main():
     ]
 
     prev_letter = ""
-    for term in sorted(terms, key=lambda x: x['name']):
-        name = term['name'].upper()
-        first_letter = name[0] if name else "#"
+    for term in sorted(terms, key=lambda x: x['name'].upper()):
+        name = term['name']
+        first_letter = name[0].upper() if name else "#"
 
         if first_letter != prev_letter:
             lines.append(f"### {first_letter}")
@@ -122,17 +117,16 @@ def main():
         "",
         f"**Всего терминов:** {len(terms)}",
         "",
-        "Глоссарий обновляется автоматически: `python tools/generate-glossary.py`"
+        "Глоссарий обновляется автоматически: `python tools/generators/generate-glossary.py`"
     ])
 
+    GLOSSARY_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(GLOSSARY_FILE, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines))
 
-    print(f"\n✅ Глоссарий сохранён: {GLOSSARY_FILE}")
-    print(f"✅ Всего терминов: {len(terms)}")
+    print_success(f"Сохранён: {GLOSSARY_FILE} ({len(terms)} терминов)")
     return 0
 
 
 if __name__ == "__main__":
     sys.exit(main())
-

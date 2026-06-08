@@ -1,10 +1,11 @@
 # СТРУКТУРА РЕПОЗИТОРИЯ
 
 **Метаданные файла**
-- **Файл:** `STRUCTURE.md`
-- **Версия:** 2.4
+- **Файл:** `docs/STRUCTURE.md`
+- **Версия:** 2.5
 - **Дата создания:** 2026-05-28
-- **Последнее обновление:** 2026-06-08
+- **Последнее обновление:** 2026-06-09
+- **Причина обновления:** Автоматическая синхронизация
 - **Статус:** Активный
 - **Тема:** Полная структура репозитория «Голем»
 
@@ -12,102 +13,29 @@
 
 ## КОРЕНЬ
 
-- `.venv/`
 - `davar/`
+- `docs/`
 - `instructions/`
 - `researches/`
 - `terminology/`
-
-## .venv/
-
-    - `Include/`
-    - `Lib/`
-        - `site-packages/`
-            - `pip/`
-                - `_internal/`
-                    - `cli/`
-                    - `commands/`
-                    - `distributions/`
-                    - `index/`
-                    - `locations/`
-                    - `metadata/`
-                        - `importlib/`
-                    - `models/`
-                    - `network/`
-                    - `operations/`
-                        - `build/`
-                        - `install/`
-                    - `req/`
-                    - `resolution/`
-                        - `legacy/`
-                        - `resolvelib/`
-                    - `utils/`
-                    - `vcs/`
-                - `_vendor/`
-                    - `cachecontrol/`
-                        - `caches/`
-                    - `certifi/`
-                    - `distlib/`
-                    - `distro/`
-                    - `idna/`
-                        - `LICENSE.md`
-                    - `msgpack/`
-                    - `packaging/`
-                        - `licenses/`
-                    - `pkg_resources/`
-                    - `platformdirs/`
-                    - `pygments/`
-                        - `filters/`
-                        - `formatters/`
-                        - `lexers/`
-                        - `styles/`
-                    - `pyproject_hooks/`
-                        - `_in_process/`
-                    - `requests/`
-                    - `resolvelib/`
-                        - `resolvers/`
-                    - `rich/`
-                    - `tomli/`
-                    - `tomli_w/`
-                    - `truststore/`
-                    - `urllib3/`
-                        - `contrib/`
-                            - `emscripten/`
-                        - `http2/`
-                        - `util/`
-            - `pip-26.1.1.dist-info/`
-                - `licenses/`
-                    - `src/`
-                        - `pip/`
-                            - `_vendor/`
-                                - `cachecontrol/`
-                                - `certifi/`
-                                - `distlib/`
-                                - `distro/`
-                                - `idna/`
-                                    - `LICENSE.md`
-                                - `msgpack/`
-                                - `packaging/`
-                                - `pkg_resources/`
-                                - `platformdirs/`
-                                - `pygments/`
-                                - `pyproject_hooks/`
-                                - `requests/`
-                                - `resolvelib/`
-                                - `rich/`
-                                - `tomli/`
-                                - `tomli_w/`
-                                - `truststore/`
-                                - `urllib3/`
-            - `windows_curses-2.4.2.dist-info/`
-                - `licenses/`
-    - `Scripts/`
 
 ## davar/
 
     - `examples/`
     - `davar-architecture.md`
     - `davar-language.md`
+
+## docs/
+
+    - `BACKLOG.md`
+    - `CHANGELOG.md`
+    - `CONTRIBUTORS.md`
+    - `DECISIONS.md`
+    - `GLOSSARY.md`
+    - `RETROSPECTIVE.md`
+    - `ROADMAP.md`
+    - `STATS.md`
+    - `TECHNICAL-DEBT.md`
 
 ## instructions/
 
