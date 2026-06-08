@@ -1,1162 +1,1162 @@
 {
   "terminology\\ahava.md": {
-    "mtime": 1780946419.8073716,
+    "mtime": 1780951165.2357602,
     "clean": false
   },
   "terminology\\arum.md": {
-    "mtime": 1780946421.0443997,
-    "clean": true
+    "mtime": 1780951165.3951702,
+    "clean": false
   },
   "terminology\\arur.md": {
-    "mtime": 1780946422.962862,
+    "mtime": 1780951165.7170827,
     "clean": false
   },
   "terminology\\asur.md": {
-    "mtime": 1780946424.482478,
-    "clean": true
+    "mtime": 1780951165.9388235,
+    "clean": false
   },
   "terminology\\avar-atid.md": {
-    "mtime": 1780946426.1374185,
-    "clean": true
+    "mtime": 1780951166.1738186,
+    "clean": false
   },
   "terminology\\avodah-zarah.md": {
-    "mtime": 1780946428.4420254,
+    "mtime": 1780951166.575712,
     "clean": false
   },
   "terminology\\avon.md": {
-    "mtime": 1780946430.391733,
+    "mtime": 1780951166.8069696,
     "clean": false
   },
   "terminology\\barach.md": {
-    "mtime": 1780946432.5133672,
+    "mtime": 1780951167.0848062,
     "clean": false
   },
   "terminology\\bavel.md": {
-    "mtime": 1780946434.7202208,
-    "clean": true
+    "mtime": 1780951167.429298,
+    "clean": false
   },
   "terminology\\bayit.md": {
-    "mtime": 1780946437.1259625,
+    "mtime": 1780951167.863211,
     "clean": false
   },
   "terminology\\beit-ha-mikdash.md": {
-    "mtime": 1780946439.1472678,
-    "clean": true
+    "mtime": 1780951168.588183,
+    "clean": false
   },
   "terminology\\brit.md": {
-    "mtime": 1780946441.8125277,
+    "mtime": 1780951169.4467232,
     "clean": false
   },
   "terminology\\chamas.md": {
-    "mtime": 1780946443.6106462,
+    "mtime": 1780951169.90608,
     "clean": false
   },
   "terminology\\cherut.md": {
-    "mtime": 1780946447.5880687,
+    "mtime": 1780951170.6665618,
     "clean": false
   },
   "terminology\\chesed.md": {
-    "mtime": 1780946451.9746838,
+    "mtime": 1780951171.3254006,
     "clean": false
   },
   "terminology\\derech-apayim.md": {
-    "mtime": 1780946455.4825509,
+    "mtime": 1780951171.9106216,
     "clean": false
   },
   "terminology\\derech.md": {
-    "mtime": 1780946459.3296103,
+    "mtime": 1780951172.2333424,
     "clean": false
   },
   "terminology\\el.md": {
-    "mtime": 1780946462.5748427,
+    "mtime": 1780951172.5202491,
     "clean": false
   },
   "terminology\\elil.md": {
-    "mtime": 1780946466.1417549,
+    "mtime": 1780951172.7637572,
     "clean": false
   },
   "terminology\\elilim.md": {
-    "mtime": 1780946468.9825113,
+    "mtime": 1780951172.9821851,
     "clean": false
   },
   "terminology\\emet.md": {
-    "mtime": 1780946473.1017911,
+    "mtime": 1780951173.2695994,
     "clean": false
   },
   "terminology\\emuna.md": {
-    "mtime": 1780946479.1364346,
+    "mtime": 1780951173.7489996,
     "clean": false
   },
   "terminology\\erech-apayim.md": {
-    "mtime": 1780946480.9889023,
+    "mtime": 1780951173.8758733,
     "clean": false
   },
   "terminology\\etz-ha-daat.md": {
-    "mtime": 1780946485.0456572,
-    "clean": true
+    "mtime": 1780951174.2080224,
+    "clean": false
   },
   "terminology\\eved.md": {
-    "mtime": 1780946489.2530992,
+    "mtime": 1780951174.516656,
     "clean": false
   },
   "terminology\\gerim.md": {
-    "mtime": 1780946493.2031062,
+    "mtime": 1780951174.8378124,
     "clean": false
   },
   "terminology\\gibor.md": {
-    "mtime": 1780946496.8360233,
+    "mtime": 1780951175.1409125,
     "clean": false
   },
   "terminology\\golem.md": {
-    "mtime": 1780946500.1597857,
-    "clean": true
+    "mtime": 1780951175.4056058,
+    "clean": false
   },
   "terminology\\goyim.md": {
-    "mtime": 1780946503.6110587,
+    "mtime": 1780951175.6151984,
     "clean": false
   },
   "terminology\\hacker.md": {
-    "mtime": 1780946505.967577,
-    "clean": true
+    "mtime": 1780951175.7801974,
+    "clean": false
   },
   "terminology\\heichal.md": {
-    "mtime": 1780946509.4900892,
+    "mtime": 1780951176.0457213,
     "clean": false
   },
   "terminology\\het.md": {
-    "mtime": 1780946512.410722,
+    "mtime": 1780951176.2987866,
     "clean": false
   },
   "terminology\\ivri.md": {
-    "mtime": 1780946516.142115,
-    "clean": true
+    "mtime": 1780951176.6086814,
+    "clean": false
   },
   "terminology\\karaism.md": {
-    "mtime": 1780946518.5839007,
+    "mtime": 1780951176.8924887,
     "clean": false
   },
   "terminology\\karet.md": {
-    "mtime": 1780946520.4672325,
+    "mtime": 1780951177.1651058,
     "clean": false
   },
   "terminology\\kavod.md": {
-    "mtime": 1780946523.0503554,
+    "mtime": 1780951177.508471,
     "clean": false
   },
   "terminology\\kehillah.md": {
-    "mtime": 1780946525.6558082,
+    "mtime": 1780951177.8650908,
     "clean": false
   },
   "terminology\\koach.md": {
-    "mtime": 1780946527.3568385,
-    "clean": true
+    "mtime": 1780951178.1421945,
+    "clean": false
   },
   "terminology\\kodesh.md": {
-    "mtime": 1780946529.7359807,
+    "mtime": 1780951178.424306,
     "clean": false
   },
   "terminology\\kohen-hagadol.md": {
-    "mtime": 1780946532.1204593,
+    "mtime": 1780951178.713642,
     "clean": false
   },
   "terminology\\kohen.md": {
-    "mtime": 1780946533.4392583,
+    "mtime": 1780951178.890056,
     "clean": false
   },
   "terminology\\korban.md": {
-    "mtime": 1780946536.6385145,
+    "mtime": 1780951179.2207823,
     "clean": false
   },
   "terminology\\ktav-ivri.md": {
-    "mtime": 1780946539.8692105,
+    "mtime": 1780951179.5929625,
     "clean": false
   },
   "terminology\\lamad.md": {
-    "mtime": 1780946541.995553,
+    "mtime": 1780951179.9280891,
     "clean": false
   },
   "terminology\\lashon-ha-kodesh.md": {
-    "mtime": 1780946544.8964012,
+    "mtime": 1780951180.6539457,
     "clean": false
   },
   "terminology\\levad.md": {
-    "mtime": 1780946546.0658002,
+    "mtime": 1780951181.0231843,
     "clean": false
   },
   "terminology\\levav.md": {
-    "mtime": 1780946547.9860947,
+    "mtime": 1780951181.490389,
     "clean": false
   },
   "terminology\\malach.md": {
-    "mtime": 1780946550.5673206,
+    "mtime": 1780951182.1219568,
     "clean": false
   },
   "terminology\\malchut.md": {
-    "mtime": 1780946553.4037755,
+    "mtime": 1780951182.7589483,
     "clean": false
   },
   "terminology\\mashiah-peshat.md": {
-    "mtime": 1780946555.074689,
+    "mtime": 1780951183.123288,
     "clean": false
   },
   "terminology\\melech.md": {
-    "mtime": 1780946556.2371373,
+    "mtime": 1780951183.512308,
     "clean": false
   },
   "terminology\\mene-tekel.md": {
-    "mtime": 1780946558.8956144,
-    "clean": true
+    "mtime": 1780951184.1434658,
+    "clean": false
   },
   "terminology\\midbar.md": {
-    "mtime": 1780946561.3953998,
+    "mtime": 1780951184.563012,
     "clean": false
   },
   "terminology\\mikveh.md": {
-    "mtime": 1780946565.142385,
+    "mtime": 1780951185.2621753,
     "clean": false
   },
   "terminology\\mishchah.md": {
-    "mtime": 1780946566.342911,
+    "mtime": 1780951185.5617764,
     "clean": false
   },
   "terminology\\mishkan.md": {
-    "mtime": 1780946568.5687654,
+    "mtime": 1780951185.8515112,
     "clean": false
   },
   "terminology\\mishpat.md": {
-    "mtime": 1780946571.6011896,
+    "mtime": 1780951186.2353916,
     "clean": false
   },
   "terminology\\naaf.md": {
-    "mtime": 1780946573.7307067,
+    "mtime": 1780951186.7912607,
     "clean": false
   },
   "terminology\\nachash.md": {
-    "mtime": 1780946575.0614972,
-    "clean": true
+    "mtime": 1780951186.9963324,
+    "clean": false
   },
   "terminology\\navi.md": {
-    "mtime": 1780946577.7737052,
+    "mtime": 1780951187.3274088,
     "clean": false
   },
   "terminology\\nefesh.md": {
-    "mtime": 1780946580.310365,
+    "mtime": 1780951187.5864775,
     "clean": false
   },
   "terminology\\neshamah.md": {
-    "mtime": 1780946582.5399299,
-    "clean": true
+    "mtime": 1780951188.101463,
+    "clean": false
   },
   "terminology\\neshech.md": {
-    "mtime": 1780946584.1632051,
+    "mtime": 1780951188.3705437,
     "clean": false
   },
   "terminology\\nishmah.md": {
-    "mtime": 1780946586.8989296,
+    "mtime": 1780951189.0060868,
     "clean": false
   },
   "terminology\\olam.md": {
-    "mtime": 1780946589.0088665,
-    "clean": true
+    "mtime": 1780951189.668841,
+    "clean": false
   },
   "terminology\\or-tam.md": {
-    "mtime": 1780946591.8842595,
-    "clean": true
+    "mtime": 1780951190.159078,
+    "clean": false
   },
   "terminology\\pachad.md": {
-    "mtime": 1780946593.903418,
-    "clean": true
+    "mtime": 1780951190.7078998,
+    "clean": false
   },
   "terminology\\palaestina.md": {
-    "mtime": 1780946595.2811673,
+    "mtime": 1780951191.0538332,
     "clean": false
   },
   "terminology\\panim.md": {
-    "mtime": 1780946598.0136056,
+    "mtime": 1780951191.6042693,
     "clean": false
   },
   "terminology\\pesel.md": {
-    "mtime": 1780946601.994737,
+    "mtime": 1780951192.139632,
     "clean": false
   },
   "terminology\\ra.md": {
-    "mtime": 1780946605.4646418,
+    "mtime": 1780951192.810749,
     "clean": false
   },
   "terminology\\rapha.md": {
-    "mtime": 1780946606.5795808,
+    "mtime": 1780951193.1487043,
     "clean": false
   },
   "terminology\\resha.md": {
-    "mtime": 1780946608.4688966,
+    "mtime": 1780951193.648087,
     "clean": false
   },
   "terminology\\ruach-hakodesh.md": {
-    "mtime": 1780946611.2126102,
+    "mtime": 1780951194.430086,
     "clean": false
   },
   "terminology\\ruach.md": {
-    "mtime": 1780946613.6909792,
+    "mtime": 1780951195.1526897,
     "clean": false
   },
   "terminology\\satan.md": {
-    "mtime": 1780946616.2094214,
+    "mtime": 1780951195.880125,
     "clean": false
   },
   "terminology\\shabbat.md": {
-    "mtime": 1780946619.0930095,
+    "mtime": 1780951197.0185637,
     "clean": false
   },
   "terminology\\shalom.md": {
-    "mtime": 1780946621.4613292,
+    "mtime": 1780951197.5830905,
     "clean": false
   },
   "terminology\\sheerit.md": {
-    "mtime": 1780946622.4265637,
+    "mtime": 1780951197.8903983,
     "clean": false
   },
   "terminology\\shekel.md": {
-    "mtime": 1780946624.4608495,
+    "mtime": 1780951198.566899,
     "clean": false
   },
   "terminology\\shem.md": {
-    "mtime": 1780946626.88307,
+    "mtime": 1780951199.2115035,
     "clean": false
   },
   "terminology\\sheol.md": {
-    "mtime": 1780946629.0906067,
+    "mtime": 1780951199.7775366,
     "clean": false
   },
   "terminology\\shlem-avon.md": {
-    "mtime": 1780946631.1405568,
-    "clean": true
+    "mtime": 1780951200.2982886,
+    "clean": false
   },
   "terminology\\shmitah.md": {
-    "mtime": 1780946632.9295635,
+    "mtime": 1780951200.7713096,
     "clean": false
   },
   "terminology\\tefilah.md": {
-    "mtime": 1780946635.5698628,
+    "mtime": 1780951201.568127,
     "clean": false
   },
   "terminology\\tohu-va-vohu.md": {
-    "mtime": 1780946637.6126463,
-    "clean": true
+    "mtime": 1780951202.2506144,
+    "clean": false
   },
   "terminology\\torah.md": {
-    "mtime": 1780946640.0158615,
+    "mtime": 1780951203.014681,
     "clean": false
   },
   "terminology\\tov.md": {
-    "mtime": 1780946642.0807836,
+    "mtime": 1780951203.5978117,
     "clean": false
   },
   "terminology\\tshuva.md": {
-    "mtime": 1780946644.4588344,
+    "mtime": 1780951204.3114727,
     "clean": false
   },
   "terminology\\tvilah.md": {
-    "mtime": 1780946647.0030577,
+    "mtime": 1780951205.0797837,
     "clean": false
   },
   "terminology\\tzedek.md": {
-    "mtime": 1780946648.9790492,
+    "mtime": 1780951205.6145036,
     "clean": false
   },
   "terminology\\yeshuah.md": {
-    "mtime": 1780946651.5805347,
+    "mtime": 1780951206.2574408,
     "clean": false
   },
   "terminology\\yetzer-lev.md": {
-    "mtime": 1780946652.6805472,
+    "mtime": 1780951206.584075,
     "clean": false
   },
   "terminology\\yhwh-not-religion.md": {
-    "mtime": 1780946653.4622805,
-    "clean": true
+    "mtime": 1780951206.746781,
+    "clean": false
   },
   "terminology\\yhwh.md": {
-    "mtime": 1780946656.4984548,
+    "mtime": 1780951207.7288175,
     "clean": false
   },
   "terminology\\yir-at-yhwh.md": {
-    "mtime": 1780946659.0281432,
+    "mtime": 1780951208.6567526,
     "clean": false
   },
   "terminology\\yovel.md": {
-    "mtime": 1780946659.9971297,
+    "mtime": 1780951208.9514802,
     "clean": false
   },
   "terminology\\zarak.md": {
-    "mtime": 1780946661.067451,
-    "clean": true
+    "mtime": 1780951209.2323625,
+    "clean": false
   },
   "researches\\abracadabra.md": {
-    "mtime": 1780946662.8477776,
-    "clean": true
+    "mtime": 1780951209.560634,
+    "clean": false
   },
   "researches\\abstract-gods-vs-yhwh.md": {
-    "mtime": 1780946665.7253132,
+    "mtime": 1780951210.0319152,
     "clean": false
   },
   "researches\\acharayut-support.md": {
-    "mtime": 1780946667.3382647,
-    "clean": true
+    "mtime": 1780951210.304815,
+    "clean": false
   },
   "researches\\adonai-origin.md": {
-    "mtime": 1780946669.222791,
-    "clean": true
+    "mtime": 1780951210.5490506,
+    "clean": false
   },
   "researches\\apocalypse.md": {
-    "mtime": 1780946670.754039,
-    "clean": true
+    "mtime": 1780951210.701437,
+    "clean": false
   },
   "researches\\armageddon.md": {
-    "mtime": 1780946672.479806,
-    "clean": true
+    "mtime": 1780951210.9815166,
+    "clean": false
   },
   "researches\\aseret-hadvarim.md": {
-    "mtime": 1780946674.2829683,
+    "mtime": 1780951211.2140987,
     "clean": false
   },
   "researches\\atah-not-you.md": {
-    "mtime": 1780946676.104725,
-    "clean": true
+    "mtime": 1780951211.4586153,
+    "clean": false
   },
   "researches\\balaam-strategy.md": {
-    "mtime": 1780946678.034331,
+    "mtime": 1780951211.799115,
     "clean": false
   },
   "researches\\bashah-structure.md": {
-    "mtime": 1780946679.7393808,
+    "mtime": 1780951212.028694,
     "clean": false
   },
   "researches\\bereans.md": {
-    "mtime": 1780946681.4901874,
+    "mtime": 1780951212.278795,
     "clean": false
   },
   "researches\\body-as-temple.md": {
-    "mtime": 1780946682.5333467,
-    "clean": true
+    "mtime": 1780951212.4207668,
+    "clean": false
   },
   "researches\\books\\kissinger-the-world-order.md": {
-    "mtime": 1780946684.1144166,
+    "mtime": 1780951212.6833448,
     "clean": false
   },
   "researches\\books\\machiavelli-the-prince.md": {
-    "mtime": 1780946686.5881822,
+    "mtime": 1780951212.977129,
     "clean": false
   },
   "researches\\brit-ania.md": {
-    "mtime": 1780946688.3729248,
+    "mtime": 1780951213.265762,
     "clean": false
   },
   "researches\\brit-hadashah.md": {
-    "mtime": 1780946689.662532,
+    "mtime": 1780951213.4892614,
     "clean": false
   },
   "researches\\brit-nissuin.md": {
-    "mtime": 1780946691.094514,
+    "mtime": 1780951213.7099457,
     "clean": false
   },
   "researches\\burning-of-books.md": {
-    "mtime": 1780946694.0568495,
+    "mtime": 1780951213.9994678,
     "clean": false
   },
   "researches\\catholic-church.md": {
-    "mtime": 1780946696.4314375,
+    "mtime": 1780951214.332127,
     "clean": false
   },
   "researches\\chadash-restored.md": {
-    "mtime": 1780946698.2806485,
+    "mtime": 1780951214.607327,
     "clean": false
   },
   "researches\\chofesh-vs-dror.md": {
-    "mtime": 1780946701.2785554,
+    "mtime": 1780951214.8694835,
     "clean": false
   },
   "researches\\companies\\amazon.md": {
-    "mtime": 1780946702.8397934,
-    "clean": true
+    "mtime": 1780951215.0759947,
+    "clean": false
   },
   "researches\\companies\\blackrock.md": {
-    "mtime": 1780946704.4249516,
-    "clean": true
+    "mtime": 1780951215.2923417,
+    "clean": false
   },
   "researches\\companies\\goldman-sachs.md": {
-    "mtime": 1780946705.7791564,
-    "clean": true
+    "mtime": 1780951215.490266,
+    "clean": false
   },
   "researches\\companies\\google.md": {
-    "mtime": 1780946707.534016,
+    "mtime": 1780951215.6791885,
     "clean": false
   },
   "researches\\companies\\ibm.md": {
-    "mtime": 1780946709.7260091,
-    "clean": true
+    "mtime": 1780951215.8609524,
+    "clean": false
   },
   "researches\\companies\\jpmorgan.md": {
-    "mtime": 1780946711.361617,
-    "clean": true
+    "mtime": 1780951215.9158254,
+    "clean": false
   },
   "researches\\companies\\meta.md": {
-    "mtime": 1780946712.690776,
+    "mtime": 1780951216.094193,
     "clean": false
   },
   "researches\\companies\\neuralink.md": {
-    "mtime": 1780946714.124517,
-    "clean": true
+    "mtime": 1780951216.3121889,
+    "clean": false
   },
   "researches\\companies\\palantir.md": {
-    "mtime": 1780946715.587729,
-    "clean": true
+    "mtime": 1780951216.5042498,
+    "clean": false
   },
   "researches\\companies\\vanguard.md": {
-    "mtime": 1780946716.9546506,
-    "clean": true
+    "mtime": 1780951216.6951427,
+    "clean": false
   },
   "researches\\daat-tree.md": {
-    "mtime": 1780946718.779497,
+    "mtime": 1780951216.971035,
     "clean": false
   },
   "researches\\dam-chesed.md": {
-    "mtime": 1780946721.2644339,
-    "clean": true
+    "mtime": 1780951217.2030332,
+    "clean": false
   },
   "researches\\dam-ve-chesed.md": {
-    "mtime": 1780946722.834939,
-    "clean": true
+    "mtime": 1780951217.3987913,
+    "clean": false
   },
   "researches\\dam-yeshua-seal.md": {
-    "mtime": 1780946724.5607111,
+    "mtime": 1780951217.6572542,
     "clean": false
   },
   "researches\\darchei-tzadikim.md": {
-    "mtime": 1780946726.5092251,
+    "mtime": 1780951218.0343065,
     "clean": false
   },
   "researches\\derech-ha-gever.md": {
-    "mtime": 1780946728.727155,
-    "clean": true
+    "mtime": 1780951218.4209926,
+    "clean": false
   },
   "researches\\derech-ha-nachash.md": {
-    "mtime": 1780946730.643162,
+    "mtime": 1780951218.7152927,
     "clean": false
   },
   "researches\\dereh-yhwh.md": {
-    "mtime": 1780946732.743038,
+    "mtime": 1780951219.035702,
     "clean": false
   },
   "researches\\digital-bavel.md": {
-    "mtime": 1780946734.6078055,
+    "mtime": 1780951219.304157,
     "clean": false
   },
   "researches\\digital-coliseum.md": {
-    "mtime": 1780946736.684862,
+    "mtime": 1780951219.5813742,
     "clean": false
   },
   "researches\\drashat-hahar.md": {
-    "mtime": 1780946738.7861896,
+    "mtime": 1780951219.8916185,
     "clean": false
   },
   "researches\\emunah-self-vs-yhwh.md": {
-    "mtime": 1780946741.1164527,
+    "mtime": 1780951220.081896,
     "clean": false
   },
   "researches\\eved-amdut.md": {
-    "mtime": 1780946742.5762503,
+    "mtime": 1780951220.310246,
     "clean": false
   },
   "researches\\evening-morning-day.md": {
-    "mtime": 1780946744.8280528,
+    "mtime": 1780951220.6963732,
     "clean": false
   },
   "researches\\exorcism-myth.md": {
-    "mtime": 1780946746.4037564,
+    "mtime": 1780951220.9291904,
     "clean": false
   },
   "researches\\galatim-two-systems.md": {
-    "mtime": 1780946748.0434906,
+    "mtime": 1780951221.0776434,
     "clean": false
   },
   "researches\\gambling-vs-life.md": {
-    "mtime": 1780946749.9948583,
+    "mtime": 1780951221.2979996,
     "clean": false
   },
   "researches\\greek-freedom-distortion.md": {
-    "mtime": 1780946752.1926162,
+    "mtime": 1780951221.5883327,
     "clean": false
   },
   "researches\\ha-derech.md": {
-    "mtime": 1780946754.9852235,
+    "mtime": 1780951221.787806,
     "clean": false
   },
   "researches\\ha-mashchit.md": {
-    "mtime": 1780946758.0347948,
+    "mtime": 1780951222.175994,
     "clean": false
   },
   "researches\\heart-vs-brain.md": {
-    "mtime": 1780946760.130241,
-    "clean": true
+    "mtime": 1780951222.5200465,
+    "clean": false
   },
   "researches\\hebrew-truth.md": {
-    "mtime": 1780946762.3559444,
-    "clean": true
+    "mtime": 1780951222.7155063,
+    "clean": false
   },
   "researches\\hebrew-vs-languages.md": {
-    "mtime": 1780946767.5278533,
+    "mtime": 1780951223.0201302,
     "clean": false
   },
   "researches\\hellenization-vs-hebraization.md": {
-    "mtime": 1780946769.091831,
+    "mtime": 1780951223.1857164,
     "clean": false
   },
   "researches\\hevel-kayin.md": {
-    "mtime": 1780946772.3732083,
+    "mtime": 1780951223.4713597,
     "clean": false
   },
   "researches\\history\\history-of-banks.md": {
-    "mtime": 1780946774.811491,
-    "clean": true
+    "mtime": 1780951223.7836587,
+    "clean": false
   },
   "researches\\history\\history-of-economy.md": {
-    "mtime": 1780946778.0435166,
-    "clean": true
+    "mtime": 1780951224.1283417,
+    "clean": false
   },
   "researches\\history\\history-of-languages.md": {
-    "mtime": 1780946780.4393096,
+    "mtime": 1780951224.4119983,
     "clean": false
   },
   "researches\\history\\history-of-medicine.md": {
-    "mtime": 1780946783.995932,
-    "clean": true
+    "mtime": 1780951224.751439,
+    "clean": false
   },
   "researches\\history\\history-of-money.md": {
-    "mtime": 1780946786.484079,
+    "mtime": 1780951224.9583998,
     "clean": false
   },
   "researches\\history\\history-of-politics.md": {
-    "mtime": 1780946789.9433634,
+    "mtime": 1780951225.3344102,
     "clean": false
   },
   "researches\\history\\history-of-prison.md": {
-    "mtime": 1780946791.7988036,
-    "clean": true
+    "mtime": 1780951225.6271603,
+    "clean": false
   },
   "researches\\history\\history-of-religion.md": {
-    "mtime": 1780946793.859985,
+    "mtime": 1780951225.953576,
     "clean": false
   },
   "researches\\history\\history-of-school.md": {
-    "mtime": 1780946796.5952902,
+    "mtime": 1780951226.2717302,
     "clean": false
   },
   "researches\\history\\israel-palestine.md": {
-    "mtime": 1780946798.256014,
+    "mtime": 1780951226.4912148,
     "clean": false
   },
   "researches\\hitler-and-jews.md": {
-    "mtime": 1780946800.8128047,
+    "mtime": 1780951226.7852364,
     "clean": false
   },
   "researches\\immanu-el.md": {
-    "mtime": 1780946803.1749845,
+    "mtime": 1780951227.1026218,
     "clean": false
   },
   "researches\\ishah-yirat-yhwh.md": {
-    "mtime": 1780946804.8806252,
+    "mtime": 1780951227.3347607,
     "clean": false
   },
   "researches\\israel-vs-yehudi.md": {
-    "mtime": 1780946806.7087173,
+    "mtime": 1780951227.5555053,
     "clean": false
   },
   "researches\\jews-vs-muslims.md": {
-    "mtime": 1780946809.8422356,
+    "mtime": 1780951227.8321178,
     "clean": false
   },
   "researches\\karma.md": {
-    "mtime": 1780946811.2496574,
-    "clean": true
+    "mtime": 1780951228.0333824,
+    "clean": false
   },
   "researches\\keshet.md": {
-    "mtime": 1780946812.8913481,
-    "clean": true
+    "mtime": 1780951228.2485428,
+    "clean": false
   },
   "researches\\khazars-turks.md": {
-    "mtime": 1780946814.7111945,
+    "mtime": 1780951228.4860978,
     "clean": false
   },
   "researches\\kol-dmamah-dakah.md": {
-    "mtime": 1780946816.4821665,
-    "clean": true
+    "mtime": 1780951228.7207706,
+    "clean": false
   },
   "researches\\kotz-sting.md": {
-    "mtime": 1780946818.2203588,
+    "mtime": 1780951228.9935849,
     "clean": false
   },
   "researches\\languages\\babel-languages.md": {
-    "mtime": 1780946820.6548274,
-    "clean": true
+    "mtime": 1780951229.2126718,
+    "clean": false
   },
   "researches\\languages\\egyptian-unfluence.md": {
-    "mtime": 1780946822.3366306,
+    "mtime": 1780951229.4642513,
     "clean": false
   },
   "researches\\languages\\greek-as-weapon.md": {
-    "mtime": 1780946823.9306602,
+    "mtime": 1780951229.6572568,
     "clean": false
   },
   "researches\\languages\\hebrew-creational.md": {
-    "mtime": 1780946826.3449318,
+    "mtime": 1780951229.9561672,
     "clean": false
   },
   "researches\\languages\\language-comparison.md": {
-    "mtime": 1780946829.226438,
+    "mtime": 1780951230.2875352,
     "clean": false
   },
   "researches\\languages\\latin-control.md": {
-    "mtime": 1780946831.1329503,
+    "mtime": 1780951230.57683,
     "clean": false
   },
   "researches\\languages\\russian-syncretism.md": {
-    "mtime": 1780946833.0553055,
+    "mtime": 1780951230.8361475,
     "clean": false
   },
   "researches\\languages\\slavic-distortion.md": {
-    "mtime": 1780946834.94759,
-    "clean": true
+    "mtime": 1780951231.1210225,
+    "clean": false
   },
   "researches\\lechem-ve-yayin.md": {
-    "mtime": 1780946836.291178,
+    "mtime": 1780951231.3622549,
     "clean": false
   },
   "researches\\lev-mind.md": {
-    "mtime": 1780946838.0995667,
+    "mtime": 1780951231.6481495,
     "clean": false
   },
   "researches\\loss-in-translation.md": {
-    "mtime": 1780946839.8327372,
+    "mtime": 1780951231.87636,
     "clean": false
   },
   "researches\\mabbel-recreation.md": {
-    "mtime": 1780946841.4599652,
-    "clean": true
+    "mtime": 1780951232.0931787,
+    "clean": false
   },
   "researches\\makkot-strikes.md": {
-    "mtime": 1780946843.511462,
+    "mtime": 1780951232.2826772,
     "clean": false
   },
   "researches\\man-as-rose-and-tree.md": {
-    "mtime": 1780946847.3412144,
+    "mtime": 1780951232.64424,
     "clean": false
   },
   "researches\\march-8-history.md": {
-    "mtime": 1780946850.5481813,
-    "clean": true
+    "mtime": 1780951232.8888714,
+    "clean": false
   },
   "researches\\maschiah-cruteria.md": {
-    "mtime": 1780946853.4105632,
+    "mtime": 1780951233.2914977,
     "clean": false
   },
   "researches\\masoretic-text.md": {
-    "mtime": 1780946855.016271,
+    "mtime": 1780951233.5323784,
     "clean": false
   },
   "researches\\melech-messenger.md": {
-    "mtime": 1780946856.5577693,
-    "clean": true
+    "mtime": 1780951233.72989,
+    "clean": false
   },
   "researches\\mered-refusal.md": {
-    "mtime": 1780946858.0040772,
-    "clean": true
+    "mtime": 1780951233.928564,
+    "clean": false
   },
   "researches\\migdal-bavel.md": {
-    "mtime": 1780946859.7018387,
-    "clean": true
+    "mtime": 1780951234.211164,
+    "clean": false
   },
   "researches\\minecraft-tanakh.md": {
-    "mtime": 1780946862.5168543,
+    "mtime": 1780951234.7255032,
     "clean": false
   },
   "researches\\miryam-vs-ishtar.md": {
-    "mtime": 1780946864.2288299,
-    "clean": true
+    "mtime": 1780951234.9618115,
+    "clean": false
   },
   "researches\\missing-hebrew-scrolls.md": {
-    "mtime": 1780946865.2242057,
-    "clean": true
+    "mtime": 1780951235.084792,
+    "clean": false
   },
   "researches\\mizmor-23.md": {
-    "mtime": 1780946867.152763,
-    "clean": true
+    "mtime": 1780951235.3699925,
+    "clean": false
   },
   "researches\\moadim-yhwh.md": {
-    "mtime": 1780946868.1050093,
-    "clean": true
+    "mtime": 1780951235.4877856,
+    "clean": false
   },
   "researches\\money-symbols.md": {
-    "mtime": 1780946870.088457,
-    "clean": true
+    "mtime": 1780951235.792822,
+    "clean": false
   },
   "researches\\morashat-israel.md": {
-    "mtime": 1780946873.0830371,
+    "mtime": 1780951236.2473004,
     "clean": false
   },
   "researches\\mushtarah.md": {
-    "mtime": 1780946874.5574715,
+    "mtime": 1780951236.4534686,
     "clean": false
   },
   "researches\\nachash-serpent.md": {
-    "mtime": 1780946876.235994,
+    "mtime": 1780951236.6809742,
     "clean": false
   },
   "researches\\names\\helena.md": {
-    "mtime": 1780946877.6747305,
+    "mtime": 1780951236.8651834,
     "clean": false
   },
   "researches\\names\\natasha.md": {
-    "mtime": 1780946878.649652,
-    "clean": true
+    "mtime": 1780951236.9757648,
+    "clean": false
   },
   "researches\\names\\ortam.md": {
-    "mtime": 1780946879.7860935,
-    "clean": true
+    "mtime": 1780951237.1169622,
+    "clean": false
   },
   "researches\\nicaea-council.md": {
-    "mtime": 1780946881.2471323,
+    "mtime": 1780951237.2675128,
     "clean": false
   },
   "researches\\nicham-keifa.md": {
-    "mtime": 1780946882.9591603,
+    "mtime": 1780951237.5002065,
     "clean": false
   },
   "researches\\nicham.md": {
-    "mtime": 1780946884.5207007,
+    "mtime": 1780951237.6829908,
     "clean": false
   },
   "researches\\niddah.md": {
-    "mtime": 1780946885.87846,
+    "mtime": 1780951237.8742108,
     "clean": false
   },
   "researches\\nishmat-chayim.md": {
-    "mtime": 1780946887.5514226,
-    "clean": true
+    "mtime": 1780951238.1199017,
+    "clean": false
   },
   "researches\\olam-haba.md": {
-    "mtime": 1780946889.6624548,
+    "mtime": 1780951238.4435654,
     "clean": false
   },
   "researches\\olympic-games.md": {
-    "mtime": 1780946892.248996,
+    "mtime": 1780951238.6501276,
     "clean": false
   },
   "researches\\or-tam.md": {
-    "mtime": 1780946895.154775,
+    "mtime": 1780951238.8921666,
     "clean": false
   },
   "researches\\other\\allopaty.md": {
-    "mtime": 1780946897.277514,
+    "mtime": 1780951239.080042,
     "clean": false
   },
   "researches\\other\\caduceus-control.md": {
-    "mtime": 1780946901.1350975,
+    "mtime": 1780951239.392712,
     "clean": false
   },
   "researches\\other\\g-generations.md": {
-    "mtime": 1780946903.6973956,
-    "clean": true
+    "mtime": 1780951239.5635338,
+    "clean": false
   },
   "researches\\other\\gerewol.md": {
-    "mtime": 1780946906.12923,
-    "clean": true
+    "mtime": 1780951239.7879782,
+    "clean": false
   },
   "researches\\other\\hygieia.md": {
-    "mtime": 1780946908.8726048,
-    "clean": true
+    "mtime": 1780951240.020211,
+    "clean": false
   },
   "researches\\other\\microplastics.md": {
-    "mtime": 1780946912.090968,
-    "clean": true
+    "mtime": 1780951240.2531223,
+    "clean": false
   },
   "researches\\other\\new-year.md": {
-    "mtime": 1780946915.0586305,
-    "clean": true
+    "mtime": 1780951240.4965317,
+    "clean": false
   },
   "researches\\other\\paracelsus.md": {
-    "mtime": 1780946917.996867,
-    "clean": true
+    "mtime": 1780951240.7374654,
+    "clean": false
   },
   "researches\\other\\pedophilia.md": {
-    "mtime": 1780946920.7040284,
-    "clean": true
+    "mtime": 1780951241.02696,
+    "clean": false
   },
   "researches\\other\\pornography.md": {
-    "mtime": 1780946923.469216,
-    "clean": true
+    "mtime": 1780951241.263037,
+    "clean": false
   },
   "researches\\other\\psychology.md": {
-    "mtime": 1780946926.5618472,
-    "clean": true
+    "mtime": 1780951241.5261178,
+    "clean": false
   },
   "researches\\other\\pyramid-bunker.md": {
-    "mtime": 1780946928.8745809,
-    "clean": true
+    "mtime": 1780951241.6711676,
+    "clean": false
   },
   "researches\\other\\slavs.md": {
-    "mtime": 1780946931.4072535,
+    "mtime": 1780951241.8593655,
     "clean": false
   },
   "researches\\paleo-hebrew.md": {
-    "mtime": 1780946936.0190268,
+    "mtime": 1780951242.1707196,
     "clean": false
   },
   "researches\\petersburg-rome-on-neva.md": {
-    "mtime": 1780946939.3948746,
-    "clean": true
+    "mtime": 1780951242.4385865,
+    "clean": false
   },
   "researches\\philosophemes.md": {
-    "mtime": 1780946942.7033432,
+    "mtime": 1780951242.7105148,
     "clean": false
   },
   "researches\\planetah-wandering-star.md": {
-    "mtime": 1780946945.5453603,
-    "clean": true
+    "mtime": 1780951242.9316454,
+    "clean": false
   },
   "researches\\plebs-control.md": {
-    "mtime": 1780946948.6723378,
+    "mtime": 1780951243.206972,
     "clean": false
   },
   "researches\\practices\\exodus-skills.md": {
-    "mtime": 1780946951.6622396,
+    "mtime": 1780951243.4298697,
     "clean": false
   },
   "researches\\practices\\hebrew-week.md": {
-    "mtime": 1780946954.6438017,
+    "mtime": 1780951243.711536,
     "clean": false
   },
   "researches\\practices\\natural-garden.md": {
-    "mtime": 1780946957.5475144,
+    "mtime": 1780951243.9586036,
     "clean": false
   },
   "researches\\prayer-distortion.md": {
-    "mtime": 1780946960.2813818,
-    "clean": true
+    "mtime": 1780951244.1415355,
+    "clean": false
   },
   "researches\\psychikos-pneumatikos.md": {
-    "mtime": 1780946964.01866,
-    "clean": true
+    "mtime": 1780951244.4581747,
+    "clean": false
   },
   "researches\\purpose-of-tanakh.md": {
-    "mtime": 1780946968.6455889,
+    "mtime": 1780951244.9925826,
     "clean": false
   },
   "researches\\rabbinic-judaism.md": {
-    "mtime": 1780946972.1998885,
+    "mtime": 1780951245.2863424,
     "clean": false
   },
   "researches\\religia-rome.md": {
-    "mtime": 1780946975.748407,
+    "mtime": 1780951245.5957992,
     "clean": false
   },
   "researches\\remnant-israel.md": {
-    "mtime": 1780946978.9463844,
+    "mtime": 1780951245.883069,
     "clean": false
   },
   "researches\\resurrection-analysis.md": {
-    "mtime": 1780946982.2414439,
-    "clean": true
+    "mtime": 1780951246.173733,
+    "clean": false
   },
   "researches\\roman-law\\ignorantia-juris.md": {
-    "mtime": 1780946985.7779229,
+    "mtime": 1780951246.506392,
     "clean": false
   },
   "researches\\ruach-fruit.md": {
-    "mtime": 1780946987.3831055,
-    "clean": true
+    "mtime": 1780951246.719655,
+    "clean": false
   },
   "researches\\ruchot-infected.md": {
-    "mtime": 1780946989.9689672,
-    "clean": true
+    "mtime": 1780951246.9318852,
+    "clean": false
   },
   "researches\\satan-adversary.md": {
-    "mtime": 1780946993.0878394,
+    "mtime": 1780951247.1829786,
     "clean": false
   },
   "researches\\secta-meaning.md": {
-    "mtime": 1780946995.2667263,
+    "mtime": 1780951247.506201,
     "clean": false
   },
   "researches\\serpent-healing.md": {
-    "mtime": 1780946996.9564734,
-    "clean": true
+    "mtime": 1780951247.7470639,
+    "clean": false
   },
   "researches\\shaal-u-vikesh.md": {
-    "mtime": 1780946998.537225,
+    "mtime": 1780951247.9617784,
     "clean": false
   },
   "researches\\shaul-against-philosophy.md": {
-    "mtime": 1780947000.49178,
+    "mtime": 1780951248.29621,
     "clean": false
   },
   "researches\\shaul-victim.md": {
-    "mtime": 1780947002.218196,
+    "mtime": 1780951248.56705,
     "clean": false
   },
   "researches\\sheerit.md": {
-    "mtime": 1780947003.2059164,
+    "mtime": 1780951248.705747,
     "clean": false
   },
   "researches\\shema-yhwh-echad.md": {
-    "mtime": 1780947005.2191699,
+    "mtime": 1780951248.9771428,
     "clean": false
   },
   "researches\\shemot-yhwh.md": {
-    "mtime": 1780947007.5404103,
+    "mtime": 1780951249.3160553,
     "clean": false
   },
   "researches\\shirat-hayam.md": {
-    "mtime": 1780947008.1454213,
-    "clean": true
+    "mtime": 1780951249.3719428,
+    "clean": false
   },
   "researches\\shlavim-yetziah.md": {
-    "mtime": 1780947010.1368136,
+    "mtime": 1780951249.7146316,
     "clean": false
   },
   "researches\\sifrei-bashakh.md": {
-    "mtime": 1780947012.608131,
+    "mtime": 1780951250.099309,
     "clean": false
   },
   "researches\\sifrei-tanakh.md": {
-    "mtime": 1780947015.5070188,
+    "mtime": 1780951250.5019608,
     "clean": false
   },
   "researches\\slavery\\economic-slavery.md": {
-    "mtime": 1780947017.319372,
+    "mtime": 1780951250.7537947,
     "clean": false
   },
   "researches\\slavery\\freedom-in-torah.md": {
-    "mtime": 1780947019.5601296,
+    "mtime": 1780951251.1527393,
     "clean": false
   },
   "researches\\slavery\\mental-slavery.md": {
-    "mtime": 1780947021.2103798,
-    "clean": true
+    "mtime": 1780951251.3888636,
+    "clean": false
   },
   "researches\\slavery\\ruach-slavery.md": {
-    "mtime": 1780947023.7339768,
+    "mtime": 1780951251.7050784,
     "clean": false
   },
   "researches\\slavic-substrate.md": {
-    "mtime": 1780947027.0543747,
+    "mtime": 1780951251.9525719,
     "clean": false
   },
   "researches\\sod-hamalchut.md": {
-    "mtime": 1780947030.8003137,
+    "mtime": 1780951252.2600524,
     "clean": false
   },
   "researches\\state-as-symptom.md": {
-    "mtime": 1780947033.316161,
+    "mtime": 1780951252.6736746,
     "clean": false
   },
   "researches\\substitution-of-the-name.md": {
-    "mtime": 1780947034.3629467,
-    "clean": true
+    "mtime": 1780951252.821386,
+    "clean": false
   },
   "researches\\systems\\bavel-mitzrayim-sdom.md": {
-    "mtime": 1780947036.6175342,
-    "clean": true
+    "mtime": 1780951253.1357567,
+    "clean": false
   },
   "researches\\systems\\mitzraim-system.md": {
-    "mtime": 1780947042.033143,
-    "clean": true
+    "mtime": 1780951253.6391287,
+    "clean": false
   },
   "researches\\systems\\red-mitzrayim.md": {
-    "mtime": 1780947046.6609168,
+    "mtime": 1780951254.024811,
     "clean": false
   },
   "researches\\systems\\russia-empire.md": {
-    "mtime": 1780947049.5164227,
+    "mtime": 1780951254.2837405,
     "clean": false
   },
   "researches\\systems\\talmud-judaism.md": {
-    "mtime": 1780947051.5528722,
+    "mtime": 1780951254.6700687,
     "clean": false
   },
   "researches\\systems\\vatican.md": {
-    "mtime": 1780947054.6047845,
+    "mtime": 1780951255.1509106,
     "clean": false
   },
   "researches\\talmud-unmasked.md": {
-    "mtime": 1780947056.4432402,
+    "mtime": 1780951255.4792097,
     "clean": false
   },
   "researches\\tanakh-not-old-testament.md": {
-    "mtime": 1780947057.837552,
+    "mtime": 1780951255.6627505,
     "clean": false
   },
   "researches\\tarbut-cult.md": {
-    "mtime": 1780947059.7657843,
+    "mtime": 1780951255.9039612,
     "clean": false
   },
   "researches\\tfilat-yeshua.md": {
-    "mtime": 1780947061.588018,
-    "clean": true
+    "mtime": 1780951256.1220195,
+    "clean": false
   },
   "researches\\theophoric-names.md": {
-    "mtime": 1780947063.428822,
+    "mtime": 1780951256.3396032,
     "clean": false
   },
   "researches\\three-pillars-of-power.md": {
-    "mtime": 1780947065.2898629,
+    "mtime": 1780951256.6338117,
     "clean": false
   },
   "researches\\tikvah-tension.md": {
-    "mtime": 1780947067.6881888,
-    "clean": true
+    "mtime": 1780951256.8298564,
+    "clean": false
   },
   "researches\\time-in-tanakh.md": {
-    "mtime": 1780947069.698138,
-    "clean": true
+    "mtime": 1780951257.0092027,
+    "clean": false
   },
   "researches\\tree-language.md": {
-    "mtime": 1780947071.429955,
+    "mtime": 1780951257.2065654,
     "clean": false
   },
   "researches\\tzeva-hashamayim.md": {
-    "mtime": 1780947073.8879995,
-    "clean": true
+    "mtime": 1780951257.370069,
+    "clean": false
   },
   "researches\\tzohar-window.md": {
-    "mtime": 1780947077.1838007,
+    "mtime": 1780951257.6440947,
     "clean": false
   },
   "researches\\why-canaan-land.md": {
-    "mtime": 1780947080.7962358,
+    "mtime": 1780951257.9805257,
     "clean": false
   },
   "researches\\why-people-cant-agree.md": {
-    "mtime": 1780947084.0916035,
+    "mtime": 1780951258.219596,
     "clean": false
   },
   "researches\\yahvism.md": {
-    "mtime": 1780947086.9725459,
-    "clean": true
+    "mtime": 1780951258.4401612,
+    "clean": false
   },
   "researches\\yegia-kapayim.md": {
-    "mtime": 1780947089.6783154,
+    "mtime": 1780951258.6467555,
     "clean": false
   },
   "researches\\yegia-ve-koach.md": {
-    "mtime": 1780947092.7144217,
-    "clean": true
+    "mtime": 1780951258.87504,
+    "clean": false
   },
   "researches\\yehoshua-research.md": {
-    "mtime": 1780947099.9047678,
+    "mtime": 1780951259.5123954,
     "clean": false
   },
   "researches\\yetzer-lev.md": {
-    "mtime": 1780947103.842223,
-    "clean": true
+    "mtime": 1780951259.8673418,
+    "clean": false
   }
 }
