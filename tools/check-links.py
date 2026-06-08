@@ -2,7 +2,6 @@
 import sys
 import re
 from pathlib import Path
-from progress import show_progress, finish_progress
 
 REPO_ROOT = Path(__file__).parent.parent
 IGNORE_DIRS = {'.git', 'tools', 'drafts', 'ideas', '__pycache__', 'reports', 'neural'}
@@ -31,6 +30,18 @@ def extract_links(content: str) -> list:
     return links
 
 
+def read_file_safe(filepath: Path) -> str:
+    encodings = ['utf-8', 'utf-16', 'cp1251', 'latin-1']
+    for enc in encodings:
+        try:
+            with open(filepath, 'r', encoding=enc) as f:
+                return f.read()
+        except (UnicodeDecodeError, UnicodeError):
+            continue
+    with open(filepath, 'r', encoding='utf-8', errors='replace') as f:
+        return f.read()
+
+
 def main():
     print("\n🔗 ПРОВЕРКА ССЫЛОК")
     print("=" * 50)
@@ -42,19 +53,30 @@ def main():
     print("Проверка ссылок...\n")
     
     broken = []
+    encoding_issues = []
     
     for i, (rel_path, full_path) in enumerate(files.items(), 1):
-        with open(full_path, "r", encoding="utf-8") as f:
-            content = f.read()
+        try:
+            content = read_file_safe(full_path)
+        except Exception as e:
+            encoding_issues.append((rel_path, str(e)))
+            continue
+        
         links = extract_links(content)
         for link in links:
             target = REPO_ROOT / link
             if not target.exists():
                 broken.append((rel_path, link))
-        show_progress(i, total, "ссылки", len(broken))
+        
+        if i % 20 == 0 or i == total:
+            print(f"  [{i}/{total}] проверено... битых: {len(broken)}", end='\r')
     
-    finish_progress()
     print("\n\n" + "=" * 50)
+    
+    if encoding_issues:
+        print(f"\n⚠️ ПРОБЛЕМЫ С КОДИРОВКОЙ: {len(encoding_issues)}")
+        for file_path, error in encoding_issues[:5]:
+            print(f"   • {file_path} — {error}")
     
     if broken:
         print(f"\n❌ БИТЫХ ССЫЛОК: {len(broken)}")
