@@ -1,11 +1,7 @@
 # ✅ ЧЕКЕР СОГЛАСОВАННОСТИ (CONSISTENCY CHECKER)
 
 **Метаданные файла**
-<<<<<<< HEAD
-- **Файл:** `checkers/consistency-checker.md`
-=======
 - **Файл:** `instructions/checkers/consistency-checker.md`
->>>>>>> 27b9c25 (Инициализация репозитория Голем)
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-05
 - **Статус:** Активный
