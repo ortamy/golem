@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# golem.py — единый скрипт для управления проектом (древовидное меню) v4.0
+# golem.py — единый скрипт для управления проектом (древовидное меню) v4.1
 
 import os
 import sys
@@ -26,49 +26,38 @@ TOOLS_DIR = Path(__file__).parent
 CACHE_DIR = TOOLS_DIR / "cache"
 CONFIG_FILE = CACHE_DIR / "golem-config.json"
 LOG_FILE = REPO_ROOT / "golem.log"
-VERSION = "4.0"
+VERSION = "4.1"
 
 current_lang = "ru"
 LANGUAGES = {}
 config = {}
 
-D = TOOLS_DIR
-PATHS = {
-    "check_naming":             D / "checkers" / "check-naming.py",
-    "validate_metadata":        D / "checkers" / "validate-metadata.py",
-    "fix_metadata_fields":      D / "checkers" / "fix-metadata-fields.py",
-    "check_links":              D / "checkers" / "check-links.py",
-    "validate_external_links":  D / "checkers" / "validate-external-links.py",
-    "find_duplicates":          D / "checkers" / "find-duplicates.py",
-    "find_orphans":             D / "checkers" / "find-orphans.py",
-    "check_empty_files":        D / "checkers" / "check-empty-files.py",
-    "consistency":              D / "checkers" / "consistency-checker.py",
-    "check_religionisms":       D / "checkers" / "check-religionisms.py",
-    "check_tahor_sync":         D / "checkers" / "check-tahor-sync.py",
-    "check_code_quality":       D / "checkers" / "check-code-quality.py",
-    "clear_cache":              D / "checkers" / "clear-cache.py",
-    "generate_glossary":        D / "generators" / "generate-glossary.py",
-    "generate_nav":             D / "generators" / "generate-nav.py",
-    "sync_structure":           D / "generators" / "sync-structure.py",
-    "generate_retrospective":   D / "generators" / "generate-retrospective.py",
-    "generate_changelog":       D / "generators" / "generate-changelog.py",
-    "generate_index":           D / "generators" / "generate-index.py",
-    "unify_metadata":           D / "generators" / "unify-metadata.py",
-    "stats_report":             D / "reports" / "stats-report.py",
-    "check_file_sizes":         D / "reports" / "check-file-sizes.py",
-    "daily_report":             D / "reports" / "daily-report.py",
-    "check_health":             D / "reports" / "check-health.py",
-    "add_metadata":             D / "automation" / "add-metadata.py",
-    "auto_fix":                 D / "automation" / "auto-fix.py",
-    "task_manager":             D / "automation" / "task-manager.py",
-    "idea_manager":             D / "automation" / "idea-manager.py",
-    "update_versions":          D / "automation" / "update-versions.py",
-    "export_repo":              D / "backup" / "export-repo.sh",
-    "backup_repo":              D / "backup" / "backup.sh",
-}
+# =============================================================================
+# АВТО-СКАНИРОВАНИЕ СКРИПТОВ
+# =============================================================================
+
+def scan_scripts():
+    """Автоматически находит все скрипты в подпапках tools/."""
+    paths = {}
+    for subdir in ["checkers", "generators", "reports", "automation"]:
+        dir_path = TOOLS_DIR / subdir
+        if dir_path.exists():
+            for script in sorted(dir_path.glob("*.py")):
+                name = script.stem.replace("-", "_").replace(".", "_")
+                paths[name] = script
+    # Bash-скрипты
+    backup_dir = TOOLS_DIR / "backup"
+    if backup_dir.exists():
+        for script in sorted(backup_dir.glob("*.sh")):
+            name = script.stem.replace("-", "_").replace(".", "_")
+            paths[name] = script
+    return paths
+
+PATHS = scan_scripts()
 
 SPINNER = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 LABEL_WIDTH = 45
+
 
 def log(msg):
     try:
@@ -76,6 +65,7 @@ def log(msg):
             f.write(f"{datetime.now().isoformat()} - {msg}\n")
     except Exception:
         pass
+
 
 def load_languages():
     global LANGUAGES
@@ -85,22 +75,7 @@ def load_languages():
             "run_all_checks": "Запустить все проверки", "run_all_fixes": "Запустить все исправления",
             "full_audit": "Полный аудит", "checkers": "Чекеры", "generators": "Генераторы",
             "reports": "Отчёты", "automation": "Автоматизация", "backup": "Бэкап и экспорт",
-            "check_file_naming": "Проверка имён файлов", "check_metadata": "Проверка метаданных",
-            "fix_metadata_fields": "Исправить поля метаданных", "check_links": "Проверка внутренних ссылок",
-            "validate_external_links": "Проверка внешних ссылок", "find_duplicates": "Поиск дубликатов",
-            "find_orphans": "Поиск файлов-сирот", "check_empty_files": "Поиск пустых/незаполненных",
-            "check_consistency": "Проверка согласованности", "check_religionisms": "Проверить религионимы",
-            "check_tahor_sync": "Сверка tahor/ ↔ forbidden-words", "check_code_quality": "Проверить качество кода",
-            "clear_cache": "Очистить кэш", "generate_glossary": "Генерация глоссария",
-            "generate_navigation": "Генерация навигации", "sync_structure": "Синхронизация структуры",
-            "generate_retrospective": "Ретроспектива", "generate_changelog": "Генерация CHANGELOG",
-            "generate_index": "Индексы папок", "unify_metadata": "Унификация метаданных",
-            "stats": "Статистика репозитория", "check_file_sizes": "Анализ размеров файлов",
-            "daily_report": "Ежедневный отчёт", "check_health": "Здоровье проекта",
-            "add_metadata": "Добавить метаданные", "auto_fix": "Автофикс задач",
-            "task_manager": "Менеджер задач", "idea_manager": "Управление идеями",
-            "update_versions": "Обновить версии", "export_repo": "Экспорт репозитория",
-            "backup_repo": "Создать бэкап", "back": "← Назад", "running": "Выполняется: {}",
+            "back": "← Назад", "running": "Выполняется: {}",
             "up_down": "↑↓ выбор | Enter вход | Esc/← назад | q выход", "goodbye": "До свидания!",
             "not_found": "не найден", "press_enter": "Нажмите любую клавишу...",
             "error_occurred": "Произошла ошибка", "skipped": "пропущен",
@@ -110,27 +85,13 @@ def load_languages():
             "run_all_checks": "Run all checks", "run_all_fixes": "Run all fixes",
             "full_audit": "Full audit", "checkers": "Checkers", "generators": "Generators",
             "reports": "Reports", "automation": "Automation", "backup": "Backup & Export",
-            "check_file_naming": "Check file naming", "check_metadata": "Check metadata",
-            "fix_metadata_fields": "Fix metadata fields", "check_links": "Check internal links",
-            "validate_external_links": "Validate external links", "find_duplicates": "Find duplicates",
-            "find_orphans": "Find orphans", "check_empty_files": "Find empty/unfilled",
-            "check_consistency": "Check consistency", "check_religionisms": "Check religionisms",
-            "check_tahor_sync": "Sync tahor/ ↔ forbidden-words", "check_code_quality": "Check code quality",
-            "clear_cache": "Clear cache", "generate_glossary": "Generate glossary",
-            "generate_navigation": "Generate navigation", "sync_structure": "Sync structure",
-            "generate_retrospective": "Retrospective", "generate_changelog": "Generate CHANGELOG",
-            "generate_index": "Folder index", "unify_metadata": "Unify metadata",
-            "stats": "Repository statistics", "check_file_sizes": "File size analysis",
-            "daily_report": "Daily report", "check_health": "Project health",
-            "add_metadata": "Add metadata", "auto_fix": "Auto fix tasks",
-            "task_manager": "Task manager", "idea_manager": "Idea manager",
-            "update_versions": "Update versions", "export_repo": "Export repository",
-            "backup_repo": "Backup repository", "back": "← Back", "running": "Running: {}",
+            "back": "← Back", "running": "Running: {}",
             "up_down": "↑↓ select | Enter enter | Esc/← back | q quit", "goodbye": "Goodbye!",
             "not_found": "not found", "press_enter": "Press any key...",
             "error_occurred": "An error occurred", "skipped": "skipped",
         },
     }
+
 
 def load_config():
     global config
@@ -143,6 +104,7 @@ def load_config():
         pass
     config = {"language": "ru"}
 
+
 def save_config():
     try:
         CACHE_DIR.mkdir(parents=True, exist_ok=True)
@@ -150,8 +112,10 @@ def save_config():
     except Exception as e:
         log(f"config: {e}")
 
+
 def t(key):
     return LANGUAGES.get(current_lang, LANGUAGES["ru"]).get(key, key)
+
 
 def _flash(stdscr, msg):
     try:
@@ -160,6 +124,7 @@ def _flash(stdscr, msg):
         stdscr.getch()
     except Exception:
         print(msg)
+
 
 def _wait_key():
     print(f"\n{t('press_enter')}")
@@ -171,6 +136,7 @@ def _wait_key():
             sys.stdin.read(1)
     except Exception:
         input()
+
 
 def _run_py(stdscr, script_path, args=None, description=None):
     if not script_path.exists():
@@ -199,6 +165,7 @@ def _run_py(stdscr, script_path, args=None, description=None):
         stdscr.clear()
         stdscr.refresh()
 
+
 def _run_sh(stdscr, script_path):
     if not script_path.exists():
         _flash(stdscr, f"[X] {script_path.name} — {t('skipped')}")
@@ -223,6 +190,7 @@ def _run_sh(stdscr, script_path):
         stdscr.clear()
         stdscr.refresh()
 
+
 def draw_menu(stdscr, title_key, items, selected):
     h, w = stdscr.getmaxyx()
     stdscr.clear()
@@ -237,6 +205,7 @@ def draw_menu(stdscr, title_key, items, selected):
     hint = t('up_down')
     stdscr.addstr(h - 2, max(0, (w - len(hint)) // 2), hint, curses.A_DIM)
     stdscr.refresh()
+
 
 def menu_loop(stdscr, title_key, items, actions):
     sel = 0
@@ -256,11 +225,59 @@ def menu_loop(stdscr, title_key, items, actions):
         except KeyboardInterrupt: return
         except Exception as e: log(f"menu {title_key}: {e}"); return
 
+
+def _build_menu(menu_type):
+    """Строит меню из скриптов в указанной папке."""
+    items = []
+    actions = []
+    folder = TOOLS_DIR / menu_type
+    if folder.exists():
+        for script in sorted(folder.glob("*.py")):
+            name = script.stem.replace("-", " ").replace("_", " ").title()
+            items.append(name)
+            actions.append(lambda s=script: _run_py(None, s, description=s.stem))
+    items.append(t('back'))
+    actions.append(None)
+    return items, actions
+
+
+def menu_checkers(stdscr):
+    items, actions = _build_menu("checkers")
+    # Перемещаем clear_cache в конец перед back
+    menu_loop(stdscr, 'checkers', items, actions)
+
+
+def menu_generators(stdscr):
+    items, actions = _build_menu("generators")
+    menu_loop(stdscr, 'generators', items, actions)
+
+
+def menu_reports(stdscr):
+    items, actions = _build_menu("reports")
+    menu_loop(stdscr, 'reports', items, actions)
+
+
+def menu_automation(stdscr):
+    items, actions = _build_menu("automation")
+    menu_loop(stdscr, 'automation', items, actions)
+
+
+def menu_backup(stdscr):
+    items = [t('export_repo'), t('backup_repo'), t('back')]
+    actions = [
+        lambda: _run_sh(stdscr, PATHS.get("export_repo", TOOLS_DIR / "backup" / "export-repo.sh")),
+        lambda: _run_sh(stdscr, PATHS.get("backup_repo", TOOLS_DIR / "backup" / "backup.sh")),
+        None,
+    ]
+    menu_loop(stdscr, 'backup', items, actions)
+
+
 def menu_actions(stdscr):
     menu_loop(stdscr, 'actions',
               [t('run_all_checks'), t('run_all_fixes'), t('full_audit'), t('back')],
               [lambda: run_all_checks(stdscr), lambda: run_all_fixes(stdscr),
                lambda: run_full_audit(stdscr), None])
+
 
 def menu_tools(stdscr):
     menu_loop(stdscr, 'tools',
@@ -269,78 +286,13 @@ def menu_tools(stdscr):
                lambda: menu_reports(stdscr), lambda: menu_automation(stdscr),
                lambda: menu_backup(stdscr), None])
 
-def menu_checkers(stdscr):
-    menu_loop(stdscr, 'checkers',
-              [t('check_file_naming'), t('check_metadata'), t('fix_metadata_fields'),
-               t('check_links'), t('validate_external_links'), t('find_duplicates'),
-               t('find_orphans'), t('check_empty_files'), t('check_consistency'),
-               t('check_religionisms'), t('check_tahor_sync'), t('check_code_quality'),
-               t('clear_cache'), t('back')],
-              [lambda: _run_py(stdscr, PATHS["check_naming"]),
-               lambda: _run_py(stdscr, PATHS["validate_metadata"]),
-               lambda: _run_py(stdscr, PATHS["fix_metadata_fields"]),
-               lambda: _run_py(stdscr, PATHS["check_links"]),
-               lambda: _run_py(stdscr, PATHS["validate_external_links"]),
-               lambda: _run_py(stdscr, PATHS["find_duplicates"]),
-               lambda: _run_py(stdscr, PATHS["find_orphans"]),
-               lambda: _run_py(stdscr, PATHS["check_empty_files"]),
-               lambda: _run_py(stdscr, PATHS["consistency"]),
-               lambda: _run_py(stdscr, PATHS["check_religionisms"]),
-               lambda: _run_py(stdscr, PATHS["check_tahor_sync"]),
-               lambda: _run_py(stdscr, PATHS["check_code_quality"]),
-               lambda: _run_py(stdscr, PATHS["clear_cache"]), None])
-
-def menu_generators(stdscr):
-    menu_loop(stdscr, 'generators',
-              [t('generate_glossary'), t('generate_navigation'), t('sync_structure'),
-               t('unify_metadata'), t('generate_retrospective'), t('generate_changelog'),
-               t('generate_index'), t('back')],
-              [lambda: _run_py(stdscr, PATHS["generate_glossary"]),
-               lambda: _run_py(stdscr, PATHS["generate_nav"]),
-               lambda: _run_py(stdscr, PATHS["sync_structure"]),
-               lambda: _run_py(stdscr, PATHS["unify_metadata"], ['--dry-run']),
-               lambda: _run_py(stdscr, PATHS["generate_retrospective"]),
-               lambda: _run_py(stdscr, PATHS["generate_changelog"], ['--dry-run']),
-               lambda: _run_py(stdscr, PATHS["generate_index"]), None])
-
-def menu_reports(stdscr):
-    menu_loop(stdscr, 'reports',
-              [t('stats'), t('check_file_sizes'), t('daily_report'), t('check_health'), t('back')],
-              [lambda: _run_py(stdscr, PATHS["stats_report"]),
-               lambda: _run_py(stdscr, PATHS["check_file_sizes"]),
-               lambda: _run_py(stdscr, PATHS["daily_report"]),
-               lambda: _run_py(stdscr, PATHS["check_health"]), None])
-
-def menu_automation(stdscr):
-    menu_loop(stdscr, 'automation',
-              [t('add_metadata'), t('auto_fix'), t('task_manager'), t('idea_manager'),
-               t('update_versions'), t('back')],
-              [lambda: _run_py(stdscr, PATHS["add_metadata"]),
-               lambda: _run_py(stdscr, PATHS["auto_fix"]),
-               lambda: _run_py(stdscr, PATHS["task_manager"]),
-               lambda: _run_py(stdscr, PATHS["idea_manager"]),
-               lambda: _run_py(stdscr, PATHS["update_versions"], ['--dry-run']), None])
-
-def menu_backup(stdscr):
-    menu_loop(stdscr, 'backup',
-              [t('export_repo'), t('backup_repo'), t('back')],
-              [lambda: _run_sh(stdscr, PATHS["export_repo"]),
-               lambda: _run_sh(stdscr, PATHS["backup_repo"]), None])
 
 def run_all_checks(stdscr):
-    scripts = [
-        (PATHS["check_naming"], t('check_file_naming')),
-        (PATHS["validate_metadata"], t('check_metadata')),
-        (PATHS["fix_metadata_fields"], t('fix_metadata_fields')),
-        (PATHS["check_links"], t('check_links')),
-        (PATHS["find_duplicates"], t('find_duplicates')),
-        (PATHS["find_orphans"], t('find_orphans')),
-        (PATHS["check_empty_files"], t('check_empty_files')),
-        (PATHS["consistency"], t('check_consistency')),
-        (PATHS["check_religionisms"], t('check_religionisms')),
-        (PATHS["check_tahor_sync"], t('check_tahor_sync')),
-        (PATHS["check_code_quality"], t('check_code_quality')),
-    ]
+    checkers_dir = TOOLS_DIR / "checkers"
+    if not checkers_dir.exists():
+        return
+
+    scripts = [(s, s.stem.replace("-", " ").title()) for s in sorted(checkers_dir.glob("*.py"))]
     total = len(scripts)
     results = []
     curses.endwin()
@@ -399,23 +351,26 @@ def run_all_checks(stdscr):
     stdscr.clear()
     stdscr.refresh()
 
+
 def run_all_fixes(stdscr):
     scripts = [
-        (PATHS["validate_metadata"], ['--fix']),
-        (PATHS["fix_metadata_fields"], ['--fix']),
-        (PATHS["check_religionisms"], ['--fix']),
-        (PATHS["check_code_quality"], ['--fix']),
-        (PATHS["sync_structure"], []),
-        (PATHS["generate_glossary"], []),
-        (PATHS["generate_nav"], []),
+        (PATHS.get("validate_metadata", TOOLS_DIR / "checkers" / "validate-metadata.py"), ['--fix']),
+        (PATHS.get("fix_metadata_fields", TOOLS_DIR / "checkers" / "fix-metadata-fields.py"), ['--fix']),
+        (PATHS.get("check_religionisms", TOOLS_DIR / "checkers" / "check-religionisms.py"), ['--fix']),
+        (PATHS.get("check_code_quality", TOOLS_DIR / "checkers" / "check-code-quality.py"), ['--fix']),
+        (PATHS.get("sync_structure", TOOLS_DIR / "generators" / "sync-structure.py"), []),
+        (PATHS.get("generate_glossary", TOOLS_DIR / "generators" / "generate-glossary.py"), []),
+        (PATHS.get("generate_nav", TOOLS_DIR / "generators" / "generate-nav.py"), []),
     ]
     for script, args in scripts:
         _run_py(stdscr, script, args=args)
 
+
 def run_full_audit(stdscr):
     run_all_checks(stdscr)
     run_all_fixes(stdscr)
-    _run_py(stdscr, PATHS["stats_report"])
+    _run_py(stdscr, PATHS.get("stats_report", TOOLS_DIR / "reports" / "stats-report.py"))
+
 
 def main_menu(stdscr):
     items = [t('actions'), t('tools'), t('exit')]
@@ -436,6 +391,7 @@ def main_menu(stdscr):
                 if sel == n - 1: break
         except KeyboardInterrupt: break
         except Exception as e: log(f"main: {e}"); break
+
 
 def main():
     global current_lang
@@ -459,6 +415,6 @@ def main():
     finally:
         print(f"\n\033[92m{t('goodbye')}\033[0m\n")
 
+
 if __name__ == "__main__":
     main()
-
