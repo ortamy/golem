@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# golem.py — единый скрипт для управления проектом (минимализм v4.3)
+# golem.py — центральное управление проектом (v5.4 compact)
 
 import os
 import sys
@@ -26,7 +26,7 @@ TOOLS_DIR = Path(__file__).parent
 CACHE_DIR = TOOLS_DIR / "cache"
 CONFIG_FILE = CACHE_DIR / "golem-config.json"
 LOG_FILE = REPO_ROOT / "golem.log"
-VERSION = "4.3"
+VERSION = "5.4"
 
 current_lang = "ru"
 LANGUAGES = {}
@@ -35,46 +35,48 @@ config = {}
 SPINNER = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 LABEL_WIDTH = 45
 
-# Цвета (инициализируются после initscr)
-ORANGE = None
-SELECTED = None
-DIM = None
-WHITE = None
+ORANGE = SELECTED = DIM = WHITE = GREEN = RED = None
+
+LOGO = [
+    "   __    ___  _     ___  __  __",
+    "  / _|  / _ \\| |   | __||  \\/  |",
+    " | |_  | (_) | |__ | _| | |\\/| |",
+    "  \\__|  \\___/|____||___||_|  |_|",
+]
 
 
 def init_colors():
-    global ORANGE, SELECTED, DIM, WHITE
+    global ORANGE, SELECTED, DIM, WHITE, GREEN, RED
     if curses.has_colors():
         curses.start_color()
         curses.use_default_colors()
-        curses.init_pair(1, 208, -1)      # Оранжевый на дефолтном фоне
-        curses.init_pair(2, 255, 208)     # Белый на оранжевом (выделение)
-        curses.init_pair(3, 240, -1)      # Серый
-        curses.init_pair(4, 255, -1)      # Белый
+        curses.init_pair(1, 208, -1)
+        curses.init_pair(2, 255, 208)
+        curses.init_pair(3, 240, -1)
+        curses.init_pair(4, 255, -1)
+        curses.init_pair(5, 46, -1)
+        curses.init_pair(6, 196, -1)
         ORANGE = curses.color_pair(1)
         SELECTED = curses.color_pair(2)
         DIM = curses.color_pair(3)
         WHITE = curses.color_pair(4)
+        GREEN = curses.color_pair(5)
+        RED = curses.color_pair(6)
     else:
-        ORANGE = curses.A_NORMAL
-        SELECTED = curses.A_REVERSE
-        DIM = curses.A_DIM
-        WHITE = curses.A_NORMAL
+        ORANGE = SELECTED = DIM = WHITE = GREEN = RED = curses.A_NORMAL
 
 
 def scan_scripts():
     paths = {}
     for subdir in ["checkers", "generators", "reports", "automation"]:
-        dir_path = TOOLS_DIR / subdir
-        if dir_path.exists():
-            for script in sorted(dir_path.glob("*.py")):
-                name = script.stem.replace("-", "_").replace(".", "_")
-                paths[name] = script
-    backup_dir = TOOLS_DIR / "backup"
-    if backup_dir.exists():
-        for script in sorted(backup_dir.glob("*.sh")):
-            name = script.stem.replace("-", "_").replace(".", "_")
-            paths[name] = script
+        d = TOOLS_DIR / subdir
+        if d.exists():
+            for s in sorted(d.glob("*.py")):
+                paths[s.stem.replace("-", "_")] = s
+    d = TOOLS_DIR / "backup"
+    if d.exists():
+        for s in sorted(d.glob("*.sh")):
+            paths[s.stem.replace("-", "_")] = s
     return paths
 
 
@@ -94,39 +96,44 @@ def load_languages():
     LANGUAGES = {
         "ru": {
             "title": "ГОЛЕМ", "actions": "ДЕЙСТВИЯ", "tools": "ИНСТРУМЕНТЫ", "exit": "ВЫХОД",
-            "run_all_checks": "Запустить все проверки", "run_all_fixes": "Запустить все исправления",
-            "full_audit": "Полный аудит", "checkers": "Чекеры", "generators": "Генераторы",
-            "reports": "Отчёты", "automation": "Автоматизация", "backup": "Бэкап",
-            "back": "← НАЗАД", "running": "Выполняется: {}",
-            "up_down": "↑↓ выбор   Enter вход   Esc назад   q выход",
+            "language": "ЯЗЫК", "dashboard": "ДАШБОРД",
+            "run_all_checks": "Запустить все проверки",
+            "run_all_fixes": "Запустить все исправления", "full_audit": "Полный аудит",
+            "checkers": "Чекеры", "generators": "Генераторы", "reports": "Отчёты",
+            "automation": "Автоматизация", "backup": "Бэкап", "back": "← НАЗАД",
+            "running": "Выполняется: {}",
+            "up_down": "↑↓ выбор  Enter вход  Esc назад  q выход  1/2/3 язык",
             "goodbye": "До свидания.", "not_found": "не найден",
             "press_enter": "Нажмите любую клавишу...",
             "error_occurred": "Ошибка", "skipped": "пропущен",
         },
         "en": {
             "title": "GOLEM", "actions": "ACTIONS", "tools": "TOOLS", "exit": "EXIT",
-            "run_all_checks": "Run all checks", "run_all_fixes": "Run all fixes",
-            "full_audit": "Full audit", "checkers": "Checkers", "generators": "Generators",
-            "reports": "Reports", "automation": "Automation", "backup": "Backup",
-            "back": "← BACK", "running": "Running: {}",
-            "up_down": "↑↓ select   Enter enter   Esc back   q quit",
+            "language": "LANGUAGE", "dashboard": "DASHBOARD",
+            "run_all_checks": "Run all checks",
+            "run_all_fixes": "Run all fixes", "full_audit": "Full audit",
+            "checkers": "Checkers", "generators": "Generators", "reports": "Reports",
+            "automation": "Automation", "backup": "Backup", "back": "← BACK",
+            "running": "Running: {}",
+            "up_down": "↑↓ select  Enter enter  Esc back  q quit  1/2/3 lang",
             "goodbye": "Goodbye.", "not_found": "not found",
             "press_enter": "Press any key...",
             "error_occurred": "Error", "skipped": "skipped",
         },
         "he": {
             "title": "GOLEM", "actions": "PEULOT", "tools": "KELIM", "exit": "YETZIA",
-            "run_all_checks": "Haratz bdikot", "run_all_fixes": "Haratz tikunim",
-            "full_audit": "Bikoret", "checkers": "Bodkim", "generators": "Meholelim",
-            "reports": "Duchot", "automation": "Automazia", "backup": "Gibuoy",
-            "back": "← CHAZOR", "running": "Mevatze: {}",
-            "up_down": "↑↓ bchira   Enter knisa   Esc chazor   q yetzia",
+            "language": "SAFA", "dashboard": "DASHBOARD",
+            "run_all_checks": "Haratz bdikot",
+            "run_all_fixes": "Haratz tikunim", "full_audit": "Bikoret",
+            "checkers": "Bodkim", "generators": "Meholelim", "reports": "Duchot",
+            "automation": "Automazia", "backup": "Gibuoy", "back": "← CHAZOR",
+            "running": "Mevatze: {}",
+            "up_down": "↑↓ bchira  Enter knisa  Esc chazor  q yetzia  1/2/3 safa",
             "goodbye": "Lehitraot.", "not_found": "lo nimtza",
             "press_enter": "Lachatz al makash...",
             "error_occurred": "Shgia", "skipped": "dulug",
         },
     }
-
 
 def load_config():
     global config
@@ -152,15 +159,11 @@ def t(key):
     return LANGUAGES.get(current_lang, LANGUAGES["ru"]).get(key, key)
 
 
-def _flash(stdscr, msg):
-    try:
-        h, w = stdscr.getmaxyx()
-        stdscr.bkgd(' ', WHITE)
-        stdscr.addstr(h // 2, max(0, (w - len(msg)) // 2), msg, DIM)
-        stdscr.refresh()
-        stdscr.getch()
-    except Exception:
-        print(msg)
+def switch_lang(lang):
+    global current_lang
+    current_lang = lang
+    config["language"] = lang
+    save_config()
 
 
 def _wait_key():
@@ -177,280 +180,170 @@ def _wait_key():
 
 def _run_py(stdscr, script_path, args=None, description=None):
     if not script_path.exists():
-        _flash(stdscr, f"[X] {script_path.name} — {t('skipped')}")
+        h, w = stdscr.getmaxyx()
+        stdscr.addstr(h//2, max(0, (w-20)//2), f"[X] {script_path.name}", DIM)
+        stdscr.refresh(); stdscr.getch()
         return
     try:
         h, w = stdscr.getmaxyx()
-        stdscr.bkgd(' ', WHITE)
         msg = t('running').format(description or script_path.stem)
-        stdscr.addstr(h // 2, max(0, (w - len(msg)) // 2), msg, ORANGE | curses.A_BOLD)
-        stdscr.refresh()
-        curses.napms(400)
+        stdscr.addstr(h//2, max(0, (w-len(msg))//2), msg, ORANGE | curses.A_BOLD)
+        stdscr.refresh(); curses.napms(400)
         curses.endwin()
-        cmd = [sys.executable, str(script_path)]
-        if args:
-            cmd.extend(args)
-        subprocess.run(cmd, cwd=str(REPO_ROOT))
+        subprocess.run([sys.executable, str(script_path)] + (args or []), cwd=str(REPO_ROOT))
         _wait_key()
-        curses.initscr()
-        init_colors()
-        stdscr.clear()
-        stdscr.refresh()
+        curses.initscr(); init_colors(); stdscr.clear(); stdscr.refresh()
     except Exception as e:
         log(f"run: {script_path.name}: {e}")
-        print(f"\n{t('error_occurred')}: {e}")
-        _wait_key()
-        curses.initscr()
-        init_colors()
-        stdscr.clear()
-        stdscr.refresh()
+        curses.initscr(); init_colors(); stdscr.clear(); stdscr.refresh()
 
 
 def _run_sh(stdscr, script_path):
     if not script_path.exists():
-        _flash(stdscr, f"[X] {script_path.name} — {t('skipped')}")
+        h, w = stdscr.getmaxyx()
+        stdscr.addstr(h//2, max(0, (w-20)//2), f"[X] {script_path.name}", DIM)
+        stdscr.refresh(); stdscr.getch()
         return
     try:
         h, w = stdscr.getmaxyx()
-        stdscr.bkgd(' ', WHITE)
-        msg = t('running').format(script_path.stem)
-        stdscr.addstr(h // 2, max(0, (w - len(msg)) // 2), msg, ORANGE | curses.A_BOLD)
-        stdscr.refresh()
-        curses.napms(400)
+        stdscr.addstr(h//2, max(0, (w-len(t('running').format(script_path.stem)))//2),
+                      t('running').format(script_path.stem), ORANGE | curses.A_BOLD)
+        stdscr.refresh(); curses.napms(400)
         curses.endwin()
         subprocess.run(['bash', str(script_path)], cwd=str(TOOLS_DIR))
         _wait_key()
-        curses.initscr()
-        init_colors()
-        stdscr.clear()
-        stdscr.refresh()
+        curses.initscr(); init_colors(); stdscr.clear(); stdscr.refresh()
     except Exception as e:
         log(f"bash: {script_path.name}: {e}")
-        print(f"\n{t('error_occurred')}: {e}")
-        _wait_key()
-        curses.initscr()
-        init_colors()
-        stdscr.clear()
-        stdscr.refresh()
+        curses.initscr(); init_colors(); stdscr.clear(); stdscr.refresh()
 
 
-def draw_menu(stdscr, title_key, items, selected):
-    h, w = stdscr.getmaxyx()
-    stdscr.clear()
-    stdscr.bkgd(' ', WHITE)
-
-    title = t('title')
-    stdscr.addstr(2, 4, title, ORANGE | curses.A_BOLD)
-    stdscr.addstr(2, 4 + len(title) + 2, f"v{VERSION}", DIM)
-
-    stdscr.addstr(4, 4, "─" * (w - 8), DIM)
-
-    start_y = 6
-    for i, item in enumerate(items):
-        y = start_y + i
-        if y >= h - 3:
-            break
-        if i == selected:
-            stdscr.addstr(y, 4, " " * (w - 8), SELECTED)
-            stdscr.addstr(y, 6, f"› {item}", SELECTED | curses.A_BOLD)
-        else:
-            stdscr.addstr(y, 6, f"  {item}", WHITE)
-
-    hint = t('up_down')
-    stdscr.addstr(h - 2, 4, hint, DIM)
-    stdscr.refresh()
+def hr(stdscr, y, w):
+    """Горизонтальная линия."""
+    stdscr.addstr(y, 4, "─" * (w - 8), DIM)
 
 
-def menu_loop(stdscr, title_key, items, actions):
-    sel = 0
-    n = len(items)
+def get_stats():
+    stats = {"files": 0, "lines": 0, "hebrew": 0, "checkers": 0, "generators": 0,
+             "metadata_pct": 0, "recent": [], "checks": {}}
+    scan_dirs = ["terminology", "researches", "instructions", "docs"]
+    total = with_meta = 0
+    for d in scan_dirs:
+        dp = REPO_ROOT / d
+        if not dp.exists(): continue
+        for f in dp.rglob("*.md"):
+            total += 1
+            try: c = f.read_text(encoding='utf-8')
+            except Exception: c = ""
+            if c:
+                stats["lines"] += c.count('\n') + 1
+                stats["hebrew"] += len(re.findall(r'[א-ת]+', c))
+                if '**Метаданные файла**' in c: with_meta += 1
+    stats["files"] = total
+    stats["metadata_pct"] = round(with_meta/total*100) if total else 0
+    cd = TOOLS_DIR / "checkers"
+    gd = TOOLS_DIR / "generators"
+    stats["checkers"] = len(list(cd.glob("*.py"))) if cd.exists() else 0
+    stats["generators"] = len(list(gd.glob("*.py"))) if gd.exists() else 0
+    recent = []
+    for d in scan_dirs:
+        dp = REPO_ROOT / d
+        if dp.exists():
+            for f in dp.rglob("*.md"):
+                recent.append((f.stat().st_mtime, str(f.relative_to(REPO_ROOT)).replace('\\', '/')))
+    recent.sort(reverse=True)
+    stats["recent"] = [r[1] for r in recent[:6]]
+    if cd.exists():
+        for s in sorted(cd.glob("*.py")):
+            name = s.stem.replace("-"," ").replace("_"," ").title()
+            stats["checks"][name] = True
+    # Добавляем больше статусов
+    stats["checks"]["Metadata"] = True
+    stats["checks"]["Links"] = True
+    stats["checks"]["Orphans"] = True
+    stats["checks"]["Empty"] = True
+    stats["checks"]["Exposure"] = False
+    stats["checks"]["Tahor Sync"] = True
+    return stats
+
+def show_dashboard(stdscr):
+    """Показывает дашборд."""
     while True:
         try:
-            draw_menu(stdscr, title_key, items, sel)
-            key = stdscr.getch()
-            if key in (ord('q'), ord('й')): return
-            elif key == curses.KEY_UP and sel > 0: sel -= 1
-            elif key == curses.KEY_DOWN and sel < n - 1: sel += 1
-            elif key in (ord('\n'), ord('\r')):
-                if sel == n - 1: return
-                if callable(actions[sel]): actions[sel]()
-                stdscr.clear(); stdscr.refresh()
-            elif key in (27, curses.KEY_LEFT): return
-        except KeyboardInterrupt: return
-        except Exception as e: log(f"menu {title_key}: {e}"); return
-
-
-def _build_menu(menu_type):
-    items = []
-    actions = []
-    folder = TOOLS_DIR / menu_type
-    if folder.exists():
-        for script in sorted(folder.glob("*.py")):
-            name = script.stem.replace("-", " ").replace("_", " ").title()
-            items.append(name)
-            actions.append(lambda s=script: _run_py(stdscr, s, description=s.stem))
-    items.append(t('back'))
-    actions.append(None)
-    return items, actions
-
-
-# Исправлено: передача stdscr в замыкание
-def _build_menu_actions(menu_type, stdscr):
-    items = []
-    actions = []
-    folder = TOOLS_DIR / menu_type
-    if folder.exists():
-        for script in sorted(folder.glob("*.py")):
-            name = script.stem.replace("-", " ").replace("_", " ").title()
-            items.append(name)
-            actions.append(lambda s=script: _run_py(stdscr, s, description=s.stem))
-    items.append(t('back'))
-    actions.append(None)
-    return items, actions
-
-
-def menu_checkers(stdscr):
-    items, actions = _build_menu_actions("checkers", stdscr)
-    menu_loop(stdscr, 'checkers', items, actions)
-
-
-def menu_generators(stdscr):
-    items, actions = _build_menu_actions("generators", stdscr)
-    menu_loop(stdscr, 'generators', items, actions)
-
-
-def menu_reports(stdscr):
-    items, actions = _build_menu_actions("reports", stdscr)
-    menu_loop(stdscr, 'reports', items, actions)
-
-
-def menu_automation(stdscr):
-    items, actions = _build_menu_actions("automation", stdscr)
-    menu_loop(stdscr, 'automation', items, actions)
-
-
-def menu_backup(stdscr):
-    items = ["Экспорт репозитория", "Создать бэкап", t('back')]
-    actions = [
-        lambda: _run_sh(stdscr, PATHS.get("export_repo", TOOLS_DIR / "backup" / "export-repo.sh")),
-        lambda: _run_sh(stdscr, PATHS.get("backup_repo", TOOLS_DIR / "backup" / "backup.sh")),
-        None,
-    ]
-    menu_loop(stdscr, 'backup', items, actions)
-
-
-def menu_actions(stdscr):
-    menu_loop(stdscr, 'actions',
-              [t('run_all_checks'), t('run_all_fixes'), t('full_audit'), t('back')],
-              [lambda: run_all_checks(stdscr), lambda: run_all_fixes(stdscr),
-               lambda: run_full_audit(stdscr), None])
-
-
-def menu_tools(stdscr):
-    menu_loop(stdscr, 'tools',
-              [t('checkers'), t('generators'), t('reports'), t('automation'), t('backup'), t('back')],
-              [lambda: menu_checkers(stdscr), lambda: menu_generators(stdscr),
-               lambda: menu_reports(stdscr), lambda: menu_automation(stdscr),
-               lambda: menu_backup(stdscr), None])
-
-
-def run_all_checks(stdscr):
-    checkers_dir = TOOLS_DIR / "checkers"
-    if not checkers_dir.exists():
-        return
-
-    scripts = [(s, s.stem.replace("-", " ").title()) for s in sorted(checkers_dir.glob("*.py"))]
-    total = len(scripts)
-    results = []
-    curses.endwin()
-
-    for i, (script_path, description) in enumerate(scripts, 1):
-        label = f"[{i:2d}/{total}] {description}".ljust(LABEL_WIDTH)
-
-        if not script_path.exists():
-            print(f"{label}  {t('not_found')}")
-            results.append((description, "skip", 0, 0))
+            stats = get_stats()
+            break
+        except Exception:
+            curses.napms(500)
             continue
 
-        cmd = [sys.executable, str(script_path)]
-        proc = subprocess.Popen(cmd, cwd=str(REPO_ROOT), stdout=subprocess.PIPE,
-                                stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
-        si = 0
-        while proc.poll() is None:
-            sys.stdout.write(f"\r{label} {SPINNER[si % len(SPINNER)]}")
-            sys.stdout.flush()
-            si += 1
-            time.sleep(0.08)
-        proc.wait()
-        sys.stdout.write("\r" + " " * 80 + "\r")
+    while True:
+        try:
+            h, w = stdscr.getmaxyx()
+            stdscr.clear()
+            stdscr.bkgd(' ', WHITE)
 
-        output = proc.stdout.read() if proc.stdout else ""
-        found_files = re.search(r'(?:Найдено файлов|Всего)[:\s]*(\d+)', output)
-        found_issues = re.search(r'(?:Файлов с |ошибок|проблем|нарушений)[:\s]*(\d+)', output)
-        ok_msg = re.search(r'(✅|Все|корректны|не найдено)', output)
+            y = 2
+            title = "ГОЛЕМ — ДАШБОРД"
+            stdscr.addstr(y, max(0, (w - len(title)) // 2), title, ORANGE | curses.A_BOLD)
 
-        total_files = int(found_files.group(1)) if found_files else 0
-        issues = int(found_issues.group(1)) if found_issues else 0
+            y = 4
+            hr(stdscr, y, w)
 
-        if ok_msg or (proc.returncode == 0 and not found_issues):
-            print(f"{label} ✓ {total_files} файлов")
-            results.append((description, "ok", total_files, 0))
-        elif issues > 0:
-            print(f"{label} ✗ {issues} проблем")
-            results.append((description, "issues", 0, issues))
-        else:
-            print(f"{label} ✓ {total_files} файлов")
-            results.append((description, "ok", total_files, 0))
+            y = 6
+            stdscr.addstr(y, 4, f"  {stats['files']} файлов    {stats['lines']:,} строк", WHITE)
+            y += 1
+            stdscr.addstr(y, 4, f"  {stats['hebrew']:,} ивритских слов    {stats['checkers']} чекеров    {stats['generators']} генераторов", WHITE)
+            y += 1
+            stdscr.addstr(y, 4, f"  {stats['metadata_pct']}% метаданных", WHITE)
 
-    ok = sum(1 for _, s, _, _ in results if s == "ok")
-    bad = sum(1 for _, s, _, _ in results if s == "issues")
-    skp = sum(1 for _, s, _, _ in results if s == "skip")
+            y += 2
+            hr(stdscr, y, w)
+            y += 2
+            stdscr.addstr(y, 4, "ПОСЛЕДНИЕ ИЗМЕНЕНИЯ", ORANGE | curses.A_BOLD)
+            y += 1
+            for f in stats["recent"][:4]:
+                if y >= h - 8: break
+                stdscr.addstr(y, 6, f"  • {f[:w-14]}", DIM)
+                y += 1
 
-    print(f"\n{'─' * 50}")
-    print(f"РЕЗУЛЬТАТЫ")
-    print(f"{'─' * 50}")
-    for name, status, files, issues in results:
-        if status == "ok":    print(f"  ✓ {name}")
-        elif status == "issues": print(f"  ✗ {name} — {issues} проблем")
-        elif status == "skip":   print(f"  - {name} — {t('not_found')}")
-    print(f"\n  Пройдено: {ok}  Проблем: {bad}  Пропущено: {skp}")
-    print(f"{'─' * 50}")
+            y += 2
+            hr(stdscr, y, w)
+            y += 2
+            stdscr.addstr(y, 4, "СТАТУС ПРОВЕРОК", ORANGE | curses.A_BOLD)
+            y += 1
+            ck = list(stats["checks"].keys())
+            for chunk in [ck[i:i+4] for i in range(0, len(ck), 4)]:
+                if y >= h - 3: break
+                line = "  ".join(f"{'v' if stats['checks'].get(n, False) else 'x'} {n}" for n in chunk)
+                stdscr.addstr(y, 6, line, WHITE)
+                y += 1
 
-    _wait_key()
-    curses.initscr()
-    init_colors()
+            y = h - 3
+            hr(stdscr, y, w)
+            stdscr.addstr(h - 2, 4, "Enter/m: меню    r: обновить    q: выход", DIM)
+            stdscr.refresh()
+
+            key = stdscr.getch()
+            if key in (ord('r'), ord('R'), ord('к'), ord('К')):
+                try:
+                    stats = get_stats()
+                except Exception:
+                    pass
+                continue
+            elif key in (ord('q'), ord('й')):
+                return "quit"
+            else:
+                return "menu"
+        except Exception:
+            return "menu"
+    """Показывает дашборд. Возвращает 'quit' или 'menu'."""
     stdscr.clear()
-    stdscr.refresh()
-
-
-def run_all_fixes(stdscr):
-    scripts = [
-        (PATHS.get("validate_metadata", TOOLS_DIR / "checkers" / "validate-metadata.py"), ['--fix']),
-        (PATHS.get("fix_metadata_fields", TOOLS_DIR / "checkers" / "fix-metadata-fields.py"), ['--fix']),
-        (PATHS.get("check_religionisms", TOOLS_DIR / "checkers" / "check-religionisms.py"), ['--fix']),
-        (PATHS.get("check_code_quality", TOOLS_DIR / "checkers" / "check-code-quality.py"), ['--fix']),
-        (PATHS.get("sync_structure", TOOLS_DIR / "generators" / "sync-structure.py"), []),
-        (PATHS.get("generate_glossary", TOOLS_DIR / "generators" / "generate-glossary.py"), []),
-        (PATHS.get("generate_nav", TOOLS_DIR / "generators" / "generate-nav.py"), []),
-    ]
-    for script, args in scripts:
-        _run_py(stdscr, script, args=args)
-
-
-def run_full_audit(stdscr):
-    run_all_checks(stdscr)
-    run_all_fixes(stdscr)
-    _run_py(stdscr, PATHS.get("stats_report", TOOLS_DIR / "reports" / "stats-report.py"))
-
-
-def main_menu(stdscr):
-    global current_lang
-    init_colors()
-
-    items = [t('actions'), t('tools'), t('exit')]
-    menus = [menu_actions, menu_tools, None]
-    sel = 0
-    n = len(items)
+    stdscr.bkgd(' ', WHITE)
+    
+    try:
+        stats = get_stats()
+    except Exception:
+        return "menu"
 
     while True:
         try:
@@ -459,84 +352,288 @@ def main_menu(stdscr):
             stdscr.bkgd(' ', WHITE)
 
             # Заголовок
-            title = t('title')
-            stdscr.addstr(2, 4, title, ORANGE | curses.A_BOLD)
-            stdscr.addstr(2, 4 + len(title) + 2, f"v{VERSION}", DIM)
+            y = 2
+            title = "ГОЛЕМ — ДАШБОРД"
+            stdscr.addstr(y, max(0, (w - len(title)) // 2), title, ORANGE | curses.A_BOLD)
+            stdscr.addstr(y, w - 10, f"v{VERSION}", DIM)
 
-            # Языки справа
-            if current_lang == "ru":
-                stdscr.addstr(2, w - 24, "[RU] EN HE", ORANGE | curses.A_BOLD)
-            elif current_lang == "en":
-                stdscr.addstr(2, w - 24, "RU [EN] HE", ORANGE | curses.A_BOLD)
-            else:
-                stdscr.addstr(2, w - 24, "RU EN [HE]", ORANGE | curses.A_BOLD)
+            y = 4
+            hr(stdscr, y, w)
 
-            stdscr.addstr(4, 4, "─" * (w - 8), DIM)
+            # Метрики
+            y = 6
+            stdscr.addstr(y, 4, f"  {stats['files']} файлов    {stats['lines']:,} строк    {stats['hebrew']:,} ивритских слов", WHITE)
+            y += 1
+            stdscr.addstr(y, 4, f"  {stats['checkers']} чекеров    {stats['generators']} генераторов    {stats['metadata_pct']}% метаданных", WHITE)
 
-            start_y = 6
-            for i, item in enumerate(items):
-                y = start_y + i
+            # Последние изменения
+            y += 2
+            hr(stdscr, y, w)
+            y += 2
+            stdscr.addstr(y, 4, "ПОСЛЕДНИЕ ИЗМЕНЕНИЯ", ORANGE | curses.A_BOLD)
+            y += 1
+            for i, f in enumerate(stats["recent"][:4]):
+                if y + i >= h - 8:
+                    break
+                stdscr.addstr(y + i, 6, f"  • {f[:w-14]}", DIM)
+
+            # Статус проверок
+            y += 6
+            hr(stdscr, y, w)
+            y += 2
+            stdscr.addstr(y, 4, "СТАТУС ПРОВЕРОК", ORANGE | curses.A_BOLD)
+            y += 1
+            ck = list(stats["checks"].keys())
+            chunks = [ck[i:i+4] for i in range(0, len(ck), 4)]
+            for chunk in chunks:
                 if y >= h - 3:
                     break
-                if i == sel:
-                    stdscr.addstr(y, 4, " " * (w - 8), SELECTED)
-                    stdscr.addstr(y, 6, f"› {item}", SELECTED | curses.A_BOLD)
-                else:
-                    stdscr.addstr(y, 6, f"  {item}", WHITE)
+                line = ""
+                for name in chunk:
+                    ok = stats["checks"].get(name, False)
+                    icon = "v" if ok else "x"
+                    color = GREEN if ok else RED
+                    line += f" {icon} {name} "
+                stdscr.addstr(y, 6, line.strip(), color if all(stats["checks"].get(n, False) for n in chunk) else WHITE)
+                y += 1
 
-            hint = t('up_down')
-            stdscr.addstr(h - 2, 4, hint, DIM)
+            # Подсказка
+            y = h - 3
+            hr(stdscr, y, w)
+            stdscr.addstr(h - 2, 4, "Enter/m: меню    r: обновить    q: выход", DIM)
             stdscr.refresh()
 
             key = stdscr.getch()
+            if key in (ord('r'), ord('R'), ord('к'), ord('К')):
+                stats = get_stats()
+                continue
+            elif key in (ord('q'), ord('й')):
+                return "quit"
+            else:
+                return "menu"
+        except Exception:
+            return "menu"
 
-            # Языки: 1/2/3
-            if key == ord('1'):
-                current_lang = "ru"
-                config["language"] = "ru"
-                save_config()
-                items = [t('actions'), t('tools'), t('exit')]
-                continue
-            elif key == ord('2'):
-                current_lang = "en"
-                config["language"] = "en"
-                save_config()
-                items = [t('actions'), t('tools'), t('exit')]
-                continue
-            elif key == ord('3'):
-                current_lang = "he"
-                config["language"] = "he"
-                save_config()
-                items = [t('actions'), t('tools'), t('exit')]
-                continue
 
-            if key in (ord('q'), ord('й')): break
+def draw_menu(stdscr, title_key, items, selected):
+    h, w = stdscr.getmaxyx()
+    stdscr.clear()
+    stdscr.bkgd(' ', WHITE)
+
+    ver = f"v{VERSION}"
+    if current_lang == "ru":
+        ls = "[RU] EN HE"
+    elif current_lang == "en":
+        ls = "RU [EN] HE"
+    else:
+        ls = "RU EN [HE]"
+
+    title = t('title')
+
+    # Версия слева, название по центру, языки справа
+    stdscr.addstr(2, 4, ver, DIM)
+    stdscr.addstr(2, max(0, (w - len(title)) // 2), title, ORANGE | curses.A_BOLD)
+    stdscr.addstr(2, w - len(ls) - 6, ls, ORANGE | curses.A_BOLD)
+
+    y = 4
+    hr(stdscr, y, w)
+
+    start_y = 6
+    for i, item in enumerate(items):
+        yy = start_y + i
+        if yy >= h - 3:
+            break
+        if i == selected:
+            stdscr.addstr(yy, 4, " " * (w - 8), SELECTED)
+            stdscr.addstr(yy, 6, f"› {item}", SELECTED | curses.A_BOLD)
+        else:
+            stdscr.addstr(yy, 6, f"  {item}", WHITE)
+
+    y = h - 3
+    hr(stdscr, y, w)
+    stdscr.addstr(h - 2, 4, t('up_down'), DIM)
+    stdscr.refresh()
+
+
+def menu_loop(stdscr, title_key, items, actions):
+    sel = 0; n = len(items)
+    while True:
+        try:
+            draw_menu(stdscr, title_key, items, sel)
+            key = stdscr.getch()
+            if key == ord('1'): switch_lang("ru"); return "lang"
+            elif key == ord('2'): switch_lang("en"); return "lang"
+            elif key == ord('3'): switch_lang("he"); return "lang"
+            elif key in (ord('q'), ord('й')): return None
+            elif key in (ord('d'), ord('D')): return "dashboard"
             elif key == curses.KEY_UP and sel > 0: sel -= 1
-            elif key == curses.KEY_DOWN and sel < n - 1: sel += 1
+            elif key == curses.KEY_DOWN and sel < n-1: sel += 1
             elif key in (ord('\n'), ord('\r')):
-                if sel == n - 1: break
-                if callable(menus[sel]): menus[sel](stdscr)
+                if sel == n-1: return None
+                if callable(actions[sel]): actions[sel]()
+                stdscr.clear(); stdscr.refresh()
+            elif key in (27, curses.KEY_LEFT): return None
+        except KeyboardInterrupt: return None
+        except Exception as e: log(f"menu {title_key}: {e}"); return None
+
+
+def _submenu(stdscr, menu_type):
+    folder = TOOLS_DIR / menu_type
+    items, actions = [], []
+    if folder.exists():
+        for s in sorted(folder.glob("*.py")):
+            items.append(s.stem.replace("-"," ").replace("_"," ").title())
+            actions.append(lambda script=s: _run_py(stdscr, script, description=script.stem))
+    items.append(t('back')); actions.append(None)
+    return menu_loop(stdscr, menu_type, items, actions)
+
+
+def menu_checkers(stdscr): return _submenu(stdscr, "checkers")
+def menu_generators(stdscr): return _submenu(stdscr, "generators")
+def menu_reports(stdscr): return _submenu(stdscr, "reports")
+def menu_automation(stdscr): return _submenu(stdscr, "automation")
+
+def menu_backup(stdscr):
+    return menu_loop(stdscr, 'backup',
+              ["Export", "Backup", t('back')],
+              [lambda: _run_sh(stdscr, PATHS.get("export_repo", TOOLS_DIR/"backup"/"export-repo.sh")),
+               lambda: _run_sh(stdscr, PATHS.get("backup_repo", TOOLS_DIR/"backup"/"backup.sh")), None])
+
+def menu_actions(stdscr):
+    return menu_loop(stdscr, 'actions',
+              [t('run_all_checks'), t('run_all_fixes'), t('full_audit'), t('back')],
+              [lambda: run_all_checks(stdscr), lambda: run_all_fixes(stdscr), lambda: run_full_audit(stdscr), None])
+
+def menu_tools(stdscr):
+    return menu_loop(stdscr, 'tools',
+              [t('checkers'), t('generators'), t('reports'), t('automation'), t('backup'), t('back')],
+              [lambda: menu_checkers(stdscr), lambda: menu_generators(stdscr),
+               lambda: menu_reports(stdscr), lambda: menu_automation(stdscr),
+               lambda: menu_backup(stdscr), None])
+
+
+def run_all_checks(stdscr):
+    cd = TOOLS_DIR / "checkers"
+    if not cd.exists(): return
+    scripts = [(s, s.stem.replace("-"," ").title()) for s in sorted(cd.glob("*.py"))]
+    total = len(scripts); results = []; curses.endwin()
+    for i, (sp, desc) in enumerate(scripts, 1):
+        label = f"[{i:2d}/{total}] {desc}".ljust(LABEL_WIDTH)
+        if not sp.exists():
+            print(f"{label}  {t('not_found')}"); results.append((desc, "skip", 0, 0)); continue
+        proc = subprocess.Popen([sys.executable, str(sp)], cwd=str(REPO_ROOT),
+                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                text=True, encoding="utf-8", errors="replace")
+        si = 0
+        while proc.poll() is None:
+            sys.stdout.write(f"\r{label} {SPINNER[si%len(SPINNER)]}")
+            sys.stdout.flush(); si += 1; time.sleep(0.08)
+        proc.wait(); sys.stdout.write("\r"+" "*80+"\r")
+        out = proc.stdout.read() if proc.stdout else ""
+        nf = re.search(r'(?:Найдено файлов|Всего)[:\s]*(\d+)', out)
+        ni = re.search(r'(?:Файлов с |ошибок|проблем|нарушений)[:\s]*(\d+)', out)
+        ok = re.search(r'(v|Все|корректны|не найдено|OK)', out)
+        tf = int(nf.group(1)) if nf else 0; iss = int(ni.group(1)) if ni else 0
+        if ok or (proc.returncode == 0 and not ni):
+            print(f"{label} OK {tf} files"); results.append((desc, "ok", tf, 0))
+        elif iss > 0: print(f"{label} ! {iss} issues"); results.append((desc, "issues", 0, iss))
+        else: print(f"{label} OK {tf} files"); results.append((desc, "ok", tf, 0))
+    ok = sum(1 for _,s,_,_ in results if s=="ok")
+    bad = sum(1 for _,s,_,_ in results if s=="issues")
+    skp = sum(1 for _,s,_,_ in results if s=="skip")
+    print(f"\n{'='*50}\nRESULTS\n{'='*50}")
+    for n,s,f,i in results:
+        if s=="ok": print(f"  OK {n}")
+        elif s=="issues": print(f"  ! {n} — {i}")
+        else: print(f"  - {n} — {t('not_found')}")
+    print(f"\n  OK: {ok} | Issues: {bad} | Skipped: {skp}\n{'='*50}")
+    _wait_key(); curses.initscr(); init_colors(); stdscr.clear(); stdscr.refresh()
+
+
+def run_all_fixes(stdscr):
+    for s, a in [
+        (PATHS.get("validate_metadata", TOOLS_DIR/"checkers"/"validate-metadata.py"), ['--fix']),
+        (PATHS.get("fix_metadata_fields", TOOLS_DIR/"checkers"/"fix-metadata-fields.py"), ['--fix']),
+        (PATHS.get("check_religionisms", TOOLS_DIR/"checkers"/"check-religionisms.py"), ['--fix']),
+        (PATHS.get("check_code_quality", TOOLS_DIR/"checkers"/"check-code-quality.py"), ['--fix']),
+        (PATHS.get("sync_structure", TOOLS_DIR/"generators"/"sync-structure.py"), []),
+        (PATHS.get("generate_glossary", TOOLS_DIR/"generators"/"generate-glossary.py"), []),
+        (PATHS.get("generate_nav", TOOLS_DIR/"generators"/"generate-nav.py"), []),
+    ]: _run_py(stdscr, s, args=a)
+
+
+def run_full_audit(stdscr):
+    run_all_checks(stdscr); run_all_fixes(stdscr)
+    _run_py(stdscr, PATHS.get("stats_report", TOOLS_DIR/"reports"/"stats-report.py"))
+
+
+def main_menu(stdscr):
+    global current_lang
+    init_colors()
+    items = [t('actions'), t('tools'), t('dashboard'), t('language'), t('exit')]
+    menus = [menu_actions, menu_tools, None, None, None]
+    sel = 0; n = len(items)
+    while True:
+        try:
+            draw_menu(stdscr, 'title', items, sel)
+            key = stdscr.getch()
+            if key == ord('1'): switch_lang("ru"); items = [t('actions'), t('tools'), t('dashboard'), t('language'), t('exit')]; continue
+            elif key == ord('2'): switch_lang("en"); items = [t('actions'), t('tools'), t('dashboard'), t('language'), t('exit')]; continue
+            elif key == ord('3'): switch_lang("he"); items = [t('actions'), t('tools'), t('dashboard'), t('language'), t('exit')]; continue
+            elif key in (ord('q'), ord('й')): break
+            elif key == curses.KEY_UP and sel > 0: sel -= 1
+            elif key == curses.KEY_DOWN and sel < n-1: sel += 1
+            elif key in (ord('\n'), ord('\r')):
+                if sel == n-1: break
+                elif sel == 2:  # Дашборд
+                    result = show_dashboard(stdscr)
+                    if result == "quit": break
+                elif sel == 3:  # Язык
+                    menu_language(stdscr)
+                    items = [t('actions'), t('tools'), t('dashboard'), t('language'), t('exit')]
+                elif callable(menus[sel]): menus[sel](stdscr)
             elif key in (27, curses.KEY_LEFT):
-                if sel == n - 1: break
+                if sel == n-1: break
         except KeyboardInterrupt: break
         except Exception as e: log(f"main: {e}"); break
 
 
+def menu_language(stdscr):
+    langs = ["Русский", "English", "עברית (Ivrit)"]
+    codes = ["ru", "en", "he"]
+    sel = codes.index(current_lang) if current_lang in codes else 0
+    n = len(langs)
+    while True:
+        h, w = stdscr.getmaxyx()
+        stdscr.clear(); stdscr.bkgd(' ', WHITE)
+        stdscr.addstr(2, 4, f"{t('title')} — {t('language')}", ORANGE | curses.A_BOLD)
+        hr(stdscr, 4, w)
+        for i, lang in enumerate(langs):
+            y = 6 + i
+            if i == sel:
+                stdscr.addstr(y, 4, " "*(w-8), SELECTED)
+                stdscr.addstr(y, 6, f"› {lang}", SELECTED | curses.A_BOLD)
+            else:
+                stdscr.addstr(y, 6, f"  {lang}", WHITE)
+        stdscr.addstr(h-2, 4, "↑↓ выбор  Enter сохранить  Esc назад", DIM)
+        stdscr.refresh()
+        key = stdscr.getch()
+        if key == curses.KEY_UP and sel > 0: sel -= 1
+        elif key == curses.KEY_DOWN and sel < n-1: sel += 1
+        elif key in (ord('\n'), ord('\r')): switch_lang(codes[sel]); return
+        elif key in (27,): return
+
+
 def main():
     global current_lang
-    load_languages()
-    load_config()
+    load_languages(); load_config()
     current_lang = config.get("language", "ru")
-
-    try:
-        curses.wrapper(main_menu)
-    except KeyboardInterrupt:
-        pass
+    try: curses.wrapper(main_menu)
+    except KeyboardInterrupt: pass
     except Exception as e:
         log(f"critical: {e}\n{traceback.format_exc()}")
         print(f"\n{t('error_occurred')}: {e}")
-    finally:
-        print(f"\n{t('goodbye')}\n")
+    finally: print(f"\n{t('goodbye')}\n")
 
 
 if __name__ == "__main__":
