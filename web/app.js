@@ -168,4 +168,10 @@ function renderMobile() {
     var subEl = document.getElementById('subcategory-select');
 
     mlv.appendChild(searchEl);
-    mlv
+    mlv}
+
+    function copyCurrentLink() {
+    if (!currentPath) return;
+    var u = window.location.origin + (IS_LOCAL ? '/api/file?path=' : '/') + encodeURIComponent(currentPath);
+    navigator.clipboard.writeText(u).then(function() { showToast(); });
+}
