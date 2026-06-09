@@ -9,6 +9,7 @@
 </head>
 <body class="light">
 
+<!-- ПК: сайдбар -->
 <div id="sidebar">
     <div id="logo"><pre>
  ██████╗  ██████╗ ██╗     ███████╗███╗   ███╗
@@ -26,7 +27,7 @@
         <select id="subcategory-select" onchange="render()" style="display:none;margin-top:6px">
             <option value="">Все подкатегории</option>
         </select>
-        <div id="toggle-theme" onclick="toggleTheme()" title="Тёмная/светлая тема">◐</div>
+        <div id="toggle-theme" onclick="toggleTheme()">◐</div>
     </div>
     <div id="sidebar-actions">
         <span class="sidebar-btn" onclick="randomFile()">Случайный</span>
@@ -39,10 +40,15 @@
             <div class="cat-header">Закладки</div>
             <div id="bookmarks-list"></div>
         </div>
+        <div id="history-section" style="display:none">
+            <div class="cat-header">История</div>
+            <div id="history-list"></div>
+        </div>
         <div id="stats">Файлов: <span id="total-count">0</span></div>
     </div>
 </div>
 
+<!-- ПК: контент -->
 <div id="main-area">
     <div id="content">
         <div id="empty">&larr; Выберите файл</div>
@@ -50,6 +56,40 @@
     <div id="toc-panel" style="display:none">
         <div class="toc-header">Содержание</div>
         <div id="toc-list"></div>
+    </div>
+</div>
+
+<!-- Мобильный: бургер -->
+<div id="burger-overlay" onclick="closeBurger()"></div>
+<button id="burger-btn" onclick="toggleBurger()">☰</button>
+
+<div id="burger-menu">
+    <div id="burger-logo">GOLEM</div>
+    <div id="burger-actions">
+        <span class="burger-item" onclick="toggleTheme()">◐ Тема</span>
+        <span class="burger-item" onclick="randomFile()">⟳ Случайный</span>
+        <span class="burger-item" onclick="copyCurrentLink()">🔗 Копировать ссылку</span>
+        <span class="burger-item" onclick="window.print()">🖶 Печать</span>
+    </div>
+    <div id="burger-bookmarks-section">
+        <div class="cat-header">Закладки</div>
+        <div id="burger-bookmarks-list"></div>
+    </div>
+    <div id="burger-history-section">
+        <div class="cat-header">История</div>
+        <div id="burger-history-list"></div>
+    </div>
+</div>
+
+<!-- Мобильный: страница файла -->
+<div id="file-page" style="display:none">
+    <div id="file-top-bar">
+        <button id="back-btn" onclick="closeFile()">← Назад</button>
+        <span id="file-path-hint"></span>
+        <span id="file-bookmark-btn" class="bookmark-btn" onclick="toggleBookmark(currentPath)">☆</span>
+    </div>
+    <div id="file-content-mobile">
+        <div class="spinner"></div>
     </div>
 </div>
 
