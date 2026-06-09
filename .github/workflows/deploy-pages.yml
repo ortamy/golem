@@ -34,7 +34,6 @@ jobs:
           cp -r terminology web/
           cp -r researches web/
           cp -r instructions web/
-          cp -r checkers web/
           cp -r drafts web/
           cp -r ideas web/
 
