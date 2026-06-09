@@ -1,4 +1,4 @@
-// Golem Web Interface v9.0 — Mobile + Desktop, burger menu, separate file page
+// Golem Web Interface v8.2 — Node.js + GitHub Pages
 
 var IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 var API_FILES = IS_LOCAL ? '/api/files' : 'files.json';
@@ -20,9 +20,10 @@ fetch(API_FILES)
         render();
     })
     .catch(function(e) {
-        console.error('Ошибка загрузки:', e.message);
+        console.error('Ошибка загрузки списка файлов:', e.message);
         document.getElementById('file-list').innerHTML =
-            '<div style="padding:20px;color:#ff4d00;font-size:11px;">Ошибка загрузки.</div>';
+            '<div style="padding:20px;color:#ff4d00;font-size:11px;">Ошибка загрузки.<br>' +
+            (IS_LOCAL ? '<code>node server.js</code>' : 'Попробуйте позже.') + '</div>';
     });
 
 function buildCategorySelect() {
@@ -85,30 +86,38 @@ function render() {
         }
         var d = document.createElement('div');
         d.className = 'file-item';
+        if (f.path === currentPath) d.classList.add('active');
         d.innerHTML = '<div class="title">' + esc(f.title || f.path) + '</div>' +
             (f.topic ? '<div class="topic">' + esc((f.topic || '').substring(0, 90)) + '</div>' : '');
-        d.onclick = (function(p) { return function() { openFile(p); }; })(f.path);
+        d.onclick = (function(p) { return function() { loadFile(p); }; })(f.path);
         list.appendChild(d);
     }
 
-    renderBurgerBookmarks();
-    renderBurgerHistory();
+    var bS = document.getElementById('bookmarks-section'),
+        bL = document.getElementById('bookmarks-list');
+    if (bookmarks.length) {
+        bS.style.display = 'block';
+        bL.innerHTML = '';
+        for (var j = 0; j < bookmarks.length; j++) {
+            (function(p) {
+                var bd = document.createElement('div');
+                bd.className = 'bookmark-item';
+                var bf = FILES.find(function(x) { return x.path === p; });
+                bd.textContent = bf ? (bf.title || p) : p;
+                bd.onclick = function() { loadFile(p); };
+                bL.appendChild(bd);
+            })(bookmarks[j]);
+        }
+    } else {
+        bS.style.display = 'none';
+    }
+    renderHistory();
 }
 
-function openFile(p) {
+function loadFile(p) {
     currentPath = p;
-    var lv = document.getElementById('list-view');
-    var fv = document.getElementById('file-view');
-    lv.style.display = 'none';
-    fv.style.display = 'block';
-    fv.style.visibility = 'visible';
-    fv.style.opacity = '1';
-    document.getElementById('file-path-hint').textContent = p;
-    var bm = document.getElementById('file-bookmark-btn');
-    bm.textContent = bookmarks.indexOf(p) >= 0 ? '★' : '☆';
-    bm.className = 'bookmark-btn' + (bookmarks.indexOf(p) >= 0 ? ' active' : '');
-
-    var c = document.getElementById('file-content');
+    var c = document.getElementById('content');
+    c.classList.remove('fade-in');
     c.innerHTML = '<div class="spinner"></div>';
 
     var url = IS_LOCAL
@@ -121,26 +130,24 @@ function openFile(p) {
             return r.text();
         })
         .then(function(md) {
-            c.innerHTML = parseMD(md) + renderRelated(p);
+            var isBm = bookmarks.indexOf(p) >= 0;
+            c.innerHTML = '<div class="path-hint">' + esc(p) +
+                ' <span class="bookmark-btn' + (isBm ? ' active' : '') +
+                '" onclick="toggleBookmark(\'' + p.replace(/'/g, "\\'") + '\')">' +
+                (isBm ? '★' : '☆') + '</span></div>' +
+                parseMD(md) + renderRelated(p);
             addToHistory(p);
             buildTOC(md);
             setupQuoteCopy();
+            void c.offsetWidth;
+            c.classList.add('fade-in');
         })
         .catch(function(e) {
-            c.innerHTML = '<div style="color:#ff4d00;padding:40px;">Ошибка: ' + esc(p) + '</div>';
+            console.error('Ошибка загрузки:', e.message);
+            c.innerHTML = '<div style="color:#ff4d00;padding:40px;">Ошибка: ' + esc(p) + '<br><small>' + esc(e.message) + '</small></div>';
+            void c.offsetWidth;
+            c.classList.add('fade-in');
         });
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function closeFile() {
-    var fv = document.getElementById('file-view');
-    var lv = document.getElementById('list-view');
-    fv.style.display = 'none';
-    lv.style.display = 'block';
-    lv.style.visibility = 'visible';
-    lv.style.opacity = '1';
-    currentPath = null;
     render();
 }
 
@@ -194,13 +201,13 @@ function renderRelated(p) {
         var r = f.related[i],
             rf = FILES.find(function(x) { return x.path === r; }),
             tt = rf ? (rf.title || r) : r;
-        h += '<li><span class="related-link" onclick="openFile(\'' + r.replace(/'/g, "\\'") + '\')">' + esc(tt) + '</span></li>';
+        h += '<li><span class="related-link" onclick="loadFile(\'' + r.replace(/'/g, "\\'") + '\')">' + esc(tt) + '</span></li>';
     }
     return h + '</ul>';
 }
 
 function setupQuoteCopy() {
-    var qs = document.querySelectorAll('#file-content blockquote');
+    var qs = document.querySelectorAll('#content blockquote');
     for (var i = 0; i < qs.length; i++) {
         qs[i].onclick = function() {
             navigator.clipboard.writeText(this.textContent.trim()).then(function() { showToast(); });
@@ -215,14 +222,11 @@ function showToast() {
 }
 
 function toggleBookmark(p) {
-    if (!p) return;
     var i = bookmarks.indexOf(p);
     if (i >= 0) bookmarks.splice(i, 1);
     else bookmarks.push(p);
     localStorage.setItem('golem_bookmarks', JSON.stringify(bookmarks));
-    var bm = document.getElementById('file-bookmark-btn');
-    bm.textContent = bookmarks.indexOf(p) >= 0 ? '★' : '☆';
-    bm.className = 'bookmark-btn' + (bookmarks.indexOf(p) >= 0 ? ' active' : '');
+    loadFile(p);
 }
 
 function addToHistory(p) {
@@ -232,26 +236,14 @@ function addToHistory(p) {
     localStorage.setItem('golem_history', JSON.stringify(fileHistory));
 }
 
-function renderBurgerBookmarks() {
-    var list = document.getElementById('burger-bookmarks-list');
-    if (!list) return;
-    list.innerHTML = '';
-    for (var j = 0; j < bookmarks.length; j++) {
-        (function(p) {
-            var d = document.createElement('div');
-            d.className = 'bookmark-item';
-            var bf = FILES.find(function(x) { return x.path === p; });
-            d.textContent = bf ? (bf.title || p) : p;
-            d.onclick = function() { closeBurger(); openFile(p); };
-            list.appendChild(d);
-        })(bookmarks[j]);
-    }
-}
-
-function renderBurgerHistory() {
-    var list = document.getElementById('burger-history-list');
-    if (!list) return;
-    list.innerHTML = '';
+function renderHistory() {
+    var ct = document.getElementById('sidebar-footer'),
+        old = document.getElementById('history-section');
+    if (old) old.remove();
+    if (!fileHistory.length) return;
+    var s = document.createElement('div');
+    s.id = 'history-section';
+    s.innerHTML = '<div class="cat-header">История</div>';
     for (var i = 0; i < Math.min(fileHistory.length, 8); i++) {
         (function(p) {
             var d = document.createElement('div');
@@ -260,71 +252,19 @@ function renderBurgerHistory() {
             var t = p || '';
             if (f && f.title) t = f.title;
             d.textContent = t.substring(0, 40);
-            d.onclick = function() { closeBurger(); openFile(p); };
-            list.appendChild(d);
+            d.onclick = function() { loadFile(p); };
+            s.appendChild(d);
         })(fileHistory[i]);
     }
-}
-
-function toggleBurger() {
-    document.getElementById('burger-menu').classList.toggle('open');
-    document.getElementById('burger-overlay').classList.toggle('show');
-}
-
-function closeBurger() {
-    document.getElementById('burger-menu').classList.remove('open');
-    document.getElementById('burger-overlay').classList.remove('show');
+    ct.insertBefore(s, document.getElementById('stats'));
 }
 
 function randomFile() {
     if (!FILES.length) return;
-    closeBurger();
-    openFile(FILES[Math.floor(Math.random() * FILES.length)].path);
+    loadFile(FILES[Math.floor(Math.random() * FILES.length)].path);
 }
 
 function copyCurrentLink() {
     if (!currentPath) return;
-    var u = window.location.origin + '/' + (IS_LOCAL ? '?path=' : '') + encodeURIComponent(currentPath);
-    navigator.clipboard.writeText(u).then(function() { showToast(); });
-}
-
-function toggleTheme() {
-    var b = document.body;
-    if (b.classList.contains('light')) {
-        b.classList.remove('light');
-        b.classList.add('dark');
-        localStorage.setItem('golem_theme', 'dark');
-    } else {
-        b.classList.remove('dark');
-        b.classList.add('light');
-        localStorage.setItem('golem_theme', 'light');
-    }
-}
-
-(function() {
-    if (localStorage.getItem('golem_theme') === 'dark') {
-        document.body.classList.remove('light');
-        document.body.classList.add('dark');
-    }
-})();
-
-window.addEventListener('scroll', function() {
-    document.getElementById('back-to-top').style.display = window.scrollY > 400 ? 'flex' : 'none';
-});
-
-document.addEventListener('keydown', function(e) {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
-    if (e.key === '/') { document.getElementById('search').focus(); e.preventDefault(); }
-    if (e.key === 'Escape') {
-        if (currentPath) closeFile();
-        else document.getElementById('search').blur();
-    }
-    if (e.key === 'b' && currentPath) toggleBookmark(currentPath);
-    if (e.key === 'r') randomFile();
-});
-
-function esc(s) {
-    var d = document.createElement('div');
-    d.textContent = s || '';
-    return d.innerHTML;
-}
+    var u = window.location.origin + (IS_LOCAL ? '/api/file?path=' : '/') + encodeURIComponent(currentPath);
+    navigator.clipboard.writeText(u).
