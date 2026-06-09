@@ -2,168 +2,59 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Golem — Свидетель Истины</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Courier New', monospace; background: #fff; color: #111; display: flex; height: 100vh; }
-#sidebar { width: 350px; min-width: 350px; background: #fff; border-right: 1px solid #111; display: flex; flex-direction: column; overflow: hidden; }
-#sidebar h1 { padding: 24px 24px 16px; font-size: 20px; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; }
-#filters { padding: 0 24px 16px; border-bottom: 1px solid #111; }
-#search { width: 100%; padding: 10px 12px; background: #fff; border: 1px solid #ccc; font-family: 'Courier New', monospace; font-size: 12px; outline: none; }
-#search:focus { border-color: #ff4d00; }
-#search::placeholder { color: #999; }
-#category-select { width: 100%; margin-top: 8px; padding: 8px 10px; background: #fff; border: 1px solid #ccc; font-family: 'Courier New', monospace; font-size: 11px; outline: none; }
-#file-list { flex: 1; overflow-y: auto; }
-.file-item { padding: 8px 24px; cursor: pointer; font-size: 11px; border-bottom: 1px solid #eee; transition: all 0.1s; border-left: 2px solid transparent; }
-.file-item:hover { background: #fafafa; }
-.file-item.active { background: #fafafa; border-left: 2px solid #ff4d00; }
-.file-item .title { font-weight: 600; }
-.file-item .topic { color: #999; font-size: 10px; margin-top: 2px; }
-.cat-header { padding: 12px 24px 4px; font-size: 9px; color: #ff4d00; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; border-bottom: 1px solid #111; margin-top: 4px; }
-#stats { padding: 12px 24px; border-top: 1px solid #111; font-size: 9px; color: #999; letter-spacing: 1px; text-transform: uppercase; }
-#stats span { color: #ff4d00; font-weight: 700; }
-#content { flex: 1; overflow-y: auto; padding: 48px 56px; background: #fff; }
-#content h1 { color: #111; font-size: 28px; margin-bottom: 6px; font-weight: 300; letter-spacing: 2px; border-bottom: 1px solid #111; padding-bottom: 10px; }
-#content h2 { color: #111; font-size: 16px; margin: 28px 0 8px; font-weight: 600; letter-spacing: 1px; }
-#content h3 { color: #333; font-size: 13px; margin: 20px 0 6px; font-weight: 600; }
-#content h4 { color: #555; font-size: 12px; margin: 14px 0 4px; font-weight: 600; }
-#content p { color: #111; line-height: 2.6; margin-bottom: 10px; font-size: 13px; }
-#content blockquote { border-left: 2px solid #ff4d00; padding: 8px 16px; margin: 14px 0; background: #fafafa; color: #555; font-style: italic; }
-#content code { background: #f5f5f5; padding: 1px 5px; font-size: 11px; color: #ff4d00; }
-#content strong { color: #ff4d00; font-weight: 700; }
-#content hr { border: none; border-top: 1px solid #111; margin: 20px 0; }
-#content a { color: #ff4d00; text-decoration: none; border-bottom: 1px solid #ff4d00; }
-#content ul, #content ol { margin: 8px 0 8px 20px; color: #111; }
-#content li { line-height: 1.6; font-size: 13px; color: #111; }
-#content em { color: #555; font-style: italic; }
-#empty { display: flex; align-items: center; justify-content: center; height: 100%; color: #ccc; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
-.path-hint { color: #ccc; font-size: 9px; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; }
-.loading { color: #ff4d00; padding: 40px; text-align: center; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light">
 
 <div id="sidebar">
-    <div style="padding: 20px 24px 12px; border-bottom: 1px solid #111;">
-        <pre style="font-size: 11px; line-height: 1.1; color: #111; font-weight: 700; margin: 0; font-family: 'Courier New', monospace;">
+    <div id="logo"><pre>
  ██████╗  ██████╗ ██╗     ███████╗███╗   ███╗
 ██╔════╝ ██╔═══██╗██║     ██╔════╝████╗ ████║
 ██║  ███╗██║   ██║██║     █████╗  ██╔████╔██║
 ██║   ██║██║   ██║██║     ██╔══╝  ██║╚██╔╝██║
 ╚██████╔╝╚██████╔╝███████╗███████╗██║ ╚═╝ ██║
  ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚═╝     ╚═╝
-        </pre>
-    </div>
+    </pre></div>
     <div id="filters">
         <input type="text" id="search" placeholder="Поиск..." oninput="render()">
         <select id="category-select" onchange="render()">
             <option value="">Все категории</option>
-<option value="Исследования">Исследования (1814)</option>
-<option value="Методология">Методология (8)</option>
-<option value="Очищение языка">Очищение языка (6)</option>
-<option value="Терминология">Терминология (98)</option>
-</select>
+        </select>
+        <select id="subcategory-select" onchange="render()" style="display:none;margin-top:6px">
+            <option value="">Все подкатегории</option>
+        </select>
+        <div id="toggle-theme" onclick="toggleTheme()" title="Тёмная/светлая тема">◐</div>
+    </div>
+    <div id="sidebar-actions">
+        <span class="sidebar-btn" onclick="randomFile()">Случайный</span>
+        <span class="sidebar-btn" onclick="copyCurrentLink()">Копировать ссылку</span>
+        <span class="sidebar-btn" onclick="window.print()">Печать</span>
     </div>
     <div id="file-list"></div>
-    <div id="stats">Файлов: <span id="total-count">0</span> &nbsp;|&nbsp; 2026-06-09 22:38</div>
+    <div id="sidebar-footer">
+        <div id="bookmarks-section" style="display:none">
+            <div class="cat-header">Закладки</div>
+            <div id="bookmarks-list"></div>
+        </div>
+        <div id="stats">Файлов: <span id="total-count">0</span> &nbsp;|&nbsp; 2026-06-09 23:53</div>
+    </div>
 </div>
 
-<div id="content">
-    <div id="empty">&larr; Выберите файл</div>
+<div id="main-area">
+    <div id="content">
+        <div id="empty">&larr; Выберите файл</div>
+    </div>
+    <div id="toc-panel" style="display:none">
+        <div class="toc-header">Содержание</div>
+        <div id="toc-list"></div>
+    </div>
 </div>
 
-<script>
-let FILES = [];
-let currentPath = null;
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div id="copy-toast">Скопировано</div>
 
-fetch('docs/web/index.json')
-    .then(r => r.json())
-    .then(data => {
-        FILES = data;
-        render();
-    })
-    .catch(() => {
-        document.getElementById('file-list').innerHTML = 
-            '<div style="padding:20px;color:#ff4d00;font-size:11px;">Ошибка загрузки индекса.<br><br>Запустите сервер из корня репозитория:<br><br><code>python -m http.server 8080</code><br><br>Затем откройте:<br><br><code>http://localhost:8080/docs/web/</code></div>';
-    });
-
-function render() {
-    const q = document.getElementById('search').value.toLowerCase();
-    const cat = document.getElementById('category-select').value;
-    
-    let filtered = FILES;
-    if (cat) filtered = filtered.filter(f => f.category === cat);
-    if (q) filtered = filtered.filter(f => 
-        f.title.toLowerCase().includes(q) || 
-        (f.topic && f.topic.toLowerCase().includes(q)) ||
-        f.path.toLowerCase().includes(q)
-    );
-    
-    const list = document.getElementById('file-list');
-    list.innerHTML = '';
-    document.getElementById('total-count').textContent = filtered.length;
-    
-    let currentCat = '';
-    for (const f of filtered) {
-        if (f.category !== currentCat) {
-            currentCat = f.category;
-            const h = document.createElement('div');
-            h.className = 'cat-header';
-            h.textContent = currentCat;
-            list.appendChild(h);
-        }
-        const div = document.createElement('div');
-        div.className = 'file-item';
-        if (f.path === currentPath) div.classList.add('active');
-        div.innerHTML = '<div class="title">' + escapeHTML(f.title) + '</div>' +
-                        (f.topic ? '<div class="topic">' + escapeHTML(f.topic.substring(0, 90)) + '</div>' : '');
-        div.onclick = function() { loadFile(f.path); };
-        list.appendChild(div);
-    }
-}
-
-function escapeHTML(str) {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-}
-
-async function loadFile(path) {
-    currentPath = path;
-    const content = document.getElementById('content');
-    content.innerHTML = '<div class="loading">Загрузка...</div>';
-    
-    try {
-        const resp = await fetch(path);
-        if (!resp.ok) throw new Error('HTTP ' + resp.status);
-        const md = await resp.text();
-        content.innerHTML = '<div class="path-hint">' + escapeHTML(path) + '</div>' + parseMD(md);
-    } catch(e) {
-        content.innerHTML = '<div style="color:#ff4d00;padding:40px;">Ошибка загрузки: ' + escapeHTML(path) + '<br><br>' + e.message + '</div>';
-    }
-    render();
-}
-
-function parseMD(text) {
-    text = text.replace(/\*\*Метаданные файла\*\*[\s\S]*?(?=\n---|\n# |\n## )/, '');
-    let html = text;
-    html = html.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
-    html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
-    html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
-    html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
-    html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
-    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-    html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-    html = html.replace(/^---$/gm, '<hr>');
-    html = html.replace(/\n\n/g, '</p><p>');
-    html = '<p>' + html + '</p>';
-    html = html.replace(/<p><\/p>/g, '');
-    return html;
-}
-</script>
-
+<script src="app.js"></script>
 </body>
 </html>
