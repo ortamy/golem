@@ -18,6 +18,7 @@ fetch(API_FILES)
             categories[FILES[i].category] = true;
         }
         buildCategorySelect();
+        if (IS_MOBILE) buildMobileCategorySelect();
         render();
     })
     .catch(function(e) {
@@ -26,12 +27,43 @@ fetch(API_FILES)
 
 function buildCategorySelect() {
     var sel = document.getElementById('category-select');
+    if (!sel) return;
     sel.innerHTML = '<option value="">Все категории</option>';
     var cats = Object.keys(categories).sort();
     for (var i = 0; i < cats.length; i++) {
         var count = FILES.filter(function(f) { return f.category === cats[i]; }).length;
         sel.innerHTML += '<option value="' + cats[i] + '">' + cats[i] + ' (' + count + ')</option>';
     }
+}
+
+function buildMobileCategorySelect() {
+    var sel = document.getElementById('category-select-mobile');
+    if (!sel) return;
+    sel.innerHTML = '<option value="">Все категории</option>';
+    var cats = Object.keys(categories).sort();
+    for (var i = 0; i < cats.length; i++) {
+        var count = FILES.filter(function(f) { return f.category === cats[i]; }).length;
+        sel.innerHTML += '<option value="' + cats[i] + '">' + cats[i] + ' (' + count + ')</option>';
+    }
+}
+
+function getSearchValue() {
+    var el = IS_MOBILE ? document.getElementById('search-mobile') : document.getElementById('search');
+    return el ? el.value.toLowerCase() : '';
+}
+
+function getCategoryValue() {
+    var el = IS_MOBILE ? document.getElementById('category-select-mobile') : document.getElementById('category-select');
+    return el ? el.value : '';
+}
+
+function getSubcategoryValue() {
+    var el = IS_MOBILE ? document.getElementById('subcategory-select-mobile') : document.getElementById('subcategory-select');
+    return el ? el.value : '';
+}
+
+function getSubcategoryEl() {
+    return IS_MOBILE ? document.getElementById('subcategory-select-mobile') : document.getElementById('subcategory-select');
 }
 
 function render() {
@@ -123,9 +155,9 @@ function renderDesktop() {
 }
 
 function renderMobile() {
-    var q = document.getElementById('search').value.toLowerCase();
-    var cat = document.getElementById('category-select').value;
-    var sub = document.getElementById('subcategory-select').value;
+    var q = getSearchValue();
+    var cat = getCategoryValue();
+    var sub = getSubcategoryValue();
 
     var filtered = FILES;
     if (cat) filtered = filtered.filter(function(f) { return f.category === cat; });
@@ -136,28 +168,39 @@ function renderMobile() {
                (f.path || '').toLowerCase().indexOf(q) >= 0;
     });
 
-    var ss = document.getElementById('subcategory-select');
-    if (cat === 'Исследования') {
-        ss.style.display = 'block';
-        var subs = {};
-        for (var i = 0; i < FILES.length; i++) {
-            if (FILES[i].category === 'Исследования' && FILES[i].subcategory) {
-                subs[FILES[i].subcategory] = true;
+    var ss = getSubcategoryEl();
+    if (ss) {
+        if (cat === 'Исследования') {
+            ss.style.display = 'block';
+            var subs = {};
+            for (var i = 0; i < FILES.length; i++) {
+                if (FILES[i].category === 'Исследования' && FILES[i].subcategory) {
+                    subs[FILES[i].subcategory] = true;
+                }
             }
+            var sn = Object.keys(subs).sort();
+            ss.innerHTML = '<option value="">Все подкатегории</option>';
+            for (var j = 0; j < sn.length; j++) {
+                var s = (sn[j] === sub) ? ' selected' : '';
+                ss.innerHTML += '<option value="' + sn[j] + '"' + s + '>' + sn[j] + '</option>';
+            }
+        } else {
+            ss.style.display = 'none';
+            ss.value = '';
         }
-        var sn = Object.keys(subs).sort();
-        ss.innerHTML = '<option value="">Все подкатегории</option>';
-        for (var j = 0; j < sn.length; j++) {
-            var s = (sn[j] === sub) ? ' selected' : '';
-            ss.innerHTML += '<option value="' + sn[j] + '"' + s + '>' + sn[j] + '</option>';
-        }
-    } else {
-        ss.style.display = 'none';
-        ss.value = '';
     }
 
     var mlv = document.getElementById('mobile-list-view');
     mlv.innerHTML = '';
+
+    var searchEl = document.getElementById('search-mobile');
+    var catEl = document.getElementById('category-select-mobile');
+    var subEl = document.getElementById('subcategory-select-mobile');
+
+    mlv.appendChild(searchEl);
+    mlv.appendChild(catEl);
+    mlv.appendChild(subEl);
+
     document.getElementById('stats-mobile').textContent = 'Файлов: ' + filtered.length;
 
     var cc = '';
@@ -222,6 +265,7 @@ function openFileMobile(p) {
     bm.textContent = bookmarks.indexOf(p) >= 0 ? '★' : '☆';
     bm.className = 'bookmark-btn' + (bookmarks.indexOf(p) >= 0 ? ' active' : '');
     document.getElementById('mobile-list-view').style.display = 'none';
+    document.getElementById('stats-mobile').style.display = 'none';
 
     var c = document.getElementById('file-content-mobile');
     c.innerHTML = '<div class="spinner"></div>';
@@ -245,6 +289,7 @@ function openFileMobile(p) {
 function closeFile() {
     document.getElementById('file-page').style.display = 'none';
     document.getElementById('mobile-list-view').style.display = 'block';
+    document.getElementById('stats-mobile').style.display = 'block';
     currentPath = null;
     renderMobile();
 }
@@ -462,10 +507,17 @@ window.addEventListener('scroll', function() {
 
 document.addEventListener('keydown', function(e) {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
-    if (e.key === '/') { document.getElementById('search').focus(); e.preventDefault(); }
+    if (e.key === '/') {
+        var s = IS_MOBILE ? document.getElementById('search-mobile') : document.getElementById('search');
+        if (s) s.focus();
+        e.preventDefault();
+    }
     if (e.key === 'Escape') {
         if (IS_MOBILE && currentPath) closeFile();
-        else document.getElementById('search').blur();
+        else {
+            var s = IS_MOBILE ? document.getElementById('search-mobile') : document.getElementById('search');
+            if (s) s.blur();
+        }
     }
     if (e.key === 'b' && currentPath) toggleBookmark(currentPath);
     if (e.key === 'r') randomFile();

@@ -82,6 +82,18 @@
     </div>
 </div>
 
+<!-- Мобильный: список файлов -->
+<div id="mobile-list-view">
+    <input type="text" id="search-mobile" placeholder="Поиск..." oninput="render()">
+    <select id="category-select-mobile" onchange="render()">
+        <option value="">Все категории</option>
+    </select>
+    <select id="subcategory-select-mobile" onchange="render()" style="display:none">
+        <option value="">Все подкатегории</option>
+    </select>
+</div>
+<div id="stats-mobile">Файлов: 0</div>
+
 <!-- Мобильный: страница файла -->
 <div id="file-page" style="display:none">
     <div id="file-top-bar">
