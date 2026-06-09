@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Инструмент проверки текстов на религионизмы, грецизмы, церковнославянизмы и латинизмы. Формат вывода, правила оценки, примеры.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/forbidden-words.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-techniques.md`
+- **Хеш:** a5b6b9ee
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ЧТО ЭТО

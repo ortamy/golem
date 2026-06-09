@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Государство как симптом сломанного доверия. История от Вавилона до цифровой эпохи. Как люди отдали власть надсмотрщику. ТаНаХический взгляд: мелех как витур малодушию.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/state-as-symptom.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
+- **Хеш:** a8de9fc6
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

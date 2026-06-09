@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Проверка согласованности терминов и ссылок между разными файлами
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/checkers/consistency-checker.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/transliteration-distortions.md`, `instructions/tahor/names.md`
+- **Хеш:** e1a79189
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ЧТО ЭТО

@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет дополняться)
 - **Тема:** Библейское понятие непопадания в матара, отклонения от дэрех, искажённое христианством в «грех» как юридическое преступление и состояние вины
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/methodology/transliteration-distortions.md`, `terminology/torah.md`, `terminology/yhwh.md`
+- **Хеш:** e13362e1
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-25
 ---
 

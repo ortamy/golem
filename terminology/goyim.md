@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет дополняться)
 - **Тема:** Библейское понятие народа, искажённое христианством в уничижительное «язычник» и «неверный»
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
+- **Хеш:** 58c92e3e
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-25
 ---
 

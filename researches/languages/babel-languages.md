@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Требует уточнения
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/babel-languages.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-system-architecture.md`
+- **Хеш:** d5c990c9
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

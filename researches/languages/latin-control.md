@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Требует уточнения
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/latin-control.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
+- **Хеш:** b1c78c6f
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

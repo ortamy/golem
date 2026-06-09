@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Что такое מַלְכוּת (малхут) — царство, власть, правление. Не шетах, не здания, не обряды, а признание власти Яхве в лев
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/malchut.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
+- **Хеш:** ae2abd22
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-06-08
 - **Причина hитхадшут:** Добавлен раздел о «тайне Царства» (сод малхут) и эвфемизме «Небеса»
 ---

@@ -8,6 +8,12 @@
 - **Причина обновления:** Расширено: добавлены сферы (медицина, наука, военное дело), 7 этапов подмены, схема вербовки, сравнительная таблица
 - **Статус:** Активный
 - **Тема:** Полная теория религионизмов — каждая система, созданная вне Яхве, есть религия со своим алтарём, жрецами и жертвами
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`
+- **Хеш:** 23546104
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Типология дэрех в ТаНаХ. Авраhам, Исаак, Яаков, Моше, Давид, Йосеф, Йешуа. Не разоблачение, а созерцание.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/darchei-tzadikim.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/tree-method.md`, `instructions/tahor/names.md`
+- **Хеш:** d540fe8c
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-27
 ---
 

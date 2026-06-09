@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет дополняться)
 - **Тема:** Библейское понятие посланника, вестника, искажённое греко-римской культурой в «ангела» — крылатое существо из иерархии шамаим
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/malach.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
+- **Хеш:** 31be6360
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-25
 ---
 

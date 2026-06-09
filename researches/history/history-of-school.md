@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** История школы от Месопотамии до цифровой эпохи через призму ТаНаХ. Образование в ТаНаХ: родители учат детей, Тора — основание, мудрость — матара. Разоблачение прусской модели как фабрики рабочих.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/tree-method.md`, `researches/tanakh/gog-and-magog.md`, `terminology/torah.md`
+- **Хеш:** 87f8abd4
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет дополняться)
 - **Тема:** Полный свод имён из ТаНаХ и БаШаХа, в которых запечатлено Имя יהוה. Каждое имя — эдут и hитгалут.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/shemot-yhwh.md`, `instructions/exposure/exposure-language-control.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/names.md`
+- **Хеш:** 722cb7ed
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-27
 ---
 

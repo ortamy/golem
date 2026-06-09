@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет дополняться)
 - **Тема:** Лингвистическая ловушка конфликтов. Как греческий дуализм разделяет, а ивритская целостность восстанавливает. Инструменты починки мира: давар, шалом, хесед, эмет, мишпат.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/why-people-cant-agree.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
+- **Хеш:** 5f3de300
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-26
 ---
 

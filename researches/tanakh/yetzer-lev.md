@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Разбор понятия יֵצֶר לֵב (йецер лев) — помышление сердца. Разоблачение «эгоизма» как греко-психологического понятия. Почему в ТаНаХ нет «эгоизма» и что вместо него.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/translation-methodology.md`, `terminology/torah.md`, `terminology/yhwh.md`
+- **Хеш:** b1decc5c
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

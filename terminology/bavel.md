@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Разбор понятия בָּבֶל (Бавэль) — Вавилон. Не просто империя, а внутренняя реальность. Корень балал — смешивать. Система, где всё перемешано и ничего не найти. Как адам выбирает плен задолго до т...
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/bavel.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
+- **Хеш:** 2aaaf5f8
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-28
 ---
 

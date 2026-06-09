@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет дополняться)
 - **Тема:** Сравнительное исследование иврита и других языков мира. Как лингвистика влияет на разум, лев и гораль народов. Почему иврит — единственный язык, который не лжёт.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/hebrew-vs-languages.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
+- **Хеш:** 40463116
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-27
 - **Причина hитхадшут:** Замена таблиц на списки. Полный отказ от табличного мивне.
 ---

@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Происхождение названия «Палестина». Римский политический акт hашпала. Связь с филистимлянами. Замена Иудеи на Syria Palaestina.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/palaestina.md`, `instructions/exposure/exposure-language-control.md`, `instructions/tahor/names.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`
+- **Хеш:** 593297c5
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

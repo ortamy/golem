@@ -8,6 +8,12 @@
 - **Причина обновления:** Заменены таблицы на списки. Убраны религионимы («духовный», «завет»). Оптимизирована структура.
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Шаблон для исследования библейских образов. От земного объекта к смыслу. Принципы, примеры и правила.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
+- **Хеш:** 9dee4f77
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

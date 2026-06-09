@@ -8,6 +8,12 @@
 - **Причина обновления:** Смягчено утверждение о Машиахе. Заменено «сознание» на «мышление». Исправлена ошибка с «промах» на «грех».
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Программный документ. Кто мы, что восстанавливаем, какие инструменты используем, по каким этапам идём.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/manifest.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`
+- **Хеш:** 2bc83c9b
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 МЫ — СВИДЕТЕЛИ

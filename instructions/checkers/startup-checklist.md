@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Чек-лист всех файлов, которые необходимо загрузить в нейросеть перед началом работы и исследований
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/chat-prompt.md`, `instructions/research-principles.md`, `instructions/manifest.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-methods.md`
+- **Хеш:** 22de534d
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ЗАЧЕМ ЭТОТ ЧЕК-ЛИСТ

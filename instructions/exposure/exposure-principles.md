@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Основные принципы разоблачения религиозной лжи. Критерии истины и лжи. Базовые правила, на которых строятся методы и приёмы.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-principles.md`, `instructions/exposure-principles.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`
+- **Хеш:** cd05d48d
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Источник:** выделено из `instructions/exposure-principles.md` v1.8
 ---
 

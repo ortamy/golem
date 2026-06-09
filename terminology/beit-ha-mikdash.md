@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Разбор понятия בֵּית הַמִּקְדָּשׁ (Бейт hа-Микдаш) — Дом Отделённости. Не «храм», а место шхина Яхве. От каменного здания к телу как переносному Дому. Мишкан, гуф и нэшама.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/beit-ha-mikdash.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `terminology/yhwh.md`
+- **Хеш:** 4927b783
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-28
 ---
 

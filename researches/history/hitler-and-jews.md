@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Истинные мотивы Холокоста: Гитлер уничтожал не «расу», а носителей правды о том, что власть не абсолютна, мишпат выше человеческого, а хофеш дана не государством, а Творцом
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/hitler-and-jews.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/names.md`, `researches/economy/economic-slavery.md`, `researches/slavery/economic-slavery.md`
+- **Хеш:** 485d9c5b
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

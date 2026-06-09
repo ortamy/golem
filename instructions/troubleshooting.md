@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Частые проблемы и их решения при работе с репозиторием и инструментами
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/troubleshooting.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/tahor/names.md`, `terminology/el.md`
+- **Хеш:** ab6bee41
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

@@ -8,6 +8,12 @@
 - **Причина обновления:** Полная переработка. Добавлены чек-листы по методам, принципам, механикам и типам искажений. Формат: список с отметками ✅ и ❌.
 - **Статус:** Активный
 - **Тема:** Полный цикл аудита текста с использованием всех инструментов разоблачения. Чек-листы по методам (20), принципам (13), механикам (3), типам искажений (7).
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`
+- **Хеш:** b0c3caf3
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ## ФОРМАТ ВЫВОДА
 ```
 

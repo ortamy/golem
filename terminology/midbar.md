@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Разбор понятия מִדְבָּר (мидбар) — пустыня. Не онеш, а бхина. Место, где умирает раб и рождается свободный. Связь с исходом, Давидом, Йехошуа.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/midbar.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/translation-methodology.md`, `researches/tanakh/magen-david.md`, `terminology/torah.md`
+- **Хеш:** 887775c7
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

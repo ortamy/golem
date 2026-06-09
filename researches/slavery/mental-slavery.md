@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Требует уточнения
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/slavery/mental-slavery.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/tahor/names.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`
+- **Хеш:** 8d2e7f7a
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

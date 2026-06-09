@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Разбор понятия לְבַד (левад) — один, в одиночестве. Способность быть одному как признак хофеш. Авраам, Моше, Давид, Йехошуа. Одиночество как тенай встречи с Яхве.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/levad.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/translation-methodology.md`, `researches/tanakh/magen-david.md`, `terminology/torah.md`
+- **Хеш:** 32852cba
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

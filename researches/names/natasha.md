@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** НЕТАНИЯ (NETANYAH) — ДАР ЯХВЕ
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/natasha.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/tahor/names.md`
+- **Хеш:** 213000f6
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-06-08
 - **Причина hитхадшут:** Исправлен религионим «Божий» → «Всесильный»
 ---

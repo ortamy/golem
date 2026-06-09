@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет дополняться)
 - **Тема:** Всестороннее разоблачение Римско-католической церкви как системы подмены иудейского мессианского движения, её истории, икар и институтов
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-techniques.md`, `instructions/tahor/names.md`, `researches/economy/banks-and-financial-dynasties.md`
+- **Хеш:** f738cb39
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-26
 - **Причина hитхадшут:** Удаление таблиц по требованию. Всё переведено в списки.
 ---

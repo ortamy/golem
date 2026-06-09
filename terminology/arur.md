@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Разбор понятия אָרוּר (арур) — проклят. Не магическая порча, а потеря связи и ограничение, которое учит. Шеол, Каин и логика ограничения в ТаНаХ. Связь с асур и карет.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/arur.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `researches/tanakh/gog-and-magog.md`
+- **Хеш:** 67217a94
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-28
 ---
 

@@ -105,32 +105,8 @@
 - [אֱלִיל (ЭЛИЛЬ) — НИЧТОЖЕСТВО, А НЕ «ИДОЛ» КАК СТАТУЯ](terminology/elil.md)
 - [אֱלִילִים — ЭЛИЛИМ: НИЧТОЖНЫЕ, БЕССИЛЬНЫЕ](terminology/elilim.md)
 
-### Исследования
-
-- [אַבְרָא כַּדְבְּרָא — НЕ «МАГИЯ», А ЛОЖЬ, ЗАКЛЯТАЯ В СЛОВАХ](researches/abracadabra.md)
-- [АБСТРАКТНЫЕ БОЖКИ VS ЯХВЕ: БЕЗВОЛИЕ ИЛИ Хофеш](researches/abstract-gods-vs-yhwh.md)
-- [אַחֲרָיוּת — НЕ «ОТВЕТСТВЕННОСТЬ», А СОПРОВОЖДЕНИЕ](researches/acharayut-support.md)
-- [אֲדֹנָי — НЕ «ГОСПОДЬ», А СКРЫТОЕ ИМЯ](researches/adonai-origin.md)
-- [אַפּוֹקָלִיפְּסָה — НЕ «КОНЕЦ СВЕТА», А ОТКРЫТИЕ ЗАНАВЕСА](researches/apocalypse.md)
-- [הַר מְגִדּוֹ — НЕ «АРМАГЕДДОН»: МЕСТО БИТВЫ, А ВОЗВЫШЕННОСТЬ](researches/armageddon.md)
-- [עֲשֶׂרֶת הַדִּבְּרוֹת — НЕ «ЗАПОВЕДИ», А ДЕСЯТЬ ВЫСКАЗЫВАНИЙ](researches/aseret-hadvarim.md)
-- [אַתָּה — НЕ «ВЫ», А «ТЫ»: ОТСУТСТВИЕ ИЕРАРХИИ В ИВРИТЕ](researches/atah-not-you.md)
-- [אֶצְבַּע בִּלְעָם — ПЕРСТ ВААЛАМА: КАК УНИЧТОЖИТЬ ИЗРАИЛЬ БЕ](researches/balaam-strategy.md)
-- [БАШАХ (ב.ש.ח) — Мивне ЕВРЕЙСКОГО НОВОГО Брит](researches/bashah-structure.md)
-- [ВЕРИЙЦЫ: ПРОВЕРЯЮЩИЕ, А НЕ ПОДЧИНЯЮЩИЕСЯ](researches/bereans.md)
-- [גּוּף כְּמִקְדָּשׁ — Гуф КАК ДОМ ОТДЕЛЁННОСТИ](researches/body-as-temple.md)
-- [🇧 БРИТ-АНИЯ: КОРАБЛЬ Брит ИЛИ ИМПЕРИЯ ЛЖИ?](researches/brit-ania.md)
-- [בְּרִית חֲדָשָׁה — НЕ «НОВЫЙ ЗАВЕТ», А ВОССТАНОВЛЕННЫЙ Брит](researches/brit-hadashah.md)
-- [בְּרִית נִשּׂוּאִין — НЕ «СВАДЬБА», А Брит КРОВИ И Сеуда](researches/brit-nissuin.md)
-- [סְפָרִים בָּאֵשׁ — СЖИГАНИЕ КНИГ: КАК РИМ УНИЧТОЖАЛ Эмет](researches/burning-of-books.md)
-- [КАТОЛИЧЕСКАЯ Кеhила — РИМСКАЯ ПОДДЕЛКА Дэрех YHWH](researches/catholic-church.md)
-- [חָדָשׁ — НЕ «НОВЫЙ», А ВОЗВРАЩЁННЫЙ](researches/chadash-restored.md)
-- [חוֹפֶשׁ וְדְרוֹר: ДВА ЛИКА Хофеш](researches/chofesh-vs-dror.md)
-- [דַּעַת — ПОЗНАНИЕ: НЕ ИНФОРМАЦИЯ, А БЛИЗОСТЬ](researches/daat-tree.md)
-
 ### Инструменты
 
-- [Changelog](tools/CHANGELOG.md)
 - [РЕТРОСПЕКТИВА](tools/RETROSPECTIVE.md)
 
 ### Идеи

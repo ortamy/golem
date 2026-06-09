@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** דּוֹרוֹת רֶשֶׁת — G-СВЯЗИ И КАТАСТРОФЫ: СОВПАДЕНИЕ ИЛИ АРХИТЕКТУРА?
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/other/g-generations.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/history-of-banks.md`, `terminology/torah.md`
+- **Хеш:** d5874ece
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

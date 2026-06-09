@@ -8,6 +8,12 @@
 - **Причина обновления:** Полная переработка. Добавлены все 4 чекера (bdikah, mivdak, tikun, factcheck). Добавлена система маркировки фактов. Актуализирована структура репозитория. Добавлено правило монолита.
 - **Статус:** Активный
 - **Тема:** Шаблон для самостоятельного обучения нейросети работе с текстами ТаНаХа.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-system-architecture.md`
+- **Хеш:** ba44d754
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ЦЕЛЬ

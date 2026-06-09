@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Требует уточнения
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/karma.md`, `instructions/exposure/exposure-principles.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`, `researches/economy/mortgage-dead-pledge.md`
+- **Хеш:** ee485eec
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

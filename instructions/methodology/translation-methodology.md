@@ -8,6 +8,12 @@
 - **Причина обновления:** Исправлены религионизмы в блоке «Запрещённые приёмы» (взяты в кавычки с пометкой «синодальное»)
 - **Статус:** Активный
 - **Тема:** Практическое руководство по переводу и исследованию ивритских терминов
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-techniques.md`
+- **Хеш:** c22692a8
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ЦЕЛЬ

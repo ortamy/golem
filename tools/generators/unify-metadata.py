@@ -1,6 +1,7 @@
-# tools/generators/unify-metadata.py — адаптивная унификация метаданных
+# tools/generators/unify-metadata.py — адаптивная унификация метаданных (v2.0)
 import sys
 import re
+import hashlib
 from pathlib import Path
 from datetime import datetime
 
@@ -12,6 +13,9 @@ SCAN_DIRS = ["terminology", "researches", "instructions", "davar", "ideas", "dra
 CORE_FIELDS_ORDER = [
     "Файл:", "Версия:", "Дата создания:", "Последнее обновление:",
     "Причина обновления:", "Статус:", "Тема:",
+    "Аудит:", "Язык:", "Ключевые слова:",
+    "Связанные файлы:", "Хеш:", "Достоверность:",
+    "Последний аудит:", "Проверок на религионизмы:", "Последняя проверка:",
 ]
 
 CATEGORY_FIELDS = {
@@ -29,6 +33,9 @@ DEFAULTS = {
     "Версия:": "1.0",
     "Статус:": "Активный",
     "Причина обновления:": "Первичное создание",
+    "Аудит:": "bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳",
+    "Язык:": "русский",
+    "Достоверность:": "средняя",
 }
 
 FIELD_ALIASES = {
@@ -39,6 +46,15 @@ FIELD_ALIASES = {
     "Причина обновления:": ["Причина обновления:", "причина обновления:", "Reason:", "reason:", "Сиба:"],
     "Статус:": ["Статус:", "статус:", "Status:", "status:", "Маамад:", "Сманут:"],
     "Тема:": ["Тема:", "тема:", "Topic:", "topic:", "Носе:", "Носэ:"],
+    "Аудит:": ["Аудит:", "аудит:", "Audit:", "audit:"],
+    "Язык:": ["Язык:", "язык:", "Language:", "language:"],
+    "Ключевые слова:": ["Ключевые слова:", "ключевые слова:", "Keywords:", "keywords:", "Tags:", "tags:"],
+    "Связанные файлы:": ["Связанные файлы:", "связанные файлы:", "Related:", "related:", "See also:", "see also:"],
+    "Хеш:": ["Хеш:", "хеш:", "Hash:", "hash:"],
+    "Достоверность:": ["Достоверность:", "достоверность:", "Confidence:", "confidence:"],
+    "Последний аудит:": ["Последний аудит:", "последний аудит:", "Last audit:", "last audit:"],
+    "Проверок на религионизмы:": ["Проверок на религионизмы:", "проверок на религионизмы:", "Religionism checks:"],
+    "Последняя проверка:": ["Последняя проверка:", "последняя проверка:", "Last check:", "last check:"],
     "Иврит:": ["Иврит:", "иврит:", "Hebrew:", "hebrew:"],
     "Транслитерация:": ["Транслитерация:", "транслитерация:", "Transliteration:"],
     "Корень:": ["Корень:", "корень:", "Root:", "root:", "Шореш:"],
@@ -108,6 +124,17 @@ def normalize_field_name(raw: str) -> str:
     return clean if clean else raw_clean
 
 
+def compute_hash(content: str) -> str:
+    body = content
+    if '**Метаданные файла**' in content:
+        start = content.find('**Метаданные файла**')
+        rest = content[start:]
+        end_match = re.search(r'\n---|\n# |\n## ', rest[30:])
+        if end_match:
+            body = content[:start] + rest[30 + end_match.start():]
+    return hashlib.md5(body.encode('utf-8')).hexdigest()[:8]
+
+
 def build_metadata_block(fields: dict, allowed_fields: list) -> str:
     lines = ["**Метаданные файла**"]
     for field in CORE_FIELDS_ORDER:
@@ -138,11 +165,16 @@ def unify_file(filepath: Path, file_path: str) -> tuple:
         return False, "ошибка чтения"
     if '**Метаданные файла**' not in content:
         return False, "нет метаданных"
+
     block_start, block_end, _ = extract_metadata_block(content)
     if block_start == -1:
         return False, "блок не найден"
+
     allowed_fields = get_allowed_fields(file_path)
     fields = parse_fields(content[block_start:block_end])
+    category = get_category(file_path)
+
+    # Заполняем недостающие обязательные поля
     for field in CORE_FIELDS_ORDER:
         if field not in fields or not fields[field]:
             if field == "Файл:":
@@ -156,6 +188,17 @@ def unify_file(filepath: Path, file_path: str) -> tuple:
                 fields[field] = fields["Последнее обновление:"]
             elif field == "Последнее обновление:" and "Дата создания:" in fields:
                 fields[field] = fields["Дата создания:"]
+            elif field == "Хеш:":
+                fields[field] = compute_hash(content)
+            elif field == "Последний аудит:":
+                fields[field] = datetime.now().strftime("%Y-%m-%d")
+            elif field == "Связанные файлы:":
+                related = re.findall(r'`((?:terminology|researches|instructions)/.*?\.md)`', content)
+                if related:
+                    fields[field] = ", ".join(f"`{r}`" for r in related[:5])
+            elif field == "Язык:" and category == "terminology":
+                fields[field] = "иврит"
+
     new_block = build_metadata_block(fields, allowed_fields)
     new_content = content[:block_start] + new_block + content[block_end:]
     changed = new_content != content
@@ -166,18 +209,16 @@ def unify_file(filepath: Path, file_path: str) -> tuple:
 
 
 def add_metadata(filepath: Path, file_path: str) -> bool:
-    """Создаёт блок метаданных с нуля для файла без них."""
     content = read_file_safe(filepath)
     if not content:
         return False
 
     today = datetime.now().strftime("%Y-%m-%d")
-
-    # Извлекаем заголовок для темы
     title_match = re.search(r'^#\s+(.+?)$', content, re.MULTILINE)
     topic = title_match.group(1).strip() if title_match else "Требует уточнения"
-    # Чистим эмоджи
     topic = re.sub(r'[📜🔥🛡️⚔️📖🎯🧭💻👑❤️]\s*', '', topic)
+
+    category = get_category(file_path)
 
     fields = {
         "Файл:": file_path,
@@ -187,12 +228,16 @@ def add_metadata(filepath: Path, file_path: str) -> bool:
         "Причина обновления:": "Первичное создание",
         "Статус:": "Активный",
         "Тема:": topic,
+        "Аудит:": "bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳",
+        "Язык:": "иврит" if category == "terminology" else "русский",
+        "Хеш:": compute_hash(content),
+        "Достоверность:": "средняя",
+        "Последний аудит:": today,
     }
 
     allowed_fields = get_allowed_fields(file_path)
     new_block = build_metadata_block(fields, allowed_fields)
 
-    # Вставляем после заголовка
     first_header = re.search(r'^#\s+.+$', content, re.MULTILINE)
     if first_header:
         insert_pos = first_header.end()
@@ -202,7 +247,6 @@ def add_metadata(filepath: Path, file_path: str) -> bool:
 
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(new_content)
-
     return True
 
 
@@ -229,7 +273,6 @@ def main():
     total = len(all_files)
     print(f"Найдено файлов: {total}")
 
-    # Сначала считаем файлы без метаданных
     no_meta_files = []
     for filepath in all_files:
         content = read_file_safe(filepath)
@@ -242,7 +285,6 @@ def main():
         if not ask_yes_no(f"Добавить метаданные в {len(no_meta_files)} файлов?"):
             print("👋 Отменено.")
             return 0
-
         for i, filepath in enumerate(no_meta_files, 1):
             rel_path = str(filepath.relative_to(REPO_ROOT)).replace('\\', '/')
             if add_metadata(filepath, rel_path):
@@ -252,7 +294,6 @@ def main():
         print_success(f"Метаданные добавлены в {stats['added']} файлов")
         return 0
 
-    # Обычная проверка/унификация
     for i, filepath in enumerate(all_files, 1):
         rel_path = str(filepath.relative_to(REPO_ROOT)).replace('\\', '/')
         content = read_file_safe(filepath)
@@ -293,7 +334,6 @@ def main():
 
     if stats["no_metadata"] > 0:
         print_hint(f"Добавить метаданные в {stats['no_metadata']} файлов: python tools/generators/unify-metadata.py --add")
-
     if not fix_mode and stats["updated"] > 0:
         print_hint("Для унификации: python tools/generators/unify-metadata.py --fix")
 

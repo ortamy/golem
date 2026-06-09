@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет дополняться)
 - **Тема:** Раскрытие символики окна ковчега, ворона и голубя через ивритские корни. Рухани машмаут выбора между прошлым и будущим.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/tzohar-window.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/tree-method.md`, `instructions/tahor/names.md`, `researches/economy/banks-and-financial-dynasties.md`
+- **Хеш:** 09073866
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-26
 ---
 

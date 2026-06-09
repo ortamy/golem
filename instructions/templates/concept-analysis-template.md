@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Шаблон послойного анализа библейского понятия. Семь врат: от современного искажения до ивритского оригинала. Универсальная структура для глубокого разбора одного слова.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/templates/concept-analysis-template.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`
+- **Хеш:** 778ffaa0
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Источник:** адаптировано из «Archeology of Meanings»
 ---
 

@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Разбор понятия עָרוּם (арум) — хитрый, проницательный, видящий суть. Связь с עֵירֹם (эйром) — нагой. Змей как арум. Мудрость змея и пшитут голубя.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/arum.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/translation-methodology.md`, `terminology/torah.md`, `terminology/yhwh.md`
+- **Хеш:** 0710c4ae
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** История экономики от неолита до цифровой эпохи через призму ТаНаХ. Калькала Яхве: шмита, йовель, шекель, запрет процента. Как дар превратился в долг.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-system-architecture.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`, `researches/economy/history-of-banks.md`, `researches/economy/history-of-economy.md`
+- **Хеш:** 72c2e282
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

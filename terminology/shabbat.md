@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Полный разбор Шаббат. Не «выходной», а знак брит. Связь с бриа, исходом и хофеш. Как система подменила покой на праздность, а ритм — на календарь.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/shabbat.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
+- **Хеш:** 35b66d68
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-31
 - **Причина hитхадшут:** Исправлены религионизмы. «Заповедь» → «наставление». «День Господень» → «день Яхве».
 ---

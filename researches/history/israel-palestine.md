@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** История палестино-израильского конфликта через призму ТаНаХ. Двойное обещание, война 1948, оккупация, внешние игроки. Земля дана Яхве, а не политикам.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/history/israel-palestine.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/history-of-money.md`, `researches/tanakh/gog-and-magog.md`, `terminology/mashiah-peshat.md`
+- **Хеш:** 413caefb
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

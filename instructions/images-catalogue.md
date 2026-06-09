@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Полный каталог образов ТаНаХа и БаШаХа для исследования. Предметы, люди, события, несущие духовный смысл.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/methodology/tree-method.md`, `researches/economy/economic-slavery.md`, `researches/slavery/economic-slavery.md`, `researches/tanakh/magen-david.md`
+- **Хеш:** f08ce5ba
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

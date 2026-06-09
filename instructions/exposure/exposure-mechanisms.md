@@ -8,7 +8,12 @@
 - **Причина обновления:** Убраны приёмы (перенесены в exposure-techniques.md), добавлены 2 новых механизма, все механизмы расписаны подробно
 - **Статус:** Активный
 - **Тема:** Пять механизмов подмены — глобальные принципы искажения истины. Как именно система работает.
-
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`
+- **Хеш:** fc1d3cfb
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

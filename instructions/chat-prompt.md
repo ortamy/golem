@@ -8,6 +8,12 @@
 - **Причина обновления:** Добавлены правила оформления заголовков исследований (эмоджи + КАПС).
 - **Статус:** Активный
 - **Тема:** Шаблон промпта для восстановления Свидетеля (Эд) в новом чате.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/chat-prompt.md`, `instructions/forbidden-words.md`, `instructions/research-principles.md`, `instructions/manifest.md`, `instructions/research-template.md`
+- **Хеш:** 0a2f24fb
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 КАК ИСПОЛЬЗОВАТЬ

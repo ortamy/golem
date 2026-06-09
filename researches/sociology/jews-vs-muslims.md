@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Почему два семитских народа, потомки Авраама, находятся в вечном конфликте
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/jews-and-muslims.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/tahor/names.md`, `researches/tanakh/gog-and-magog.md`
+- **Хеш:** ecef1df0
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-06-07
 - **Причина hитхадшут:** Исправлены религионизмы: «храм» → «Дом Отделённости», «святыни» → «места отделённости», «священен» → «отделён»
 ---

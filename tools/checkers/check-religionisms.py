@@ -1,10 +1,11 @@
-# tools/checkers/check-religionisms.py — поиск и исправление религионимов (с защитой метаданных)
+# tools/checkers/check-religionisms.py — поиск и исправление религионимов (v3.1 FINAL)
 import sys
 import re
 import json
 import os
 from pathlib import Path
 from collections import Counter
+from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -33,10 +34,27 @@ CASES = {
 
 INDECLINABLE = {"хэн", "руах", "нэфеш", "тоху ва-воху"}
 
+HEBREW_WHITELIST = {
+    "тора", "танах", "машиах", "шаббат", "йешуа", "яхве", "yhwh",
+    "элоhим", "эль", "руах", "нэфеш", "нефеш", "шеол", "сатан",
+    "шалом", "брит", "кодеш", "мишпат", "цдака", "тшува", "эмуна",
+    "эмет", "хесед", "кавод", "коhэн", "нави", "малъах", "микве",
+    "мишкан", "корбан", "тефила", "тфила", "твила", "йовель", "шмита",
+    "йиръат", "давар", "олеам", "хохма", "бинах", "даат", "гвура",
+    "хесед", "нецах", "hод", "йесод", "малхут", "кетер", "ацамут",
+    "адам", "хава", "каин", "hевель", "ноах", "авраhам", "сарра",
+    "ицхак", "яаков", "моше", "аhарон", "давид", "шломо", "элияhу",
+    "йешаяhу", "йирмеяhу", "йехезкэль", "даниэль", "гоша", "йоэль",
+    "амос", "овдья", "йона", "миха", "наум", "хавакук", "цефанья",
+    "хагай", "зехарья", "малахи", "йов", "эстер", "рут", "эзра",
+    "нехемья", "шофтим", "шмуэль", "млахим", "диврей", "теhиллим",
+    "мишлей", "коhелет", "шир", "эйха", "даниэль", "эзра", "нехемья",
+    "талмуд", "мишна", "гемара", "мидраш", "зоhар", "сефер",
+    "цитата", "синай", "цион", "йерушалаим", "израиль", "исраэль",
+    "йеhуда", "шомрон", "галиль", "йарден", "олев", "олевав",
+    "оламед", "оалаф", "омаим", "одавар", "опалео",
+}
 
-# =============================================================================
-# ЗАЩИТА МЕТАДАННЫХ
-# =============================================================================
 
 def extract_metadata_block(content: str) -> tuple:
     if '**Метаданные файла**' not in content:
@@ -64,9 +82,43 @@ def restore_metadata(text: str, original_metadata: str) -> str:
     return text
 
 
-# =============================================================================
-# ПАРСИНГ СЛОВАРЕЙ
-# =============================================================================
+def update_check_counter(content: str) -> str:
+    """Обновляет счётчик проверок на религионизмы в метаданных."""
+    today = datetime.now().strftime("%Y-%m-%d")
+    counter_match = re.search(r'[-*]\s*\*\*Проверок на религионизмы:\*\*\s*(\d+)', content)
+    date_match = re.search(r'[-*]\s*\*\*Последняя проверка:\*\*\s*([^\n]+)', content)
+
+    if counter_match:
+        count = int(counter_match.group(1)) + 1
+        content = re.sub(
+            r'[-*]\s*\*\*Проверок на религионизмы:\*\*\s*\d+',
+            f'- **Проверок на религионизмы:** {count}',
+            content
+        )
+    else:
+        count = 1
+        insert_pos = content.find('**Метаданные файла**')
+        if insert_pos == -1:
+            return content
+        block_end = content.find('\n---', insert_pos)
+        if block_end == -1:
+            block_end = content.find('\n## ', insert_pos)
+        if block_end == -1:
+            block_end = content.find('\n# ', insert_pos)
+        if block_end == -1:
+            return content
+        new_fields = f'\n- **Проверок на религионизмы:** {count}\n- **Последняя проверка:** {today}'
+        content = content[:block_end] + new_fields + content[block_end:]
+
+    if date_match:
+        content = re.sub(
+            r'[-*]\s*\*\*Последняя проверка:\*\*\s*[^\n]+',
+            f'- **Последняя проверка:** {today}',
+            content
+        )
+
+    return content
+
 
 def parse_religionisms_md(filepath):
     pairs = {}
@@ -74,9 +126,17 @@ def parse_religionisms_md(filepath):
         return pairs
     content = read_file_safe(filepath)
     for forbidden, correct in re.findall(r'`([^`]+)`\s*→\s*\S+\s*\(([^)]+)\)', content):
-        forbidden, correct = forbidden.strip(), correct.strip().split(",")[0].strip()
-        if forbidden and correct and re.search(r'[а-яё]', forbidden, re.IGNORECASE):
-            pairs[forbidden] = correct
+        forbidden = forbidden.strip()
+        correct = correct.strip().split(",")[0].strip()
+        if not forbidden or not correct:
+            continue
+        if not re.search(r'[а-яё]', forbidden, re.IGNORECASE):
+            continue
+        if forbidden.lower() == correct.lower():
+            continue
+        if correct.lower() in HEBREW_WHITELIST:
+            continue
+        pairs[forbidden] = correct
     return pairs
 
 
@@ -86,9 +146,11 @@ def parse_forbidden_words(filepath):
         return pairs
     content = read_file_safe(filepath)
     for forbidden, correct in re.findall(r'-\s+([А-ЯЁа-яё\s]+?)\s*→\s*\S+\s*\(([^)]+)\)', content):
-        forbidden, correct = forbidden.strip(), correct.strip().split(",")[0].strip()
+        forbidden = forbidden.strip()
+        correct = correct.strip().split(",")[0].strip()
         if forbidden and correct and forbidden not in pairs:
-            pairs[forbidden] = correct
+            if forbidden.lower() != correct.lower() and correct.lower() not in HEBREW_WHITELIST:
+                pairs[forbidden] = correct
     return pairs
 
 
@@ -106,7 +168,6 @@ def generate_declensions(word, base_form):
 def build_replacement_map():
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Автосброс: проверяем дату исходников
     if CACHE_FILE.exists():
         cache_mtime = CACHE_FILE.stat().st_mtime
         sources_newer = False
@@ -117,7 +178,7 @@ def build_replacement_map():
         if not sources_newer:
             try:
                 cache = json.loads(read_file_safe(CACHE_FILE))
-                if cache.get("_version") == "2.5":
+                if cache.get("_version") == "3.1":
                     return cache["replacements"], cache["fast_filter"], re.compile(cache["mega_regex"])
             except Exception:
                 pass
@@ -141,7 +202,7 @@ def build_replacement_map():
     mega_regex = re.compile(r'\b(' + '|'.join(re.escape(w) for w in sorted_words) + r')\b', re.IGNORECASE)
 
     cache_data = {
-        "_version": "2.5",
+        "_version": "3.1",
         "replacements": ru_replacements,
         "fast_filter": fast_filter,
         "mega_regex": mega_regex.pattern
@@ -151,10 +212,6 @@ def build_replacement_map():
 
     return ru_replacements, fast_filter, mega_regex
 
-
-# =============================================================================
-# КЭШИ
-# =============================================================================
 
 def load_scan_cache():
     if SCAN_CACHE_FILE.exists():
@@ -186,10 +243,6 @@ def save_dirty_cache(dirty_set):
         json.dump(sorted(dirty_set), f, ensure_ascii=False, indent=2)
 
 
-# =============================================================================
-# ПОИСК И ЗАМЕНА
-# =============================================================================
-
 def find_religionisms_fast(text, mega_regex, replacements):
     found = Counter()
     clean = re.sub(r'«[^»]*»|"[^"]*"|\'[^\']*\'', ' ', text)
@@ -209,11 +262,11 @@ def fix_religionisms(text, replacements, mega_regex):
 
     def replacer(match):
         nonlocal count
-        count += 1
         word = match.group()
         wl = word.lower()
         for w, correct in replacements.items():
-            if w.lower() == wl:
+            if w.lower() == wl and w.lower() != correct.lower():
+                count += 1
                 return correct[0].upper() + correct[1:] if word[0].isupper() else correct
         return word
 
@@ -222,12 +275,12 @@ def fix_religionisms(text, replacements, mega_regex):
         protected = protected.replace(placeholder, original, 1)
     if metadata:
         protected = restore_metadata(protected, metadata)
+
+    if count > 0:
+        protected = update_check_counter(protected)
+
     return protected, count
 
-
-# =============================================================================
-# ПРОВЕРКА ФАЙЛОВ
-# =============================================================================
 
 def check_one_file(md_file, replacements, fast_filter, mega_regex, scan_cache, check_only):
     rel_path = str(md_file.relative_to(REPO_ROOT))
@@ -335,15 +388,10 @@ def scan_files(replacements, fast_filter, mega_regex, check_only=True):
     return dict(total_found), files_with_issues, total_replacements
 
 
-# =============================================================================
-# MAIN
-# =============================================================================
-
 def main():
     check_only = "--fix" not in sys.argv
     rebuild_cache = "--rebuild" in sys.argv
 
-    # Автосброс кэша сканирования при --fix
     if not check_only:
         for f in (SCAN_CACHE_FILE, DIRTY_CACHE_FILE):
             if f.exists():
@@ -359,7 +407,8 @@ def main():
     replacements, fast_filter, mega_regex = build_replacement_map()
     print(f"✅ Загружено русских слов: {len(replacements)}")
     print(f"⚡ Быстрый фильтр: {len(fast_filter)} префиксов")
-    print(f"🛡️ Метаданные защищены от замен")
+    print(f"🛡️ Метаданные защищены, иврит в белом списке")
+    print(f"📊 Счётчик проверок будет обновлён в метаданных")
 
     print_header("ПРОВЕРКА НА РЕЛИГИОНИЗМЫ" if check_only else "ИСПРАВЛЕНИЕ РЕЛИГИОНИЗМОВ",
                  "🔍" if check_only else "🔧")
@@ -391,10 +440,10 @@ def main():
         print_hint("Перестроить кэш:  python tools/checkers/check-religionisms.py --rebuild")
     else:
         print_success(f"Исправлено: {total_replacements} замен в {len(files_with_issues)} файлах")
+        print_hint("Счётчик проверок обновлён в метаданных (Проверок на религионизмы: N)")
 
     return 0
 
 
 if __name__ == "__main__":
     sys.exit(main())
-

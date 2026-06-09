@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Разбор выражения עֵץ הַדַּעַת טוֹב וָרָע — дерево познания пригодного и разрушительного. Что такое דַּעַת, в чём был промах в саду, и как это связано с системой автономии.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/etz-ha-daat.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/methodology/tree-method.md`, `terminology/el.md`
+- **Хеш:** c05ae5f1
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-28
 ---
 

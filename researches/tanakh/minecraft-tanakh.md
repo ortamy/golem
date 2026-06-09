@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Анализ Minecraft через призму ТаНаХ. Архетипы бриа, грехопадения, исхода и восстановления в игровой механике. Персонажи как аллегории. Сюжетная линия как отражение библейской истории.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/minecraft-tanakh.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/tree-method.md`, `instructions/tahor/names.md`
+- **Хеш:** a8005726
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

@@ -8,6 +8,11 @@
 - **Причина обновления:** Автоматическая синхронизация
 - **Статус:** Активный
 - **Тема:** Полная структура репозитория «Голем»
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Хеш:** d42da14a
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## КОРЕНЬ
@@ -53,6 +58,7 @@
         - `exposure-methods.md`
         - `exposure-principles.md`
         - `exposure-system-architecture.md`
+        - `exposure-techniques.md`
         - `exposure-theory-religionism.md`
     - `methodology/`
         - `archeology-methodology.md`
@@ -87,45 +93,7 @@
 
 ## researches/
 
-    - `books/`
-        - `kissinger-the-world-order.md`
-        - `machiavelli-the-prince.md`
-    - `companies/`
-        - `amazon.md`
-        - `blackrock.md`
-        - `goldman-sachs.md`
-        - `google.md`
-        - `ibm.md`
-        - `jpmorgan.md`
-        - `meta.md`
-        - `neuralink.md`
-        - `palantir.md`
-        - `vanguard.md`
-    - `history/`
-        - `history-of-banks.md`
-        - `history-of-economy.md`
-        - `history-of-languages.md`
-        - `history-of-medicine.md`
-        - `history-of-money.md`
-        - `history-of-politics.md`
-        - `history-of-prison.md`
-        - `history-of-religion.md`
-        - `history-of-school.md`
-        - `israel-palestine.md`
-    - `languages/`
-        - `babel-languages.md`
-        - `egyptian-unfluence.md`
-        - `greek-as-weapon.md`
-        - `hebrew-creational.md`
-        - `language-comparison.md`
-        - `latin-control.md`
-        - `russian-syncretism.md`
-        - `slavic-distortion.md`
-    - `names/`
-        - `helena.md`
-        - `natasha.md`
-        - `ortam.md`
-    - `other/`
+    - `archive/`
         - `allopaty.md`
         - `caduceus-control.md`
         - `g-generations.md`
@@ -138,12 +106,202 @@
         - `pornography.md`
         - `psychology.md`
         - `pyramid-bunker.md`
+        - `rock-mantras.md`
         - `slavs.md`
+    - `books/`
+        - `analiz-poryadka-genri.md`
+        - `machiavelli-the-prince.md`
+    - `companies/`
+        - `amazon.md`
+        - `blackrock.md`
+        - `goldman-sachs.md`
+        - `google.md`
+        - `ibm.md`
+        - `jpmorgan.md`
+        - `meta.md`
+        - `neuralink.md`
+        - `palantir.md`
+        - `vanguard.md`
+    - `economy/`
+        - `banks-and-financial-dynasties.md`
+        - `gambling-vs-life.md`
+        - `money-symbols.md`
+        - `mortgage-dead-pledge.md`
+    - `history/`
+        - `alchemy.md`
+        - `history-of-banks.md`
+        - `history-of-economy.md`
+        - `history-of-languages.md`
+        - `history-of-medicine.md`
+        - `history-of-money.md`
+        - `history-of-politics.md`
+        - `history-of-prison.md`
+        - `history-of-religion.md`
+        - `history-of-school.md`
+        - `hitler-and-jews.md`
+        - `israel-palestine.md`
+        - `israel-vs-yehudi.md`
+        - `march-8-history.md`
+        - `missing-hebrew-scrolls.md`
+    - `language/`
+        - `atah-not-you.md`
+        - `burning-of-books.md`
+        - `dam-ve-chesed.md`
+        - `hebrew-truth.md`
+        - `hebrew-vs-languages.md`
+        - `heretic-meaning.md`
+        - `lechem-ve-yayin.md`
+        - `lingvisticheskaya-lovushka-konfliktov.md`
+        - `loss-in-translation.md`
+        - `mizmor-23.md`
+        - `shaal-u-vikesh.md`
+        - `time-in-tanakh.md`
+        - `tree-language.md`
+    - `languages/`
+        - `babel-languages.md`
+        - `egyptian-unfluence.md`
+        - `greek-as-weapon.md`
+        - `hebrew-creational.md`
+        - `language-comparison.md`
+        - `latin-control.md`
+        - `russian-syncretism.md`
+        - `slavic-distortion.md`
+    - `medicine/`
+        - `kol-dmamah-dakah.md`
+    - `names/`
+        - `helena.md`
+        - `natasha.md`
+        - `ortam.md`
     - `practices/`
         - `exodus-skills.md`
         - `hebrew-week.md`
         - `natural-garden.md`
-    - `religionizmes/`
+    - `psychology/`
+        - `heart-vs-brain.md`
+        - `lev-mind.md`
+    - `roman-law/`
+        - `ignorantia-juris.md`
+    - `science/`
+        - `planetah-wandering-star.md`
+    - `slavery/`
+        - `economic-slavery.md`
+        - `freedom-in-torah.md`
+        - `mental-slavery.md`
+        - `ruach-slavery.md`
+    - `sociology/`
+        - `body-as-temple.md`
+        - `ishah-yirat-yhwh.md`
+        - `jews-vs-muslims.md`
+    - `systems/`
+        - `bavel-mitzrayim-sdom.md`
+        - `chofesh-vs-dror.md`
+        - `daat-tree.md`
+        - `dam-yeshua-seal.md`
+        - `derech-ha-gever.md`
+        - `evening-morning-day.md`
+        - `galatim-two-systems.md`
+        - `lyubaya-vlast-chelovecheskaya.md`
+        - `mitzraim-system.md`
+        - `purpose-of-tanakh.md`
+        - `razoblachenie-egipetsko-greko-rimskoy-arhitektury.md`
+        - `red-mitzrayim.md`
+        - `russia-empire.md`
+        - `state-as-symptom.md`
+        - `talmud-judaism.md`
+        - `vatican.md`
+        - `why-canaan-land.md`
+        - `yazycheskie-bozhestva-delayut.md`
+        - `yegia-ve-koach.md`
+    - `tanakh/`
+        - `abracadabra.md`
+        - `acharayut-support.md`
+        - `adonai-origin.md`
+        - `apocalypse.md`
+        - `armageddon.md`
+        - `aseret-hadvarim.md`
+        - `balaam-strategy.md`
+        - `bashah-structure.md`
+        - `bereans.md`
+        - `brit-ania.md`
+        - `brit-hadashah.md`
+        - `brit-nissuin.md`
+        - `catholic-church.md`
+        - `chadash-restored.md`
+        - `dam-chesed.md`
+        - `darchei-tzadikim.md`
+        - `derech-ha-nachash.md`
+        - `dereh-yhwh.md`
+        - `digital-bavel.md`
+        - `digital-coliseum.md`
+        - `drashat-hahar.md`
+        - `eved-amdut.md`
+        - `exorcism-myth.md`
+        - `gog-and-magog.md`
+        - `ha-derech.md`
+        - `ha-mashchit.md`
+        - `hevel-kayin.md`
+        - `immanu-el.md`
+        - `karma.md`
+        - `keshet.md`
+        - `khazars-turks.md`
+        - `kotz-sting.md`
+        - `krazha.md`
+        - `mabbel-recreation.md`
+        - `magen-david.md`
+        - `makkot-strikes.md`
+        - `maschiah-cruteria.md`
+        - `masoretic-text.md`
+        - `melech-messenger.md`
+        - `mered-refusal.md`
+        - `migdal-bavel.md`
+        - `minecraft-tanakh.md`
+        - `moadim-yhwh.md`
+        - `morashat-israel.md`
+        - `mushtarah.md`
+        - `nachash-serpent.md`
+        - `nicaea-council.md`
+        - `nicham-keifa.md`
+        - `nicham.md`
+        - `niddah.md`
+        - `nishmat-chayim.md`
+        - `olam-haba.md`
+        - `olympic-games.md`
+        - `or-tam.md`
+        - `paleo-hebrew.md`
+        - `philosophemes.md`
+        - `plebs-control.md`
+        - `prayer-distortion.md`
+        - `psychikos-pneumatikos.md`
+        - `rabbinic-judaism.md`
+        - `religia-rome.md`
+        - `remnant-israel.md`
+        - `resurrection-analysis.md`
+        - `ruchot-infected.md`
+        - `satan-adversary.md`
+        - `secta-meaning.md`
+        - `serpent-healing.md`
+        - `shaul-victim.md`
+        - `sheerit.md`
+        - `shemot-yhwh.md`
+        - `shirat-hayam.md`
+        - `shlavim-yetziah.md`
+        - `sifrei-bashakh.md`
+        - `sifrei-tanakh.md`
+        - `slavic-substrate.md`
+        - `sod-hamalchut.md`
+        - `talmud-unmasked.md`
+        - `tarbut-cult.md`
+        - `tfilat-yeshua.md`
+        - `theophoric-names.md`
+        - `tikvah-tension.md`
+        - `trebuet-utochneniya.md`
+        - `tzeva-hashamayim.md`
+        - `tzohar-window.md`
+        - `yahvism.md`
+        - `yegia-kapayim.md`
+        - `yehoshua-research.md`
+        - `yetzer-lev.md`
+    - `teachings/`
         - `arkhiv/`
             - `raspalcovki/`
                 - `zhest-dengi.md`
@@ -152,8 +310,8 @@
                 - `zhest-namaste.md`
                 - `zhest-ok.md`
                 - `zhest-serdce-rukami.md`
-                - `zhest-spok-iz-star-trek.md`
                 - `zhest-srednii-palec.md`
+                - `zhest-star-trek.md`
                 - `zhest-viktori.md`
             - `adrenokhrom.md`
             - `analoi-krug-uroborosa.md`
@@ -168,9 +326,9 @@
             - `rak.md`
             - `ritual-zerkala.md`
             - `samael-kronos-saturn.md`
+            - `schwab.md`
             - `standard-oil.md`
             - `tatuirovki.md`
-            - `the-wef-and-schwab.md`
             - `twin-towers.md`
         - `eddaizm/`
             - `simvolika/`
@@ -381,6 +539,28 @@
             - `sovremennoe-proyavlenie.md`
             - `sravnitelnyi-analiz.md`
             - `tainye-ritualy.md`
+        - `hristianstvo/`
+            - `bibleiskie-lzhebozhki/`
+                - `anat.md`
+                - `astarta.md`
+                - `baal.md`
+                - `carica-nebesnaya.md`
+                - `dagon.md`
+                - `faraon.md`
+                - `ishtar.md`
+                - `lilit.md`
+                - `marduk.md`
+                - `melkart.md`
+                - `molokh.md`
+                - `rimmon.md`
+                - `shamash.md`
+                - `tammuz.md`
+                - `zevs.md`
+            - `dukhovnaya-priroda.md`
+            - `dukhovnye-plody.md`
+            - `etimologicheskii-razbor.md`
+            - `istoricheskoe-proiskhozhdenie.md`
+            - `priznaki-istinnoi-cerkvi.md`
         - `kabbalistizm/`
             - `chislovaya-magiya-gematriya.md`
             - `kabbalisticheskie-obety.md`
@@ -418,13 +598,13 @@
                 - `bratstvo-spaseniya-dush.md`
                 - `katolicheskie-monasheskie-ordena.md`
                 - `latinskii-rimskii-obryad.md`
-                - `teologicheskie-i-dukhovnye-dvizheni.md`
-                - `vostochnye-katolicheskie-cerkvi-unii.md`
+                - `teologicheskie-duhovnye-dvizheni.md`
+                - `vostochnye-katolicheskie-tserkvi.md`
             - `osnovy-ucheniya/`
                 - `chistilishe.md`
                 - `filloque.md`
                 - `kreshenie-mladencev.md`
-                - `kult-ikon-i-mertvykh.md`
+                - `kult-tselem-mertvyh.md`
                 - `molitvy-za-myortvykh.md`
                 - `papstvo.md`
                 - `tainstva.md`
@@ -454,10 +634,10 @@
                 - `obelisk.md`
                 - `zhezl-uas.md`
             - `svyashennaya-literatura/`
-                - `kniga-dnya-i-nochi.md`
                 - `kniga-myortvykh.md`
                 - `kniga-vragov-osirisa.md`
                 - `kniga-vrat.md`
+                - `nochi.md`
                 - `teksty-piramid.md`
                 - `teksty-sarkofagov.md`
             - `demonizaciya-zhenstvennosti.md`
@@ -481,28 +661,6 @@
             - `svyashennaya-prostituciya.md`
             - `zhrecheskii-klass.md`
             - `zmeinyi-kult.md`
-        - `khristianstvo/`
-            - `bibleiskie-lzhebozhki/`
-                - `anat.md`
-                - `astarta.md`
-                - `baal.md`
-                - `carica-nebesnaya.md`
-                - `dagon.md`
-                - `faraon.md`
-                - `ishtar.md`
-                - `lilit.md`
-                - `marduk.md`
-                - `melkart.md`
-                - `molokh.md`
-                - `rimmon.md`
-                - `shamash.md`
-                - `tammuz.md`
-                - `zevs.md`
-            - `dukhovnaya-priroda.md`
-            - `dukhovnye-plody.md`
-            - `etimologicheskii-razbor.md`
-            - `istoricheskoe-proiskhozhdenie.md`
-            - `priznaki-istinnoi-cerkvi.md`
         - `kiberkratizm/`
             - `algoritmicheskoe-pravosudie.md`
             - `anticerkov.md`
@@ -586,7 +744,7 @@
             - `saturnizm.md`
             - `sovremennoe-primenenie.md`
         - `kosmogoniya/`
-            - `asiatic-devices-allusive-to-the-cosmogony.md`
+            - `asiatic-devices-allusive.md`
             - `kosmicheskii-omfalos.md`
             - `teoriya-panspermii.md`
             - `uroboros.md`
@@ -669,7 +827,7 @@
             - `simvolika-ucheniya/`
                 - `cherep-i-kosti.md`
                 - `cirkul-i-ugolnik.md`
-                - `kolonny-boaz-i-jachin.md`
+                - `kolonny-boaz-jachin.md`
                 - `lampa-i-svet.md`
                 - `pentagramma.md`
                 - `vsevidyashee-oko.md`
@@ -857,7 +1015,7 @@
             - `energetika-snov.md`
             - `khristianizirovannye-sonniki.md`
             - `nyu-eidzh.md`
-            - `psikhoanaliz-freida-i-yunga.md`
+            - `psihoanaliz-freyda-yunga.md`
         - `pacifizm/`
             - `dukhovnaya-trusost.md`
             - `forma-idolopoklonstva.md`
@@ -951,7 +1109,7 @@
             - `politicheskaya-filosofiya.md`
             - `simvolizm-allegorii.md`
             - `teoriya-poznaniya.md`
-            - `uchenie-o-formakh-ideyakh.md`
+            - `tora-tsura-ideyah.md`
             - `vliyanie-platonizma.md`
         - `plyuralizm/`
             - `decentralizaciya-otkrovenii.md`
@@ -979,23 +1137,23 @@
                 - `emocionalnoe-rabstvo.md`
                 - `fragmentaciya-soznaniya.md`
                 - `illyuziya-vybora.md`
+                - `irbuv-emet.md`
                 - `lozhnaya-sekretnost.md`
                 - `paradigma-perenapravleniya.md`
                 - `princip-propagandy.md`
                 - `razdelyai-i-vlastvui.md`
-                - `smeshenie-istin-i-lzhi.md`
             - `etimologicheskii-razbor.md`
             - `evreiskaya-politika.md`
             - `istoki-proiskhozhdeniya.md`
         - `pornizm/`
             - `skrytye-dukhi/`
                 - `dukh-amura-kupidona.md`
-                - `dukh-astarty-ishtar-venery.md`
                 - `dukh-erosa.md`
                 - `dukh-iezaveli.md`
                 - `dukh-isidy.md`
                 - `dukh-lilit.md`
                 - `dukh-pornei.md`
+                - `ruah-astartyishtarvenery.md`
             - `cifrovoi-vavilon.md`
             - `globalnoe-rabstvo-pokhoti.md`
             - `kult-tela.md`
@@ -1032,7 +1190,7 @@
                 - `dukh-kibely.md`
             - `sravnitelnyi-analiz/`
                 - `sravnenie-s-nikolaitami.md`
-                - `sravnenie-s-ucheniem-valaama.md`
+                - `sravnenie-tora-valaama.md`
             - `bibleiskoe-oproverzhenie.md`
             - `etimologicheskii-razbor.md`
             - `istoki-proiskhozhdeniya.md`
@@ -1043,9 +1201,9 @@
             - `lzhecerkovnye-roli.md`
             - `sinodalnye-iskazheniya.md`
         - `prazdnizm/`
-            - `23-fevralya.md`
-            - `8-marta.md`
             - `9-maya.md`
+            - `fevralya.md`
+            - `marta.md`
             - `novyi-god.md`
         - `programmizm/`
             - `bibleiskoe-oproverzhenie.md`
@@ -1163,7 +1321,7 @@
                 - `skrytye-poslaniya.md`
                 - `suicidy-i-depressii.md`
                 - `travmy-ot-ideala.md`
-                - `zapret-na-lichnuyu-svobodu.md`
+                - `zapret-lichnuyu-hofesh.md`
             - `akademizm/`
                 - `formalizm-obrazovaniya.md`
                 - `obrazovanie-bez-lyubvi.md`
@@ -1199,7 +1357,7 @@
                     - `forma-idolopoklonstva.md`
                     - `odushevlennost-prirody.md`
                     - `pervobytnye-obryady.md`
-                    - `ponimanie-dushi-i-dukha.md`
+                    - `ponimanie-dushi-duha.md`
                 - `bibleiskoe-razoblachenie.md`
                 - `etimologicheskii-razbor.md`
                 - `istoricheskie-korni.md`
@@ -1305,11 +1463,11 @@
                 - `etimologicheskii-razbor.md`
                 - `istoki-proiskhozhdeniya.md`
             - `daosizm/`
-                - `dao-i-priroda-cheloveka.md`
                 - `dao-put.md`
                 - `daosskaya-alkhimiya.md`
                 - `daosskaya-medicina.md`
                 - `daosskie-teksty-simvolizm.md`
+                - `teva-adam.md`
                 - `u-vei-nedeyanie.md`
                 - `yan-i-in.md`
             - `darvinizm/`
@@ -1322,7 +1480,7 @@
                 - `illyuziya-uchastiya.md`
                 - `kognitivnyi-grazhdanizm.md`
                 - `lozhnaya-vybornost.md`
-                - `mificheskie-prava-i-svobody.md`
+                - `mificheskie-prava-hofesh.md`
                 - `tainye-elity.md`
             - `demonizm/`
                 - `demonicheskaya-priroda-grekhov.md`
@@ -1387,7 +1545,7 @@
                 - `rabstvo-ploti.md`
             - `geiminduizm/`
                 - `azart-kak-vera.md`
-                - `geim-dizainery-kak-zhrecy.md`
+                - `geym-dizaynery-kohen.md`
                 - `igrovaya-metafizika.md`
                 - `illyuziya-svobody.md`
                 - `kult-igroka.md`
@@ -1423,13 +1581,13 @@
                 - `sinteticheskie-khromosomy.md`
             - `geoinzhenerizm/`
                 - `osnovnye-napravleniya/`
-                    - `carbon-dioxide-removal-cdr.md`
+                    - `carbon-dioxide-removal.md`
                     - `cloudseeding.md`
                     - `geoengineering-via-satellites.md`
                     - `ice-preservation.md`
                     - `ocean-fertilization.md`
-                    - `solar-radiation-management-srm.md`
-                    - `stratospheric-aerosol-injection-sai.md`
+                    - `solar-radiation-management.md`
+                    - `stratospheric-aerosol-injection.md`
                 - `bibleiskoe-oproverzhenie.md`
                 - `etimologicheskii-razbor.md`
                 - `istoki-proiskhozhdeniya.md`
@@ -1457,7 +1615,7 @@
                     - `rossiya-i-indiya.md`
                     - `turciya-i-iran.md`
                 - `mirovoe-pravitelstvo.md`
-                - `novyi-mirovoi-poryadok-nwo.md`
+                - `novyy-mirovoy-poryadok.md`
                 - `oruzhie-massovogo-porazheniya.md`
                 - `struktura-urovnei.md`
                 - `svyaz-s-massonami.md`
@@ -1544,16 +1702,16 @@
             - `izinkulungu/`
                 - `komponenty-religii/`
                     - `dukhi-predkov-amadloti.md`
+                    - `koah-teva-duhi.md`
                     - `ritualy-i-ceremonii.md`
                     - `shamany-i-znakhari.md`
-                    - `sily-prirody-i-dukhi.md`
                     - `verkhovnoe-bozhestvo-umdeli.md`
                 - `bibleiskoe-oproverzhenie.md`
                 - `etimologicheskii-razbor.md`
                 - `istoki-proiskhozhdeniya.md`
                 - `klyuchevye-ritualy.md`
                 - `simvolika-znakov.md`
-                - `svyaz-s-khip-khopom.md`
+                - `svyaz-hip-hopom.md`
                 - `zulusskaya-kosmogoniya.md`
             - `vavilonizm/`
                 - `simvolicheskie-artefakty/`
@@ -1716,7 +1874,7 @@
                 - `xxx-tentacion.md`
             - `razbor-pesen/`
                 - `judas-lady-gaga.md`
-                - `justin-bieber-where-are-u-now.md`
+                - `justin-bieber-where.md`
             - `bibleiskoe-oproverzhenie.md`
             - `dukhovnaya-priroda.md`
             - `dukhovnoe-derevo.md`
@@ -1783,7 +1941,7 @@
                 - `universal-pictures.md`
                 - `walt-disney.md`
             - `mult-giganty/`
-                - `blue-sky-studios-ex-20th-century-fox.md`
+                - `blue-studios-ex-20th.md`
                 - `cartoon-network-studios.md`
                 - `disney-pixar.md`
                 - `dreamworks-animations.md`
@@ -1792,13 +1950,13 @@
                 - `netflix-animation.md`
                 - `nickelodeon.md`
                 - `sony-pictures.md`
-                - `warner-bros..md`
+                - `warner-bros.md`
             - `sataninskaya-kinofalsh/`
                 - `chuzhie-protiv-khishnika.md`
                 - `doktor-strendzh.md`
                 - `ekzorcist.md`
                 - `matrica.md`
-                - `s-shiroko-zakrytymi-glazami.md`
+                - `shiroko-zakrytymi-glazami.md`
             - `sataninskaya-multfalsh/`
                 - `cifrovoi-cirk-1.md`
                 - `cifrovoi-cirk.md`
@@ -1817,9 +1975,9 @@
             - `vudu.md`
         - `sintoizm/`
             - `imperatorskii-dom.md`
+            - `kshafim-oberegi-omamori.md`
             - `kult-dukhov-kami.md`
             - `lzheprazdniki.md`
-            - `magiya-i-oberegi-omamori.md`
             - `ritualnye-obryady.md`
             - `ritualy-ochisheniya-kharai.md`
             - `svyashennaya-profanaciya.md`
@@ -1860,7 +2018,7 @@
                 - `mishna.md`
                 - `predanie-starcev.md`
                 - `tolkovanie-tory.md`
-                - `ustnaya-tora-vs-pismennaya-tora.md`
+                - `ustnaya-tora-pismennaya.md`
             - `bibleiskoe-oproverzhenie.md`
             - `dukhovnaya-priroda.md`
             - `dukhovnye-plody.md`
@@ -1890,7 +2048,7 @@
                 - `virtual-reality-vr.md`
             - `bibleiskoe-oproverzhenie.md`
             - `big-data.md`
-            - `dukhovnoe-vliyanie-na-son.md`
+            - `duhovnoe-vliyanie-shena.md`
             - `etimologicheskii-razbor.md`
             - `istoki-proiskhozhdeniya.md`
             - `osnovy-ucheniya.md`
@@ -1927,8 +2085,8 @@
             - `bibleiskoe-sravnenie.md`
             - `dukhovnoe-idolopoklonstvo.md`
             - `istoricheskoe-proiskhozhdenie.md`
+            - `minhag-tabu-obryady.md`
             - `mirovoe-vliyanie.md`
-            - `ritualy-tabu-i-obryady.md`
             - `socialnye-konflikty.md`
         - `transgumanizm/`
             - `neirointerfeisy/`
@@ -1969,155 +2127,17 @@
             - `prakticheskoe-protivostoyanie.md`
             - `protivorechiya-s-khristianstvom.md`
             - `vidy-utilitarizma.md`
+        - `greek-freedom-distortion.md`
+        - `hellenization-vs-hebraization.md`
+        - `miryam-vs-ishtar.md`
         - `mutualizm.md`
         - `nestorianstvo.md`
+        - `pochemu-tanah-nikogda.md`
+        - `razoblachenie-sovremennogo-kulta.md`
+        - `ruach-fruit.md`
         - `sabellianizm.md`
-    - `roman-law/`
-        - `ignorantia-juris.md`
-    - `slavery/`
-        - `economic-slavery.md`
-        - `freedom-in-torah.md`
-        - `mental-slavery.md`
-        - `ruach-slavery.md`
-    - `systems/`
-        - `bavel-mitzrayim-sdom.md`
-        - `mitzraim-system.md`
-        - `red-mitzrayim.md`
-        - `russia-empire.md`
-        - `talmud-judaism.md`
-        - `vatican.md`
-    - `abracadabra.md`
-    - `abstract-gods-vs-yhwh.md`
-    - `acharayut-support.md`
-    - `adonai-origin.md`
-    - `apocalypse.md`
-    - `armageddon.md`
-    - `aseret-hadvarim.md`
-    - `atah-not-you.md`
-    - `balaam-strategy.md`
-    - `bashah-structure.md`
-    - `bereans.md`
-    - `body-as-temple.md`
-    - `brit-ania.md`
-    - `brit-hadashah.md`
-    - `brit-nissuin.md`
-    - `burning-of-books.md`
-    - `catholic-church.md`
-    - `chadash-restored.md`
-    - `chofesh-vs-dror.md`
-    - `daat-tree.md`
-    - `dam-chesed.md`
-    - `dam-ve-chesed.md`
-    - `dam-yeshua-seal.md`
-    - `darchei-tzadikim.md`
-    - `derech-ha-gever.md`
-    - `derech-ha-nachash.md`
-    - `dereh-yhwh.md`
-    - `digital-bavel.md`
-    - `digital-coliseum.md`
-    - `drashat-hahar.md`
-    - `emunah-self-vs-yhwh.md`
-    - `eved-amdut.md`
-    - `evening-morning-day.md`
-    - `exorcism-myth.md`
-    - `galatim-two-systems.md`
-    - `gambling-vs-life.md`
-    - `greek-freedom-distortion.md`
-    - `ha-derech.md`
-    - `ha-mashchit.md`
-    - `heart-vs-brain.md`
-    - `hebrew-truth.md`
-    - `hebrew-vs-languages.md`
-    - `hellenization-vs-hebraization.md`
-    - `hevel-kayin.md`
-    - `hitler-and-jews.md`
-    - `immanu-el.md`
-    - `ishah-yirat-yhwh.md`
-    - `israel-vs-yehudi.md`
-    - `jews-vs-muslims.md`
-    - `karma.md`
-    - `keshet.md`
-    - `khazars-turks.md`
-    - `kol-dmamah-dakah.md`
-    - `kotz-sting.md`
-    - `lechem-ve-yayin.md`
-    - `lev-mind.md`
-    - `loss-in-translation.md`
-    - `mabbel-recreation.md`
-    - `makkot-strikes.md`
-    - `man-as-rose-and-tree.md`
-    - `march-8-history.md`
-    - `maschiah-cruteria.md`
-    - `masoretic-text.md`
-    - `melech-messenger.md`
-    - `mered-refusal.md`
-    - `migdal-bavel.md`
-    - `minecraft-tanakh.md`
-    - `miryam-vs-ishtar.md`
-    - `missing-hebrew-scrolls.md`
-    - `mizmor-23.md`
-    - `moadim-yhwh.md`
-    - `money-symbols.md`
-    - `morashat-israel.md`
-    - `mushtarah.md`
-    - `nachash-serpent.md`
-    - `nicaea-council.md`
-    - `nicham-keifa.md`
-    - `nicham.md`
-    - `niddah.md`
-    - `nishmat-chayim.md`
-    - `olam-haba.md`
-    - `olympic-games.md`
-    - `or-tam.md`
-    - `paleo-hebrew.md`
-    - `petersburg-rome-on-neva.md`
-    - `philosophemes.md`
-    - `planetah-wandering-star.md`
-    - `plebs-control.md`
-    - `prayer-distortion.md`
-    - `psychikos-pneumatikos.md`
-    - `purpose-of-tanakh.md`
-    - `rabbinic-judaism.md`
-    - `religia-rome.md`
-    - `remnant-israel.md`
-    - `resurrection-analysis.md`
-    - `ruach-fruit.md`
-    - `ruchot-infected.md`
-    - `satan-adversary.md`
-    - `secta-meaning.md`
-    - `serpent-healing.md`
-    - `shaal-u-vikesh.md`
-    - `shaul-against-philosophy.md`
-    - `shaul-victim.md`
-    - `sheerit.md`
-    - `shema-yhwh-echad.md`
-    - `shemot-yhwh.md`
-    - `shirat-hayam.md`
-    - `shlavim-yetziah.md`
-    - `sifrei-bashakh.md`
-    - `sifrei-tanakh.md`
-    - `slavic-substrate.md`
-    - `sod-hamalchut.md`
-    - `state-as-symptom.md`
-    - `substitution-of-the-name.md`
-    - `talmud-unmasked.md`
-    - `tanakh-not-old-testament.md`
-    - `tarbut-cult.md`
-    - `tfilat-yeshua.md`
-    - `theophoric-names.md`
-    - `three-pillars-of-power.md`
-    - `tikvah-tension.md`
-    - `time-in-tanakh.md`
-    - `tree-language.md`
-    - `tzeva-hashamayim.md`
-    - `tzohar-window.md`
-    - `why-canaan-land.md`
-    - `why-people-cant-agree.md`
-    - `yahvism.md`
-    - `yegia-kapayim.md`
-    - `yegia-ve-koach.md`
-    - `yehoshua-research.md`
-    - `yetzer-lev.md`
+        - `shaul-against-philosophy.md`
+        - `shema-yhwh-echad.md`
 
 ## terminology/
 

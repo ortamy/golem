@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет дополняться)
 - **Тема:** Разоблачение римской тора капара. Кровь Йехошуа — не магическая корбан, а печать верности и обновлённого брит.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/dam-yeshua-seal.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/translation-methodology.md`, `terminology/mashiah-peshat.md`, `terminology/torah.md`
+- **Хеш:** 0f2eca58
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-26
 ---
 

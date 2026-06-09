@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Сравнительное исследование вклада Израиля и пятнадцати мировых систем в цивилизацию. Почему все империи пали, а ТаНаХ остался.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/morashat-israel.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
+- **Хеш:** 92e08be2
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-28
 - **Причина hитхадшут:** Добавлены Эдом, Моав, Арам, Плиштим, Куш. Пятнадцать систем против одного народа.
 ---

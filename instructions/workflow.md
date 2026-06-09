@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Стандартный рабочий процесс для всех участников проекта
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/workflow.md`, `terminology/` | `emet.md`, `researches/` | `balaam-strategy.md`, `instructions/` | `new-method.md`, `terminology/hesed.md`
+- **Хеш:** a83b954a
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

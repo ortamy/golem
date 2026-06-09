@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** ЙЕЦЕР ЛЕВ (YETZER LEV) — ПОМЫШЛЕНИЕ СЕРДЦА
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `terminology/yetzer-lev.md`, `instructions/methodology/translation-methodology.md`, `terminology/torah.md`, `terminology/yhwh.md`
+- **Хеш:** f565002e
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-06-06
 ---
 

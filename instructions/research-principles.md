@@ -8,6 +8,12 @@
 - **Причина обновления:** Исправлены религионизмы: «Бог» → «Яхве», «от лукавого» → «от разрушительного».
 - **Статус:** Активный (пополняется)
 - **Тема:** Принципы и правила нашей работы по разоблачению лжи и возвращению к истине ТаНаХа.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/research-principles.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`
+- **Хеш:** c64fc550
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ОСНОВНЫЕ ПРИНЦИПЫ

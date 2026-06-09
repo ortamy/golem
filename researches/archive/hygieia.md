@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Разоблачение от «Чаша Гигиеи» через призму ТаНаХ. Гигея — богиня здоровья. Змея — от мудрости или обмана? Чаша — сосуд рефуа или чаша гнева?
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/other/hygieia.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `terminology/el.md`, `terminology/yhwh.md`
+- **Хеш:** 285c7783
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

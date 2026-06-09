@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Методология послойного анализа библейских понятий. Семь врат — от современного искажения до ивритского оригинала. Карта сдвига смысла.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`
+- **Хеш:** 631aefe1
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Источник:** адаптировано из «Archeology of Meanings» (English original)
 ---
 

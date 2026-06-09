@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** שְׁלָבִים יְצִיאָה — ЭТАПЫ ИСХОДА: Дэрех ОТ РАБСТВА К Хофеш
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/shlavim-yetziah.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/tree-method.md`, `instructions/tahor/names.md`, `researches/economy/economic-slavery.md`
+- **Хеш:** 3d3d6fb0
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-05-27
 ---
 

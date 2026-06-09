@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Классификация типов искажений, через которые проходят ивритские понятия при переводе. Семь типов, каждый со своими приёмами. Комбинации типов и способы восстановления.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
+- **Хеш:** 9e25255d
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Источник:** выделено из `exposure-mechanisms.md` v1.2
 ---
 

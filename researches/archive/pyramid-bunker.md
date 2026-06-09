@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Гипотеза: пирамида как надземный бункер и система водоснабжения. Инженерный анализ цура, материала и конструкции.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/other/pyramid-bunker.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/archeology-methodology.md`, `researches/economy/banks-and-financial-dynasties.md`
+- **Хеш:** 31b97a75
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

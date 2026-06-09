@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Как участвовать в проекте «Голем» — правила, процесс, коммуникация
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/collaboration-guide.md`, `instructions/research-principles.md`, `instructions/forbidden-words.md`, `instructions/workflow.md`, `instructions/exposure/exposure-methods.md`
+- **Хеш:** 486c3dc5
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

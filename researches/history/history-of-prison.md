@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** История тюрьмы от Месопотамии до цифровой эпохи через призму ТаНаХ. Тюрьма в ТаНаХ: ограничение как защита, а не онеш. Асур и арур vs паноптикум. Разоблачение подмены ограничения на кару.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`, `researches/economy/mortgage-dead-pledge.md`
+- **Хеш:** 4c99a157
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

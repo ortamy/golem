@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Разоблачение языческого происхождения от валют (₽, €, $) и их связи с древними божествами
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `researches/money-symbols.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`, `instructions/tahor/names.md`, `researches/economy/banks-and-financial-dynasties.md`
+- **Хеш:** f35e8e4b
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 - **Последнее hитхадшут:** 2026-06-08
 - **Причина hитхадшут:** Замена «библейский взгляд» на «танахический взгляд», уточнение цитата и мунах
 ---

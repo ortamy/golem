@@ -8,7 +8,12 @@
 - **Причина обновления:** Добавлены методы 24-29 из последних исследований
 - **Статус:** Активный (будет пополняться)
 - **Тема:** 29 методов разоблачения религиозной лжи. Каждый метод: суть, как применять, конкретный пример.
-
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-principles.md`
+- **Хеш:** 23c623d6
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

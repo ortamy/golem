@@ -8,6 +8,12 @@
 - **Причина обновления:** Переписаны все задачи в формате «глагол + объект»
 - **Статус:** Активный
 - **Тема:** ТЕХНИЧЕСКИЙ ДОЛГ
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/image-map.md`, `instructions/images-catalogue.md`, `instructions/methodology/archeology-methodology.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
+- **Хеш:** 350996b0
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 📋 АКТИВНЫЕ ЗАДАЧИ

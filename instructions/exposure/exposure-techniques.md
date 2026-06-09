@@ -4,9 +4,16 @@
 - **Файл:** `instructions/exposure/exposure-techniques.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-09
+- **Последнее обновление:** 2026-06-09
+- **Причина обновления:** Первичное создание
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Полный каталог приёмов подмены, собранных из всех исследований. Языковые, смысловые, социальные, экономические, финансовые, исторические, символические, мета-приёмы.
-
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-techniques.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`
+- **Хеш:** 5933bb4b
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

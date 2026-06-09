@@ -8,6 +8,12 @@
 - **Причина обновления:** Добавлены разделы: масштаб явления, три категории транслитераций, четыре последствия подмены, примеры честного перевода.
 - **Статус:** Активный (будет пополняться)
 - **Тема:** Полный свод транслитераций, которые подменили собой ивритские и греческие оригиналы. Каждая транслитерация — это потеря смысла.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/methodology/tree-method.md`
+- **Хеш:** 450a0e91
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ

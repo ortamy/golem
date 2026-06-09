@@ -8,6 +8,12 @@
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
 - **Тема:** Исследование советской системы как Мицраима. Как был создан искусственный народ «советский человек». Признаки системы в ТаНаХ. Увда, миспар, даты.
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/tahor/names.md`, `terminology/shabbat.md`, `terminology/torah.md`
+- **Хеш:** 1622e7e6
+- **Достоверность:** средняя
+- **Последний аудит:** 2026-06-09
 ---
 
 ## 🔥 ВВЕДЕНИЕ
