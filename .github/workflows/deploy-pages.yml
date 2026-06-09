@@ -23,8 +23,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Generate files.json
-        run: python3 tools/generators/generate-files-json.py
+      -  name: Generate files.json
+         run: |
+          pip install rich
+          python3 tools/generators/generate-files-json.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

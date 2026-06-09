@@ -1,4 +1,5 @@
 # requirements.txt — зависимости проекта «Голем»
 # Установка: pip install -r requirements.txt
 
+rich>=13.0.0
 windows-curses>=2.4.0
