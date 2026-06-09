@@ -123,7 +123,7 @@ function loadFile(p) {
 
     var url = IS_LOCAL
         ? '/api/file?path=' + encodeURIComponent(p)
-        : '../' + encodeURIComponent(p);
+        : '../' + p;
 
     fetch(url)
         .then(function(r) {
