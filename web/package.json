@@ -1,0 +1,9 @@
+{
+  "name": "golem-web",
+  "version": "1.0.0",
+  "description": "Golem dynamic web server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
