@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# golem.py — единый скрипт для управления проектом (древовидное меню) v4.1
+# golem.py — единый скрипт для управления проектом (минимализм v4.3)
 
 import os
 import sys
@@ -26,18 +26,43 @@ TOOLS_DIR = Path(__file__).parent
 CACHE_DIR = TOOLS_DIR / "cache"
 CONFIG_FILE = CACHE_DIR / "golem-config.json"
 LOG_FILE = REPO_ROOT / "golem.log"
-VERSION = "4.1"
+VERSION = "4.3"
 
 current_lang = "ru"
 LANGUAGES = {}
 config = {}
 
-# =============================================================================
-# АВТО-СКАНИРОВАНИЕ СКРИПТОВ
-# =============================================================================
+SPINNER = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+LABEL_WIDTH = 45
+
+# Цвета (инициализируются после initscr)
+ORANGE = None
+SELECTED = None
+DIM = None
+WHITE = None
+
+
+def init_colors():
+    global ORANGE, SELECTED, DIM, WHITE
+    if curses.has_colors():
+        curses.start_color()
+        curses.use_default_colors()
+        curses.init_pair(1, 208, -1)      # Оранжевый на дефолтном фоне
+        curses.init_pair(2, 255, 208)     # Белый на оранжевом (выделение)
+        curses.init_pair(3, 240, -1)      # Серый
+        curses.init_pair(4, 255, -1)      # Белый
+        ORANGE = curses.color_pair(1)
+        SELECTED = curses.color_pair(2)
+        DIM = curses.color_pair(3)
+        WHITE = curses.color_pair(4)
+    else:
+        ORANGE = curses.A_NORMAL
+        SELECTED = curses.A_REVERSE
+        DIM = curses.A_DIM
+        WHITE = curses.A_NORMAL
+
 
 def scan_scripts():
-    """Автоматически находит все скрипты в подпапках tools/."""
     paths = {}
     for subdir in ["checkers", "generators", "reports", "automation"]:
         dir_path = TOOLS_DIR / subdir
@@ -45,7 +70,6 @@ def scan_scripts():
             for script in sorted(dir_path.glob("*.py")):
                 name = script.stem.replace("-", "_").replace(".", "_")
                 paths[name] = script
-    # Bash-скрипты
     backup_dir = TOOLS_DIR / "backup"
     if backup_dir.exists():
         for script in sorted(backup_dir.glob("*.sh")):
@@ -53,10 +77,8 @@ def scan_scripts():
             paths[name] = script
     return paths
 
-PATHS = scan_scripts()
 
-SPINNER = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
-LABEL_WIDTH = 45
+PATHS = scan_scripts()
 
 
 def log(msg):
@@ -71,24 +93,37 @@ def load_languages():
     global LANGUAGES
     LANGUAGES = {
         "ru": {
-            "title": "ГОЛЕМ v{}", "actions": "ДЕЙСТВИЯ", "tools": "ИНСТРУМЕНТЫ", "exit": "ВЫХОД",
+            "title": "ГОЛЕМ", "actions": "ДЕЙСТВИЯ", "tools": "ИНСТРУМЕНТЫ", "exit": "ВЫХОД",
             "run_all_checks": "Запустить все проверки", "run_all_fixes": "Запустить все исправления",
             "full_audit": "Полный аудит", "checkers": "Чекеры", "generators": "Генераторы",
-            "reports": "Отчёты", "automation": "Автоматизация", "backup": "Бэкап и экспорт",
-            "back": "← Назад", "running": "Выполняется: {}",
-            "up_down": "↑↓ выбор | Enter вход | Esc/← назад | q выход", "goodbye": "До свидания!",
-            "not_found": "не найден", "press_enter": "Нажмите любую клавишу...",
-            "error_occurred": "Произошла ошибка", "skipped": "пропущен",
+            "reports": "Отчёты", "automation": "Автоматизация", "backup": "Бэкап",
+            "back": "← НАЗАД", "running": "Выполняется: {}",
+            "up_down": "↑↓ выбор   Enter вход   Esc назад   q выход",
+            "goodbye": "До свидания.", "not_found": "не найден",
+            "press_enter": "Нажмите любую клавишу...",
+            "error_occurred": "Ошибка", "skipped": "пропущен",
         },
         "en": {
-            "title": "GOLEM v{}", "actions": "ACTIONS", "tools": "TOOLS", "exit": "EXIT",
+            "title": "GOLEM", "actions": "ACTIONS", "tools": "TOOLS", "exit": "EXIT",
             "run_all_checks": "Run all checks", "run_all_fixes": "Run all fixes",
             "full_audit": "Full audit", "checkers": "Checkers", "generators": "Generators",
-            "reports": "Reports", "automation": "Automation", "backup": "Backup & Export",
-            "back": "← Back", "running": "Running: {}",
-            "up_down": "↑↓ select | Enter enter | Esc/← back | q quit", "goodbye": "Goodbye!",
-            "not_found": "not found", "press_enter": "Press any key...",
-            "error_occurred": "An error occurred", "skipped": "skipped",
+            "reports": "Reports", "automation": "Automation", "backup": "Backup",
+            "back": "← BACK", "running": "Running: {}",
+            "up_down": "↑↓ select   Enter enter   Esc back   q quit",
+            "goodbye": "Goodbye.", "not_found": "not found",
+            "press_enter": "Press any key...",
+            "error_occurred": "Error", "skipped": "skipped",
+        },
+        "he": {
+            "title": "GOLEM", "actions": "PEULOT", "tools": "KELIM", "exit": "YETZIA",
+            "run_all_checks": "Haratz bdikot", "run_all_fixes": "Haratz tikunim",
+            "full_audit": "Bikoret", "checkers": "Bodkim", "generators": "Meholelim",
+            "reports": "Duchot", "automation": "Automazia", "backup": "Gibuoy",
+            "back": "← CHAZOR", "running": "Mevatze: {}",
+            "up_down": "↑↓ bchira   Enter knisa   Esc chazor   q yetzia",
+            "goodbye": "Lehitraot.", "not_found": "lo nimtza",
+            "press_enter": "Lachatz al makash...",
+            "error_occurred": "Shgia", "skipped": "dulug",
         },
     }
 
@@ -119,7 +154,9 @@ def t(key):
 
 def _flash(stdscr, msg):
     try:
-        stdscr.addstr(msg + "\n")
+        h, w = stdscr.getmaxyx()
+        stdscr.bkgd(' ', WHITE)
+        stdscr.addstr(h // 2, max(0, (w - len(msg)) // 2), msg, DIM)
         stdscr.refresh()
         stdscr.getch()
     except Exception:
@@ -144,8 +181,9 @@ def _run_py(stdscr, script_path, args=None, description=None):
         return
     try:
         h, w = stdscr.getmaxyx()
+        stdscr.bkgd(' ', WHITE)
         msg = t('running').format(description or script_path.stem)
-        stdscr.addstr(h // 2, max(0, (w - len(msg)) // 2), msg, curses.A_BOLD)
+        stdscr.addstr(h // 2, max(0, (w - len(msg)) // 2), msg, ORANGE | curses.A_BOLD)
         stdscr.refresh()
         curses.napms(400)
         curses.endwin()
@@ -155,6 +193,7 @@ def _run_py(stdscr, script_path, args=None, description=None):
         subprocess.run(cmd, cwd=str(REPO_ROOT))
         _wait_key()
         curses.initscr()
+        init_colors()
         stdscr.clear()
         stdscr.refresh()
     except Exception as e:
@@ -162,6 +201,7 @@ def _run_py(stdscr, script_path, args=None, description=None):
         print(f"\n{t('error_occurred')}: {e}")
         _wait_key()
         curses.initscr()
+        init_colors()
         stdscr.clear()
         stdscr.refresh()
 
@@ -172,14 +212,16 @@ def _run_sh(stdscr, script_path):
         return
     try:
         h, w = stdscr.getmaxyx()
-        stdscr.addstr(h // 2, max(0, (w - len(t('running').format(script_path.stem))) // 2),
-                      t('running').format(script_path.stem), curses.A_BOLD)
+        stdscr.bkgd(' ', WHITE)
+        msg = t('running').format(script_path.stem)
+        stdscr.addstr(h // 2, max(0, (w - len(msg)) // 2), msg, ORANGE | curses.A_BOLD)
         stdscr.refresh()
         curses.napms(400)
         curses.endwin()
         subprocess.run(['bash', str(script_path)], cwd=str(TOOLS_DIR))
         _wait_key()
         curses.initscr()
+        init_colors()
         stdscr.clear()
         stdscr.refresh()
     except Exception as e:
@@ -187,6 +229,7 @@ def _run_sh(stdscr, script_path):
         print(f"\n{t('error_occurred')}: {e}")
         _wait_key()
         curses.initscr()
+        init_colors()
         stdscr.clear()
         stdscr.refresh()
 
@@ -194,16 +237,27 @@ def _run_sh(stdscr, script_path):
 def draw_menu(stdscr, title_key, items, selected):
     h, w = stdscr.getmaxyx()
     stdscr.clear()
-    title = f"{t('title').format(VERSION)} — {t(title_key)}"
-    stdscr.addstr(0, max(0, (w - len(title)) // 2), title, curses.A_BOLD | curses.A_UNDERLINE)
+    stdscr.bkgd(' ', WHITE)
+
+    title = t('title')
+    stdscr.addstr(2, 4, title, ORANGE | curses.A_BOLD)
+    stdscr.addstr(2, 4 + len(title) + 2, f"v{VERSION}", DIM)
+
+    stdscr.addstr(4, 4, "─" * (w - 8), DIM)
+
+    start_y = 6
     for i, item in enumerate(items):
-        y = 3 + i
-        if y >= h - 2:
+        y = start_y + i
+        if y >= h - 3:
             break
-        attr = curses.A_REVERSE if i == selected else curses.A_NORMAL
-        stdscr.addstr(y, 4, ("> " if i == selected else "  ") + item, attr)
+        if i == selected:
+            stdscr.addstr(y, 4, " " * (w - 8), SELECTED)
+            stdscr.addstr(y, 6, f"› {item}", SELECTED | curses.A_BOLD)
+        else:
+            stdscr.addstr(y, 6, f"  {item}", WHITE)
+
     hint = t('up_down')
-    stdscr.addstr(h - 2, max(0, (w - len(hint)) // 2), hint, curses.A_DIM)
+    stdscr.addstr(h - 2, 4, hint, DIM)
     stdscr.refresh()
 
 
@@ -227,7 +281,6 @@ def menu_loop(stdscr, title_key, items, actions):
 
 
 def _build_menu(menu_type):
-    """Строит меню из скриптов в указанной папке."""
     items = []
     actions = []
     folder = TOOLS_DIR / menu_type
@@ -235,35 +288,49 @@ def _build_menu(menu_type):
         for script in sorted(folder.glob("*.py")):
             name = script.stem.replace("-", " ").replace("_", " ").title()
             items.append(name)
-            actions.append(lambda s=script: _run_py(None, s, description=s.stem))
+            actions.append(lambda s=script: _run_py(stdscr, s, description=s.stem))
+    items.append(t('back'))
+    actions.append(None)
+    return items, actions
+
+
+# Исправлено: передача stdscr в замыкание
+def _build_menu_actions(menu_type, stdscr):
+    items = []
+    actions = []
+    folder = TOOLS_DIR / menu_type
+    if folder.exists():
+        for script in sorted(folder.glob("*.py")):
+            name = script.stem.replace("-", " ").replace("_", " ").title()
+            items.append(name)
+            actions.append(lambda s=script: _run_py(stdscr, s, description=s.stem))
     items.append(t('back'))
     actions.append(None)
     return items, actions
 
 
 def menu_checkers(stdscr):
-    items, actions = _build_menu("checkers")
-    # Перемещаем clear_cache в конец перед back
+    items, actions = _build_menu_actions("checkers", stdscr)
     menu_loop(stdscr, 'checkers', items, actions)
 
 
 def menu_generators(stdscr):
-    items, actions = _build_menu("generators")
+    items, actions = _build_menu_actions("generators", stdscr)
     menu_loop(stdscr, 'generators', items, actions)
 
 
 def menu_reports(stdscr):
-    items, actions = _build_menu("reports")
+    items, actions = _build_menu_actions("reports", stdscr)
     menu_loop(stdscr, 'reports', items, actions)
 
 
 def menu_automation(stdscr):
-    items, actions = _build_menu("automation")
+    items, actions = _build_menu_actions("automation", stdscr)
     menu_loop(stdscr, 'automation', items, actions)
 
 
 def menu_backup(stdscr):
-    items = [t('export_repo'), t('backup_repo'), t('back')]
+    items = ["Экспорт репозитория", "Создать бэкап", t('back')]
     actions = [
         lambda: _run_sh(stdscr, PATHS.get("export_repo", TOOLS_DIR / "backup" / "export-repo.sh")),
         lambda: _run_sh(stdscr, PATHS.get("backup_repo", TOOLS_DIR / "backup" / "backup.sh")),
@@ -301,7 +368,7 @@ def run_all_checks(stdscr):
         label = f"[{i:2d}/{total}] {description}".ljust(LABEL_WIDTH)
 
         if not script_path.exists():
-            print(f"{label} ⏭️ {t('not_found')}")
+            print(f"{label}  {t('not_found')}")
             results.append((description, "skip", 0, 0))
             continue
 
@@ -310,7 +377,7 @@ def run_all_checks(stdscr):
                                 stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace")
         si = 0
         while proc.poll() is None:
-            sys.stdout.write(f"\r{label} {SPINNER[si % len(SPINNER)]} Выполняется...")
+            sys.stdout.write(f"\r{label} {SPINNER[si % len(SPINNER)]}")
             sys.stdout.flush()
             si += 1
             time.sleep(0.08)
@@ -326,28 +393,32 @@ def run_all_checks(stdscr):
         issues = int(found_issues.group(1)) if found_issues else 0
 
         if ok_msg or (proc.returncode == 0 and not found_issues):
-            print(f"{label} ✅ {total_files} файлов")
+            print(f"{label} ✓ {total_files} файлов")
             results.append((description, "ok", total_files, 0))
         elif issues > 0:
-            print(f"{label} ❌ {issues} проблем")
+            print(f"{label} ✗ {issues} проблем")
             results.append((description, "issues", 0, issues))
         else:
-            print(f"{label} ✅ {total_files} файлов")
+            print(f"{label} ✓ {total_files} файлов")
             results.append((description, "ok", total_files, 0))
 
     ok = sum(1 for _, s, _, _ in results if s == "ok")
     bad = sum(1 for _, s, _, _ in results if s == "issues")
     skp = sum(1 for _, s, _, _ in results if s == "skip")
 
-    print(f"\n{'═' * 50}\nРЕЗУЛЬТАТЫ\n{'═' * 50}")
+    print(f"\n{'─' * 50}")
+    print(f"РЕЗУЛЬТАТЫ")
+    print(f"{'─' * 50}")
     for name, status, files, issues in results:
-        if status == "ok":    print(f"  ✅ {name}")
-        elif status == "issues": print(f"  ❌ {name} — {issues} проблем")
-        elif status == "skip":   print(f"  ⏭️ {name} — {t('not_found')}")
-    print(f"\n  Пройдено: {ok} | Проблем: {bad} | Пропущено: {skp}\n{'═' * 50}")
+        if status == "ok":    print(f"  ✓ {name}")
+        elif status == "issues": print(f"  ✗ {name} — {issues} проблем")
+        elif status == "skip":   print(f"  - {name} — {t('not_found')}")
+    print(f"\n  Пройдено: {ok}  Проблем: {bad}  Пропущено: {skp}")
+    print(f"{'─' * 50}")
 
     _wait_key()
     curses.initscr()
+    init_colors()
     stdscr.clear()
     stdscr.refresh()
 
@@ -373,14 +444,72 @@ def run_full_audit(stdscr):
 
 
 def main_menu(stdscr):
+    global current_lang
+    init_colors()
+
     items = [t('actions'), t('tools'), t('exit')]
     menus = [menu_actions, menu_tools, None]
     sel = 0
     n = len(items)
+
     while True:
         try:
-            draw_menu(stdscr, 'title', items, sel)
+            h, w = stdscr.getmaxyx()
+            stdscr.clear()
+            stdscr.bkgd(' ', WHITE)
+
+            # Заголовок
+            title = t('title')
+            stdscr.addstr(2, 4, title, ORANGE | curses.A_BOLD)
+            stdscr.addstr(2, 4 + len(title) + 2, f"v{VERSION}", DIM)
+
+            # Языки справа
+            if current_lang == "ru":
+                stdscr.addstr(2, w - 24, "[RU] EN HE", ORANGE | curses.A_BOLD)
+            elif current_lang == "en":
+                stdscr.addstr(2, w - 24, "RU [EN] HE", ORANGE | curses.A_BOLD)
+            else:
+                stdscr.addstr(2, w - 24, "RU EN [HE]", ORANGE | curses.A_BOLD)
+
+            stdscr.addstr(4, 4, "─" * (w - 8), DIM)
+
+            start_y = 6
+            for i, item in enumerate(items):
+                y = start_y + i
+                if y >= h - 3:
+                    break
+                if i == sel:
+                    stdscr.addstr(y, 4, " " * (w - 8), SELECTED)
+                    stdscr.addstr(y, 6, f"› {item}", SELECTED | curses.A_BOLD)
+                else:
+                    stdscr.addstr(y, 6, f"  {item}", WHITE)
+
+            hint = t('up_down')
+            stdscr.addstr(h - 2, 4, hint, DIM)
+            stdscr.refresh()
+
             key = stdscr.getch()
+
+            # Языки: 1/2/3
+            if key == ord('1'):
+                current_lang = "ru"
+                config["language"] = "ru"
+                save_config()
+                items = [t('actions'), t('tools'), t('exit')]
+                continue
+            elif key == ord('2'):
+                current_lang = "en"
+                config["language"] = "en"
+                save_config()
+                items = [t('actions'), t('tools'), t('exit')]
+                continue
+            elif key == ord('3'):
+                current_lang = "he"
+                config["language"] = "he"
+                save_config()
+                items = [t('actions'), t('tools'), t('exit')]
+                continue
+
             if key in (ord('q'), ord('й')): break
             elif key == curses.KEY_UP and sel > 0: sel -= 1
             elif key == curses.KEY_DOWN and sel < n - 1: sel += 1
@@ -397,25 +526,18 @@ def main():
     global current_lang
     load_languages()
     load_config()
-    saved = config.get("language", "ru")
-    print("\nВыберите язык / Select language:\n  1. Русский\n  2. English")
-    print(f"  Enter — сохранённый ({saved})")
-    choice = input("> ").strip()
-    lang_map = {"1": "ru", "2": "en"}
-    current_lang = lang_map.get(choice, saved)
-    if choice in lang_map:
-        config["language"] = current_lang
-        save_config()
+    current_lang = config.get("language", "ru")
+
     try:
         curses.wrapper(main_menu)
-    except KeyboardInterrupt: pass
+    except KeyboardInterrupt:
+        pass
     except Exception as e:
         log(f"critical: {e}\n{traceback.format_exc()}")
-        print(f"\n\033[91m{t('error_occurred')}: {e}\033[0m")
+        print(f"\n{t('error_occurred')}: {e}")
     finally:
-        print(f"\n\033[92m{t('goodbye')}\033[0m\n")
+        print(f"\n{t('goodbye')}\n")
 
 
 if __name__ == "__main__":
     main()
-
