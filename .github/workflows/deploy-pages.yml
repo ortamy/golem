@@ -23,10 +23,20 @@ jobs:
         with:
           python-version: '3.11'
 
-      -  name: Generate files.json
-         run: |
-          pip install rich
-          python3 tools/generators/generate-files-json.py
+      - name: Install dependencies
+        run: pip install rich
+
+      - name: Generate files.json
+        run: python3 tools/generators/generate-files-json.py
+
+      - name: Copy content folders
+        run: |
+          cp -r terminology web/
+          cp -r researches web/
+          cp -r instructions web/
+          cp -r checkers web/
+          cp -r drafts web/
+          cp -r ideas web/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -42,7 +52,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
