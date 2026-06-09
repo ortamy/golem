@@ -1,4 +1,4 @@
-// web/server.js — динамический сервер Golem (Node.js)
+// docs/web/server.js — динамический сервер Golem (Node.js)
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -73,20 +73,13 @@ function walkDir(dirPath, baseFolder, label, files) {
 function extractTitle(content) {
     const match = content.match(/^#\s+(.+?)$/m);
     if (match) {
-        return match[1]
-            .replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{FE00}-\u{FEFF}\u{200D}\u{FE0F}]/gu, '')
-            .replace(/^\s+/, '')
-            .trim()
-            .substring(0, 80);
+        return match[1].replace(/[^\w\s\-—«»]/g, '').trim().substring(0, 80);
     }
     return '';
 }
 
 function extractTopic(content) {
-    let match = content.match(/\*\*Тема:\*\*\s*(.+?)(?:\n|$)/);
-    if (!match) {
-        match = content.match(/Тема:\s*(.+?)(?:\n|$)/);
-    }
+    const match = content.match(/\*\*Тема:\*\*\s*(.+?)(?:\n|$)/);
     return match ? match[1].trim().substring(0, 100) : '';
 }
 

@@ -1,0 +1,97 @@
+#!/usr/bin/env python3
+# generate-files-json.py — генерирует files.json для статического веб-интерфейса
+
+import json
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from lib.utils import REPO_ROOT
+
+WEB_DIR = REPO_ROOT / "web"
+SCAN_DIRS = [
+    ("terminology", "Терминология"),
+    ("researches", "Исследования"),
+    ("instructions", "Инструкции"),
+    ("checkers", "Чекеры"),
+    ("drafts", "Черновики"),
+    ("ideas", "Идеи"),
+]
+IGNORE_FILES = {"README.md", "STRUCTURE.md", "GLOSSARY.md", "CHANGELOG.md"}
+
+
+def extract_title(content):
+    match = content.split("\n")[0] if content else ""
+    if match.startswith("# "):
+        title = match[2:].strip()
+        for prefix in ["📜 ", "🔥 ", "🔄 ", "🛠️ ", "🔒 ", "🤝 ", "💻 ", "📦 ", "🎯 ",
+                        "️ ", "📋 ", "⚖️ ", "📊 ", "🧭 ", "📌 "]:
+            title = title.removeprefix(prefix)
+        return title[:80]
+    return ""
+
+
+def extract_topic(content):
+    for line in content.split("\n"):
+        if "**Тема:**" in line:
+            return line.split("**Тема:**")[1].strip()[:100]
+    return ""
+
+
+def extract_related(content):
+    related = []
+    capture = False
+    for line in content.split("\n"):
+        if "**Связанные файлы:**" in line:
+            capture = True
+            continue
+        if capture:
+            if line.strip().startswith("---") or line.strip() == "":
+                if related:
+                    break
+                continue
+            for match in line.split("`")[1::2]:
+                if match and match not in related:
+                    related.append(match)
+    return related
+
+
+def walk_dir(dir_path, base_folder, label):
+    files = []
+    for entry in sorted(dir_path.rglob("*.md")):
+        if entry.name in IGNORE_FILES:
+            continue
+        rel = entry.relative_to(REPO_ROOT).as_posix()
+        content = entry.read_text(encoding="utf-8", errors="ignore")
+        parts = rel.split("/")
+        subcategory = ""
+        if parts[0] == "researches" and len(parts) > 2:
+            subcategory = parts[1]
+        elif parts[0] == "instructions" and len(parts) > 2:
+            subcategory = parts[1]
+        files.append({
+            "path": rel,
+            "title": extract_title(content) or entry.stem.replace("-", " "),
+            "topic": extract_topic(content),
+            "category": label,
+            "subcategory": subcategory,
+            "related": extract_related(content),
+        })
+    return files
+
+
+def generate():
+    all_files = []
+    for folder, label in SCAN_DIRS:
+        dir_path = REPO_ROOT / folder
+        if dir_path.exists():
+            all_files.extend(walk_dir(dir_path, folder, label))
+
+    WEB_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = WEB_DIR / "files.json"
+    out_path.write_text(json.dumps(all_files, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"✅ {out_path} — {len(all_files)} файлов")
+
+
+if __name__ == "__main__":
+    generate()

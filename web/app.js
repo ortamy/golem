@@ -1,4 +1,8 @@
-// Golem Web Interface v8.1 — Node.js dynamic
+// web/app.js
+// Golem Web Interface v8.2 — Node.js + GitHub Pages
+
+var IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+var API_FILES = IS_LOCAL ? '/api/files' : 'files.json';
 
 var FILES = [],
     currentPath = null,
@@ -6,7 +10,7 @@ var FILES = [],
     fileHistory = JSON.parse(localStorage.getItem('golem_history') || '[]'),
     categories = {};
 
-fetch('/api/files')
+fetch(API_FILES)
     .then(function(r) { return r.json(); })
     .then(function(data) {
         FILES = data;
@@ -19,7 +23,8 @@ fetch('/api/files')
     .catch(function(e) {
         console.error('Ошибка загрузки списка файлов:', e.message);
         document.getElementById('file-list').innerHTML =
-            '<div style="padding:20px;color:#ff4d00;font-size:11px;">Ошибка загрузки. Запустите сервер:<br><code>node server.js</code></div>';
+            '<div style="padding:20px;color:#ff4d00;font-size:11px;">Ошибка загрузки.<br>' +
+            (IS_LOCAL ? '<code>node server.js</code>' : 'Попробуйте позже.') + '</div>';
     });
 
 function buildCategorySelect() {
@@ -116,7 +121,9 @@ function loadFile(p) {
     c.classList.remove('fade-in');
     c.innerHTML = '<div class="spinner"></div>';
 
-    var url = '/api/file?path=' + encodeURIComponent(p);
+    var url = IS_LOCAL
+        ? '/api/file?path=' + encodeURIComponent(p)
+        : '../' + encodeURIComponent(p);
 
     fetch(url)
         .then(function(r) {
@@ -260,7 +267,7 @@ function randomFile() {
 
 function copyCurrentLink() {
     if (!currentPath) return;
-    var u = window.location.origin + '/api/file?path=' + encodeURIComponent(currentPath);
+    var u = window.location.origin + (IS_LOCAL ? '/api/file?path=' : '/') + encodeURIComponent(currentPath);
     navigator.clipboard.writeText(u).then(function() { showToast(); });
 }
 
