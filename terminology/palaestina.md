@@ -131,3 +131,15 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не в Полешет. Он — в Израиле.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/tahor/names.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/yhwh.md`

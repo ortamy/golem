@@ -169,3 +169,13 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 Не стой. Иди. Дэрех нельзя контролировать.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

@@ -106,3 +106,11 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — дэрех рефуа.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/yhwh.md`

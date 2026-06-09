@@ -245,3 +245,17 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он прост. Он конкретен. Он человечен. Им иди.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/slavery/economic-slavery.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

@@ -51,6 +51,21 @@
 - **Бет (𐤁)** — дом (удвоение). Усиление: «дом, который хочет стать всем».
 - **Ламед (𐤋)** — посох. От направления, власти.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/names.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+
 > **Дом — Дом — Посох.** «Дом, который направляет все дома». Вавилон — это тоталитарная система, которая хочет объединить всё под своей властью. Ирбув языков — это херес этой тоталитарной мечты.
 
 ---

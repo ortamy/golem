@@ -174,3 +174,15 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — дэрех рефуа. Не лечения. Рефуа.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

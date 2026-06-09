@@ -48,6 +48,21 @@
 - **Ламед (𐤋)** — снова посох. Удвоение указывает на усиление или, в данном случае, на иронию.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `researches/economy/history-of-money.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+
 > **Бык (коах) — Посох (власть) — Посох (власть).**
 
 На первый взгляд — «Сила и власть, власть». Но в еврейском мышлении удвоение может означать и насмешку: «Сила, которая только кажется властью, а на деле — пустота». Элиль — это пародия на Эль: бык без рогов, посох без пастыря. Образ ложной коах, которая рассыпается при прикосновении.

@@ -160,3 +160,17 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 БаШаХ: Бсора, Шлихим, Хазон. Всё едино. Ищите утерянное.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`

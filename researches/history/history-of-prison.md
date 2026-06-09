@@ -148,3 +148,17 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он ведёт не в тюрьму. Он ведёт на хофеш.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/slavery/economic-slavery.md`
+- `terminology/shmitah.md`
+- `terminology/yhwh.md`
+- `terminology/yovel.md`

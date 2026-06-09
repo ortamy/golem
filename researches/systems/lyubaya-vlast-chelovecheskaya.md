@@ -186,3 +186,17 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 Не бойся. Знай. Делай сам.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/history-of-banks.md`
+- `researches/economy/history-of-money.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/slavery/economic-slavery.md`

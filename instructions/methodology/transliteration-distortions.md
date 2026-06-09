@@ -176,6 +176,20 @@
 
 Верните словам их смысл. Это не «духовный жаргон». Это язык откровения. Язык рыбаков, земледельцев и рабов I века. Язык, который понимали все.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/yhwh.md`
+
 > **הַדֶּרֶךְ יְהוָה**
 > **hа-Де́рех Яхве**
 > *Путь Яхве*

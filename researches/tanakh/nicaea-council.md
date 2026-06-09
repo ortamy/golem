@@ -86,3 +86,13 @@
 ---
 
 ---
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `researches/history/nicaea-council.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

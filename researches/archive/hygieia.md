@@ -141,3 +141,11 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — рефуа. Не от. Не богиня. Яхве.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `terminology/el.md`
+- `terminology/yhwh.md`

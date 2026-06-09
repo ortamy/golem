@@ -236,3 +236,18 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он не ведёт в Ватикан.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `instructions/tahor/religionisms.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`

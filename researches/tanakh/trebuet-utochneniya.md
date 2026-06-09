@@ -209,3 +209,16 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 Бутон раскрывается. Дерево цветёт. Не коах. Теплом.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/tree-method.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

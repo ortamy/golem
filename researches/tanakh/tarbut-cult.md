@@ -49,6 +49,21 @@
 - **Бет (𐤁)** — дом, шатёр. От принадлежности, внутреннего пространства.
 - **Далет (𐤃)** — дверь. От входа, подчинения.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/economy/history-of-money.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+
 > **Глаз (внимание) — Дом (принадлежность) — Дверь (вход).** «То, на что ты смотришь, становится твоим домом, в который ты входишь». Культура — это то, чему вы отдаёте внимание. И это становится вашим Элоhим.
 
 ---

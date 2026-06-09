@@ -700,3 +700,17 @@
 - `Ячейка` → תָּא (та) — ячейка
 
 ---
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/names.md`
+- `instructions/tahor/religionisms.md`

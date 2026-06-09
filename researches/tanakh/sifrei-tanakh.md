@@ -60,6 +60,21 @@
 
 **בְּרֵאשִׁית (Береши́т)** — «В начале»
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+
 > **בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ**
 > **Береши́т бара́ Элоhи́м эт hа-шама́йим ве-эт hа-а́рец.**
 > *«В начале сотворил Элоhим небеса и землю»* (Берешит 1:1).

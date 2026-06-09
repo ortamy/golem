@@ -49,6 +49,17 @@
 
 Левав — это «я» шеол, его внутренняя сущность, которая открыта Яхве и может быть испытана Им.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **אֲנִי יְהוָה חֹקֵר לֵב, בֹּחֵן כְּלָיוֹת**
 > **Ани́ Яхве хокэ́р лев, бохэ́н клайо́т.**
 > *«Я, Яхве, проникаю сердце, испытываю почки»* (Йирмеяhу 17:10).

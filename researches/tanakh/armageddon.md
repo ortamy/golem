@@ -51,6 +51,15 @@
 
 Единственное азкара — в книге Hитгалут (16:16):
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/yhwh.md`
+
 > **«И собрал их на место, называемое по-еврейски Армагеддон»**
 
 Автор использует образ Мегиддо — места исторических сражений — как **от** последней битвы между верностью и ложью. Не географическую некуда, а образ.

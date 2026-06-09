@@ -47,6 +47,17 @@
 
 ## 📖 КОНТЕКСТ В ТаНаХ
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/yhwh.md`
+
 > **לַכֹּל זְמָן, וְעֵת לְכָל־חֵפֶץ תַּחַת הַשָּׁמָיִם.**
 > **Ла-ко́ль зман, ве-э́т ле-холь-хе́фец та́хат hа-шама́йим.**
 > *«Всему своё время, и срок всякой вещи под небесами»* (Коhелет 3:1).

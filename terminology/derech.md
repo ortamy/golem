@@ -48,6 +48,20 @@
 - **Каф (𐤊)** — ладонь. От действия, коах, открытости.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/el.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Дверь (вход) — Голова (направление) — Ладонь (действие).**
 
 Образное значение: «Войти (далет) с мыслью и направлением (реш) в действие (каф)». Дерех — это не просто мысль, а реализованное намерение: ты входишь в дверь, держишь направление головой и действуешь руками. Это дэрех жизни, а не хохма.

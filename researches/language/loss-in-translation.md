@@ -182,5 +182,19 @@
 
 ---
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **עֵד (Эд) — Эд.**  
 > Без возвращения к ивриту понимание Микрa остаётся фрагментарным и искажённым. Только оригинал сохраняет полноту машмаут, вложенного Яхве.

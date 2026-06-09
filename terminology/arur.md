@@ -163,3 +163,14 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он проходит через стены. И стены становятся дверями.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

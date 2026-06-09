@@ -238,3 +238,15 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 Знай Тора. Остальное — рааш.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

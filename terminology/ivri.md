@@ -171,3 +171,16 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — дэрех перешедших. И идущие по нему не оглядываются.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/yhwh.md`

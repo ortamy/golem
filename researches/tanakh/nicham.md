@@ -55,6 +55,21 @@
 - **Мем (𐤌)** — вода. От текучести, хаоса, таhара.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Жизнь (нун) — Ограда (хет) — Вода (мем).**
 
 Образное значение: «Жизнь, которая прорывает ограду, как вода». Нихам — это когда внутренняя боль становится сильнее стены, которую ты построил. Вода прорывается. Вздох вырывается. И после этого приходит таhара.

@@ -47,3 +47,10 @@
 - **Троица** → нет ивритского аналога. Понятие чуждо ТаНаХу
 - **Хула на Духа** → понятие отсутствует в ТаНаХе; ближайший аналог — חֵטְא לְמָוֶת (хэт ле-мавет) — промах к смерти
 - **Чистый** → טָהוֹר (таhор) — пригодный для присутствия
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`

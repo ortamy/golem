@@ -49,6 +49,18 @@
 - **Аин (𐤏)** — глаз. От видения, источника.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/el.md`
+- `terminology/yhwh.md`
+
 > **Голова (направление) — Зуб (херес) — Глаз (видение).**
 
 Образное значение: «Разум, направленный на разрушение, с открытыми глазами». Реша — это не ошибка, а осознанное херес. Шеол видит (аин) дэрех YHWH, но разумом (реш) избирает дэрех херес (шин) для себя и других.

@@ -159,3 +159,12 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он начинается с нового сердца. Которое даёт Яхве. Не психолог.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

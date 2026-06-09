@@ -48,6 +48,21 @@
 
 **Весть о йешуа (бсора)**
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/names.md`
+- `terminology/el.md`
+
 > **מַה־נָּאווּ עַל־הֶהָרִים רַגְלֵי מְבַשֵּׂר, מַשְׁמִיעַ שָׁלוֹם, מְבַשֵּׂר טוֹב, מַשְׁמִיעַ יְשׁוּעָה**
 > **Ма-наву́ аль-hе-hари́м рагле́й мевасэ́р, машми́а шало́м, мевасэ́р тов, машми́а йешуа́.**
 > *«Как прекрасны на горах ноги вестника, возвещающего целостность, несущего добрую весть, возвещающего избавление»* (Йешаяhу 52:7).

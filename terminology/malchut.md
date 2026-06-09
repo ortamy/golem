@@ -116,6 +116,21 @@
 
 В свидетельствовании от Марка (4:11, греческий текст) Йешуа говорит ученикам:
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > `לָכֶם נִתַּן לָדַעַת אֶת־סוֹד מַלְכוּת הָאֱלֹהִים`
 
 *Лахем нитан ладаат эт-сод малхут hа-Элоhим*

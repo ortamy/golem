@@ -62,6 +62,21 @@
 - **Реш (𐤓)** — голова. От направления, мысли.
 - **Каф (𐤊)** — ладонь. От действия, коах.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/tree-method.md`
+- `researches/history/nicaea-council.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Дверь — Голова — Ладонь.** «Войти, направиться и действовать». Дэрех — это активный выбор, а не навязанные узы.
 
 ---

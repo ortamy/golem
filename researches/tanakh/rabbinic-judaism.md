@@ -30,6 +30,21 @@
 
 **Буквальный перевод ключевого стиха**
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+
 > **לֹא תֹסִפוּ עַל־הַדָּבָר אֲשֶׁר אָנֹכִי מְצַוֶּה אֶתְכֶם, וְלֹא תִגְרְעוּ מִמֶּנּוּ**
 > **Ло тоси́фу аль-hа-дава́р аше́р анохи́ мецавэ́ этхе́м, ве-ло тигрэу́ мимэ́ну.**
 > *«Не прибавляйте к слову, которым Я связываю вас, и не убавляйте от него»* (Дварим 4:2).

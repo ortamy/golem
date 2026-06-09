@@ -54,6 +54,21 @@
 - **hей (𐤄)** — шеол с поднятыми руками. От hитгалут, шхина.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/tanakh/gog-and-magog.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Коах (алеф) — Печать (тав) — Hитгалут (hей).**
 
 Образное значение: «Сила, запечатлённая в присутствии». Тот, к кому обращаются «ты», — это не пустое место. Это носитель образа Яхве. Обращение «ты» не унижает, а **признаёт** шхина другого как равного перед Творцом.

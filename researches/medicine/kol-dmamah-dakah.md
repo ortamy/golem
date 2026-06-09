@@ -51,6 +51,15 @@
 - **Мем (𐤌)** — вода. От текучести, жизни, хаоса.
 - **Мем (𐤌)** — вода (удвоение). Усиление: полная остановка вод.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-principles.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/yhwh.md`
+
 > **Дверь — Вода — Вода.** «Дверь, за которой воды остановились». Дмама — это момент, когда хаос замирает и открывается дверь к слышанию.
 
 ---

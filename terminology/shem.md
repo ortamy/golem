@@ -47,6 +47,19 @@
 - **Мем (𐤌)** — вода. От текучести, жизни, хаоса.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Зуб (hавдала) — Крюк (соединение) — Вода (жизнь, текучесть).**
 
 Образное значение: «То, что различает (выделяет) и соединяет с жизнью». Имя — это не просто давар, а инструмент: оно выделяет личность из безликой массы (шин), соединяет с ней (вав) и открывает доступ к её жизненной коах (мем). Имя YHWH — это канал, через который Его шхина входит в мир.

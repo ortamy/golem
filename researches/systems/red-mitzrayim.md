@@ -190,3 +190,14 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он ведёт из Мицраима. Из любого Мицраима. Даже из Красного.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/tahor/names.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

@@ -47,6 +47,21 @@
 - **Тав (𐤕)** — эц, знак, метка, печать. От брит, завершения, принадлежности.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Дом (жилище) — Рука (действие) — Печать (брит).**
 
 Образное значение: «Жилище, построенное действием руки и отмеченное печатью союза». Байт — это не просто место, а результат действий YHWH, запечатлённый Его брит. Это пространство, которое Он Сам создал и отметил Своим Именем.

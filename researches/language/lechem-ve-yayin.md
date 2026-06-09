@@ -50,6 +50,19 @@
 - **Маамад:** Активный
 - **Носе:** לֶחֶם וְיַיִן — НЕ «ПРИЧАСТИЕ», А Сеуда Брит
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Посох — Ограда — Вода.** «Направление внутрь к воде жизни». Лехем — это то, что направляет жизнь внутрь, поддерживает её.
 
 ---

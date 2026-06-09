@@ -335,3 +335,13 @@ git push --force
 ---
 
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Путь Яхве
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/tahor/names.md`
+- `terminology/el.md`
+- `terminology/yhwh.md`

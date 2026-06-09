@@ -57,6 +57,21 @@
 - **Далет (𐤃)** — дверь. От входа, выхода, перехода.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Вода (коах) — Голова (решение) — Дверь (выход).**
 
 Образное значение: «Сила, которая принимает решение и выходит за дверь». Ме́ред — это не хаотичный поток. Это осознанный выбор: «Я больше не под этой крышей. Я ухожу». Это вода, которая не просто течёт, а **прорывает плотину**.

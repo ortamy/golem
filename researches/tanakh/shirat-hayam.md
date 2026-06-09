@@ -24,5 +24,14 @@
 ### Стих 1
 
 **Иврит:**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `terminology/yhwh.md`
+
 > **אָז יָשִׁיר מֹשֶׁה וּבְנֵי יִשְׂרָאֵל אֶת־הַשִּׁירָה הַזֹּאת לַיהוָה, וַיֹּאמְרוּ לֵאמֹר: אָשִׁירָה לַיהוָה כִּי־גָאֹה גָּאָה, סוּס וְרֹכְבוֹ רָמָה בַיָּם**
 > **Аз яши́р Мош

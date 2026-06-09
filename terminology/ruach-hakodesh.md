@@ -45,6 +45,21 @@
 - **Реш (𐤓)** — голова, начало, движение.
 - **Вав (𐤅)** — крюк, соединение, связь.
 - **Хет (𐤇)** — ограда, внутреннее пространство.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `researches/history/nicaea-council.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/mashiah-peshat.md`
+
 > «Движение, соединяющее с внутренним». Руах — коах, проникающая внутрь и связывающая с источником.
 
 **Кодеш (ק.ד.ש):**

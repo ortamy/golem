@@ -126,3 +126,10 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он ведёт Израиль. Конкретный. Реальный. Живой.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/tahor/names.md`
+- `terminology/yhwh.md`

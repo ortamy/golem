@@ -47,6 +47,18 @@
 - **hей (𐤄)** — шеол с поднятыми руками. От hитгалут, шхина, «вот, смотри».
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Пе (общение) — Жизнь (движение) — Hитгалут (шхина).**
 
 Образное значение: «Говорящее и являющее себя живое присутствие». Паним — это когда кто-то обращён к тебе, говорит с тобой, открывает себя. Это не застывшее изображение, а живое яхас.

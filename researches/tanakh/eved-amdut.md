@@ -61,6 +61,20 @@
 - **Бет (𐤁)** — дом, шатёр. От принадлежности, внутреннего пространства.
 - **Далет (𐤃)** — дверь. От входа, доступа, подчинения.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Глаз — Дом — Дверь.** «Тот, чей глаз устремлён к дому, и кто входит в его дверь». Эвед — это шеол, который смотрит на бааль, принадлежит его дому и подчиняется его порядку. Это яхас доверия и посвящения.
 
 **ח.פ.ש (хофши):**

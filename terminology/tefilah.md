@@ -100,6 +100,21 @@
 - **Ламед (𐤋)** — посох (удвоение). Усиление: мишпат, взвешивание на весах.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+
 > **Пе (речь) — Посох (направление) — Посох (усиленное направление/мишпат).**
 
 Образное значение: «Говорить, направляя себя (или будучи направляемым) к суду». Тфила — это процесс, в котором шеол открывает пе (пе) и подставляет себя под пастырский посох (ламед) Яхве, чтобы Тот взвесил (ламед) его лев. Это не прошение, а подставление себя под оценку.

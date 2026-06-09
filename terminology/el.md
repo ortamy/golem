@@ -56,6 +56,19 @@
 - **Ламед (𐤋)** — посох, стрекало. От направления, власти, пастырства.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/names.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Бык (коах) — Посох (власть).**
 
 Образное значение: «Сила, которая ведёт». Или: «Мощь, облечённая властью». Эль — это не просто абстрактная коах. Это коах, которая направляет, как пастух направляет эдер. Это власть, которая действует.

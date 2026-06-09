@@ -125,3 +125,15 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 Ханна — хэн Яхве. Не факел. Не луна. Хэн.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

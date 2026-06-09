@@ -45,6 +45,21 @@
 
 **Шауль соблюдал Тора после встречи с Йехошуа**
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/names.md`
+- `terminology/el.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/shabbat.md`
+
 > **וַיָּבֹא שָׁאוּל אֶל־הַמִּקְדָּשׁ... וַיְטַהֵר עַצְמוֹ וַיָּבֵא קָרְבָּן**
 > *«И вошёл Шауль в Храм... и очистился, и принёс дар»* (Деяния 21:26).
 

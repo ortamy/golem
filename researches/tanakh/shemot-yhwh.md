@@ -200,6 +200,18 @@
 
 Каждое возвращённое имя — это цаад к истоку. К корню. К эмет.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **יְהִי שֵׁם יְהוָה מְבֹרָךְ מֵעַתָּה וְעַד־עוֹלָם**
 > **Йеhи́ шем Яхве мевора́х ме-ата́ ве-шеол-ола́м.**
 > *«Да будет имя Яхве преклоняемо отныне и до сокрытого»* (Теhиллим 113:2).

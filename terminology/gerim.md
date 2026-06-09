@@ -47,6 +47,21 @@
 - **Реш (𐤓)** — голова. От начала, направления, личности.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Верблюд (странствие) — Крюк (соединение) — Голова (личность, направление).**
 
 Образное значение: «Странник, пришедший и соединившийся с новым началом». Гер — это тот, кто проделал дэрех (гимель), прикрепился к Израилю (вав) и обрёл новую идентичность (реш). Он не потерял себя, но присоединился к народу YHWH.

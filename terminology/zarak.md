@@ -48,6 +48,18 @@
 - **Маамад:** Активный
 - **Носе:** זרק — ШВЫРЯТЬ, А НЕ «ОКРОПЛЯТЬ»
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/yhwh.md`
+
 > **Оружие — Голова — Вход.** «Направленное действие, проходящее внутрь». Кровь не капает — она летит в матара.
 
 ---

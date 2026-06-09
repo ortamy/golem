@@ -50,6 +50,18 @@
 
 **Светила созданы для авода**
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/yhwh.md`
+
 > **וַיֹּאמֶר אֱלֹהִים: יְהִי מְאֹרֹת בִּרְקִיעַ הַשָּׁמַיִם, לְהַבְדִּיל בֵּין הַיּוֹם וּבֵין הַלָּיְלָה; וְהָיוּ לְאֹתֹת וּלְמוֹעֲדִים, וּלְיָמִים וְשָׁנִים.**
 > **Ва-йо́мер Элоhи́м: йеhи́ меоро́т би-рки́а hа-шама́йим, леhавди́ль бейн hа-йо́м у-вейн hа-ла́йла; ве-hаю́ ле-ото́т у-ль-моади́м, у-ль-ями́м ве-шани́м.**
 > *«И сказал Элоhим: да будут светила в пространстве небесном для отделения дня от ночи, и да будут они для знамений, и для назначенных времён, и для дней и годов»* (Берешит 1:14).

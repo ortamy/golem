@@ -138,3 +138,16 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не индекс. Он — эмет.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/history-of-money.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

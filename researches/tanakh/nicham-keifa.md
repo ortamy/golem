@@ -27,6 +27,16 @@
 
 Тора не описывает лица Ке́йфы. Только несколько слов на греческом:
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **καὶ ἐξελθὼν ἔξω ἔκλαυσεν πικρῶς**
 > **Кай эксэльто́н э́ксо э́клаусэн пикро́с.**
 > *«И выйдя вон, заплакал горько»* (Матфей 26:75).

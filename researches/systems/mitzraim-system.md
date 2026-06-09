@@ -260,3 +260,18 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Эта дорога не помещается ни в какую шофар. Она ведёт туда, где возвращается зрение.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/history-of-banks.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/slavery/economic-slavery.md`
+- `terminology/torah.md`

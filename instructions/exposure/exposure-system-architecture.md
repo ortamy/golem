@@ -166,9 +166,15 @@
 ---
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-mechanisms.md` — механизмы и приёмы подмены
-- `instructions/exposure/exposure-distortions.md` — 7 типов искажений
-- `instructions/exposure/exposure-methods.md` — 23 метода разоблачения
-- `instructions/exposure/exposure-religionism-theory.md` — теория религионизмов
-- `researches/mitzraim-system.md` — система Мицраима
-- `researches/bavel-mitzrayim-sdom.md` — Вавилон, Мицраим, Сдом
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/exposure/exposure-techniques.md`
+- `researches/bavel-mitzrayim-sdom.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/mitzraim-system.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/yhwh.md`

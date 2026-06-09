@@ -224,3 +224,12 @@ davar/
 Стандарты обновляются при необходимости. Все изменения фиксируются в `docs/CHANGELOG.md`.
 
 Предложения по изменению стандартов — через `ideas/`.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/tahor/names.md`

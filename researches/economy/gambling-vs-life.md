@@ -25,6 +25,21 @@
 
 В Талмуд (Санhедрин 24б) азартные игры запрещены. Игрок называется **קוּבְּיוֹס (кубьо́с)** — «игрок в кости». Его не принимают в эд, потому что он не занимается полезным амаль.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/history-of-money.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+
 > **לֹא עָסַק בְּיִשּׁוּבוֹ שֶׁל עוֹלָם**
 > **Ло аса́к бе-йишуво́ шель ола́м.**
 > *«Не занимается благоустройством мира».*

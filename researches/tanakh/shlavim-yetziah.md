@@ -25,6 +25,19 @@
 
 **Машмаут:** осознание, что ты в рабстве. Не просто «мне плохо», а «я не свободен». Система держит меня. Я не могу выйти сам.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/names.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **וַיֵּאָנְחוּ בְנֵי־יִשְׂרָאֵל מִן־הָעֲבֹדָה וַיִּזְעָקוּ, וַתַּעַל שַׁוְעָתָם אֶל־הָאֱלֹהִים**
 > **Ва-йеанху́ вене́-Йисраэ́ль мин-hа-авода́ ва-йизъаку́, ва-та́аль шавъата́м Эль-hа-Элоhи́м.**
 > *«И застонали сыны Израиля от работы, и возопили, и вопль их восшёл к Элоhим»* (Шмот 2:23).

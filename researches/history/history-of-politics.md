@@ -167,3 +167,13 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не власть. Он — авода.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

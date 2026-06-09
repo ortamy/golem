@@ -56,6 +56,21 @@
 - **Реш (𐤓)** — голова. От начала, направления, мысли.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/slavery/economic-slavery.md`
+
 > **Коах (алеф) — Ограда (хет) — Голова (реш).**
 
 Образное значение: «Сила, которая ограждает и направляет». Или: «Бык, который идёт позади стада, защищая его». Ахрают — это не погоня. Это охрана. Тот, кто обладает коах, ставит её позади, чтобы никто не отстал и не пал.

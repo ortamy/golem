@@ -159,3 +159,14 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 Карма — не от Яхве. Выбери жизнь. Выбери слиха. Выбери хофеш.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-principles.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

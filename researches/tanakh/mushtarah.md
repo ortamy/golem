@@ -55,6 +55,18 @@
 - **Маамад:** Активный
 - **Носе:** מוּשְׁטָר — МУШТРА: КАК СИСТЕМА ПРЕВРАТИЛА Авода В ДРЕССИРОВКУ
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/tree-method.md`
+- `terminology/el.md`
+- `terminology/yhwh.md`
+
 > **Посох — Вода — Дверь.** «Направляющая вода, открывающая дверь». Обучение — это не вдалбливание. Это поток, который ведёт к двери.
 
 ---

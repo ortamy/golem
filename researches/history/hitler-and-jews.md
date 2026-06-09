@@ -152,3 +152,16 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 Их убивали за правду. Мы восстанавливаем её. Не бойся.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

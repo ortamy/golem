@@ -48,6 +48,21 @@
 - **Далет (𐤃)** — дверь. От входа, прохода, доступа.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/tanakh/magen-david.md`
+
 > **Ограда (защита) — Опора (поддержка) — Дверь (доступ).**
 
 Образное значение: «Защищённое пространство, в котором даётся опора и открыт доступ». Хесед — это когда YHWH огораживает Свой народ (защита), поддерживает его, как позвоночник держит гуф (опора), и оставляет дверь открытой для возвращения даже после измены. Это не капризная «милость», а надёжная мивне брит.

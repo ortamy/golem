@@ -49,6 +49,19 @@
 - **Тет (𐤈)** — колесо, змея, корзина. От махазор, охвата, вместилища.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Зуб (hавдала) — Пе (оглашение) — Колесо/вместилище (порядок).**
 
 Образное значение: «Различая остро (шин), огласить устами (пе) и установить порядок (тет)». Мишпат — это процесс: судья различает эмет от лжи, произносит решение и восстанавливает нарушенный порядок. Это не кара, а исправление.

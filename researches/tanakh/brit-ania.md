@@ -158,3 +158,17 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 Корабль тонет. Ковчег спасает. Выбирай.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/tahor/names.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

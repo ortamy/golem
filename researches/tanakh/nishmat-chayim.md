@@ -54,6 +54,16 @@
 - **Мем (𐤌)** — вода. От текучести, жизни.
 - **hей (𐤄)** — шеол с поднятыми руками. От hитгалут, шхина.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Жизнь — Hавдала — Вода — Шхина.** «Жизненная сила, которая различает и течёт из присутствия». Нешама — это дыхание, которое различает эмет от лжи и течёт свободно, когда шеол в шхина Яхве.
 
 **שֶׁקֶר (шекер):**

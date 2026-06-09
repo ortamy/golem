@@ -341,12 +341,21 @@
 ---
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md` — архитектура системы
-- `instructions/exposure/exposure-distortions.md` — 7 типов искажений
-- `instructions/exposure/exposure-mechanisms.md` — механизмы подмены
-- `instructions/exposure/exposure-language-control.md` — язык как инструмент контроля
-- `instructions/exposure/exposure-methods.md` — 23 метода разоблачения
-
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/tree-method.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/history-of-banks.md`
+- `researches/economy/history-of-economy.md`
+- `researches/economy/history-of-money.md`
+- `researches/economy/mortgage-dead-pledge.md`
 ---
 
 > **עֵד (Эд) — Свидетель.**

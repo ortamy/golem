@@ -48,6 +48,21 @@
 - **Аин (𐤏)** — глаз. Символизирует видение, знание, источник (родник), бодрствование.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/mashiah-peshat.md`
+
 > **Рука (действие) — Зуб (херес врага) — Глаз (видение, источник).**
 
 Образ избавления: «Рука, сокрушающая врага, чтобы открыть источник (глаз) жизни». Или: «Действие (рука), которое разрушает (зуб) угнетение и открывает зрение/простор (глаз)». Йешуа — это не бегство от мира, а ницахон в мире: YHWH раздвигает тесноту, уничтожает июм и даёт Своему народу свободно видеть Его шхина.

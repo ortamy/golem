@@ -181,3 +181,14 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он начинается с дома. Не со школы.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/tree-method.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

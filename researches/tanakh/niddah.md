@@ -53,6 +53,19 @@
 - **Далет (𐤃)** — повтор: дверь за дверью.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/methodology/tree-method.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Жизнь (нун) — Дверь (далет) — Дверь (далет).**
 
 Образное значение: «Жизнь, проходящая через череду дверей». Нида — это не тупик. Это переход. Одна дверь закрывается, другая открывается. Женский махазор — это не арур, а ритм бриа, отражённый в гуф.

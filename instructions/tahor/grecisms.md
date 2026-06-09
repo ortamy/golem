@@ -98,3 +98,12 @@
 - **Эон** (αἰών) → עוֹלָם (олам) — скрытое, далёкое время
 - **Эпитрахиль** (ἐπιτραχήλιον) → אַבְנֵט (авнет) — пояс; нет аналога
 - **Эсхатология** (ἐσχατολογία) → אַחֲרִית הַיָּמִים (ахарит hа-ямим) — конечное время
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/tree-method.md`
+- `researches/history/nicaea-council.md`
+- `terminology/mashiah-peshat.md`

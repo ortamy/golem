@@ -46,6 +46,19 @@
 - **Ламед (𐤋)** — посох. От направления, власти.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Воды (мем) — Дом (бет) — Связь (вав) — Направление (ламед).**
 
 Образное значение: «Воды, которые входят в дом, соединяются и направляют». Это не hашмада. Это **возвращение** дома (мира) в исходное состояние, чтобы восстановить правильное направление.

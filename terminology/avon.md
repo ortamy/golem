@@ -49,6 +49,19 @@
 - **hей (𐤄)** — шеол с поднятыми руками, «вот, смотри». От hитгалут, шхина.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Глаз (видение) — Крюк (соединение) — Hитгалут (шхина).**
 
 Образное значение: «Видение, скреплённое с откровением». Но в контексте искривления — это искажённое видение, которое скрепляет шеол с ложью. Вместо того чтобы смотреть прямо на YHWH (hитгалут), глаз (аин) соединяется (вав) с чем-то иным, и hитгалут (hей) становится закрытым. Авон — это кривое зеркало души.

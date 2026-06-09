@@ -25,6 +25,21 @@
 
 Авраhам жил в шатрах. Он не покупал землю, пока не понадобилось место для квура Сары. Его коах была в том, что он не прирастал к месту. Он мог сняться и идти, когда Яхве говорил: **לֶךְ־לְךָ (лех-леха́)** — «иди себе».
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/names.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/slavery/economic-slavery.md`
+- `researches/tanakh/gog-and-magog.md`
+- `researches/tanakh/magen-david.md`
+
 > **וַיֵּלֶךְ אַבְרָם כַּאֲשֶׁר דִּבֶּר אֵלָיו יְהוָה**
 > **Ва-йе́лех Авра́м кааше́р дибэ́р эла́в Яхве.**
 > *«И пошёл Аврам, как сказал ему Яхве»* (Берешит 12:4).

@@ -51,6 +51,19 @@
 - **Вав (𐤅)** — крюк, гвоздь. От соединения, связи.
 - **Хет (𐤇)** — ограда, внутреннее пространство.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Голова (движение) — Крюк (соединение) — Ограда (внутреннее).** «Движение, соединяющее с внутренним». Руах — это невидимая коах, которая проникает внутрь и связывает шеол либо с Яхве, либо с херес.
 
 ---

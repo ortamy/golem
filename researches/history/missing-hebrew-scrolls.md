@@ -113,3 +113,11 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 Оригиналы есть. Они спрятаны. Мы найдём их.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/yhwh.md`

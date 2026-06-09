@@ -54,6 +54,16 @@
 - **Тав (𐤕)** — эц, знак, печать. От брит, завершения, принадлежности.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/yhwh.md`
+
 > **Вход (коф) — Зуб/война (шин) — Печать брит (тав).**
 
 Образное значение: «Войти через суд (зуб) в завет (печать)». Кешет — это знак того, что мишпат завершён. Война окончена. Брит скреплён.

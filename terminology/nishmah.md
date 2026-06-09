@@ -47,6 +47,19 @@
 - **Мем (𐤌)** — вода. От текучести, жизни, хаоса.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Жизнь (нун) — Пилуг/острота (шин) — Вода (текучесть).**
 
 Образное значение: «Жизнь, которая отделяет и движется, как дыхание». Нишма — это момент, когда жизнь (нун) входит в шеол, отделяя его от мёртвой материи (шин), и течёт через него (мем), пока YHWH не заберёт её обратно.

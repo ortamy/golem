@@ -136,3 +136,16 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не дэрех пассивного терпения. Он — дэрех активного прохождения. Дыши. Жди. Неси. Иди.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/yhwh.md`

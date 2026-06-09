@@ -34,3 +34,12 @@
 - **«Сын Божий»** → בֶּן אֱלֹהִים (бэн Элоhим) — сын Всесильного; указание на представителя, а не на божественность
 - **«Царство Божие»** → מַלְכוּת יְהוָה (малхут Яхве) — правление Яхве
 - **«Царство Небесное»** → מַלְכוּת שָׁמַיִם (малхут шамайим) — правление небес
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

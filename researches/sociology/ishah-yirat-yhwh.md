@@ -45,6 +45,21 @@
 
 **Авраам выбирает жену для Ицхака**
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/tanakh/gog-and-magog.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **לֹא־תִקַּח אִשָּׁה לִבְנִי מִבְּנוֹת הַכְּנַעֲנִי**
 > **Ло-тика́х иша́ ли-бни́ ми-бно́т hа-Кнаани́.**
 > *«Не возьмёшь жену сыну моему из дочерей Кнаана»* (Берешит 24:3).

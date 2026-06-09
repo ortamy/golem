@@ -23,6 +23,20 @@
 
 Рим не изобрёл систему контроля. Он лишь усовершенствовал то, что уже работало в Египте.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/slavery/economic-slavery.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **וַיָּשִׂימוּ עָלָיו שָׂרֵי מִסִּים, לְמַעַן עַנֹּתוֹ בְּסִבְלֹתָם**
 > **Ва-яси́му ала́в саре́й миси́м, лема́ан аното́ бе-сивлота́м.**
 > *«И поставили над ним начальников работ, чтобы угнетали его тяжёлыми работами»* (Шмот 1:11).

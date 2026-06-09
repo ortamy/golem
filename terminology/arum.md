@@ -116,3 +116,11 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он требует мудрости. Не наивности.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

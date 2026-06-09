@@ -132,6 +132,17 @@
 
 ---
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/phrases.md`
+- `instructions/tahor/religionisms.md`
+- `terminology/yhwh.md`
+
 > **הַדֶּרֶךְ יְהוָה**
 > **hа-Де́рех Яхве**
 > *Путь Яхве*

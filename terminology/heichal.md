@@ -49,6 +49,18 @@ Hейхаль — это заимствование из аккадского ek
 - **Ламед (𐤋)** — посох, стрекало. От направления, пастырства, власти.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Hитгалут (hей) — Рука (коах) — Ладонь (удержание) — Посох (власть).**
 
 Образное значение: «Явленная сила, удерживающая власть». Дворец — это место, где царская власть (посох) явлена (hей), действует (йод) и пребывает в удержании (каф). Hейхаль YHWH — это место, откуда Он царствует.

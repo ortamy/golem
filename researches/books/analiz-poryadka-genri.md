@@ -138,3 +138,12 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не баланс. Он — бриа.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

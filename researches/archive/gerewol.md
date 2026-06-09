@@ -129,3 +129,9 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не на лице. Он — в лев.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `terminology/yhwh.md`

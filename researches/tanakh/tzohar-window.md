@@ -39,6 +39,20 @@
 
 Чёрный, тяжёлый, цепкий. Его имя звучит как **עֶרֶב (э́рев)** — «вечер», «смешение», «сумерки». Это птица хошех. Он не возвращался в окно. Тора говорит:
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/names.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **וַיְשַׁלַּח אֶת־הָעֹרֵב, וַיֵּצֵא יָצוֹא וָשׁוֹב, עַד־יְבֹשֶׁת הַמַּיִם מֵעַל הָאָרֶץ**
 > **Ва-йешалла́х эт-hа-орэ́в, ва-йецэ́ яцо́ ва-шо́в, шеол-йево́шет hа-ма́йим ме-а́ль hа-а́рэц.**
 > *«И выпустил ворона, и он летал, отлетая и прилетая, пока не высохла вода с земли»* (Берешит 8:7).

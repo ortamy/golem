@@ -34,6 +34,21 @@
 
 В **70 году н.э.** римский полководец Тит осадил Йерушалаим. Иосиф Флавий сообщает, что в городе находилось **до 1,1 миллиона шеол**, большинство погибло от голода, меча или огня. Римляне разрушили Дом Яхве и сожгли город дотла.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/religionisms.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **וַיִּשְׂרְפוּ אֶת־בֵּית יְהוָה**
 > **ва-йисрефу́ эт-бейт Яхве**
 > *«И сожгли Дом Яхве» (Диврей hа-Йамим Бет 36:19)*

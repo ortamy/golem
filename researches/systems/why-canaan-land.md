@@ -21,6 +21,17 @@
 
 Любой разговор о земле начинается с главного: она никогда не была «собственностью» людей. Она — владение Творца.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **וְהָאָרֶץ לֹא תִמָּכֵר לִצְמִתֻת כִּי־לִי הָאָרֶץ כִּי־גֵרִים וְתוֹשָׁבִים אַתֶּם עִמָּדִי׃**
 > **Ве-ха-а́рец ло тимаке́р ли-цмиту́т ки ли ха-а́рец ки-гери́м ве-тошави́м ате́м имади́.**
 > *«Земля не будет продаваться навсегда, ибо Моя земля: вы пришельцы и поселенцы у Меня»* (Ваикра 25:23).

@@ -25,6 +25,18 @@
 
 **В ТаНаХ:** нэфеш — живое существо, дышащее гуф. Когда Яхве вдунул в Адама дыхание, тот стал **לְנֶפֶשׁ חַיָּה (ле-нэ́феш хая́)** — «дышащим существом» (Берешит 2:7). Не получил душу. Стал ею.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **הַנֶּפֶשׁ הַחֹטֵאת הִיא תָמוּת**
 > **hа-нэ́феш hа-хотэ́т hи таму́т.**
 > *«Нэфеш согрешающая — она умрёт»* (Йехезкель 18:20).

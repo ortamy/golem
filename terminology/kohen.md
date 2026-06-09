@@ -49,6 +49,18 @@
 - **Маамад:** Активный
 - **Носе:** כֹּהֵן — СЛУЖИТЕЛЬ, А НЕ «СВЯЩЕННИК»
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/religionisms.md`
+- `terminology/yhwh.md`
+
 > **Ладонь — Hитгалут — Жизнь.** «Рука, поднятая к присутствию и несущая жизнь». Коhэн — это тот, кто простирает руки к Яхве и передаёт браха народу.
 
 ---

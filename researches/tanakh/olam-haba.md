@@ -58,6 +58,17 @@
 - **Мем (𐤌)** — вода. От текучести, хаоса, жизни.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Глаз (видение) — Посох (направление) — Вода (текучесть).**
 
 Образное значение: «То, что глаз пытается разглядеть, направляя посох в текучие воды». Олам — это то, что ускользает от взгляда. Это не «будущее», которое можно измерить. Это сод, в которую можно только войти.

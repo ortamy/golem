@@ -48,6 +48,18 @@
 - **Коф (𐤒)** — затылок, игольное ушко. От входа, анава, прохождения через узость.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Охотник (шеифа) — Дверь (доступ) — Игольное ушко (вход).**
 
 Образное значение: «Стремящийся к двери и проходящий сквозь неё». Цедек — это активное шеифа войти в правильные яхас (дверь), даже если вход узок и труден (игольное ушко). Это не пассивное качество, а усилие быть верным.

@@ -41,6 +41,21 @@
 - **Аин (𐤏)** — глаз. От видения, результата, источника.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Рука — Верблюд — Глаз.**
 
 Образное значение: «Рука, которая несёт груз к видимому результату». Амаль — это не бессмысленное севель. Это действие, которое ведёт к плоду, видимому глазу.

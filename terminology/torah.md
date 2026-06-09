@@ -50,6 +50,21 @@
 - **hей (𐤄)** — шеол с поднятыми руками, «вот, смотри». Символизирует hитгалут, дыхание, шхина.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/methodology/tree-method.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/yhwh.md`
+
 > **Рука (действие) — Голова (начало, матара) — Вот, смотри (hитгалут).**
 
 Образное значение: «Рука, направляющая голову к откровению». Это действие по указанию правильного направления мысли и жизни. Или: «Действие (рука), имеющее цель (голова) и ведущее к присутствию/откровению (вот)». Тора — это не абстрактные правила, а практическое руководство, которое YHWH даёт шеол, чтобы тот пришёл к Нему.

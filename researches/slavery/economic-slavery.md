@@ -166,3 +166,17 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 Разрывай шаршерет. По одной.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/history-of-banks.md`
+- `researches/economy/history-of-economy.md`
+- `researches/economy/history-of-money.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `terminology/shabbat.md`
+- `terminology/shmitah.md`

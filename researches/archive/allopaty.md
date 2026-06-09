@@ -126,3 +126,11 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — целитель. Не лекарь симптомов. Целитель.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `terminology/yhwh.md`

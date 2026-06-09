@@ -41,6 +41,19 @@
 
 Но в ТаНаХ **בְּרִית** — это **брит**. Как брак. Как дружба. Как семья. Его нельзя «отменить». Его можно нарушить. Но Яхве не расторгает брит. Он восстанавливает. Обновляет.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/tree-method.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **וְכָרַתִּי לָהֶם בְּרִית עוֹלָם**
 > **ве-кара́ти лаhэ́м брит ола́м**
 > *«И заключу с ними союз вечный» (Йирмеяhу 32:40)*

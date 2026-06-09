@@ -47,6 +47,19 @@
 - **Нун (𐤍)** — рыба, змея. От жизни, движения, продолжения.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Зуб (hавдала) — Ладонь (действие, удержание) — Рыба (жизнь, движение).**
 
 Образное значение: «Отделённое место, удерживающее жизнь и движение». Мишкан — это отделённое пространство (шин), которое YHWH держит в Своей ладони (каф) и в котором пульсирует жизнь (нун). Это не мёртвое биньян, а живой центр обитания YHWH среди народа.

@@ -172,3 +172,17 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он не покупается и не продаётся. По нему идут.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/history-of-banks.md`
+- `researches/economy/history-of-money.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

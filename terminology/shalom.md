@@ -49,6 +49,17 @@
 - **Мем (𐤌)** — вода. От текучести, жизни, но также хаоса.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/yhwh.md`
+
 > **Зуб (херес, остановленное) — Посох (направление, власть) — Вода (жизнь, умиротворённая).**
 
 Образное значение: «Разрушение остановлено (шин), власть направляет (ламед) к жизни и покою (мем)». Шалом — это когда зуб (херес) больше не действует, посох (власть YHWH) направляет всё к порядку, и воды жизни текут свободно, не угрожая хаосом.

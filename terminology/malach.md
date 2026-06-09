@@ -47,6 +47,20 @@
 - **Каф (𐤊)** — ладонь, согнутая кисть. От открытости, кабала, удержания, действия.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/methodology/tree-method.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Посох (направление) — Бык (коах) — Ладонь (действие/кабала).**
 
 Образное значение: «Направленная сила в действии (в руке)». Малъах — это не самостоятельное существо, а инструмент в руке YHWH, направляемый Его посохом. Это коах, облечённая в конкретное поручение и переданная через открытую ладонь.

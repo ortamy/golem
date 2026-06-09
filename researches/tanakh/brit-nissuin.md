@@ -23,6 +23,19 @@
 
 **בְּרִית (брит)** — брит. Не «договор». Не «контракт». А кровное родство. В древнем мире брит скрепляли кровью. Рассекали животное. Проходили между хелек. Говорили: «Да будет и со мной так, если я нарушу».
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/history-of-banks.md`
+- `terminology/el.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **וַיֹּאמֶר... בַּיּוֹם הַהוּא כָּרַת יְהוָה אֶת־אַבְרָם בְּרִית**
 > **Ва-йо́мер... ба-йо́м hа-hу кара́т Яхве эт-Авра́м брит.**
 > *«И сказал... в тот день заключил (букв. рассёк) Яхве с Аврамом союз»* (Берешит 15:18).

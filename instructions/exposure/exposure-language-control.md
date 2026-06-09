@@ -147,12 +147,21 @@
 ---
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/tahor/` — карты очищения языка
-- `instructions/exposure/exposure-mechanisms.md` — механизмы подмены
-- `instructions/exposure/exposure-distortions.md` — 7 типов искажений
-- `instructions/methodology/transliteration-distortions.md` — транслитерации, искажающие смысл
-- `instructions/forbidden-words.md` — индекс запрещённых слов
-
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/forbidden-words.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/slavery/economic-slavery.md`
 ---
 
 > **עֵד (Эд) — Свидетель.**

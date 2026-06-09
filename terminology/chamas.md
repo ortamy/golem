@@ -48,6 +48,21 @@
 - **Самех (𐤎)** — подпорка, опора, позвоночник. От поддержки, мивне.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Ограда (защита) — Вода (хаос) — Опора (мивне).**
 
 Образное значение: «Вода (хаос), которая ломает ограду и обрушивает опору». Хамас — это наводнение насилия, которое сносит защитные стены общества, разрушает мивне цдака и оставляет людей без опоры.

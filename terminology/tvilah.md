@@ -49,6 +49,21 @@
 - **Ламед (𐤋)** — посох, стрекало. Символизирует движение, побуждение, направление, матара.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Охват (полное окружение) — Дом (внутренность) — Посох (направленное движение).**
 
 Образ твилы в палео-иврите: «Войти (в движение) внутрь охватывающей воды». Шеол не пассивен: ламед (посох) — это от активного устремления к матара. Твила — это целенаправленное вхождение в воду, которая полностью охватывает гуф (тет), чтобы войти в состояние (дом) таhара. Это действие, совершаемое с намерением, а не магический минhаг, производимый над безучастным телом.

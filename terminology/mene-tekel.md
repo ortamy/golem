@@ -143,3 +143,17 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он не имеет моэд. Он не будет взвешен — потому что он уже полновесен. Он не будет разделён — потому что он один.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `instructions/tahor/phrases.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`

@@ -45,6 +45,19 @@
 
 **Болезнь была не в гуф**
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **וַיְדַבֵּר הָעָם בֵּאלֹהִים וּבְמֹשֶׁה: לָמָה הֶעֱלִיתֻנוּ מִמִּצְרַיִם לָמוּת בַּמִּדְבָּר?**
 > **Ва-йедабэ́р hа-а́м бэ-Элоhи́м у-ве-Мошэ́: лама́ hеэлиту́ну ми-Мицра́им ламу́т ба-мидба́р?**
 > *«И говорил народ против Элоhим и против Моше: зачем вывели вы нас из Египта, чтобы умереть в пустыне?»* (Бемидбар 21:5).

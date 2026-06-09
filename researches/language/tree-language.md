@@ -139,3 +139,14 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он говорит на иврите.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

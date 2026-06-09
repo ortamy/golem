@@ -52,6 +52,21 @@
 ### Стих 9
 
 **Иврит:**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `instructions/tahor/religionisms.md`
+- `instructions/tahor/slavicisms.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `terminology/yhwh.md`
+
 > **יִתְקַדֵּשׁ שִׁמְךָ**
 > **Йиткаде́ш Шимха́.**
 

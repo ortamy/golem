@@ -33,6 +33,20 @@
 
 **Примеры в ТаНаХ:**
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/gog-and-magog.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/yhwh.md`
+
 > **וַיִּשְׁאַל דָּוִד בַּיהוָה לֵאמֹר: הַאֶרְדֹּף אַחֲרֵי הַגְּדוּד הַזֶּה?**
 > **Ва-йишъа́ль Дави́д ба-Яхве лэмо́р: hа-эрдо́ф ахарэ́й hа-гду́д hа-зэ?**
 > *«И спросил Давид у Яхве, говоря: преследовать ли мне это полчище?»* (Шмуэль Алеф 30:8).

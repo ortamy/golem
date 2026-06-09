@@ -24,6 +24,20 @@
 
 Деньги — это инструмент. Но на них стоит знак власти, знак богатства (мамона¹), знак языческих традиций.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/tahor/names.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/history-of-money.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `terminology/el.md`
+- `terminology/yhwh.md`
+
 > ¹ «Мамона» — арамейское давар, вошедшее в греческий текст. В ТаНаХ заменяется на «богатство». Здесь оставлено как цитата системы.
 
 Но внутри тебя — образ Всесильного (צֶלֶם אֱלֹהִים — целем Элоhим). Ты не раб денег. Ты не служишь от. Ты идёшь Путём.

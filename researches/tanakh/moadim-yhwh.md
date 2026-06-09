@@ -59,6 +59,17 @@
 - **Маамад:** Активный
 - **Носе:** מוֹעֲדִים — НАЗНАЧЕННЫЕ ВРЕМЕНА ЯХВЕ: ПОДМЕНА Хаг
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/el.md`
+- `terminology/yhwh.md`
+
 > **Вода (время) — Крюк (связь) — Глаз (шхина) — Дверь (доступ).**
 
 Образное значение: «Время, когда открывается дверь в присутствие Яхве». Моадим — это не просто даты в календаре. Это моменты, когда Яхве назначает встречу.

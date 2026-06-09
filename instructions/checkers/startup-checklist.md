@@ -136,3 +136,18 @@
 ## 🔄 ОБНОВЛЕНИЕ ЧЕК-ЛИСТА
 
 При добавлении новых файлов в репозиторий, обновлять этот чек-лист в соответствии с актуальной структурой из `structure.md`.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/methodology/archeology-methodology.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/grecisms.md`
+- `instructions/tahor/latinisms.md`

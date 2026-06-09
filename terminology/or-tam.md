@@ -151,3 +151,12 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — ор. И он — цельный.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `terminology/yhwh.md`

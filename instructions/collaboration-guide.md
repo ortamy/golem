@@ -279,3 +279,16 @@
 Мы не судим людей. Мы проверяем утверждения.
 
 Путь Яхве — путь истины. Истина объединяет.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `instructions/tahor/religionisms.md`
+- `terminology/el.md`
+- `terminology/yhwh.md`

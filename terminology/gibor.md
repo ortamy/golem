@@ -158,3 +158,16 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — дэрех гибора. Не того, кто разрушает. А того, кто освобождает.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/grecisms.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/yhwh.md`

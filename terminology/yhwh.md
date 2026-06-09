@@ -97,6 +97,21 @@ YHWH. В русской речи допустимы «YHWH» или «Яхве»
 
 Последовательность образов читается так:
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/archeology-methodology.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+
 > **Рука (действие) — Вот, смотри (hитгалут) — Крюк/гвоздь (соединение) — Вот, смотри (hитгалут).**
 
 «Рука, открывающаяся и соединяющая, чтобы открыть вновь». Это не философская абстракция, а динамический акт: Яхве действует (рука), являет Себя (вот), соединяет небо и землю (крюк) и продолжает открываться (вот).

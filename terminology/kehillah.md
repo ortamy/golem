@@ -47,6 +47,21 @@
 - **Ламед (𐤋)** — посох, стрекало. От направления, движения, власти, пастырства.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/methodology/tree-method.md`
+- `terminology/el.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+
 > **Склониться (анава) — Hитгалут/шхина — Посох (направление, власть).**
 
 Образ кеhиллы: «Смиренно собравшиеся под откровением (YHWH), ведомые Его посохом». Кеhила — это не хаотичная толпа, а народ, который склоняется (коф) перед словом YHWH (hей) и движется под Его водительством (ламед). Посох также указывает на пастыря: YHWH Сам собирает Свой народ, как пастух собирает эдер.

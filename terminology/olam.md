@@ -169,3 +169,14 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он уходит за горизонт. И тот, кто идёт по нему, не боится того, что скрыто. Потому что знает Того, Кто скрыл.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

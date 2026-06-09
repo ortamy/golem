@@ -129,3 +129,9 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он защищает детей. Не классифицирует. Защищает.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `terminology/yhwh.md`

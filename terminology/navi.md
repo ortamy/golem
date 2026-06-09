@@ -48,6 +48,18 @@
 - **Алеф (𐤀)** — бык. От коах, первенства, авторитета.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Жизнь/движение (нун) — Дом (мишкан) — Коах (авторитет).**
 
 Образное значение: «Тот, кто движется из дома, неся силу (слово)». Или: «Тот, кто вносит жизнь в дом, получив авторитет от Первого». Нави получает давар в мишкан YHWH и выносит его к народу, как река, текущая из байт (ср. Йехезкель 47). Это не гадатель, а посланник, который приносит жизнь или мишпат.

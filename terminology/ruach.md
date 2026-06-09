@@ -48,6 +48,21 @@
 - **Хет (𐤇)** — ограда, стена, двор. От внутреннего пространства, отделённого от внешнего, укрытия.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Голова (начало, движение) — Крюк (соединение) — Ограда (внутреннее пространство).**
 
 Образное значение: «Движение (ветер), соединяющее с внутренним». Или: «Сила, которая входит во внутреннее пространство (человека, мира) и связывает его с источником». Руах — это не субстанция, а процесс: нечто невидимое (как ветер), что проникает в ограду (гуф, кеhила, микдаш) и соединяет с YHWH.

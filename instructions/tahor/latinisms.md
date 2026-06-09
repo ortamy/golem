@@ -75,3 +75,14 @@
 - **Чистилище** (purgatorium) → нет аналога в ТаНаХе. Понятие отсутствует
 - **Экзорцизм** (exorcismus) → нет аналога в ТаНаХе. Изгнание нечистых дыханий как ритуал
 - **Язычество** (paganus) → עֲבוֹדָה זָרָה (авода зара) — служение чужому; או גּוֹיִם (гоим) — народы
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/grecisms.md`
+- `instructions/tahor/religionisms.md`
+- `researches/history/nicaea-council.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/torah.md`

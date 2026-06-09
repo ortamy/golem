@@ -48,6 +48,20 @@
 - **Бет (𐤁)** — дом, шатёр, внутренность. От пространства, мишкан, укрытия.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Вход (отверстие) — Голова (лицо) — Дом (мишкан).**
 
 Образное значение: «Войти лицом к лицу в Дом». Корбан — это процесс: смиренно пройти (коф) и предстать перед лицом (реш) в мишкан YHWH (бет). Это не «жертва» в машмаут hашмада, а корбан к источнику жизни. Дар — это пропуск, открывающий дверь в шхина.

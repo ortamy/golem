@@ -52,6 +52,18 @@
 - **Алеф (𐤀)** — бык. От коах, первенства.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `terminology/yhwh.md`
+
 > **Шеифа (цади) — Дом (бет) — Коах (алеф).**
 
 Образное значение: «Сила, стремящаяся к Дому». Или: «Множество, объединённое в доме силы». Цава — это мивне, где каждый на своём месте, каждый служит. Это не хаос битвы. Это гармония порядка.

@@ -145,3 +145,17 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — дэрех автономии. Не зависимости. Хофеш.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/archeology-methodology.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/tree-method.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `terminology/shabbat.md`
+- `terminology/yhwh.md`

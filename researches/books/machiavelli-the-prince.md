@@ -132,3 +132,12 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он не ведёт к власти. Он ведёт к авода.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

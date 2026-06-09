@@ -46,6 +46,17 @@
 - **גָּלוּי (галу́й)** — «открытый, явный». От корня **ג.ל.ה** (г-л-h) — «открывать, раскрывать, уводить в изгнание». Hитгалут и обнажение — один корень.
 - **חָזוֹן (хазо́н)** — «видение, пророческое откровение». От корня **ח.ז.ה** (х-з-h) — «видеть, прозревать».
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **חֲזוֹן יְשַׁעְיָהוּ**
 > **хазо́н Йешая́hу**
 > *«Видение Йешаяhу» (Йешаяhу 1:1)*

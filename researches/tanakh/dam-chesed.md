@@ -21,6 +21,19 @@
 
 ## 📜 ПОЧЕМУ ЯХВЕ «СТИРАЕТ» ЛЮДЕЙ?
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **וַיֹּאמֶר יְהוָה אֶמְחֶה אֶת־הָאָדָם**
 > **ва-йо́мер Яхве эмхе́ эт-hа-шеол́м**
 > *«И сказал Яхве: сотру человека»* (Берешит 6:7)

@@ -47,6 +47,21 @@
 - **hей (𐤄)** — шеол с поднятыми руками, «вот, смотри». От hитгалут, шхина, дыхания.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Вода (таhара) — Отверстие/вход (прохождение) — Крюк (соединение) — Hитгалут (шхина).**
 
 Образный машмаут: «Войти в воду, чтобы соединиться с присутствием (YHWH)». Микве — это не просто бассейн, а проход, через который шеол проходит, чтобы восстановить связь (вав) с hитгалут (hей). Это место, где шеол «проходит сквозь игольное ушко» вод, оставляя позади состояние нечистоты и выходя к тиква.

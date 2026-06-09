@@ -136,3 +136,13 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — брит. Не таава. Аhава.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/yhwh.md`

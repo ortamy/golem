@@ -260,3 +260,11 @@ git push --tags
 Каждая версия — шаг вперёд к истине.
 
 Путь Яхве — последовательное движение.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `terminology/yhwh.md`

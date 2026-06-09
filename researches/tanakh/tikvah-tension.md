@@ -55,6 +55,20 @@
 - **hей (𐤄)** — шеол с поднятыми руками. От hитгалут, шхина, «вот, смотри».
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/methodology/tree-method.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Прохождение через узость (коф) — Соединение (вав) — Hитгалут (hей).**
 
 Образное значение: «Пройти через сжатие, чтобы соединиться с присутствием». Тиква — это состояние, когда ты пропущен через игольное ушко, натянут, как струна, и соединён с Носе, Кто открывается тебе. Это не покой. Это натяжение эмуна.

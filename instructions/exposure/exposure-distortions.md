@@ -189,5 +189,20 @@
 
 ---
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **עֵד (Эд) — Свидетель.**
 > Типы искажений — это карта болезней. Приёмы — инструменты, которыми болезнь наносится. Способы восстановления — лекарства. Знай карту. Распознавай приёмы. Применяй лекарства. Истина возвращается.

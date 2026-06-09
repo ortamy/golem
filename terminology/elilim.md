@@ -139,3 +139,12 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не ничтожный. Он — Источник. И идущие по Нему не поклоняются пустоте.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/economy/history-of-money.md`
+- `terminology/yhwh.md`

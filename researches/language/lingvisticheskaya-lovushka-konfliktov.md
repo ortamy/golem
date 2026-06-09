@@ -56,6 +56,18 @@
 - **Бет (𐤁)** — дом. От внутреннего пространства, семьи.
 - **Реш (𐤓)** — голова. От мысли, начала.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Дверь — Дом — Голова.** «Мысль, входящая в дом». Давар — это не просто звук. Это нечто, что входит в пространство другого шеол и меняет его.
 
 **שָׁלוֹם (шалом):**

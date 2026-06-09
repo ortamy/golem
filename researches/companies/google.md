@@ -134,3 +134,11 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не в поиске. Он — в лев.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

@@ -51,6 +51,16 @@
 ### Блаженны смиренные духом (Мф 5:3)
 
 **Сирийский (Пешитта):**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **ܛܘܒܝܗܘܢ ܠܡܣܟܢܐ ܒܪܘܚܐ ܕܕܝܠܗܝܢ ܗܝ ܡܠܟܘܬܐ ܕܫܡܝܐ**
 > **Тувайhу́н ле-мескене́ бе-ру́ха, д-дилhа́йн hи малку́та д-шма́йя.**
 > *«Блаженны смиренные духом, потому что их — Царство Яхве».*

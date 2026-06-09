@@ -49,6 +49,20 @@
 - **Йод (𐤉)** — рука. От действия, коах, авода.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Верблюд (странствие) — Крюк (соединение) — Рука (действие).**
 
 Образное значение: «Странствие, соединённое действием». Народ — это не просто масса людей, а общность, которая вместе движется (гимель), скреплена связью (вав) и трудится (йод). Это живое гуф, имеющее матара и дэрех.

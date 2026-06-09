@@ -61,6 +61,20 @@
 - **Шин (𐤔)** — зуб. От остроты, херес, пожирания.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Змея (нун) — Ограда (хет) — Зуб (шин).**
 
 Образное значение: «Змея, которая проникает за ограду и разрушает зубом». Нахаш — это то, что находит брешь в защите, проскальзывает внутрь и разрушает изнутри. Не грубой коах. А шёпотом. Змей не ломает ограду. Он убеждает шеол открыть дверь.

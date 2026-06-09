@@ -129,3 +129,12 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не частота. Он — эмет.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/history-of-banks.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

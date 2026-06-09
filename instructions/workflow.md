@@ -220,3 +220,13 @@ python3 stats-report.py        # обновить статистику
 9. запустить `generate-nav.py`
 10. `git commit -m "Добавлен термин: хесед"`
 11. `git push`
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/tahor/names.md`
+- `instructions/tahor/religionisms.md`

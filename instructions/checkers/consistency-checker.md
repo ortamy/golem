@@ -134,3 +134,13 @@ python3 tools/consistency-check.py
 - `consistency-checker` — проверяет согласованность
 
 Запускать после всех остальных проверок.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `terminology/el.md`

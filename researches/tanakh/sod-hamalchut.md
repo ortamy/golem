@@ -57,6 +57,20 @@
 - **Ламед (𐤋)** — посох. От направления, власти, пастырства.
 - **Каф (𐤊)** — ладонь. От действия, удержания, коах.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/names.md`
+- `terminology/el.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Вода (народы) — Посох (власть) — Ладонь (действие).**
 
 Образное значение: «Власть, которая направляет народы и действует». Малхут — это не статичное царство, а активное правление.

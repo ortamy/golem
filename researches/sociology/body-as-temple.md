@@ -101,3 +101,9 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он идёт в гуф. В твоём.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `terminology/yhwh.md`

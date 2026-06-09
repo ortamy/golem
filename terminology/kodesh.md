@@ -48,6 +48,20 @@
 - **Шин (𐤔)** — зуб. От остроты, hавдала, разрезания, hавдала.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/el.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Вход (отверстие) — Дверь (доступ) — Зуб (пилуг/отсечение).**
 
 Образ кодеш: «Войти через дверь в отделённое пространство». Это не магическая «святость», а процесс: нужно пройти (коф) через установленный вход (далет), чтобы оказаться в сфере, отделённой (шин) от всего остального. Кодеш — это доступ, а не элитарность.

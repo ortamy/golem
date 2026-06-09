@@ -47,6 +47,19 @@ hа-коhэ́н hа-гадо́ль (hakōhēn haggāḏôl)
 - **Каф (𐤊)** — ладонь. От действия, коах в потенциале, открытости.
 - **hей (𐤄)** — шеол с поднятыми руками, «вот, смотри». От hитгалут, шхина.
 - **Нун (𐤍)** — рыба, змея. От жизни, продолжения, движения.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > «Ладонь, поднятая к откровению и несущая жизнь». Коэн — это тот, кто простирает руки к YHWH и передаёт браха народу.
 **Гадоль (ג.ד.ל):**
 - **Гимель (𐤂)** — верблюд. От выносливости, перевозки, богатства.

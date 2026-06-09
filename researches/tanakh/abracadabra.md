@@ -33,6 +33,15 @@
 
 ## 📜 ЧТО ГОВОРИТ ТаНаХ О ТАКИХ СЛОВАХ?
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **לֹא תַעֲשׂוּן אִתִּי אֱלֹהֵי כֶסֶף**
 > **ло таасу́н ити́ Элохе́й кэ́сеф**
 > *«Не делайте со Мной богов из серебра» (Шмот 20:20)*

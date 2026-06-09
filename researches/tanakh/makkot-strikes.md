@@ -52,6 +52,21 @@
 - **hей (𐤄)** — шеол с поднятыми руками. От hитгалут, шхина, «вот, смотри».
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Жизнь/движение (нун) — Ладонь (действие) — Hитгалут (шхина).**
 
 Образное значение: «Действие, которое являет скрытое». Удар — это не кара. Это **вскрытие**. Он показывает то, что было скрыто: закрытое лев фараона, жестокость системы, иллюзию власти.

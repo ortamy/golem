@@ -103,3 +103,13 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не тоар. Он — Имя.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/yhwh.md`

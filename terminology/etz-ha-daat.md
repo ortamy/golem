@@ -183,3 +183,13 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он начинается не с твоего решения. Он начинается с Его ор.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/tree-method.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

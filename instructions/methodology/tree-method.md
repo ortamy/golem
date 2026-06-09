@@ -136,6 +136,19 @@
 
 Только то учение истинно, корень которого — Авраhам, Ицхак и Яаков, ствол — слово Яхве, ветви — послушание, а плод — жизнь по Дыханию Отделённости.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `researches/history/nicaea-council.md`
+- `terminology/el.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **הַדֶּרֶךְ יְהוָה**
 > **hа-Де́рех Яхве**
 > *Путь Яхве*

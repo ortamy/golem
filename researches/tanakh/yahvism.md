@@ -137,3 +137,13 @@
 ---
 
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/yhwh.md`

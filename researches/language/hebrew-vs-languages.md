@@ -176,6 +176,19 @@
 
 Народ, который говорит на этом языке, не может исчезнуть. Язык, который был мёртвым 2000 лет, воскрес. Это нес. Нес, которое указывает на Яхве.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/tahor/names.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **הַדֶּרֶךְ יְהוָה**
 > **hа-Де́рех Яхве**
 > *Дэрех Яхве*

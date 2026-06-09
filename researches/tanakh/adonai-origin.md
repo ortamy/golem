@@ -37,6 +37,21 @@
 - **Нун (𐤍)** — рыба, змея. От жизни, движения, продолжения.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `instructions/tahor/religionisms.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+
 > **Дверь (подчинение) — Крюк (власть) — Рыба (жизнь).**
 
 Образное значение: «Власть, которая держит жизнь за дверью». Адон — это тот, кто держит ключ. Тот, кому подчиняются. Это не яхас любви. Это яхас власти. Яхве не хотел быть «адоном» в этом машмаут. Он хотел быть Отцом.

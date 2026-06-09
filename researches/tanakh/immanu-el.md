@@ -23,6 +23,18 @@
 
 **Масоретский текст:**
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/mashiah-peshat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **לָכֵן יִתֵּן אֲדֹנָי הוּא לָכֶם אוֹת: הִנֵּה הָעַלְמָה הָרָה וְיֹלֶדֶת בֵּן, וְקָרָאת שְׁמוֹ עִמָּנוּ אֵל**
 > **Лахе́н йитэ́н Адона́й hу лахэ́м от: hинэ́ hа-алма́ hара́ ве-йолэ́дэт бен, ве-кара́т шмо́ Имма́ну Эль.**
 > *«Поэтому даст Яхве Сам вам знак: вот, алма́ забеременеет и родит сына, и назовёт имя Ему Имману Эль».*

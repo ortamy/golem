@@ -101,6 +101,21 @@
 
 Они не изменили ни одной буквы. Они добавили только огласовки, сохранив для нас точное произношение слов Яхве. Их амаль — одна из причин, почему мы сегодня можем читать ТаНаХ в оригинале и понимать его глубину.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **מָסֹרֶת — масо́рет**
 > *Масорет, переданное из рук в руки.*
 

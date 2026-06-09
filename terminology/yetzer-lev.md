@@ -120,3 +120,10 @@
 ---
 
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/methodology/translation-methodology.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

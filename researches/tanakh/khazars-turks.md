@@ -51,6 +51,18 @@
 - **Гимель (𐤂)** — верблюд. От путешествия, перехода.
 - **Реш (𐤓)** — голова. От начала, направления.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/archeology-methodology.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Верблюд — Голова.** «Странник, направляющийся к новому началу». Гер — это тот, кто проделал дэрех, чтобы присоединиться к Израилю.
 
 **נכר (нехар):**

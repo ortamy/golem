@@ -133,3 +133,12 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не алгоритм. Он — эмет.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

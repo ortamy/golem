@@ -49,6 +49,20 @@
 - **Бет (𐤁)** — повторение: внутреннее внутреннего.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Посох (направление) — Дом (внутреннее) — Дом (самое внутреннее).**
 
 Образное значение: «Направляющее внутреннее пространство». Левав — это не просто «дом» тела, а то, что управляет (посох) всей внутренней жизнью. Это тронный зал шеол, откуда исходят решения и куда приходит давар Яхве.

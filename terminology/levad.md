@@ -111,3 +111,12 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Иногда он ведёт через толпу. Иногда — через одиночество. И то и другое — дэрех.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/translation-methodology.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

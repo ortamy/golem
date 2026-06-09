@@ -167,3 +167,11 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он начинается с таhара. Не только мыслей. Тела.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `terminology/yhwh.md`

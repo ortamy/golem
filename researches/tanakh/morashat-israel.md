@@ -324,6 +324,21 @@
 
 Коах — в голосе, который говорит:
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/tahor/names.md`
+- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/economic-slavery.md`
+- `researches/economy/history-of-money.md`
+- `researches/economy/mortgage-dead-pledge.md`
+- `researches/slavery/economic-slavery.md`
+
 > «Слушай, Израиль: Яхве — один. Люби Его. Ходи Его путями. Помни, что ты был рабом. Отпускай раба. Прощай долги. Защищай слабого. Суди по правде. Отдыхай в Шаббат. Жди Машиаха».
 
 ---

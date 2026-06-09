@@ -153,3 +153,17 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 Башня пала. Ты свободен. Говори правду. На любом языке. Но лучше — на иврите.
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/grecisms.md`
+- `instructions/tahor/latinisms.md`
+- `instructions/tahor/names.md`
+- `instructions/tahor/religionisms.md`

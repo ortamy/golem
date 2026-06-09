@@ -42,6 +42,20 @@
 - **Шин (𐤔)** — зуб. От остроты, херес, потребления, а также удвоения.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Рыба/жизнь (продолжение) — Рот (дыхание) — Зуб (потребление).**
 
 Образ нефеш — это «живое существо, которое дышит (рот) и поглощает (зуб)», чтобы продолжать жизнь (рыба). Это махазор: дыхание входит, пища потребляется, жизнь продолжается. Нефеш — не бессмертная субстанция, а процесс, поддерживаемый YHWH.

@@ -196,6 +196,18 @@
 
 Вернуться к палео-ивриту — значит увидеть Давар Яхве глазами Моше. Увидеть не просто текст, а **картину**. Не просто правило, а **дэрех**. Не просто букву, а **дыхание**.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **הַדֶּרֶךְ יְהוָה**
 > **hа-Де́рех Яхве**
 > *Дэрех Яхве*

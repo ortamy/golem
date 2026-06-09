@@ -172,3 +172,18 @@
 ---
 
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Путь Яхве
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-religionism-theory.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/grecisms.md`
+- `instructions/tahor/names.md`
+- `instructions/tahor/religionisms.md`

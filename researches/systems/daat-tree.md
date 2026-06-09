@@ -60,6 +60,21 @@
 - **Аин (𐤏)** — глаз. От видения, источника, шхина.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/methodology/tree-method.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Рука (действие) — Дверь (доступ) — Глаз (видение).**
 
 Образное значение: «Действие, открывающее дверь к видению». Даат — это не пассивное созерцание. Это активный вход. Рука открывает дверь, и глаз видит то, что за ней. Познание Яхве — это не теория о Нём. Это действие, которое открывает доступ к Его шхина.

@@ -47,6 +47,19 @@
 - **Тав (𐤕)** — эц, знак, метка. От брит, печати, завершения.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Коах (бык) — Вода (текучее/жизнь) — Печать (завершение).**
 
 Образ эмет: «Сила, которая ставит печать на водах». Или: «Твёрдая сила, завершающая текучее». Эмет — это то, что останавливает хаос, даёт опору посреди неопределённости, доводит до конца. Это не абстрактная «истина», а завершённая реальность, на которую можно опереться.

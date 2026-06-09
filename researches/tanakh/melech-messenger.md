@@ -51,6 +51,18 @@
 - **Алеф (𐤀)** — бык. От коах, ацамот.
 - **Каф (𐤊)** — ладонь. От действия, удержания.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/methodology/tree-method.md`
+- `terminology/yhwh.md`
+
 > **Посох (направление) — Бык (коах) — Ладонь (действие).**
 
 Образное значение: «Направленная сила в действии». Мальа́х — это инструмент в руке Яхве. Это коах, облечённая в конкретное поручение и переданная через открытую ладонь.

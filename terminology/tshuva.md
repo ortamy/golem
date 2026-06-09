@@ -49,6 +49,21 @@
 - **Бет (𐤁)** — дом, шатёр, внутреннее пространство. Символизирует жилище, семью, шхина.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Зуб (херес) — Крюк (соединение) — Дом (шхина).**
 
 Тшува в образах палео-иврита — это процесс: разрушить старый дэрех (отсечь отступничество), соединиться вновь (прикрепиться к YHWH) и войти в Дом (вернуться в шхина). Это не ментальная перемена, а дэрех ног и сердца.

@@ -55,6 +55,21 @@
 
 Ра — это не субстанция, а **направление**. Когда дыхание (руах) течёт правильно — это жизнь, порядок, шалом. Когда дыхание сбивается, идёт не в ту сторону — это ра. Херес. Мавет.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-distortions.md`
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+
 > **Ра — это руах, который потерял дэрех.**
 
 ---

@@ -48,6 +48,21 @@
 - **Далет (𐤃)** — дверь. От входа, доступа, подчинения.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/methodology/tree-method.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/torah.md`
+
 > **Глаз (видение, воля) — Дом (принадлежность) — Дверь (доступ, подчинение).**
 
 Образное значение: «Тот, чей глаз устремлён к дому, и кто входит в его дверь». Эвед — это шеол, который смотрит на бааль (глаз), принадлежит его дому (бет) и входит через его дверь (далет), подчиняясь его порядку. Это яхас доверия и посвящения, а не hашпала.

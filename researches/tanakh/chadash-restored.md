@@ -42,6 +42,20 @@
 - **Шин (𐤔)** — зуб. От остроты, херес старого, hавдала нового.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-language-control.md`
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/tree-method.md`
+- `instructions/tahor/names.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Ограда — Дверь — Зуб.**
 
 Образное значение: «Разрушить старое ограждение (шин), чтобы открыть дверь (далет) в восстановленное пространство (хет)». Хадаш — это не hашмада, а **восстановление доступа**. Старое не отбрасывается — оно обновляется и открывается заново.

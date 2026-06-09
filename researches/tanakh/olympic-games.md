@@ -39,6 +39,18 @@
 
 ## 📜 ЧТО ГОВОРИТ ТаНаХ?
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/tree-method.md`
+- `researches/economy/history-of-money.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **לֹא תִתְגֹּדְּדוּ**
 > **Ло титго́дэду.**
 > *«Не делайте нарезок на себе»* (Ваикра 19:28).

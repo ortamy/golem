@@ -47,6 +47,21 @@
 - **Бет (𐤁)** — дом, шатёр. От внутреннего пространства, мишкан, семьи.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-principles.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/methodology/tree-method.md`
+- `terminology/el.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+
 > **Махазор (непрерывность) — Крюк (соединение) — Дом (мишкан).**
 
 Образное значение: «Непрерывный цикл, соединённый с домом». Тов — это то, что поддерживает жизнь в доме, что обеспечивает непрерывность, порядок и изобилие. Это функциональная гармония, а не этическая абстракция.

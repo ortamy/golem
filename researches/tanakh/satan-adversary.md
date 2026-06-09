@@ -52,6 +52,20 @@
 - **Нун (𐤍)** — рыба, змея. От жизни, движения, продолжения.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Зуб (херес) — Змея/колесо (скрытое противодействие) — Рыба (жизнь/движение).**
 
 Образное значение: «Острый, обвивающий и преследующий». Сатан — это тот, кто «вгрызается» (зуб) в шеол, обвивает его (тет) и преследует (нун). Это инструмент, а не самостоятельный Элоhим зла.

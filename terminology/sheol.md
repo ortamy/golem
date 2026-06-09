@@ -47,6 +47,19 @@
 - **Ламед (𐤋)** — посох, стрекало. От направления, движения, власти.
 
 **Целостная картина**
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-mechanisms.md`
+- `instructions/exposure/exposure-techniques.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `researches/tanakh/magen-david.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **Зуб (пожирание) — Бык (коах) — Крюк (удержание) — Посох (направление).**
 
 Образ шеола: «Мощная пасть, которая хватает и ведёт вниз». Шеол — это ненасытное бетен, куда направляются все живые. Он «заглатывает» свои корбан (зуб), с непреодолимой коах (бык), прикрепляет к себе (крюк) и ведёт вниз (посох). Это не место активных мучений, а пассивное царство, где пойманные неподвижны.

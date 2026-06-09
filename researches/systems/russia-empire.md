@@ -158,3 +158,14 @@ hа-Де́рех Яхве
 *Дэрех Яхве*
 
 Он — не орёл на гербе. Он — крылья, которые несут.
+
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/archeology-methodology.md`
+- `instructions/tahor/religionisms.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`

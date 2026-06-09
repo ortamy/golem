@@ -51,6 +51,21 @@
 - **Вав (𐤅)** — крюк, гвоздь. От соединения, скрепления.
 - **hей (𐤄)** — шеол с поднятыми руками. От hитгалут, шхина.
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-methods.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/tahor/names.md`
+- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
+- `researches/tanakh/gog-and-magog.md`
+- `terminology/el.md`
+- `terminology/shabbat.md`
+- `terminology/torah.md`
+
 > **Крюк (цади) — Гвоздь (вав) — Hитгалут (hей).** «Соединение, скреплённое откровением». Мицва — это не ярмо. Это гвоздь, который держит брит. Это крюк, который связывает небо и землю.
 
 ---

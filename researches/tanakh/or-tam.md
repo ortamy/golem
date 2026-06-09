@@ -33,6 +33,19 @@
 
 Первое употребление в ТаНаХ:
 
+
+---
+
+## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
+- `instructions/exposure/exposure-system-architecture.md`
+- `instructions/methodology/hebrew-reconstruction.md`
+- `instructions/methodology/translation-methodology.md`
+- `instructions/methodology/transliteration-distortions.md`
+- `instructions/tahor/names.md`
+- `terminology/el.md`
+- `terminology/torah.md`
+- `terminology/yhwh.md`
+
 > **וַיֹּאמֶר אֱלֹהִים יְהִי אוֹר וַיְהִי אוֹר**
 > **Ва-йо́мер Элоhи́м: йеhи́ ор, ва-йеhи́ ор.**
 > *«И сказал Элоhим: да будет свет. И стал свет»* (Берешит 1:3).
