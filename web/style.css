@@ -613,45 +613,158 @@ body.dark #mobile-logo { color: #ff4d00; }
 
 /* Мобильная версия */
 @media (max-width: 768px) {
-    #burger-btn { display: flex; }
-
-    #main-layout,
-    #file-page {
-        padding-left: 50px;
-        padding-right: 12px;
+    #burger-btn {
+        display: flex;
+        position: fixed;
+        top: 10px;
+        left: 10px;
     }
 
-    #main-layout { padding-top: 12px; }
+    #app {
+        padding: 0 8px;
+    }
+
+    #logo { display: none; }
+    #mobile-logo {
+        display: block;
+        text-align: center;
+        font-family: 'Courier New', monospace;
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 4px;
+        padding: 10px 0 8px;
+    }
+    body.dark #mobile-logo { color: #ff4d00; }
+    #desktop-actions { display: none; }
+
+    #list-view {
+        padding-top: 44px;
+    }
 
     #top-bar {
         flex-direction: column;
         gap: 6px;
+        margin-bottom: 10px;
     }
 
-    #search, #category-select, #subcategory-select {
-        flex: auto;
+    #search,
+    #category-select,
+    #subcategory-select {
         width: 100%;
         min-width: auto;
+        flex: auto;
+        font-size: 14px;
+        padding: 10px 12px;
+        height: 40px;
     }
 
-    #file-content h1 { font-size: 20px; }
-    #file-content h2 { font-size: 14px; }
-    #file-content h3 { font-size: 12px; }
-    #file-content p, #file-content li { font-size: 12px; }
-    #file-content blockquote { font-size: 11px; padding: 6px 10px; }
-    #file-content code { font-size: 10px; }
+    #file-list {
+        padding-bottom: 20px;
+    }
+
+    .file-item {
+        padding: 12px 10px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+    }
+
+    .file-item .title {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .file-item .topic {
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
+    .cat-header {
+        font-size: 10px;
+        padding: 14px 10px 6px;
+    }
+
+    /* Страница файла */
+    #file-view {
+        padding-top: 44px;
+    }
+
+    #file-top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    #file-content {
+        padding-top: 10px;
+    }
+
+    #file-content h1 {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    #file-content h2 {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    #file-content h3 {
+        font-size: 14px;
+    }
+
+    #file-content h4 {
+        font-size: 13px;
+    }
+
+    #file-content p,
+    #file-content li {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    #file-content blockquote {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    #file-content code {
+        font-size: 12px;
+    }
+
+    #back-btn {
+        font-size: 16px;
+        padding: 6px 10px;
+    }
+
+    #file-path-hint {
+        font-size: 10px;
+    }
+
+    .bookmark-btn {
+        font-size: 20px;
+    }
 
     #toc-panel { display: none !important; }
 
     #back-to-top {
         bottom: 10px;
         right: 10px;
-        width: 28px;
-        height: 28px;
-        font-size: 14px;
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    #bottom-bar {
+        padding: 12px 0;
+        font-size: 10px;
+    }
 
     #logo { display: none; }
     #mobile-logo { display: block; }
     #desktop-actions { display: none; }
-    }
 }

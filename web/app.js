@@ -97,9 +97,12 @@ function render() {
 
 function openFile(p) {
     currentPath = p;
-    document.getElementById('list-view').style.display = 'none';
+    var lv = document.getElementById('list-view');
     var fv = document.getElementById('file-view');
+    lv.style.display = 'none';
     fv.style.display = 'block';
+    fv.style.visibility = 'visible';
+    fv.style.opacity = '1';
     document.getElementById('file-path-hint').textContent = p;
     var bm = document.getElementById('file-bookmark-btn');
     bm.textContent = bookmarks.indexOf(p) >= 0 ? '★' : '☆';
@@ -131,8 +134,12 @@ function openFile(p) {
 }
 
 function closeFile() {
-    document.getElementById('file-view').style.display = 'none';
-    document.getElementById('list-view').style.display = 'block';
+    var fv = document.getElementById('file-view');
+    var lv = document.getElementById('list-view');
+    fv.style.display = 'none';
+    lv.style.display = 'block';
+    lv.style.visibility = 'visible';
+    lv.style.opacity = '1';
     currentPath = null;
     render();
 }
