@@ -453,5 +453,4 @@ body.dark #copy-toast { background: #fff; color: #111; }
 }
 
 /* Скрыть мобильные элементы на ПК */
-#burger-btn, #burger-overlay, #burger-menu,
-#mobile-list-view, #file-page, #stats-mobile { display: none; }
+#burger-btn, #burger-overlay, #burger-menu, #file-page { display: none; }
