@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# tools/checkers/check-file-names-language.py — проверка чистоты языка имён файлов
+# tools/checkers/check-names-language.py — проверка чистоты языка имён файлов
 import sys
 import re
 from pathlib import Path
