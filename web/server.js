@@ -69,7 +69,11 @@ function walkDir(dirPath, baseFolder, label, files) {
 function extractTitle(content) {
     const match = content.match(/^#\s+(.+?)$/m);
     if (match) {
-        return match[1].replace(/[^\w\s\-—«»]/g, '').trim().substring(0, 80);
+        return match[1]
+            .replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{FE00}-\u{FEFF}\u{200D}\u{FE0F}]/gu, '')
+            .replace(/^\s+/, '')
+            .trim()
+            .substring(0, 80);
     }
     return '';
 }
