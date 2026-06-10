@@ -1,180 +1,246 @@
 #!/usr/bin/env python3
-# tools/generators/generate-exposure-suggestions.py — поиск кандидатов на новые методы/приёмы (v3)
-import sys
-import re
+# neural/inference/client.py — клиент для отправки запросов к серверу Свидетеля
+import argparse
 import json
+import sys
 from pathlib import Path
-from collections import defaultdict, Counter
+from typing import Optional
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from lib.utils import (
-    read_file_safe, progress_bar, finish_progress,
-    print_header, print_success, print_warning, print_hint,
-    REPO_ROOT
-)
+import requests
 
-SCAN_DIRS = ["researches", "terminology"]
-EXCLUDE_DIRS = {"archive", "arkhiv", "religionizmy"}
-EXPOSURE_DIR = REPO_ROOT / "instructions" / "exposure"
-
-SUBSTITUTION_PATTERNS = [
-    (r'(?:в оригинале|в иврите|в ТаНаХе)\s+«?([^»]+?)»?\s*[→–—]\s*«?([^»]+?)»?', 'оригинал→перевод', 10),
-    (r'(?:подмена|замена)\s+(\w+(?:\s+\w+){0,3})\s*(?:→|на)\s*(\w+(?:\s+\w+){0,3})', 'подмена', 8),
-    (r'вместо\s+«?([^»]+?)»?\s*(?:—|→|–)\s*«?([^»]+?)»?', 'вместо', 5),
-    (r'система\s+(заменяет|подменяет|превращает)\s+(\w+(?:\s+\w+){0,5})', 'система', 3),
-]
-
-TANAKH_WORDS = {
-    'яхве', 'yhwh', 'элоhим', 'эль', 'тора', 'танах', 'машиах', 'шаббат',
-    'нэфеш', 'руах', 'шеол', 'брит', 'кодеш', 'эмуна', 'тшува', 'цдака',
-    'хесед', 'эмет', 'шалом', 'коhэн', 'нави', 'микдаш', 'кеhила',
-    'давар', 'хохма', 'йешуа', 'моше', 'цадик', 'корбан', 'тамэ', 'таhор',
-}
-
-SYSTEM_WORDS = {
-    'бог', 'господь', 'душа', 'дух', 'вера', 'грех', 'покаяние', 'спасение',
-    'закон', 'церковь', 'храм', 'священник', 'дьявол', 'крещение',
-    'милость', 'благодать', 'истина', 'завет', 'искупление', 'ад', 'рай',
-    'религия', 'духовность', 'физика', 'математика', 'технология',
-}
+SERVER_URL = "http://localhost:8000"
+REPO_ROOT = Path(__file__).parent.parent.parent
 
 
-def load_existing_techniques():
-    existing = set()
-    for fname in ["exposure-techniques.md", "exposure-distortions.md",
-                   "exposure-language.md", "exposure-mechanisms.md",
-                   "exposure-methods.md", "exposure-religionism.md"]:
-        filepath = EXPOSURE_DIR / fname
-        if not filepath.exists():
-            continue
-        content = read_file_safe(filepath)
-        if not content:
-            continue
-        for line in content.splitlines():
-            line = line.strip()
-            if line.startswith('- **') or line.startswith('- '):
-                existing.update(re.findall(r'[а-яё]{4,}', line.lower()))
-    return existing
+def send_prompt(prompt: str, server: str, temperature: float = 0.7, max_tokens: int = 512) -> Optional[str]:
+    """Отправляет промпт к серверу и возвращает ответ"""
+    url = f"{server}/generate"
+    payload = {
+        "prompt": prompt,
+        "temperature": temperature,
+        "max_tokens": max_tokens
+    }
+    try:
+        response = requests.post(url, json=payload, timeout=120)
+        response.raise_for_status()
+        data = response.json()
+        return data.get("response")
+    except requests.exceptions.ConnectionError:
+        print("❌ Ошибка: сервер не запущен. Запустите: python server.py")
+        return None
+    except requests.exceptions.Timeout:
+        print("❌ Ошибка: таймаут ожидания ответа")
+        return None
+    except Exception as e:
+        print(f"❌ Ошибка: {e}")
+        return None
 
 
-def is_noise(candidate: dict) -> bool:
-    text = candidate["match"] + " " + candidate["context"]
-    if re.search(r'</?td>|</?tr>|</?table>|</?strong>', text):
-        return True
-    uppercase_count = sum(1 for c in text if c.isupper())
-    if uppercase_count > len(text) * 0.3:
-        return True
-    if candidate["type"] == "вместо":
-        words = set(re.findall(r'\w+', text.lower()))
-        if not (words & TANAKH_WORDS or words & SYSTEM_WORDS):
-            return True
-    return False
-
-
-def find_candidates(filepath: Path) -> list:
-    content = read_file_safe(filepath)
-    if not content:
-        return []
-    rel_path = str(filepath.relative_to(REPO_ROOT)).replace('\\', '/')
-    candidates = []
-    for pattern, ptype, priority in SUBSTITUTION_PATTERNS:
-        for match in re.finditer(pattern, content, re.IGNORECASE):
-            groups = match.groups()
-            context = content[max(0, match.start()-60):match.end()+60].replace('\n', ' ').strip()
-            c = {
-                "file": rel_path,
-                "type": ptype,
-                "priority": priority,
-                "match": match.group(),
-                "context": f"...{context}...",
-                "groups": groups,
-            }
-            if not is_noise(c):
-                candidates.append(c)
-    return candidates
-
-
-def is_new_candidate(candidate: dict, existing: set, found_matches: set) -> bool:
-    match_lower = candidate["match"].lower()
-    words = set(re.findall(r'[а-яё]{4,}', match_lower))
-    if len(words & existing) >= len(words) * 0.5:
+def check_health(server: str) -> bool:
+    """Проверяет доступность сервера"""
+    try:
+        response = requests.get(f"{server}/health", timeout=5)
+        return response.status_code == 200
+    except:
         return False
-    if match_lower in found_matches:
-        return False
-    return True
+
+
+def interactive_mode(server: str):
+    """Интерактивный режим диалога"""
+    print("🧠 ЭД — СВИДЕТЕЛЬ")
+    print("=================")
+    print("Введите 'exit' для выхода, 'clear' для очистки экрана\n")
+
+    if not check_health(server):
+        print("❌ Сервер не доступен. Запустите: python server.py")
+        return
+
+    print("✅ Сервер доступен\n")
+
+    while True:
+        try:
+            prompt = input("> ").strip()
+            if not prompt:
+                continue
+            if prompt.lower() == "exit":
+                print("До свидания")
+                break
+            if prompt.lower() == "clear":
+                print("\n" * 2)
+                continue
+
+            response = send_prompt(prompt, server)
+            if response:
+                print(f"\n{response}\n")
+            else:
+                print("❌ Не удалось получить ответ\n")
+
+        except KeyboardInterrupt:
+            print("\nДо свидания")
+            break
+        except EOFError:
+            break
+
+
+def batch_mode(server: str, prompts_file: str, output_file: Optional[str] = None):
+    """Пакетная обработка промптов из файла"""
+    try:
+        with open(prompts_file, 'r', encoding='utf-8') as f:
+            prompts = [line.strip() for line in f if line.strip()]
+    except Exception as e:
+        print(f"❌ Ошибка чтения файла: {e}")
+        return
+
+    if not check_health(server):
+        print("❌ Сервер не доступен")
+        return
+
+    results = []
+    print(f"📋 Обработка {len(prompts)} промптов\n")
+
+    for i, prompt in enumerate(prompts, 1):
+        print(f"[{i}/{len(prompts)}] {prompt[:50]}...")
+        response = send_prompt(prompt, server)
+        results.append({"prompt": prompt, "response": response})
+        if response:
+            print(f"   ✅ Готово")
+        else:
+            print(f"   ❌ Ошибка")
+
+    if output_file:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(results, f, ensure_ascii=False, indent=2)
+        print(f"\n✅ Результаты сохранены в {output_file}")
+    else:
+        print("\n📊 РЕЗУЛЬТАТЫ")
+        for r in results:
+            print(f"\nПромпт: {r['prompt']}")
+            print(f"Ответ: {r['response']}")
+            print("-" * 40)
+
+
+def analyze_exposure(server: str, candidates_file: Optional[str] = None, output_file: Optional[str] = None):
+    """Анализирует кандидаты на новые методы/приёмы через нейросеть."""
+    if not candidates_file:
+        candidates_file = REPO_ROOT / "neural" / "training-data" / "exposure-candidates.json"
+
+    try:
+        with open(candidates_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception as e:
+        print(f"❌ Ошибка чтения файла кандидатов: {e}")
+        print(f"   Сначала запустите: python tools/generators/generate-exposure-suggestions.py")
+        return
+
+    if not check_health(server):
+        print("❌ Сервер не доступен")
+        return
+
+    candidates = data.get("candidates", [])
+    if not candidates:
+        print("✅ Нет кандидатов для анализа")
+        return
+
+    # Группируем по уникальным контекстам
+    unique_patterns = {}
+    for c in candidates:
+        match_lower = c["match"].lower()
+        if match_lower not in unique_patterns:
+            unique_patterns[match_lower] = c
+
+    print(f"🧠 АНАЛИЗ EXPOSURE-КАНДИДАТОВ")
+    print(f"=================================")
+    print(f"Всего кандидатов: {len(candidates)}")
+    print(f"Уникальных паттернов: {len(unique_patterns)}")
+    print(f"Сервер: {server}\n")
+
+    # Системный промпт для нейросети
+    system_prompt = """Ты — עֵד (Эд), Свидетель. Проанализируй кандидаты на новые методы, приёмы, типы искажений для exposure-файлов проекта «Голем».
+
+Для каждого кандидата ответь одной строкой в формате:
+НОВЫЙ | УЖЕ ЕСТЬ | <категория> | <краткое описание 1 предложение>
+
+Где категория: distortions, techniques-language, techniques-meaning, techniques-social, techniques-economic, techniques-financial, techniques-historical, techniques-symbolic, techniques-meta, methods, mechanisms, religionism
+
+Существующие типы искажений: подмена категории, юридизация, психологизация, сдвиг действия→эмоция, абстракция, сужение смысла, дуализация, кастрация смысла.
+
+Если кандидат не является приёмом/методом — напиши: НЕТ | - | -
+
+Отвечай ТОЛЬКО строкой для каждого кандидата, без пояснений."""
+
+    pattern_list = list(unique_patterns.values())
+    batch_size = 5
+    results = []
+    new_count = 0
+
+    for batch_start in range(0, len(pattern_list), batch_size):
+        batch = pattern_list[batch_start:batch_start + batch_size]
+
+        batch_text = "\n".join([
+            f"[{batch_start + j + 1}] Кандидат: {c['match']}\n    Контекст: {c['context'][:200]}\n    Файл: {c['file']}"
+            for j, c in enumerate(batch)
+        ])
+
+        full_prompt = f"{system_prompt}\n\n{batch_text}"
+
+        batch_num = batch_start // batch_size + 1
+        total_batches = (len(pattern_list) - 1) // batch_size + 1
+        print(f"📤 Батч {batch_num}/{total_batches} ({len(batch)} кандидатов)...")
+        response = send_prompt(full_prompt, server, temperature=0.3, max_tokens=1024)
+
+        if response:
+            results.append({"batch": batch_num, "candidates": batch, "response": response})
+            new_count += response.count("НОВЫЙ")
+            print(f"   ✅ Ответ ({len(response)} символов)")
+        else:
+            print(f"   ❌ Ошибка")
+
+    # Сохраняем результаты
+    if not output_file:
+        output_file = REPO_ROOT / "neural" / "training-data" / "exposure-analysis-results.json"
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+
+    print(f"\n✅ Результаты сохранены в {output_file}")
+    print(f"📊 Новых кандидатов: {new_count}")
+
+    if new_count > 0:
+        print(f"💡 Просмотрите файл и добавьте новые приёмы в exposure-файлы вручную")
 
 
 def main():
-    verbose = "--verbose" in sys.argv or "-v" in sys.argv
+    parser = argparse.ArgumentParser(description="Клиент для сервера Свидетеля")
+    parser.add_argument("--prompt", "-p", type=str, help="Промпт для отправки")
+    parser.add_argument("--file", "-f", type=str, help="Файл с промптами")
+    parser.add_argument("--output", "-o", type=str, help="Файл для сохранения результатов")
+    parser.add_argument("--server", "-s", type=str, default=SERVER_URL, help="URL сервера")
+    parser.add_argument("--temperature", "-t", type=float, default=0.7, help="Температура")
+    parser.add_argument("--max-tokens", "-m", type=int, default=512, help="Максимум токенов")
+    parser.add_argument("--interactive", "-i", action="store_true", help="Интерактивный режим")
+    parser.add_argument("--analyze-exposure", "-a", action="store_true", help="Анализ exposure-кандидатов через нейросеть")
+    parser.add_argument("--candidates", "-c", type=str, help="Файл с кандидатами (JSON)")
 
-    print_header("ПОИСК НОВЫХ ПРИЁМОВ", "🔍")
+    args = parser.parse_args()
 
-    existing = load_existing_techniques()
-    print(f"📚 Маркеров: {len(existing)}")
-
-    all_files = []
-    for scan_dir in SCAN_DIRS:
-        dir_path = REPO_ROOT / scan_dir
-        if dir_path.exists():
-            for f in sorted(dir_path.rglob("*.md")):
-                if not any(excl in f.relative_to(REPO_ROOT).parts for excl in EXCLUDE_DIRS):
-                    all_files.append(f)
-
-    total = len(all_files)
-    print(f"🔍 Файлов: {total}")
-
-    all_candidates = []
-    found_matches = set()
-    stats = Counter()
-    by_file = defaultdict(list)
-
-    for i, filepath in enumerate(all_files, 1):
-        for c in find_candidates(filepath):
-            if is_new_candidate(c, existing, found_matches):
-                all_candidates.append(c)
-                found_matches.add(c["match"].lower())
-                stats[c["type"]] += 1
-                by_file[c["file"]].append(c)
-        progress_bar(i, total, extra=f"кандидатов: {len(all_candidates)}")
-
-    finish_progress()
-
-    if not all_candidates:
-        print_success("Новых кандидатов не найдено")
-        return 0
-
-    # Компактный вывод
-    print(f"\n📝 Кандидатов: {len(all_candidates)}")
-    print(f"📊 Типы: {' | '.join(f'{t}: {c}' for t, c in stats.most_common())}")
-
-    print(f"\n📋 Топ файлов:")
-    for filepath, cands in sorted(by_file.items(), key=lambda x: len(x[1]), reverse=True)[:8]:
-        cands.sort(key=lambda x: x["priority"], reverse=True)
-        types_in_file = Counter(c["type"] for c in cands)
-        top_match = cands[0]["match"][:60]
-        print(f"  {filepath}: {len(cands)} | {' '.join(f'{t}×{c}' for t,c in types_in_file.most_common(2))} | {top_match}...")
-
-    # Подробно только при --verbose
-    if verbose:
-        print(f"\n📋 Все кандидаты (сортированы по приоритету):")
-        all_candidates.sort(key=lambda x: x["priority"], reverse=True)
-        for c in all_candidates:
-            print(f"  [{c['priority']}] {c['type']}: {c['match']}")
-            print(f"     📄 {c['file']}")
+    if args.analyze_exposure:
+        analyze_exposure(args.server, args.candidates, args.output)
+    elif args.interactive:
+        interactive_mode(args.server)
+    elif args.file:
+        batch_mode(args.server, args.file, args.output)
+    elif args.prompt:
+        if not check_health(args.server):
+            print("❌ Сервер не доступен")
+            sys.exit(1)
+        response = send_prompt(args.prompt, args.server, args.temperature, args.max_tokens)
+        if response:
+            print(response)
+        else:
+            sys.exit(1)
     else:
-        print_hint("\n--verbose для полного списка")
-
-    # Сохраняем
-    output = REPO_ROOT / "neural" / "training-data" / "exposure-candidates.json"
-    output.parent.mkdir(parents=True, exist_ok=True)
-    with open(output, "w", encoding="utf-8") as f:
-        json.dump({"total": len(all_candidates), "stats": dict(stats), "candidates": all_candidates}, f, ensure_ascii=False, indent=2)
-
-    print_success(f"\nСохранено: {output}")
-    print_hint("AI-анализ: python neural/inference/client.py --analyze-exposure")
-
-    return 0
+        parser.print_help()
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()

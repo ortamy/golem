@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# tools/checkers/validate-metadata.py — проверка метаданных в md-файлах
+# tools/checkers/check-metadata.py — проверка метаданных в md-файлах
 import sys
 import re
 from pathlib import Path

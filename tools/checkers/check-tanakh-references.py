@@ -5,6 +5,7 @@ import re
 import json
 import sqlite3
 import urllib.request
+import urllib.parse
 from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
@@ -92,7 +93,7 @@ def download_tanakh():
         print_error("Книги не найдены")
         return False
 
-    # Фильтруем: только ТаНаХ + Hebrew + без комментариев
+    # Фильтруем: ТаНаХ + иврит + без комментариев
     tanakh_books = []
     for b in books_index:
         if not isinstance(b, dict):
@@ -103,7 +104,6 @@ def download_tanakh():
         url = b.get("json_url", "")
         if not url:
             continue
-        # Только ТаНаХ, только иврит, без "on" (комментарии)
         if any("Tanakh" in c for c in cats) and lang == "Hebrew" and " on " not in title:
             tanakh_books.append(b)
 
@@ -112,11 +112,13 @@ def download_tanakh():
     all_verses = []
     for i, book in enumerate(tanakh_books, 1):
         title = book.get("title", "?")
-        url = book.get("json_url", "").replace(" ", "%20")
+        raw_url = book.get("json_url", "")
+        url = urllib.parse.quote(raw_url, safe=':/')
 
         print(f"  [{i}/{len(tanakh_books)}] {title[:60]}...", end=" ", flush=True)
         try:
-            with urllib.request.urlopen(url, timeout=30) as f:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Golem-Project/1.0'})
+            with urllib.request.urlopen(req, timeout=30) as f:
                 book_data = json.loads(f.read())
             texts = book_data.get("text", {})
             if isinstance(texts, list):
@@ -138,11 +140,11 @@ def download_tanakh():
     with open(TANAKH_JSON, 'w', encoding='utf-8') as f:
         json.dump({"source": "Sefaria-Export", "date": datetime.now().isoformat(),
                     "total_verses": len(all_verses), "verses": all_verses}, f, ensure_ascii=False)
-    return True
+    return len(all_verses) > 0
 
 
 def load_tanakh_to_db():
-    if not TANAKH_JSON.exists():
+    if not TANAKH_JSON.exists() or TANAKH_JSON.stat().st_size < 1000:
         print("📥 Загрузка ТаНаХа...")
         if not download_tanakh():
             return None
@@ -217,7 +219,6 @@ def check_file(fp: Path, conn) -> dict | None:
 
 
 def main():
-    fix_mode = "--fix" in sys.argv
     verbose = "--verbose" in sys.argv or "-v" in sys.argv
     init_mode = "--init" in sys.argv
     rebuild = "--rebuild" in sys.argv

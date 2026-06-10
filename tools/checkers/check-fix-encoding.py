@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# tools/checkers/fix-encoding.py — конвертация Windows-1251 → UTF-8
+# tools/checkers/check-encoding.py — конвертация Windows-1251 → UTF-8
 import sys
 from pathlib import Path
 
