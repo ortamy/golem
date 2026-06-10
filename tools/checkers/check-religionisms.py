@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
-# tools/checkers/check-religionisms.py — поиск и исправление религионимов (v3.1 FINAL)
+# tools/checkers/check-religionisms.py — поиск и исправление религионимов (v3.2)
 import sys
 import re
 import json
 import os
+import hashlib
 from pathlib import Path
 from collections import Counter
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, print_error, print_warning, print_hint, REPO_ROOT
+from lib.utils import (
+    read_file_safe, progress_bar, finish_progress,
+    print_header, print_success, print_error, print_warning, print_hint,
+    ask_yes_no, REPO_ROOT
+)
 
 TAHOR_DIR = REPO_ROOT / "instructions" / "tahor"
 FORBIDDEN_FILE = REPO_ROOT / "instructions" / "forbidden-words.md"
@@ -35,26 +40,26 @@ CASES = {
 
 INDECLINABLE = {"хэн", "руах", "нэфеш", "тоху ва-воху"}
 
-HEBREW_WHITELIST = {
-    "тора", "танах", "машиах", "шаббат", "йешуа", "яхве", "yhwh",
-    "элоhим", "эль", "руах", "нэфеш", "нефеш", "шеол", "сатан",
-    "шалом", "брит", "кодеш", "мишпат", "цдака", "тшува", "эмуна",
-    "эмет", "хесед", "кавод", "коhэн", "нави", "малъах", "микве",
-    "мишкан", "корбан", "тефила", "тфила", "твила", "йовель", "шмита",
-    "йиръат", "давар", "олеам", "хохма", "бинах", "даат", "гвура",
-    "хесед", "нецах", "hод", "йесод", "малхут", "кетер", "ацамут",
-    "адам", "хава", "каин", "hевель", "ноах", "авраhам", "сарра",
-    "ицхак", "яаков", "моше", "аhарон", "давид", "шломо", "элияhу",
-    "йешаяhу", "йирмеяhу", "йехезкэль", "даниэль", "гоша", "йоэль",
-    "амос", "овдья", "йона", "миха", "наум", "хавакук", "цефанья",
-    "хагай", "зехарья", "малахи", "йов", "эстер", "рут", "эзра",
-    "нехемья", "шофтим", "шмуэль", "млахим", "диврей", "теhиллим",
-    "мишлей", "коhелет", "шир", "эйха", "даниэль", "эзра", "нехемья",
-    "талмуд", "мишна", "гемара", "мидраш", "зоhар", "сефер",
-    "цитата", "синай", "цион", "йерушалаим", "израиль", "исраэль",
-    "йеhуда", "шомрон", "галиль", "йарден", "олев", "олевав",
-    "оламед", "оалаф", "омаим", "одавар", "опалео",
-}
+
+def load_hebrew_whitelist():
+    """Загружает ивритские слова из terminology/."""
+    words = {
+        "тора", "танах", "машиах", "шаббат", "йешуа", "яхве", "yhwh",
+        "элоhим", "эль", "руах", "нэфеш", "нефеш", "шеол", "сатан",
+        "шалом", "брит", "кодеш", "мишпат", "цдака", "тшува", "эмуна",
+        "эмет", "хесед", "кавод", "коhэн", "нави", "малъах", "микве",
+        "мишкан", "корбан", "тефила", "тфила", "твила", "йовель", "шмита",
+        "талмуд", "мишна", "гемара", "мидраш", "зоhар", "сефер",
+        "синай", "цион", "йерушалаим", "израиль", "исраэль",
+    }
+    term_dir = REPO_ROOT / "terminology"
+    if term_dir.exists():
+        for f in term_dir.glob("*.md"):
+            words.add(f.stem.lower())
+    return words
+
+
+HEBREW_WHITELIST = load_hebrew_whitelist()
 
 
 def extract_metadata_block(content: str) -> tuple:
@@ -83,12 +88,12 @@ def restore_metadata(text: str, original_metadata: str) -> str:
     return text
 
 
-def update_check_counter(content: str) -> str:
-    """Обновляет счётчик проверок на религионизмы в метаданных."""
+def update_metadata_fields(content: str) -> str:
+    """Обновляет счётчик проверок, дату и хеш в метаданных."""
     today = datetime.now().strftime("%Y-%m-%d")
-    counter_match = re.search(r'[-*]\s*\*\*Проверок на религионизмы:\*\*\s*(\d+)', content)
-    date_match = re.search(r'[-*]\s*\*\*Последняя проверка:\*\*\s*([^\n]+)', content)
 
+    # Счётчик проверок
+    counter_match = re.search(r'[-*]\s*\*\*Проверок на религионизмы:\*\*\s*(\d+)', content)
     if counter_match:
         count = int(counter_match.group(1)) + 1
         content = re.sub(
@@ -99,24 +104,34 @@ def update_check_counter(content: str) -> str:
     else:
         count = 1
         insert_pos = content.find('**Метаданные файла**')
-        if insert_pos == -1:
-            return content
-        block_end = content.find('\n---', insert_pos)
-        if block_end == -1:
-            block_end = content.find('\n## ', insert_pos)
-        if block_end == -1:
-            block_end = content.find('\n# ', insert_pos)
-        if block_end == -1:
-            return content
-        new_fields = f'\n- **Проверок на религионизмы:** {count}\n- **Последняя проверка:** {today}'
-        content = content[:block_end] + new_fields + content[block_end:]
+        if insert_pos != -1:
+            block_end = content.find('\n---', insert_pos)
+            if block_end == -1:
+                block_end = content.find('\n## ', insert_pos)
+            if block_end == -1:
+                block_end = content.find('\n# ', insert_pos)
+            if block_end != -1:
+                new_fields = f'\n- **Проверок на религионизмы:** {count}\n- **Последняя проверка:** {today}'
+                content = content[:block_end] + new_fields + content[block_end:]
 
-    if date_match:
-        content = re.sub(
-            r'[-*]\s*\*\*Последняя проверка:\*\*\s*[^\n]+',
-            f'- **Последняя проверка:** {today}',
-            content
-        )
+    # Дата последней проверки
+    content = re.sub(
+        r'[-*]\s*\*\*Последняя проверка:\*\*\s*[^\n]+',
+        f'- **Последняя проверка:** {today}',
+        content
+    )
+
+    # Хеш
+    body_start = content.find('---\n', content.find('**Метаданные файла**'))
+    if body_start != -1:
+        body = content[body_start + 4:]
+        new_hash = hashlib.md5(body.encode('utf-8')).hexdigest()[:8]
+        if re.search(r'[-*]\s*\*\*Хеш:\*\*\s*\S+', content):
+            content = re.sub(
+                r'[-*]\s*\*\*Хеш:\*\*\s*\S+',
+                f'- **Хеш:** {new_hash}',
+                content
+            )
 
     return content
 
@@ -179,7 +194,7 @@ def build_replacement_map():
         if not sources_newer:
             try:
                 cache = json.loads(read_file_safe(CACHE_FILE))
-                if cache.get("_version") == "3.1":
+                if cache.get("_version") == "3.2":
                     return cache["replacements"], cache["fast_filter"], re.compile(cache["mega_regex"])
             except Exception:
                 pass
@@ -203,7 +218,7 @@ def build_replacement_map():
     mega_regex = re.compile(r'\b(' + '|'.join(re.escape(w) for w in sorted_words) + r')\b', re.IGNORECASE)
 
     cache_data = {
-        "_version": "3.1",
+        "_version": "3.2",
         "replacements": ru_replacements,
         "fast_filter": fast_filter,
         "mega_regex": mega_regex.pattern
@@ -257,28 +272,46 @@ def find_religionisms_fast(text, mega_regex, replacements):
 def fix_religionisms(text, replacements, mega_regex):
     protected, metadata = protect_metadata(text)
     count = 0
-    quoted_map = {f"__Q{i}__": m.group() for i, m in enumerate(re.finditer(r'«[^»]*»|"[^"]*"|\'[^\']*\'', protected))}
-    for placeholder, original in quoted_map.items():
-        protected = protected.replace(original, placeholder, 1)
+
+    # Защищаем цитаты
+    quoted_map = {}
+    for i, m in enumerate(re.finditer(r'«[^»]*»|"[^"]*"|\'[^\']*\'', protected)):
+        placeholder = f"__Q{i}__"
+        quoted_map[placeholder] = m.group()
+        protected = protected.replace(m.group(), placeholder, 1)
 
     def replacer(match):
         nonlocal count
         word = match.group()
         wl = word.lower()
+
+        # Не заменяем если слово внутри другого слова (бог → богатый)
+        start = match.start()
+        end = match.end()
+        if start > 0 and protected[start-1].isalpha():
+            return word
+        if end < len(protected) and protected[end].isalpha():
+            return word
+
         for w, correct in replacements.items():
             if w.lower() == wl and w.lower() != correct.lower():
                 count += 1
-                return correct[0].upper() + correct[1:] if word[0].isupper() else correct
+                if word[0].isupper():
+                    return correct[0].upper() + correct[1:]
+                return correct
         return word
 
     protected = mega_regex.sub(replacer, protected)
+
+    # Восстанавливаем цитаты
     for placeholder, original in quoted_map.items():
         protected = protected.replace(placeholder, original, 1)
+
     if metadata:
         protected = restore_metadata(protected, metadata)
 
     if count > 0:
-        protected = update_check_counter(protected)
+        protected = update_metadata_fields(protected)
 
     return protected, count
 
@@ -392,6 +425,8 @@ def scan_files(replacements, fast_filter, mega_regex, check_only=True):
 def main():
     check_only = "--fix" not in sys.argv
     rebuild_cache = "--rebuild" in sys.argv
+    verbose = "--verbose" in sys.argv or "-v" in sys.argv
+    save_mode = "--save" in sys.argv
 
     if not check_only:
         for f in (SCAN_CACHE_FILE, DIRTY_CACHE_FILE):
@@ -408,44 +443,63 @@ def main():
     replacements, fast_filter, mega_regex = build_replacement_map()
     print(f"✅ Загружено русских слов: {len(replacements)}")
     print(f"⚡ Быстрый фильтр: {len(fast_filter)} префиксов")
-    print(f"🛡️ Метаданные защищены, иврит в белом списке")
-    print(f"📊 Счётчик проверок будет обновлён в метаданных")
+    print(f"🛡️ Метаданные защищены, иврит в белом списке ({len(HEBREW_WHITELIST)} слов)")
+    print(f"📊 Счётчик проверок и хеш будут обновлены в метаданных")
 
-    print_header("ПРОВЕРКА НА РЕЛИГИОНИЗМЫ" if check_only else "ИСПРАВЛЕНИЕ РЕЛИГИОНИЗМОВ",
-                 "🔍" if check_only else "🔧")
+    label = "ПРОВЕРКА НА РЕЛИГИОНИЗМЫ" if check_only else "ИСПРАВЛЕНИЕ РЕЛИГИОНИЗМОВ"
+    print_header(label, "🔍" if check_only else "🔧")
 
     total_found, files_with_issues, total_replacements = scan_files(replacements, fast_filter, mega_regex, check_only)
 
     if not files_with_issues:
-        print_success("Религионизмов не найдено")
+        print_success("🎉 Религионизмов не найдено")
         return 0
 
-    print(f"📁 Файлов с религионимами: {len(files_with_issues)}")
+    print(f"\n📁 Файлов с религионимами: {len(files_with_issues)}")
     print(f"📝 Всего найдено слов: {sum(total_found.values())}\n")
 
     print("🔝 Самые частые:")
     for word, cnt in sorted(total_found.items(), key=lambda x: x[1], reverse=True)[:10]:
-        print(f"  {word:15} {cnt:4}  {'█' * min(cnt, 50)}")
+        bar = "█" * min(cnt, 50)
+        print(f"  {word:15} {cnt:4}  {bar}")
 
-    print(f"\n📋 Файлы (первые 15):")
-    for file_path, found in files_with_issues[:15]:
+    print(f"\n📋 Файлы:")
+    for file_path, found in (files_with_issues if verbose else files_with_issues[:15]):
         total = sum(found.values())
         top_word = max(found, key=found.get)
         print(f"  • {file_path} — {total} шт. (чаще: «{top_word}»)")
 
-    if len(files_with_issues) > 15:
+    if len(files_with_issues) > 15 and not verbose:
         print(f"  ... и ещё {len(files_with_issues) - 15} файлов")
 
     if check_only:
-        print_hint("Для исправления: python tools/checkers/check-religionisms.py --fix")
+        print_hint("\nДля исправления: python tools/checkers/check-religionisms.py --fix")
         print_hint("Перестроить кэш:  python tools/checkers/check-religionisms.py --rebuild")
     else:
-        print_success(f"Исправлено: {total_replacements} замен в {len(files_with_issues)} файлах")
-        print_hint("Счётчик проверок обновлён в метаданных (Проверок на религионизмы: N)")
+        print_success(f"\n✅ Исправлено: {total_replacements} замен в {len(files_with_issues)} файлах")
+        print_hint("Счётчик проверок и хеш обновлены в метаданных")
+
+    if save_mode:
+        report = REPO_ROOT / "reports" / f"religionisms-report-{datetime.now().strftime('%Y%m%d-%H%M%S')}.md"
+        lines = [
+            "# 📖 ОТЧЁТ О РЕЛИГИОНИЗМАХ",
+            f"**Дата:** {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+            f"**Файлов с религионимами:** {len(files_with_issues)}",
+            f"**Всего найдено слов:** {sum(total_found.values())}",
+            "",
+            "## 🔝 Самые частые",
+        ]
+        for word, cnt in sorted(total_found.items(), key=lambda x: x[1], reverse=True)[:20]:
+            lines.append(f"- **{word}**: {cnt}")
+        lines.append("\n## 📋 Файлы")
+        for file_path, found in files_with_issues:
+            lines.append(f"- `{file_path}` — {sum(found.values())} шт.")
+        report.parent.mkdir(exist_ok=True)
+        report.write_text("\n".join(lines) + "\n", encoding='utf-8')
+        print_success(f"Отчёт сохранён: {report}")
 
     return 0
 
 
 if __name__ == "__main__":
     sys.exit(main())
-
