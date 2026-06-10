@@ -17,14 +17,14 @@ IGNORE_FILES = {"README.md", "STRUCTURE.md", "GLOSSARY.md", "CHANGELOG.md"}
 
 
 def extract_title(content):
-    match = content.split("\n")[0] if content else ""
-    if match.startswith("# "):
-        title = match[2:].strip()
-        for prefix in ["📜 ", "🔥 ", "🔄 ", "🛠️ ", "🔒 ", "🤝 ", "💻 ", "📦 ", "🎯 ",
-                        "️ ", "📋 ", "⚖️ ", "📊 ", "🧭 ", "📌 "]:
-            title = title.removeprefix(prefix)
-        return title[:80]
-    return ""
+    import re
+    match = re.search(r'^#\s+(.+?)$', content, re.MULTILINE)
+    if match:
+        title = match.group(1)
+        # Убираем эмоджи
+        title = re.sub(r'[\U0001F000-\U0001FFFF\u2600-\u27BF\uFE00-\uFEFF\u200D\uFE0F]', '', title)
+        return title.strip()[:80]
+    return ''
 
 
 def extract_topic(content):
