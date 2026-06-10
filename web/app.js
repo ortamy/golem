@@ -1,17 +1,18 @@
-// Golem Web Interface v9.0 — PC + Mobile, адаптивный, Live Server + Node.js
+// Golem Web Interface v9.1 — PC + Mobile, адаптивный, Live Server + Node.js
 
 (function() {
     'use strict';
 
     var IS_LOCAL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
     var API = IS_LOCAL ? '/api/files' : 'files.json';
-    var IS_MOBILE = window.innerWidth <= 768;
 
     var FILES = [],
         currentPath = null,
         bookmarks = JSON.parse(localStorage.getItem('golem_bookmarks') || '[]'),
         fileHistory = JSON.parse(localStorage.getItem('golem_history') || '[]'),
         categories = {};
+
+    function isMobile() { return window.innerWidth <= 768; }
 
     function $(id) { return document.getElementById(id); }
 
@@ -46,9 +47,10 @@
     }
 
     function filterFiles() {
-        var q = (IS_MOBILE ? $('search-mobile') : $('search'));
-        var cat = (IS_MOBILE ? $('category-select-mobile') : $('category-select'));
-        var sub = (IS_MOBILE ? $('subcategory-select-mobile') : $('subcategory-select'));
+        var m = isMobile();
+        var q = m ? $('search-mobile') : $('search');
+        var cat = m ? $('category-select-mobile') : $('category-select');
+        var sub = m ? $('subcategory-select-mobile') : $('subcategory-select');
         q = q ? q.value.toLowerCase() : '';
         cat = cat ? cat.value : '';
         sub = sub ? sub.value : '';
@@ -62,9 +64,9 @@
                    (f.path || '').toLowerCase().indexOf(q) >= 0;
         });
 
-        if (cat === 'Исследования') {
-            var ss = (IS_MOBILE ? $('subcategory-select-mobile') : $('subcategory-select'));
-            if (ss) {
+        var ss = m ? $('subcategory-select-mobile') : $('subcategory-select');
+        if (ss) {
+            if (cat === 'Исследования') {
                 ss.style.display = 'block';
                 var subs = {};
                 FILES.forEach(function(f) {
@@ -75,10 +77,10 @@
                 sn.forEach(function(s) {
                     ss.innerHTML += '<option value="' + s + '"' + (s === sub ? ' selected' : '') + '>' + s + '</option>';
                 });
+            } else {
+                ss.style.display = 'none';
+                ss.value = '';
             }
-        } else {
-            var ss2 = (IS_MOBILE ? $('subcategory-select-mobile') : $('subcategory-select'));
-            if (ss2) { ss2.style.display = 'none'; ss2.value = ''; }
         }
 
         return list;
@@ -108,21 +110,45 @@
             container.appendChild(d);
         });
 
-        var statsEl = IS_MOBILE ? $('stats-mobile') : $('total-count');
+        var statsEl = isMobile() ? $('stats-mobile') : $('total-count');
         if (statsEl) statsEl.textContent = filtered.length;
     }
 
     function render() {
-        if (IS_MOBILE) {
-            renderList('mobile-list-view', 'file-item-mobile', 'cat-header-mobile', openFileMobile);
-            if ($('stats-mobile')) $('stats-mobile').textContent = 'Файлов: ' + filterFiles().length;
-        } else {
-            renderList('file-list', 'file-item', 'cat-header', loadFile);
-            if ($('total-count')) $('total-count').textContent = filterFiles().length;
-        }
-        renderBookmarks();
-        renderHistory();
+    if (isMobile()) {
+        var mlv = $('mobile-list-view');
+        // Удаляем только старые элементы списка
+        var items = mlv.querySelectorAll('.file-item-mobile, .cat-header-mobile');
+        for (var i = 0; i < items.length; i++) items[i].remove();
+
+        var filtered = filterFiles();
+        var cc = '';
+        filtered.forEach(function(f) {
+            if (f.category !== cc) {
+                cc = f.category;
+                var h = document.createElement('div');
+                h.className = 'cat-header-mobile';
+                h.textContent = cc;
+                mlv.appendChild(h);
+            }
+            var d = document.createElement('div');
+            d.className = 'file-item-mobile';
+            d.innerHTML = '<div class="title">' + esc(f.title || f.path) + '</div>' +
+                (f.topic ? '<div class="topic">' + esc((f.topic || '').substring(0, 90)) + '</div>' : '');
+            d.onclick = (function(p) { return function() { openFileMobile(p); }; })(f.path);
+            mlv.appendChild(d);
+        });
+
+        var sm = $('stats-mobile');
+        if (sm) sm.textContent = 'Файлов: ' + filtered.length;
+    } else {
+        renderList('file-list', 'file-item', 'cat-header', loadFile);
+        var tc = $('total-count');
+        if (tc) tc.textContent = filterFiles().length;
     }
+    renderBookmarks();
+    renderHistory();
+}
 
     function parseMD(t) {
         t = t.replace(/\*\*Метаданные файла\*\*[\s\S]*?(?=\n---|\n# |\n## )/, '');
@@ -159,21 +185,24 @@
             setupQuoteCopy();
             void c.offsetWidth;
             c.classList.add('fade-in');
-        }, function(e) {
+        }, function() {
             c.innerHTML = '<div style="color:#ff4d00;padding:40px;">Ошибка: ' + esc(p) + '</div>';
         });
     }
 
     function openFileMobile(p) {
         currentPath = p;
-        var fp = $('file-page');
-        fp.style.display = 'block';
+        $('file-page').style.display = 'block';
         $('file-path-hint').textContent = p;
         var bm = $('file-bookmark-btn');
         bm.textContent = bookmarks.indexOf(p) >= 0 ? '★' : '☆';
         bm.className = 'bookmark-btn' + (bookmarks.indexOf(p) >= 0 ? ' active' : '');
         $('mobile-list-view').style.display = 'none';
         $('stats-mobile').style.display = 'none';
+        var bm = $('file-bookmark-btn');
+        bm.textContent = bookmarks.indexOf(p) >= 0 ? '★' : '☆';
+        bm.className = 'bookmark-btn' + (bookmarks.indexOf(p) >= 0 ? ' active' : '');
+        bm.onclick = function() { toggleBookmark(p); };
 
         var c = $('file-content-mobile');
         c.innerHTML = '<div class="spinner"></div>';
@@ -247,7 +276,7 @@
         if (i >= 0) bookmarks.splice(i, 1);
         else bookmarks.push(p);
         localStorage.setItem('golem_bookmarks', JSON.stringify(bookmarks));
-        if (IS_MOBILE) {
+        if (isMobile()) {
             var bm = $('file-bookmark-btn');
             bm.textContent = bookmarks.indexOf(p) >= 0 ? '★' : '☆';
             bm.className = 'bookmark-btn' + (bookmarks.indexOf(p) >= 0 ? ' active' : '');
@@ -273,7 +302,7 @@
                 d.className = 'bookmark-item';
                 var bf = FILES.find(function(x) { return x.path === p; });
                 d.textContent = bf ? (bf.title || p) : p;
-                d.onclick = function() { if (IS_MOBILE) openFileMobile(p); else loadFile(p); };
+                d.onclick = function() { if (isMobile()) openFileMobile(p); else loadFile(p); };
                 list.appendChild(d);
             });
         });
@@ -291,7 +320,7 @@
                 d.className = 'history-item';
                 var f = FILES.find(function(x) { return x.path === p; });
                 d.textContent = (f ? f.title : p || '').substring(0, 40);
-                d.onclick = function() { if (IS_MOBILE) openFileMobile(p); else loadFile(p); };
+                d.onclick = function() { if (isMobile()) openFileMobile(p); else loadFile(p); };
                 list.appendChild(d);
             });
         });
@@ -313,7 +342,7 @@
         if (!FILES.length) return;
         closeBurger();
         var p = FILES[Math.floor(Math.random() * FILES.length)].path;
-        if (IS_MOBILE) openFileMobile(p); else loadFile(p);
+        if (isMobile()) openFileMobile(p); else loadFile(p);
     }
 
     function copyCurrentLink() {
@@ -343,14 +372,15 @@
 
     document.addEventListener('keydown', function(e) {
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+        var m = isMobile();
         if (e.key === '/') {
-            var s = IS_MOBILE ? $('search-mobile') : $('search');
+            var s = m ? $('search-mobile') : $('search');
             if (s) s.focus();
             e.preventDefault();
         }
         if (e.key === 'Escape') {
-            if (IS_MOBILE && currentPath) closeFile();
-            else { var s2 = IS_MOBILE ? $('search-mobile') : $('search'); if (s2) s2.blur(); }
+            if (m && currentPath) closeFile();
+            else { var s2 = m ? $('search-mobile') : $('search'); if (s2) s2.blur(); }
         }
         if (e.key === 'b' && currentPath) toggleBookmark(currentPath);
         if (e.key === 'r') randomFile();
@@ -364,17 +394,18 @@
     window.copyCurrentLink = copyCurrentLink;
     window.toggleBookmark = toggleBookmark;
     window.closeFile = closeFile;
+    window.render = render;
 
     // Старт
     fetchJSON(API, function(data) {
         FILES = data;
         FILES.forEach(function(f) { categories[f.category] = true; });
         buildSelect('category-select');
-        if (IS_MOBILE) buildSelect('category-select-mobile');
+        if (isMobile()) buildSelect('category-select-mobile');
         render();
     }, function(e) {
         console.error('Ошибка загрузки:', e.message);
-        var el = IS_MOBILE ? $('mobile-list-view') : $('file-list');
+        var el = isMobile() ? $('mobile-list-view') : $('file-list');
         if (el) el.innerHTML = '<div style="padding:20px;color:#ff4d00;">Ошибка загрузки данных.</div>';
     });
 })();
