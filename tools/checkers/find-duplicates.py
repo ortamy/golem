@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/find-duplicates.py — поиск дубликатов среди md-файлов
 import sys
 from pathlib import Path

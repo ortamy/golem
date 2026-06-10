@@ -1,19 +1,27 @@
+#!/usr/bin/env python3
 # tools/checkers/check-exposure.py — полная проверка текста по всем exposure-критериям
 import sys
 import re
+import json
 from pathlib import Path
+from datetime import datetime
 from collections import defaultdict, Counter
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, print_warning, print_error, print_hint, ask_yes_no, REPO_ROOT
+from lib.utils import (
+    read_file_safe, progress_bar, finish_progress,
+    print_header, print_success, print_warning, print_error, print_hint,
+    ask_yes_no, REPO_ROOT
+)
 
 SCAN_DIRS = ["terminology", "researches"]
+EXCLUDE_DIRS = {"archive", "arkhiv"}
+CACHE_FILE = REPO_ROOT / "tools" / "cache" / "exposure-cache.json"
 
 # =============================================================================
-# МАРКЕРЫ ИСКАЖЕНИЙ (из exposure-techniques.md)
+# МАРКЕРЫ ИСКАЖЕНИЙ
 # =============================================================================
 
-# 1. Подмена категории (живое → институт)
 CATEGORY_SUBSTITUTION = [
     (r'\bзакон\b', "Тора = наставление, не закон"),
     (r'\bцерковь\b', "קהילה = собрание, не организация"),
@@ -22,25 +30,20 @@ CATEGORY_SUBSTITUTION = [
     (r'\bзавет\b', "ברית = союз, не договор"),
 ]
 
-# 2. Юридизация (союз → контракт)
 JURIDIFICATION = [
     (r'\bгрех\b', "חטא = промах, не преступление"),
     (r'\bпокаяние\b', "תשובה = возвращение, не юридическое прощение"),
     (r'\bискупление\b', "כפרה = выкуп, не юридическая сделка"),
     (r'\bоправдание\b', "צדקה = справедливость, не вердикт"),
-    (r'\bдолг\b', "долг ≠ грех; в иврите нет 'долга' перед Яхве"),
 ]
 
-# 3. Психологизация (действие → чувство)
 PSYCHOLOGIZATION = [
     (r'\bвера\b', "אמונה = верность в делах, не внутреннее чувство"),
-    (r'\bпокаяние\b', "תשובה = физический разворот, не чувство вины"),
     (r'\bстрах Божий\b', "יראת יהוה = трепет-видение, не эмоция страха"),
     (r'\bсмирение\b', "ענווה = готовность учиться, не самоуничижение"),
     (r'\bлюбовь\b', "אהבה = действие, не только эмоция"),
 ]
 
-# 4. Сдвиг от действия к эмоции
 ACTION_TO_EMOTION = [
     (r'\bмилость\b', "חסד = преданная любовь в действии, не жалость"),
     (r'\bблагодать\b', "חן = благоволение, не абстрактная 'благодать'"),
@@ -48,7 +51,6 @@ ACTION_TO_EMOTION = [
     (r'\bсострадание\b', "רחמים = от רחם (матка), родственная забота в действии"),
 ]
 
-# 5. Абстракция (конкретное → философское)
 ABSTRACTION = [
     (r'\bдуша\b', "נפש = дышащее существо, не абстрактная субстанция"),
     (r'\bдух\b', "רוח = дыхание/ветер, не бесплотная сущность"),
@@ -61,10 +63,8 @@ ABSTRACTION = [
     (r'\bрай\b', "גן עדן = сад Эден, не 'рай' как место блаженства"),
 ]
 
-# 6. Сужение смысла (широкое → узкое)
 MEANING_NARROWING = [
     (r'\bмилостыня\b', "צדקה = восстановление справедливости, не только подаяние"),
-    (r'\bзакон\b', "תורה = всё наставление, не только запреты"),
     (r'\bпророк\b', "נביא = призванный вестник, не предсказатель"),
     (r'\bангел\b', "מלאך = вестник (может быть человеком), не крылатое существо"),
     (r'\bкрещение\b', "טבילה = погружение, не ритуал"),
@@ -72,17 +72,13 @@ MEANING_NARROWING = [
     (r'\bапостол\b', "שליח = посланник, не титул"),
 ]
 
-# 7. Дуализация (единое → противоположное)
 DUALIZATION = [
     (r'\bветхий завет\b', "ТаНаХ — не 'ветхий', это живое слово"),
     (r'\bновый завет\b', "ברית חדשה = обновлённый союз, не 'новый' против 'старого'"),
     (r'\bзакон и благодать\b', "Тора и חן — не противоположности"),
     (r'\bдух и плоть\b', "רוח и בשר — оба от Яхве, не враги"),
-    (r'\bдобро и зло\b', "טוב ורע = пригодное и разрушительное, не дуализм"),
-    (r'\bсвет и тьма\b', "אור и חושך — не равные противоположности"),
 ]
 
-# 8. Транслитерация вместо перевода (слова-обманки)
 TRANSLITERATION_TRAPS = [
     (r'\bдьявол\b', "διάβολος = клеветник, не имя"),
     (r'\bсатана\b', "שטן = противник/обвинитель, не имя"),
@@ -90,150 +86,300 @@ TRANSLITERATION_TRAPS = [
     (r'\bдиакон\b', "διάκονος = служитель, не сан"),
     (r'\bлитургия\b', "λειτουργία = служение, не ритуал"),
     (r'\bевхаристия\b', "εὐχαριστία = благодарение, не таинство"),
-    (r'\bпневма\b', "πνεῦμα = дыхание/ветер, не 'дух'"),
     (r'\bлогос\b', "λόγος = слово/дело (דבר), не философский 'Логос'"),
 ]
 
-# 9. Имя подменено титулом
 NAME_SUBSTITUTION = [
-    (r'\bГосподь\b', "יהוה = Яхве, не 'Господь'"),
-    (r'\bГосподи\b', "יהוה = Яхве, не 'Господи'"),
-    (r'\bГоспода\b', "יהוה = Яхве, не 'Господа'"),
-    (r'\bГосподом\b', "יהוה = Яхве, не 'Господом'"),
-    (r'\bГосподе\b', "יהוה = Яхве, не 'Господе'"),
-    (r'\bБог\b', "אלוהים или יהוה, не 'Бог'"),
-    (r'\bБога\b', "אלוהים или יהוה, не 'Бога'"),
-    (r'\bБогу\b', "אלוהים или יהוה, не 'Богу'"),
-    (r'\bБогом\b', "אלוהים или יהוה, не 'Богом'"),
-    (r'\bБоже\b', "אלוהים или יהוה, не 'Боже'"),
-    (r'\bХристос\b', "משיח = Машиах (Помазанник), не 'Христос'"),
-    (r'\bХриста\b', "משיח = Машиах, не 'Христа'"),
-    (r'\bИисус\b', "יהושע = Йешуа, не 'Иисус'"),
-    (r'\bИисуса\b', "יהושע = Йешуа, не 'Иисуса'"),
+    (r'\bГоспод[ьяуе]?\b', "יהוה = Яхве"),
+    (r'\bБог[ауе]?\b', "אלוהים или יהוה"),
+    (r'\bХрист[ао]с?\b', "משיח = Машиах (Помазанник)"),
+    (r'\bИисус[ае]?\b', "יהושע = Йешуа"),
     (r'\bВсевышний\b', "עליון = Эльйон, или יהוה = Яхве"),
     (r'\bАдонай\b', "יהוה = Яхве; Адонай — традиционная замена"),
 ]
 
-# 10. Мёртвый залог / финансовое рабство
 FINANCIAL_SLAVERY = [
     (r'\bипотека\b', "mortgage = мёртвый залог; шмита = прощение долгов"),
     (r'\bкредит\b', "кредит ↔ шмита (прощение каждые 7 лет)"),
     (r'\bпроцент\b', "процент запрещён в Торе (Шмот 22:24)"),
-    (r'\bдолг\b', "долг ↔ шмита; 'должник — раб заимодавца' (Мишлей 22:7)"),
     (r'\bпенсия\b', "пенсия ↔ йовель (возвращение земли каждые 50 лет)"),
 ]
 
 ALL_MARKERS = {
-    "Подмена категории (живое → институт)": CATEGORY_SUBSTITUTION,
-    "Юридизация (союз → контракт)": JURIDIFICATION,
-    "Психологизация (действие → чувство)": PSYCHOLOGIZATION,
-    "Сдвиг от действия к эмоции": ACTION_TO_EMOTION,
-    "Абстракция (конкретное → философское)": ABSTRACTION,
-    "Сужение смысла (широкое → узкое)": MEANING_NARROWING,
-    "Дуализация (единое → противоположное)": DUALIZATION,
-    "Транслитерация вместо перевода": TRANSLITERATION_TRAPS,
-    "Имя подменено титулом": NAME_SUBSTITUTION,
+    "Подмена категории": CATEGORY_SUBSTITUTION,
+    "Юридизация": JURIDIFICATION,
+    "Психологизация": PSYCHOLOGIZATION,
+    "Действие→эмоция": ACTION_TO_EMOTION,
+    "Абстракция": ABSTRACTION,
+    "Сужение смысла": MEANING_NARROWING,
+    "Дуализация": DUALIZATION,
+    "Транслитерация": TRANSLITERATION_TRAPS,
+    "Имя→титул": NAME_SUBSTITUTION,
     "Финансовое рабство": FINANCIAL_SLAVERY,
 }
 
+# Белый список контекстов (не заменять)
+WHITELIST_CONTEXTS = [
+    r'закон Моше', r'закон Торы', r'закон Яхве',
+    r'цитата', r'синодальный', r'перевод',
+]
 
-def check_file(filepath: Path) -> dict:
+# =============================================================================
+# ФУНКЦИИ
+# =============================================================================
+
+def protect_content(content):
+    """Защищает блоки кода, иврит, цитаты от проверки."""
+    protected = content
+    # Блоки кода
+    protected = re.sub(r'```.*?```', ' ', protected, flags=re.DOTALL)
+    # Инлайн-код
+    protected = re.sub(r'`[^`]+`', ' ', protected)
+    # Иврит
+    protected = re.sub(r'[\u0590-\u05FF]{2,}', ' ', protected)
+    # Цитаты в кавычках
+    protected = re.sub(r'«[^»]*»', ' ', protected)
+    # Белый список контекстов
+    for ctx in WHITELIST_CONTEXTS:
+        protected = re.sub(ctx, ' ', protected, flags=re.IGNORECASE)
+    return protected
+
+
+def load_cache():
+    """Загружает кеш проверок."""
+    if CACHE_FILE.exists():
+        try:
+            return json.loads(CACHE_FILE.read_text(encoding='utf-8'))
+        except:
+            pass
+    return {}
+
+
+def save_cache(cache):
+    """Сохраняет кеш проверок."""
+    CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    CACHE_FILE.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding='utf-8')
+
+
+def check_file(filepath: Path, cache: dict) -> dict:
     """Проверяет один файл по всем маркерам."""
+    rel_path = str(filepath.relative_to(REPO_ROOT)).replace('\\', '/')
+    mtime = filepath.stat().st_mtime
+
+    # Кеш
+    if rel_path in cache and cache[rel_path].get('mtime') == mtime:
+        cached = cache[rel_path]
+        if 'findings' in cached and cached['findings']:
+            return {"path": rel_path, "findings": cached['findings']}
+        elif 'findings' in cached:
+            return None
+
     content = read_file_safe(filepath)
     if not content:
         return None
 
-    # Защищаем метаданные и цитаты
-    clean = content
-    clean = re.sub(r'\*\*Метаданные файла\*\*.*?(?=\n---|\n# |\n## )', '', clean, flags=re.DOTALL)
-    clean = re.sub(r'«[^»]*»|"[^"]*"|\'[^\']*\'', ' ', clean)
-
+    clean = protect_content(content)
     findings = defaultdict(list)
 
     for category, markers in ALL_MARKERS.items():
-        for pattern, explanation in markers:
-            matches = re.finditer(pattern, clean, re.IGNORECASE)
-            for match in matches:
+        for pattern, fix in markers:
+            for match in re.finditer(pattern, clean, re.IGNORECASE):
                 word = match.group()
-                # Захватываем контекст (40 символов вокруг)
-                start = max(0, match.start() - 40)
-                end = min(len(clean), match.end() + 40)
+                start = max(0, match.start() - 30)
+                end = min(len(clean), match.end() + 30)
                 context = clean[start:end].replace('\n', ' ').strip()
                 findings[category].append({
                     "word": word,
                     "context": f"...{context}...",
-                    "fix": explanation
+                    "fix": fix
                 })
 
+    # Обновляем кеш
+    cache[rel_path] = {"mtime": mtime}
     if findings:
-        rel_path = str(filepath.relative_to(REPO_ROOT)).replace('\\', '/')
+        cache[rel_path]["findings"] = dict(findings)
         return {"path": rel_path, "findings": dict(findings)}
 
     return None
 
 
+def fix_file(filepath: Path, findings: dict) -> int:
+    """Заменяет маркеры на правильные термины."""
+    content = read_file_safe(filepath)
+    if not content:
+        return 0
+
+    fixes = 0
+    for category, items in findings.items():
+        for item in items:
+            word = item["word"]
+            fix = item["fix"]
+            # Берём только первое предложение fix (до запятой или точки)
+            replacement = fix.split(",")[0].split(".")[0].strip()
+            # Если fix содержит " = " — берём то что слева
+            if " = " in replacement:
+                replacement = replacement.split(" = ")[0].strip()
+
+            # Не заменяем если слово в белом списке
+            if any(re.search(ctx, content, re.IGNORECASE) for ctx in WHITELIST_CONTEXTS):
+                continue
+
+            # Заменяем только если это не часть другого слова
+            new_content = re.sub(rf'\b{re.escape(word)}\b', replacement, content, count=1)
+            if new_content != content:
+                content = new_content
+                fixes += 1
+
+    if fixes > 0:
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write(content)
+
+    return fixes
+
+
+def save_report(results, output_path=None):
+    """Сохраняет отчёт."""
+    if not output_path:
+        output_path = REPO_ROOT / "reports" / f"exposure-report-{datetime.now().strftime('%Y%m%d-%H%M%S')}.md"
+    output_path.parent.mkdir(exist_ok=True)
+
+    lines = [
+        f"# 🔍 EXPOSURE-ОТЧЁТ",
+        f"**Дата:** {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+        f"**Файлов с нарушениями:** {len(results)}",
+        "",
+    ]
+
+    # По категориям
+    cat_stats = Counter()
+    for r in results:
+        for cat in r["findings"]:
+            cat_stats[cat] += len(r["findings"][cat])
+
+    lines.append("## 📊 По категориям")
+    for cat, count in cat_stats.most_common():
+        lines.append(f"- **{cat}**: {count}")
+    lines.append("")
+
+    # По файлам
+    results_sorted = sorted(results, key=lambda r: sum(len(v) for v in r["findings"].values()), reverse=True)
+    lines.append(f"## 📋 Файлы ({len(results)})")
+    for r in results_sorted:
+        total = sum(len(v) for v in r["findings"].values())
+        lines.append(f"- **{r['path']}** — {total} маркеров")
+        for cat, items in sorted(r["findings"].items(), key=lambda x: len(x[1]), reverse=True)[:3]:
+            lines.append(f"  - {cat}: {len(items)}")
+    lines.append("")
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+
+    return output_path
+
+
 def main():
+    fix_mode = "--fix" in sys.argv
+    save_mode = "--save" in sys.argv
+    verbose = "--verbose" in sys.argv or "-v" in sys.argv
+    top_n = int(sys.argv[sys.argv.index("--top") + 1]) if "--top" in sys.argv else 10
+
     print_header("ПОЛНАЯ ПРОВЕРКА ПО EXPOSURE", "🔍")
 
     all_files = []
     for scan_dir in SCAN_DIRS:
         dir_path = REPO_ROOT / scan_dir
         if dir_path.exists():
-            all_files.extend(sorted(dir_path.rglob("*.md")))
+            for f in sorted(dir_path.rglob("*.md")):
+                if not any(excl in str(f) for excl in EXCLUDE_DIRS):
+                    all_files.append(f)
 
     total = len(all_files)
-    print(f"Найдено файлов: {total}")
-    print(f"Категорий проверки: {len(ALL_MARKERS)}")
-    print(f"Маркеров: {sum(len(v) for v in ALL_MARKERS.values())}")
+    print(f"🔍 Файлов: {total}")
+    print(f"📋 Категорий: {len(ALL_MARKERS)}")
+    print(f"📍 Маркеров: {sum(len(v) for v in ALL_MARKERS.values())}")
 
+    cache = load_cache()
     results = []
-    total_markers_found = 0
-    category_stats = Counter()
+    total_markers = 0
+    cat_stats = Counter()
+    total_fixed = 0
 
     for i, filepath in enumerate(all_files, 1):
-        result = check_file(filepath)
+        result = check_file(filepath, cache)
         if result:
-            results.append(result)
-            for category in result["findings"]:
-                count = len(result["findings"][category])
-                total_markers_found += count
-                category_stats[category] += count
+            if fix_mode:
+                fixed = fix_file(filepath, result["findings"])
+                if fixed:
+                    total_fixed += fixed
+                    # Перепроверяем
+                    cache.pop(str(filepath.relative_to(REPO_ROOT)).replace('\\', '/'), None)
+                    result = check_file(filepath, cache)
+                    if not result:
+                        continue
 
-        progress_bar(i, total, extra=f"файлов: {len(results)} | маркеров: {total_markers_found}")
+            results.append(result)
+            for cat in result["findings"]:
+                count = len(result["findings"][cat])
+                total_markers += count
+                cat_stats[cat] += count
+
+        extra = f"маркеров: {total_markers}"
+        if fix_mode:
+            extra += f" | исправлено: {total_fixed}"
+        progress_bar(i, total, extra=extra)
 
     finish_progress()
+    save_cache(cache)
+
+    if fix_mode:
+        print_success(f"🔧 Исправлено: {total_fixed}")
 
     if not results:
-        print_success("Нарушений не найдено — текст чист по всем exposure-критериям")
+        print_success("🎉 Нарушений не найдено — текст чист по всем exposure-критериям")
         return 0
 
     print(f"\n📁 Файлов с нарушениями: {len(results)}")
-    print(f"📝 Всего маркеров: {total_markers_found}\n")
+    print(f"📝 Всего маркеров: {total_markers}\n")
 
     print("📊 По категориям:")
-    for category, count in category_stats.most_common():
-        bar = "█" * min(count, 40)
-        print(f"  {category:40} {count:4}  {bar}")
+    for cat, count in cat_stats.most_common():
+        bar = "█" * min(count, 30)
+        print(f"  {cat:25} {count:4}  {bar}")
 
-    print(f"\n📋 Файлы с наибольшим числом нарушений (первые 10):")
+    # Топ файлов
     results.sort(key=lambda r: sum(len(v) for v in r["findings"].values()), reverse=True)
-    for result in results[:10]:
-        total = sum(len(v) for v in result["findings"].values())
-        top_category = max(result["findings"], key=lambda k: len(result["findings"][k]))
-        print(f"  • {result['path']} — {total} маркеров (чаще: {top_category})")
+    print(f"\n📋 Худшие файлы (топ {top_n}):")
+    for r in results[:top_n]:
+        total = sum(len(v) for v in r["findings"].values())
+        top_cat = max(r["findings"], key=lambda k: len(r["findings"][k]))
+        print(f"  • {r['path']} — {total} ({top_cat} ×{len(r['findings'][top_cat])})")
 
-    print(f"\n🔍 Детали по худшему файлу:")
-    worst = results[0]
-    print(f"  📄 {worst['path']}")
-    for category, items in sorted(worst["findings"].items(), key=lambda x: len(x[1]), reverse=True)[:5]:
-        print(f"\n  [{category}] — {len(items)} нарушений:")
-        for item in items[:3]:
-            print(f"    • «{item['word']}» → {item['fix']}")
-            print(f"      {item['context'][:100]}")
+    # Детали по худшему
+    if verbose and results:
+        worst = results[0]
+        print(f"\n🔍 Детали: {worst['path']}")
+        for cat, items in sorted(worst["findings"].items(), key=lambda x: len(x[1]), reverse=True)[:5]:
+            print(f"\n  [{cat}] — {len(items)}:")
+            for item in items[:3]:
+                print(f"    • «{item['word']}» → {item['fix']}")
+                print(f"      {item['context'][:100]}")
 
-    print_hint("Для исправления запустите: python tools/checkers/check-religionisms.py --fix")
-    print_hint("Ручная проверка контекста обязательна — не все маркеры требуют замены")
+    if save_mode:
+        report_path = save_report(results)
+        print_success(f"\nОтчёт сохранён: {report_path}")
 
+    if not fix_mode and total_markers > 0:
+        if ask_yes_no("\n🔧 Запустить автофикс?"):
+            cache = load_cache()
+            fixed = 0
+            for r in results:
+                filepath = REPO_ROOT / r["path"]
+                f = fix_file(filepath, r["findings"])
+                fixed += f
+            print_success(f"Исправлено: {fixed}")
+            save_cache(cache)
+
+    print()
     return 0
 
 

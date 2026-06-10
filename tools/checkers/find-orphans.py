@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/find-orphans.py — поиск файлов-сирот (на которые нет ссылок)
 import sys
 import re

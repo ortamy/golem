@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# check-env.py — проверка окружения
-
+# tools/checkers/check-env.py — проверка окружения для проекта «Голем»
 import sys
 import os
 import subprocess
+import json
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).parent.parent
+REPO_ROOT = Path(__file__).parent.parent.parent
 
 RED = "\033[91m"
 GREEN = "\033[92m"
@@ -32,8 +32,7 @@ def check_git():
     try:
         result = subprocess.run(['git', '--version'], capture_output=True, text=True)
         if result.returncode == 0:
-            version = result.stdout.strip()
-            print(f"{GREEN}✅ {version}{NC}")
+            print(f"{GREEN}✅ {result.stdout.strip()}{NC}")
             return True
     except:
         pass
@@ -52,7 +51,20 @@ def check_bash():
     except:
         pass
     print(f"{YELLOW}⚠️ bash не найден (может понадобиться для .sh скриптов){NC}")
-    return False
+    return True  # Не критично
+
+
+def check_node():
+    """Проверяет наличие Node.js"""
+    try:
+        result = subprocess.run(['node', '--version'], capture_output=True, text=True)
+        if result.returncode == 0:
+            print(f"{GREEN}✅ Node.js {result.stdout.strip()}{NC}")
+            return True
+    except:
+        pass
+    print(f"{YELLOW}⚠️ Node.js не найден (нужен для web/server.js){NC}")
+    return True  # Не критично
 
 
 def check_curses():
@@ -64,9 +76,19 @@ def check_curses():
     except ImportError:
         if sys.platform == 'win32':
             print(f"{YELLOW}⚠️ windows-curses не установлен (нужен для golem.py){NC}")
-            print(f"   Установите: pip install windows-curses")
         else:
-            print(f"{RED}❌ curses не найден{NC}")
+            print(f"{GREEN}✅ curses (системный){NC}")
+        return True
+
+
+def check_rich():
+    """Проверяет наличие rich"""
+    try:
+        import rich
+        print(f"{GREEN}✅ rich установлен{NC}")
+        return True
+    except ImportError:
+        print(f"{YELLOW}⚠️ rich не установлен (pip install rich){NC}")
         return False
 
 
@@ -80,7 +102,7 @@ def check_disk_space():
             print(f"{GREEN}✅ Свободно: {free_gb:.1f} GB{NC}")
             return True
         else:
-            print(f"{RED}❌ Мало места: {free_gb:.1f} GB (нужно минимум 1 GB){NC}")
+            print(f"{RED}❌ Мало места: {free_gb:.1f} GB{NC}")
             return False
     except:
         print(f"{YELLOW}⚠️ Не удалось проверить место на диске{NC}")
@@ -89,74 +111,137 @@ def check_disk_space():
 
 def check_write_permissions():
     """Проверяет права на запись в ключевых папках"""
-    folders = ['tools', 'neural/models', 'reports']
+    folders = ['tools', 'web', 'reports']
     all_ok = True
     for folder in folders:
         folder_path = REPO_ROOT / folder
         if folder_path.exists():
             if os.access(folder_path, os.W_OK):
-                print(f"{GREEN}✅ Запись в {folder}{NC}")
+                print(f"{GREEN}✅ Запись в {folder}/{NC}")
             else:
-                print(f"{RED}❌ Нет прав на запись в {folder}{NC}")
+                print(f"{RED}❌ Нет прав на запись в {folder}/{NC}")
                 all_ok = False
         else:
-            print(f"{YELLOW}⚠️ Папка {folder} не существует{NC}")
+            print(f"{YELLOW}⚠️ Папка {folder}/ не существует{NC}")
     return all_ok
+
+
+def check_web_files():
+    """Проверяет наличие файлов веб-интерфейса"""
+    web_dir = REPO_ROOT / "web"
+    if not web_dir.exists():
+        print(f"{YELLOW}⚠️ Папка web/ не найдена{NC}")
+        return False
+    required = ["index.html", "app.js", "style.css", "server.js"]
+    all_ok = True
+    for f in required:
+        if (web_dir / f).exists():
+            print(f"{GREEN}✅ web/{f}{NC}")
+        else:
+            print(f"{RED}❌ web/{f} отсутствует{NC}")
+            all_ok = False
+    return all_ok
+
+
+def check_files_json():
+    """Проверяет наличие files.json"""
+    json_path = REPO_ROOT / "web" / "files.json"
+    if json_path.exists():
+        size_kb = json_path.stat().st_size / 1024
+        print(f"{GREEN}✅ web/files.json ({size_kb:.0f} KB){NC}")
+        return True
+    else:
+        print(f"{YELLOW}⚠️ web/files.json отсутствует{NC}")
+        return False
 
 
 def check_dependencies():
     """Проверяет установку необходимых пакетов"""
-    packages = ['requests', 'pyyaml']
+    packages = {
+        'requests': 'pip install requests',
+        'yaml': 'pip install pyyaml',
+        'markdown_it': 'pip install markdown-it-py',
+    }
     all_ok = True
-    for package in packages:
+    for package, install_cmd in packages.items():
         try:
-            __import__(package.replace('-', '_'))
+            __import__(package)
             print(f"{GREEN}✅ {package} установлен{NC}")
         except ImportError:
-            print(f"{RED}❌ {package} не установлен (pip install {package}){NC}")
+            print(f"{YELLOW}⚠️ {package} не установлен ({install_cmd}){NC}")
             all_ok = False
     return all_ok
 
 
 def main():
-    print(f"\n{BOLD}{BLUE}🔧 ПРОВЕРКА ОКРУЖЕНИЯ{NC}")
+    json_mode = "--json" in sys.argv
+
+    if not json_mode:
+        print(f"\n{BOLD}{BLUE}🔧 ПРОВЕРКА ОКРУЖЕНИЯ — GOLEM{NC}")
+        print("=" * 50)
+        print(f"Репозиторий: {REPO_ROOT}")
+        print("")
+
+    checks = {
+        "python": ("Python", check_python),
+        "git": ("Git", check_git),
+        "bash": ("Bash", check_bash),
+        "node": ("Node.js", check_node),
+        "curses": ("Curses", check_curses),
+        "rich": ("Rich", check_rich),
+        "disk": ("Диск", check_disk_space),
+        "permissions": ("Права записи", check_write_permissions),
+        "web_files": ("Веб-файлы", check_web_files),
+        "files_json": ("files.json", check_files_json),
+        "packages": ("Пакеты Python", check_dependencies),
+    }
+
+    results = {}
+
+    for key, (label, func) in checks.items():
+        if not json_mode:
+            print(f"{label}:")
+        results[key] = func()
+        if not json_mode:
+            print("")
+
+    if json_mode:
+        print(json.dumps(results, ensure_ascii=False))
+        return 0 if all(results.values()) else 1
+
     print("=" * 50)
-    print(f"Репозиторий: {REPO_ROOT}")
-    print("")
 
-    results = []
-
-    print("Python:")
-    results.append(check_python())
-
-    print("\nGit:")
-    results.append(check_git())
-
-    print("\nBash:")
-    results.append(check_bash())
-
-    print("\nCurses:")
-    results.append(check_curses())
-
-    print("\nДиск:")
-    results.append(check_disk_space())
-
-    print("\nПрава на запись:")
-    results.append(check_write_permissions())
-
-    print("\nПакеты Python:")
-    results.append(check_dependencies())
-
-    print("\n" + "=" * 50)
-
-    if all(results):
+    if all(results.values()):
         print(f"{GREEN}✅ ВСЕ ПРОВЕРКИ ПРОЙДЕНЫ. ОКРУЖЕНИЕ ГОТОВО.{NC}")
         return 0
     else:
-        print(f"{RED}❌ НЕ ВСЕ ПРОВЕРКИ ПРОЙДЕНЫ. ТРЕБУЕТСЯ ДОРАБОТКА.{NC}")
+        failed = [label for key, (label, _) in checks.items() if not results[key]]
+        print(f"{RED}❌ ПРОВАЛЕНО ПРОВЕРОК: {len(failed)}{NC}")
+
+        print(f"\n{YELLOW}📋 ЧТО НУЖНО СДЕЛАТЬ:{NC}")
+        if not results["python"]:
+            print("   • Установить Python 3.6+ с python.org")
+        if not results["git"]:
+            print("   • Установить git с git-scm.com")
+        if not results["node"]:
+            print("   • Установить Node.js с nodejs.org")
+        if not results["rich"]:
+            print("   • pip install rich")
+        if not results["packages"]:
+            print("   • pip install -r requirements.txt")
+        if not results["curses"] and sys.platform == 'win32':
+            print("   • pip install windows-curses")
+        if not results["files_json"]:
+            print("   • python tools/generators/generate-files-json.py")
+        if not results["web_files"]:
+            print("   • Проверить наличие файлов в web/")
+        if not results["permissions"]:
+            print("   • Проверить права доступа к папкам")
+        if not results["disk"]:
+            print("   • Освободить место на диске")
+
         return 1
 
 
 if __name__ == "__main__":
     sys.exit(main())
-

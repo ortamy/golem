@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/checkers/validate-external-links.py — проверка внешних HTTP-ссылок
 import sys
 import re

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/automation/sort-files.py — интеллектуальная сортировка файлов (v4.5)
 import sys
 import re

@@ -1,9 +1,10 @@
+#!/usr/bin/env python3
 # tools/checkers/fix-encoding.py — конвертация Windows-1251 → UTF-8
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, print_warning, ask_yes_no, REPO_ROOT
+# from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, print_warning, ask_yes_no, REPO_ROOT  # TODO: проверить, используется ли
 
 SCAN_DIRS = ["researches/religionizmes", "researches/teachings"]
 
@@ -60,3 +61,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

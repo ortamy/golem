@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/checkers/clear-cache.py — сброс всего кэша проекта
 import sys
 from pathlib import Path

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/checkers/check-metadata-consistency.py — сверка папки в метаданных с реальным путём
 import sys
 import re

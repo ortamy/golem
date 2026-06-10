@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/checkers/check-religionisms.py — поиск и исправление религионимов (v3.1 FINAL)
 import sys
 import re
@@ -447,3 +448,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

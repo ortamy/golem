@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/checkers/check-tahor-sync.py — сверка словарей tahor/ с forbidden-words.md
 import sys
 import re

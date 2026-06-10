@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/consistency-checker.py
 import sys
 import re

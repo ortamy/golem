@@ -1,189 +1,150 @@
-# tools/checkers/check-file-names-language.py — проверка чистоты языка имён файлов (v5.0 FINAL)
+#!/usr/bin/env python3
+# tools/checkers/check-file-names-language.py — проверка чистоты языка имён файлов
 import sys
 import re
 from pathlib import Path
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, print_warning, print_hint, REPO_ROOT
+from lib.utils import (
+    read_file_safe, progress_bar, finish_progress,
+    print_header, print_success, print_warning, print_hint,
+    ask_yes_no, REPO_ROOT
+)
 
-SCAN_DIRS = ["terminology", "researches"]
+SCAN_DIRS = ["terminology", "researches", "drafts", "ideas"]
 
-# =============================================================================
-# ИВРИТСКИЕ ПАТТЕРНЫ (всё что является ивритом)
-# =============================================================================
-HEBREW_PARTS = {
-    # Служебные частицы (предлоги, артикли, союзы)
-    "ha", "va", "be", "ba", "la", "le", "ka", "ke", "ve", "u",
-    "me", "mi", "she", "et", "al", "el", "ad", "im", "lo",
-    # Короткие ивритские слова
-    "el", "ra", "tov", "or", "tam", "shem", "lev", "ben", "bat",
-    "av", "em", "yam", "yad", "rosh", "ish", "isha", "bayit",
-    "eretz", "am", "goy", "torah", "mitz", "ahav", "shir",
-    # Полные слова
-    "avar", "atid", "beit", "mikdash", "emuna", "etz", "daat",
-    "kohen", "hagadol", "lashon", "kodesh", "mene", "tekel",
-    "tohu", "vohu", "yhwh", "yir", "palaestina", "satan",
-    "nachash", "nefesh", "ruach", "chesed", "tzedek", "shalom",
-    "shabbat", "torah", "melech", "navi", "koach", "kavod",
-    "brit", "mishpat", "mishkan", "mikveh", "korban", "tefilah",
-    "tshuva", "tvilah", "yeshuah", "yovel", "sheerit", "shekel",
-    "sheol", "shmitah", "olam", "levav", "levad", "lamad",
-    "nefesh", "neshamah", "nishmah", "naaf", "ivri", "golem",
-    "gibor", "eved", "emet", "arur", "arum", "asur", "avon",
-    "cherut", "chamas", "barach", "bavel", "gerim", "goyim",
-    "heichal", "het", "karet", "kehillah", "malach", "mashiah",
-    "midbar", "mishchah", "nicham", "niddah", "panim", "pesel",
-    "rapha", "resha", "zarak", "zera",
-    # Ивритские паттерны (для автоопределения)
-    "ch", "sh", "tz", "ah", "eh", "ih", "oh", "uh", "kh",
-    "im", "ot", "ut", "av", "ev", "iv", "et", "it",
-    "yah", "yahu", "yir", "derech", "hevel", "shamayim",
-}
+# Папки, где должны быть ивритские имена
+HEBREW_REQUIRED_DIRS = {"terminology"}
+HEBREW_REQUIRED_SUBDIRS = {"tanakh"}
+
+# Папки, где иврит не нужен (технические, языковые, системные)
+NON_HEBREW_SUBDIRS = {"language", "systems", "practices", "sociology", "psychology",
+                       "economy", "media", "medicine", "science", "history",
+                       "sport", "companies", "names", "books", "archive",
+                       "teachings", "slavery", "roman-law", "languages"}
 
 # =============================================================================
-# ТОЧНО НЕ ИВРИТ
+# ИВРИТСКИЕ СЛОВА — строится динамически из terminology/
 # =============================================================================
-NON_HEBREW = {
-    # Английские слова
-    "the", "and", "for", "are", "but", "not", "you", "all", "can", "had", "her",
-    "was", "one", "our", "out", "has", "have", "from", "they", "this", "that",
-    "with", "will", "been", "were", "some", "what", "when", "your", "which",
-    "their", "time", "about", "would", "could", "should", "there", "these",
-    "those", "after", "before", "under", "over", "into", "onto", "upon",
-    "people", "world", "life", "death", "love", "hate", "good", "evil",
-    "power", "money", "water", "earth", "light", "dark", "fire", "wind",
-    "history", "system", "truth", "faith", "hope", "peace", "order", "war",
-    "first", "last", "next", "more", "less", "most", "least",
-    "human", "woman", "child", "place", "thing", "point", "part",
-    "body", "mind", "heart", "soul", "spirit", "flesh", "blood",
-    "house", "home", "land", "king", "lord", "god", "book", "word",
-    "sun", "moon", "star", "tree", "seed", "fruit", "bread", "wine",
-    "science", "psychology", "medicine", "economy", "politics",
-    "sociology", "media", "sport", "language", "teaching",
-    "origin", "theory", "myth", "ritual", "control", "strategy",
-    "support", "structure", "research", "analysis", "distortion",
-    "comparison", "slavery", "temple", "study", "method", "practice",
-    "principle", "concept", "process", "project", "problem", "solution",
-    "ism", "ity", "ion", "ing", "ment", "ness", "ship",
-    # Имена собственные
-    "paracelsus", "hippocrates", "einstein", "newton", "darwin",
-    "freud", "jung", "platon", "aristotle", "socrates",
-    "ibm", "google", "amazon", "apple", "microsoft", "facebook", "meta",
-    "blackrock", "vanguard", "goldman", "jpmorgan", "palantir", "neuralink",
-    "helena", "natasha", "ortam", "kissinger", "machiavelli", "hitler",
-    "budda", "mohammed", "confucius", "lao", "zarathustra",
-    "pornography", "pedophilia", "psychology", "sociology",
-    # Библейские грецизмы/латинизмы
-    "abracadabra", "apocalypse", "armageddon", "exorcism",
-    "resurrection", "catholic", "orthodox", "protestant",
-    "nicaea", "trinity", "christ", "jesus", "baptism",
-    "eucharist", "liturgy", "diocese", "patriarch",
-    "adonai", "balaam", "beelzebub", "golgotha", "gehenna",
-    "mammon", "messiah", "satan", "cherub", "seraph",
-    # Русские корни (транслит)
-    "pravoslav", "hristian", "katolic", "klerikal", "lyucifer",
-    "mormon", "pyatidesyat", "farisei", "kabbal",
-    "talmud", "rabbin", "masson", "mason", "fash", "kommun",
-    "social", "capital", "totalitar", "colonial",
-    "slavs", "slavic", "slav", "russian", "soviet",
-    # Английские слова с ивритскими паттернами (ложные срабатывания)
-    "pyramid", "sachs", "goldman", "religion", "hacker",
-    "karaism", "palaestina", "satan", "not", "support",
-    "bunker", "history", "religion",
-}
+def load_hebrew_words():
+    """Загружает ивритские слова из имён файлов в terminology/."""
+    words = set()
+    term_dir = REPO_ROOT / "terminology"
+    if term_dir.exists():
+        for f in term_dir.glob("*.md"):
+            words.add(f.stem)
+    # Добавляем известные ивритские паттерны
+    patterns = {
+        "ha", "va", "be", "ba", "la", "le", "ka", "ke", "ve", "u",
+        "me", "mi", "she", "et", "al", "el", "ad", "im", "lo",
+        "ch", "sh", "tz", "ah", "eh", "ih", "oh", "uh", "kh",
+        "yah", "yahu", "yir", "elohim", "adonai",
+    }
+    words.update(patterns)
+    return words
+
+
+HEBREW_WORDS = load_hebrew_words()
 
 
 def part_is_hebrew(part: str) -> bool:
     """Проверяет, является ли часть имени ивритским словом."""
-    if part in NON_HEBREW:
-        return False
-    if part in HEBREW_PARTS:
+    if part in HEBREW_WORDS:
         return True
-    if len(part) <= 2:
-        return False
-    # Проверяем ивритские паттерны
-    for pattern in HEBREW_PARTS:
-        if len(pattern) >= 3 and (pattern in part.lower() or part.lower() == pattern):
+    # Проверяем окончания
+    for suffix in ["ah", "eh", "ih", "oh", "uh", "im", "ot", "ut", "av", "ev"]:
+        if part.endswith(suffix) and len(part) >= 4:
+            return True
+    # Начинается с ивритского префикса
+    for prefix in ["ha", "va", "be", "ba", "la", "le", "ka", "ke", "ve", "me", "mi", "she"]:
+        if part.startswith(prefix) and len(part) >= 4:
             return True
     return False
 
 
-def part_is_english(part: str) -> bool:
-    """Проверяет, является ли часть имени английским словом."""
-    if part in NON_HEBREW:
-        return True
-    if part in HEBREW_PARTS:
-        return False
-    # Нет ивритских паттернов
-    for pattern in HEBREW_PARTS:
-        if len(pattern) >= 3 and pattern in part.lower():
-            return False
-    return True
-
-
-def analyze_name(stem: str) -> dict:
+def analyze_name(stem: str, rel_path: str) -> dict:
     """Анализирует имя файла."""
+    # Русские буквы
     if re.search(r'[а-яё]', stem, re.IGNORECASE):
         return {"type": "russian", "clean": False}
 
     parts = stem.split('-')
     hebrew_parts = []
-    english_parts = []
+    other_parts = []
 
     for part in parts:
         if part_is_hebrew(part):
             hebrew_parts.append(part)
-        elif part_is_english(part):
-            english_parts.append(part)
         else:
-            english_parts.append(part)
+            other_parts.append(part)
 
-    if hebrew_parts and english_parts:
-        return {"type": "mixed", "hebrew": hebrew_parts, "english": english_parts, "clean": False}
+    if hebrew_parts and other_parts:
+        return {
+            "type": "mixed",
+            "hebrew": hebrew_parts,
+            "other": other_parts,
+            "clean": False,
+            "suggestion": "-".join(hebrew_parts) if len(hebrew_parts) >= 1 else "-".join(other_parts)
+        }
     elif hebrew_parts:
         return {"type": "hebrew", "clean": True}
     else:
-        return {"type": "english", "clean": True}
+        return {"type": "other", "clean": True}
 
 
 def check_file(filepath: Path) -> dict:
-    content = read_file_safe(filepath)
-    if not content:
-        return None
-
+    """Проверяет файл."""
     stem = filepath.stem
     rel_path = str(filepath.relative_to(REPO_ROOT)).replace('\\', '/')
     parts = rel_path.split('/')
-    is_terminology = parts[0] == "terminology"
-    is_tanakh = len(parts) >= 2 and parts[-2] == "tanakh"
 
-    analysis = analyze_name(stem)
+    # Определяем контекст
+    is_terminology = parts[0] == "terminology"
+    subdir = parts[1] if len(parts) > 2 else ""
+
+    requires_hebrew = is_terminology or (parts[0] == "researches" and subdir in HEBREW_REQUIRED_SUBDIRS)
+    allows_other = parts[0] in ("drafts", "ideas") or (parts[0] == "researches" and subdir in NON_HEBREW_SUBDIRS)
+
+    analysis = analyze_name(stem, rel_path)
     issues = []
 
-    if is_terminology or is_tanakh:
-        if analysis["type"] == "mixed":
-            issues.append(f"смесь: иврит ({', '.join(analysis['hebrew'])}) + англ ({', '.join(analysis['english'])})")
-        elif analysis["type"] == "english":
-            issues.append(f"английское имя: '{stem}'")
+    if requires_hebrew:
+        if analysis["type"] == "other":
+            issues.append(f"должен быть иврит, а не '{stem}'")
+        elif analysis["type"] == "mixed":
+            issues.append(f"смесь: иврит ({', '.join(analysis['hebrew'])}) + ({', '.join(analysis['other'])})")
         elif analysis["type"] == "russian":
-            issues.append(f"русские буквы: '{stem}'")
-    else:
-        if analysis["type"] == "mixed":
-            issues.append(f"смесь: иврит ({', '.join(analysis['hebrew'])}) + англ ({', '.join(analysis['english'])})")
-        elif analysis["type"] == "hebrew":
-            issues.append(f"иврит в не-танах: '{stem}'")
+            issues.append(f"русские буквы в имени")
+    elif not allows_other:
+        if analysis["type"] == "hebrew":
+            issues.append(f"иврит в не-танахической папке: '{stem}'")
+        elif analysis["type"] == "mixed":
+            issues.append(f"смесь в не-танахической папке")
         elif analysis["type"] == "russian":
-            issues.append(f"русские буквы: '{stem}'")
+            issues.append(f"русские буквы в имени")
 
     if issues:
-        return {"path": rel_path, "issues": issues, "type": analysis["type"]}
+        result = {"path": rel_path, "issues": issues, "type": analysis["type"]}
+        if "suggestion" in analysis:
+            result["suggestion"] = analysis["suggestion"]
+        return result
 
     return None
 
 
+def fix_file(filepath: Path, suggestion: str) -> bool:
+    """Переименовывает файл, убирая не-ивритские части."""
+    new_path = filepath.parent / (suggestion + ".md")
+    if new_path.exists():
+        return False
+    filepath.rename(new_path)
+    return True
+
+
 def main():
     fix_mode = "--fix" in sys.argv
+    verbose = "--verbose" in sys.argv or "-v" in sys.argv
 
     print_header("ПРОВЕРКА ЧИСТОТЫ ЯЗЫКА ИМЁН", "🏷️")
 
@@ -194,58 +155,82 @@ def main():
             all_files.extend(sorted(dir_path.rglob("*.md")))
 
     total = len(all_files)
-    print(f"Найдено файлов: {total}")
-
+    clean_count = 0
     issues_found = []
+    suggestions = {}
+
+    print(f"🔍 Файлов: {total}")
+    print(f"📚 Ивритских слов загружено: {len(HEBREW_WORDS)}")
 
     for i, filepath in enumerate(all_files, 1):
         result = check_file(filepath)
         if result:
             issues_found.append(result)
+            if "suggestion" in result:
+                suggestions[result["path"]] = result["suggestion"]
+        else:
+            clean_count += 1
+
         progress_bar(i, total, extra=f"проблем: {len(issues_found)}")
 
     finish_progress()
 
     if not issues_found:
-        print_success("Все имена файлов чистые")
+        print_success("🎉 Все имена файлов чистые")
         return 0
 
-    print_warning(f"Файлов с проблемами: {len(issues_found)}")
+    print(f"\n📁 Файлов с проблемами: {len(issues_found)}")
+    print(f"✅ Чистых файлов: {clean_count} ({clean_count * 100 // total}%)")
 
-    stats = defaultdict(int)
+    stats = Counter()
     for result in issues_found:
         for issue in result["issues"]:
-            if "русские" in issue: stats["русские буквы"] += 1
-            elif "смесь" in issue: stats["смесь языков"] += 1
-            elif "иврит в не-танах" in issue: stats["иврит в не-танах"] += 1
-            elif "английское" in issue: stats["англ в танахе"] += 1
+            if "русские" in issue:
+                stats["русские буквы"] += 1
+            elif "смесь" in issue:
+                stats["смесь языков"] += 1
+            elif "должен быть иврит" in issue:
+                stats["должен быть иврит"] += 1
+            elif "иврит в не-танах" in issue:
+                stats["иврит в не-танах"] += 1
+            else:
+                stats[issue] += 1
 
     print("\n📊 Типы проблем:")
-    for t, c in sorted(stats.items()):
-        print(f"   {t}: {c}")
+    for t, c in stats.most_common():
+        print(f"  • {t}: {c}")
 
-    if len(issues_found) <= 30:
-        print(f"\n📋 Все файлы:")
-        for result in issues_found:
-            print(f"\n  📄 {result['path']}")
-            for issue in result["issues"]:
-                print(f"    • {issue}")
+    print(f"\n📋 Файлы ({len(issues_found)}):")
+    for result in (issues_found[:25] if not verbose else issues_found):
+        sugg = f" → {result['suggestion']}" if "suggestion" in result else ""
+        print(f"  📄 {result['path']}: {'; '.join(result['issues'])}{sugg}")
+    if len(issues_found) > 25 and not verbose:
+        print(f"  ... и ещё {len(issues_found) - 25}")
+
+    if fix_mode:
+        if not suggestions:
+            print_warning("Нет файлов для переименования")
+            return 0
+        if not ask_yes_no(f"\n🔧 Переименовать {len(suggestions)} файлов?"):
+            return 0
+
+        renamed = 0
+        for i, (rel_path, suggestion) in enumerate(suggestions.items(), 1):
+            filepath = REPO_ROOT / rel_path
+            if fix_file(filepath, suggestion):
+                renamed += 1
+            progress_bar(i, len(suggestions), extra=f"переименовано: {renamed}")
+
+        finish_progress()
+        print_success(f"✅ Переименовано: {renamed}")
     else:
-        print(f"\n📋 Первые 20 из {len(issues_found)}:")
-        for result in issues_found[:20]:
-            print(f"\n  📄 {result['path']}")
-            for issue in result["issues"]:
-                print(f"    • {issue}")
-        print(f"\n  ... и ещё {len(issues_found) - 20}")
+        if suggestions:
+            print_hint(f"\nПредложений по переименованию: {len(suggestions)}")
+        print_hint("Запустите --fix для исправления смешанных имён")
 
     print()
-    print_hint("Иврит → переместите в tanakh/ (sort-files.py)")
-    print_hint("Английский в танахе → переместите из tanakh/")
-    print_hint("Смесь → переименуйте в чистое имя")
-
     return 0
 
 
 if __name__ == "__main__":
     sys.exit(main())
-

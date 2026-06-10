@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/checkers/fix-metadata-fields.py — исправление полей метаданных (русский → правильный)
 import sys
 import re

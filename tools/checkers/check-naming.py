@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/check-naming.py — проверка имён md-файлов
 import sys
 import re
