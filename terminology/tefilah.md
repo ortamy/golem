@@ -10,7 +10,6 @@
 - **Тема:** Разбор понятия תְּפִלָּה (тфила) — самоисследование. Четыре вида обращения к Яхве: тфила, тхина, зеака, шира. Разоблачение «молитвы» как минhаг. В ТаНаХ нет «молитвы» — есть живой разговор.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `terminology/tefilah.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-system-architecture.md`
 - **Хеш:** 36abd25c
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -112,7 +111,6 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-mechanisms.md`
 - `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/hebrew-reconstruction.md`

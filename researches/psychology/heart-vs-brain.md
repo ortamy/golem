@@ -1,7 +1,6 @@
 # 📜 לֵב וּמֹחַ — Лев И МОЗГ: ТАНАХИЧЕСКАЯ МОДЕЛЬ Тодаа
 
 **Метаданные файла**
-- **Файл:** `researches/heart-vs-brain.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-04
 - **Последнее обновление:** 2026-06-04
@@ -10,7 +9,6 @@
 - **Тема:** Лев против мозга. ТаНаХическая модель тодаа: лев как центр мышления, мозг как фильтр. Разоблачение греческой модели «мозг — центр, сердце — насос». Увда нейронауки, подтверждающие ТаНаХ.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/heart-vs-brain.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/translation-methodology.md`, `researches/economy/banks-and-financial-dynasties.md`
 - **Хеш:** 3d59dcfd
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -163,8 +161,7 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/tanakh/magen-david.md`
 - `terminology/torah.md`

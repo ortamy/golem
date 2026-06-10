@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # add-metadata.py — массовое добавление метаданных в файлы
 
-import os
+# import os  # TODO: проверить, используется ли
 import re
 import argparse
 from pathlib import Path

@@ -1,7 +1,6 @@
 # 📜 БАШАХ (ב.ש.ח) — Мивне ЕВРЕЙСКОГО НОВОГО Брит
 
 **Метаданные файла**
-- **Файл:** `researches/bashah-structure.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Предложение новой аббревиатуры «БаШаХ» для еврейского Нового Брит, аналогичной ТаНаХ, с историческим обоснованием
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/bashah-structure.md`, `instructions/exposure/exposure-language-control.md`, `instructions/methodology/hebrew-reconstruction.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`
 - **Хеш:** fe3b1415
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -157,7 +155,6 @@
 
 Как ТаНаХ, БаШаХ нужно читать, исследовать, понимать. Не делить на «важное» и «неважное». Не бояться Хазона. Не обесценивать Шлихим.
 
-См. также: `brit-hadashah.md` — о значении мунах «Обновлённый Союз».
 
 Дэрех Яхве — не дэрех иерархии текстов. Дэрех Яхве — дэрех целостного свидетельства.
 
@@ -172,8 +169,7 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-language-control.md`
 - `instructions/methodology/hebrew-reconstruction.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/tanakh/gog-and-magog.md`
 - `terminology/el.md`

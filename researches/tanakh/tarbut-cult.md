@@ -1,7 +1,6 @@
 # 📜 תַּרְבּוּת — НЕ «КУЛЬТУРА», А Hиштахавая СКРЫТЫМ Элоhим
 
 **Метаданные файла**
-- **Файл:** `researches/tarbut-cult.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение латинского корня «культуры» как скрытого культа. Культура — это hиштахавая, а не безобидное «возделывание души».
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/tarbut-cult.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
 - **Хеш:** 7122193a
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -65,7 +63,6 @@
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/history-of-money.md`
 - `researches/tanakh/magen-david.md`
 - `terminology/el.md`
 - `terminology/torah.md`

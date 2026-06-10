@@ -161,5 +161,4 @@ hа-Де́рех Яхве
 - `instructions/methodology/transliteration-distortions.md`
 - `instructions/tahor/names.md`
 - `instructions/tahor/phrases.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`

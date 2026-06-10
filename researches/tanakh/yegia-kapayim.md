@@ -1,7 +1,6 @@
 # 📜 יְגִיעַ כַּפַּיִם — НЕ «ТЯЖЁЛЫЙ ТРУД», А Авода РУКАМИ, ЧТОБЫ ЕСТЬ
 
 **Метаданные файла**
-- **Файл:** `researches/yegia-kapayim.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение искажения понятия амаль в переводах и возвращение библейского машмаут — амаль как браха и хофеш
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/yegia-kapayim.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** c60cf187
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -55,7 +53,6 @@
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `researches/tanakh/gog-and-magog.md`
 - `terminology/shabbat.md`

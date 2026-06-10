@@ -73,7 +73,7 @@ python tools/checkers/check-metadata-consistency.py --fix
 ```
 
 ### `check-links.py`
-Проверка внутренних ссылок `[текст](файл.md)`.
+Проверка внутренних ссылок `[текст](docs/INDEX.md)`.
 ```bash
 python tools/checkers/check-links.py
 ```

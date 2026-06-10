@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/generators/fill-empty-files.py — заполнение пустых и незаполненных md-файлов
 import sys
 import re

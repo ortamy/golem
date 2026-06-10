@@ -1,7 +1,6 @@
 # 📜 חָדָשׁ — НЕ «НОВЫЙ», А ВОЗВРАЩЁННЫЙ
 
 **Метаданные файла**
-- **Файл:** `researches/chadash-restored.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение ложного перевода слова «хадаш» как «новый» и возвращение истинного машмаут — «возвращённый, восстановленный»
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/chadash-restored.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** 36be0812
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

@@ -4,7 +4,7 @@
 import sys
 import re
 import subprocess
-import json
+# import json  # TODO: проверить, используется ли
 from pathlib import Path
 from datetime import datetime, timedelta
 from collections import defaultdict

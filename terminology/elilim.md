@@ -10,7 +10,6 @@
 - **Тема:** Разбор понятия אֱלִילִים (элилим) — ничтожные, бессильные. Давар вестников для чужих коах. Игра слов с Элохим. Отличие от гоим и авода зара.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `terminology/elilim.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `researches/economy/history-of-money.md`
 - **Хеш:** 212295dc
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -152,5 +151,4 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/history-of-money.md`
 - `terminology/yhwh.md`

@@ -10,7 +10,6 @@
 - **Тема:** Как выпускать новые версии проекта «Голем»
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/release-process.md`, `terminology/hesed.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `terminology/yhwh.md`
 - **Хеш:** 11e947db
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -74,8 +73,6 @@
 - [ ] запустить все проверки: `python3 tools/menu.py` → пункт 16
 - [ ] убедиться, что нет критических ошибок
 - [ ] обновить версии во всех файлах: `python3 tools/update-versions.py --type minor`
-- [ ] обновить `docs/CHANGELOG.md`
-- [ ] обновить `docs/ROADMAP.md` (если нужно)
 
 ### ВО ВРЕМЯ ВЫПУСКА
 
@@ -85,7 +82,6 @@
 
 ### ПОСЛЕ ВЫПУСКА
 
-- [ ] обновить `README.md` (версию в примерах)
 - [ ] создать бэкап: `./tools/backup.sh`
 - [ ] уведомить участников
 
@@ -99,16 +95,11 @@
 ## [1.1.0] - 2026-06-05
 
 ### Добавлено
-- новый термин: `terminology/hesed.md`
 - новый инструмент: `tools/check-links.py`
-- инструкция: `workflow.md`
 
 ### Исправлено
-- опечатка в `README.md`
-- битая ссылка в `structure.md`
 
 ### Удалено
-- устаревший файл `drafts/old-idea.md`
 ```
 
 **ПРАВИЛА:**

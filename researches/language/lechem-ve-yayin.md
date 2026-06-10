@@ -1,7 +1,6 @@
 # 📜 לֶחֶם וְיַיִן — НЕ «ПРИЧАСТИЕ», А Сеуда Брит
 
 **Метаданные файла**
-- **Файл:** `researches/lechem-ve-yayin.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение подмены сеуда брит на «причастие». Подмена объекта hиштахавая: Йешуа вместо Яхве.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/lechem-ve-yayin.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** 62a521ac
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

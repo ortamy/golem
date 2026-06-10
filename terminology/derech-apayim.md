@@ -1,7 +1,6 @@
 # 📜 אֶרֶךְ אַפַּיִם — ЭРЕХ АПАЙИМ: ДОЛГОЕ ДЫХАНИЕ ВМЕСТО ТЕРПЕНИЯ
 
 **Метаданные файла**
-- **Файл:** `terminology\derech-apayim.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-31
 - **Последнее обновление:** 2026-05-31
@@ -10,7 +9,7 @@
 - **Тема:** Разбор понятия אֶרֶךְ אַפַּיִם (эрех апайим) — долготерпение. Почему в ТаНаХ нет пассивного «терпения». Три активных действия: удержание гнева, ожидание с битахон, несение бремени с матара.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/translation-methodology.md`, `researches/economy/banks-and-financial-dynasties.md`
+- **Связанные файлы:** `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/translation-methodology.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - **Хеш:** 7eef706f
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -150,8 +149,7 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/tanakh/magen-david.md`
 - `terminology/yhwh.md`

@@ -1,7 +1,6 @@
 # 📜 אַפּוֹקָלִיפְּסָה — НЕ «КОНЕЦ СВЕТА», А ОТКРЫТИЕ ЗАНАВЕСА
 
 **Метаданные файла**
-- **Файл:** `researches/apocalypse.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение ложного значения слова «апокалипсис» и возвращение ему библейского машмаут
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/apocalypse.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `terminology/mashiah-peshat.md`
 - **Хеш:** 594a9871
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

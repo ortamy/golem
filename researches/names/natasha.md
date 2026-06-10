@@ -1,7 +1,6 @@
 # 📜 НЕТАНИЯ (NETANYAH) — ДАР ЯХВЕ
 
 **Метаданные файла**
-- **Файл:** `terminology/natasha.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-06-07
 - **Последнее обновление:** 2026-06-07
@@ -10,7 +9,6 @@
 - **Тема:** НЕТАНИЯ (NETANYAH) — ДАР ЯХВЕ
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `terminology/natasha.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/tahor/names.md`
 - **Хеш:** 213000f6
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -113,6 +111,5 @@
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/tahor/names.md`
-- `instructions/tahor/religionisms.md`
 - `researches/tanakh/magen-david.md`
 - `terminology/yhwh.md`

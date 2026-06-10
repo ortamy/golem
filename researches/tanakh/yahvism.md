@@ -1,7 +1,6 @@
 # 🏷️ ЯХВИЗМ: ПРОИСХОЖДЕНИЕ Мунах И ЕГО ЗНАЧЕНИЯ
 
 **Метаданные файла**
-- **Файл:** `researches/yahvism.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Происхождение мунах «яхвизм», его академическое употребление и религиозное использование как таг
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/yahvism.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/names.md`, `researches/tanakh/gog-and-magog.md`, `terminology/el.md`
 - **Хеш:** ddee8b41
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

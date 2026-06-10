@@ -1,7 +1,6 @@
 # ⛪ ЦЕРКОВНОСЛАВЯНСКИЙ — ЯЗЫК МАГИИ И Сод
 
 **Метаданные файла**
-- **Файл:** `researches/slavic-distortion.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/slavic-distortion.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`
 - **Хеш:** fdd83ee1
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -186,7 +184,6 @@
 - `instructions/exposure/exposure-language-control.md`
 - `instructions/exposure/exposure-mechanisms.md`
 - `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/hebrew-reconstruction.md`

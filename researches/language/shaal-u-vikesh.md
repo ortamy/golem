@@ -1,7 +1,6 @@
 # 📜 שָׁאַל וּבִקֵּשׁ — МОЛИТЬСЯ ИЛИ СОВЕТОВАТЬСЯ?
 
 **Метаданные файла**
-- **Файл:** `researches/shaal-u-vikesh.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение подмены понятий «молитва-прошение» через ивритские корни שָׁאַל и בִּקֵּשׁ. Возвращение библейского машмаут: советоваться с Яхве и искать Его лицо.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/shaal-u-vikesh.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** 860fb8c9
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

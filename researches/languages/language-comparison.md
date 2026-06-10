@@ -1,7 +1,6 @@
 # 📚 СРАВНИТЕЛЬНЫЙ АНАЛИЗ ПЕРЕВОДОВ
 
 **Метаданные файла**
-- **Файл:** `researches/language-comparison.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Как одно ивритское давар прошло через греческий, латынь, славянский и русский, потеряв по дэрех конкретику, действие и машмаут
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/language-comparison.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** fdb1bd6e
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -343,7 +341,6 @@
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/el.md`

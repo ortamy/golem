@@ -165,10 +165,7 @@
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/history/alchemy.md`
 ---

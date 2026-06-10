@@ -1,7 +1,6 @@
 # 📜 РЕЛИГИОНИЗМЫ
 
 **Метаданные файла**
-- **Файл:** `instructions/tahor/religionisms.md`
 - **Версия:** 1.3
 - **Дата создания:** 2026-06-02
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Полный список религионимов с заменами. Слова, которые система создала или переосмыслила для подмены ивритских понятий.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/tahor/religionisms.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-system-architecture.md`
 - **Хеш:** 031d2d14
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -712,11 +710,9 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-language-control.md`
 - `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/tree-method.md`
 - `instructions/tahor/names.md`
-- `instructions/tahor/religionisms.md`

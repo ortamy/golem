@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # prepare_finetune_data.py — подготовка датасета для fine-tune модели «Эд»
 
-import os
+# import os  # TODO: проверить, используется ли
 import re
 import json
 import random

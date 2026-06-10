@@ -1,7 +1,6 @@
 # 📜 עֶבֶד וְעַבְדוּת — НЕ «РАБ», А Эвед, КОТОРЫЙ МОЖЕТ СТАТЬ СВОБОДНЫМ
 
 **Метаданные файла**
-- **Файл:** `researches\eved-amdut.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -76,7 +75,6 @@
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/torah.md`
 - `terminology/yhwh.md`

@@ -236,5 +236,5 @@ hа-Де́рех Яхве
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
 - `instructions/tahor/names.md`
-- `researches/economy/economic-slavery.md`
+- `researches/slavery/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`

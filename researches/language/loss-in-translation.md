@@ -1,7 +1,7 @@
 # 📜 עִבְרִית מוּל תַּרְגּוּמִים — СКОЛЬКО Машмаут ПОТЕРЯНО В ПЕРЕВОДАХ
 
 **Метаданные файла**
-- **Файл:** `researches/loss-in-translation.md`
+- **Файл:** `researches/language/loss-in-translation.md`
 - **Версия:** 2.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +10,7 @@
 - **Тема:** Количественная и качественная оценка искажений. Что потеряно, что добавлено, что убрано. Полный свод.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/loss-in-translation.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`
+- **Связанные файлы:** `researches/language/loss-in-translation.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** 891a3051
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

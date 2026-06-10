@@ -15,13 +15,13 @@ SERVER_URL = "http://localhost:8000"
 def send_prompt(prompt: str, server: str, temperature: float = 0.7, max_tokens: int = 512) -> Optional[str]:
     """Отправляет промпт к серверу и возвращает ответ"""
     url = f"{server}/generate"
-    
+
     payload = {
         "prompt": prompt,
         "temperature": temperature,
         "max_tokens": max_tokens
     }
-    
+
     try:
         response = requests.post(url, json=payload, timeout=60)
         response.raise_for_status()
@@ -55,37 +55,37 @@ def interactive_mode(server: str):
     print("Введите 'exit' для выхода")
     print("Введите 'clear' для очистки экрана")
     print("")
-    
+
     if not check_health(server):
         print("❌ Сервер не доступен")
         print("   Запустите: python server.py")
         return
-    
+
     print("✅ Сервер доступен")
     print("")
-    
+
     while True:
         try:
             prompt = input("> ").strip()
-            
+
             if not prompt:
                 continue
-            
+
             if prompt.lower() == "exit":
                 print("До свидания")
                 break
-            
+
             if prompt.lower() == "clear":
                 print("\n" * 2)
                 continue
-            
+
             response = send_prompt(prompt, server)
-            
+
             if response:
                 print(f"\n{response}\n")
             else:
                 print("❌ Не удалось получить ответ\n")
-                
+
         except KeyboardInterrupt:
             print("\nДо свидания")
             break
@@ -101,30 +101,30 @@ def batch_mode(server: str, prompts_file: str, output_file: Optional[str] = None
     except Exception as e:
         print(f"❌ Ошибка чтения файла: {e}")
         return
-    
+
     if not check_health(server):
         print("❌ Сервер не доступен")
         return
-    
+
     results = []
-    
+
     print(f"📋 Обработка {len(prompts)} промптов")
     print("")
-    
+
     for i, prompt in enumerate(prompts, 1):
         print(f"[{i}/{len(prompts)}] {prompt[:50]}...")
         response = send_prompt(prompt, server)
-        
+
         results.append({
             "prompt": prompt,
             "response": response
         })
-        
+
         if response:
             print(f"   ✅ Готово")
         else:
             print(f"   ❌ Ошибка")
-    
+
     if output_file:
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
@@ -146,9 +146,9 @@ def main():
     parser.add_argument("--temperature", "-t", type=float, default=0.7, help="Температура (0-1)")
     parser.add_argument("--max-tokens", "-m", type=int, default=512, help="Максимум токенов в ответе")
     parser.add_argument("--interactive", "-i", action="store_true", help="Интерактивный режим")
-    
+
     args = parser.parse_args()
-    
+
     if args.interactive:
         interactive_mode(args.server)
     elif args.file:
@@ -157,7 +157,7 @@ def main():
         if not check_health(args.server):
             print("❌ Сервер не доступен")
             sys.exit(1)
-        
+
         response = send_prompt(args.prompt, args.server, args.temperature, args.max_tokens)
         if response:
             print(response)

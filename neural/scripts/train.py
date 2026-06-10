@@ -15,12 +15,12 @@ def prepare_dataset(data_path: str) -> list:
     """Подготавливает датасет из prepared.json"""
     with open(data_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
-    
+
     dataset = []
     for item in data:
         text = f"### Инструкция:\n{item['instruction']}\n\n### Ответ:\n{item['output']}"
         dataset.append({"text": text})
-    
+
     return dataset
 
 
@@ -44,7 +44,7 @@ def train_with_transformers(
     except ImportError:
         print("❌ Установите transformers: pip install transformers datasets")
         return None
-    
+
     print(f"📥 Загрузка модели: {model_name}")
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
@@ -52,10 +52,10 @@ def train_with_transformers(
         device_map="auto"
     )
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    
+
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
-    
+
     def tokenize_function(examples):
         return tokenizer(
             examples["text"],
@@ -63,10 +63,10 @@ def train_with_transformers(
             padding="max_length",
             max_length=512
         )
-    
+
     dataset = Dataset.from_list(train_data)
     tokenized_dataset = dataset.map(tokenize_function, batched=True)
-    
+
     training_args = TrainingArguments(
         output_dir=output_dir,
         num_train_epochs=epochs,
@@ -78,21 +78,21 @@ def train_with_transformers(
         save_total_limit=2,
         report_to="none"
     )
-    
+
     trainer = Trainer(
         model=model,
         args=training_args,
         train_dataset=tokenized_dataset,
         tokenizer=tokenizer
     )
-    
+
     print("🚀 Начало обучения...")
     trainer.train()
-    
+
     print("💾 Сохранение модели...")
     trainer.save_model(output_dir)
     tokenizer.save_pretrained(output_dir)
-    
+
     return output_dir
 
 
@@ -101,23 +101,23 @@ def convert_to_gguf(model_path: str, output_path: str, qtype: str = "q4_k_m"):
     try:
         import subprocess
         print(f"🔄 Конвертация в GGUF: {model_path} -> {output_path}")
-        
+
         cmd = [
             "python", "-m", "llama_cpp.convert",
             "--model", model_path,
             "--output", output_path,
             "--quantize", qtype
         ]
-        
+
         result = subprocess.run(cmd, capture_output=True, text=True)
-        
+
         if result.returncode == 0:
             print(f"✅ Конвертация завершена: {output_path}")
             return output_path
         else:
             print(f"❌ Ошибка конвертации: {result.stderr}")
             return None
-            
+
     except Exception as e:
         print(f"❌ Ошибка: {e}")
         print("   Установите llama-cpp-python: pip install llama-cpp-python")
@@ -134,22 +134,22 @@ def main():
     parser.add_argument("--learning_rate", type=float, default=2e-5, help="Скорость обучения")
     parser.add_argument("--quantize", action="store_true", help="Конвертировать в GGUF после обучения")
     parser.add_argument("--qtype", type=str, default="q4_k_m", help="Тип квантизации (q4_k_m, q5_k_m, q8_0)")
-    
+
     args = parser.parse_args()
-    
+
     print("🧠 ОБУЧЕНИЕ МОДЕЛИ ЭД — СВИДЕТЕЛЬ")
     print("=================================")
     print("")
-    
+
     if not os.path.exists(args.data_path):
         print(f"❌ Файл данных не найден: {args.data_path}")
         print("   Запустите: python prepare_data.py")
         return
-    
+
     print("1. Загрузка датасета...")
     train_data = prepare_dataset(args.data_path)
     print(f"   Записей: {len(train_data)}")
-    
+
     print("2. Запуск fine-tune...")
     output_dir = train_with_transformers(
         args.model_name,
@@ -159,19 +159,19 @@ def main():
         args.batch_size,
         args.learning_rate
     )
-    
+
     if output_dir and args.quantize:
         print("")
         gguf_path = str(MODELS_DIR / "ed-v1.gguf")
         convert_to_gguf(output_dir, gguf_path, args.qtype)
-    
+
     print("")
     print("✅ Обучение завершено")
     print(f"   Модель сохранена: {args.output_path}")
-    
+
     if args.quantize:
         print(f"   GGUF модель: {MODELS_DIR / 'ed-v1.gguf'}")
-    
+
     print("")
     print("Запустите сервер:")
     print(f"   python server.py --model {MODELS_DIR / 'ed-v1.gguf'}")

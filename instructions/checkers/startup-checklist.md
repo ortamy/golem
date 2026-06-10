@@ -1,7 +1,6 @@
 # ✅ ЧЕК-ЛИСТ ЗАГРУЗКИ ФАЙЛОВ ДЛЯ НАСТРОЙКИ НЕЙРОСЕТИ
 
 **Метаданные файла**
-- **Файл:** `checkers/startup-checklist.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-05
 - **Последнее обновление:** 2026-06-05
@@ -54,24 +53,12 @@
 
 ### ЭТАП 5: ЧЕКЕРЫ И ШАБЛОНЫ
 
-- [ ] `checkers/bdikah-checker.md` — проверка на религионизмы
-- [ ] `checkers/mivdak.md` — аудит полезности
-- [ ] `checkers/tikun-fix.md` — задачи по обновлению
-- [ ] `checkers/factcheck.md` — проверка фактов
-- [ ] `instructions/research-template.md` — шаблон исследования
-- [ ] `instructions/self-learning-template.md` — шаблон самообучения
 
 ### ЭТАП 6: МЕТОДОЛОГИЯ
 
-- [ ] `instructions/translation-methodology.md` — методология перевода
-- [ ] `instructions/transliteration-distortions.md` — карта транслитераций
-- [ ] `instructions/tree-method.md` — метод дерева
-- [ ] `instructions/archeology-methodology.md` — археология смыслов
 
 ### ЭТАП 7: СТРУКТУРА РЕПОЗИТОРИЯ
 
-- [ ] `README.md` — лицо проекта
-- [ ] `structure.md` — полная структура всех файлов
 
 ### ЭТАП 8: КЛЮЧЕВЫЕ ТЕРМИНЫ (МИНИМУМ)
 
@@ -88,11 +75,6 @@
 
 ### ЭТАП 9: КЛЮЧЕВЫЕ ИССЛЕДОВАНИЯ (МИНИМУМ)
 
-- [ ] `researches/shema-yhwh-echad.md`
-- [ ] `researches/yehoshua-research.md`
-- [ ] `researches/masoretic-text.md`
-- [ ] `researches/paleo-hebrew.md`
-- [ ] `researches/mitzraim-system.md`
 
 ---
 
@@ -128,12 +110,7 @@
 2. `instructions/research-principles.md`
 3. `instructions/forbidden-words.md`
 4. `instructions/tahor/religionims.md`
-5. `checkers/bdikah-checker.md`
-6. `checkers/mivdak.md`
-7. `checkers/factcheck.md`
-8. `instructions/research-template.md`
 9. `instructions/exposure/exposure-methods.md`
-10. `README.md`
 
 **Остальные 10 — по мере необходимости.**
 
@@ -141,7 +118,6 @@
 
 ## 🔄 ОБНОВЛЕНИЕ ЧЕК-ЛИСТА
 
-При добавлении новых файлов в репозиторий, обновлять этот чек-лист в соответствии с актуальной структурой из `structure.md`.
 
 
 ---
@@ -151,7 +127,6 @@
 - `instructions/exposure/exposure-mechanisms.md`
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/methodology/archeology-methodology.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`

@@ -66,7 +66,6 @@
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
 - `instructions/methodology/tree-method.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/mashiah-peshat.md`
 - `terminology/yhwh.md`

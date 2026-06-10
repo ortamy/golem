@@ -1,7 +1,6 @@
 # 📖 ПЕРЕВОДЧЕСКАЯ МЕТОДОЛОГИЯ
 
 **Метаданные файла**
-- **Файл:** `instructions\methodology\translation-methodology.md`
 - **Версия:** 2.1
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-06-06
@@ -10,7 +9,6 @@
 - **Тема:** Практическое руководство по переводу и исследованию ивритских терминов
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-techniques.md`
 - **Хеш:** c22692a8
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -186,10 +184,8 @@
 - `instructions/exposure/exposure-language-control.md`
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/transliteration-distortions.md`
 - `instructions/tahor/grecisms.md`
 - `instructions/tahor/names.md`
-- `instructions/tahor/religionisms.md`

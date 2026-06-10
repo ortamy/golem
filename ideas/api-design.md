@@ -308,9 +308,6 @@ uvicorn api:app --reload --port 8000
 ## 🔄 ИНТЕГРАЦИЯ С ИНСТРУМЕНТАМИ
 
 API вызывает существующие чекеры:
-- `checkers/bdikah-checker.md` (логика)
-- `checkers/mivdak.md` (логика)
-- `checkers/factcheck.md` (логика)
 
 Данные берутся из:
 - `terminology/` и `researches/`

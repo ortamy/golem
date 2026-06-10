@@ -1,7 +1,6 @@
 # 📜 מֶרֶד — НЕ «ВОССТАНИЕ», А ОТКАЗ НЕСТИ ЯРМО
 
 **Метаданные файла**
-- **Файл:** `researches/mered-refusal.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение латинско-церковного понятия «восстание». Библейское מֶרֶד — не бунт ради бунта, а сознательный отказ нести чужое ярмо.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/mered-refusal.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** 3deb1ec8
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -73,7 +71,6 @@
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/torah.md`
 - `terminology/yhwh.md`

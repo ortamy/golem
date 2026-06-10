@@ -1,7 +1,6 @@
 # 📜 שִׁירַת הַיָּם — ПЕСНЬ МОШЕ: ОРИГИНАЛ ПРОТИВ ПОДМЕН
 
 **Метаданные файла**
-- **Файл:** `researches/shirat-hayam.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** שִׁירַת הַיָּם — ПЕСНЬ МОШЕ: ОРИГИНАЛ ПРОТИВ ПОДМЕН
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/shirat-hayam.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/names.md`, `terminology/yhwh.md`
 - **Хеш:** fc28aa4e
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

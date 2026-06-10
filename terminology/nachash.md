@@ -10,7 +10,7 @@
 - **Тема:** Разбор понятия נָּחָשׁ (нахаш) — змей. Мудрость, которая действует тихо. Змей в саду, змей в пустыне, змей как от системы.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `terminology/nachash.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/mortgage-dead-pledge.md`, `terminology/torah.md`
+- **Связанные файлы:** `terminology/nachash.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`, `researches/economy/mortgage-dead-pledge.md`, `terminology/torah.md`
 - **Хеш:** b5d357cd
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -130,7 +130,7 @@ hа-Де́рех Яхве
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/torah.md`
 - `terminology/yhwh.md`

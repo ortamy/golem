@@ -1,7 +1,6 @@
 # 🌹 8 МАРТА: ОТ КАСТРЮЛЬ ДО РЕВОЛЮЦИИ
 
 **Метаданные файла**
-- **Файл:** `researches/march-8-history.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/march-8-history.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
 - **Хеш:** b0696573
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

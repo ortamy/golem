@@ -1,7 +1,6 @@
 # 📜 אֶרֶץ כְּנַעַן — ПОЧЕМУ YHWH ОТДАЛ ЗЕМЛЮ ХАНААНА ИЗРАИЛЮ?
 
 **Метаданные файла**
-- **Файл:** `researches/why-canaan-land.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Эмет об изгнании хананеев без религиозного дыма. Четыре библейских диагноза вместо одного католического «беззакония».
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/why-canaan-land.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-religionism-theory.md`
 - **Хеш:** 02ecdc4d
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -34,7 +32,6 @@
 - `instructions/exposure/exposure-language-control.md`
 - `instructions/exposure/exposure-mechanisms.md`
 - `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `terminology/torah.md`
 - `terminology/yhwh.md`
 

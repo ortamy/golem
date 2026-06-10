@@ -1,7 +1,6 @@
 # 📜 סִפְרֵי תַּנַ״ךְ — КНИГИ ТаНаХ: ПОДМЕНА НАЗВАНИЙ
 
 **Метаданные файла**
-- **Файл:** `researches/sifrei-tanakh.md`
 - **Версия:** 1.2
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение подмены названий книг ТаНаХ в греческом, латинском, славянском и русском переводах. Возвращение к ивритским названиям и их истинному машмаут.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/sifrei-tanakh.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
 - **Хеш:** 2ebac235
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

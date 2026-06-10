@@ -1,7 +1,6 @@
 # 📜 מוֹרָשָׁה — НАСЛЕДИЕ: ЧТО МИРУ ДАЛИ ЕВРЕИ
 
 **Метаданные файла**
-- **Файл:** `researches/morashat-israel.md`
 - **Версия:** 1.2
 - **Дата создания:** 2026-05-28
 - **Последнее обновление:** 2026-05-28
@@ -10,7 +9,6 @@
 - **Тема:** Сравнительное исследование вклада Израиля и пятнадцати мировых систем в цивилизацию. Почему все империи пали, а ТаНаХ остался.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/morashat-israel.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** 92e08be2
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -303,7 +301,7 @@
 
 ## 🔍 ЧТО БЕЗ ЧЕГО НЕ РАБОТАЕТ
 
-- **Греческая хохма** без иудейской совести → оправдание рабства
+- **Греческая хохма** без иудейской совести → צדקה рабства
 - **Римское мишпат** без иудейской правды → инструмент угнетения
 - **Наука** без Шаббат → hиткадмут, который сжигает шеол
 - **Демократия** без образа Яхве → власть большинства над меньшинством
@@ -339,9 +337,7 @@
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 

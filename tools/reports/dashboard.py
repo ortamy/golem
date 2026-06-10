@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/reports/dashboard.py — интерактивный дашборд (минимализм, ч/б + оранжевый)
 import sys
 import re
@@ -291,3 +292,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

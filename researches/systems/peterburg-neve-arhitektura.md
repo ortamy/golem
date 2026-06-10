@@ -1,7 +1,6 @@
 # 🏛️ ПЕТЕРБУРГ — РИМ НА НЕВЕ: АРХИТЕКТУРА КАК ИНСТРУМЕНТ КОНТРОЛЯ
 
 **Метаданные файла**
-- **Файл:** `researches/petersburg-rome-on-neva.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение египетско-греко-римской архитектуры Петербурга как инструмента имперской пропаганды
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/petersburg-rome-on-neva.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`
 - **Хеш:** 8fd85529
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -74,7 +72,7 @@
 **Что символизируют в Греции:**
 - Место обитания Элоhим
 - Демократия (формально), но власть коhэн и аристократии
-- Красота как оправдание власти
+- Красота как צדקה власти
 
 **Что символизируют в Петербурге:**
 - Причастность к «европейской культуре» (к греко-римской системе)
@@ -213,7 +211,6 @@
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/el.md`
 - `terminology/torah.md`

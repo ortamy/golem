@@ -1,7 +1,6 @@
 # 🇬🇷 ГРЕЧЕСКИЙ ЯЗЫК КАК ОРУЖИЕ: Хохма ВМЕСТО ЖИЗНИ
 
 **Метаданные файла**
-- **Файл:** `researches/greek-as-weapon.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/greek-as-weapon.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** 4555db9a
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -183,7 +181,6 @@
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/names.md`
-- `researches/history/nicaea-council.md`
 - `terminology/el.md`
 - `terminology/torah.md`
 - `terminology/yhwh.md`

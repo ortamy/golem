@@ -64,8 +64,8 @@
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
+- `researches/slavery/economic-slavery.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/tanakh/magen-david.md`
 

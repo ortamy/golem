@@ -1,7 +1,6 @@
 # 📖 ТЕОРИЯ РЕЛИГИОНИЗМОВ — ПОЛНОЕ РАЗОБЛАЧЕНИЕ
 
 **Метаданные файла**
-- **Файл:** `instructions/exposure/exposure-religionism-theory.md`
 - **Версия:** 2.0
 - **Дата создания:** 2026-06-09
 - **Последнее обновление:** 2026-06-09
@@ -10,7 +9,6 @@
 - **Тема:** Полная теория религионизмов — каждая система, созданная вне Яхве, есть религия со своим алтарём, жрецами и жертвами
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`
 - **Хеш:** 23546104
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -271,7 +269,6 @@
 
 ## 🔄 7 ЭТАПОВ ПОДМЕНЫ
 
-Как религионизм проходит путь от истины к искажению (на основе `exposure-distortions.md`):
 
 ### Этап 1: Подмена категории
 Живое отношение становится институтом.
@@ -352,15 +349,10 @@
 - `instructions/exposure/exposure-mechanisms.md`
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/tree-method.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
-- `researches/economy/history-of-economy.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 ---
 

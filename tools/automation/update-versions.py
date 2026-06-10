@@ -4,7 +4,7 @@
 import re
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Tuple
+# from typing import Dict, List, Tuple  # TODO: проверить, используется ли
 
 REPO_ROOT = Path(__file__).parent.parent
 TARGET_DIRS = ['terminology', 'researches', 'instructions', 'checkers']

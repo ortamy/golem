@@ -1,7 +1,6 @@
 # 📜 אִשָּׁה יִרְאַת יְהוָה — КАК ВЫБИРАТЬ ЖЕНУ ПО ТаНаХ
 
 **Метаданные файла**
-- **Файл:** `researches/ishah-yirat-yhwh.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Критерии выбора жены согласно ТаНаХ. Разоблачение мифа «только еврейка». Дэрех, верность и офи важнее крови.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/ishah-yirat-yhwh.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** 17fe6e8b
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

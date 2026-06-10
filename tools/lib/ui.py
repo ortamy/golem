@@ -1,21 +1,21 @@
 # tools/lib/ui.py — дизайн-система Golem (ч/б + оранжевый акцент)
 
-import sys
+# import sys  # TODO: проверить, используется ли
 import time
 import shutil
 from pathlib import Path
 from rich.console import Console
 from rich.progress import (
-    Progress, SpinnerColumn, BarColumn, TextColumn, 
+    Progress, SpinnerColumn, BarColumn, TextColumn,
     TaskProgressColumn, TimeRemainingColumn
 )
 from rich.panel import Panel
 from rich.table import Table
-from rich.text import Text
-from rich.layout import Layout
+# from rich.text import Text  # TODO: проверить, используется ли
+# from rich.layout import Layout  # TODO: проверить, используется ли
 from rich.columns import Columns
 from rich import box
-from rich.style import Style
+# from rich.style import Style  # TODO: проверить, используется ли
 from rich.theme import Theme
 
 # =============================================================================
@@ -129,8 +129,8 @@ def simple_progress(current: int, total: int, label: str = "", extra: str = ""):
         simple_progress._progress.start()
 
     simple_progress._progress.update(
-        simple_progress._task, 
-        completed=current, 
+        simple_progress._task,
+        completed=current,
         total=total,
         description=f"[{current}/{total}] {label}",
         extra=extra
@@ -161,8 +161,8 @@ def spinner(message: str = "Загрузка", duration: float = 0.5):
 
 def table(title: str, columns: list, rows: list):
     """Создаёт таблицу в стиле Golem."""
-    t = Table(title=f"[primary_bold]{title}[/primary_bold]", 
-              border_style="dim", 
+    t = Table(title=f"[primary_bold]{title}[/primary_bold]",
+              border_style="dim",
               box=box.SIMPLE,
               expand=False)
     for col in columns:
@@ -221,7 +221,7 @@ def cards(items: list, columns: int = 3):
     for title, value, subtitle in items:
         card = f"[primary_bold]{value}[/primary_bold]\n[dim]{subtitle}[/dim]"
         card_texts.append(card)
-    
+
     col_list = [Panel(c, border_style="dim", box=box.SQUARE, padding=(1, 3)) for c in card_texts]
     console.print(Columns(col_list, equal=True))
 
@@ -264,3 +264,4 @@ __all__ = [
     'table', 'status_line', 'menu', 'cards', 'file_list',
     'ask_yes_no', 'ask_input',
 ]
+

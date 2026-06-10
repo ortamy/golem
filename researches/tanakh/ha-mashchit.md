@@ -1,7 +1,6 @@
 # 📜 הַמַּשְׁחִית — ГУБИТЕЛЬ: РАЗОБЛАЧЕНИЕ МИФА ОБ Малъах Мавет
 
 **Метаданные файла**
-- **Файл:** `researches/ha-mashchit.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-31
 - **Последнее обновление:** 2026-05-31
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение мифа об «ангеле-губителе» в ночь Песаха. Кто прошёл через Египет — Яхве или малъах? Анализ текста, корней и искажений.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/ha-mashchit.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
 - **Хеш:** f8c47983
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

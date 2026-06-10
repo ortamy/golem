@@ -1,7 +1,6 @@
 # 📜 יְצִיאָה — EXODUS: НАВЫКИ ДЛЯ АВТОНОМНОЙ ЖИЗНИ
 
 **Метаданные файла**
-- **Файл:** `researches\practices\exodus-skills.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-03
 - **Последнее обновление:** 2026-06-03
@@ -161,7 +160,6 @@ hа-Де́рех Яхве
 - `instructions/methodology/archeology-methodology.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/tree-method.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/shabbat.md`
 - `terminology/yhwh.md`

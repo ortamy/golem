@@ -1,7 +1,6 @@
 # 📜 מַכּוֹת — НЕ «КАЗНИ», А УДАРЫ, КОТОРЫЕ НЕЛЬЗЯ ОТКУПИТЬ
 
 **Метаданные файла**
-- **Файл:** `researches/makkot-strikes.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение юридической подмены «казни египетские». В иврите — «удары», которых нельзя избежать сделкой. Реквизиция эмет католицизмом.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/makkot-strikes.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** e0d99b02
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

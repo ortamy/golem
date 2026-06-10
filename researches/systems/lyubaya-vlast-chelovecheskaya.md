@@ -1,7 +1,6 @@
 # 👑 ТРИ Амуд ВЛАСТИ: Пахад, НЕВЕДЕНИЕ, ЗАВИСИМОСТЬ
 
 **Метаданные файла**
-- **Файл:** `researches/three-pillars-of-power.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Как любая власть (человеческая, церковная, государственная) держится на пахад, неведении и зависимости — и как эмет разрушает все три
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/three-pillars-of-power.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** 39cc4aa6
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -200,9 +198,6 @@
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`

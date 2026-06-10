@@ -1,7 +1,6 @@
 # 📜 מַיִן קְרָאפְט — МАЙНКРАФТ: ТАНАХИЧЕСКИЙ АНАЛИЗ
 
 **Метаданные файла**
-- **Файл:** `researches/minecraft-tanakh.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-31
 - **Последнее обновление:** 2026-05-31
@@ -10,7 +9,6 @@
 - **Тема:** Анализ Minecraft через призму ТаНаХ. Архетипы бриа, грехопадения, исхода и восстановления в игровой механике. Персонажи как аллегории. Сюжетная линия как отражение библейской истории.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/minecraft-tanakh.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/tree-method.md`, `instructions/tahor/names.md`
 - **Хеш:** a8005726
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -82,7 +80,7 @@ Minecraft — самая продаваемая игра в истории. 300 
 
 Игрок также может пойти в Край (The End). Там живёт Дракон Края. Чтобы попасть туда, нужно найти крепость, активировать портал. Это долгий дэрех. Дракон — это финальный босс. После ницахон над ним игра «заканчивается» — появляется титровая заставка.
 
-Но вот что интересно: после «конца» игры можно продолжать играть. Дракон убит, но мир остался. Это как жизнь после грехопадения: рай потерян, но жизнь продолжается.
+Но вот что интересно: после «конца» игры можно продолжать играть. Дракон убит, но мир остался. Это как жизнь после грехопадения: גן עדן потерян, но жизнь продолжается.
 
 ---
 
@@ -229,8 +227,7 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/tree-method.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/shabbat.md`

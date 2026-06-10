@@ -1,7 +1,6 @@
 # 🇷🇺 РУССКИЙ ЯЗЫК КАК СИНКРЕТИЧЕСКАЯ ЛОВУШКА
 
 **Метаданные файла**
-- **Файл:** `researches/russian-syncretism.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/russian-syncretism.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** afdc988d
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

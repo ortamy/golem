@@ -1,7 +1,6 @@
 # 📜 מָסֹרֶת — МАСОРЕТЫ: ХРАНИТЕЛИ, А НЕ ИСКАЗИТЕЛИ
 
 **Метаданные файла**
-- **Файл:** `researches/masoretic-text.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Защита масоретского текста от обвинений в искажении. Доказательство, что масореты сохранили оригинал, добавив лишь огласовки.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/masoretic-text.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** 2b4226b7
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -116,8 +114,7 @@
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/torah.md`
 - `terminology/yhwh.md`

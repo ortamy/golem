@@ -269,7 +269,6 @@ lib/distortions.txt      ←  типы искажений из exposure-distorti
 3. `factcheck.sh` — проверка фактов (bash или python)
 4. `tanakh.sh` — поиск в ТаНаХе (bash + sqlite)
 5. `setup.sh` — установщик
-6. `lib/forbidden-words.txt` — экспорт из `forbidden-words.md`
 
 Код будет написан отдельно, компактно, без лишних украшений.
 

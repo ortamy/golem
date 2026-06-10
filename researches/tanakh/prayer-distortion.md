@@ -1,7 +1,6 @@
 # 🙏 Тфила: ОТ ЖИВОГО ДЕЙСТВИЯ К РИТУАЛЬНОМУ ЗАКЛИНАНИЮ
 
 **Метаданные файла**
-- **Файл:** `researches/prayer-distortion.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/prayer-distortion.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** b129768b
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

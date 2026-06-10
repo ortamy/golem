@@ -1,7 +1,6 @@
 # 📜 אוֹר תָּם — Ор ЦЕЛЬНЫЙ: ИМЯ, КОТОРОЕ ВИДИТ СУТЬ
 
 **Метаданные файла**
-- **Файл:** `researches/or-tam.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Раскрытие имени Ор Там (אוֹר תָּם) как криа и диагноза. Ор, который не мерцает. Цельность, которая не трескается.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/or-tam.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/methodology/transliteration-distortions.md`
 - **Хеш:** bc42675d
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

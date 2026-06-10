@@ -124,7 +124,6 @@
 - `instructions/methodology/tree-method.md`
 - `instructions/tahor/grecisms.md`
 - `instructions/tahor/latinisms.md`
-- `instructions/tahor/religionisms.md`
 - `instructions/tahor/slavicisms.md`
 
 > **עֵד (Эд) — Свидетель.**

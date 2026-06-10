@@ -1,7 +1,6 @@
 # 📜 דָּם וְחֶסֶד — КРОВЬ И ВЕРНОСТЬ: ПОЧЕМУ ЯХВЕ НЕ ЖЕСТОК
 
 **Метаданные файла**
-- **Файл:** `researches/dam-chesed.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Исследование так называемых «жестоких» текстов ТаНаХ. Доказательство того, что проблема не в Яхве, а в переводе, исказившем суть.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/dam-chesed.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** baf30e89
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

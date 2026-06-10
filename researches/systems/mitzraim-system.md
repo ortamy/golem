@@ -1,7 +1,6 @@
 # 📜 מִצְרַיִם — МИЦРАИМ: КАК СИСТЕМА СУЖАЕТ ТВОЙ МИР
 
 **Метаданные файла**
-- **Файл:** `researches\systems\mitzraim-system.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-05-28
 - **Последнее обновление:** 2026-05-28
@@ -10,7 +9,7 @@
 - **Тема:** Разбор системы Мицраима как архетипа порабощения мышления. Как система сужает мир до шофар и называет это «реализмом». Три крючка. Внутренний Фараон. Пахад хофеш. Выход через пустыню.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/translation-methodology.md`, `researches/economy/banks-and-financial-dynasties.md`
+- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/translation-methodology.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - **Хеш:** 8a7a837d
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -275,9 +274,7 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/torah.md`

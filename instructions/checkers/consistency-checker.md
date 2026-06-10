@@ -10,7 +10,6 @@
 - **Тема:** Проверка согласованности терминов и ссылок между разными файлами
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/checkers/consistency-checker.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/transliteration-distortions.md`, `instructions/tahor/names.md`
 - **Хеш:** e1a79189
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -60,7 +59,6 @@ consistency-check — [НАЗВАНИЕ ТЕКСТА]
 
 Имя файла должно соответствовать содержимому.
 
-Пример: `hesed.md` → заголовок `# ❤️ ХЕСЕД`
 
 **3. ПЕРЕКРЁСТНЫЕ ССЫЛКИ**
 
@@ -145,7 +143,6 @@ python3 tools/consistency-check.py
 ---
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/transliteration-distortions.md`
 - `instructions/tahor/names.md`

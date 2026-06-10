@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/generators/generate-index.py — генерация индексов папок
 import sys
 from pathlib import Path

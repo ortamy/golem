@@ -1,7 +1,6 @@
 # 📜 יֵשׁוּעַ — ЙЕХОШУА: Шеол, КОТОРОГО УБИЛА СИСТЕМА
 
 **Метаданные файла**
-- **Файл:** `researches/yehoshua-research.md`
 - **Версия:** 1.7
 - **Дата создания:** 2026-06-01
 - **Последнее обновление:** 2026-06-01
@@ -10,7 +9,6 @@
 - **Тема:** Историческое расследование личности Йехошуа из Нацерета. Кто он был на самом деле. Кто его судил, кто убил, кому выгодна ложь. Сравнение всех мировых версий. Увда, даты, источники, разоблачение ми...
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/yehoshua-research.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`
 - **Хеш:** 4ba01449
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -286,5 +284,4 @@ hа-Де́рех Яхве
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/names.md`
-- `researches/history/nicaea-council.md`
 - `researches/tanakh/gog-and-magog.md`

@@ -1,7 +1,6 @@
 # 📜 שְׂפַת אֱמֶת — ПОЧЕМУ ИВРИТ — ЕДИНСТВЕННЫЙ ЯЗЫК, КОТОРЫЙ НЕ ЛЖЁТ
 
 **Метаданные файла**
-- **Файл:** `researches/hebrew-truth.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение несовершенства и склонности к искажениям греческого, латинского, английского и славянского языков. Иврит — единственный язык, мивне которого делает его пригодным для передачи эмет...
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/hebrew-truth.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** 01f300f9
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

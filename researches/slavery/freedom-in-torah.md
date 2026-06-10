@@ -10,7 +10,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/slavery/freedom-in-torah.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`
 - **Хеш:** c0b477f9
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -101,7 +100,7 @@
 
 - Земля — главный актив.
 - Если каждые 50 лет возвращать землю, империи рухнут.
-- Ипотека, аренда, корпоративная собственность — всё это обход Йовеля.
+- mortgage, аренда, корпоративная собственность — всё это обход Йовеля.
 
 ---
 
@@ -251,10 +250,7 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-mechanisms.md`
 - `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/shmitah.md`

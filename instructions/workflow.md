@@ -10,7 +10,7 @@
 - **Тема:** Стандартный рабочий процесс для всех участников проекта
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/workflow.md`, `terminology/` | `emet.md`, `researches/` | `balaam-strategy.md`, `instructions/` | `new-method.md`, `terminology/hesed.md`
+- **Связанные файлы:** `instructions/workflow.md`, `terminology/` | `emet.md`, `researches/` | `balaam-strategy.md`, `instructions/` | `new-method.md`, `researches/tanakh/dam-chesed.md`
 - **Хеш:** a83b954a
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -215,11 +215,11 @@ python3 stats-report.py        # обновить статистику
 
 ## 📝 ПРИМЕР: ДОБАВЛЕНИЕ НОВОГО ТЕРМИНА
 
-1. создать `drafts/hesed.md`
+1. создать `researches/tanakh/dam-chesed.md`
 2. написать черновик
 3. отправить на аудит Свидетелю
 4. получить одобрение
-5. переместить в `terminology/hesed.md`
+5. переместить в `researches/tanakh/dam-chesed.md`
 6. обновить метаданные (дата, версия 1.0)
 7. запустить `sync-structure.py`
 8. запустить `generate-glossary.py`

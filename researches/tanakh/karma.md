@@ -1,7 +1,6 @@
 # 🌀 КАРМА — Тора ВОЗДАЯНИЯ ИЛИ ВАВИЛОНСКАЯ ЛОВУШКА?
 
 **Метаданные файла**
-- **Файл:** `researches/karma.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-07
 - **Последнее обновление:** 2026-06-07
@@ -10,7 +9,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/karma.md`, `instructions/exposure/exposure-principles.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`, `researches/economy/mortgage-dead-pledge.md`
 - **Хеш:** ee485eec
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -170,8 +168,7 @@
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-principles.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/el.md`
 - `terminology/torah.md`

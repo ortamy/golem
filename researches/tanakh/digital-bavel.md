@@ -1,7 +1,6 @@
 # 🏛️ ЦИФРОВОЙ ВАВИЛОН (DIGITAL BAVEL)
 
 **Метаданные файла**
-- **Файл:** `researches/digital-bavel.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-07
 - **Последнее обновление:** 2026-06-07
@@ -10,7 +9,6 @@
 - **Тема:** Как современная цифровая система повторяет архитектуру Вавилонской башни — контроль через ирбув и централизацию
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/digital-bavel.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`
 - **Хеш:** 17633b28
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -196,8 +194,4 @@
 - `instructions/exposure/exposure-principles.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
-- `researches/economy/history-of-economy.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`

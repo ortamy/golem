@@ -1,7 +1,6 @@
 # 📜 בָּבֶל, מִצְרַיִם, סְדֹם — ТРИ СИСТЕМЫ, КОТОРЫЕ ДЕРЖАТ МИР В ЗАБЛУЖДЕНИИ
 
 **Метаданные файла**
-- **Файл:** `researches\systems\bavel-mitzrayim-sdom.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -69,11 +68,7 @@
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
-- `researches/economy/history-of-economy.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 
 > **Дом — Дом — Посох.** «Дом, который направляет все дома». Вавилон — это тоталитарная система, которая хочет объединить всё под своей властью.
 

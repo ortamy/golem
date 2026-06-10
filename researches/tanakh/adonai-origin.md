@@ -1,7 +1,6 @@
 # 📜 אֲדֹנָי — НЕ «ГОСПОДЬ», А СКРЫТОЕ ИМЯ
 
 **Метаданные файла**
-- **Файл:** `researches/adonai-origin.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Происхождение слова אֲדֹנָי (Адонай). Разоблачение его связи с ханаанским божеством и подмены Имени יהוה.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/adonai-origin.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** b009b5af
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -52,8 +50,6 @@
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/names.md`
-- `instructions/tahor/religionisms.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `researches/tanakh/magen-david.md`
 - `terminology/el.md`

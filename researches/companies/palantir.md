@@ -10,7 +10,7 @@
 - **Тема:** Разоблачение Palantir через призму ТаНаХ. Технология тотальной слежки. «Видящие камни» как оракул. Данные как оружие контроля.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/companies/palantir.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/tahor/names.md`, `researches/economy/banks-and-financial-dynasties.md`
+- **Связанные файлы:** `researches/companies/palantir.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/tahor/names.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - **Хеш:** c25f7745
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -151,6 +151,5 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/history-of-banks.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `terminology/yhwh.md`

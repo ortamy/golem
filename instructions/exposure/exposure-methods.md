@@ -482,7 +482,6 @@
 - `instructions/exposure/exposure-language-control.md`
 - `instructions/exposure/exposure-mechanisms.md`
 - `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/hebrew-reconstruction.md`
@@ -490,6 +489,4 @@
 - `instructions/methodology/transliteration-distortions.md`
 - `instructions/methodology/tree-method.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`

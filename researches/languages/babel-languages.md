@@ -1,7 +1,6 @@
 # 🗼 ВАВИЛОНСКАЯ БАШНЯ: КАК ЯЗЫКИ СТАЛИ ОРУЖИЕМ Пилуг
 
 **Метаданные файла**
-- **Файл:** `researches/babel-languages.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/babel-languages.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-system-architecture.md`
 - **Хеш:** d5c990c9
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -165,11 +163,9 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-distortions.md`
 - `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/grecisms.md`
 - `instructions/tahor/latinisms.md`
 - `instructions/tahor/names.md`
-- `instructions/tahor/religionisms.md`

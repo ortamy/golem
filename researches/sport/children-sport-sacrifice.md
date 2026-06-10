@@ -160,7 +160,6 @@
 - `researches/sport/football-as-religion.md` — футбол как мировая дэрех
 - `researches/sport/sport-as-coliseum.md` — спорт как Колизей
 - `researches/sport/fitness-cult.md` — фитнес-индустрия как культ тела
-- `instructions/exposure/exposure-religionism-theory.md` — теория религионизмов
 
 ---
 

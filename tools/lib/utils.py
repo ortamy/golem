@@ -1,18 +1,32 @@
 # tools/lib/utils.py — общие утилиты для всех скриптов (с Rich)
-import sys
+# import sys  # TODO: проверить, используется ли
 from pathlib import Path
 from rich.console import Console
-from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn
+from rich.progress import Progress, TextColumn, BarColumn, TaskProgressColumn
 from rich.panel import Panel
-from rich.text import Text
 from rich import print as rprint
 
 console = Console()
 REPO_ROOT = Path(__file__).parent.parent.parent
 
 
-def read_file_safe(filepath: Path) -> str:
-    """Читает файл с автоопределением кодировки."""
+def read_file_safe(filepath: Path) -> str | None:
+    """Читает файл с автоопределением кодировки. Возвращает None при ошибке."""
+    if not filepath.exists():
+        return None
+
+    # Пропускаем бинарные файлы
+    binary_extensions = {'.pyc', '.pyd', '.exe', '.dll', '.so', '.bin', '.zip', '.tar', '.gz', '.png', '.jpg', '.svg', '.ico'}
+    if filepath.suffix.lower() in binary_extensions:
+        return None
+
+    # Проверяем размер — если > 10 МБ, пропускаем
+    try:
+        if filepath.stat().st_size > 10 * 1024 * 1024:
+            return None
+    except OSError:
+        return None
+
     encodings = ['utf-8', 'utf-16', 'cp1251', 'latin-1']
     for enc in encodings:
         try:
@@ -20,9 +34,17 @@ def read_file_safe(filepath: Path) -> str:
                 return f.read()
         except (UnicodeDecodeError, UnicodeError):
             continue
+        except KeyboardInterrupt:
+            raise
+        except Exception:
+            continue
+
+    # Последняя попытка — с заменой ошибок
     try:
         with open(filepath, 'r', encoding='utf-8', errors='replace') as f:
             return f.read()
+    except KeyboardInterrupt:
+        raise
     except Exception:
         return None
 
@@ -41,17 +63,14 @@ def progress_bar(current, total, label="", extra=""):
         progress_bar._progress.start()
 
     extra_str = extra if extra else ""
-    progress_bar._progress.update(progress_bar._task, completed=current, total=total,
-                                   description=f"[{current}/{total}]", extra=extra_str)
+    progress_bar._progress.update(
+        progress_bar._task,
+        completed=current,
+        total=total,
+        description=f"[{current}/{total}]",
+        extra=extra_str
+    )
 
-def progress_bar_simple(current, total, extra=""):
-    """Простой текстовый прогресс-бар (без Rich, для curses)."""
-    pct = current / total if total > 0 else 0
-    bar_len = 30
-    filled = int(bar_len * pct)
-    bar = "█" * filled + "░" * (bar_len - filled)
-    extra_str = f" | {extra}" if extra else ""
-    print(f"  [{bar}] {pct:.0%} ({current}/{total}){extra_str}", end="\r", flush=True)
 
 def finish_progress():
     """Завершает прогресс-бар."""
@@ -89,6 +108,10 @@ def print_hint(msg):
 
 def ask_yes_no(question):
     """Задаёт вопрос y/n."""
-    answer = console.input(f"[bold yellow]{question} (y/n): [/bold yellow]").strip().lower()
-    return answer in ('y', 'yes', 'д', 'да')
+    try:
+        answer = console.input(f"[bold yellow]{question} (y/n): [/bold yellow]").strip().lower()
+        return answer in ('y', 'yes', 'д', 'да')
+    except (KeyboardInterrupt, EOFError):
+        print()
+        return False
 

@@ -1,7 +1,6 @@
 # 📜 פִּירָמִידָה — ПИРАМИДА: ГРОБНИЦА ИЛИ БУНКЕР?
 
 **Метаданные файла**
-- **Файл:** `researches/other/pyramid-bunker.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-02
 - **Последнее обновление:** 2026-06-02
@@ -10,7 +9,6 @@
 - **Тема:** Гипотеза: пирамида как надземный бункер и система водоснабжения. Инженерный анализ цура, материала и конструкции.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/other/pyramid-bunker.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/archeology-methodology.md`, `researches/economy/banks-and-financial-dynasties.md`
 - **Хеш:** 31b97a75
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -133,7 +131,6 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-mechanisms.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/archeology-methodology.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/yhwh.md`

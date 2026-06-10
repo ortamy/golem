@@ -1,7 +1,6 @@
 # 📜 שִׁחְזוּר בְּשׂוֹרַת יֵשׁוּעַ — ВОССТАНОВЛЕНИЕ ИВРИТСКОГО ОРИГИНАЛА
 
 **Метаданные файла**
-- **Файл:** `instructions\methodology\hebrew-reconstruction.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-06-04
@@ -10,7 +9,6 @@
 - **Тема:** Методы восстановления ивритского оригинала греческих писаний. От обратного перевода до лингвистической реконструкции. Ресурсы, статистика, практическая схема.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/phrases.md`, `instructions/tahor/religionisms.md`
 - **Хеш:** d90dd052
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -146,7 +144,6 @@
 - `instructions/exposure/exposure-methods.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/phrases.md`
-- `instructions/tahor/religionisms.md`
 - `terminology/yhwh.md`
 
 > **הַדֶּרֶךְ יְהוָה**

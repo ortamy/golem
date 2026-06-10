@@ -1,7 +1,6 @@
 # 📜 זְמָן, עוֹלָם, הַיּוֹם — ВРЕМЯ В ТаНаХ: НЕ ЛИНИЯ, А СОБЫТИЕ
 
 **Метаданные файла**
-- **Файл:** `researches/time-in-tanakh.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение греческого понимания времени как линии. Библейское время — это זְמָן (моэд), עוֹלָם (олам) и הַיּוֹם (сегодня).
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/time-in-tanakh.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** bbef58c7
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

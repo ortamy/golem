@@ -20,21 +20,21 @@ def load_test_data(file_path: str) -> List[Dict]:
 def test_latency(prompts: List[str], server: str, repeats: int = 3) -> Dict:
     """Тест скорости ответа"""
     latencies = []
-    
+
     for prompt in prompts[:10]:
         for _ in range(repeats):
             start = time.time()
             response = requests.post(f"{server}/generate", json={"prompt": prompt})
             end = time.time()
-            
+
             if response.status_code == 200:
                 latencies.append(end - start)
-    
+
     if not latencies:
         return {"error": "Нет успешных запросов"}
-    
+
     latencies.sort()
-    
+
     return {
         "avg": sum(latencies) / len(latencies),
         "p50": latencies[int(len(latencies) * 0.5)],
@@ -51,23 +51,23 @@ def test_accuracy(test_data: List[Dict], server: str) -> Dict:
     correct = 0
     total = 0
     errors = []
-    
+
     for item in test_data:
         prompt = item.get("prompt") or item.get("instruction")
         expected = item.get("expected") or item.get("output")
-        
+
         if not prompt or not expected:
             continue
-        
+
         response = requests.post(f"{server}/generate", json={"prompt": prompt})
-        
+
         if response.status_code != 200:
             errors.append({"prompt": prompt, "error": "HTTP ошибка"})
             continue
-        
+
         answer = response.json().get("response", "")
         total += 1
-        
+
         if expected.lower() in answer.lower() or answer.lower() in expected.lower():
             correct += 1
         else:
@@ -76,7 +76,7 @@ def test_accuracy(test_data: List[Dict], server: str) -> Dict:
                 "expected": expected[:100],
                 "got": answer[:100]
             })
-    
+
     return {
         "accuracy": correct / total if total else 0,
         "correct": correct,
@@ -91,29 +91,29 @@ def main():
     parser.add_argument("--server", type=str, default=SERVER_URL, help="URL сервера")
     parser.add_argument("--latency_only", action="store_true", help="Только тест скорости")
     parser.add_argument("--accuracy_only", action="store_true", help="Только тест точности")
-    
+
     args = parser.parse_args()
-    
+
     print("📊 БЕНЧМАРК МОДЕЛИ ЭД — СВИДЕТЕЛЬ")
     print("=================================")
     print("")
-    
+
     if not args.latency_only:
         if not args.test_data:
             print("❌ Для теста точности укажите --test_data")
             return
-        
+
         test_data = load_test_data(args.test_data)
         print(f"📋 Загружено тестов: {len(test_data)}")
         print("")
-    
+
     if not args.accuracy_only:
         print("⏱️ ТЕСТ СКОРОСТИ")
         print("---------------")
-        
+
         test_prompts = ["Что такое эмет?", "Объясни хесед", "Что такое Шма?"]
         latency = test_latency(test_prompts, args.server)
-        
+
         if "error" in latency:
             print(f"❌ {latency['error']}")
         else:
@@ -124,18 +124,18 @@ def main():
             print(f"   Мин: {latency['min']*1000:.0f} мс")
             print(f"   Макс: {latency['max']*1000:.0f} мс")
             print(f"   Семплов: {latency['samples']}")
-        
+
         print("")
-    
+
     if not args.latency_only:
         print("🎯 ТЕСТ ТОЧНОСТИ")
         print("----------------")
-        
+
         accuracy = test_accuracy(test_data, args.server)
-        
+
         print(f"   Точность: {accuracy['accuracy']*100:.1f}%")
         print(f"   Правильно: {accuracy['correct']}/{accuracy['total']}")
-        
+
         if accuracy['errors']:
             print(f"   Ошибок: {len(accuracy['errors'])}")
             for err in accuracy['errors'][:3]:

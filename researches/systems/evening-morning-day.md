@@ -1,7 +1,6 @@
 # 📜 וַיְהִי־עֶרֶב וַיְהִי־בֹקֶר — И БЫЛ ВЕЧЕР, И БЫЛО Бокер: НАЧАЛО ДНЯ
 
 **Метаданные файла**
-- **Файл:** `researches/evening-morning-day.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-29
 - **Последнее обновление:** 2026-05-29
@@ -10,7 +9,6 @@
 - **Тема:** Почему еврейский день начинается с заката. Сравнение с римским, греческим и современным счётом времени. Разоблачение подмены: как система оторвала адам от наблюдаемого ритма бриа.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/evening-morning-day.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** e472a969
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -184,8 +182,6 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/shabbat.md`

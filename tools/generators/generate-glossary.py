@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/generators/generate-glossary.py — генерация глоссария
 import sys
 import re

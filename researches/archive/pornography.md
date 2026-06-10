@@ -1,7 +1,6 @@
 # 📜 זָנָה — ПОРНОГРАФИЯ: ПРОДАЖА ОТДЕЛЁННОСТИ ЗА Таава
 
 **Метаданные файла**
-- **Файл:** `researches/other/pornography.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-03
 - **Последнее обновление:** 2026-06-03
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение порнографии через ТаНаХ. Πόρνος vs זָנָה. Связь с культами народов. Зана как внутреннее предательство. Гуф как Дом Яхве.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/other/pornography.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/economic-slavery.md`, `researches/slavery/economic-slavery.md`
 - **Хеш:** 438e4ba0
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -148,7 +146,6 @@ hа-Де́рех Яхве
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/mashiah-peshat.md`
 - `terminology/yhwh.md`

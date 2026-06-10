@@ -1,7 +1,6 @@
 # 📜 דַּרְכֵי הַצַּדִּיקִים — Дэрех Цадик
 
 **Метаданные файла**
-- **Файл:** `researches/darchei-tzadikim.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Типология дэрех в ТаНаХ. Авраhам, Исаак, Яаков, Моше, Давид, Йосеф, Йешуа. Не разоблачение, а созерцание.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/darchei-tzadikim.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/tree-method.md`, `instructions/tahor/names.md`
 - **Хеш:** d540fe8c
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -39,8 +37,7 @@
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/tree-method.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 - `researches/tanakh/gog-and-magog.md`

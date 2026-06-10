@@ -1,7 +1,6 @@
 # 📜 עֲשֶׂרֶת הַדִּבְּרוֹת — НЕ «ЗАПОВЕДИ», А ДЕСЯТЬ ВЫСКАЗЫВАНИЙ-УЗЛОВ
 
 **Метаданные файла**
-- **Файл:** `researches\aseret-hadvarim.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение религиозной подмены «заповедей». Десять речений — это не «законы», а **мицвот** — узлы верности, соединяющие адам с Яхве.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/names.md`, `researches/economy/economic-slavery.md`
 - **Хеш:** 3c3a807c
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -65,7 +63,6 @@
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/names.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `researches/tanakh/gog-and-magog.md`
 - `terminology/el.md`

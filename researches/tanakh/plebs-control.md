@@ -1,7 +1,6 @@
 # 📜 פְּלֵבְּס — ПЛЕБЕИ: СИСТЕМА КОНТРОЛЯ ЧЕРЕЗ Лехем И ЗРЕЛИЩА
 
 **Метаданные файла**
-- **Файл:** `researches/plebs-control.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение римской системы контроля масс через призму ТаНаХ. Плебс — это не просто «беднота», а духовно управляемое большинство, отказывающееся от хофеш.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/plebs-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`
 - **Хеш:** f09d7ae0
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -35,8 +33,7 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/el.md`

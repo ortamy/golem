@@ -1,7 +1,6 @@
 # ⚡ АРТЕМ — НЕ СЛАВЯНСКИЙ Элоhим, А ГРЕЧЕСКОЕ ИМЯ
 
 **Метаданные файла**
-- **Файл:** `terminology/artem.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-07
 - **Последнее обновление:** 2026-06-07
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение ложной этимологии имени «Артем» и возвращение к ивритскому оригиналу
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `terminology/artem.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/transliteration-distortions.md`
 - **Хеш:** 02c9dd3d
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

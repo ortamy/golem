@@ -10,7 +10,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/slavery/mental-slavery.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/tahor/names.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`
 - **Хеш:** 8d2e7f7a
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -84,7 +83,7 @@
 
 **4. Зависимость привязывает к системе**
 
-Если ты не можешь выжить без системы — ты её раб. Кредит, ипотека, аренда, авода, налоги — это шаршерет. Ты не уйдёшь, потому что некуда.
+Если ты не можешь выжить без системы — ты её раб. кредит ↔ шмита (прощение каждые 7 лет) ↔ шмита (прощение каждые 7 лет), mortgage, аренда, авода, налоги — это шаршерет. Ты не уйдёшь, потому что некуда.
 
 **5. Жертвенность снимает ответственность**
 
@@ -159,10 +158,7 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-economy.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/yhwh.md`

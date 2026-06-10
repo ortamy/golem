@@ -10,7 +10,6 @@
 - **Тема:** ЭРЕХ АПАЙИМ (ERECH APAYIM) — ДОЛГОЕ ДЫХАНИЕ
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `terminology/erech-apayim.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/translation-methodology.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`
 - **Хеш:** 11450bb7
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -125,7 +124,6 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/yhwh.md`

@@ -115,8 +115,7 @@ YHWH. В русской речи допустимы «YHWH» или «Яхве»
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 
 > **Рука (действие) — Вот, смотри (hитгалут) — Крюк/гвоздь (соединение) — Вот, смотри (hитгалут).**
 

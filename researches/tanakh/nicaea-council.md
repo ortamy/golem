@@ -1,7 +1,6 @@
 # 📜 НИКЕЙСКИЙ Кеhила: ИМПЕРСКАЯ СПЕЦОПЕРАЦИЯ ПРОТИВ Эмет
 
 **Метаданные файла**
-- **Файл:** `researches/nicaea-council.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Как Римская империя на Никейском кеhила 325 года создала подделку — «богочеловека» вместо еврейского Машиах
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/nicaea-council.md`, `researches/history/nicaea-council.md`, `researches/tanakh/gog-and-magog.md`, `terminology/mashiah-peshat.md`, `terminology/torah.md`
 - **Хеш:** 4d17b497
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -97,7 +95,6 @@
 ---
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `researches/history/nicaea-council.md`
 - `researches/tanakh/gog-and-magog.md`
 - `terminology/mashiah-peshat.md`
 - `terminology/torah.md`

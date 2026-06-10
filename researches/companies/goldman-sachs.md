@@ -10,7 +10,6 @@
 - **Тема:** Разоблачение Goldman Sachs через призму ТаНаХ. Финансовая власть как инструмент контроля. Сребролюбие — корень херес.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/companies/goldman-sachs.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`
 - **Хеш:** 94a9be8f
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -150,9 +149,6 @@ hа-Де́рех Яхве
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/yhwh.md`

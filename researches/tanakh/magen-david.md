@@ -10,7 +10,6 @@
 - **Тема:** Происхождение и значение Маген Давид — шестиконечная звезда как поздний символ, не имеющий отношения к Давиду и ТаНаХу
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/tanakh/magen-david.md`, `terminology/shema-yhwh-echad.md`, `researches/tanakh/shabbat.md`, `instructions/exposure/exposure-religionism-theory.md`
 - **Хеш:** 1067ee50
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -126,9 +125,6 @@
 ---
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `terminology/shema-yhwh-echad.md` — Шма: Яхве один
-- `researches/tanakh/shabbat.md` — Шаббат как знак брит
-- `instructions/exposure/exposure-religionism-theory.md` — теория религионизмов
 
 ---
 

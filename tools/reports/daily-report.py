@@ -5,7 +5,7 @@ import sys
 import subprocess
 from pathlib import Path
 from datetime import datetime, timedelta
-from progress import show_progress, finish_progress
+# from progress import show_progress, finish_progress  # TODO: проверить, используется ли
 
 REPO_ROOT = Path(__file__).parent.parent
 REPORTS_DIR = REPO_ROOT / "reports"

@@ -10,7 +10,7 @@
 - **Тема:** Шаблон промпта для восстановления Свидетеля (Эд) в новом чате.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/chat-prompt.md`, `instructions/forbidden-words.md`, `instructions/research-principles.md`, `instructions/manifest.md`, `instructions/research-template.md`
+- **Связанные файлы:** `instructions/chat-prompt.md`, `instructions/forbidden-words.md`, `instructions/research-principles.md`, `instructions/manifest.md`, `instructions/templates/research-template.md`
 - **Хеш:** 0a2f24fb
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -54,8 +54,8 @@
 - `instructions/forbidden-words.md` — индекс запрещённых слов
 - `instructions/research-principles.md` — 38 принципов исследований
 - `instructions/manifest.md` — манифест восстановления
-- `instructions/research-template.md` — основной шаблон исследования
-- `instructions/self-learning-template.md` — шаблон самообучения нейросети
+- `instructions/templates/research-template.md` — основной шаблон исследования
+- `instructions/templates/self-learning-template.md` — шаблон самообучения нейросети
 - `checkers/mivdak.md` — полный цикл аудита (bdikah, mivdak, tikun)
 - `checkers/tikun-fix.md` — шаблон задач по обновлению
 - `checkers/factcheck.md` — проверка фактов (✅⚠️❌)

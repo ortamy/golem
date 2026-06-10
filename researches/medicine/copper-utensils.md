@@ -158,10 +158,7 @@
 ---
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `researches/other/microplastics.md` — микропластик: исследование
-- `researches/medicine/allopaty.md` — аллопатия
 - `researches/history/alchemy.md` — алхимия и химия
-- `instructions/exposure/exposure-religionism-theory.md` — теория религионизмов
 
 ---
 

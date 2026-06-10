@@ -1,7 +1,6 @@
 # 📜 דֶּרֶךְ הַגֶּבֶר — Дэрех МУЖЧИНЫ: Хофеш ЧЕРЕЗ ПУСТЫНЮ
 
 **Метаданные файла**
-- **Файл:** `researches/derech-ha-gever.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-06-02
 - **Последнее обновление:** 2026-06-02
@@ -10,7 +9,6 @@
 - **Тема:** Что ТаНаХ говорит о мужском дэрех. Три истории: Авраам, Ицхак, Яаков. Пять внутренних признаков, материальная база, связь с автономией, пустыня как бхина.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/derech-ha-gever.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/tahor/names.md`, `instructions/tahor/religionisms.md`
 - **Хеш:** 0f14c467
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -200,9 +198,7 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/tahor/names.md`
-- `instructions/tahor/religionisms.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/tanakh/magen-david.md`
 - `terminology/yhwh.md`

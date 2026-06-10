@@ -1,7 +1,6 @@
 # 📜 מִיקְרוֹפְּלַסְטִיק — МИКРОПЛАСТИК: НЕВИДИМОЕ ЗАГРЯЗНЕНИЕ
 
 **Метаданные файла**
-- **Файл:** `researches/other/microplastics.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-02
 - **Последнее обновление:** 2026-06-02
@@ -10,7 +9,6 @@
 - **Тема:** מִיקְרוֹפְּלַסְטִיק — МИКРОПЛАСТИК: НЕВИДИМОЕ ЗАГРЯЗНЕНИЕ
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/other/microplastics.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `terminology/yhwh.md`
 - **Хеш:** 7abc69e7
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

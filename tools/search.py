@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/search.py — поисковый движок по репозиторию
 import sys
 import re
@@ -97,3 +98,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

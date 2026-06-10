@@ -2,21 +2,50 @@
 
 **Метаданные файла**
 - **Файл:** `docs/TECHNICAL-DEBT.md`
-- **Версия:** 1.5
+- **Версия:** 1.6
 - **Дата создания:** 2026-05-28
-- **Последнее обновление:** 2026-06-09
-- **Причина обновления:** Переписаны все задачи в формате «глагол + объект»
+- **Последнее обновление:** 2026-06-10
+- **Причина обновления:** Добавлены задачи по веб-интерфейсу
 - **Статус:** Активный
 - **Тема:** ТЕХНИЧЕСКИЙ ДОЛГ
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/image-map.md`, `instructions/images-catalogue.md`, `instructions/methodology/archeology-methodology.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
+- **Связанные файлы:** `instructions/image-map.md`, `instructions/images-catalogue.md`, `web/app.js`, `web/style.css`, `web/index.html`
 - **Хеш:** 350996b0
 - **Достоверность:** средняя
-- **Последний аудит:** 2026-06-09
+- **Последний аудит:** 2026-06-10
 ---
 
 ## 📋 АКТИВНЫЕ ЗАДАЧИ
+
+### Веб-интерфейс
+
+- [x] Починить отображение списка исследований на ПК
+- [x] Починить отображение списка исследований на мобильной версии
+- [x] Исправить двойное кодирование URL в статическом режиме
+- [x] Адаптивная верстка — единый CSS с @media
+- [x] Бургер-меню для мобильной версии
+- [x] Тёмная тема
+- [x] Закладки и история
+- [x] Кнопка «Назад» на странице файла
+- [x] Звездочка избранного в мобильной версии
+- [x] Перенос бургера вправо
+- [x] Исключить служебные папки из интерфейса (оставить terminology + researches)
+- [ ] Хлебные крошки — путь к файлу вверху страницы
+- [ ] Подсветка иврита — автоопределение ивритских слов, стилизация
+- [ ] Кнопка «Поделиться» — копировать ссылку на конкретный файл
+- [ ] Счётчик просмотров — localStorage
+- [ ] Оглавление файла в сайдбаре — список H2/H3 с прокруткой
+- [ ] Связанные файлы внизу страницы
+- [ ] Тёмная тема по умолчанию при первом заходе
+- [ ] Анимация перехода между файлами
+- [ ] Избранное в отдельной вкладке — фильтр «только закладки»
+- [ ] Режим чтения — скрыть сайдбар, только текст
+- [ ] Подвал с цитатой дня — случайный стих из ТаНаХа
+- [ ] Локальный поиск по содержимому файлов
+- [ ] PWA — установка на телефон как приложение
+- [ ] Кеширование файлов для офлайн-доступа
+- [ ] Favicon — иконка сайта
 
 ### Конфликты слияния Git
 
@@ -49,12 +78,403 @@
 - [ ] Создать `terminology/arum.md` — עָרוּם (хитрый, проницательный)
 - [ ] Создать `terminology/nachash.md` — נָּחָשׁ (змей)
 - [ ] Создать `terminology/pachad.md` — פַּחַד (страх порабощающий)
-- [ ] Создать `researches/galatim-two-systems.md` — Галатим: война двух систем
+- [ ] Создать `researches/systems/galatim-two-systems.md` — Галатим: война двух систем
 - [ ] Создать `researches/substitution-of-the-name.md` — кража Имени
 
 ### Заполнить пустые файлы
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/arkhiv/samael-kronos-saturn.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/eiblizm/degumanizaciya.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/shovinizm/dukhovnye-plody.md`
+- [ ] Заполнить содержимым `researches/teachings/shamanizm/glossarii.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/ekumenizm/vsemirnye-religioznye-organizacii.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/elitizm/akademicheskii-snobizm.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fariseistvo/formalizm.md`
+- [ ] Заполнить содержимым `researches/teachings/fariseistvo/zakonnichestvo.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/psikhologizm/simvolicheskie-znaki.md`
+- [ ] Заполнить содержимым `researches/teachings/kannibalizm/sravnitelnyi-analiz.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/feminizm/kultura-smerti.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fizikalizm/soznanie.md`
+- [ ] Заполнить содержимым `researches/teachings/fizikalizm/vidy-fizikalizma/neoredukcionistskii.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fizikalizm/zavisimost.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/anat.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/astarta.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/baal.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/carica-nebesnaya.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/dagon.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/faraon.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/ishtar.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/marduk.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/melkart.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/molokh.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/rimmon.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/shamash.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/tammuz.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/zevs.md`
+- [ ] Заполнить содержимым `researches/teachings/selebritizm/dukhovnaya-priroda.md`
+- [ ] Заполнить содержимым `researches/teachings/shovinizm/dukhovnye-plody.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/etimologicheskii-razbor.md`
+- [ ] Заполнить содержимым `researches/teachings/satanizm/istoricheskoe-proiskhozhdenie.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/etimologicheskii-razbor.md`
+- [ ] Заполнить содержимым `researches/teachings/satanizm/istoricheskoe-proiskhozhdenie.md`
+- [ ] Заполнить содержимым `researches/teachings/katolicizm/osnovnye-napravleniya/bratstvo-spaseniya-dush.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/molokhizm/vneshnie-protivorechiya.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/kannibalizm/sravnitelnyi-analiz.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/etimologicheskii-razbor.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/kosmogoniya/uroboros.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/massonizm/osnovy-ucheniya.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/elitarizm/bibleiskoe-oproverzhenie.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/massonizm/simvolika-ucheniya/cherep-i-kosti.md`
+- [ ] Заполнить содержимым `researches/teachings/massonizm/simvolika-ucheniya/cirkul-i-ugolnik.md`
+- [ ] Заполнить содержимым `researches/teachings/massonizm/simvolika-ucheniya/lampa-i-svet.md`
+- [ ] Заполнить содержимым `researches/teachings/satanizm/simvolicheskie-znaki/pentagramma.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/massonizm/simvolika-ucheniya/vsevidyashee-oko.md`
+- [ ] Заполнить содержимым `researches/teachings/materializm/mekhanisticheskii-chelovek.md`
+- [ ] Заполнить содержимым `researches/teachings/materializm/otricanie-dushi.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/mitraizm/page.md`
+- [ ] Заполнить содержимым `researches/teachings/selebritizm/dukhovnaya-priroda.md`
+- [ ] Заполнить содержимым `researches/teachings/shovinizm/dukhovnye-plody.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/etimologicheskii-razbor.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/psikhologizm/simvolicheskie-znaki.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/mutualizm.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/nestorianstvo.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/okkultizm/simvolika-okkultnykh-ordenov.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/panteizm/razmyvanie-lichnosti-boga.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/parazitizm/biologicheskii-parazitizm/infekcionnye-zabolevaniya.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/parazitizm/biologicheskii-parazitizm/vidy-parazitov.md`
+- [ ] Заполнить содержимым `researches/teachings/parazitizm/biologicheskii-parazitizm/zhiznennye-cikly-parazitov.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/pyatidesyatizm/podtemy.md`
+- [ ] Заполнить содержимым `researches/teachings/elitarizm/bibleiskoe-oproverzhenie.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/etimologicheskii-razbor.md`
+- [ ] Заполнить содержимым `researches/teachings/politizm/istoki-proiskhozhdeniya.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/etimologicheskii-razbor.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/elitarizm/bibleiskoe-oproverzhenie.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/etimologicheskii-razbor.md`
+- [ ] Заполнить содержимым `researches/teachings/politizm/istoki-proiskhozhdeniya.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/prazdnizm/fevralya.md`
+- [ ] Заполнить содержимым `researches/teachings/prazdnizm/marta.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/programmizm/simvolicheskie-artefakty.md`
+- [ ] Заполнить содержимым `researches/teachings/psikhurgiya/gipnoz.md`
+- [ ] Заполнить содержимым `researches/teachings/psikhurgiya/nlp.md`
+- [ ] Заполнить содержимым `researches/teachings/psikhurgiya/promyvka-mozgov.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/aidolizm/kult-smerti.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/aidolizm/kult-vavilona.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/shovinizm/dukhovnye-plody.md`
+- [ ] Заполнить содержимым `researches/teachings/kannibalizm/sravnitelnyi-analiz.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fizikalizm/istoricheskie-korni.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/antagonizm/sravnitelnyi-analiz/sravnenie-form.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/arrianstvo.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/asketizm/fatalnye-oshibki.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/avraamizm/avraamicheskie-lzhebozhki/allakh.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/avraamizm/avraamicheskie-lzhebozhki/iegova.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/demonizm/demonicheskie-simvoly-znaki.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/doketizm.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/evtikhianstvo.md`
+- [ ] Заполнить содержимым `researches/teachings/shovinizm/dukhovnye-plody.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/gastrolatrizm/fastfud-kulty/kfc.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/pyatidesyatizm/podtemy.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/svyashennaya-literatura/agadicheskie-teksty.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/svyashennaya-literatura/kabbala.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/svyashennaya-literatura/midrash.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/svyashennaya-literatura/psevdoepigrafy.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/svyashennaya-literatura/talmud.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/svyashennaya-literatura/tanakh.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/izinkulungu/komponenty-religii/dukhi-predkov-amadloti.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/izinkulungu/komponenty-religii/koah-teva-duhi.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/izinkulungu/komponenty-religii/ritualy-i-ceremonii.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/vavilonizm/simvolicheskie-znaki/krylatyi-byk.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/vavilonizm/simvolicheskie-znaki/ryby-i-volny.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/zoroastrizm/bashnya-tishiny.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/psikhologizm/vvedenie.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/sabellianizm.md`
+- [ ] Заполнить содержимым `researches/teachings/satanizm/misticheskie-formy/chernaya-messa.md`
+- [ ] Заполнить содержимым `researches/teachings/satanizm/misticheskie-formy/neosatanizm.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/satanizm/simvolicheskie-znaki/pentagramma.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/sekulyarizm/moralnyi-relyativizm.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/sinematizm/programmirovanie-emocii.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/sinematizm/sataninskaya-kinofalsh/shiroko-zakrytymi-glazami.md`
+- [ ] Заполнить содержимым `researches/teachings/sinkretizm/loa.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/spiritizm/vliyanie-na-kulturu.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/subektivizm/psikhologiya-vospriyatiya.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/toiizm/animacionnaya-propaganda.md`
+- [ ] Заполнить содержимым `researches/teachings/toiizm/igrushki-brendy/hot-wheels.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/toiizm/lozhnaya-dukhovnost.md`
+- [ ] Заполнить содержимым `researches/teachings/toiizm/okkultnoe-vliyanie.md`
+- [ ] Заполнить содержимым `researches/teachings/pyatidesyatizm/podtemy.md`
+- [ ] Заполнить содержимым `researches/teachings/toiizm/simvolika-igrushek.md`
+- [ ] Заполнить содержимым `researches/teachings/totemizm/bibleiskoe-sravnenie.md`
+- [ ] Заполнить содержимым `researches/teachings/totemizm/dukhovnoe-idolopoklonstvo.md`
+- [ ] Заполнить содержимым `researches/teachings/satanizm/istoricheskoe-proiskhozhdenie.md`
+- [ ] Заполнить содержимым `researches/teachings/totemizm/minhag-tabu-obryady.md`
+- [ ] Заполнить содержимым `researches/teachings/totemizm/mirovoe-vliyanie.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/totemizm/socialnye-konflikty.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/satanizm/istoricheskoe-proiskhozhdenie.md`
+- [ ] Заполнить содержимым `researches/teachings/ufologizm/kosmicheskoe-messianstvo.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `researches/teachings/universalizm/socialnye-aspekty.md`
+- [ ] Заполнить содержимым `researches/teachings/fashizm/vozmozhnye-teorii/README.md`
+- [ ] Заполнить содержимым `instructions/retrospective.md`
+- [ ] Заполнить содержимым `terminology/chesed.md`
+- [ ] Заполнить содержимым `terminology/melech.md`
+- [ ] Заполнить содержимым `terminology/shabbat.md`
+- [ ] Заполнить содержимым `terminology/sheol.md`
+- [ ] Заполнить содержимым `researches/books/machiavelli-the-prince.md`
+- [ ] Заполнить содержимым `researches/history/history-of-languages.md`
+- [ ] Заполнить содержимым `researches/history/history-of-money.md`
+- [ ] Заполнить содержимым `researches/history/history-of-politics.md`
+- [ ] Заполнить содержимым `researches/language/grecheskaya-lovushka.md`
+- [ ] Заполнить содержимым `researches/language/loss-in-translation.md`
+- [ ] Заполнить содержимым `researches/language/sinodalnyi-obman.md`
+- [ ] Заполнить содержимым `researches/practices/dibur-tahor.md`
+- [ ] Заполнить содержимым `researches/practices/moadei-yhwh.md`
+- [ ] Заполнить содержимым `researches/practices/shabbat-hayom.md`
+- [ ] Заполнить содержимым `researches/psychology/lev-mind.md`
+- [ ] Заполнить содержимым `researches/systems/chronos-vs-kairos.md`
+- [ ] Заполнить содержимым `researches/systems/demokratia-kak-kult.md`
+- [ ] Заполнить содержимым `researches/systems/shloshet-amudei-ha-mashech.md`
+- [ ] Заполнить содержимым `researches/systems/talmud-judaism.md`
+- [ ] Заполнить содержимым `researches/tanakh/mashal-melachim.md`
+- [ ] Заполнить содержимым `researches/tanakh/mavet-vida.md`
+- [ ] Заполнить содержимым `researches/tanakh/moadim-yhwh.md`
+- [ ] Заполнить содержимым `researches/tanakh/rabbinic-judaism.md`
+- [ ] Заполнить содержимым `researches/tanakh/trebuet-utochneniya.md`
+- [ ] Заполнить содержимым `researches/tanakh/tsom-istinnyi.md`
+- [ ] Заполнить содержимым `researches/teachings/arkhiv/raspalcovki/zhest-fiksiki.md`
+- [ ] Заполнить содержимым `researches/teachings/arkhiv/raspalcovki/zhest-viktori.md`
+- [ ] Заполнить содержимым `researches/teachings/ezoterizm/kosmicheskaya-energiya.md`
+- [ ] Заполнить содержимым `researches/teachings/ezoterizm/vnutrennyaya-mudrost.md`
+- [ ] Заполнить содержимым `researches/teachings/fizikalizm/eliminativnyi-materializm.md`
+- [ ] Заполнить содержимым `researches/teachings/fizikalizm/pervichnost-razuma.md`
+- [ ] Заполнить содержимым `researches/teachings/fizikalizm/problema-kvalia.md`
+- [ ] Заполнить содержимым `researches/teachings/hristianstvo/bibleiskie-lzhebozhki/lilit.md`
+- [ ] Заполнить содержимым `researches/teachings/kemetizm/egipetskie-lzhebozhki/lzhesudya-dush-anubis.md`
+- [ ] Заполнить содержимым `researches/teachings/kemetizm/osnovy-ucheniya/zagrobnyi-mir-duat.md`
+- [ ] Заполнить содержимым `researches/teachings/koldovstvo/tyomnaya-zhenstvennost.md`
+- [ ] Заполнить содержимым `researches/teachings/kosmogoniya/asiatic-devices-allusive.md`
+- [ ] Заполнить содержимым `researches/teachings/kosmologizm/idolopoklonstvo-kosmosom.md`
+- [ ] Заполнить содержимым `researches/teachings/kosmologizm/kosmicheskie-ucheniya.md`
+- [ ] Заполнить содержимым `researches/teachings/kosmologizm/lineinost-vremeni.md`
+- [ ] Заполнить содержимым `researches/teachings/kosmologizm/nasa.md`
+- [ ] Заполнить содержимым `researches/teachings/mammonizm/evroevangelie.md`
+- [ ] Заполнить содержимым `researches/teachings/massonizm/religioznaya-literatura/konstituciya-volnykh-kamenshikov.md`
+- [ ] Заполнить содержимым `researches/teachings/misticizm/dukhovnye-allegorii.md`
+- [ ] Заполнить содержимым `researches/teachings/misticizm/ekstaticheskie-sostoyaniya.md`
+- [ ] Заполнить содержимым `researches/teachings/okkultizm/okkultnaya-alkhimiya.md`
+- [ ] Заполнить содержимым `researches/teachings/olimpizm/vliyanie-igr.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/etimologicheskii-razbor.md`
+- [ ] Заполнить содержимым `researches/teachings/panteizm/bog-vnutri-tebya.md`
+- [ ] Заполнить содержимым `researches/teachings/politizm/istoki-proiskhozhdeniya.md`
+- [ ] Заполнить содержимым `researches/teachings/patriotizm/vechnyi-ogon.md`
+- [ ] Заполнить содержимым `researches/teachings/platonizm/bessmertie-dushi.md`
+- [ ] Заполнить содержимым `researches/teachings/pravoslavie/elementy-religii/mavriiskii-dub.md`
+- [ ] Заполнить содержимым `researches/teachings/shovinizm/dukhovnye-plody.md`
+- [ ] Заполнить содержимым `researches/teachings/racionalizm/chelovecheskaya-logika.md`
+- [ ] Заполнить содержимым `researches/teachings/redukcionizm/lozh-chasovshika.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/akademizm/obrazovanie-bez-lyubvi.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/alkhimiya/istoriya.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/animizm/osnovy-ucheniya/demonicheskaya-priroda-dukhov.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/antagonizm/formy-antagonizma/apokalipticheskii.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/antagonizm/osnovy-ucheniya/aktivnoe-protivostoyanie.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/daosizm/dao-put.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/daosizm/teva-adam.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/gedonizm/dukhovnaya-bednost.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/gedonizm/illyuziya-schastya.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/gedonizm/institut-semi.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/gedonizm/plotskie-strasti.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/geiminduizm/pogruzhenie-v-igru.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/geiminduizm/vliyanie-na-soznanie.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/gumanizm/prava-cheloveka.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/napravleniya-ucheniya/ezoterizm.md`
+- [ ] Заполнить содержимым `researches/teachings/religionizmy/iudaizm/napravleniya-ucheniya/ortodoksizm.md`
+- [ ] Заполнить содержимым `researches/teachings/massonizm/osnovy-ucheniya.md`
+- [ ] Заполнить содержимым `researches/teachings/satanizm/osobennosti-ucheniya/kabbalistika.md`
+- [ ] Заполнить содержимым `researches/teachings/satanizm/osobennosti-ucheniya/transgressiya.md`
+- [ ] Заполнить содержимым `researches/teachings/saturnizm/simvolika-zmei.md`
+- [ ] Заполнить содержимым `researches/teachings/selebritizm/kommercializaciya-lichnosti.md`
+- [ ] Заполнить содержимым `researches/teachings/selebritizm/kult-artistov.md`
+- [ ] Заполнить содержимым `researches/teachings/selebritizm/kult-gedonizma.md`
+- [ ] Заполнить содержимым `researches/teachings/selebritizm/kult-pevcov/taylor-swift.md`
+- [ ] Заполнить содержимым `researches/teachings/selebritizm/kult-pevcov/xxx-tentacion.md`
+- [ ] Заполнить содержимым `researches/teachings/satanizm/istoricheskoe-proiskhozhdenie.md`
+- [ ] Заполнить содержимым `researches/teachings/shovinizm/dukhovnye-plody.md`
+- [ ] Заполнить содержимым `researches/teachings/shovinizm/vidy-shovinizma/intellektualnyi.md`
+- [ ] Заполнить содержимым `researches/teachings/sinematizm/kino-giganty/netflix.md`
+- [ ] Заполнить содержимым `researches/teachings/talmudizm/teologicheskaya-literatura/galakha.md`
+- [ ] Заполнить содержимым `researches/teachings/talmudizm/teologicheskaya-literatura/ustnaya-tora-pismennaya.md`
+- [ ] Заполнить содержимым `researches/teachings/evfemizm/vnutrennie-protivorechiya.md`
+- [ ] Заполнить содержимым `researches/teachings/tekhnoteizm/biotekhnologii/neirointerfeisy.md`
+- [ ] Заполнить содержимым `researches/teachings/toiizm/kult-kukl.md`
+- [ ] Заполнить содержимым `researches/teachings/transgumanizm/neirointerfeisy/darpa.md`
+- [ ] Заполнить содержимым `instructions/chat-prompt.md`
+- [ ] Заполнить содержимым `instructions/checkers/tikun-fix.md`
+- [ ] Заполнить содержимым `instructions/collaboration-guide.md`
+- [ ] Заполнить содержимым `instructions/exposure/exposure-language-control.md`
+- [ ] Заполнить содержимым `instructions/images-catalogue.md`
+- [ ] Заполнить содержимым `instructions/security-policy.md`
+- [ ] Заполнить содержимым `instructions/templates/self-learning-template.md`
+- [ ] Заполнить содержимым `instructions/troubleshooting.md`
+- [ ] Заполнить содержимым `instructions/workflow.md`
+- [ ] Заполнить содержимым `davar/davar-architecture.md`
+- [ ] Заполнить содержимым `ideas/additional-files.md`
+- [ ] Заполнить содержимым `ideas/bashah-project.md`
+- [ ] Заполнить содержимым `ideas/paleo-hebrew-dictionary.md`
+- [ ] Заполнить содержимым `ideas/project-agent.md`
+- [ ] Заполнить содержимым `drafts/ideas.md`
+- [ ] Заполнить содержимым `drafts/questions.md`
 
-- [ ] Заполнить содержимым `researches/galatim-two-systems.md`
+- [ ] Заполнить содержимым `researches/systems/galatim-two-systems.md`
 - [ ] Заполнить содержимым `terminology/yetzer-lev.md`
 - [ ] Заполнить содержимым `terminology/erech-apayim.md`
 
@@ -73,6 +493,16 @@
 
 ---
 
+## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (2026-06-10)
+
+- [x] Создать веб-интерфейс (index.html, style.css, app.js, server.js)
+- [x] Настроить деплой на GitHub Pages
+- [x] Адаптивная верстка ПК + мобильная
+- [x] Бургер-меню, тёмная тема, закладки, история
+- [x] Исключить служебные папки из интерфейса
+- [x] Починить отображение заголовков (эмоджи вырезаются)
+- [x] Автоопределение localhost/GitHub Pages
+
 ## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (2026-06-07 — 2026-06-09)
 
 - [x] Перенести документацию в `docs/`
@@ -85,11 +515,9 @@
 - [x] Создать `tools/lib/utils.py`
 - [x] Обновить `golem.py` до v3.9
 - [x] Удалить `SCTRUCTURE.md`, `substitution-of-the-name` без `.md`, `COMPLETED-TASKS.*`
-- [x] Обновить `docs/CHANGELOG.md`, `docs/BACKLOG.md`, `docs/DECISIONS.md`, `docs/RETROSPECTIVE.md`, `docs/ROADMAP.md`
+- [x] Обновить `docs/CHANGELOG.md`, `docs/BACKLOG.md`, `docs/DECISIONS.md`, `instructions/retrospective.md`, `docs/ROADMAP.md`
 - [x] Исправить `sync-structure.py`, `generate-glossary.py` (убрать `progress`)
 - [x] Исправить `task-manager.py` (путь к `docs/TECHNICAL-DEBT.md`)
-
----
 
 ## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (ранние)
 
@@ -102,11 +530,11 @@
 ### 2026-06-01
 
 - [x] Создать `exposure-distortions.md`
-- [x] Создать `checkers/mivdak.md`
+- [x] Создать `instructions/checkers/mivdak.md`
 
 ### 2026-06-02
 
-- [x] Создать `researches/yehoshua-research.md`, `derech-ha-gever.md`, `derech-ha-nachash.md`
+- [x] Создать `researches/tanakh/yehoshua-research.md`, `derech-ha-gever.md`, `derech-ha-nachash.md`
 - [x] Создать термины `yetzer-lev.md`, обновить `cherut.md`
 
 ### 2026-06-06

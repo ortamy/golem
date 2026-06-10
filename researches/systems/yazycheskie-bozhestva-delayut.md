@@ -1,7 +1,6 @@
 # 🗿 АБСТРАКТНЫЕ БОЖКИ VS ЯХВЕ: БЕЗВОЛИЕ ИЛИ Хофеш
 
 **Метаданные файла**
-- **Файл:** `researches/abstract-gods-vs-yhwh.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-06-07
 - **Последнее обновление:** 2026-06-07
@@ -10,7 +9,6 @@
 - **Тема:** Как языческие божества делают адам пассивным рабом, а Яхве требует действия и выводит на хофеш
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/abstract-gods-vs-yhwh.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
 - **Хеш:** 879942dc
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -183,10 +181,8 @@
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/shabbat.md`
 - `terminology/torah.md`

@@ -1,7 +1,6 @@
 # 📜 סְלָבִים — СЛАВЯНЕ: ЛЮДИ СЛОВА
 
 **Метаданные файла**
-- **Файл:** `researches/other/slavs.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-02
 - **Последнее обновление:** 2026-06-02
@@ -10,7 +9,6 @@
 - **Тема:** Этимология слова «славяне». Люди слова. Связь с ивритским пониманием языка. Язык как идентичность vs идентичность в Яхве.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/other/slavs.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `terminology/torah.md`
 - **Хеш:** ea2189d9
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

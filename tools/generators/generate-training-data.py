@@ -1,9 +1,10 @@
+#!/usr/bin/env python3
 # tools/generators/generate-training-data.py — создание датасета для нейросети «Эд»
 import sys
 import re
 import json
 from pathlib import Path
-from datetime import datetime
+# from datetime import datetime  # TODO: проверить, используется ли
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, print_warning, print_hint, REPO_ROOT
@@ -156,3 +157,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

@@ -1,7 +1,6 @@
 # 📜 שֵׁמוֹת נוֹשְׂאֵי יהוה — ИМЕНА, НЕСУЩИЕ ИМЯ ЯХВЕ
 
 **Метаданные файла**
-- **Файл:** `researches/theophoric-names.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Имена в ТаНаХ, содержащие Имя יהוה (YHWH), и их подделка в греческих, латинских и славянских переводах
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/theophoric-names.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** d9e2cf86
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

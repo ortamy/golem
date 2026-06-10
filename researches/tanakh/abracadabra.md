@@ -1,7 +1,6 @@
 # 📜 אַבְרָא כַּדְבְּרָא — НЕ «МАГИЯ», А ЛОЖЬ, ЗАКЛЯТАЯ В СЛОВАХ
 
 **Метаданные файла**
-- **Файл:** `researches/abracadabra.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение магической нусха «абракадабра» через иврит и ТаНаХ
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/abracadabra.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `terminology/torah.md`, `terminology/yhwh.md`
 - **Хеш:** 828fce5c
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

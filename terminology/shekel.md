@@ -10,7 +10,7 @@
 - **Тема:** Разбор понятия שֶׁקֶל (шекель). Мера веса, превращённая системой в финансовые оковы. Как конкретная ценность стала абстрактной миспар. Связь с онаа, весами верными и Шаббат.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `terminology/shekel.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/translation-methodology.md`, `instructions/methodology/transliteration-distortions.md`, `researches/economy/banks-and-financial-dynasties.md`
+- **Связанные файлы:** `terminology/shekel.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/translation-methodology.md`, `instructions/methodology/transliteration-distortions.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - **Хеш:** f3c52b7a
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -185,9 +185,7 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/history-of-banks.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/shabbat.md`
 - `terminology/torah.md`

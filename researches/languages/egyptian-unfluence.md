@@ -1,7 +1,6 @@
 # 🇪🇬 ЕГИПЕТСКИЕ КОРНИ ИВРИТА: КОГДА РАБСТВО ОСТАВИЛО СЛЕДЫ В ЯЗЫКЕ
 
 **Метаданные файла**
-- **Файл:** `researches/egyptian-influence.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/egyptian-influence.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** afcc6c05
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -166,7 +164,6 @@
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/names.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/el.md`
 - `terminology/shabbat.md`

@@ -1,7 +1,6 @@
 # 📜 הַכּוּזָרִים — ХАЗАРЫ: НЕ «ЕВРЕИ», А ТЮРКИ, ПРИНЯВШИЕ ИУДАИЗМ
 
 **Метаданные файла**
-- **Файл:** `researches/khazars-turks.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение мифа о хазарском происхождении евреев. Хазары — тюрки, а не потомки Авраhама. История, генетика, ТаНаХ.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/khazars-turks.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/archeology-methodology.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** e2e97755
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

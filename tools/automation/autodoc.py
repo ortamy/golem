@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/automation/move-to-docs.py — перенос документации в папку docs/
 import sys
 import shutil

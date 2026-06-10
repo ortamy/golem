@@ -1,7 +1,6 @@
 # 📜 דַּעַת — ПОЗНАНИЕ: НЕ ИНФОРМАЦИЯ, А БЛИЗОСТЬ
 
 **Метаданные файла**
-- **Файл:** `researches/daat-tree.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Раскрытие библейского машмаут דַּעַת (даат). Разоблачение греческого дуализма «добра и зла» и возвращение к ТаНаХ: טוֹב — пригодное, רַע — непригодное.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/daat-tree.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** 768099ff
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

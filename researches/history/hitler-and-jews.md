@@ -1,7 +1,6 @@
 # 🔥 ГИТЛЕР И ЕВРЕИ: ПОЧЕМУ ОН УНИЧТОЖАЛ НОСИТЕЛЕЙ Хофеш
 
 **Метаданные файла**
-- **Файл:** `researches/hitler-and-jews.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Истинные мотивы Холокоста: Гитлер уничтожал не «расу», а носителей правды о том, что власть не абсолютна, мишпат выше человеческого, а хофеш дана не государством, а Творцом
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/hitler-and-jews.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/names.md`, `researches/economy/economic-slavery.md`, `researches/slavery/economic-slavery.md`
 - **Хеш:** 485d9c5b
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -164,7 +162,6 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/names.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `researches/tanakh/magen-david.md`
 - `terminology/el.md`

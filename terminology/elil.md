@@ -65,7 +65,6 @@
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
 - `instructions/tahor/names.md`
-- `researches/economy/history-of-money.md`
 - `terminology/el.md`
 - `terminology/torah.md`
 

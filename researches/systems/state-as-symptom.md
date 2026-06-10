@@ -1,7 +1,6 @@
 # 📜 מַמְלָכָה — ГОСУДАРСТВО: СИМПТОМ СЛОМАННОГО ДОВЕРИЯ
 
 **Метаданные файла**
-- **Файл:** `researches/state-as-symptom.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-04
 - **Последнее обновление:** 2026-06-04
@@ -10,7 +9,6 @@
 - **Тема:** Государство как симптом сломанного доверия. История от Вавилона до цифровой эпохи. Как люди отдали власть надсмотрщику. ТаНаХический взгляд: мелех как витур малодушию.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/state-as-symptom.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
 - **Хеш:** a8de9fc6
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -184,9 +182,7 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/el.md`

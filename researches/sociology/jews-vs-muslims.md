@@ -1,7 +1,6 @@
 # 🕋 ИУДЕИ И МУСУЛЬМАНЕ: БРАТЬЯ ИЛИ ВРАГИ?
 
 **Метаданные файла**
-- **Файл:** `researches/jews-and-muslims.md`
 - **Версия:** 1.3
 - **Дата создания:** 2026-06-07
 - **Последнее обновление:** 2026-06-07
@@ -10,7 +9,6 @@
 - **Тема:** Почему два семитских народа, потомки Авраама, находятся в вечном конфликте
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/jews-and-muslims.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/tahor/names.md`, `researches/tanakh/gog-and-magog.md`
 - **Хеш:** ecef1df0
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -271,7 +269,6 @@
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/tahor/names.md`
 - `researches/tanakh/gog-and-magog.md`
 - `terminology/torah.md`

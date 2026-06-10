@@ -10,7 +10,6 @@
 - **Тема:** Полный список латинизмов с заменами. Слова, пришедшие из латыни через Вульгату и католическую традицию.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/tahor/latinisms.md`, `instructions/methodology/translation-methodology.md`, `instructions/methodology/tree-method.md`, `instructions/tahor/grecisms.md`, `instructions/tahor/religionisms.md`
 - **Хеш:** 3408e037
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -88,7 +87,5 @@
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/tree-method.md`
 - `instructions/tahor/grecisms.md`
-- `instructions/tahor/religionisms.md`
-- `researches/history/nicaea-council.md`
 - `terminology/mashiah-peshat.md`
 - `terminology/torah.md`

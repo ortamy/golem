@@ -1,7 +1,7 @@
 # 📜 לֵב — МОЗГ В Лев: НАУКА ПОДТВЕРЖДАЕТ ТаНаХ
 
 **Метаданные файла**
-- **Файл:** `researches/lev-mind.md`
+- **Файл:** `researches/psychology/lev-mind.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +10,7 @@
 - **Тема:** Научное открытие «мозга в сердце» как подтверждение библейской антропологии. Лев — не насос, а центр мышления и кабала решений. Ивритское לֵב против греческого пилуг на разум и чувства.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/lev-mind.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `terminology/el.md`
+- **Связанные файлы:** `researches/psychology/lev-mind.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `terminology/el.md`
 - **Хеш:** e1263636
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

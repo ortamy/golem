@@ -59,7 +59,7 @@
 
 ---
 
-📌 **Для исследователей и разработчиков:** инструкции по запуску чекеров и настройке нейросети — в `tools/README.md` и `neural/README.md`.
+📌 **Для исследователей и разработчиков:** инструкции по запуску чекеров и настройке нейросети — в `researches/teachings/parazitizm/biologicheskii-parazitizm/README.md` и `researches/teachings/parazitizm/biologicheskii-parazitizm/README.md`.
 
 
 <!-- NAVIGATION_START -->
@@ -107,7 +107,7 @@
 
 ### Инструменты
 
-- [РЕТРОСПЕКТИВА](tools/RETROSPECTIVE.md)
+- [РЕТРОСПЕКТИВА](instructions/retrospective.md)
 
 ### Идеи
 

@@ -1,7 +1,6 @@
 # ✡️ ИВРИТ КАК ЯЗЫК Бриа
 
 **Метаданные файла**
-- **Файл:** `researches/hebrew-creational.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/hebrew-creational.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** 6658c2a5
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

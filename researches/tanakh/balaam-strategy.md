@@ -1,7 +1,6 @@
 # 📜 אֶצְבַּע בִּלְעָם — ПЕРСТ ВААЛАМА: КАК УНИЧТОЖИТЬ ИЗРАИЛЬ БЕЗ ВОЙНЫ
 
 **Метаданные файла**
-- **Файл:** `researches/balaam-strategy.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-03
 - **Последнее обновление:** 2026-06-03
@@ -10,7 +9,6 @@
 - **Тема:** Стратегия Ваалама: как уничтожить Израиль без войны. Схема соблазна изнутри, повторённая Римом. Подмена Машиах, Имени, Шаббат, Тора. Связь с Никейским кеhила.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/balaam-strategy.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
 - **Хеш:** 79e5a47f
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -172,7 +170,6 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/tahor/names.md`
-- `researches/history/nicaea-council.md`
 - `terminology/el.md`
 - `terminology/mashiah-peshat.md`
 - `terminology/shabbat.md`

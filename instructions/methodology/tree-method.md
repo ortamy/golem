@@ -1,7 +1,6 @@
 # 📜 שִׁיטַת הָעֵץ — МЕТОД ДЕРЕВА: КАК ПРОВЕРЯТЬ УЧЕНИЕ
 
 **Метаданные файла**
-- **Файл:** `instructions\methodology\tree-method.md`
 - **Версия:** 1.2
 - **Дата создания:** 2026-05-28
 - **Последнее обновление:** 2026-05-28
@@ -10,7 +9,6 @@
 - **Тема:** Инструмент проверки любого учения по модели дерева. От корней до плодов. Основано на ТаНаХе и словах Йешуа.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/history/nicaea-council.md`, `terminology/el.md`
 - **Хеш:** 36757504
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -149,7 +147,6 @@
 - `instructions/exposure/exposure-distortions.md`
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
-- `researches/history/nicaea-council.md`
 - `terminology/el.md`
 - `terminology/mashiah-peshat.md`
 - `terminology/torah.md`

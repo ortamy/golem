@@ -1,7 +1,7 @@
 # 📜 ИСТОРИЯ ДЕНЕГ: ОТ ШЕКЕЛЯ ДО ЦИФРОВОГО РАБСТВА
 
 **Метаданные файла**
-- **Файл:** `researches/history-of-money.md`
+- **Файл:** `researches/history/history-of-money.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-07
 - **Последнее обновление:** 2026-06-07
@@ -10,7 +10,7 @@
 - **Тема:** Как конкретная мера веса превратилась в абстракцию контроля
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/history-of-money.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
+- **Связанные файлы:** `researches/history/history-of-money.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
 - **Хеш:** fe583abf
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -113,7 +113,7 @@
 
 **Кто выиграл:**
 - мелех и императоры (контроль через чеканку)
-- банкиры (контроль через процент)
+- банкиры (контроль через процент запрещён в Торе (Шмот 22:24) запрещён в Торе (Шмот 22:24) запрещён в Торе (Шмот 22:24) запрещён в Торе (Шмот 22:24))
 - правительства (контроль через печатный станок)
 
 **Кто проиграл:**
@@ -157,9 +157,9 @@
 - `instructions/exposure/exposure-principles.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
+- `researches/slavery/economic-slavery.md`
+- `researches/history/history-of-banks.md`
+- `researches/history/history-of-money.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`

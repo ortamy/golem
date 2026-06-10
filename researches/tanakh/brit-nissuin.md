@@ -1,7 +1,6 @@
 # 📜 בְּרִית נִשּׂוּאִין — НЕ «СВАДЬБА», А Брит КРОВИ И Сеуда
 
 **Метаданные файла**
-- **Файл:** `researches/brit-nissuin.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение современного брака как юридической сделки. Возвращение к ТаНаХ: брак как בְּרִית (брит), скреплённый кровью и сеуда.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/brit-nissuin.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/history-of-banks.md`
 - **Хеш:** 0ec445a9
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -35,8 +33,7 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/history-of-banks.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `terminology/el.md`
 - `terminology/shabbat.md`
 - `terminology/torah.md`

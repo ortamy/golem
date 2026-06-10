@@ -4,7 +4,7 @@
 import re
 import sys
 from pathlib import Path
-from datetime import datetime
+# from datetime import datetime  # TODO: проверить, используется ли
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from lib.utils import read_file_safe, REPO_ROOT

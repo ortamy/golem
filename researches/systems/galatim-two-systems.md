@@ -1,7 +1,6 @@
 # 📖 ГАЛАТИМ: ВОЙНА ДВУХ СИСТЕМ
 
 **Метаданные файла**
-- **Файл:** `researches/galatim-two-systems.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-06
 - **Последнее обновление:** 2026-06-06
@@ -10,7 +9,6 @@
 - **Тема:** Анализ послания к Галатим — война системы рабства и системы сыновства
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/galatim-two-systems.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`
 - **Хеш:** 2165c2cb
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -109,8 +107,7 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-distortions.md`
 - `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/mashiah-peshat.md`

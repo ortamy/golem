@@ -1,7 +1,6 @@
 # 📜 נִשְׁמַת חַיִּים — КОГДА ДЫХАНИЕ СТАНОВИТСЯ ЛОЖЬЮ
 
 **Метаданные файла**
-- **Файл:** `researches/nishmat-chayim.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Дыхание жизни (нишмат хаим) как индикатор эмет. Как ложь, пахад и гордость нарушают дыхание Яхве в адам. Возвращение к естественному дыханию.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/nishmat-chayim.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `terminology/torah.md`
 - **Хеш:** 09e12890
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

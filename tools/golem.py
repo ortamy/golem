@@ -339,7 +339,7 @@ def show_dashboard(stdscr):
     """Показывает дашборд. Возвращает 'quit' или 'menu'."""
     stdscr.clear()
     stdscr.bkgd(' ', WHITE)
-    
+
     try:
         stats = get_stats()
     except Exception:
@@ -638,3 +638,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

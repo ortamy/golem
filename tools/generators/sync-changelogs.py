@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/generators/sync-changelogs.py — объединение CHANGELOG в один файл
 import sys
 import re

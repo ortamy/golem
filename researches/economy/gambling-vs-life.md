@@ -1,7 +1,6 @@
 # 📜 קוּבְּיָה אוֹ חַיִּים — ИГРАТЬ ИЛИ ЖИТЬ?
 
 **Метаданные файла**
-- **Файл:** `researches/gambling-vs-life.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение азартных игр как системы, разрушающей жизнь. Библейский взгляд на амаль, случай и верность.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/gambling-vs-life.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** f9c48021
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -39,9 +37,7 @@
 - `instructions/exposure/exposure-principles.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/hebrew-reconstruction.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/shabbat.md`
 - `terminology/torah.md`

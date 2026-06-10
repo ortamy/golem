@@ -1,7 +1,6 @@
 # 📜 קוֹל דְּמָמָה דַקָּה — КАК УСЛЫШАТЬ ГОЛОС ЯХВЕ
 
 **Метаданные файла**
-- **Файл:** `researches/kol-dmamah-dakah.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Где и как говорит Яхве. Тишина против рааш. Как отличить голос Яхве от голоса эго. Практические принципы слышания.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/kol-dmamah-dakah.md`, `instructions/exposure/exposure-principles.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `terminology/yhwh.md`
 - **Хеш:** a895c82f
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

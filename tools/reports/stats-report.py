@@ -1,9 +1,10 @@
+#!/usr/bin/env python3
 # tools/stats-report.py
-import sys
-import os
+# import sys  # TODO: проверить, используется ли
+# import os  # TODO: проверить, используется ли
 import re
-import json
-import subprocess
+# import json  # TODO: проверить, используется ли
+# import subprocess  # TODO: проверить, используется ли
 from pathlib import Path
 from datetime import datetime
 from collections import Counter

@@ -1,7 +1,6 @@
 # ✂️ Кат: СЛЕДОВАТЬ ИЛИ ОТРЕЗАТЬ?
 
 **Метаданные файла**
-- **Файл:** `researches/sect-meaning.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/sect-meaning.md`, `instructions/exposure/exposure-principles.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/tree-method.md`, `researches/economy/economic-slavery.md`
 - **Хеш:** e03b9706
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -213,7 +211,6 @@
 - `instructions/exposure/exposure-principles.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/tree-method.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/el.md`
 - `terminology/shabbat.md`

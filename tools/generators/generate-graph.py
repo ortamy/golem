@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/generators/generate-graph.py — генерация визуальной карты связей
 import sys
 import re
@@ -167,3 +168,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

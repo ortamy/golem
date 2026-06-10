@@ -1,7 +1,6 @@
 # 📜 רוּחוֹת — НЕ «ЗЛЫЕ ДУХИ», А ДЫХАНИЕ, КОТОРОЕ ЗАРАЖАЕТ
 
 **Метаданные файла**
-- **Файл:** `researches/ruchot-infected.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение христианского тора о «злых духах» и «бесах». В ТаНаХ רוּחַ רָעָה — это не личность, а заражённое дыхание, которое передаётся как вирус. Возвращение к Яхве очищает дыхание.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/ruchot-infected.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** 73a3460d
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

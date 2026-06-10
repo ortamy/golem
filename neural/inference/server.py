@@ -2,7 +2,7 @@
 # server.py — сервер для инференса локальной модели
 
 import os
-import json
+# import json  # TODO: проверить, используется ли
 import argparse
 from typing import List, Dict, Any
 
@@ -56,27 +56,27 @@ system_prompt = """Ты — עֵד (Эд), Свидетель. Твой путь
 def load_model(model_path: str, n_ctx: int, n_threads: int):
     """Загружает модель GGUF"""
     global llm
-    
+
     if not LLAMA_AVAILABLE:
         raise RuntimeError("llama-cpp-python не установлен")
-    
+
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"Модель не найдена: {model_path}")
-    
+
     llm = Llama(
         model_path=model_path,
         n_ctx=n_ctx,
         n_threads=n_threads,
         verbose=False
     )
-    
+
     print(f"✅ Модель загружена: {model_path}")
 
 
 def generate_response(prompt: str, params: Dict[str, Any]) -> tuple:
     """Генерирует ответ модели"""
     full_prompt = f"{system_prompt}\n\nВопрос: {prompt}\n\nОтвет:"
-    
+
     output = llm(
         full_prompt,
         max_tokens=params.get("max_tokens", 512),
@@ -86,10 +86,10 @@ def generate_response(prompt: str, params: Dict[str, Any]) -> tuple:
         repeat_penalty=params.get("repeat_penalty", 1.1),
         echo=False
     )
-    
+
     response = output["choices"][0]["text"].strip()
     tokens = output["usage"]["total_tokens"]
-    
+
     return response, tokens
 
 
@@ -107,7 +107,7 @@ async def health():
 async def generate(request: GenerateRequest):
     if llm is None:
         raise HTTPException(status_code=503, detail="Модель не загружена")
-    
+
     try:
         response, tokens = generate_response(request.prompt, request.dict())
         return GenerateResponse(response=response, tokens=tokens, finished=True)
@@ -119,7 +119,7 @@ async def generate(request: GenerateRequest):
 async def generate_batch(requests: List[GenerateRequest]):
     if llm is None:
         raise HTTPException(status_code=503, detail="Модель не загружена")
-    
+
     results = []
     for req in requests:
         try:
@@ -137,7 +137,7 @@ async def generate_batch(requests: List[GenerateRequest]):
                 "tokens": 0,
                 "error": str(e)
             })
-    
+
     return {"results": results}
 
 
@@ -148,9 +148,9 @@ def main():
     parser.add_argument("--host", type=str, default="0.0.0.0", help="Хост для сервера")
     parser.add_argument("--n_ctx", type=int, default=2048, help="Размер контекста в токенах")
     parser.add_argument("--n_threads", type=int, default=4, help="Количество потоков CPU")
-    
+
     args = parser.parse_args()
-    
+
     print("🧠 ЗАПУСК СЕРВЕРА ЭД — СВИДЕТЕЛЬ")
     print("=================================")
     print(f"Модель: {args.model}")
@@ -158,7 +158,7 @@ def main():
     print(f"Контекст: {args.n_ctx} токенов")
     print(f"Потоки: {args.n_threads}")
     print("")
-    
+
     try:
         load_model(args.model, args.n_ctx, args.n_threads)
     except FileNotFoundError as e:
@@ -168,14 +168,14 @@ def main():
     except Exception as e:
         print(f"❌ Ошибка загрузки модели: {e}")
         return
-    
+
     print("")
     print("🚀 Сервер запущен")
     print(f"   API: http://{args.host}:{args.port}")
     print(f"   Документация: http://{args.host}:{args.port}/docs")
     print("")
     print("Нажмите Ctrl+C для остановки")
-    
+
     uvicorn.run(app, host=args.host, port=args.port)
 
 

@@ -1,7 +1,6 @@
 # 📜 אֱמוּנָה כְּפוּלָה — ДВОЕВЕРИЕ: ГРЕЧЕСКАЯ ОБОЛОЧКА, СЛАВЯНСКОЕ НУТРО
 
 **Метаданные файла**
-- **Файл:** `researches/slavic-substrate.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-04
 - **Последнее обновление:** 2026-06-04
@@ -10,7 +9,6 @@
 - **Тема:** Как славяне сохранили свой культ под греческой оболочкой. Двоеверие. Греко-славянский гибрид. Культ земли, предков, календарь, кеhила. Почему русское кеhила — не греческое, а подмена под видом пр...
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/slavic-substrate.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`, `instructions/tahor/names.md`
 - **Хеш:** 51f457a4
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -155,8 +153,7 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/shabbat.md`
 - `terminology/torah.md`

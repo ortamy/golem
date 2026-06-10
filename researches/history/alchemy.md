@@ -10,7 +10,6 @@
 - **Тема:** Алхимия как религионизм — подмена внутреннего преображения химическим процессом
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/history/alchemy.md`, `researches/other/paracelsus.md`, `researches/history/history-of-medicine.md`, `instructions/exposure/exposure-religionism-theory.md`, `researches/teachings/kabbalistizm.md`
 - **Хеш:** 9936f11d
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -138,10 +137,7 @@
 ---
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `researches/other/paracelsus.md` — Парацельс: врач-алхимик
 - `researches/history/history-of-medicine.md` — история медицины
-- `instructions/exposure/exposure-religionism-theory.md` — теория религионизмов
-- `researches/teachings/kabbalistizm.md` — каббализм
 
 ---
 

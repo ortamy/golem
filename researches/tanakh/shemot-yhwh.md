@@ -1,7 +1,6 @@
 # 📜 שֵׁמוֹת יְהוָה — ИМЕНА, НЕСУЩИЕ ИМЯ ЯХВЕ
 
 **Метаданные файла**
-- **Файл:** `researches/shemot-yhwh.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Полный свод имён из ТаНаХ и БаШаХа, в которых запечатлено Имя יהוה. Каждое имя — эдут и hитгалут.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/shemot-yhwh.md`, `instructions/exposure/exposure-language-control.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/names.md`
 - **Хеш:** 722cb7ed
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

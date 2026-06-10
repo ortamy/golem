@@ -1,7 +1,6 @@
 # 📜 Сод ИСЧЕЗНУВШИХ СВИТКОВ
 
 **Метаданные файла**
-- **Файл:** `researches/missing-hebrew-scrolls.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Почему ивритские оригиналы апостольских писаний не найдены, хотя вероятность их сохранения близка к 100%
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/missing-hebrew-scrolls.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `researches/tanakh/gog-and-magog.md`, `terminology/yhwh.md`
 - **Хеш:** 440a1db7
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

@@ -1,7 +1,6 @@
 # 📜 סְפָרִים בָּאֵשׁ — СЖИГАНИЕ КНИГ: КАК РИМ УНИЧТОЖАЛ Эмет
 
 **Метаданные файла**
-- **Файл:** `researches/burning-of-books.md`
 - **Версия:** 1.3
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Историческое разоблачение hашмада Римом ивритских оригиналов Микрa и подмены их греческими и латинскими переводами
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/burning-of-books.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** 25d91046
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -48,7 +46,6 @@
 - `instructions/exposure/exposure-methods.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/religionisms.md`
 - `researches/tanakh/gog-and-magog.md`
 - `terminology/el.md`
 - `terminology/shabbat.md`

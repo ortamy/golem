@@ -10,7 +10,7 @@
 - **Тема:** Разоблачение BlackRock через призму ТаНаХ. Крупнейшая инвестиционная компания мира. Концентрация капитала, власть без лица, контроль над государствами.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/companies/blackrock.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/translation-methodology.md`, `researches/economy/banks-and-financial-dynasties.md`
+- **Связанные файлы:** `researches/companies/blackrock.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/translation-methodology.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - **Хеш:** 96c699d5
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -157,7 +157,5 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/history-of-banks.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `terminology/yhwh.md`

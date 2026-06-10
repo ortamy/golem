@@ -27,7 +27,7 @@
 - Создан `docs/FAQ.md` — частые вопросы
 - Создан `docs/SETUP.md` — настройка рабочего окружения
 - Создан `docs/GRAPH.md` — визуальная карта связей (Mermaid)
-- Удалён `tools/CHANGELOG.md` — объединён с глобальным
+- Удалён `docs/CHANGELOG.md` — объединён с глобальным
 
 **Exposure (разоблачение):**
 - Создан `exposure-system-architecture.md` — архитектура системы: 9 компонентов, 4 этапа вербовки, 5 стадий жизни
@@ -74,7 +74,7 @@
 - Починен `sync-structure.py` — убран `progress`, путь обновлён на `docs/STRUCTURE.md`
 - Починен `generate-glossary.py` — убран `progress`, путь на `docs/GLOSSARY.md`
 - Починен `generate-nav.py` — убран `progress`
-- Удалён `tools/CHANGELOG.md` — дублировал глобальный
+- Удалён `docs/CHANGELOG.md` — дублировал глобальный
 
 ## [3.0.0] - 2026-06-08
 

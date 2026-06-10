@@ -1,7 +1,7 @@
 # 📜 מוֹעֲדִים — НАЗНАЧЕННЫЕ ВРЕМЕНА ЯХВЕ: ПОДМЕНА Хаг
 
 **Метаданные файла**
-- **Файл:** `researches/moadim-yhwh.md`
+- **Файл:** `researches/tanakh/moadim-yhwh.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +10,7 @@
 - **Тема:** Полный разбор назначенных времён Яхве (моадим). Их машмаут, даты и подмена христианскими и языческими хаг.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/moadim-yhwh.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
+- **Связанные файлы:** `researches/tanakh/moadim-yhwh.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** bdb65d40
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

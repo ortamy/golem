@@ -156,5 +156,4 @@ hа-Де́рех Яхве
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/names.md`
-- `researches/economy/history-of-money.md`
 - `terminology/yhwh.md`

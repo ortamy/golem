@@ -1,7 +1,7 @@
 # 📜 עֲבוֹדַת הָרַבָּנוּת — РАВВИНИСТИЧЕСКИЙ ИУДАИЗМ: ИСКАЖЕНИЕ Эмет
 
 **Метаданные файла**
-- **Файл:** `researches/rabbinic-judaism.md`
+- **Файл:** `researches/tanakh/rabbinic-judaism.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +10,7 @@
 - **Тема:** Историческое и лингвистическое разоблачение раввинистического иудаизма. Как устная масорет подменила Тора и увела народ от Яхве.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/rabbinic-judaism.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`
+- **Связанные файлы:** `researches/tanakh/rabbinic-judaism.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`
 - **Хеш:** 016d825a
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

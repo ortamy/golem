@@ -1,7 +1,6 @@
 # 📜 אַחֲרָיוּת — НЕ «ОТВЕТСТВЕННОСТЬ», А СОПРОВОЖДЕНИЕ
 
 **Метаданные файла**
-- **Файл:** `researches/acharayut-support.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение латинско-юридической подмены «ответственности». Ивритское אַחֲרָיוּת — это не долг перед законом, а акт сопровождения и несения другого.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/acharayut-support.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** df7c797b
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -72,8 +70,7 @@
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 

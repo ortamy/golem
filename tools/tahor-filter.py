@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # tahor-filter.py — автоматическая замена религионимов в текстах исследований
 
-import os
+# import os  # TODO: проверить, используется ли
 import re
 import sys
 from pathlib import Path
-from datetime import datetime
+# from datetime import datetime  # TODO: проверить, используется ли
 
 REPO_ROOT = Path(__file__).parent.parent
 TAHOR_DIR = REPO_ROOT / "instructions" / "tahor"

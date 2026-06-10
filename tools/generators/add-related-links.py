@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/generators/add-related-links.py — добавление блока «СВЯЗАННЫЕ ИССЛЕДОВАНИЯ»
 import sys
 import re

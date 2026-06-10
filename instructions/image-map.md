@@ -1,7 +1,6 @@
 # 📜 תַּבְנִית מַפַּת דִּמּוּיִם — ШАБЛОН КАРТЫ ОБРАЗОВ
 
 **Метаданные файла**
-- **Файл:** `instructions\image-map.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-28
@@ -145,6 +144,5 @@ hа-Де́рех Яхве
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
 - `instructions/methodology/tree-method.md`
-- `instructions/tahor/religionisms.md`
 - `researches/tanakh/magen-david.md`
 - `terminology/mashiah-peshat.md`

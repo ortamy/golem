@@ -1,7 +1,6 @@
 # 📜 הַר מְגִדּוֹ — НЕ «АРМАГЕДДОН»: МЕСТО БИТВЫ, А ВОЗВЫШЕННОСТЬ, ГДЕ СУДЯТ
 
 **Метаданные файла**
-- **Файл:** `researches/armageddon.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение ложного образа «Армагеддона» как финальной войны и возвращение библейского машмаут
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/armageddon.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/transliteration-distortions.md`, `terminology/yhwh.md`
 - **Хеш:** 33921de2
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

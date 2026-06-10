@@ -1,7 +1,6 @@
 # 📜 פָּרַצֵלְסוּס — ПАРАЦЕЛЬС: АЛХИМИК, ПЕРЕВОРОТЧИК, ЦЕЛИТЕЛЬ
 
 **Метаданные файла**
-- **Файл:** `researches\other\paracelsus.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-03
 - **Последнее обновление:** 2026-06-03
@@ -136,6 +135,5 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/tahor/names.md`
 - `researches/history/alchemy.md`
-- `researches/other/paracelsus.md`
 - `researches/tanakh/gog-and-magog.md`
 - `terminology/yhwh.md`

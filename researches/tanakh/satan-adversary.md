@@ -1,7 +1,6 @@
 # 📜 שָׂטָן — НЕ «САТАНА», А ПРОТИВНИК. И ЕГО ВЕСТНИК — НЕ Шед
 
 **Метаданные файла**
-- **Файл:** `researches/satan-adversary.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Полное разоблачение христианского образа «сатаны» и «ангела сатаны». В ТаНаХ שָׂטָן — тафкид, а не личность. Вестник противника — не шед, а испытание от Яхве.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/satan-adversary.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/methodology/transliteration-distortions.md`
 - **Хеш:** 68fb907c
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

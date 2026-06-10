@@ -1,7 +1,6 @@
 # 📜 שְׁאֵרִית יִשְׂרָאֵל — Шеэрит ИЗРАИЛЯ: ТЕ, КТО ИЩЕТ ЯХВЕ
 
 **Метаданные файла**
-- **Файл:** `researches/remnant-israel.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-03
 - **Последнее обновление:** 2026-06-03
@@ -10,7 +9,6 @@
 - **Тема:** Статистический и танахический анализ: сколько евреев в Израиле искренне ищут Яхве. Понятие «остатка» в ТаНаХ. Связь с Элияhу и 7000 не преклонивших колен.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/remnant-israel.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/tahor/names.md`, `terminology/mashiah-peshat.md`
 - **Хеш:** adfa7c21
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

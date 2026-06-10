@@ -1,7 +1,6 @@
 # 💱 РУБЛЬ, ЕВРО, ДОЛЛАР: ЯЗЫЧЕСКИЕ ЗНАКИ НА ДЕНЬГАХ
 
 **Метаданные файла**
-- **Файл:** `researches/money-symbols.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение языческого происхождения от валют (₽, €, $) и их связи с древними божествами
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/money-symbols.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`, `instructions/tahor/names.md`, `researches/economy/banks-and-financial-dynasties.md`
 - **Хеш:** f35e8e4b
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -37,9 +35,7 @@
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-principles.md`
 - `instructions/tahor/names.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/el.md`
 - `terminology/yhwh.md`

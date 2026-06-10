@@ -1,7 +1,6 @@
 # 📜 מוּשְׁטָר — МУШТРА: КАК СИСТЕМА ПРЕВРАТИЛА Авода В ДРЕССИРОВКУ
 
 **Метаданные файла**
-- **Файл:** `researches/mushtarah.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение муштры как инструмента системы. Сравнение муштры и дэрех Яхве. Как отличить дрессировку от живого обучения.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/mushtarah.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** e35843b7
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

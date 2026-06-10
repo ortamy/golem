@@ -1,7 +1,6 @@
 # 📜 TELEVISION — ВИДЕНИЕ БУДУЩЕГО
 
 **Метаданные файла**
-- **Файл:** `researches/media/television-vision.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-09
 - **Последнее обновление:** 2026-06-09
@@ -154,10 +153,8 @@ Tele-vision. Tele — «далеко, на расстоянии» (греч.). V
 ---
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `researches/media/rock-mantras.md` — скрытые мантры в музыке
 - `researches/sport/football-as-religion.md` — футбол как отвлечение
 - `researches/sport/sport-as-coliseum.md` — лехем и зрелищ
-- `instructions/exposure/exposure-religionism-theory.md` — теория религионизмов
 
 ---
 

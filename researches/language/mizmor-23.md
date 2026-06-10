@@ -1,7 +1,6 @@
 # 📜 מִזְמוֹר לְדָוִד — Мизмор 23: СИНОДАЛЬНЫЙ ТУМАН ПРОТИВ ИВРИТСКОЙ Бехирут
 
 **Метаданные файла**
-- **Файл:** `researches/mizmor-23.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Разоблачение синодального перевода 23-го псалма. Построчный разбор ивритского оригинала против синодального тумана.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/mizmor-23.md`, `instructions/exposure/exposure-methods.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/names.md`
 - **Хеш:** f9ef982d
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -69,10 +67,8 @@
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/names.md`
-- `instructions/tahor/religionisms.md`
 - `instructions/tahor/slavicisms.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/tanakh/magen-david.md`
 

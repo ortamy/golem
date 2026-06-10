@@ -10,7 +10,6 @@
 - **Тема:** Полный список грецизмов с заменами. Слова, пришедшие из греческого языка через Септуагинту и апостольские писания.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/tahor/grecisms.md`, `instructions/exposure/exposure-language-control.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/tree-method.md`, `researches/history/nicaea-council.md`
 - **Хеш:** 15f93e22
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -111,5 +110,4 @@
 - `instructions/exposure/exposure-language-control.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/tree-method.md`
-- `researches/history/nicaea-council.md`
 - `terminology/mashiah-peshat.md`

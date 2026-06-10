@@ -1,7 +1,6 @@
 # 🐍 КАДУЦЕЙ: ЗМЕИ, ПОЗВОНОЧНИК И КОНТРОЛЬ
 
 **Метаданные файла**
-- **Файл:** `researches/caduceus-control.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Как от двух змей, обвивающих жезл (кадуцей), связан с позвоночником, кундалини и шишковидной железой — и как система использует этот от для контроля через подавление эпифиза
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/caduceus-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/tree-method.md`
 - **Хеш:** 247c23ac
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

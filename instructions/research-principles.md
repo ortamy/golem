@@ -73,7 +73,6 @@
 Мы не смягчаем удары. Мы не боимся обидеть религиозные чувства. Истина режет. Мы — свидетели, а не дипломаты.
 
 ### 19. КОРОТКИЕ НАЗВАНИЯ ФАЙЛОВ
-Названия файлов — на иврите, транслитерацией латиницей. Два слова через дефис. Примеры: `adonai-baal.md`, `sfarim-baesh.md`, `tchiyat-hametim.md`.
 
 ### 20. ОДНО СЛОВО — ОДНО ИССЛЕДОВАНИЕ
 Никогда не смешиваем два понятия в одном файле. Каждое слово заслуживает отдельного разбора. Исключение: если слова являются неразрывной парой (например, טוֹב и רַע).
@@ -138,7 +137,6 @@
 
 - Названия файлов — на иврите, транслитерацией латиницей.
 - Два слова через дефис.
-- Примеры: `adonai-baal.md`, `sfarim-baesh.md`, `tchiyat-hametim.md`.
 
 ---
 
@@ -182,7 +180,6 @@
 - `instructions/exposure/exposure-mechanisms.md`
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/hebrew-reconstruction.md`

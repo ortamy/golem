@@ -1,7 +1,6 @@
 # 📜 שְׂפַת אֱמֶת — ИВРИТ И ЯЗЫКИ МИРА: ЛИНГВИСТИКА, МЫШЛЕНИЕ И Гораль НАРОДОВ
 
 **Метаданные файла**
-- **Файл:** `researches/hebrew-vs-languages.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-05-27
 - **Последнее обновление:** 2026-05-27
@@ -10,7 +9,6 @@
 - **Тема:** Сравнительное исследование иврита и других языков мира. Как лингвистика влияет на разум, лев и гораль народов. Почему иврит — единственный язык, который не лжёт.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/hebrew-vs-languages.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** 40463116
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

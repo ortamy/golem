@@ -146,7 +146,6 @@
 - `researches/medicine/surgery-ritual-cutting.md` — хирургия
 - `researches/medicine/psychiatry-substitution.md` — психиатрия
 - `researches/medicine/copper-utensils.md` — медная посуда
-- `instructions/exposure/exposure-religionism-theory.md` — теория религионизмов
 
 ---
 

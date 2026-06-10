@@ -10,7 +10,6 @@
 - **Тема:** Разоблачение Neuralink через призму ТаНаХ. Импланты в мозг как технология контроля. Связь с печатью зверя. Вмешательство в образ Яхве.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/companies/neuralink.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/economic-slavery.md`, `researches/slavery/economic-slavery.md`
 - **Хеш:** 8b8337b4
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -144,7 +143,6 @@ hа-Де́рех Яхве
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/torah.md`
 - `terminology/yhwh.md`

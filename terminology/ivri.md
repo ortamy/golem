@@ -186,7 +186,6 @@ hа-Де́рех Яхве
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `researches/tanakh/gog-and-magog.md`
 - `terminology/yhwh.md`

@@ -1,7 +1,6 @@
 # 📜 דּוֹרוֹת רֶשֶׁת — G-СВЯЗИ И КАТАСТРОФЫ: СОВПАДЕНИЕ ИЛИ АРХИТЕКТУРА?
 
 **Метаданные файла**
-- **Файл:** `researches/other/g-generations.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-02
 - **Последнее обновление:** 2026-06-02
@@ -10,7 +9,6 @@
 - **Тема:** דּוֹרוֹת רֶשֶׁת — G-СВЯЗИ И КАТАСТРОФЫ: СОВПАДЕНИЕ ИЛИ АРХИТЕКТУРА?
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/other/g-generations.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/history-of-banks.md`, `terminology/torah.md`
 - **Хеш:** d5874ece
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -140,7 +138,6 @@ hа-Де́рех Яхве
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/history-of-banks.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `terminology/torah.md`
 - `terminology/yhwh.md`

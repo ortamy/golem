@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/generate-changelog.py
 import sys
 import subprocess

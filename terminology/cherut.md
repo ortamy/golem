@@ -187,7 +187,6 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/torah.md`
 - `terminology/yhwh.md`

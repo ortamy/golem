@@ -1,7 +1,6 @@
 # 📜 גְּנֵבַת הַשֵּׁם — КРАЖА ИМЕНИ: КАК יהוה СТАЛ «ГОСПОДОМ»
 
 **Метаданные файла**
-- **Файл:** `researches/substitution-of-the-name.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-04
 - **Последнее обновление:** 2026-06-04
@@ -10,7 +9,6 @@
 - **Тема:** גְּנֵבַת הַשֵּׁם — КРАЖА ИМЕНИ: КАК יהוה СТАЛ «ГОСПОДОМ»
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/substitution-of-the-name.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/names.md`, `researches/tanakh/gog-and-magog.md`, `terminology/el.md`
 - **Хеш:** 06c403d8
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

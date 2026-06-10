@@ -1,7 +1,6 @@
 # 📜 תַּכְלִית הַתַּנַ"ךְ — ЦЕЛЬ ТАНАХА: ДЛЯ ЧЕГО ОН БЫЛ НАПИСАН
 
 **Метаданные файла**
-- **Файл:** `researches/purpose-of-tanakh.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-28
 - **Последнее обновление:** 2026-05-28
@@ -10,7 +9,6 @@
 - **Тема:** Исследование истинной цели ТаНаХа. Для чего он был написан на самом деле. Не религия, не богословие, не система контроля. Пшитут, конкретика, жизнь.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/purpose-of-tanakh.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`, `researches/economy/mortgage-dead-pledge.md`
 - **Хеш:** 3fd4819a
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -256,8 +254,7 @@ hа-Де́рех Яхве
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 - `researches/tanakh/gog-and-magog.md`

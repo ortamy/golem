@@ -10,7 +10,6 @@
 - **Тема:** Россия как наследница Византии. Два орла как от имперской преемственности от Месопотамии до Кремля. Увда, даты, разоблачение мифа.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/systems/russia-empire.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/archeology-methodology.md`, `instructions/tahor/religionisms.md`
 - **Хеш:** 5ba780b2
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -172,6 +171,5 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-methods.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/archeology-methodology.md`
-- `instructions/tahor/religionisms.md`
 - `terminology/torah.md`
 - `terminology/yhwh.md`

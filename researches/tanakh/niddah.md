@@ -1,7 +1,6 @@
 # 📜 נִדָּה — НЕ «НЕЧИСТОТА», А ОТДЕЛЁННОСТЬ
 
 **Метаданные файла**
-- **Файл:** `researches/niddah.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-26
 - **Последнее обновление:** 2026-05-26
@@ -10,7 +9,6 @@
 - **Тема:** Возвращение библейского машмаут слова נִדָּה. Разоблачение мифа о «проклятии Евы» и нечистоте женщины.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/niddah.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** fa272d97
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

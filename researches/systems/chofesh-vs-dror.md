@@ -1,7 +1,6 @@
 # חוֹפֶשׁ וְדְרוֹר: ДВА ЛИКА Хофеш
 
 **Метаданные файла**
-- **Файл:** `researches/chofesh-vs-dror.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Различие между חוֹפֶשׁ (хофеш) — хофеш от (отрицательной) и דְּרוֹר (дрор) — хофеш для (положительной)
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/chofesh-vs-dror.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
 - **Хеш:** d7ca19e4
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -198,7 +196,6 @@
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/hebrew-reconstruction.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/shmitah.md`
 - `terminology/torah.md`

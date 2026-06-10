@@ -170,9 +170,7 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `researches/medicine/psychiatry-substitution.md` — психиатрия
 - `researches/medicine/copper-utensils.md` — медная посуда
-- `researches/medicine/allopaty.md` — аллопатия
-- `researches/economy/banks-and-financial-dynasties.md` — династии
-- `instructions/exposure/exposure-religionism-theory.md` — теория религионизмов
+- `researches/economy/polnoe-issledovanie-bankovskoy.md` — династии
 
 ---
 

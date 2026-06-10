@@ -1,7 +1,6 @@
 # 📜 דֶּרֶךְ הַנָּחָשׁ — Дэрех ЗМЕЯ: КАК СТАТЬ НЕВИДИМЫМ ДЛЯ СИСТЕМЫ
 
 **Метаданные файла**
-- **Файл:** `researches/derech-ha-nachash.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-02
 - **Последнее обновление:** 2026-06-02
@@ -10,7 +9,6 @@
 - **Тема:** Как построить свою систему внутри системы. Семь принципов обхода, материальная база, практические шаги. Мудрость змея и пшитут голубя.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/derech-ha-nachash.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/translation-methodology.md`, `researches/economy/banks-and-financial-dynasties.md`
 - **Хеш:** b67f7dc9
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -160,10 +158,7 @@ hа-Де́рех Яхве
 - `instructions/exposure/exposure-principles.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/translation-methodology.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
-- `researches/economy/history-of-banks.md`
-- `researches/economy/history-of-money.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/torah.md`
 - `terminology/yhwh.md`

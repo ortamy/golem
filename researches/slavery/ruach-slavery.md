@@ -10,7 +10,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/slavery/ruach-slavery.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/religionisms.md`
 - **Хеш:** 934e3ffb
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -189,9 +188,7 @@
 - `instructions/exposure/exposure-principles.md`
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/religionisms.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `researches/slavery/economic-slavery.md`
 - `terminology/shabbat.md`

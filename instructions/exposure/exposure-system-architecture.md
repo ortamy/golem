@@ -176,11 +176,8 @@
 - `instructions/exposure/exposure-language-control.md`
 - `instructions/exposure/exposure-mechanisms.md`
 - `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/exposure/exposure-techniques.md`
-- `researches/bavel-mitzrayim-sdom.md`
-- `researches/economy/banks-and-financial-dynasties.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
 - `researches/economy/mortgage-dead-pledge.md`
-- `researches/mitzraim-system.md`
 - `terminology/mashiah-peshat.md`
 - `terminology/yhwh.md`

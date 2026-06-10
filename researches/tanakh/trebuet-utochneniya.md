@@ -10,7 +10,7 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/man-as-rose-and-tree.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/tree-method.md`, `researches/economy/banks-and-financial-dynasties.md`, `researches/economy/economic-slavery.md`
+- **Связанные файлы:** `researches/man-as-rose-and-tree.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/tree-method.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`, `researches/slavery/economic-slavery.md`
 - **Хеш:** 0d07d0d8
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -222,8 +222,8 @@
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-system-architecture.md`
 - `instructions/methodology/tree-method.md`
-- `researches/economy/banks-and-financial-dynasties.md`
-- `researches/economy/economic-slavery.md`
+- `researches/economy/polnoe-issledovanie-bankovskoy.md`
+- `researches/slavery/economic-slavery.md`
 - `researches/economy/mortgage-dead-pledge.md`
 - `terminology/shabbat.md`
 - `terminology/torah.md`

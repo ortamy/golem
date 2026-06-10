@@ -10,7 +10,6 @@
 - **Тема:** Разбор понятия גִּבּוֹר (гибор) — сильный, воин, могучий. Два суг коах: коах системы и коах Яхве. Гибор как архетип власти и гибор как имя Яхве. Отличие от цадик и анав.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `terminology/gibor.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-religionism-theory.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/translation-methodology.md`
 - **Хеш:** 1a97d9c0
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -169,7 +168,6 @@ hа-Де́рех Яхве
 
 ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
 - `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-religionism-theory.md`
 - `instructions/exposure/exposure-techniques.md`
 - `instructions/methodology/translation-methodology.md`
 - `instructions/tahor/grecisms.md`

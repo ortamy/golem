@@ -61,7 +61,6 @@
 - `instructions/methodology/translation-methodology.md`
 - `instructions/methodology/transliteration-distortions.md`
 - `instructions/tahor/names.md`
-- `researches/history/nicaea-council.md`
 - `researches/tanakh/magen-david.md`
 - `terminology/el.md`
 - `terminology/mashiah-peshat.md`

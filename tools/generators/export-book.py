@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # tools/generators/export-book.py — сборка исследований в книгу (PDF/HTML)
 import sys
 import re
@@ -166,3 +167,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

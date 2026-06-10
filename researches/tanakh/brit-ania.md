@@ -1,7 +1,6 @@
 # 🇬🇧 БРИТ-АНИЯ: КОРАБЛЬ Брит ИЛИ ИМПЕРИЯ ЛЖИ?
 
 **Метаданные файла**
-- **Файл:** `researches/brit-ania.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-08
 - **Последнее обновление:** 2026-06-08
@@ -10,7 +9,6 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `researches/brit-ania.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`, `instructions/methodology/hebrew-reconstruction.md`
 - **Хеш:** b8e50df1
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
@@ -173,7 +171,6 @@
 - `instructions/exposure/exposure-principles.md`
 - `instructions/methodology/hebrew-reconstruction.md`
 - `instructions/tahor/names.md`
-- `researches/economy/economic-slavery.md`
 - `researches/slavery/economic-slavery.md`
 - `researches/tanakh/magen-david.md`
 - `terminology/torah.md`
