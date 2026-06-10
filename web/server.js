@@ -10,10 +10,6 @@ const WEB_DIR = __dirname;
 const SCAN_DIRS = [
     { folder: 'terminology', label: 'Терминология' },
     { folder: 'researches', label: 'Исследования' },
-    { folder: 'instructions', label: 'Инструкции' },
-    { folder: 'checkers', label: 'Чекеры' },
-    { folder: 'drafts', label: 'Черновики' },
-    { folder: 'ideas', label: 'Идеи' },
 ];
 
 const IGNORE_FILES = ['README.md', 'STRUCTURE.md', 'GLOSSARY.md', 'CHANGELOG.md'];

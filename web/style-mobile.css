@@ -121,6 +121,7 @@ body.dark .history-item { color: #777; }
 
 /* Список файлов */
 #mobile-list-view {
+    display: block;
     padding: 56px 10px 20px;
 }
 

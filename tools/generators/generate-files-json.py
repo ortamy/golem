@@ -12,10 +12,6 @@ WEB_DIR = REPO_ROOT / "web"
 SCAN_DIRS = [
     ("terminology", "Терминология"),
     ("researches", "Исследования"),
-    ("instructions", "Инструкции"),
-    ("checkers", "Чекеры"),
-    ("drafts", "Черновики"),
-    ("ideas", "Идеи"),
 ]
 IGNORE_FILES = {"README.md", "STRUCTURE.md", "GLOSSARY.md", "CHANGELOG.md"}
 
