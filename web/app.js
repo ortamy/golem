@@ -1,4 +1,4 @@
-// web/app.js — Golem Web Interface v9.2 — PC + Mobile, адаптивный, Live Server + Node.js
+// web/app.js — Golem Web Interface v9.4 — PC + Mobile, адаптивный
 
 (function() {
     'use strict';
@@ -37,19 +37,26 @@
     }
 
     function buildSelects() {
-        var categories = {};
         var counts = {};
+        var cats = [];
         FILES.forEach(function(f) {
-            categories[f.category] = true;
-            counts[f.category] = (counts[f.category] || 0) + 1;
+            if (!counts[f.category]) {
+                counts[f.category] = 0;
+                cats.push(f.category);
+            }
+            counts[f.category]++;
         });
+        cats.sort();
+        
         ['category-select', 'category-select-mobile'].forEach(function(elId) {
             var sel = $(elId);
             if (!sel) return;
+            var currentVal = sel.value;
             sel.innerHTML = '<option value="">Все категории</option>';
-            Object.keys(categories).sort().forEach(function(cat) {
+            cats.forEach(function(cat) {
                 sel.innerHTML += '<option value="' + esc(cat) + '">' + esc(cat) + ' (' + counts[cat] + ')</option>';
             });
+            if (currentVal) sel.value = currentVal;
         });
     }
 
@@ -81,17 +88,18 @@
                 });
                 var sn = Object.keys(subs).sort();
                 if (sn.length > 0) {
-                    ss.style.display = 'block';
+                    var currentSub = ss.value;
+                    ss.classList.add('visible');
                     ss.innerHTML = '<option value="">Все подкатегории</option>';
                     sn.forEach(function(s) {
-                        ss.innerHTML += '<option value="' + esc(s) + '"' + (s === sub ? ' selected' : '') + '>' + esc(s) + '</option>';
+                        ss.innerHTML += '<option value="' + esc(s) + '"' + (s === currentSub ? ' selected' : '') + '>' + esc(s) + '</option>';
                     });
                 } else {
-                    ss.style.display = 'none';
+                    ss.classList.remove('visible');
                     ss.value = '';
                 }
             } else {
-                ss.style.display = 'none';
+                ss.classList.remove('visible');
                 ss.value = '';
             }
         }

@@ -30,13 +30,11 @@ SUBCATEGORY_LABELS = {
     'events': 'События',
     'history': 'История',
     'language': 'Язык',
-    'languages': 'Языки',
     'manuscripts': 'Рукописи',
     'media': 'Медиа',
     'medicine': 'Медицина',
     'names': 'Имена',
     'persons': 'Личности',
-    'physis': 'Природа',
     'practices': 'Практики',
     'psychology': 'Психология',
     'roman-law': 'Римское право',
@@ -47,7 +45,6 @@ SUBCATEGORY_LABELS = {
     'sport': 'Спорт',
     'systems': 'Системы',
     'tanakh': 'ТаНаХ',
-    'teachings': 'Учения',
 }
 
 
