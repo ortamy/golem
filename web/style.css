@@ -759,4 +759,117 @@
             cursor: pointer;
             text-decoration: underline;
         }
+
+        /* Плавные анимации */
+#subcategory-select,
+#subcategory-select-mobile {
+    transition: opacity 0.3s ease, max-height 0.3s ease, margin 0.3s ease;
+    opacity: 1;
+    max-height: 40px;
+    overflow: hidden;
+}
+
+#subcategory-select[style*="display: none"],
+#subcategory-select-mobile[style*="display: none"] {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+select {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:focus {
+    box-shadow: 0 0 0 2px rgba(255, 77, 0, 0.2);
+}
+
+#file-list .file-item,
+#mobile-list-view .file-item-mobile {
+    transition: background 0.2s ease, padding-left 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.cat-header,
+.cat-header-mobile {
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+#content h1, #content h2, #content h3, #content h4,
+#file-content-mobile h1, #file-content-mobile h2, #file-content-mobile h3, #file-content-mobile h4 {
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+#content blockquote,
+#file-content-mobile blockquote {
+    transition: background 0.25s ease, border-color 0.25s ease, padding-left 0.25s ease;
+}
+
+.bookmark-item,
+.history-item {
+    transition: color 0.2s ease, padding-left 0.2s ease, opacity 0.2s ease;
+}
+
+#burger-menu {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#burger-overlay {
+    transition: opacity 0.35s ease;
+}
+
+.spinner {
+    transition: opacity 0.3s ease;
+}
+
+#back-to-top {
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#copy-toast {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Плавный скролл */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Плавное появление контента */
+#content.fade-in {
+    animation: fadeSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+#file-content-mobile {
+    animation: fadeSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeSlideIn {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Плавное появление file-item */
+.file-item, .file-item-mobile {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Анимация для theme toggle */
+#toggle-theme {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#toggle-theme:hover {
+    transform: rotate(180deg);
+}
+
+/* Плавный переход темы */
+body, #sidebar, #content, #file-page, #burger-menu, #mobile-list-view {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
     }

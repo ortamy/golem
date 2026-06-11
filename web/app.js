@@ -1,4 +1,4 @@
-// Golem Web Interface v9.1 — PC + Mobile, адаптивный, Live Server + Node.js
+// web/app.js — Golem Web Interface v9.2 — PC + Mobile, адаптивный, Live Server + Node.js
 
 (function() {
     'use strict';
@@ -10,7 +10,7 @@
         currentPath = null,
         bookmarks = JSON.parse(localStorage.getItem('golem_bookmarks') || '[]'),
         fileHistory = JSON.parse(localStorage.getItem('golem_history') || '[]'),
-        categories = {};
+        filteredCache = null;
 
     function isMobile() { return window.innerWidth <= 768; }
 
@@ -36,17 +36,25 @@
             .catch(errCb || function(e) { console.error(e); });
     }
 
-    function buildSelect(elId) {
-        var sel = $(elId);
-        if (!sel) return;
-        sel.innerHTML = '<option value="">Все категории</option>';
-        Object.keys(categories).sort().forEach(function(cat) {
-            var n = FILES.filter(function(f) { return f.category === cat; }).length;
-            sel.innerHTML += '<option value="' + cat + '">' + cat + ' (' + n + ')</option>';
+    function buildSelects() {
+        var categories = {};
+        var counts = {};
+        FILES.forEach(function(f) {
+            categories[f.category] = true;
+            counts[f.category] = (counts[f.category] || 0) + 1;
+        });
+        ['category-select', 'category-select-mobile'].forEach(function(elId) {
+            var sel = $(elId);
+            if (!sel) return;
+            sel.innerHTML = '<option value="">Все категории</option>';
+            Object.keys(categories).sort().forEach(function(cat) {
+                sel.innerHTML += '<option value="' + esc(cat) + '">' + esc(cat) + ' (' + counts[cat] + ')</option>';
+            });
         });
     }
 
-    function filterFiles() {
+    function getFiltered() {
+        if (filteredCache) return filteredCache;
         var m = isMobile();
         var q = m ? $('search-mobile') : $('search');
         var cat = m ? $('category-select-mobile') : $('category-select');
@@ -66,32 +74,37 @@
 
         var ss = m ? $('subcategory-select-mobile') : $('subcategory-select');
         if (ss) {
-            if (cat === 'Исследования') {
-                ss.style.display = 'block';
+            if (cat) {
                 var subs = {};
                 FILES.forEach(function(f) {
-                    if (f.category === 'Исследования' && f.subcategory) subs[f.subcategory] = true;
+                    if (f.category === cat && f.subcategory) subs[f.subcategory] = true;
                 });
                 var sn = Object.keys(subs).sort();
-                ss.innerHTML = '<option value="">Все подкатегории</option>';
-                sn.forEach(function(s) {
-                    ss.innerHTML += '<option value="' + s + '"' + (s === sub ? ' selected' : '') + '>' + s + '</option>';
-                });
+                if (sn.length > 0) {
+                    ss.style.display = 'block';
+                    ss.innerHTML = '<option value="">Все подкатегории</option>';
+                    sn.forEach(function(s) {
+                        ss.innerHTML += '<option value="' + esc(s) + '"' + (s === sub ? ' selected' : '') + '>' + esc(s) + '</option>';
+                    });
+                } else {
+                    ss.style.display = 'none';
+                    ss.value = '';
+                }
             } else {
                 ss.style.display = 'none';
                 ss.value = '';
             }
         }
 
+        filteredCache = list;
         return list;
     }
 
-    function renderList(containerId, itemClass, headerClass, clickHandler) {
-        var container = $(containerId);
+    function renderList(container, itemClass, headerClass, clickHandler) {
         if (!container) return;
         container.innerHTML = '';
 
-        var filtered = filterFiles();
+        var filtered = getFiltered();
         var cc = '';
 
         filtered.forEach(function(f) {
@@ -115,40 +128,20 @@
     }
 
     function render() {
-    if (isMobile()) {
-        var mlv = $('mobile-list-view');
-        // Удаляем только старые элементы списка
-        var items = mlv.querySelectorAll('.file-item-mobile, .cat-header-mobile');
-        for (var i = 0; i < items.length; i++) items[i].remove();
-
-        var filtered = filterFiles();
-        var cc = '';
-        filtered.forEach(function(f) {
-            if (f.category !== cc) {
-                cc = f.category;
-                var h = document.createElement('div');
-                h.className = 'cat-header-mobile';
-                h.textContent = cc;
-                mlv.appendChild(h);
-            }
-            var d = document.createElement('div');
-            d.className = 'file-item-mobile';
-            d.innerHTML = '<div class="title">' + esc(f.title || f.path) + '</div>' +
-                (f.topic ? '<div class="topic">' + esc((f.topic || '').substring(0, 90)) + '</div>' : '');
-            d.onclick = (function(p) { return function() { openFileMobile(p); }; })(f.path);
-            mlv.appendChild(d);
-        });
-
-        var sm = $('stats-mobile');
-        if (sm) sm.textContent = 'Файлов: ' + filtered.length;
-    } else {
-        renderList('file-list', 'file-item', 'cat-header', loadFile);
-        var tc = $('total-count');
-        if (tc) tc.textContent = filterFiles().length;
+        filteredCache = null;
+        if (isMobile()) {
+            var mlv = $('mobile-list-view');
+            var items = mlv.querySelectorAll('.file-item-mobile, .cat-header-mobile');
+            for (var i = 0; i < items.length; i++) items[i].remove();
+            renderList(mlv, 'file-item-mobile', 'cat-header-mobile', openFileMobile);
+        } else {
+            renderList($('file-list'), 'file-item', 'cat-header', loadFile);
+            var tc = $('total-count');
+            if (tc) tc.textContent = getFiltered().length;
+        }
+        renderBookmarks();
+        renderHistory();
     }
-    renderBookmarks();
-    renderHistory();
-}
 
     function parseMD(t) {
         t = t.replace(/\*\*Метаданные файла\*\*[\s\S]*?(?=\n---|\n# |\n## )/, '');
@@ -195,14 +188,12 @@
         $('file-page').style.display = 'block';
         $('file-path-hint').textContent = p;
         var bm = $('file-bookmark-btn');
-        bm.textContent = bookmarks.indexOf(p) >= 0 ? '★' : '☆';
-        bm.className = 'bookmark-btn' + (bookmarks.indexOf(p) >= 0 ? ' active' : '');
+        var isBm = bookmarks.indexOf(p) >= 0;
+        bm.textContent = isBm ? '★' : '☆';
+        bm.className = 'bookmark-btn' + (isBm ? ' active' : '');
+        bm.onclick = function() { toggleBookmark(p); };
         $('mobile-list-view').style.display = 'none';
         $('stats-mobile').style.display = 'none';
-        var bm = $('file-bookmark-btn');
-        bm.textContent = bookmarks.indexOf(p) >= 0 ? '★' : '☆';
-        bm.className = 'bookmark-btn' + (bookmarks.indexOf(p) >= 0 ? ' active' : '');
-        bm.onclick = function() { toggleBookmark(p); };
 
         var c = $('file-content-mobile');
         c.innerHTML = '<div class="spinner"></div>';
@@ -278,8 +269,9 @@
         localStorage.setItem('golem_bookmarks', JSON.stringify(bookmarks));
         if (isMobile()) {
             var bm = $('file-bookmark-btn');
-            bm.textContent = bookmarks.indexOf(p) >= 0 ? '★' : '☆';
-            bm.className = 'bookmark-btn' + (bookmarks.indexOf(p) >= 0 ? ' active' : '');
+            var isBm = bookmarks.indexOf(p) >= 0;
+            bm.textContent = isBm ? '★' : '☆';
+            bm.className = 'bookmark-btn' + (isBm ? ' active' : '');
         } else {
             loadFile(p);
         }
@@ -399,9 +391,7 @@
     // Старт
     fetchJSON(API, function(data) {
         FILES = data;
-        FILES.forEach(function(f) { categories[f.category] = true; });
-        buildSelect('category-select');
-        if (isMobile()) buildSelect('category-select-mobile');
+        buildSelects();
         render();
     }, function(e) {
         console.error('Ошибка загрузки:', e.message);
