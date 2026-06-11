@@ -10,10 +10,10 @@
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
 - **Связанные файлы:** `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/tree-method.md`, `terminology/shmitah.md`, `terminology/yhwh.md`
-- **Хеш:** 38ee5ac4
+- **Хеш:** fbc8a1e0
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
-- **Проверок на религионизмы:** 1
+- **Проверок на религионизмы:** 2
 - **Последняя проверка:** 2026-06-11
 ---
 
@@ -142,6 +142,6 @@
 hа-Де́рех Яхве
 *Дэрех Яхве*
 
-Он — сад. Не газон. Жизнь.
+Он — сад. Не газон. Жизнь (хаим, חַיִּים).
 
 ---

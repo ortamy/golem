@@ -1,7 +1,7 @@
 ---
 description: >-
   Мощное воздействие, которое затуманивает разум, сужает духовное восприятие и
-  приводит к зависимости от иллюзорных миров
+  приводит к зависимости от иллюзорных целостность (шалом, שָׁלוֹם)
 ---
 
 # Влияние на тодаа
@@ -17,7 +17,7 @@ description: >-
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
 - **Связанные файлы:** `researches/teachings/religionizmy/geiminduizm/vliyanie-na-soznanie.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-techniques.md`, `terminology/el.md`
-- **Хеш:** 7c3e1674
+- **Хеш:** d41d8cd9
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
 - **Нейрохимия:** Выработка дофамина при получении наград стимулирует повторное вовлечение.
