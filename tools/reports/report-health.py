@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# check-health.py — проверка здоровья проекта
+# report-health.py — проверка здоровья проекта
 
 import sys
 import subprocess

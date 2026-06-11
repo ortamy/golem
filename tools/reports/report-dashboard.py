@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# tools/reports/dashboard.py — интерактивный дашборд (минимализм, ч/б + оранжевый)
+# tools/reports/report-dashboard.py — интерактивный дашборд (минимализм, ч/б + оранжевый)
 import sys
 import re
 import json
@@ -11,7 +11,8 @@ from collections import Counter, defaultdict
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from lib.utils import read_file_safe, print_header, print_success, print_hint, REPO_ROOT
 
-OUTPUT_FILE = REPO_ROOT / "docs" / "export" / "dashboard.html"
+OUTPUT_DIR = REPO_ROOT / "web" / "export"
+OUTPUT_FILE = OUTPUT_DIR / "dashboard.html"
 SCAN_DIRS = ["terminology", "researches", "instructions", "docs", "drafts", "ideas"]
 SPINNER = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 
@@ -271,7 +272,7 @@ new Chart(religCtx, {{
 </html>
 """
 
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write(html)
 
@@ -285,11 +286,10 @@ def main():
     elapsed = time.time() - start_time
     print_success(f"Дашборд сохранён: {OUTPUT_FILE}")
     print(f"   Время генерации: {elapsed:.1f} сек")
-    print_hint("Откройте в браузере: Ctrl+O → docs/export/dashboard.html")
+    print_hint(f"Откройте: http://localhost:8080/export/dashboard.html")
 
     return 0
 
 
 if __name__ == "__main__":
     sys.exit(main())
-

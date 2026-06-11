@@ -5,6 +5,7 @@ import re
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
+import argparse
 from lib.utils import read_file_safe, progress_bar, finish_progress, print_header, print_success, print_warning, print_hint, ask_yes_no, REPO_ROOT
 
 SCAN_DIRS = ["terminology", "researches", "instructions", "davar", "ideas", "drafts", "docs"]

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# daily-report.py — ежедневный отчёт о состоянии проекта
+# report-daily.py — ежедневный отчёт о состоянии проекта
 
 import sys
 import subprocess

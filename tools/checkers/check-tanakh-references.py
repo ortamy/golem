@@ -11,6 +11,7 @@ from datetime import datetime
 from collections import defaultdict
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
+import argparse
 from lib.utils import (
     read_file_safe, progress_bar, finish_progress,
     print_header, print_success, print_error, print_warning, print_hint,
