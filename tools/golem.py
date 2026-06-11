@@ -122,9 +122,9 @@ SCRIPT_PATHS = {
     "sync_structure": "tools/sync/sync-structure.py",
     "sync_changelogs": "tools/sync/sync-changelogs.py",
     # backup
-    "backup_repo": "tools/backup/backup.sh",
-    "export_repo": "tools/backup/export-repo.sh",
-    "create_backup_scheduled": "tools/backup/create-backup-scheduled.sh",
+    "backup_create": "tools/backup/backup-create.sh",
+    "backup_export": "tools/backup/backup-export.sh",
+    "backup_scheduled": "tools/backup/backup-scheduled.sh",
     # utils
     "clear_cache": "tools/utils/clear-cache.py",
     "search": "tools/utils/search.py",
@@ -475,8 +475,8 @@ def menu_automation(stdscr): return _submenu(stdscr, "automation")
 def menu_backup(stdscr):
     return menu_loop(stdscr, 'backup',
               ["Export", "Backup", t('back')],
-              [lambda: _run_sh(stdscr, "export_repo"),
-               lambda: _run_sh(stdscr, "backup_repo"), None])
+              [lambda: _run_sh(stdscr, "backup_export"),
+               lambda: _run_sh(stdscr, "backup_create"), None])
 
 def menu_actions(stdscr):
     return menu_loop(stdscr, 'actions',
