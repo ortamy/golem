@@ -2,15 +2,15 @@
 
 **Метаданные файла**
 - **Файл:** `docs/TECHNICAL-DEBT.md`
-- **Версия:** 2.1
+- **Версия:** 2.2
 - **Дата создания:** 2026-05-28
 - **Последнее обновление:** 2026-06-11
-- **Причина обновления:** Добавлены задачи по автономному агенту «Эд» и интеграции с Cline
+- **Причина обновления:** Добавлены задачи по наполнению новых категорий контентом
 - **Статус:** Активный
-- **Тема:** ТЕХНИЧЕСКИЙ ДОЛГ
+- **Тема:** Технический долг и задачи по развитию проекта
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `docs/TECHNICAL-DEBT.md`, `docs/IDEAS.md`, `docs/ROADMAP.md`, `docs/CLINE-VS-SCRIPTS.md`
+- **Связанные файлы:** `docs/TECHNICAL-DEBT.md`, `docs/IDEAS.md`, `docs/ROADMAP.md`
 - **Хеш:** ожидает
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-11
@@ -19,81 +19,145 @@
 
 ## 📋 АКТИВНЫЕ ЗАДАЧИ
 
-### 🤖 Автономный агент «Эд» (управляет Cline)
+### 🤖 Автономный агент «Эд»
 
-- [ ] Запустить `ed-neural/inference/server.py` локально
-- [ ] Дообучить `ed-agent/agent.py` — добавить планировщик (составляет план из нескольких шагов)
+- [ ] Запустить `ed/neuro/inference/server.py` локально
+- [ ] Дообучить `ed/agent/agent.py` — добавить планировщик
 - [ ] Интеграция с Cline — Эд создаёт файлы задач, Cline читает и выполняет
 - [ ] Память агента — контекст между сессиями через `memory.py`
-- [ ] Режим «автономный стратег» — Эд сам решает ЧТО делать, Cline делает КАК
+- [ ] Режим «автономный стратег»
 
 ### 🆕 Новые скрипты
 
 - [ ] `check-md-quality.py` — проверка качества .md файлов
-- [ ] `check-footnotes.py` — проверка перекрёстных ссылок
 - [ ] `generate-sitemap.py` — sitemap.xml
 - [ ] `generate-search-index.py` — полнотекстовый индекс для веб-интерфейса
 - [ ] `generate-rss.py` — RSS новых исследований
 - [ ] `watch-changes.py` — следит за файлами и запускает чекеры
-- [ ] `notify.py` — уведомления при ошибках
 - [ ] `deploy.sh` — деплой одной командой
-- [ ] `serve.py` — простой HTTP-сервер на Python
 - [ ] `backup-rotation.py` — ротация старых бэкапов
 
-### 🏛 Реорганизация tools/
-
-- [x] Переименовать скрипты с префиксами по папкам
-- [x] Обновить `golem.py` — пути к скриптам
-- [ ] Обновить `ed-agent/tools.py` — пути к utils/
-- [ ] Поправить `sys.path` в файлах utils/
-
 ### База ТаНаХа
+
 - [ ] Загрузить полный ТаНаХ в `tanakh.db`
 - [ ] Интегрировать `check-tanakh-references.py` с `check-links.py`
 
 ### Веб-интерфейс
-- [ ] Хлебные крошки
-- [ ] Подсветка иврита
-- [ ] Блок «Связанные файлы»
-- [ ] PWA
-- [ ] Поиск по содержимому
-- [ ] Офлайн-доступ
 
-### Контент
-- [ ] Заполнить `terminology/yetzer-lev.md`
-- [ ] Заполнить `terminology/erech-apayim.md`
+- [ ] Языковые версии (RU, EN, HE)
+- [ ] Полнотекстовый поиск по содержимому файлов
+- [ ] Подсветка иврита (rtl, шрифт)
+- [ ] PWA — установка на телефон
+- [ ] Офлайн-доступ через Service Worker
+- [ ] Хлебные крошки в ПК-версии
+- [ ] Режим чтения — скрыть сайдбар
+- [ ] Подвал с цитатой дня
+
+### Контент — заполнить пустые файлы
+
+- [ ] `content/terminology/yetzer-lev.md`
+- [ ] `content/terminology/erech-apayim.md`
+
+---
+
+## 📝 НОВЫЕ ФАЙЛЫ ДЛЯ НАПОЛНЕНИЯ КАТЕГОРИЙ
+
+### БаШаХ — перенести из researches/tanakh/
+
+- [ ] `brit-hadashah.md` → `content/bashah/concepts/brit-hadashah.md`
+- [ ] `drashat-hahar.md` → `content/bashah/teachings/drashat-hahar.md`
+- [ ] `tfilat-yeshua.md` → `content/bashah/teachings/tfilat-yeshua.md`
+- [ ] `sifrei-bashakh.md` → `content/bashah/books/sifrei-bashah.md`
+- [ ] `psychikos-pneumatikos.md` → `content/bashah/concepts/psychikos-pneumatikos.md`
+- [ ] `nicham-keifa.md` → `content/bashah/persons/nicham-keifa.md`
+- [ ] `shaul-victim.md` → `content/bashah/persons/shaul.md`
+
+### БаШаХ — создать новые
+
+- [x] `content/bashah/concepts/besorah.md` ✅
+- [x] `content/bashah/concepts/kehillah.md` ✅
+- [x] `content/bashah/persons/keifa.md` ✅
+- [ ] `content/bashah/persons/yohanan-matbil.md` — Йоханан Погружатель
+- [ ] `content/bashah/events/seudat-aharon.md` — Последняя трапеза
+- [ ] `content/bashah/events/shavuot-ruach.md` — Шавуот — дарование Дыхания
+- [ ] `content/bashah/events/tvilat-yeshua.md` — Погружение Йешуа
+- [ ] `content/bashah/chronology/timeline.md` — Хронология событий БаШаХа
+- [ ] `content/bashah/books/besorah-yohanan.md` — Бсора от Йоханана
+- [ ] `content/bashah/books/iggrot-shaul.md` — Послания Шауля
+- [ ] `content/bashah/books/hitgalut.md` — Откровение Йоханана
+- [ ] `content/bashah/manuscripts/peshitta.md` — Пешитта
+- [ ] `content/bashah/manuscripts/greek-manuscripts.md` — Греческие рукописи
+
+### ТаНаХ — создать новые
+
+- [ ] `content/tanakh/books/` — обзоры книг ТаНаХа
+- [ ] `content/tanakh/books/bereshit.md` — Берешит
+- [ ] `content/tanakh/books/shmot.md` — Шмот
+- [ ] `content/tanakh/books/tehillim.md` — Теhиллим
+- [ ] `content/tanakh/books/yeshayahu.md` — Йешаяhу
+- [ ] `content/tanakh/manuscripts/masoretic-text.md` — Масоретский текст
+- [ ] `content/tanakh/manuscripts/qumran.md` — Кумранские рукописи
+- [ ] `content/tanakh/manuscripts/septuaginta.md` — Септуагинта
+- [ ] `content/tanakh/translations/synodal.md` — Синодальный перевод
+- [ ] `content/tanakh/translations/vulgata.md` — Вульгата
+- [ ] `content/tanakh/chronology/timeline.md` — Хронология ТаНаХа
+- [ ] `content/tanakh/persons/avraham.md` — Авраhам
+- [ ] `content/tanakh/persons/moshe.md` — Моше
+- [ ] `content/tanakh/persons/david.md` — Давид
+- [ ] `content/tanakh/persons/eliyahu.md` — Элияhу
+- [ ] `content/tanakh/events/yetziat-mitzraim.md` — Исход
+- [ ] `content/tanakh/events/matan-torah.md` — Дарование Торы
+- [ ] `content/tanakh/events/galut-bavel.md` — Вавилонский плен
+- [ ] `content/tanakh/concepts/brit.md` — Союз
+- [ ] `content/tanakh/concepts/korban.md` — Приближение
+- [ ] `content/tanakh/concepts/shabbat.md` — Шаббат
+- [ ] `content/tanakh/prophecies/mashiach.md` — Пророчества о Машиахе
+- [ ] `content/tanakh/prophecies/yom-yhwh.md` — День Яхве
+- [ ] `content/tanakh/prophecies/new-yerushalaim.md` — Новый Йерушалаим
+- [ ] `content/tanakh/geography/yerushalaim.md` — Йерушалаим
+- [ ] `content/tanakh/geography/mitzraim.md` — Мицраим
+- [ ] `content/tanakh/geography/bavel.md` — Бавэль
+- [ ] `content/tanakh/poetry/tehillim.md` — Псалмы
+- [ ] `content/tanakh/poetry/mishlei.md` — Притчи
+
+### Изучение иврита
+
+- [ ] `content/learn-hebrew/paleo-hebrew.md` — Палео-иврит подробно
+- [ ] `content/learn-hebrew/verbs.md` — Глагольная система
+- [ ] `content/learn-hebrew/syntax.md` — Синтаксис
+- [ ] `content/learn-hebrew/reading-practice.md` — Практика чтения
+- [ ] `content/learn-hebrew/common-roots.md` — 50 частых корней
+
+### Терминология — из ideas/TERMINOLOGY-BACKLOG.md
+
+- [ ] `yeho-shua.md` — יְהוֹשֻׁעַ
+- [ ] `shem-yhwh.md` — שֵׁם יְהֹוָה
+- [ ] `ruach-ha-kodesh.md` — רוּחַ הַקֹּדֶשׁ
+- [ ] `nefilim.md` — נְּפִלִים
+- [ ] `davar.md` — דָּבָר
+- [ ] `mishkan.md` — מִשְׁכָּן
+- [ ] `tzelem-elohim.md` — צֶלֶם אֱלֹהִים
+- [ ] `goyim.md` — גּוֹיִם
 
 ---
 
 ## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (2026-06-11)
 
-- [x] Создать `docs/IDEAS.md`
-- [x] Обновить `docs/ROADMAP.md` до v2.0
-- [x] Создать `docs/NEURAL.md`
-- [x] Создать `docs/ED-AGENT.md`
-- [x] Создать `docs/CLINE-VS-SCRIPTS.md`
-- [x] Обновить все exposure-файлы
-- [x] Создать `generate-exposure-suggestions.py`
-- [x] Создать `code-injector.py` + документация
-- [x] Создать `generate-knowledge-cache.py`
-- [x] Создать `rename-script.py`
-- [x] Создать `ed-agent/agent.py` + tools.py + memory.py
-- [x] Обновить `client.py` (режим --use-cache)
-- [x] Обновить `search.py`
-- [x] Перенести `export/` в `web/export/`
-- [x] Обновить `generate-book.py` и `report-dashboard.py`
-- [x] Обновить `instructions/chat-prompt.md`
-- [x] Обновить `instructions/checkers/` (все 6 файлов)
-- [x] Удалить `menu.py`, `tahor-filter.py`, `progress.py`
-- [x] Переименовать все скрипты с префиксами
-- [x] Обновить `golem.py` до v5.5
-- [x] Установить и настроить Cline
-- [x] Создать `docs/CLINE-VS-SCRIPTS.md`
-
-## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (ранние)
-
-- [x] Создать веб-интерфейс
-- [x] Настроить деплой на GitHub Pages
-- [x] 14 новых исследований
-- [x] Реорганизовать `tools/` по подпапкам
-- [x] Создать чекеры и генераторы
+- [x] Реорганизация архитектуры: `content/`, `ed/`, `guides/`, `dictionaries/`
+- [x] Переименование всех скриптов с префиксами
+- [x] `tahor/` → `dictionaries/`
+- [x] `philosophemes.md` → `exposure/`
+- [x] `drafts/` → `backlog/`
+- [x] `instructions/` → чистая методология
+- [x] 20 руководств в `guides/`
+- [x] Шаблон исследования v4.0
+- [x] Словарь философем (35)
+- [x] Словарь латинизмов (180+)
+- [x] Веб-интерфейс v9.2 — подкатегории для всех категорий
+- [x] 6 категорий контента в веб-интерфейсе
+- [x] `learn-hebrew/` — 5 файлов
+- [x] `bashah/` — 3 новых файла
+- [x] `GUIDE-CODING.md` v2.0
+- [x] `CONTROL.md` v3.0
+- [x] `STRATEGY.md` v1.0
+- [x] `WEB-INTERFACE.md` v1.0
