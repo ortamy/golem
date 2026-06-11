@@ -3,6 +3,7 @@
 
 import json
 import sys
+import re
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -12,16 +13,40 @@ WEB_DIR = REPO_ROOT / "web"
 SCAN_DIRS = [
     ("terminology", "Терминология"),
     ("researches", "Исследования"),
+    ("learn-hebrew", "Изучение иврита"),
 ]
 IGNORE_FILES = {"README.md", "STRUCTURE.md", "GLOSSARY.md", "CHANGELOG.md"}
 
+SUBCATEGORY_LABELS = {
+    'archive': 'Архив',
+    'books': 'Книги',
+    'companies': 'Компании',
+    'economy': 'Экономика',
+    'history': 'История',
+    'language': 'Язык',
+    'languages': 'Языки',
+    'media': 'Медиа',
+    'medicine': 'Медицина',
+    'names': 'Имена',
+    'physis': 'Природа',
+    'practices': 'Практики',
+    'psychology': 'Психология',
+    'roman-law': 'Римское право',
+    'science': 'Наука',
+    'simvolika': 'Символика',
+    'slavery': 'Рабство',
+    'sociology': 'Общество',
+    'sport': 'Спорт',
+    'systems': 'Системы',
+    'tanakh': 'ТаНаХ',
+    'teachings': 'Учения',
+}
+
 
 def extract_title(content):
-    import re
     match = re.search(r'^#\s+(.+?)$', content, re.MULTILINE)
     if match:
         title = match.group(1)
-        # Убираем эмоджи
         title = re.sub(r'[\U0001F000-\U0001FFFF\u2600-\u27BF\uFE00-\uFEFF\u200D\uFE0F]', '', title)
         return title.strip()[:80]
     return ''
@@ -61,10 +86,8 @@ def walk_dir(dir_path, base_folder, label):
         content = entry.read_text(encoding="utf-8", errors="ignore")
         parts = rel.split("/")
         subcategory = ""
-        if parts[0] == "researches" and len(parts) > 2:
-            subcategory = parts[1]
-        elif parts[0] == "instructions" and len(parts) > 2:
-            subcategory = parts[1]
+        if len(parts) > 2:
+            subcategory = SUBCATEGORY_LABELS.get(parts[1], parts[1])
         files.append({
             "path": rel,
             "title": extract_title(content) or entry.stem.replace("-", " "),
@@ -91,4 +114,3 @@ def generate():
 
 if __name__ == "__main__":
     generate()
-
