@@ -2,10 +2,10 @@
 
 **Метаданные файла**
 - **Файл:** `docs/TECHNICAL-DEBT.md`
-- **Версия:** 1.7
+- **Версия:** 2.0
 - **Дата создания:** 2026-05-28
 - **Последнее обновление:** 2026-06-11
-- **Причина обновления:** Убрана задача «Унифицировать папку checkers» — разделение обосновано
+- **Причина обновления:** Добавлены новые скрипты для разработки
 - **Статус:** Активный
 - **Тема:** ТЕХНИЧЕСКИЙ ДОЛГ
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
@@ -19,46 +19,85 @@
 
 ## 📋 АКТИВНЫЕ ЗАДАЧИ
 
+### 🆕 Новые скрипты для разработки
+
+#### Чекеры
+- [ ] **`check-md-quality.py`** — проверка качества `.md` файлов (стили, структура, метаданные)
+- [ ] **`check-footnotes.py`** — проверка перекрёстных ссылок между исследованиями
+
+#### Генераторы
+- [ ] **`generate-sitemap.py`** — sitemap.xml для поисковиков
+- [ ] **`generate-search-index.py`** — полнотекстовый индекс (JSON) для веб-интерфейса
+- [ ] **`generate-rss.py`** — RSS-лента новых исследований
+
+#### Мониторинг
+- [ ] **`watch-changes.py`** — следит за файлами и авто-запускает чекеры
+- [ ] **`notify.py`** — уведомления при ошибках
+
+#### Веб
+- [ ] **`deploy.sh`** — одной командой: генерация + коммит + пуш
+- [ ] **`serve.py`** — простой HTTP-сервер на Python (без Node.js)
+
+#### Утилиты
+- [ ] **`backup-rotation.py`** — ротация старых бэкапов
+- [ ] **`clean-empty.py`** — интерактивное удаление пустых файлов
+
+---
+
+### 🏛 Реорганизация tools/ — префиксы по папкам
+
+#### Переименовать
+- [ ] `unify-metadata.py` → `generate-metadata.py` ✅
+- [ ] `add-related-links.py` → `generate-related-links.py`
+- [ ] `fill-empty-files.py` → `generate-fill-empty.py`
+- [ ] `generate-node-web.py` → `generate-web.py`
+- [ ] `dashboard.py` → `report-dashboard.py`
+- [ ] `stats-report.py` → `report-stats.py`
+- [ ] `daily-report.py` → `report-daily.py`
+- [ ] `check-health.py` → `report-health.py`
+- [ ] `autodoc.py` → `auto-doc.py`
+- [ ] `update-versions.py` → `auto-versions.py`
+- [ ] `task-manager.py` → `auto-tasks.py`
+- [ ] `idea-manager.py` → `auto-ideas.py`
+- [ ] `clear-cache.py` → `auto-clear-cache.py`
+
+#### Перенести
+- [ ] `sync-structure.py` → `tools/sync/`
+- [ ] `sync-changelogs.py` → `tools/sync/`
+
+#### Удалить
+- [ ] `tools/progress.py` — дубликат `lib/utils.py`
+- [ ] `tools/structure.txt` — дубликат `STRUCTURE.md`
+- [ ] `tools/menu.py` ✅
+- [ ] `tools/tahor-filter.py` ✅
+
+#### Обновить ссылки
+- [ ] Обновить `golem.py` — пути к скриптам
+- [ ] Обновить `README.md` — список инструментов
+
+---
+
 ### База ТаНаХа
-- [ ] Починить загрузку из Sefaria (URL-кодирование)
 - [ ] Загрузить полный ТаНаХ на иврите в `tanakh.db`
-- [ ] Добавить маппинг английских названий книг на ивритские
 - [ ] Интегрировать `check-tanakh-references.py` с `check-links.py`
 
 ### Нейросеть «Эд»
-- [ ] Запустить `client.py --analyze-exposure` для анализа кандидатов
-- [ ] Подготовить датасет для fine-tune из терминов и исследований
+- [ ] Запустить `client.py --analyze-exposure`
+- [ ] Подготовить датасет для fine-tune
 - [ ] Настроить локальный сервер
 - [ ] Интеграция с веб-интерфейсом
 
 ### Веб-интерфейс
-- [ ] Хлебные крошки — путь к файлу вверху страницы
-- [ ] Подсветка иврита — автоопределение и стилизация
-- [ ] Блок «Связанные файлы» внизу страницы
-- [ ] PWA — установка на телефон как приложение
-- [ ] Поиск по содержимому файлов
-- [ ] Офлайн-доступ (кеширование)
+- [ ] Хлебные крошки
+- [ ] Подсветка иврита
+- [ ] Блок «Связанные файлы»
+- [ ] PWA
+- [ ] Поиск по содержимому
+- [ ] Офлайн-доступ
 
-### Exposure-файлы
-- [ ] `exposure-language.md` — обновить с новыми подменами
-- [ ] `exposure-religionism.md` — добавить сферу «Технологии» и компонент «Язык системы»
-- [ ] `exposure-techniques.md` — добавить приёмы из последних исследований
-- [ ] `exposure-methods.md` — добавить методы 30-32
-
-### Сократить chat-prompt.md
-- [ ] Вынести детали из `chat-prompt.md` в отдельные файлы
-- [ ] Оставить в `chat-prompt.md` только ядро: источник, имя, запреты, процесс, тон
-
-### Заполнить пустые файлы
-- [ ] Заполнить содержимым `terminology/yetzer-lev.md`
-- [ ] Заполнить содержимым `terminology/erech-apayim.md`
-- [ ] Прогнать `check-empty-files.py --fix`
-
-### Системные проблемы
-- [ ] Исправить путь в метаданных `immanu-el.md`
-- [ ] Проверить все файлы `terminology/` на правильность папки в метаданных
-- [ ] Проверить дубликаты: `or-tam.md`, `sheerit.md`, `platform-idea.md`, `davar-language.md`
-- [ ] Проверить работоспособность всех скриптов в подпапках `tools/`
+### Контент
+- [ ] Заполнить `terminology/yetzer-lev.md`
+- [ ] Заполнить `terminology/erech-apayim.md`
 
 ---
 
@@ -67,33 +106,23 @@
 - [x] Создать `docs/IDEAS.md`
 - [x] Обновить `docs/ROADMAP.md` до v2.0
 - [x] Создать исследование `shmot-ha-sfarim.md`
-- [x] Обновить `exposure-distortions.md` (добавлен тип «Кастрация смысла»)
-- [x] Обновить `exposure-language.md` (10 языковых подмен)
-- [x] Обновить `exposure-techniques.md` (6 новых приёмов)
-- [x] Обновить `exposure-religionism.md` (сфера «Технологии», компонент «Язык системы»)
-- [x] Обновить `exposure-methods.md` (методы 30-32)
+- [x] Обновить все exposure-файлы
 - [x] Создать `generate-exposure-suggestions.py`
-- [x] Обновить `check-tanakh-references.py`
-
-## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (2026-06-10)
-
-- [x] Создать веб-интерфейс (index.html, style.css, app.js, server.js)
-- [x] Настроить деплой на GitHub Pages
-- [x] Адаптивная верстка ПК + мобильная
-- [x] Бургер-меню, тёмная тема, закладки, история
-- [x] Исключить служебные папки из интерфейса
-- [x] Починить отображение заголовков (эмоджи вырезаются)
-- [x] Автоопределение localhost/GitHub Pages
-- [x] 14 новых исследований
+- [x] Создать `code-injector.py` + документация
+- [x] Создать `neural/scripts/generate-knowledge-cache.py`
+- [x] Обновить `client.py` (режим `--use-cache`)
+- [x] Создать `docs/NEURAL.md`
+- [x] Перенести `export/` в `web/export/`
+- [x] Обновить `generate-book.py`, `dashboard.py`, `search.py`
+- [x] Утвердить структуру `tools/` с префиксами
+- [x] Создать `rename-script.py`
+- [x] Удалить `menu.py`, `tahor-filter.py`
+- [x] Найти `shmot-ha-sfarim.md` в резервной копии
 
 ## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (ранние)
 
-- [x] Перенести документацию в `docs/`
+- [x] Создать веб-интерфейс
+- [x] Настроить деплой на GitHub Pages
+- [x] 14 новых исследований
 - [x] Реорганизовать `tools/` по подпапкам
-- [x] Починить `check-links.py`, `find-orphans.py`
-- [x] Создать чекеры: `check-religionisms.py`, `check-code-quality.py`, `check-empty-files.py`
-- [x] Создать `tools/lib/utils.py`
-- [x] Обновить `docs/CHANGELOG.md`, `docs/BACKLOG.md`, `docs/DECISIONS.md`
-- [x] Исправить `sync-structure.py`, `generate-glossary.py`
-
-> **Примечание:** `instructions/checkers/` (.md) — методология для нейросети «Эд». `tools/checkers/` (.py) — скрипты автоматизации. Разделение обоснованно.
+- [x] Создать чекеры и генераторы

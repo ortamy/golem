@@ -1,0 +1,31 @@
+# ed-agent/config.yml — конфигурация агента «Эд»
+
+agent:
+  name: "Эд"
+  version: "1.0"
+  description: "ИИ-агент для управления проектом «Голем»"
+
+neural:
+  enabled: true
+  server_url: "http://localhost:8000"
+  client_path: "ed-neural/inference/client.py"
+  temperature: 0.3
+  max_tokens: 256
+
+tools:
+  checkers_dir: "tools/checkers"
+  generators_dir: "tools/generators"
+  reports_dir: "tools/reports"
+  
+git:
+  auto_commit: false
+  commit_message_template: "🤖 Агент Эд: {task}"
+
+memory:
+  file: "ed-agent/memory.json"
+  max_actions: 100
+
+ui:
+  show_tool_output: true
+  confirm_before_run: false
+  verbose: false

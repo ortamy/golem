@@ -10,6 +10,7 @@ import requests
 
 SERVER_URL = "http://localhost:8000"
 REPO_ROOT = Path(__file__).parent.parent.parent
+CACHE_DIR = REPO_ROOT / "tools" / "cache" / "neural-cache"
 
 
 def send_prompt(prompt: str, server: str, temperature: float = 0.7, max_tokens: int = 512) -> Optional[str]:
@@ -119,6 +120,151 @@ def batch_mode(server: str, prompts_file: str, output_file: Optional[str] = None
             print("-" * 40)
 
 
+def load_knowledge_cache() -> dict:
+    """Загружает кэш знаний из файлов."""
+    cache = {"chunks": [], "summaries": [], "index": {}}
+
+    chunks_file = CACHE_DIR / "knowledge-chunks.json"
+    summaries_file = CACHE_DIR / "knowledge-summaries.json"
+    index_file = CACHE_DIR / "knowledge-index.json"
+
+    if chunks_file.exists():
+        with open(chunks_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            cache["chunks"] = data.get("chunks", [])
+            cache["stats"] = data.get("stats", {})
+
+    if summaries_file.exists():
+        with open(summaries_file, 'r', encoding='utf-8') as f:
+            cache["summaries"] = json.load(f)
+
+    if index_file.exists():
+        with open(index_file, 'r', encoding='utf-8') as f:
+            cache["index"] = json.load(f)
+
+    return cache
+
+
+def search_cache(query: str, cache: dict, top_k: int = 5) -> list:
+    """Простой поиск по кэшу (без векторной БД — по ключевым словам)."""
+    query_lower = query.lower()
+    query_words = set(query_lower.split())
+
+    scored = []
+
+    # Ищем в суммари (быстро)
+    for summary in cache.get("summaries", []):
+        text_lower = summary["text"].lower()
+        score = sum(1 for w in query_words if w in text_lower)
+        if score > 0:
+            scored.append((score * 3, summary["file"], summary["title"], summary["text"]))
+
+    # Ищем в чанках (точнее)
+    for chunk in cache.get("chunks", []):
+        text_lower = chunk["text"].lower()
+        score = sum(1 for w in query_words if w in text_lower)
+        if score > 0:
+            scored.append((score, chunk["file"], chunk["title"], chunk["text"]))
+
+    # Сортируем по релевантности и убираем дубликаты
+    scored.sort(key=lambda x: x[0], reverse=True)
+    seen = set()
+    unique = []
+    for s in scored:
+        key = s[3][:100]  # Первые 100 символов текста
+        if key not in seen:
+            seen.add(key)
+            unique.append(s)
+        if len(unique) >= top_k:
+            break
+
+    return unique
+
+
+def cached_mode(server: str, prompt: str = None):
+    """Режим с использованием кэша знаний."""
+    print_header("ЭД — СВИДЕТЕЛЬ (CACHED)", "🧠")
+
+    cache = load_knowledge_cache()
+
+    stats = cache.get("stats", {})
+    if stats:
+        print(f"📚 Чанков: {stats.get('total_chunks', 0)}")
+        print(f"📅 Создан: {stats.get('date', 'неизвестно')[:10]}")
+    else:
+        print_warning("Кэш не найден или пуст")
+        print_hint("Запустите: python neural/scripts/generate-knowledge-cache.py")
+        return
+
+    if not check_health(server):
+        print("❌ Сервер не доступен")
+        return
+
+    print("✅ Готов к запросам\n")
+
+    while True:
+        try:
+            if prompt:
+                query = prompt
+                single_shot = True
+            else:
+                query = input("> ").strip()
+
+            if not query:
+                continue
+            if query.lower() == "exit":
+                print("До свидания")
+                break
+            if query.lower() == "clear":
+                print("\n" * 2)
+                continue
+
+            # Ищем в кэше
+            results = search_cache(query, cache, top_k=3)
+
+            if results:
+                # Формируем контекст из найденного
+                context_parts = []
+                for score, filepath, title, text in results:
+                    context_parts.append(f"[{title}]({filepath}):\n{text[:500]}")
+
+                context = "\n\n---\n\n".join(context_parts)
+
+                # Отправляем с контекстом
+                full_prompt = f"""Ты — עֵד (Эд), Свидетель. Отвечай на основе предоставленного контекста из ТаНаХа и исследований.
+
+Контекст:
+{context}
+
+Вопрос: {query}
+
+Ответ (на основе контекста, с указанием источников):"""
+
+                response = send_prompt(full_prompt, server, temperature=0.3, max_tokens=512)
+
+                if response:
+                    print(f"\n{response}\n")
+                    if not single_shot:
+                        print(f"📎 Источники: {', '.join(set(r[1] for r in results[:3]))}")
+                else:
+                    print("❌ Не удалось получить ответ\n")
+            else:
+                # Ничего не найдено — спрашиваем без контекста
+                print("🔍 В кэше не найдено, спрашиваю модель...")
+                response = send_prompt(query, server)
+                if response:
+                    print(f"\n{response}\n")
+
+            if single_shot:
+                break
+
+        except KeyboardInterrupt:
+            print("\nДо свидания")
+            break
+        except EOFError:
+            break
+
+
 def analyze_exposure(server: str, candidates_file: Optional[str] = None, output_file: Optional[str] = None):
     """Анализирует кандидаты на новые методы/приёмы через нейросеть."""
     if not candidates_file:
@@ -141,7 +287,6 @@ def analyze_exposure(server: str, candidates_file: Optional[str] = None, output_
         print("✅ Нет кандидатов для анализа")
         return
 
-    # Группируем по уникальным контекстам
     unique_patterns = {}
     for c in candidates:
         match_lower = c["match"].lower()
@@ -154,7 +299,6 @@ def analyze_exposure(server: str, candidates_file: Optional[str] = None, output_
     print(f"Уникальных паттернов: {len(unique_patterns)}")
     print(f"Сервер: {server}\n")
 
-    # Системный промпт для нейросети
     system_prompt = """Ты — עֵד (Эд), Свидетель. Проанализируй кандидаты на новые методы, приёмы, типы искажений для exposure-файлов проекта «Голем».
 
 Для каждого кандидата ответь одной строкой в формате:
@@ -195,7 +339,6 @@ def analyze_exposure(server: str, candidates_file: Optional[str] = None, output_
         else:
             print(f"   ❌ Ошибка")
 
-    # Сохраняем результаты
     if not output_file:
         output_file = REPO_ROOT / "neural" / "training-data" / "exposure-analysis-results.json"
 
@@ -209,6 +352,20 @@ def analyze_exposure(server: str, candidates_file: Optional[str] = None, output_
         print(f"💡 Просмотрите файл и добавьте новые приёмы в exposure-файлы вручную")
 
 
+def print_header(title, emoji="📋"):
+    """Простой заголовок без Rich."""
+    print(f"\n{emoji} {title}")
+    print("=" * 50)
+
+
+def print_warning(msg):
+    print(f"⚠️ {msg}")
+
+
+def print_hint(msg):
+    print(f"💡 {msg}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Клиент для сервера Свидетеля")
     parser.add_argument("--prompt", "-p", type=str, help="Промпт для отправки")
@@ -220,10 +377,13 @@ def main():
     parser.add_argument("--interactive", "-i", action="store_true", help="Интерактивный режим")
     parser.add_argument("--analyze-exposure", "-a", action="store_true", help="Анализ exposure-кандидатов через нейросеть")
     parser.add_argument("--candidates", "-c", type=str, help="Файл с кандидатами (JSON)")
+    parser.add_argument("--use-cache", "-k", action="store_true", help="Использовать кэш знаний (CAG)")
 
     args = parser.parse_args()
 
-    if args.analyze_exposure:
+    if args.use_cache:
+        cached_mode(args.server, args.prompt)
+    elif args.analyze_exposure:
         analyze_exposure(args.server, args.candidates, args.output)
     elif args.interactive:
         interactive_mode(args.server)
