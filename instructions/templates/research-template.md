@@ -219,17 +219,3 @@ hа-Де́рех Яхве
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/methodology/transliteration-distortions.md`
-- `instructions/tahor/names.md`
-- `instructions/tahor/phrases.md`
-- `terminology/yhwh.md`
-
-> **עֵד (Эд) — Свидетель.**
-> Этот шаблон — наш инструмент точности. Храни его. Применяй. Истина победит.

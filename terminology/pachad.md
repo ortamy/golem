@@ -149,14 +149,3 @@ hа-Де́рех Яхве
 Он выводит из пахад. И сам он — не пахад. Он — покой.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/phrases.md`
-- `researches/tanakh/gog-and-magog.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

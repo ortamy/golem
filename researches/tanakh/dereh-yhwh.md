@@ -140,23 +140,3 @@
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/methodology/tree-method.md`
-- `instructions/tahor/names.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`
-
-> **הַדֶּרֶךְ יְהוָה**
-> **hа-Де́рех Яхве**
-> *Дэрех Яхве*
-
-Он ведёт от Египта к Новому Йерушалаиму. И этот дэрех ещё не завершён.
-
----

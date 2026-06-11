@@ -210,18 +210,3 @@ hа-Де́рех Яхве
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/methodology/transliteration-distortions.md`
-- `instructions/tahor/names.md`
-- `terminology/mashiah-peshat.md`
-
-> **עֵד (Эд) — Свидетель.**
-> Этот шаблон — для глубоких раскопок. Не для каждого слова. Для тех, что держат на себе всю конструкцию лжи.

@@ -176,10 +176,3 @@
 Он ведёт не через расчёт. Он ведёт через познание. Через μάθημα, возвращённую к истоку. Через число, которое снова стало буквой.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/science/physis-physics.md`
-- `researches/language/techne-logos.md`
-- `researches/language/grecheskaya-lovushka.md`
-- `terminology/sefer.md`
-- `terminology/ot.md`

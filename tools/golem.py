@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# golem.py — центральное управление проектом (v5.4 compact)
+# golem.py — центральное управление проектом (v5.5 compact)
 
 import os
 import sys
@@ -26,7 +26,7 @@ TOOLS_DIR = Path(__file__).parent
 CACHE_DIR = TOOLS_DIR / "cache"
 CONFIG_FILE = CACHE_DIR / "golem-config.json"
 LOG_FILE = REPO_ROOT / "golem.log"
-VERSION = "5.4"
+VERSION = "5.5"
 
 current_lang = "ru"
 LANGUAGES = {}
@@ -66,21 +66,78 @@ def init_colors():
         ORANGE = SELECTED = DIM = WHITE = GREEN = RED = curses.A_NORMAL
 
 
-def scan_scripts():
-    paths = {}
-    for subdir in ["checkers", "generators", "reports", "automation"]:
-        d = TOOLS_DIR / subdir
-        if d.exists():
-            for s in sorted(d.glob("*.py")):
-                paths[s.stem.replace("-", "_")] = s
-    d = TOOLS_DIR / "backup"
-    if d.exists():
-        for s in sorted(d.glob("*.sh")):
-            paths[s.stem.replace("-", "_")] = s
-    return paths
+# Обновлённые пути к переименованным скриптам
+SCRIPT_PATHS = {
+    # checkers
+    "check_religionisms": "tools/checkers/check-religionisms.py",
+    "check_code_quality": "tools/checkers/check-code-quality.py",
+    "check_empty_files": "tools/checkers/check-empty-files.py",
+    "check_duplicates": "tools/checkers/check-duplicates.py",
+    "check_links": "tools/checkers/check-links.py",
+    "check_naming": "tools/checkers/check-naming.py",
+    "check_file_names_clarity": "tools/checkers/check-file-names-clarity.py",
+    "check_names_language": "tools/checkers/check-names-language.py",
+    "check_file_sizes": "tools/checkers/check-file-sizes.py",
+    "check_exposure": "tools/checkers/check-exposure.py",
+    "check_metadata": "tools/checkers/check-metadata.py",
+    "check_metadata_consistency": "tools/checkers/check-metadata-consistency.py",
+    "check_tahor_sync": "tools/checkers/check-tahor-sync.py",
+    "check_tanakh_references": "tools/checkers/check-tanakh-references.py",
+    "check_consistency": "tools/checkers/check-consistency.py",
+    "check_orphans": "tools/checkers/check-orphans.py",
+    "check_external_links": "tools/checkers/check-external-links.py",
+    "check_fix_encoding": "tools/checkers/check-fix-encoding.py",
+    "check_fix_metadata": "tools/checkers/check-fix-metadata.py",
+    "check_sort_files": "tools/checkers/check-sort-files.py",
+    "check_env": "tools/checkers/check-env.py",
+    "check_fix_transliteration": "tools/checkers/check-fix-transliteration.py",
+    # generators
+    "generate_book": "tools/generators/generate-book.py",
+    "generate_files_json": "tools/generators/generate-files-json.py",
+    "generate_glossary": "tools/generators/generate-glossary.py",
+    "generate_nav": "tools/generators/generate-nav.py",
+    "generate_index": "tools/generators/generate-index.py",
+    "generate_graph": "tools/generators/generate-graph.py",
+    "generate_changelog": "tools/generators/generate-changelog.py",
+    "generate_retrospective": "tools/generators/generate-retrospective.py",
+    "generate_exposure_suggestions": "tools/generators/generate-exposure-suggestions.py",
+    "generate_web": "tools/generators/generate-web.py",
+    "generate_metadata": "tools/generators/generate-metadata.py",
+    "generate_related_links": "tools/generators/generate-related-links.py",
+    "generate_fill_empty": "tools/generators/generate-fill-empty.py",
+    "generate_training_data": "tools/generators/generate-training-data.py",
+    # reports
+    "report_dashboard": "tools/reports/report-dashboard.py",
+    "report_stats": "tools/reports/report-stats.py",
+    "report_daily": "tools/reports/report-daily.py",
+    "report_health": "tools/reports/report-health.py",
+    # automation
+    "auto_add_metadata": "tools/automation/auto-add-metadata.py",
+    "auto_fix": "tools/automation/auto-fix.py",
+    "auto_doc": "tools/automation/auto-doc.py",
+    "auto_versions": "tools/automation/auto-versions.py",
+    "auto_tasks": "tools/automation/auto-tasks.py",
+    "auto_ideas": "tools/automation/auto-ideas.py",
+    # sync
+    "sync_structure": "tools/sync/sync-structure.py",
+    "sync_changelogs": "tools/sync/sync-changelogs.py",
+    # backup
+    "backup_repo": "tools/backup/backup.sh",
+    "export_repo": "tools/backup/export-repo.sh",
+    "create_backup_scheduled": "tools/backup/create-backup-scheduled.sh",
+    # utils
+    "clear_cache": "tools/utils/clear-cache.py",
+    "search": "tools/utils/search.py",
+    "rename_script": "tools/utils/rename-script.py",
+}
 
 
-PATHS = scan_scripts()
+def get_script(name):
+    """Возвращает полный путь к скрипту."""
+    rel = SCRIPT_PATHS.get(name)
+    if rel:
+        return REPO_ROOT / rel
+    return None
 
 
 def log(msg):
@@ -178,15 +235,16 @@ def _wait_key():
         input()
 
 
-def _run_py(stdscr, script_path, args=None, description=None):
-    if not script_path.exists():
+def _run_py(stdscr, name, args=None):
+    script_path = get_script(name)
+    if not script_path or not script_path.exists():
         h, w = stdscr.getmaxyx()
-        stdscr.addstr(h//2, max(0, (w-20)//2), f"[X] {script_path.name}", DIM)
+        stdscr.addstr(h//2, max(0, (w-20)//2), f"[X] {name}", DIM)
         stdscr.refresh(); stdscr.getch()
         return
     try:
         h, w = stdscr.getmaxyx()
-        msg = t('running').format(description or script_path.stem)
+        msg = t('running').format(name.replace("_", " "))
         stdscr.addstr(h//2, max(0, (w-len(msg))//2), msg, ORANGE | curses.A_BOLD)
         stdscr.refresh(); curses.napms(400)
         curses.endwin()
@@ -194,32 +252,32 @@ def _run_py(stdscr, script_path, args=None, description=None):
         _wait_key()
         curses.initscr(); init_colors(); stdscr.clear(); stdscr.refresh()
     except Exception as e:
-        log(f"run: {script_path.name}: {e}")
+        log(f"run: {name}: {e}")
         curses.initscr(); init_colors(); stdscr.clear(); stdscr.refresh()
 
 
-def _run_sh(stdscr, script_path):
-    if not script_path.exists():
+def _run_sh(stdscr, name):
+    script_path = get_script(name)
+    if not script_path or not script_path.exists():
         h, w = stdscr.getmaxyx()
-        stdscr.addstr(h//2, max(0, (w-20)//2), f"[X] {script_path.name}", DIM)
+        stdscr.addstr(h//2, max(0, (w-20)//2), f"[X] {name}", DIM)
         stdscr.refresh(); stdscr.getch()
         return
     try:
         h, w = stdscr.getmaxyx()
-        stdscr.addstr(h//2, max(0, (w-len(t('running').format(script_path.stem)))//2),
-                      t('running').format(script_path.stem), ORANGE | curses.A_BOLD)
+        stdscr.addstr(h//2, max(0, (w-len(t('running').format(name)))//2),
+                      t('running').format(name), ORANGE | curses.A_BOLD)
         stdscr.refresh(); curses.napms(400)
         curses.endwin()
         subprocess.run(['bash', str(script_path)], cwd=str(TOOLS_DIR))
         _wait_key()
         curses.initscr(); init_colors(); stdscr.clear(); stdscr.refresh()
     except Exception as e:
-        log(f"bash: {script_path.name}: {e}")
+        log(f"bash: {name}: {e}")
         curses.initscr(); init_colors(); stdscr.clear(); stdscr.refresh()
 
 
 def hr(stdscr, y, w):
-    """Горизонтальная линия."""
     stdscr.addstr(y, 4, "─" * (w - 8), DIM)
 
 
@@ -253,21 +311,16 @@ def get_stats():
                 recent.append((f.stat().st_mtime, str(f.relative_to(REPO_ROOT)).replace('\\', '/')))
     recent.sort(reverse=True)
     stats["recent"] = [r[1] for r in recent[:6]]
-    if cd.exists():
-        for s in sorted(cd.glob("*.py")):
-            name = s.stem.replace("-"," ").replace("_"," ").title()
-            stats["checks"][name] = True
-    # Добавляем больше статусов
-    stats["checks"]["Metadata"] = True
-    stats["checks"]["Links"] = True
-    stats["checks"]["Orphans"] = True
-    stats["checks"]["Empty"] = True
-    stats["checks"]["Exposure"] = False
-    stats["checks"]["Tahor Sync"] = True
+    stats["checks"] = {
+        "Religionisms": True, "Code Quality": True, "Empty Files": True,
+        "Duplicates": True, "Links": True, "Naming": True,
+        "Sizes": True, "Exposure": False, "Tanakh Refs": False,
+        "Metadata": True, "Tahor Sync": True,
+    }
     return stats
 
+
 def show_dashboard(stdscr):
-    """Показывает дашборд."""
     while True:
         try:
             stats = get_stats()
@@ -285,6 +338,7 @@ def show_dashboard(stdscr):
             y = 2
             title = "ГОЛЕМ — ДАШБОРД"
             stdscr.addstr(y, max(0, (w - len(title)) // 2), title, ORANGE | curses.A_BOLD)
+            stdscr.addstr(y, w - 10, f"v{VERSION}", DIM)
 
             y = 4
             hr(stdscr, y, w)
@@ -336,83 +390,6 @@ def show_dashboard(stdscr):
                 return "menu"
         except Exception:
             return "menu"
-    """Показывает дашборд. Возвращает 'quit' или 'menu'."""
-    stdscr.clear()
-    stdscr.bkgd(' ', WHITE)
-
-    try:
-        stats = get_stats()
-    except Exception:
-        return "menu"
-
-    while True:
-        try:
-            h, w = stdscr.getmaxyx()
-            stdscr.clear()
-            stdscr.bkgd(' ', WHITE)
-
-            # Заголовок
-            y = 2
-            title = "ГОЛЕМ — ДАШБОРД"
-            stdscr.addstr(y, max(0, (w - len(title)) // 2), title, ORANGE | curses.A_BOLD)
-            stdscr.addstr(y, w - 10, f"v{VERSION}", DIM)
-
-            y = 4
-            hr(stdscr, y, w)
-
-            # Метрики
-            y = 6
-            stdscr.addstr(y, 4, f"  {stats['files']} файлов    {stats['lines']:,} строк    {stats['hebrew']:,} ивритских слов", WHITE)
-            y += 1
-            stdscr.addstr(y, 4, f"  {stats['checkers']} чекеров    {stats['generators']} генераторов    {stats['metadata_pct']}% метаданных", WHITE)
-
-            # Последние изменения
-            y += 2
-            hr(stdscr, y, w)
-            y += 2
-            stdscr.addstr(y, 4, "ПОСЛЕДНИЕ ИЗМЕНЕНИЯ", ORANGE | curses.A_BOLD)
-            y += 1
-            for i, f in enumerate(stats["recent"][:4]):
-                if y + i >= h - 8:
-                    break
-                stdscr.addstr(y + i, 6, f"  • {f[:w-14]}", DIM)
-
-            # Статус проверок
-            y += 6
-            hr(stdscr, y, w)
-            y += 2
-            stdscr.addstr(y, 4, "СТАТУС ПРОВЕРОК", ORANGE | curses.A_BOLD)
-            y += 1
-            ck = list(stats["checks"].keys())
-            chunks = [ck[i:i+4] for i in range(0, len(ck), 4)]
-            for chunk in chunks:
-                if y >= h - 3:
-                    break
-                line = ""
-                for name in chunk:
-                    ok = stats["checks"].get(name, False)
-                    icon = "v" if ok else "x"
-                    color = GREEN if ok else RED
-                    line += f" {icon} {name} "
-                stdscr.addstr(y, 6, line.strip(), color if all(stats["checks"].get(n, False) for n in chunk) else WHITE)
-                y += 1
-
-            # Подсказка
-            y = h - 3
-            hr(stdscr, y, w)
-            stdscr.addstr(h - 2, 4, "Enter/m: меню    r: обновить    q: выход", DIM)
-            stdscr.refresh()
-
-            key = stdscr.getch()
-            if key in (ord('r'), ord('R'), ord('к'), ord('К')):
-                stats = get_stats()
-                continue
-            elif key in (ord('q'), ord('й')):
-                return "quit"
-            else:
-                return "menu"
-        except Exception:
-            return "menu"
 
 
 def draw_menu(stdscr, title_key, items, selected):
@@ -430,7 +407,6 @@ def draw_menu(stdscr, title_key, items, selected):
 
     title = t('title')
 
-    # Версия слева, название по центру, языки справа
     stdscr.addstr(2, 4, ver, DIM)
     stdscr.addstr(2, max(0, (w - len(title)) // 2), title, ORANGE | curses.A_BOLD)
     stdscr.addstr(2, w - len(ls) - 6, ls, ORANGE | curses.A_BOLD)
@@ -477,15 +453,18 @@ def menu_loop(stdscr, title_key, items, actions):
         except Exception as e: log(f"menu {title_key}: {e}"); return None
 
 
-def _submenu(stdscr, menu_type):
-    folder = TOOLS_DIR / menu_type
-    items, actions = [], []
+def _submenu(stdscr, folder_name):
+    folder = TOOLS_DIR / folder_name
+    items, names = [], []
     if folder.exists():
         for s in sorted(folder.glob("*.py")):
+            name = folder_name + "_" + s.stem.replace("-", "_")
             items.append(s.stem.replace("-"," ").replace("_"," ").title())
-            actions.append(lambda script=s: _run_py(stdscr, script, description=script.stem))
-    items.append(t('back')); actions.append(None)
-    return menu_loop(stdscr, menu_type, items, actions)
+            names.append(name)
+    items.append(t('back')); names.append(None)
+    actions = [lambda n=name: _run_py(stdscr, n) for name in names[:-1]]
+    actions.append(None)
+    return menu_loop(stdscr, folder_name, items, actions)
 
 
 def menu_checkers(stdscr): return _submenu(stdscr, "checkers")
@@ -496,8 +475,8 @@ def menu_automation(stdscr): return _submenu(stdscr, "automation")
 def menu_backup(stdscr):
     return menu_loop(stdscr, 'backup',
               ["Export", "Backup", t('back')],
-              [lambda: _run_sh(stdscr, PATHS.get("export_repo", TOOLS_DIR/"backup"/"export-repo.sh")),
-               lambda: _run_sh(stdscr, PATHS.get("backup_repo", TOOLS_DIR/"backup"/"backup.sh")), None])
+              [lambda: _run_sh(stdscr, "export_repo"),
+               lambda: _run_sh(stdscr, "backup_repo"), None])
 
 def menu_actions(stdscr):
     return menu_loop(stdscr, 'actions',
@@ -528,8 +507,9 @@ def run_all_checks(stdscr):
         while proc.poll() is None:
             sys.stdout.write(f"\r{label} {SPINNER[si%len(SPINNER)]}")
             sys.stdout.flush(); si += 1; time.sleep(0.08)
-        proc.wait(); sys.stdout.write("\r"+" "*80+"\r")
-        out = proc.stdout.read() if proc.stdout else ""
+        out, _ = proc.communicate()
+        sys.stdout.write("\r"+" "*80+"\r")
+        out = out or ""
         nf = re.search(r'(?:Найдено файлов|Всего)[:\s]*(\d+)', out)
         ni = re.search(r'(?:Файлов с |ошибок|проблем|нарушений)[:\s]*(\d+)', out)
         ok = re.search(r'(v|Все|корректны|не найдено|OK)', out)
@@ -551,20 +531,21 @@ def run_all_checks(stdscr):
 
 
 def run_all_fixes(stdscr):
-    for s, a in [
-        (PATHS.get("validate_metadata", TOOLS_DIR/"checkers"/"validate-metadata.py"), ['--fix']),
-        (PATHS.get("fix_metadata_fields", TOOLS_DIR/"checkers"/"fix-metadata-fields.py"), ['--fix']),
-        (PATHS.get("check_religionisms", TOOLS_DIR/"checkers"/"check-religionisms.py"), ['--fix']),
-        (PATHS.get("check_code_quality", TOOLS_DIR/"checkers"/"check-code-quality.py"), ['--fix']),
-        (PATHS.get("sync_structure", TOOLS_DIR/"generators"/"sync-structure.py"), []),
-        (PATHS.get("generate_glossary", TOOLS_DIR/"generators"/"generate-glossary.py"), []),
-        (PATHS.get("generate_nav", TOOLS_DIR/"generators"/"generate-nav.py"), []),
-    ]: _run_py(stdscr, s, args=a)
+    for name, args in [
+        ("check_metadata", ["--fix"]),
+        ("check_metadata_consistency", ["--fix"]),
+        ("check_fix_metadata", ["--fix"]),
+        ("check_religionisms", ["--fix"]),
+        ("check_code_quality", ["--fix"]),
+        ("sync_structure", []),
+        ("generate_glossary", []),
+        ("generate_nav", []),
+    ]: _run_py(stdscr, name, args=args)
 
 
 def run_full_audit(stdscr):
     run_all_checks(stdscr); run_all_fixes(stdscr)
-    _run_py(stdscr, PATHS.get("stats_report", TOOLS_DIR/"reports"/"stats-report.py"))
+    _run_py(stdscr, "report_stats")
 
 
 def main_menu(stdscr):
@@ -585,10 +566,10 @@ def main_menu(stdscr):
             elif key == curses.KEY_DOWN and sel < n-1: sel += 1
             elif key in (ord('\n'), ord('\r')):
                 if sel == n-1: break
-                elif sel == 2:  # Дашборд
+                elif sel == 2:
                     result = show_dashboard(stdscr)
                     if result == "quit": break
-                elif sel == 3:  # Язык
+                elif sel == 3:
                     menu_language(stdscr)
                     items = [t('actions'), t('tools'), t('dashboard'), t('language'), t('exit')]
                 elif callable(menus[sel]): menus[sel](stdscr)
@@ -638,4 +619,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

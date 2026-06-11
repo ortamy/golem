@@ -152,11 +152,3 @@ hа-Де́рех Яхве
 Он формирует голема. И он же — матара, к которой голем идёт.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

@@ -166,10 +166,3 @@ hа-Де́рех Яхве
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/archeology-methodology.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

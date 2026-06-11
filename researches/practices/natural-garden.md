@@ -143,11 +143,3 @@ hа-Де́рех Яхве
 Он — сад. Не газон. Жизнь.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/tree-method.md`
-- `terminology/shmitah.md`
-- `terminology/yhwh.md`
-- `terminology/yovel.md`

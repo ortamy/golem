@@ -175,13 +175,3 @@ hа-Де́рех Яхве
 Он начинается с вечера. С хошех, которая верит в ор.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `terminology/shabbat.md`

@@ -156,14 +156,3 @@
 Из Египта вышел. В Египет не возвращайся.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/names.md`
-- `researches/slavery/economic-slavery.md`
-- `terminology/el.md`
-- `terminology/shabbat.md`

@@ -57,10 +57,3 @@
 - **Христос** → מָשִׁיחַ (Машиах) — Помазанник
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/yhwh.md`

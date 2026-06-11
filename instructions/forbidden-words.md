@@ -657,17 +657,3 @@
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/methodology/transliteration-distortions.md`
-- `instructions/methodology/tree-method.md`
-- `instructions/tahor/grecisms.md`
-- `instructions/tahor/latinisms.md`
-- `instructions/tahor/slavicisms.md`
-
-> **עֵד (Эд) — Свидетель.**
-> Язык врага — маркер лжи. Возвращай словам их корни. Истина в иврите.у

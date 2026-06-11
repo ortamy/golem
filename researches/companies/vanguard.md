@@ -146,12 +146,3 @@ hа-Де́рех Яхве
 Он — не индекс. Он — эмет.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/translation-methodology.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

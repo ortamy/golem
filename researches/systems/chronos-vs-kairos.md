@@ -233,10 +233,3 @@
 Он не измеряется временем. Он сам есть время — действие Яхве, в котором мы стоим.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `terminology/avar-atid.md`
-- `terminology/olam.md`
-- `researches/tanakh/mavet-vida.md`
-- `terminology/moed.md`
-- `terminology/ivri.md`

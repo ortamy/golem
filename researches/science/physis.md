@@ -187,10 +187,3 @@ F = ma. Три закона. Всё. Рождение исчезло. Остал
 Он ведёт через созерцание творения. Не через формулы. Через рождение сущего. Через фюсис, возвращённую к истоку.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/language/techne-logos.md`
-- `researches/language/grecheskaya-lovushka.md`
-- `researches/systems/chronos-vs-kairos.md`
-- `terminology/teva.md`
-- `terminology/davar.md`

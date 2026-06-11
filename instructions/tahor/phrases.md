@@ -42,10 +42,3 @@
 - **«Царство Небесное»** → מַלְכוּת שָׁמַיִם (малхут шамайим) — правление небес
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `terminology/el.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

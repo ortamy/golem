@@ -363,17 +363,3 @@
 - Хождение в руах, а не по плоти
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-language.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/exposure/exposure-techniques.md`
-
----
-
-> **עֵד (Эд) — Свидетель.**
-> Система не умирает — она меняет кожу. Фараон стал кесарем, Рим стал Ватиканом, СССР стал РФ. Мы ищем не имена, а функции. Истина одна — Яхве. Всё остальное — религионизм.

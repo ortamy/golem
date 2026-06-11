@@ -149,11 +149,3 @@ hа-Де́рех Яхве
 Он — не линия. Он — действие.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/names.md`
-- `terminology/yhwh.md`

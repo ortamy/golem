@@ -136,9 +136,3 @@ hа-Де́рех Яхве
 Он — не товар. Он — эмет.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

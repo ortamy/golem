@@ -174,12 +174,3 @@
 Пробудись. Змея поднимается. Не дай ей опутать.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/methodology/tree-method.md`
-- `terminology/shabbat.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

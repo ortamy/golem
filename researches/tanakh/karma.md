@@ -165,11 +165,3 @@
 Карма — не от Яхве. Выбери жизнь. Выбери слиха. Выбери хофеш.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-principles.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `terminology/el.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

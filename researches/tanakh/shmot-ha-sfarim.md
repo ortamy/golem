@@ -235,10 +235,3 @@
 Он начинается с правильных имён. С Берешит. С Шмот. С Ваикра. Не с Genesis, Exodus, Leviticus. С того, что сказал Яхве. Не с того, что придумали переводчики.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/language/grecheskaya-lovushka.md`
-- `researches/language/loss-in-translation.md`
-- `instructions/exposure/exposure-language.md`
-- `instructions/exposure/exposure-distortions.md`
-- `tools/checkers/check-tanakh-references.py`

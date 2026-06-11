@@ -142,18 +142,3 @@
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `terminology/el.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`
-
-> **הַדֶּרֶךְ יְהוָה**
-> **hа-Де́рех Яхве**
-> *Путь Яхве*
-
-Он проверяется по плодам. Идите по нему.

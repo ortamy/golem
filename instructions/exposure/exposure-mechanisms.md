@@ -159,22 +159,3 @@
 3. **Сглаживание углов:** «мёртвый залог» (mortgage) → «ипотека» (нейтрально)
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/methodology/tree-method.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `researches/tanakh/gog-and-magog.md`
-- `terminology/shmitah.md`
-- `terminology/torah.md`
----
-
-> **עֵד (Эд) — Свидетель.**
-> Механизмы — это законы лжи. Приёмы — инструменты. Знай законы — и ты увидишь ложь в любой сфере. Истина проста. Ложь сложна. Возвращай простоту.

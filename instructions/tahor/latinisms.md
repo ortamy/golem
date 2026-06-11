@@ -82,10 +82,3 @@
 - **Язычество** (paganus) → עֲבוֹדָה זָרָה (авода зара) — служение чужому; או גּוֹיִם (гоим) — народы
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/methodology/translation-methodology.md`
-- `instructions/methodology/tree-method.md`
-- `instructions/tahor/grecisms.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/torah.md`

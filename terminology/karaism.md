@@ -183,18 +183,3 @@ VIII век н.э. Вавилон. Раввинистический иудаиз
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/shabbat.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`
-
-> **הַדֶּרֶךְ יְהוָה**
-> **hа-Де́рех Яхве**
-> *

@@ -208,8 +208,3 @@ cp tools/cache/backups/check-naming.py.20260611_120000.bak tools/checkers/check-
 > Код — это инструмент. Инструмент должен быть точным. Code Injector — скальпель, не кувалда. Используй с умом.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `tools/code-injector.py`
-- `instructions/coding-standards.md`
-- `tools/lib/utils.py`

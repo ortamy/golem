@@ -126,11 +126,3 @@ check-consistency — терминология
 Запускать после всех остальных проверок.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `tools/checkers/check-consistency.py`
-- `tools/checkers/check-links.py`
-- `tools/checkers/check-names-language.py`
-- `tools/checkers/check-metadata-paths.py`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/transliteration-distortions.md`

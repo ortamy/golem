@@ -146,10 +146,3 @@ hа-Де́рех Яхве
 Он проходит даже через отсечение. И выводит на хофеш.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/methodology/tree-method.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

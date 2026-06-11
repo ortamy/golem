@@ -169,12 +169,3 @@ hа-Де́рех Яхве
 Он высечен на камне. И камень помнит.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/methodology/tree-method.md`
-- `researches/tanakh/gog-and-magog.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

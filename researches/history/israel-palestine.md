@@ -163,10 +163,3 @@ hа-Де́рех Яхве
 Он — не дегель. Он — эмет.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `researches/tanakh/gog-and-magog.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

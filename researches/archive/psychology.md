@@ -156,10 +156,3 @@ hа-Де́рех Яхве
 Он — не терапия. Он — эмет.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/tree-method.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

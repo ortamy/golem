@@ -162,14 +162,3 @@ hа-Де́рех Яхве
 Он — не схема. Он — дэрех.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/tahor/names.md`
-- `terminology/el.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/shabbat.md`

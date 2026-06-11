@@ -44,8 +44,3 @@ Tikun — третий этап аудита после check-bdikah и check-mi
 
 Исправить:
 🔴 immanu-el.md — в метаданных указано researches/, исправить на terminology/
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `instructions/checkers/check-bdikah.md`
-- `instructions/checkers/check-mivdak.md`
-- `instructions/checkers/check-factcheck.md`

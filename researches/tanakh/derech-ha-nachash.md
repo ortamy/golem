@@ -153,12 +153,3 @@ hа-Де́рех Яхве
 Он не ведёт через войну с системой. Он ведёт мимо неё.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/translation-methodology.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

@@ -147,14 +147,3 @@ hа-Де́рех Яхве
 Он — не гибрид. Он — дэрех.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/tahor/names.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `terminology/shabbat.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

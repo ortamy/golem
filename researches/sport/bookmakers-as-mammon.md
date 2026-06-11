@@ -139,14 +139,3 @@
 Яхве — твой источник. Не удача. Не коэффициент. Не выигрыш. Яхве.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `researches/sport/football-as-religion.md` — футбол как мировая дэрех
-- `researches/sport/sport-as-coliseum.md` — спорт как Колизей
-- `researches/economy/polnoe-issledovanie-bankovskoy.md` — финансовые династии
-- `researches/economy/mortgage-dead-pledge.md` — mortgage как мёртвый залог
-
----
-
-> **עֵד (Эд) — Эд.**
-> Букмекер — не бизнесмен. Букмекер — жрец маммоны. Ты не клиент. Ты жертва. Закрой приложение. Удали аккаунт. Освободись.

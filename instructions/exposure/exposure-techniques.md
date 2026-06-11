@@ -143,18 +143,3 @@
 - **Подмена невидимой пирамиды на видимый хаос:** финансовая система кажется хаосом, но это пирамида
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-language.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/names.md`
-
----
-
-> **עֵד (Эд) — Свидетель.**
-> Приёмы — это инструменты врага. Знать их — значит видеть его руку в каждой подмене. Система работает, пока её не видят. Мы видим. Мы называем. Мы возвращаем.

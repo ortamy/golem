@@ -185,9 +185,3 @@ hа-Де́рех Яхве
 Он идёт не в каменный Дом. Он идёт в гуф. В твоём.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `terminology/yhwh.md`

@@ -180,12 +180,3 @@
 Он не ведёт через тёрен. Он ведёт через маслину, смоковницу и лозу — тех, кто даёт, а не забирает.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/systems/state-as-symptom.md`
-- `researches/systems/lyubaya-vlast-chelovecheskaya.md`
-- `researches/tanakh/derech-ha-nachash.md`
-- `terminology/melech.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/shemen.md`
-```

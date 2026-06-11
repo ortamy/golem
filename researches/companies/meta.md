@@ -134,12 +134,3 @@ hа-Де́рех Яхве
 Он — не в ленте. Он — в лев.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/exposure/exposure-techniques.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

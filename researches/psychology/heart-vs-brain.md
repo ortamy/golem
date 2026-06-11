@@ -156,13 +156,3 @@ hа-Де́рех Яхве
 Он идёт через лев. Не через мозг.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/translation-methodology.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

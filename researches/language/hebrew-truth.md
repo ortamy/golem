@@ -80,22 +80,3 @@
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `terminology/el.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`
-
-> **הַדֶּרֶךְ יְהוָה**
-> **hа-Де́рех Яхве**
-> *Дэрех Яхве*
-
-Он вымощен буквами иврита. Идите по ним.
-
----
-
----

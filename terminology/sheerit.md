@@ -106,8 +106,3 @@ hа-Де́рех Яхве
 Он — дэрех остатка.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/tahor/names.md`
-- `terminology/yhwh.md`

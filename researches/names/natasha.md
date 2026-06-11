@@ -105,11 +105,3 @@
 Нетания — дар Яхве. Не солнцу. Ему.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/tahor/names.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/yhwh.md`

@@ -138,12 +138,3 @@ hа-Де́рех Яхве
 Он — не в Полешет. Он — в Израиле.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/tahor/names.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/yhwh.md`

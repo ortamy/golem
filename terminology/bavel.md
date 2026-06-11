@@ -201,14 +201,3 @@ hа-Де́рех Яхве
 Он ведёт из Вавилона в Цийон. Не географически. Внутри.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/methodology/transliteration-distortions.md`
-- `instructions/tahor/names.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `researches/tanakh/gog-and-magog.md`

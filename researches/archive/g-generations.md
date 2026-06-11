@@ -135,9 +135,3 @@ hа-Де́рех Яхве
 Он — не частота. Он — эмет.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

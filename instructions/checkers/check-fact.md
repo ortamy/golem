@@ -56,10 +56,3 @@ Factcheck — четвёртый этап аудита после check-bdikah, 
 
 Итог: 3/6 утверждений подтверждено. 3 гипотезы требуют проверки.
 ```
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `instructions/checkers/check-bdikah.md`
-- `instructions/checkers/check-mivdak.md`
-- `instructions/checkers/check-tikun.md`
-- `tools/checkers/check-tanakh-references.py`
-```

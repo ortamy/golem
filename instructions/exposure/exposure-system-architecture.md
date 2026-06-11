@@ -170,14 +170,3 @@
 > Система едина под разными вывесками. Архитектура неизменна. Но Яхве больше системы. Истина разрушает ложь. Свет рассеивает тьму. Выходи из Мицраима. Иди в пустыню. Там Яхве.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-techniques.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/yhwh.md`

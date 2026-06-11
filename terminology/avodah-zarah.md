@@ -212,11 +212,3 @@ hа-Де́рех Яхве
 Он — авода Живому. Не таг. Не идентичность. А действие. Авода тому, Кто держит жизнь.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `terminology/el.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

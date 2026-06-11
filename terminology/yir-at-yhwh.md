@@ -204,14 +204,3 @@ hа-Де́рех Яхве
 Он начинается не с эйма. Он начинается с видения.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/names.md`
-- `researches/tanakh/gog-and-magog.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

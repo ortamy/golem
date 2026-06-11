@@ -135,7 +135,3 @@ hа-Де́рех Яхве
 Он защищает детей. Не классифицирует. Защищает.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `terminology/yhwh.md`

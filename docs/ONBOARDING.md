@@ -188,14 +188,3 @@ git checkout -- .
 ```
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `docs/CHECKERS-GUIDE.md` — полный справочник чекеров
-- `instructions/workflow.md` — рабочий процесс
-- `instructions/forbidden-words.md` — запрещённые слова
-- `instructions/manifest.md` — манифест проекта
-
----
-
-> **עֵד (Эд) — Свидетель.**
-> Истина проста. Начни с проверок. Остальное придёт.

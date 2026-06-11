@@ -131,10 +131,3 @@ hа-Де́рех Яхве
 Он — не славянский. Не еврейский. Он — дэрех. Для всех, кто ищет.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

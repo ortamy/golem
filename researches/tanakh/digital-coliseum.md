@@ -129,9 +129,3 @@ hа-Де́рех Яхве
 Он не в телефоне. Он в хождении.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `terminology/shabbat.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

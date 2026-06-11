@@ -150,12 +150,3 @@ hа-Де́рех Яхве
 Он — ритм. Не хаос. Покой.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/tahor/names.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `terminology/shabbat.md`
-- `terminology/yhwh.md`

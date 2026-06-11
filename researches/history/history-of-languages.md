@@ -158,15 +158,3 @@ hа-Де́рех Яхве
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/names.md`
-- `instructions/tahor/religionisms.md`
-- `researches/tanakh/magen-david.md`

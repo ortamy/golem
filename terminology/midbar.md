@@ -105,10 +105,3 @@ hа-Де́рех Яхве
 Он ведёт через пустыню. Потому что только так можно прийти в землю.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/translation-methodology.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

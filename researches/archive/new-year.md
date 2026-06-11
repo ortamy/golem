@@ -146,8 +146,3 @@ hа-Де́рех Яхве
 Он — не 1 января. Он — всегда.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `terminology/yhwh.md`

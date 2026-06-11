@@ -366,13 +366,3 @@ python tools/checkers/check-religionisms.py --rebuild --fix
 ```
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `docs/CHECKERS-GUIDE.md` — подробный справочник чекеров
-- `docs/ONBOARDING.md` — быстрое начало
-- `tools/` — все скрипты
-
----
-
-> **עֵד (Эд) — Свидетель.**
-> Каждый скрипт — инструмент. Знай свои инструменты.

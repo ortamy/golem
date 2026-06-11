@@ -93,9 +93,3 @@
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `researches/tanakh/gog-and-magog.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

@@ -145,10 +145,3 @@ hа-Де́рех Яхве
 Он — не акция. Не облигация. Он — эмет.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/slavery/economic-slavery.md`
-- `terminology/yhwh.md`

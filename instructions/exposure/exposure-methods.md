@@ -408,13 +408,3 @@
 > 32 метода — это арсенал. Инструменты не работают сами. Их применяет Свидетель. Будь точен. Будь смел. Истина победит.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-language.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`

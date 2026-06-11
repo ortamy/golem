@@ -149,19 +149,3 @@
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/methodology/tree-method.md`
-- `researches/slavery/economic-slavery.md`
-- `researches/slavery/economic-slavery.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`
-
-> **הַדֶּרֶךְ יְהוָה**
-> **hа-Де́рех Яхве**
-> *Путь Яхве*
-
-Он вымощен образами. Иди по ним.

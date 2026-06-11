@@ -107,28 +107,3 @@
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/names.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`
-
-> **מָסֹרֶת — масо́рет**
-> *Масорет, переданное из рук в руки.*
-
-Масореты не прервали эту шаршерет. Они укрепили её.
-
-> **אֱמֶת — э́мет**
-> *Эмет.*
-
-Эмет передаётся. Масореты сохранили её для нас.
-
----
-
----

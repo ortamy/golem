@@ -210,10 +210,3 @@
 Истина только в оригинале. Всё остальное — тени теней.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/language/grecheskaya-lovushka.md`
-- `researches/language/loss-in-translation.md`
-- `instructions/tahor/religionims.md`
-- `instructions/tahor/grecisms.md`
-- `instructions/tahor/slavicisms.md`

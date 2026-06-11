@@ -228,11 +228,3 @@
 Он ведёт не через урны и бюллетени. Он ведёт через Тору и союз.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/systems/state-as-symptom.md`
-- `researches/systems/lyubaya-vlast-chelovecheskaya.md`
-- `researches/tanakh/mashal-melachim.md`
-- `researches/systems/strah-pohot-gordost.md`
-- `terminology/melech.md`
-- `terminology/kehillah.md`

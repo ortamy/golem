@@ -126,12 +126,3 @@
 Ариэль — лев Божий. Рычи ради эмет.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/transliteration-distortions.md`
-- `instructions/tahor/names.md`
-- `terminology/el.md`
-- `terminology/yhwh.md`

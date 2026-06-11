@@ -152,10 +152,3 @@ hа-Де́рех Яхве
 Он — истинная скала. Не Чёрная. Живая.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/translation-methodology.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `terminology/yhwh.md`

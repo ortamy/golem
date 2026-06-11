@@ -179,11 +179,3 @@
 Он ведёт не через страх перед мавет и не через бегство в учение эллинов. Он ведёт через доверие к Тому, Кто воскрешает.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/systems/chronos-vs-kairos.md`
-- `terminology/sheol.md`
-- `terminology/nefesh.md`
-- `terminology/neshamah.md`
-- `researches/tanakh/olam-haba.md`
-- `researches/tanakh/resurrection-analysis.md`

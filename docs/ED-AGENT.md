@@ -102,10 +102,3 @@ python ed-agent/agent.py --auto "проверь всё и исправь"
 - Контекст (текущая ветка, отложенные задачи)
 
 Файл: `ed-agent/memory.json`
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `docs/NEURAL.md`
-- `ed-agent/agent.py`
-- `ed-agent/tools.py`
-- `ed-agent/memory.py`
-- `ed-neural/inference/client.py`

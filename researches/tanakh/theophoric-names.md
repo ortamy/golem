@@ -124,23 +124,3 @@
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/methodology/transliteration-distortions.md`
-- `instructions/tahor/names.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/yhwh.md`
-
-> **«Они замышляют заставить народ Мой забыть Имя Моё… как отцы их забыли Имя Моё через Ваала»**
-> (Йирмеяhу 23:27)
-
-Имена-печати сорваны, но буквы не горят. Мы возвращаем их истинное звучание.
-
----
-
----

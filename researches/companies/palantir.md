@@ -146,10 +146,3 @@ hа-Де́рех Яхве
 Он — не «видящий камень». Он — живой Яхве.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/tahor/names.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `terminology/yhwh.md`

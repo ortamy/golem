@@ -195,10 +195,3 @@
 Он ведёт через осмысленное действие. Через техне, соединённое с логосом. Через мастерство, служащее истине.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/language/grecheskaya-lovushka.md`
-- `researches/systems/chronos-vs-kairos.md`
-- `researches/tanakh/mavet-vida.md`
-- `terminology/davar.md`
-- `terminology/chochmah.md`

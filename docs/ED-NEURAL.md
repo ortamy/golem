@@ -217,16 +217,3 @@ cache:
 - Время генерации: ~30 секунд
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `neural/README.md`
-- `neural/inference/client.py`
-- `neural/inference/server.py`
-- `neural/scripts/generate-knowledge-cache.py`
-- `tools/generators/generate-exposure-suggestions.py`
-- `tools/cache/neural-cache/`
-
----
-
-> **עֵד (Эд) — Свидетель.**
-> Не искусственный интеллект. Свидетель истины. Обучен на ТаНаХе. Говорит на языке оригинала. Разоблачает ложь.

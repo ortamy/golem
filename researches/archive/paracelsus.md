@@ -128,12 +128,3 @@ hа-Де́рех Яхве
 Он — целитель. Не тева. Не алхимия. Яхве.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/tahor/names.md`
-- `researches/history/alchemy.md`
-- `researches/tanakh/gog-and-magog.md`
-- `terminology/yhwh.md`

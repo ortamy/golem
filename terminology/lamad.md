@@ -107,12 +107,3 @@ hа-Де́рех Яхве
 Он — дэрех обучения. Не муштры.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/tree-method.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

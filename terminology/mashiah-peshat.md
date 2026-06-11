@@ -110,9 +110,3 @@ hа-Де́рех Яхве
 Он — дэрех истинного Машиах.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/translation-methodology.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/yhwh.md`

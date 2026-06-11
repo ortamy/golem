@@ -216,11 +216,3 @@
 Он ведёт через Песах, Шавуот, Суккот. Через Йом Труа и Йом Кипур. Через Шаббат каждую неделю. Это не «относящиеся к дэрех моадим». Это ритм творения. Дыхание Яхве.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/practices/shabbat-hayom.md`
-- `researches/practices/chistaya-rech.md`
-- `terminology/moed.md`
-- `terminology/pesach.md`
-- `terminology/shavuot.md`
-- `terminology/sukkot.md`

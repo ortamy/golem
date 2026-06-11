@@ -139,10 +139,3 @@ hа-Де́рех Яхве
 Он — не чип. Он — хофеш.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `researches/slavery/economic-slavery.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

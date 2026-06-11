@@ -105,9 +105,3 @@
 - **Эсхатология** (ἐσχατολογία) → אַחֲרִית הַיָּמִים (ахарит hа-ямим) — конечное время
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/tree-method.md`
-- `terminology/mashiah-peshat.md`

@@ -199,12 +199,3 @@
 Он начинается не с перевода. Он начинается с мышления. С того, как ты думаешь о Яхве, о себе, о времени, о союзе.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/language/sinodalnyi-obman.md`
-- `researches/language/loss-in-translation.md`
-- `researches/systems/chronos-vs-kairos.md`
-- `researches/tanakh/mavet-vida.md`
-- `terminology/brit.md`
-- `terminology/emet.md`
-- `terminology/emuna.md`

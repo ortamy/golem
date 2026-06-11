@@ -172,14 +172,3 @@ hа-Де́рех Яхве
 Он — дэрех верности. И идущие по нему хранят брит.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/names.md`
-- `instructions/tahor/slavicisms.md`
-- `researches/tanakh/gog-and-magog.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

@@ -172,10 +172,3 @@ hа-Де́рех Яхве
 Он дышит в идущих по нему.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

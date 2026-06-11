@@ -279,11 +279,3 @@
 Он начинается с того, что ты называешь вещи своими именами. Его именами.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `instructions/tahor/religionims.md`
-- `instructions/tahor/grecisms.md`
-- `instructions/tahor/slavicisms.md`
-- `instructions/tahor/latinisms.md`
-- `instructions/tahor/names.md`
-- `instructions/forbidden-words.md`

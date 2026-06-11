@@ -197,10 +197,3 @@
 Он ведёт через Шаббат — еженедельную встречу с Носе, Кто прекратил работу и позвал тебя в Свой покой.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/practices/prazdniki-yhwh.md`
-- `researches/practices/chistaya-rech.md`
-- `terminology/shabbat.md`
-- `terminology/moed.md`
-- `terminology/melacha.md`

@@ -157,11 +157,3 @@ hа-Де́рех Яхве
 Он начинается с тоху ва-воху. С хаоса, который ждёт слова. И давар приходит. И хаос становится ор.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

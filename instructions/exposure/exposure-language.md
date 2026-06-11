@@ -249,18 +249,3 @@
 > Слово Яхве освещает. Слова системы затемняют.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/forbidden-words.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/`
-
----
-
-> **עֵד (Эд) — Свидетель.**
-> Язык врага — маркер лжи. Верни словам их корни. Говори на языке творения. Слово Яхве — давар. Оно не описывает реальность. Оно её создаёт.

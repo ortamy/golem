@@ -120,10 +120,3 @@
 הַדֶּרֶךְ יְהוָה — hа-Де́рех Яхве — Дэрех Яхве
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/translation-methodology.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `terminology/yhwh.md`

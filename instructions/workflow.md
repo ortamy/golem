@@ -229,10 +229,3 @@ python3 stats-report.py        # обновить статистику
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-religionism-theory.md`
-- `instructions/tahor/names.md`
-- `instructions/tahor/religionisms.md`

@@ -221,14 +221,3 @@
 Он ведёт не через страх перед змеем. А через доверие к Творцу.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/tanakh/serpent-healing.md`
-- `researches/tanakh/derech-ha-nachash.md`
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `terminology/el.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

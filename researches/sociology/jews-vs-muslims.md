@@ -266,10 +266,3 @@
 Исмаэль и Ицхак вместе у могилы Авраама. Это правда. Всё остальное — ложь.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-distortions.md`
-- `instructions/tahor/names.md`
-- `researches/tanakh/gog-and-magog.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

@@ -140,9 +140,3 @@
 Идём по нему. Шаг за шагом.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `docs/TECHNICAL-DEBT.md`
-- `docs/ROADMAP.md`
-- `docs/BACKLOG.md`
-- `ideas/`

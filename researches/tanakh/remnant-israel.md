@@ -167,12 +167,3 @@ hа-Де́рех Яхве
 Он узок. И немногие находят его.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/tahor/names.md`
-- `terminology/mashiah-peshat.md`
-- `terminology/shabbat.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

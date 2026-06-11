@@ -115,7 +115,3 @@
 - [ ] `terminology/torah.md`
 - [ ] `terminology/emet.md`
 - [ ] `terminology/chesed.md`
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `instructions/chat-prompt.md`
-- `STRUCTURE.md`

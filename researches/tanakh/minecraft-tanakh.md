@@ -221,14 +221,3 @@ hа-Де́рех Яхве
 Он — не игра. Он — реальность. И идущие по нему строят не из кубиков. А из эмет.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/tree-method.md`
-- `instructions/tahor/names.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `researches/slavery/economic-slavery.md`
-- `terminology/shabbat.md`
-- `terminology/torah.md`

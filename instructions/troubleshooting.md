@@ -344,10 +344,3 @@ git push --force
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-religionism-theory.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/tahor/names.md`
-- `terminology/el.md`
-- `terminology/yhwh.md`

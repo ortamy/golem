@@ -138,12 +138,3 @@ hа-Де́рех Яхве
 Он проходит через стены. И стены становятся дверями.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `terminology/shmitah.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`
-- `terminology/yovel.md`

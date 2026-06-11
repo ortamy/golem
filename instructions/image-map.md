@@ -135,14 +135,3 @@ hа-Де́рех Яхве
 Он вымощен образами. Иди по ним.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-principles.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/methodology/hebrew-reconstruction.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/methodology/transliteration-distortions.md`
-- `instructions/methodology/tree-method.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/mashiah-peshat.md`

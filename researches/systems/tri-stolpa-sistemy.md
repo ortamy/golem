@@ -251,11 +251,3 @@
 Он ведёт не через три столпа системы. Он ведёт через три столпа Торы: йиръа, хесед, анава.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/systems/demokratia-kak-kult.md`
-- `researches/tanakh/nachash-serpent.md`
-- `terminology/pachad.md`
-- `terminology/yetzer-lev.md`
-- `terminology/chesed.md`
-- `terminology/emuna.md`

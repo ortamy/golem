@@ -187,14 +187,3 @@ hа-Де́рех Яхве
 Он Сам проходит. Не посылает вместо Себя.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-mechanisms.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/exposure/exposure-system-architecture.md`
-- `instructions/exposure/exposure-techniques.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/methodology/tree-method.md`
-- `instructions/tahor/names.md`
-- `researches/tanakh/magen-david.md`
-- `terminology/yhwh.md`

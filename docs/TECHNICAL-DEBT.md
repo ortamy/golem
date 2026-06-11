@@ -2,15 +2,15 @@
 
 **Метаданные файла**
 - **Файл:** `docs/TECHNICAL-DEBT.md`
-- **Версия:** 2.0
+- **Версия:** 2.1
 - **Дата создания:** 2026-05-28
 - **Последнее обновление:** 2026-06-11
-- **Причина обновления:** Добавлены новые скрипты для разработки
+- **Причина обновления:** Добавлены задачи по автономному агенту «Эд» и интеграции с Cline
 - **Статус:** Активный
 - **Тема:** ТЕХНИЧЕСКИЙ ДОЛГ
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `docs/TECHNICAL-DEBT.md`, `docs/IDEAS.md`, `docs/ROADMAP.md`
+- **Связанные файлы:** `docs/TECHNICAL-DEBT.md`, `docs/IDEAS.md`, `docs/ROADMAP.md`, `docs/CLINE-VS-SCRIPTS.md`
 - **Хеш:** ожидает
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-11
@@ -19,73 +19,37 @@
 
 ## 📋 АКТИВНЫЕ ЗАДАЧИ
 
-### 🆕 Новые скрипты для разработки
+### 🤖 Автономный агент «Эд» (управляет Cline)
 
-#### Чекеры
-- [ ] **`check-md-quality.py`** — проверка качества `.md` файлов (стили, структура, метаданные)
-- [ ] **`check-footnotes.py`** — проверка перекрёстных ссылок между исследованиями
+- [ ] Запустить `ed-neural/inference/server.py` локально
+- [ ] Дообучить `ed-agent/agent.py` — добавить планировщик (составляет план из нескольких шагов)
+- [ ] Интеграция с Cline — Эд создаёт файлы задач, Cline читает и выполняет
+- [ ] Память агента — контекст между сессиями через `memory.py`
+- [ ] Режим «автономный стратег» — Эд сам решает ЧТО делать, Cline делает КАК
 
-#### Генераторы
-- [ ] **`generate-sitemap.py`** — sitemap.xml для поисковиков
-- [ ] **`generate-search-index.py`** — полнотекстовый индекс (JSON) для веб-интерфейса
-- [ ] **`generate-rss.py`** — RSS-лента новых исследований
+### 🆕 Новые скрипты
 
-#### Мониторинг
-- [ ] **`watch-changes.py`** — следит за файлами и авто-запускает чекеры
-- [ ] **`notify.py`** — уведомления при ошибках
+- [ ] `check-md-quality.py` — проверка качества .md файлов
+- [ ] `check-footnotes.py` — проверка перекрёстных ссылок
+- [ ] `generate-sitemap.py` — sitemap.xml
+- [ ] `generate-search-index.py` — полнотекстовый индекс для веб-интерфейса
+- [ ] `generate-rss.py` — RSS новых исследований
+- [ ] `watch-changes.py` — следит за файлами и запускает чекеры
+- [ ] `notify.py` — уведомления при ошибках
+- [ ] `deploy.sh` — деплой одной командой
+- [ ] `serve.py` — простой HTTP-сервер на Python
+- [ ] `backup-rotation.py` — ротация старых бэкапов
 
-#### Веб
-- [ ] **`deploy.sh`** — одной командой: генерация + коммит + пуш
-- [ ] **`serve.py`** — простой HTTP-сервер на Python (без Node.js)
+### 🏛 Реорганизация tools/
 
-#### Утилиты
-- [ ] **`backup-rotation.py`** — ротация старых бэкапов
-- [ ] **`clean-empty.py`** — интерактивное удаление пустых файлов
-
----
-
-### 🏛 Реорганизация tools/ — префиксы по папкам
-
-#### Переименовать
-- [ ] `unify-metadata.py` → `generate-metadata.py` ✅
-- [ ] `add-related-links.py` → `generate-related-links.py`
-- [ ] `fill-empty-files.py` → `generate-fill-empty.py`
-- [ ] `generate-node-web.py` → `generate-web.py`
-- [ ] `dashboard.py` → `report-dashboard.py`
-- [ ] `stats-report.py` → `report-stats.py`
-- [ ] `daily-report.py` → `report-daily.py`
-- [ ] `check-health.py` → `report-health.py`
-- [ ] `autodoc.py` → `auto-doc.py`
-- [ ] `update-versions.py` → `auto-versions.py`
-- [ ] `task-manager.py` → `auto-tasks.py`
-- [ ] `idea-manager.py` → `auto-ideas.py`
-- [ ] `clear-cache.py` → `auto-clear-cache.py`
-
-#### Перенести
-- [ ] `sync-structure.py` → `tools/sync/`
-- [ ] `sync-changelogs.py` → `tools/sync/`
-
-#### Удалить
-- [ ] `tools/progress.py` — дубликат `lib/utils.py`
-- [ ] `tools/structure.txt` — дубликат `STRUCTURE.md`
-- [ ] `tools/menu.py` ✅
-- [ ] `tools/tahor-filter.py` ✅
-
-#### Обновить ссылки
-- [ ] Обновить `golem.py` — пути к скриптам
-- [ ] Обновить `README.md` — список инструментов
-
----
+- [x] Переименовать скрипты с префиксами по папкам
+- [x] Обновить `golem.py` — пути к скриптам
+- [ ] Обновить `ed-agent/tools.py` — пути к utils/
+- [ ] Поправить `sys.path` в файлах utils/
 
 ### База ТаНаХа
-- [ ] Загрузить полный ТаНаХ на иврите в `tanakh.db`
+- [ ] Загрузить полный ТаНаХ в `tanakh.db`
 - [ ] Интегрировать `check-tanakh-references.py` с `check-links.py`
-
-### Нейросеть «Эд»
-- [ ] Запустить `client.py --analyze-exposure`
-- [ ] Подготовить датасет для fine-tune
-- [ ] Настроить локальный сервер
-- [ ] Интеграция с веб-интерфейсом
 
 ### Веб-интерфейс
 - [ ] Хлебные крошки
@@ -105,19 +69,26 @@
 
 - [x] Создать `docs/IDEAS.md`
 - [x] Обновить `docs/ROADMAP.md` до v2.0
-- [x] Создать исследование `shmot-ha-sfarim.md`
+- [x] Создать `docs/NEURAL.md`
+- [x] Создать `docs/ED-AGENT.md`
+- [x] Создать `docs/CLINE-VS-SCRIPTS.md`
 - [x] Обновить все exposure-файлы
 - [x] Создать `generate-exposure-suggestions.py`
 - [x] Создать `code-injector.py` + документация
-- [x] Создать `neural/scripts/generate-knowledge-cache.py`
-- [x] Обновить `client.py` (режим `--use-cache`)
-- [x] Создать `docs/NEURAL.md`
-- [x] Перенести `export/` в `web/export/`
-- [x] Обновить `generate-book.py`, `dashboard.py`, `search.py`
-- [x] Утвердить структуру `tools/` с префиксами
+- [x] Создать `generate-knowledge-cache.py`
 - [x] Создать `rename-script.py`
-- [x] Удалить `menu.py`, `tahor-filter.py`
-- [x] Найти `shmot-ha-sfarim.md` в резервной копии
+- [x] Создать `ed-agent/agent.py` + tools.py + memory.py
+- [x] Обновить `client.py` (режим --use-cache)
+- [x] Обновить `search.py`
+- [x] Перенести `export/` в `web/export/`
+- [x] Обновить `generate-book.py` и `report-dashboard.py`
+- [x] Обновить `instructions/chat-prompt.md`
+- [x] Обновить `instructions/checkers/` (все 6 файлов)
+- [x] Удалить `menu.py`, `tahor-filter.py`, `progress.py`
+- [x] Переименовать все скрипты с префиксами
+- [x] Обновить `golem.py` до v5.5
+- [x] Установить и настроить Cline
+- [x] Создать `docs/CLINE-VS-SCRIPTS.md`
 
 ## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (ранние)
 

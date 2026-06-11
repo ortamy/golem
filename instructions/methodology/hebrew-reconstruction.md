@@ -138,16 +138,3 @@
 
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-language-control.md`
-- `instructions/exposure/exposure-methods.md`
-- `instructions/methodology/translation-methodology.md`
-- `instructions/tahor/phrases.md`
-- `terminology/yhwh.md`
-
-> **הַדֶּרֶךְ יְהוָה**
-> **hа-Де́рех Яхве**
-> *Путь Яхве*
-
-Он записан на языке, который не лжёт. И мы учимся читать его заново.

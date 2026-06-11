@@ -127,10 +127,3 @@ hа-Де́рех Яхве
 Он — не змей. Он — дэрех.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ
-- `instructions/exposure/exposure-system-architecture.md`
-- `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- `researches/economy/mortgage-dead-pledge.md`
-- `terminology/torah.md`
-- `terminology/yhwh.md`

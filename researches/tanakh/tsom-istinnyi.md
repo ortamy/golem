@@ -181,11 +181,3 @@
 Он ведёт не через пепел и вретище. Он ведёт через хлеб, кров и свободу для другого.
 
 ---
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `researches/practices/prazdniki-yhwh.md`
-- `researches/practices/chistaya-rech.md`
-- `researches/practices/shabbat-segodnya.md`
-- `terminology/tzedek.md`
-- `terminology/chesed.md`
-- `terminology/mishpat.md`
