@@ -31,11 +31,8 @@ jobs:
 
       - name: Copy content folders
         run: |
-          cp -r terminology web/
-          cp -r researches web/
+          cp -r content web/
           cp -r instructions web/
-          cp -r drafts web/
-          cp -r ideas web/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

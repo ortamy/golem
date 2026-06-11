@@ -8,9 +8,12 @@ const ROOT = path.resolve(__dirname, '..');
 const WEB_DIR = __dirname;
 
 const SCAN_DIRS = [
-    { folder: 'terminology', label: 'Терминология' },
-    { folder: 'researches', label: 'Исследования' },
-    { folder: 'learn-hebrew', label: 'Изучение иврита' },
+    { folder: 'content/terminology', label: 'Терминология' },
+    { folder: 'content/tanakh', label: 'ТаНаХ' },
+    { folder: 'content/bashah', label: 'БаШаХ' },
+    { folder: 'content/researches', label: 'Исследования' },
+    { folder: 'content/teachings', label: 'Учения' },
+    { folder: 'content/learn-hebrew', label: 'Изучение иврита' },
 ];
 
 const IGNORE_FILES = ['README.md', 'STRUCTURE.md', 'GLOSSARY.md', 'CHANGELOG.md'];
@@ -18,14 +21,19 @@ const IGNORE_FILES = ['README.md', 'STRUCTURE.md', 'GLOSSARY.md', 'CHANGELOG.md'
 const SUBCATEGORY_LABELS = {
     'archive': 'Архив',
     'books': 'Книги',
+    'chronology': 'Хронология',
     'companies': 'Компании',
+    'concepts': 'Понятия',
     'economy': 'Экономика',
+    'events': 'События',
     'history': 'История',
     'language': 'Язык',
     'languages': 'Языки',
+    'manuscripts': 'Рукописи',
     'media': 'Медиа',
     'medicine': 'Медицина',
     'names': 'Имена',
+    'persons': 'Личности',
     'physis': 'Природа',
     'practices': 'Практики',
     'psychology': 'Психология',
@@ -75,12 +83,8 @@ function walkDir(dirPath, baseFolder, label, files) {
             const related = extractRelated(content);
             const parts = relPath.split('/');
             let subcategory = '';
-            if (parts[0] === 'researches' && parts.length > 2) {
-                subcategory = SUBCATEGORY_LABELS[parts[1]] || parts[1];
-            } else if (parts[0] === 'instructions' && parts.length > 2) {
-                subcategory = SUBCATEGORY_LABELS[parts[1]] || parts[1];
-            } else if (parts[0] === 'learn-hebrew' && parts.length > 2) {
-                subcategory = SUBCATEGORY_LABELS[parts[1]] || parts[1];
+            if (parts.length > 3) {
+                subcategory = SUBCATEGORY_LABELS[parts[2]] || parts[2];
             }
             files.push({
                 path: relPath,
@@ -131,7 +135,6 @@ const server = http.createServer((req, res) => {
     const url = new URL(req.url, `http://localhost:${PORT}`);
     const pathname = url.pathname;
 
-    // CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -142,7 +145,6 @@ const server = http.createServer((req, res) => {
         return;
     }
 
-    // API: список файлов
     if (pathname === '/api/files') {
         try {
             const files = scanFiles();
@@ -156,7 +158,6 @@ const server = http.createServer((req, res) => {
         return;
     }
 
-    // API: содержимое файла
     if (pathname === '/api/file') {
         const filePath = url.searchParams.get('path');
         if (!filePath) {
@@ -181,7 +182,6 @@ const server = http.createServer((req, res) => {
         return;
     }
 
-    // Статические файлы
     let filePath = pathname === '/' ? '/index.html' : pathname;
     let fullPath = path.join(WEB_DIR, filePath);
 
@@ -208,7 +208,7 @@ server.listen(PORT, () => {
     console.log('========================================');
     console.log(`  Сервер запущен: http://localhost:${PORT}/`);
     console.log(`  API файлов:     http://localhost:${PORT}/api/files`);
-    console.log(`  API файла:      http://localhost:${PORT}/api/file?path=terminology/yhwh.md`);
+    console.log(`  API файла:      http://localhost:${PORT}/api/file?path=content/terminology/yhwh.md`);
     console.log('========================================\n');
     console.log('  Категории:');
     SCAN_DIRS.forEach(({ folder, label }) => {
