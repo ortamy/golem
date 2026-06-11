@@ -4,6 +4,10 @@ __pycache__/
 *.so
 .Python
 
+# Virtual environment
+.venv/
+venv/
+
 # Secrets
 .env
 *.local.yml
@@ -12,20 +16,19 @@ secrets.json
 *.pem
 
 # Models (большие файлы)
-neural/models/*.gguf
-neural/models/*.bin
+ed/neuro/models/*.gguf
+ed/neuro/models/*.bin
 *.pt
 *.pth
 
 # Training data (сырые данные)
-neural/training-data/raw/
-neural/training-data/*.json.raw
+ed/neuro/training-data/raw/
+ed/neuro/training-data/*.json.raw
 
 # Backups
 *.tar.gz
 *.zip
 backups/
-golem-backups/
 
 # Temp files
 *.tmp
@@ -33,14 +36,21 @@ golem-backups/
 export.txt
 structure.txt
 
+# Node
+node_modules/
+
 # IDE
 .vscode/
 .idea/
 *.swp
+*.swo
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Бэкап документации
-docs_backup/
+# Cache
+tools/cache/
+
+# Reports (старые)
+reports/STATS_*.md

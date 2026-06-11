@@ -3,16 +3,19 @@ name: Auto-update files.json
 on:
   push:
     paths:
-      - 'content/**/*.md'
+      - 'content/**.md'
 
 jobs:
   update:
+    if: github.actor != 'github-actions'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install dependencies
+        run: pip install rich
       - name: Generate files.json
         run: python3 tools/generators/generate-files-json.py
       - name: Commit and push
