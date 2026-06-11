@@ -89,7 +89,7 @@
   },
   "terminology\\erech-apayim.md": {
     "mtime": 1781177103.0735805,
-    "clean": false
+    "clean": true
   },
   "terminology\\etz-ha-daat.md": {
     "mtime": 1781176784.614696,
@@ -447,6 +447,102 @@
     "mtime": 1781176810.3077478,
     "clean": true
   },
+  "researches\\arkhiv\\adrenokhrom.md": {
+    "mtime": 1781175269.5199466,
+    "clean": true
+  },
+  "researches\\arkhiv\\analoi-krug-uroborosa.md": {
+    "mtime": 1781175269.5229387,
+    "clean": true
+  },
+  "researches\\arkhiv\\ded-moroz-karachun.md": {
+    "mtime": 1781175269.5264623,
+    "clean": true
+  },
+  "researches\\arkhiv\\disney-i-epstein.md": {
+    "mtime": 1781175269.5292552,
+    "clean": true
+  },
+  "researches\\arkhiv\\google-kids-reaction.md": {
+    "mtime": 1781175269.5315425,
+    "clean": true
+  },
+  "researches\\arkhiv\\goroskopy.md": {
+    "mtime": 1781175269.5332117,
+    "clean": true
+  },
+  "researches\\arkhiv\\khazarskii-kaganat.md": {
+    "mtime": 1781175269.5354009,
+    "clean": true
+  },
+  "researches\\arkhiv\\krug-smerti.md": {
+    "mtime": 1781175269.5382414,
+    "clean": true
+  },
+  "researches\\arkhiv\\orakul-pifii.md": {
+    "mtime": 1781175269.540879,
+    "clean": true
+  },
+  "researches\\arkhiv\\ploskaya-zemlya.md": {
+    "mtime": 1781175269.5428996,
+    "clean": true
+  },
+  "researches\\arkhiv\\rak.md": {
+    "mtime": 1781175269.5467188,
+    "clean": true
+  },
+  "researches\\arkhiv\\raspalcovki\\zhest-dengi.md": {
+    "mtime": 1781175269.5488987,
+    "clean": true
+  },
+  "researches\\arkhiv\\raspalcovki\\zhest-fiksiki.md": {
+    "mtime": 1781175269.5519369,
+    "clean": true
+  },
+  "researches\\arkhiv\\raspalcovki\\zhest-namaste.md": {
+    "mtime": 1781175269.552935,
+    "clean": true
+  },
+  "researches\\arkhiv\\raspalcovki\\zhest-ok.md": {
+    "mtime": 1781175269.5567193,
+    "clean": true
+  },
+  "researches\\arkhiv\\raspalcovki\\zhest-serdce-rukami.md": {
+    "mtime": 1781175269.5599413,
+    "clean": true
+  },
+  "researches\\arkhiv\\raspalcovki\\zhest-srednii-palec.md": {
+    "mtime": 1781175269.5620544,
+    "clean": true
+  },
+  "researches\\arkhiv\\raspalcovki\\zhest-star-trek.md": {
+    "mtime": 1781175269.5645633,
+    "clean": true
+  },
+  "researches\\arkhiv\\raspalcovki\\zhest-viktori.md": {
+    "mtime": 1781175269.5669737,
+    "clean": true
+  },
+  "researches\\arkhiv\\ritual-zerkala.md": {
+    "mtime": 1781175269.5692284,
+    "clean": true
+  },
+  "researches\\arkhiv\\schwab.md": {
+    "mtime": 1781175269.5703723,
+    "clean": true
+  },
+  "researches\\arkhiv\\standard-oil.md": {
+    "mtime": 1781175269.5744753,
+    "clean": true
+  },
+  "researches\\arkhiv\\tatuirovki.md": {
+    "mtime": 1781175269.5786705,
+    "clean": true
+  },
+  "researches\\arkhiv\\twin-towers.md": {
+    "mtime": 1781175269.5809338,
+    "clean": true
+  },
   "researches\\books\\analiz-poryadka-genri.md": {
     "mtime": 1781176810.52994,
     "clean": true
@@ -761,6 +857,30 @@
   },
   "researches\\science\\planetah-wandering-star.md": {
     "mtime": 1781176837.5922408,
+    "clean": true
+  },
+  "researches\\simvolika\\drevo-iggdrasil.md": {
+    "mtime": 1781175269.5981805,
+    "clean": true
+  },
+  "researches\\simvolika\\myolnir.md": {
+    "mtime": 1781175269.6011968,
+    "clean": true
+  },
+  "researches\\simvolika\\runy.md": {
+    "mtime": 1781175269.603196,
+    "clean": true
+  },
+  "researches\\simvolika\\simvoly-beskonechnosti.md": {
+    "mtime": 1781175269.604703,
+    "clean": true
+  },
+  "researches\\simvolika\\troinoi-rog.md": {
+    "mtime": 1781175269.6077778,
+    "clean": true
+  },
+  "researches\\simvolika\\valknut.md": {
+    "mtime": 1781175269.6121228,
     "clean": true
   },
   "researches\\slavery\\economic-slavery.md": {
@@ -1279,102 +1399,6 @@
     "mtime": 1781176874.5749674,
     "clean": true
   },
-  "researches\\teachings\\arkhiv\\adrenokhrom.md": {
-    "mtime": 1781175269.5199466,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\analoi-krug-uroborosa.md": {
-    "mtime": 1781175269.5229387,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\ded-moroz-karachun.md": {
-    "mtime": 1781175269.5264623,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\disney-i-epstein.md": {
-    "mtime": 1781175269.5292552,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\google-kids-reaction.md": {
-    "mtime": 1781175269.5315425,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\goroskopy.md": {
-    "mtime": 1781175269.5332117,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\khazarskii-kaganat.md": {
-    "mtime": 1781175269.5354009,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\krug-smerti.md": {
-    "mtime": 1781175269.5382414,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\orakul-pifii.md": {
-    "mtime": 1781175269.540879,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\ploskaya-zemlya.md": {
-    "mtime": 1781175269.5428996,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\rak.md": {
-    "mtime": 1781175269.5467188,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\raspalcovki\\zhest-dengi.md": {
-    "mtime": 1781175269.5488987,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\raspalcovki\\zhest-fiksiki.md": {
-    "mtime": 1781175269.5519369,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\raspalcovki\\zhest-namaste.md": {
-    "mtime": 1781175269.552935,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\raspalcovki\\zhest-ok.md": {
-    "mtime": 1781175269.5567193,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\raspalcovki\\zhest-serdce-rukami.md": {
-    "mtime": 1781175269.5599413,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\raspalcovki\\zhest-srednii-palec.md": {
-    "mtime": 1781175269.5620544,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\raspalcovki\\zhest-star-trek.md": {
-    "mtime": 1781175269.5645633,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\raspalcovki\\zhest-viktori.md": {
-    "mtime": 1781175269.5669737,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\ritual-zerkala.md": {
-    "mtime": 1781175269.5692284,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\schwab.md": {
-    "mtime": 1781175269.5703723,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\standard-oil.md": {
-    "mtime": 1781175269.5744753,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\tatuirovki.md": {
-    "mtime": 1781175269.5786705,
-    "clean": true
-  },
-  "researches\\teachings\\arkhiv\\twin-towers.md": {
-    "mtime": 1781175269.5809338,
-    "clean": true
-  },
   "researches\\teachings\\eddaizm\\bibleiskoe-oproverzhenie.md": {
     "mtime": 1781175269.5837822,
     "clean": true
@@ -1393,30 +1417,6 @@
   },
   "researches\\teachings\\eddaizm\\mnogobozhie.md": {
     "mtime": 1781176875.2726927,
-    "clean": true
-  },
-  "researches\\teachings\\eddaizm\\simvolika\\drevo-iggdrasil.md": {
-    "mtime": 1781175269.5981805,
-    "clean": true
-  },
-  "researches\\teachings\\eddaizm\\simvolika\\myolnir.md": {
-    "mtime": 1781175269.6011968,
-    "clean": true
-  },
-  "researches\\teachings\\eddaizm\\simvolika\\runy.md": {
-    "mtime": 1781175269.603196,
-    "clean": true
-  },
-  "researches\\teachings\\eddaizm\\simvolika\\simvoly-beskonechnosti.md": {
-    "mtime": 1781175269.604703,
-    "clean": true
-  },
-  "researches\\teachings\\eddaizm\\simvolika\\troinoi-rog.md": {
-    "mtime": 1781175269.6077778,
-    "clean": true
-  },
-  "researches\\teachings\\eddaizm\\simvolika\\valknut.md": {
-    "mtime": 1781175269.6121228,
     "clean": true
   },
   "researches\\teachings\\eddaizm\\sudba.md": {
@@ -2060,11 +2060,11 @@
     "clean": true
   },
   "researches\\teachings\\greek-freedom-distortion.md": {
-    "mtime": 1781176878.206368,
+    "mtime": 1781178565.0878537,
     "clean": true
   },
   "researches\\teachings\\hellenization-vs-hebraization.md": {
-    "mtime": 1781176878.4274375,
+    "mtime": 1781178776.0601804,
     "clean": true
   },
   "researches\\teachings\\hristianstvo\\bibleiskie-lzhebozhki\\lilit.md": {
@@ -3156,7 +3156,7 @@
     "clean": true
   },
   "researches\\teachings\\miryam-vs-ishtar.md": {
-    "mtime": 1781176883.4045973,
+    "mtime": 1781178926.1572635,
     "clean": true
   },
   "researches\\teachings\\misticizm\\dukhovnye-allegorii.md": {
@@ -3316,7 +3316,7 @@
     "clean": true
   },
   "researches\\teachings\\mutualizm.md": {
-    "mtime": 1781176884.4223537,
+    "mtime": 1781179046.9279578,
     "clean": true
   },
   "researches\\teachings\\naturalizm\\ekoyazychestvo.md": {
@@ -4044,7 +4044,7 @@
     "clean": true
   },
   "researches\\teachings\\pochemu-tanah-nikogda.md": {
-    "mtime": 1781176887.6571634,
+    "mtime": 1781179265.3879635,
     "clean": true
   },
   "researches\\teachings\\policizm\\bibleiskoe-oproverzhenie.md": {
@@ -4524,8 +4524,8 @@
     "clean": true
   },
   "researches\\teachings\\razoblachenie-sovremennogo-kulta.md": {
-    "mtime": 1781176890.0231586,
-    "clean": true
+    "mtime": 1781179344.769804,
+    "clean": false
   },
   "researches\\teachings\\redukcionizm\\antropologicheskii-kollaps.md": {
     "mtime": 1781175271.9666,
@@ -6280,7 +6280,7 @@
     "clean": true
   },
   "researches\\teachings\\ruach-fruit.md": {
-    "mtime": 1781176899.5983088,
+    "mtime": 1781179191.6528604,
     "clean": true
   },
   "researches\\teachings\\satanizm\\dukhovnaya-priroda.md": {

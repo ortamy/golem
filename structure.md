@@ -1,2341 +1,302 @@
-# Структура репозитория «Голем»
-# Сгенерировано автоматически
+# 🗂️ СТРУКТУРА ПРОЕКТА (STRUCTURE.MD)
 
+**Автоматически сгенерировано.** Обновляй через:
+```bash
+python tools/generators/generate-project-structure.py
+```
 
-golem-main/
-├── davar/
-│   ├── examples/
-│   │   ├── calculator.dvr
-│   │   ├── hello-world.dvr
-│   │   └── tanakh-search.dvr
-│   ├── davar-architecture.md
-│   ├── davar-language.md
-│   ├── README.md
-│   └── STRUCTURE.md
-├── docs/
-│   ├── ARCHITECTURE.md
-│   ├── BACKLOG.md
-│   ├── CHANGELOG.md
-│   ├── CHECKERS-GUIDE.md
-│   ├── CONTRIBUTORS.md
-│   ├── DECISIONS.md
-│   ├── ED-AGENT.md
-│   ├── ED-NEURAL.md
-│   ├── FAQ.md
-│   ├── GLOSSARY.md
-│   ├── GRAPH.md
-│   ├── IDEAS.md
-│   ├── INDEX.md
-│   ├── ONBOARDING.md
-│   ├── RETROSPECTIVE.md
-│   ├── ROADMAP.md
-│   ├── SCRIPTS-GUIDE.md
-│   ├── SETUP.md
-│   ├── STATS.md
-│   ├── STRUCTURE.md
-│   └── TECHNICAL-DEBT.md
-├── drafts/
-│   ├── ideas.md
-│   ├── notes.md
-│   └── questions.md
-├── ed-agent/
-│   ├── agent.py
-│   ├── config.yml
-│   ├── memory.py
-│   └── tools.py
-├── ed-neural/
-│   ├── docs/
-│   │   ├── architecture.md
-│   │   ├── intro-course.md
-│   │   └── training-guide.md
-│   ├── eval/
-│   │   ├── benchmark.py
-│   │   └── test_responses.json
-│   ├── inference/
-│   │   ├── client.py
-│   │   ├── config.yml
-│   │   ├── Dockerfile
-│   │   ├── requirements.txt
-│   │   └── server.py
-│   ├── models/
-│   │   └── download.sh
-│   ├── scripts/
-│   │   ├── generate-knowledge-cache.py
-│   │   ├── prepare-data.py
-│   │   ├── prepare-finetune-data.py
-│   │   ├── quantize.py
-│   │   └── train.py
-│   ├── training-data/
-│   │   ├── config.json
-│   │   ├── exposure-candidates.json
-│   │   ├── prompts.json
-│   │   ├── qa-pairs.json
-│   │   └── responses.json
-│   └── README.md
-├── ideas/
-│   ├── additional-files.md
-│   ├── api-design.md
-│   ├── bashah-project.md
-│   ├── cli-checkers.md
-│   ├── database-schema.md
-│   ├── gamification.md
-│   ├── neural-network-plan.md
-│   ├── paleo-hebrew-dictionary.md
-│   ├── platform-idea.md
-│   ├── project-agent.md
-│   ├── scripts-idea.md
-│   ├── search-engine.md
-│   ├── visualization-tool.md
-│   └── web-interface.md
-├── instructions/
-│   ├── checkers/
-│   │   ├── check-bdikah.md
-│   │   ├── check-consistency.md
-│   │   ├── check-fact.md
-│   │   ├── check-mivdak.md
-│   │   ├── check-startup.md
-│   │   └── check-tikun.md
-│   ├── exposure/
-│   │   ├── exposure-distortions.md
-│   │   ├── exposure-language.md
-│   │   ├── exposure-mechanisms.md
-│   │   ├── exposure-methods.md
-│   │   ├── exposure-principles.md
-│   │   ├── exposure-religionism.md
-│   │   ├── exposure-system-architecture.md
-│   │   └── exposure-techniques.md
-│   ├── methodology/
-│   │   ├── archeology-methodology.md
-│   │   ├── hebrew-reconstruction.md
-│   │   ├── translation-methodology.md
-│   │   ├── transliteration-distortions.md
-│   │   └── tree-method.md
-│   ├── tahor/
-│   │   ├── grecisms.md
-│   │   ├── latinisms.md
-│   │   ├── names.md
-│   │   ├── phrases.md
-│   │   ├── religionims.md
-│   │   └── slavicisms.md
-│   ├── templates/
-│   │   ├── concept-analysis-template.md
-│   │   ├── research-template.md
-│   │   └── self-learning-template.md
-│   ├── tools/
-│   │   └── code-injector.md
-│   ├── chat-prompt.md
-│   ├── coding-standards.md
-│   ├── collaboration-guide.md
-│   ├── forbidden-words.md
-│   ├── image-map.md
-│   ├── images-catalogue.md
-│   ├── manifest.md
-│   ├── release-process.md
-│   ├── research-principles.md
-│   ├── retrospective.md
-│   ├── security-policy.md
-│   ├── troubleshooting.md
-│   └── workflow.md
-├── reports/
-│   ├── STATS_20260606_215538.md
-│   ├── STATS_20260607_002121.md
-│   └── STATS_20260608_214531.md
-├── researches/
-│   ├── archive/
-│   │   ├── allopaty.md
-│   │   ├── caduceus-control.md
-│   │   ├── g-generations.md
-│   │   ├── gerewol.md
-│   │   ├── hygieia.md
-│   │   ├── microplastics.md
-│   │   ├── new-year.md
-│   │   ├── paracelsus.md
-│   │   ├── pedophilia.md
-│   │   ├── pornography.md
-│   │   ├── psychology.md
-│   │   ├── pyramid-bunker.md
-│   │   ├── rock-mantras.md
-│   │   └── slavs.md
-│   ├── books/
-│   │   ├── analiz-poryadka-genri.md
-│   │   └── machiavelli-the-prince.md
-│   ├── companies/
-│   │   ├── amazon.md
-│   │   ├── blackrock.md
-│   │   ├── goldman-sachs.md
-│   │   ├── google.md
-│   │   ├── ibm.md
-│   │   ├── jpmorgan.md
-│   │   ├── meta.md
-│   │   ├── neuralink.md
-│   │   ├── palantir.md
-│   │   └── vanguard.md
-│   ├── economy/
-│   │   ├── gambling-vs-life.md
-│   │   ├── money-symbols.md
-│   │   ├── mortgage-dead-pledge.md
-│   │   └── polnoe-issledovanie-bankovskoy.md
-│   ├── history/
-│   │   ├── alchemy.md
-│   │   ├── history-of-banks.md
-│   │   ├── history-of-economy.md
-│   │   ├── history-of-languages.md
-│   │   ├── history-of-medicine.md
-│   │   ├── history-of-money.md
-│   │   ├── history-of-politics.md
-│   │   ├── history-of-prison.md
-│   │   ├── history-of-religion.md
-│   │   ├── history-of-school.md
-│   │   ├── hitler-and-jews.md
-│   │   ├── israel-palestine.md
-│   │   ├── israel-vs-yehudi.md
-│   │   ├── march-8-history.md
-│   │   └── missing-hebrew-scrolls.md
-│   ├── language/
-│   │   ├── atah-not-you.md
-│   │   ├── burning-of-books.md
-│   │   ├── dam-ve-chesed.md
-│   │   ├── grecheskaya-lovushka.md
-│   │   ├── hebrew-truth.md
-│   │   ├── hebrew-vs-languages.md
-│   │   ├── heretic-meaning.md
-│   │   ├── lechem-ve-yayin.md
-│   │   ├── lingvisticheskaya-lovushka-konfliktov.md
-│   │   ├── loss-in-translation.md
-│   │   ├── mizmor-23.md
-│   │   ├── shaal-u-vikesh.md
-│   │   ├── sinodalnyi-obman.md
-│   │   ├── techne-logos.md
-│   │   ├── time-in-tanakh.md
-│   │   └── tree-language.md
-│   ├── languages/
-│   │   ├── babel-languages.md
-│   │   ├── egyptian-unfluence.md
-│   │   ├── greek-as-weapon.md
-│   │   ├── hebrew-creational.md
-│   │   ├── language-comparison.md
-│   │   ├── latin-control.md
-│   │   ├── russian-syncretism.md
-│   │   └── slavic-distortion.md
-│   ├── media/
-│   │   ├── disney-epstein.md
-│   │   ├── hollywood-druid-wood.md
-│   │   └── television.md
-│   ├── medicine/
-│   │   ├── copper-utensils.md
-│   │   ├── dentistry-ritual.md
-│   │   ├── kol-dmamah-dakah.md
-│   │   ├── psychiatry-substitution.md
-│   │   ├── rockefeller-pharma.md
-│   │   └── surgery-ritual-cutting.md
-│   ├── names/
-│   │   ├── helena.md
-│   │   ├── natasha.md
-│   │   └── ortam.md
-│   ├── physis/
-│   ├── practices/
-│   │   ├── dibur-tahor.md
-│   │   ├── exodus-skills.md
-│   │   ├── hebrew-week.md
-│   │   ├── moadei-yhwh.md
-│   │   ├── natural-garden.md
-│   │   └── shabbat-hayom.md
-│   ├── psychology/
-│   │   ├── heart-vs-brain.md
-│   │   └── lev-mind.md
-│   ├── roman-law/
-│   │   └── ignorantia-juris.md
-│   ├── science/
-│   │   ├── mathematics.md
-│   │   ├── physis.md
-│   │   └── planetah-wandering-star.md
-│   ├── slavery/
-│   │   ├── economic-slavery.md
-│   │   ├── freedom-in-torah.md
-│   │   ├── mental-slavery.md
-│   │   └── ruach-slavery.md
-│   ├── sociology/
-│   │   ├── body-as-temple.md
-│   │   ├── ishah-yirat-yhwh.md
-│   │   └── jews-vs-muslims.md
-│   ├── sport/
-│   │   ├── bookmakers-as-mammon.md
-│   │   ├── children-sport-sacrifice.md
-│   │   ├── edinoborstva-kak-religioznaya.md
-│   │   ├── fitness-cult.md
-│   │   ├── football-as-religion.md
-│   │   ├── olimpiyskie-igry-kak.md
-│   │   ├── sport-as-coliseum.md
-│   │   └── women-sport.md
-│   ├── systems/
-│   │   ├── bavel-mitzrayim-sdom.md
-│   │   ├── chofesh-vs-dror.md
-│   │   ├── chronos-vs-kairos.md
-│   │   ├── daat-tree.md
-│   │   ├── dam-yeshua-seal.md
-│   │   ├── demokratia-kak-kult.md
-│   │   ├── derech-ha-gever.md
-│   │   ├── evening-morning-day.md
-│   │   ├── galatim-two-systems.md
-│   │   ├── lyubaya-vlast-chelovecheskaya.md
-│   │   ├── mitzraim-system.md
-│   │   ├── peterburg-neve-arhitektura.md
-│   │   ├── purpose-of-tanakh.md
-│   │   ├── red-mitzrayim.md
-│   │   ├── russia-empire.md
-│   │   ├── state-as-symptom.md
-│   │   ├── talmud-judaism.md
-│   │   ├── tri-stolpa-sistemy.md
-│   │   ├── vatican.md
-│   │   ├── why-canaan-land.md
-│   │   ├── yazycheskie-bozhestva-delayut.md
-│   │   └── yegia-ve-koach.md
-│   ├── tanakh/
-│   │   ├── abracadabra.md
-│   │   ├── acharayut-support.md
-│   │   ├── adonai-origin.md
-│   │   ├── apocalypse.md
-│   │   ├── armageddon.md
-│   │   ├── aseret-hadvarim.md
-│   │   ├── balaam-strategy.md
-│   │   ├── bashah-structure.md
-│   │   ├── bereans.md
-│   │   ├── brit-ania.md
-│   │   ├── brit-hadashah.md
-│   │   ├── brit-nissuin.md
-│   │   ├── catholic-church.md
-│   │   ├── chadash-restored.md
-│   │   ├── dam-chesed.md
-│   │   ├── darchei-tzadikim.md
-│   │   ├── derech-ha-nachash.md
-│   │   ├── dereh-yhwh.md
-│   │   ├── digital-bavel.md
-│   │   ├── digital-coliseum.md
-│   │   ├── drashat-hahar.md
-│   │   ├── eved-amdut.md
-│   │   ├── exorcism-myth.md
-│   │   ├── gog-and-magog.md
-│   │   ├── ha-derech.md
-│   │   ├── ha-mashchit.md
-│   │   ├── hevel-kayin.md
-│   │   ├── immanu-el.md
-│   │   ├── karma.md
-│   │   ├── keshet.md
-│   │   ├── khazars-turks.md
-│   │   ├── kotz-sting.md
-│   │   ├── krazha.md
-│   │   ├── mabbel-recreation.md
-│   │   ├── magen-david.md
-│   │   ├── makkot-strikes.md
-│   │   ├── maschiah-cruteria.md
-│   │   ├── mashal-melachim.md
-│   │   ├── masoretic-text.md
-│   │   ├── mavet-vida.md
-│   │   ├── melech-messenger.md
-│   │   ├── mered-refusal.md
-│   │   ├── migdal-bavel.md
-│   │   ├── minecraft-tanakh.md
-│   │   ├── mizmor-23.md
-│   │   ├── moadim-yhwh.md
-│   │   ├── morashat-israel.md
-│   │   ├── mushtarah.md
-│   │   ├── nachash-serpent.md
-│   │   ├── nicaea-council.md
-│   │   ├── nicham-keifa.md
-│   │   ├── nicham.md
-│   │   ├── niddah.md
-│   │   ├── nishmat-chayim.md
-│   │   ├── olam-haba.md
-│   │   ├── olympic-games.md
-│   │   ├── or-tam.md
-│   │   ├── paleo-hebrew.md
-│   │   ├── philosophemes.md
-│   │   ├── plebs-control.md
-│   │   ├── prayer-distortion.md
-│   │   ├── psychikos-pneumatikos.md
-│   │   ├── rabbinic-judaism.md
-│   │   ├── religia-rome.md
-│   │   ├── remnant-israel.md
-│   │   ├── resurrection-analysis.md
-│   │   ├── ruchot-infected.md
-│   │   ├── satan-adversary.md
-│   │   ├── secta-meaning.md
-│   │   ├── serpent-healing.md
-│   │   ├── shaul-victim.md
-│   │   ├── shemot-yhwh.md
-│   │   ├── shirat-hayam.md
-│   │   ├── shlavim-yetziah.md
-│   │   ├── shmot-ha-sfarim.md
-│   │   ├── sifrei-bashakh.md
-│   │   ├── sifrei-tanakh.md
-│   │   ├── slavic-substrate.md
-│   │   ├── sod-hamalchut.md
-│   │   ├── talmud-unmasked.md
-│   │   ├── tarbut-cult.md
-│   │   ├── tfilat-yeshua.md
-│   │   ├── theophoric-names.md
-│   │   ├── tikvah-tension.md
-│   │   ├── trebuet-utochneniya.md
-│   │   ├── tsom-istinnyi.md
-│   │   ├── tzeva-hashamayim.md
-│   │   ├── tzohar-window.md
-│   │   ├── yahvism.md
-│   │   ├── yegia-kapayim.md
-│   │   ├── yehoshua-research.md
-│   │   └── yetzer-lev.md
-│   └── teachings/
-│       ├── arkhiv/
-│       │   ├── raspalcovki/
-│       │   │   ├── zhest-dengi.md
-│       │   │   ├── zhest-fiksiki.md
-│       │   │   ├── zhest-namaste.md
-│       │   │   ├── zhest-ok.md
-│       │   │   ├── zhest-serdce-rukami.md
-│       │   │   ├── zhest-srednii-palec.md
-│       │   │   ├── zhest-star-trek.md
-│       │   │   └── zhest-viktori.md
-│       │   ├── adrenokhrom.md
-│       │   ├── analoi-krug-uroborosa.md
-│       │   ├── ded-moroz-karachun.md
-│       │   ├── disney-i-epstein.md
-│       │   ├── google-kids-reaction.md
-│       │   ├── goroskopy.md
-│       │   ├── khazarskii-kaganat.md
-│       │   ├── krug-smerti.md
-│       │   ├── orakul-pifii.md
-│       │   ├── ploskaya-zemlya.md
-│       │   ├── rak.md
-│       │   ├── ritual-zerkala.md
-│       │   ├── schwab.md
-│       │   ├── standard-oil.md
-│       │   ├── tatuirovki.md
-│       │   └── twin-towers.md
-│       ├── eddaizm/
-│       │   ├── simvolika/
-│       │   │   ├── drevo-iggdrasil.md
-│       │   │   ├── myolnir.md
-│       │   │   ├── runy.md
-│       │   │   ├── simvoly-beskonechnosti.md
-│       │   │   ├── troinoi-rog.md
-│       │   │   └── valknut.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── kult-voiny.md
-│       │   ├── mnogobozhie.md
-│       │   └── sudba.md
-│       ├── egalitarizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── filosofskie-osnovy.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── kriticheskie-vyzovy.md
-│       │   ├── religioznye-vzglyady.md
-│       │   └── socialnye-aspekty.md
-│       ├── eiblizm/
-│       │   ├── diskriminaciya.md
-│       │   ├── evgenika.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── kult-intellekta.md
-│       │   ├── kult-tela.md
-│       │   ├── nacizm.md
-│       │   ├── nevidimost-invalidnosti.md
-│       │   ├── pravo-byt-slabym.md
-│       │   ├── README.md
-│       │   └── religioznyi-eiblizm.md
-│       ├── ekspansionizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-prirodda.md
-│       │   ├── glossarii.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── podtemy.md
-│       │   ├── sravnitelnyi-analiz.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── ekumenizm/
-│       │   ├── mezhreligioznyi-dialog/
-│       │   │   ├── nostra-aetate.md
-│       │   │   └── README.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── falshivoe-edinstvo.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── mezhkonfessionalnyi-dialog.md
-│       │   ├── novyi-mirovoi-poryadok.md
-│       │   ├── poterya-dukhovnoi-identichnosti.md
-│       │   ├── protivlenie-svyatomu-dukhu.md
-│       │   └── sovmestnye-prazdniki.md
-│       ├── elitarizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── globalnye-elity.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── kriticheskie-riski.md
-│       │   ├── mekhanizmy-isklyucheniya.md
-│       │   └── vidy-elitarizma.md
-│       ├── elitizm/
-│       │   ├── urovni-obrazovaniya/
-│       │   │   ├── detskii-sad.md
-│       │   │   ├── instituty.md
-│       │   │   └── shkola.md
-│       │   ├── akademicheskii-snobizm.md
-│       │   ├── alternativnoe-obrazovanie.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── klassovoe-razdelenie.md
-│       │   ├── prevoznesenie-uma.md
-│       │   ├── prusskaya-sistema-obrazovaniya.md
-│       │   ├── README.md
-│       │   └── vidy-elitizma.md
-│       ├── emocionalizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── bibleiskoe-zabvenie.md
-│       │   ├── cikly-emocionalnogo-podyoma.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── kratkosrochnaya-vera.md
-│       │   └── teatralnaya-vera.md
-│       ├── empirizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── epistemologiya.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── nauchnyi-metod.md
-│       │   ├── skepticheskii-vzglyad.md
-│       │   ├── sovremennoe-vliyanie.md
-│       │   └── vidy-empirizma.md
-│       ├── evfemizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── sravnitelnyi-analiz.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── ezoterizm/
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── illyuzornyi-dualizm.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── kosmicheskaya-energiya.md
-│       │   ├── magicheskii-okkultizm.md
-│       │   ├── praktiki-samosovershenstvovaniya.md
-│       │   ├── svyashennye-teksty.md
-│       │   ├── svyaz-s-prirodoi.md
-│       │   ├── universalnyi-dukh.md
-│       │   └── vnutrennyaya-mudrost.md
-│       ├── fariseistvo/
-│       ├── farmacevtizm/
-│       │   ├── apokalipticheskii-logotip.md
-│       │   ├── cifrovoi-kontrol.md
-│       │   ├── dukhovnaya-podmena.md
-│       │   ├── farmacepticheskii-cikl.md
-│       │   ├── istoriya-proiskhozhdeniya.md
-│       │   ├── khramovaya-apteka.md
-│       │   ├── neirokhimiya-poslushaniya.md
-│       │   ├── podtemy.md
-│       │   ├── psikhologiya-strakha.md
-│       │   ├── simvolika-farmacii.md
-│       │   └── zabytaya-sol-zaveta.md
-│       ├── fashizm/
-│       │   ├── istoricheskoe-razvitie/
-│       │   │   └── fascii.md
-│       │   ├── vozmozhnye-teorii/
-│       │   │   ├── globalnyi-zagovor.md
-│       │   │   └── zakhvat-bankovskoi-sistemy.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-anatomiya.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── glossarii.md
-│       │   ├── kholokost.md
-│       │   ├── podtemy.md
-│       │   ├── simvolicheskie-znaki.md
-│       │   ├── sravnitelnyi-analiz.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── favoritizm/
-│       │   ├── istoriko-bibleiskie-korni.md
-│       │   ├── mezhlichnostnaya-predvzyatost.md
-│       │   ├── personalizaciya-cennosti.md
-│       │   ├── psikhodinamika-mezhlichnostnoi-asimmetrii.md
-│       │   ├── psikhologiya-favoritizma.md
-│       │   ├── semeinyi-favoritizm.md
-│       │   ├── socialnaya-koaliciya.md
-│       │   ├── socialnaya-selektivnost.md
-│       │   └── socialnoe-razdelenie.md
-│       ├── feminizm/
-│       │   ├── antikhristianskii-bunt.md
-│       │   ├── dukhovnyi-krizis.md
-│       │   ├── feministskaya-teologiya.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── razrushenie-instituta-semi.md
-│       │   ├── sovremennye-formy.md
-│       │   ├── sravnenie-zhenshin.md
-│       │   └── zhenskaya-vlast.md
-│       ├── fizikalizm/
-│       │   ├── argumenty/
-│       │   │   ├── argument-o-meri.md
-│       │   │   └── argument-zombi.md
-│       │   ├── vidy-fizikalizma/
-│       │   │   ├── funkcionalizm.md
-│       │   │   ├── redukcionistskii.md
-│       │   │   └── superveniruyushii.md
-│       │   ├── alternativnyi-panpsikhizm.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dualisticheskaya-alternativa.md
-│       │   ├── eliminativnyi-materializm.md
-│       │   ├── fizikalizm-svoistv.md
-│       │   ├── inversnye-spektry.md
-│       │   ├── issledovanie-mozga.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── logicheskii-supervencionalizm.md
-│       │   ├── mentalnaya-kazualnost.md
-│       │   ├── osnovy-fizikalizma.md
-│       │   ├── pervichnost-razuma.md
-│       │   ├── problema-kvalia.md
-│       │   └── problemy-fizikalizma.md
-│       ├── frankizm/
-│       │   ├── dukhovnaya-vrazhdebnost/
-│       │   │   ├── soprotivlenie-iudaizmu.md
-│       │   │   └── soprotivlenie-khristianstvu.md
-│       │   ├── bibleiskoe-razoblachenie.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── okkultnaya-svyaz.md
-│       │   ├── osnovnye-ucheniya.md
-│       │   ├── sovremennoe-proyavlenie.md
-│       │   ├── sravnitelnyi-analiz.md
-│       │   └── tainye-ritualy.md
-│       ├── hristianstvo/
-│       │   ├── bibleiskie-lzhebozhki/
-│       │   │   ├── lilit.md
-│       │   │   └── README.md
-│       │   ├── dukhovnye-plody.md
-│       │   └── priznaki-istinnoi-cerkvi.md
-│       ├── kabbalistizm/
-│       │   ├── chislovaya-magiya-gematriya.md
-│       │   ├── kabbalisticheskie-obety.md
-│       │   ├── kabbalisticheskie-praktiki.md
-│       │   ├── kabbalisticheskie-proekcii.md
-│       │   ├── kabbalisticheskie-simvoly.md
-│       │   ├── mikrokosm-cheloveka.md
-│       │   ├── okkultnaya-ideologiya.md
-│       │   ├── page-1.md
-│       │   ├── taina-sfirot.md
-│       │   ├── tainye-imena-boga.md
-│       │   ├── tekst-zoar.md
-│       │   └── zerkalnye-miry.md
-│       ├── kalvinizm/
-│       │   ├── doktrina-predopredeleniya.md
-│       │   ├── etimologiya.md
-│       │   ├── isporchennost-cheloveka.md
-│       │   ├── perseverans-svyatykh.md
-│       │   ├── pyat-punktov-tulip.md
-│       │   └── suverenitet-boga.md
-│       ├── kannibalizm/
-│       │   ├── bibleiskie-sluchai.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── README.md
-│       │   ├── sravnitelnyi-analiz.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   ├── vnutrennie-protivorechiya.md
-│       │   └── weendigo.md
-│       ├── katolicizm/
-│       │   ├── osnovnye-napravleniya/
-│       │   │   ├── katolicheskie-monasheskie-ordena.md
-│       │   │   ├── latinskii-rimskii-obryad.md
-│       │   │   ├── README.md
-│       │   │   ├── teologicheskie-duhovnye-dvizheni.md
-│       │   │   └── vostochnye-katolicheskie-tserkvi.md
-│       │   ├── osnovy-ucheniya/
-│       │   │   ├── chistilishe.md
-│       │   │   ├── filloque.md
-│       │   │   ├── kreshenie-mladencev.md
-│       │   │   ├── kult-tselem-mertvyh.md
-│       │   │   ├── molitvy-za-myortvykh.md
-│       │   │   ├── papstvo.md
-│       │   │   ├── tainstva.md
-│       │   │   └── tradicionizm.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── podtemy.md
-│       │   ├── README.md
-│       │   ├── simvolicheskie-artefakty.md
-│       │   ├── simvolicheskie-znaki.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── kemetizm/
-│       │   ├── egipetskie-lzhebozhki/
-│       │   │   ├── lzhesudya-dush-anubis.md
-│       │   │   ├── mat-okkultizma-isida.md
-│       │   │   ├── pozhiratel-dush-ammit.md
-│       │   │   └── proobraz-antikhrista-set.md
-│       │   ├── osnovy-ucheniya/
-│       │   │   ├── README.md
-│       │   │   ├── rol-magii-kheka.md
-│       │   │   ├── universalnyi-poryadok-maat.md
-│       │   │   └── zagrobnyi-mir-duat.md
-│       │   ├── simvolicheskie-artefakty/
-│       │   │   ├── glaz-khorusa.md
-│       │   │   ├── obelisk.md
-│       │   │   ├── README.md
-│       │   │   └── zhezl-uas.md
-│       │   ├── svyashennaya-literatura/
-│       │   │   ├── kniga-myortvykh.md
-│       │   │   ├── kniga-vragov-osirisa.md
-│       │   │   ├── kniga-vrat.md
-│       │   │   ├── nochi.md
-│       │   │   ├── README.md
-│       │   │   ├── teksty-piramid.md
-│       │   │   └── teksty-sarkofagov.md
-│       │   ├── demonizaciya-zhenstvennosti.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── khramovaya-arkhitektura.md
-│       │   ├── kult-mertvykh-mimifikaciya.md
-│       │   ├── lzhecar-faraon.md
-│       │   ├── lzheproobrazy-khrista.md
-│       │   ├── massonskaya-svyaz.md
-│       │   ├── micraim.md
-│       │   ├── obryady-pochitaniya-bozhestv.md
-│       │   ├── obryady-posvyasheniya.md
-│       │   ├── podtemy.md
-│       │   ├── pogrebalnye-teksty.md
-│       │   ├── propaganda-lzheobrazov.md
-│       │   ├── sakralnaya-geometriya.md
-│       │   ├── sakralnyi-yazyk-ieroglify.md
-│       │   ├── simvolizm-ankkha.md
-│       │   ├── sovremennye-neoyazychniki.md
-│       │   ├── svyashennaya-prostituciya.md
-│       │   ├── zhrecheskii-klass.md
-│       │   └── zmeinyi-kult.md
-│       ├── kiberkratizm/
-│       │   ├── algoritmicheskoe-pravosudie.md
-│       │   ├── anticerkov.md
-│       │   ├── cifrovaya-apatiya.md
-│       │   ├── cifrovoi-khram.md
-│       │   ├── cifrovoi-zver.md
-│       │   ├── iskusstvennyi-deficit.md
-│       │   ├── istoriya-proiskhozhdeniya.md
-│       │   ├── prediktivnye-tekhnologii.md
-│       │   ├── profilirovanie-dukha-1.md
-│       │   ├── profilirovanie-dukha.md
-│       │   └── README.md
-│       ├── klerikalizm/
-│       │   ├── antiklerikalizm.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── osnovnye-proyavleniya.md
-│       │   ├── podtemy.md
-│       │   ├── religioznyi-avtoritarizm.md
-│       │   ├── religioznyi-formalizm.md
-│       │   ├── sovremennye-proyavleniya.md
-│       │   └── svoboda-sovesti.md
-│       ├── kleronomizm/
-│       │   ├── tysyacheletnie-semi/
-│       │   │   ├── khabsburgi.md
-│       │   │   ├── medichi.md
-│       │   │   ├── rokfellery.md
-│       │   │   ├── romanovy.md
-│       │   │   ├── rotshildy.md
-│       │   │   └── vindzory.md
-│       │   ├── antikhristovy-dinastii.md
-│       │   ├── bibleiskoe-nasledovanie.md
-│       │   ├── cerkovnyi-kleronomizm.md
-│       │   ├── dinasticheskoe-pravlenie.md
-│       │   ├── imushestvennoe-zakreplenie.md
-│       │   ├── nasledovanie-dukhovnykh-titulov.md
-│       │   ├── nasledstvennaya-vlast.md
-│       │   ├── otverzhenie-dostoinykh.md
-│       │   ├── primogenitura-peredacha-pervencu.md
-│       │   ├── README.md
-│       │   ├── rodovaya-elita.md
-│       │   ├── simvolizm-koron.md
-│       │   ├── simvolizm-rodoslovnykh.md
-│       │   └── sravnenie-kapitalov-cemei.md
-│       ├── koldovstvo/
-│       │   ├── besovskoe-vliyanie.md
-│       │   ├── energeticheskoe-ochishenie.md
-│       │   ├── koldovskaya-medicina.md
-│       │   ├── okkultnoe-programmirovanie.md
-│       │   ├── psevdo-lyubov.md
-│       │   ├── simvolicheskaya-magiya.md
-│       │   ├── tyomnaya-zhenstvennost.md
-│       │   └── vikka.md
-│       ├── kommensalizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── ekologicheskoe-znachenie.md
-│       │   ├── evolyucionnye-aspekty.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── kommensalnye-otnosheniya.md
-│       │   ├── metody-issledovaniya.md
-│       │   └── sravnitelnyi-analiz.md
-│       ├── kommunizm/
-│       │   ├── goneniya-khristian.md
-│       │   ├── kommunisticheskaya-ekonomika.md
-│       │   ├── kommunisticheskii-rezhim.md
-│       │   ├── mirovye-zagovory.md
-│       │   ├── README.md
-│       │   ├── sataninskaya-ideologiya.md
-│       │   └── simvolika-kommunizma.md
-│       ├── kosmetizm/
-│       │   ├── alkhimicheskii-sostav/
-│       │   │   ├── kokhl.md
-│       │   │   ├── oksidy-metallov.md
-│       │   │   ├── surma.md
-│       │   │   └── svinec.md
-│       │   ├── bibleiskoe-predosterezhenie.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── sataninskoe-obolshenie.md
-│       │   ├── saturnianskaya-simvolika.md
-│       │   ├── saturnizm.md
-│       │   └── sovremennoe-primenenie.md
-│       ├── kosmogoniya/
-│       │   ├── asiatic-devices-allusive.md
-│       │   ├── kosmicheskii-omfalos.md
-│       │   └── teoriya-panspermii.md
-│       ├── kosmologizm/
-│       │   ├── alternativnaya-realnost-cgi.md
-│       │   ├── bolshoi-vzryv.md
-│       │   ├── evolyuciya-vselennoi.md
-│       │   ├── idolopoklonstvo-kosmosom.md
-│       │   ├── koncepciya-mirovogo-poryadka.md
-│       │   ├── kosmicheskaya-transformaciya.md
-│       │   ├── kosmicheskie-ucheniya.md
-│       │   ├── kult-singulyarnosti.md
-│       │   ├── lineinost-vremeni.md
-│       │   └── nasa.md
-│       ├── lyuciferizm/
-│       │   ├── illyuziya-prosvesheniya.md
-│       │   ├── kult-lyucifera.md
-│       │   └── simvolika-lyucifera.md
-│       ├── magizm/
-│       │   ├── doska-uidzhi.md
-│       │   ├── karty-taro.md
-│       │   ├── magicheskii-kvadrat-itielya.md
-│       │   ├── README.md
-│       │   └── vedmy.md
-│       ├── mammonizm/
-│       │   ├── finansovaya-sistema/
-│       │   │   ├── blokchein-sistema.md
-│       │   │   ├── cifrovye-koshelki.md
-│       │   │   └── sistema-kreditnogo-reitinga.md
-│       │   ├── plan-klausa-shvaba/
-│       │   │   ├── cbdc.md
-│       │   │   ├── cifrovaya-identifikaciya.md
-│       │   │   └── globalnye-standarty.md
-│       │   ├── simvolika-finansov/
-│       │   │   ├── evro.md
-│       │   │   └── rubl.md
-│       │   ├── evroevangelie.md
-│       │   ├── finansovyi-kontrol.md
-│       │   ├── kult-bogatstva.md
-│       │   ├── obozhestvlenie-biznesa.md
-│       │   ├── rabstvo-styazhatelstva.md
-│       │   └── vavilonskaya-sistema.md
-│       ├── manikheistvo/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── glossarii.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── osnovy-ucheniya.md
-│       │   ├── sravnitelnyi-analiz.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── mariologizm/
-│       │   ├── bibleiskii-vzglyad.md
-│       │   ├── ikonografiya-devy-marii.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── mariologicheskie-dogmaty.md
-│       │   ├── narodnye-predaniya.md
-│       │   └── yazycheskie-elementy.md
-│       ├── marksizm/
-│       │   ├── antikhristov-dukh.md
-│       │   ├── dialekticheskii-materializm.md
-│       │   ├── ideologicheskii-ateizm.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── klassovaya-borba.md
-│       │   ├── kommunisticheskoe-carstvo.md
-│       │   ├── kulturnyi-marksizm.md
-│       │   ├── obescenivanie-lichnosti.md
-│       │   ├── prestupleniya-rezhimov.md
-│       │   └── tainoe-vliyanie.md
-│       ├── massonizm/
-│       │   ├── religioznaya-literatura/
-│       │   │   ├── kniga-svyatoi-arki.md
-│       │   │   ├── konstituciya-volnykh-kamenshikov.md
-│       │   │   ├── masonic-bible.md
-│       │   │   ├── moral-i-dogma.md
-│       │   │   ├── README.md
-│       │   │   ├── shotlandskii-ustav.md
-│       │   │   └── tri-velikikh-svetila.md
-│       │   ├── simvolika-ucheniya/
-│       │   │   ├── kolonny-boaz-jachin.md
-│       │   │   ├── pentagramma.md
-│       │   │   └── README.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── massonskaya-iniciaciya.md
-│       │   ├── matimaticheskoe-vliyanie.md
-│       │   ├── ordo-ab-chao.md
-│       │   ├── osnovy-ucheniya.md
-│       │   ├── README.md
-│       │   ├── struktura-massonstva.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── materializm/
-│       ├── medicizm/
-│       │   ├── lzhebozhki/
-│       │   │   ├── asklepii.md
-│       │   │   ├── eskulap.md
-│       │   │   ├── gigieya.md
-│       │   │   ├── gippokrat.md
-│       │   │   ├── merkurii-germes.md
-│       │   │   └── tot.md
-│       │   ├── simvolika-mediciny/
-│       │   │   ├── chasha-so-zmeei.md
-│       │   │   ├── kaducei.md
-│       │   │   ├── krasnyi-krest.md
-│       │   │   ├── posokh-eskulapa.md
-│       │   │   └── zhezl-asklepiya.md
-│       │   ├── asklepion.md
-│       │   ├── eticheskie-dilemmy.md
-│       │   ├── medicinskii-kult.md
-│       │   ├── medicinskii-teocentrizm.md
-│       │   ├── medreligioznye-ritualy.md
-│       │   └── neitralnaya-prisyaga.md
-│       ├── mediumizm/
-│       │   ├── avtomaticheskoe-pismo.md
-│       │   ├── golosovoe-posrednichestvo.md
-│       │   ├── predskazaniya-budushego.md
-│       │   ├── transovoe-sostoyanie.md
-│       │   └── videniya-i-aury.md
-│       ├── misticizm/
-│       │   ├── tainye-ucheniya/
-│       │   │   ├── corpus-hermeticum.md
-│       │   │   ├── kniga-enokha.md
-│       │   │   └── zogar.md
-│       │   ├── dukhovnye-allegorii.md
-│       │   ├── ekstaticheskie-sostoyaniya.md
-│       │   ├── ezotericheskie-praktiki.md
-│       │   ├── misticheskoe-edinenie.md
-│       │   └── simvolizm-znakov.md
-│       ├── mitraizm/
-│       │   └── README.md
-│       ├── molokhizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── forma-kholokosta.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── podtemy.md
-│       │   ├── simvolicheskie-artefakty.md
-│       │   ├── simvolicheskie-znaki.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── mormonizm/
-│       │   ├── osnovy-ucheniya/
-│       │   │   ├── angel-moroni.md
-│       │   │   ├── kniga-mormona.md
-│       │   │   └── README.md
-│       │   ├── sravnitelnyi-analiz/
-│       │   │   ├── README.md
-│       │   │   ├── sravnenie-s-ads.md
-│       │   │   └── sravnenie-s-massonami.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── eskhatologiya.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── genealogicheskii-kult.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── khramovaya-sistema.md
-│       │   ├── kresheniya-za-myortvykh.md
-│       │   ├── missionerskaya-aktivnost.md
-│       │   ├── mormonskaya-ierarkhiya.md
-│       │   ├── protivorechivye-otkroveniya.md
-│       │   ├── semeinyi-kult.md
-│       │   ├── simvolika-tainye-znaki.md
-│       │   └── zapechatyvanie-umershikh.md
-│       ├── naturalizm/
-│       │   ├── ekoyazychestvo.md
-│       │   ├── illyuziya-voli.md
-│       │   ├── kult-cheloveka-prirody.md
-│       │   ├── legalizaciya-grekha.md
-│       │   ├── obmirshenie-cerkvi.md
-│       │   ├── obozhestvlenie-zhivotnykh.md
-│       │   ├── otricanie-grekha.md
-│       │   ├── prirodnyi-fatalizm.md
-│       │   ├── psevdoekologicheskii-kult.md
-│       │   └── romantizaciya-dikosti.md
-│       ├── neiromaterializm/
-│       │   ├── mozg-kak-kompyuter.md
-│       │   ├── mozgovaya-pautina.md
-│       │   ├── neiroalgoritmy.md
-│       │   ├── neiroimitaciya.md
-│       │   ├── sinapticheskaya-energiya.md
-│       │   └── soznanie-v-seti.md
-│       ├── nekromantizm/
-│       │   ├── demonicheskii-vyzov.md
-│       │   ├── kult-illyuzii.md
-│       │   ├── kult-predkov.md
-│       │   ├── myortvye-golosa.md
-│       │   ├── simvolika-znaki.md
-│       │   └── teni-proshlogo.md
-│       ├── nepotizm/
-│       │   ├── borba-s-nepotizmom.md
-│       │   ├── dukhovnoe-osuzhdenie.md
-│       │   ├── etika-i-moral.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── korporativnyi-nepotizm.md
-│       │   ├── politicheskii-nepotizm.md
-│       │   ├── README.md
-│       │   ├── socialnye-posledstviya.md
-│       │   ├── vliyanie-na-effektivnost.md
-│       │   └── yuridicheskie-zaprety.md
-│       ├── nikolaizm/
-│       │   ├── grekhovnaya-legalizaciya.md
-│       │   ├── iskazhenie-evangeliya.md
-│       │   ├── otstupnichestvo.md
-│       │   └── vrazhda-s-bogom.md
-│       ├── numerologizm/
-│       │   ├── chislovye-kody.md
-│       │   ├── cifrovye-znaki.md
-│       │   ├── illyuzii-schyota.md
-│       │   ├── magiya-cifr.md
-│       │   ├── prorocheskie-chisla.md
-│       │   ├── simvoly-sudby.md
-│       │   └── tainye-chisla.md
-│       ├── okkultizm/
-│       │   ├── simvolika-znakov/
-│       │   │   ├── ankkh.md
-│       │   │   ├── atom.md
-│       │   │   ├── menora.md
-│       │   │   ├── README.md
-│       │   │   └── trezubec.md
-│       │   ├── alkhimicheskaya-struktura.md
-│       │   ├── alkhimicheskaya-svadba.md
-│       │   ├── demonicheskoe-vliyanie.md
-│       │   ├── izumrudnaya-skrizhal.md
-│       │   ├── okkultnaya-alkhimiya.md
-│       │   ├── okkultnye-ritualy.md
-│       │   ├── okkultnye-techeniya.md
-│       │   ├── sem-etapov-alkhimii.md
-│       │   ├── simvolika-atributov.md
-│       │   ├── simvolika-zhivotnykh.md
-│       │   ├── tainye-obshestva.md
-│       │   └── vidy-magii.md
-│       ├── olimpizm/
-│       │   ├── futbol/
-│       │   │   ├── fifa.md
-│       │   │   └── README.md
-│       │   ├── feir-plei.md
-│       │   ├── istoriya-dvizheniya.md
-│       │   ├── kommercializaciya-igr.md
-│       │   ├── massovoe-sportdvizhenie.md
-│       │   ├── olimpiiskaya-simvolika.md
-│       │   ├── olimpiiskie-idealy.md
-│       │   ├── problemy-dopinga.md
-│       │   ├── README.md
-│       │   ├── rol-sporta.md
-│       │   └── vliyanie-igr.md
-│       ├── omnizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── filosofskie-osnovy.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── podtemy.md
-│       │   ├── religioznyi-sinkretizm.md
-│       │   ├── simvolicheskie-znaki.md
-│       │   ├── sravnitelnyi-analiz.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── oneirokritizm/
-│       │   ├── astralnye-puteshestviya.md
-│       │   ├── drimbuk-sonniki.md
-│       │   ├── energetika-snov.md
-│       │   ├── khristianizirovannye-sonniki.md
-│       │   ├── nyu-eidzh.md
-│       │   └── psihoanaliz-freyda-yunga.md
-│       ├── pacifizm/
-│       │   ├── dukhovnaya-trusost.md
-│       │   ├── forma-idolopoklonstva.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── kompromiss-s-lozhyu.md
-│       │   ├── lozhnoe-smirenie.md
-│       │   ├── mirotvorcheskii-dyavol.md
-│       │   ├── passivnaya-eres.md
-│       │   ├── simvolika-dvizheniya.md
-│       │   ├── svetskaya-moral.md
-│       │   ├── utopichnyi-idealizm.md
-│       │   └── zhivaya-smert.md
-│       ├── panarkhizm/
-│       │   ├── bezgosudarstvennyi-plyuralizm.md
-│       │   ├── dobrovolnoe-podchinenie.md
-│       │   ├── etika-panarkhicheskogo-dogovora.md
-│       │   ├── formy-vlasti.md
-│       │   ├── ideya-mnozhestvennosti-vlasti.md
-│       │   ├── konkurenciya-form-pravleniya.md
-│       │   ├── mirnoe-sosushestvovanie-sistem.md
-│       │   ├── parallelnye-soobshestva.md
-│       │   ├── pravo-vybora-yurisdikcii.md
-│       │   └── protivostoyanie-anarkhizmu.md
-│       ├── panteizm/
-│       │   ├── begstvo-ot-suda.md
-│       │   ├── bog-vnutri-tebya.md
-│       │   ├── energiya-vmesto-boga.md
-│       │   ├── kult-materi-zemli.md
-│       │   ├── rastvorenie-lichnosti.md
-│       │   ├── spinoza-i-masony.md
-│       │   └── vselenskii-razum.md
-│       ├── parapsikhologiya/
-│       │   ├── ekstrasensorika.md
-│       │   ├── mediumstvo.md
-│       │   ├── paranormalnost.md
-│       │   ├── reinkarnaciya.md
-│       │   ├── telepatiya.md
-│       │   └── yasnovidenie.md
-│       ├── parazitizm/
-│       │   ├── biologicheskii-parazitizm/
-│       │   │   ├── evolyuciya-parazitizma.md
-│       │   │   ├── immunnyi-otvet-organizma.md
-│       │   │   ├── perenoschiki-infekcii.md
-│       │   │   └── zhiznennye-cikly-parazitov.md
-│       │   ├── skrytye-formy/
-│       │   │   ├── cerkovnyi-parazitizm.md
-│       │   │   ├── dukhovnyi-parazitizm.md
-│       │   │   ├── ekonomicheskii-parazitizm.md
-│       │   │   ├── energeticheskii-parazitizm.md
-│       │   │   ├── informacionnye-parazity.md
-│       │   │   ├── medicinskii-parazitizm.md
-│       │   │   ├── politicheskii-parazitizm.md
-│       │   │   ├── psikhologicheskii-parazitizm.md
-│       │   │   └── README.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   └── podtemy.md
-│       ├── patriotizm/
-│       │   ├── flagopoklonstvo.md
-│       │   ├── gimny-i-klyatvy.md
-│       │   ├── kult-rodiny.md
-│       │   ├── mavzolei.md
-│       │   ├── nacionalizm.md
-│       │   ├── nacionalnaya-gordost.md
-│       │   ├── README.md
-│       │   ├── rodina-mat.md
-│       │   ├── statuya-svobody.md
-│       │   ├── svyashennaya-voina.md
-│       │   ├── vechnyi-ogon.md
-│       │   └── voennaya-liturgiya.md
-│       ├── pietizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── podtemy.md
-│       │   └── svyazannye-techeniya.md
-│       ├── platonizm/
-│       │   ├── bessmertie-dushi.md
-│       │   ├── eticheskie-koncepcii.md
-│       │   ├── filosofiya-platona.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── kritika-platonizma.md
-│       │   ├── lzheuchenie-o-lyubvi.md
-│       │   ├── metafizika-platona.md
-│       │   ├── neoplatonizm.md
-│       │   ├── platonicheskaya-estetika.md
-│       │   ├── podtemy.md
-│       │   ├── politicheskaya-filosofiya.md
-│       │   ├── simvolizm-allegorii.md
-│       │   ├── teoriya-poznaniya.md
-│       │   ├── tora-tsura-ideyah.md
-│       │   └── vliyanie-platonizma.md
-│       ├── plyuralizm/
-│       │   ├── decentralizaciya-otkrovenii.md
-│       │   ├── fragmentaciya-istiny.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── metafizicheskii-marketing.md
-│       │   ├── otnositelnaya-suverennost.md
-│       │   ├── polyusnaya-relyativnost.md
-│       │   ├── README.md
-│       │   └── simvolicheskaya-ekvivalentnost.md
-│       ├── policizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── mekhanizmy-raboty.md
-│       │   ├── obshestvennoe-vliyanie.md
-│       │   ├── podtemy.md
-│       │   ├── README.md
-│       │   └── vizualnye-znaki-simvolika.md
-│       ├── politeizm/
-│       │   └── istoki-proiskhozhdeniya.md
-│       ├── politizm/
-│       │   ├── osnovnye-principy/
-│       │   │   ├── desakralizaciya-svyatyni.md
-│       │   │   ├── emocionalnoe-rabstvo.md
-│       │   │   ├── fragmentaciya-soznaniya.md
-│       │   │   ├── illyuziya-vybora.md
-│       │   │   ├── irbuv-emet.md
-│       │   │   ├── lozhnaya-sekretnost.md
-│       │   │   ├── paradigma-perenapravleniya.md
-│       │   │   ├── princip-propagandy.md
-│       │   │   └── razdelyai-i-vlastvui.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── evreiskaya-politika.md
-│       │   └── istoki-proiskhozhdeniya.md
-│       ├── pornizm/
-│       │   ├── skrytye-dukhi/
-│       │   │   ├── dukh-amura-kupidona.md
-│       │   │   ├── dukh-erosa.md
-│       │   │   ├── dukh-iezaveli.md
-│       │   │   ├── dukh-isidy.md
-│       │   │   ├── dukh-lilit.md
-│       │   │   ├── dukh-pornei.md
-│       │   │   └── ruah-astartyishtarvenery.md
-│       │   ├── cifrovoi-vavilon.md
-│       │   ├── globalnoe-rabstvo-pokhoti.md
-│       │   ├── kult-tela.md
-│       │   ├── lyubov-bez-zaveta.md
-│       │   ├── normalizaciya-pokhoti.md
-│       │   ├── obektivaciya-cheloveka.md
-│       │   ├── obozhestvlenie-zhenshiny.md
-│       │   ├── podtemy-issledovaniya.md
-│       │   ├── pornografiya-zhertvennik-pokhoti.md
-│       │   ├── razrushenie-celomudriya.md
-│       │   └── seksualizaciya-kultury.md
-│       ├── pragmatizm/
-│       │   ├── filosofskie-korni.md
-│       │   ├── istoriya-ideologii.md
-│       │   ├── opasnosti-pragmatizma.md
-│       │   └── sekulyarizaciya-cerkvi.md
-│       ├── pravoslavie/
-│       │   ├── elementy-religii/
-│       │   │   ├── asketika.md
-│       │   │   ├── avtokefaliya.md
-│       │   │   ├── cerkovnaya-ierarkhiya.md
-│       │   │   ├── ikonografiya.md
-│       │   │   ├── ikonostas.md
-│       │   │   ├── krestnoe-znamenie.md
-│       │   │   ├── liturgiya.md
-│       │   │   ├── lzheprazdniki.md
-│       │   │   ├── lzhetainstva.md
-│       │   │   ├── mavriiskii-dub.md
-│       │   │   ├── README.md
-│       │   │   └── yaica-i-kulichi.md
-│       │   ├── kult-devy-marii-mariologiya/
-│       │   │   ├── dukh-artemidy.md
-│       │   │   ├── dukh-ishtar-astarty.md
-│       │   │   ├── dukh-isidy.md
-│       │   │   └── dukh-kibely.md
-│       │   ├── sravnitelnyi-analiz/
-│       │   │   ├── sravnenie-s-nikolaitami.md
-│       │   │   └── sravnenie-tora-valaama.md
-│       │   ├── khristianskie-otkloneniya.md
-│       │   ├── kreshenie-mladencev.md
-│       │   ├── kult-svyatykh.md
-│       │   ├── lzheapostolskaya-preemstvennost.md
-│       │   ├── lzhecerkovnye-roli.md
-│       │   └── sinodalnye-iskazheniya.md
-│       ├── prazdnizm/
-│       │   ├── maya.md
-│       │   └── novyi-god.md
-│       ├── programmizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── podtemy.md
-│       │   ├── README.md
-│       │   ├── simvolicheskie-artefakty.md
-│       │   ├── simvolicheskie-znaki.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   ├── vnutrennie-protivorechiya.md
-│       │   └── yazyki-programmirovaniya.md
-│       ├── psikhologizm/
-│       │   ├── psikheya-i-eros/
-│       │   │   ├── eros-amur.md
-│       │   │   └── psikheya.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── glossarii.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── lzhebozhestvennaya-mifologiya.md
-│       │   ├── mirovozzrencheskaya-struktura.md
-│       │   ├── simvolicheskie-artefakty.md
-│       │   ├── simvolicheskie-znaki.md
-│       │   ├── svyashennaya-literatura.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   ├── vnutrennie-protivorechiya.md
-│       │   └── vvedenie.md
-│       ├── psikhurgiya/
-│       ├── pyatidesyatizm/
-│       │   ├── osnovy-ucheniya/
-│       │   │   ├── blagoslovenie-bogatstvo.md
-│       │   │   ├── cerkov-novogo-tipa.md
-│       │   │   ├── dukhovnaya-opasnost.md
-│       │   │   ├── govorenie-na-yazykakh.md
-│       │   │   ├── kreshenie-dukhom-svyatym.md
-│       │   │   ├── kult-lichnosti.md
-│       │   │   ├── kultura-pomazannikov.md
-│       │   │   ├── lozhnye-otkroveniya.md
-│       │   │   ├── lzhechudesa.md
-│       │   │   ├── lzheisceleniya.md
-│       │   │   ├── lzheprorochestva.md
-│       │   │   ├── podrazhanie-okkultizmu.md
-│       │   │   ├── prenebrezhenie-pisaniem.md
-│       │   │   └── README.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   └── podtemy.md
-│       ├── racionalizm/
-│       │   ├── chelovecheskaya-logika.md
-│       │   ├── dukhovnaya-degradaciya.md
-│       │   ├── intellektualnaya-gordost.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   └── sverkhestestvennyi-skepsis.md
-│       ├── redukcionizm/
-│       │   ├── antropologicheskii-kollaps.md
-│       │   ├── idol-neironauki.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── kartezianskii-dualizm.md
-│       │   ├── lozh-chasovshika.md
-│       │   └── myortvyi-kosmos.md
-│       ├── regalizm/
-│       │   ├── carskaya-podmena.md
-│       │   ├── cerkovnaya-diktatura.md
-│       │   ├── institucionalnyi-kult.md
-│       │   ├── lozhnoe-poslushanie.md
-│       │   ├── politicheskaya-religiya.md
-│       │   ├── prorocheskii-vakuum.md
-│       │   ├── ritualnyi-avtoritet.md
-│       │   ├── sakralnaya-legitimnost.md
-│       │   ├── simvolicheskaya-korona.md
-│       │   └── svyashennaya-vlast.md
-│       ├── religionizmy/
-│       │   ├── adventizm/
-│       │   │   ├── ellen-uait.md
-│       │   │   ├── etimologiya.md
-│       │   │   ├── nadgrobie-ellen-uait.md
-│       │   │   ├── sledstvennyi-sud.md
-│       │   │   └── subbota.md
-│       │   ├── aidolizm/
-│       │   │   ├── okkultnye-simvoly/
-│       │   │   │   └── chyornyi-lebed.md
-│       │   │   ├── populyarnye-gruppy/
-│       │   │   │   ├── blackpink.md
-│       │   │   │   ├── bts.md
-│       │   │   │   └── stray-kids.md
-│       │   │   ├── razbor-pesen/
-│       │   │   │   └── stray-kids-unfair.md
-│       │   │   ├── bibleiskoe-oblichenie.md
-│       │   │   ├── emocionalnaya-zavisimost.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   ├── fabrika-aidolov.md
-│       │   │   ├── formirovanie-zavisimosti.md
-│       │   │   ├── gendernaya-igra-lgbt-povestka.md
-│       │   │   ├── giperseksualizaciya.md
-│       │   │   ├── istoki-proiskhozhdeniya.md
-│       │   │   ├── kharassment.md
-│       │   │   ├── korporativnyi-kontrol.md
-│       │   │   ├── kult-aidolov.md
-│       │   │   ├── lozhnaya-religiya.md
-│       │   │   ├── masonskaya-iniciaciya.md
-│       │   │   ├── narushenie-identichnosti.md
-│       │   │   ├── narushenie-pervoi-zapovedi.md
-│       │   │   ├── oblik-angelov-sveta.md
-│       │   │   ├── podavlenie-voli.md
-│       │   │   ├── skrytye-poslaniya.md
-│       │   │   ├── suicidy-i-depressii.md
-│       │   │   ├── travmy-ot-ideala.md
-│       │   │   └── zapret-lichnuyu-hofesh.md
-│       │   ├── akademizm/
-│       │   │   ├── formalizm-obrazovaniya.md
-│       │   │   ├── obrazovanie-bez-lyubvi.md
-│       │   │   ├── README.md
-│       │   │   └── shkola-platona.md
-│       │   ├── alkhimiya/
-│       │   │   ├── aleksandriiskoe-uchenie.md
-│       │   │   ├── eliksir-zhizni.md
-│       │   │   ├── etimologiya.md
-│       │   │   ├── filosofskii-kamen.md
-│       │   │   ├── istoriya.md
-│       │   │   ├── khimiya.md
-│       │   │   ├── okkultizm.md
-│       │   │   └── preobrazovanie-materii.md
-│       │   ├── amishizm/
-│       │   │   ├── bibleiskoe-oproverzhenie.md
-│       │   │   ├── dukhovnaya-priroda.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   ├── istoricheskie-korni.md
-│       │   │   ├── sravnitelnyi-analiz.md
-│       │   │   ├── vneshnie-protivorechiya.md
-│       │   │   └── vnutrennie-protivorechiya.md
-│       │   ├── amoralizm/
-│       │   │   ├── dukhovnoe-izmerenie.md
-│       │   │   ├── istoki-proiskhozhdeniya.md
-│       │   │   ├── lichnostnyi-krizis.md
-│       │   │   ├── moralnaya-filosofiya.md
-│       │   │   ├── protivodeistvie-amoralizmu.md
-│       │   │   └── skrytye-formy.md
-│       │   ├── animizm/
-│       │   │   ├── osnovy-ucheniya/
-│       │   │   │   ├── demonicheskaya-priroda-dukhov.md
-│       │   │   │   ├── forma-idolopoklonstva.md
-│       │   │   │   ├── odushevlennost-prirody.md
-│       │   │   │   ├── pervobytnye-obryady.md
-│       │   │   │   └── ponimanie-dushi-duha.md
-│       │   │   ├── bibleiskoe-razoblachenie.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   ├── istoricheskie-korni.md
-│       │   │   ├── podtemy.md
-│       │   │   └── sravnitelnyi-analiz.md
-│       │   ├── antagonizm/
-│       │   │   ├── formy-antagonizma/
-│       │   │   │   ├── apokalipticheskii.md
-│       │   │   │   ├── filosofskii.md
-│       │   │   │   ├── ideologicheskii.md
-│       │   │   │   ├── kulturnyi.md
-│       │   │   │   └── mammonicheskii.md
-│       │   │   ├── osnovy-ucheniya/
-│       │   │   │   ├── aktivnoe-protivostoyanie.md
-│       │   │   │   ├── dualnost-prirody-mira.md
-│       │   │   │   ├── neizbezhnost-konflikta.md
-│       │   │   │   ├── subekty-antagonizma.md
-│       │   │   │   └── vrazhdebnost.md
-│       │   │   ├── sravnitelnyi-analiz/
-│       │   │   ├── bibleiskoe-razoblachenie.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   │   ├── podtemy.md
-│       │   │   └── README.md
-│       │   ├── antikhristianstvo/
-│       │   │   ├── apokalipticheskii-logotip.md
-│       │   │   ├── bogokhulstvo.md
-│       │   │   ├── kanceling-iisusa.md
-│       │   │   ├── khristofobiya.md
-│       │   │   ├── lzhereligioznaya-cerkov.md
-│       │   │   └── psevdokhristianstvo.md
-│       │   ├── antropocentrizm/
-│       │   │   ├── istoki-zarozhdeniya.md
-│       │   │   ├── protivostoyanie-teocentrizmu.md
-│       │   │   └── sekulyarnaya-etika.md
-│       │   ├── asketizm/
-│       │   │   ├── asketicheskie-tradicii.md
-│       │   │   ├── istoricheskie-korni.md
-│       │   │   └── monasheskoe-otshelnichestvo.md
-│       │   ├── astrologizm/
-│       │   │   ├── klyuch-solomona.md
-│       │   │   ├── lunnye-uzly.md
-│       │   │   ├── planety-upraviteli.md
-│       │   │   └── znaki-zodiaka.md
-│       │   ├── ateizm/
-│       │   │   ├── bezbozhie-lyucifera.md
-│       │   │   ├── einshtein.md
-│       │   │   └── molekula-atoma.md
-│       │   ├── avraamizm/
-│       │   │   ├── avraamicheskie-lzhebozhki/
-│       │   │   │   ├── allakh.md
-│       │   │   │   └── iegova.md
-│       │   │   ├── religioznyi-monoteizm/
-│       │   │   │   ├── monoteizm-iudeev.md
-│       │   │   │   ├── monoteizm-khristian.md
-│       │   │   │   └── monoteizm-musulman.md
-│       │   │   ├── bibleiskoe-oproverzhenie.md
-│       │   │   ├── istoki-proiskhozhdeniya.md
-│       │   │   ├── podtemy.md
-│       │   │   ├── README.md
-│       │   │   ├── religioznoe-praotcovstvo.md
-│       │   │   ├── sravnitelnyi-analiz.md
-│       │   │   └── zavet-s-bogom.md
-│       │   ├── avtoritarizm/
-│       │   │   ├── centralizaciya-vlasti.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   ├── ideologicheskie-osnovy.md
-│       │   │   ├── mekhanizmy-kontrolya.md
-│       │   │   ├── podavlenie-inakomysliya.md
-│       │   │   ├── podtemy.md
-│       │   │   ├── politicheskaya-monopoliya.md
-│       │   │   ├── politicheskie-cherty.md
-│       │   │   ├── repressionnaya-politika.md
-│       │   │   ├── socialnye-aspekty.md
-│       │   │   ├── sravnitelnyi-analiz.md
-│       │   │   └── sudebnaya-sistema.md
-│       │   ├── baptizm/
-│       │   │   ├── kreshenie.md
-│       │   │   └── yuridizm.md
-│       │   ├── buddizm/
-│       │   │   ├── osnovy-ucheniya/
-│       │   │   │   ├── chetyre-blagorodnye-istiny.md
-│       │   │   │   ├── dkharma.md
-│       │   │   │   ├── karma.md
-│       │   │   │   ├── meditaciya.md
-│       │   │   │   ├── nirvana.md
-│       │   │   │   ├── reinkarnaciya.md
-│       │   │   │   ├── sansara.md
-│       │   │   │   └── vosmerichnyi-put.md
-│       │   │   ├── simvolika-ucheniya/
-│       │   │   │   ├── belyi-slon.md
-│       │   │   │   ├── koleso-dkharmy.md
-│       │   │   │   ├── kolokol.md
-│       │   │   │   ├── lotos.md
-│       │   │   │   ├── mandala.md
-│       │   │   │   ├── mudry.md
-│       │   │   │   ├── rakovina.md
-│       │   │   │   ├── README.md
-│       │   │   │   ├── vadzhra.md
-│       │   │   │   └── zayac-v-lune.md
-│       │   │   ├── bibleiskoe-oproverzhenie.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   └── istoki-proiskhozhdeniya.md
-│       │   ├── daosizm/
-│       │   │   ├── dao-put.md
-│       │   │   ├── daosskaya-alkhimiya.md
-│       │   │   ├── daosskaya-medicina.md
-│       │   │   ├── daosskie-teksty-simvolizm.md
-│       │   │   ├── teva-adam.md
-│       │   │   ├── u-vei-nedeyanie.md
-│       │   │   └── yan-i-in.md
-│       │   ├── darvinizm/
-│       │   │   ├── estestvennyi-otbor.md
-│       │   │   ├── problema-sluchainosti.md
-│       │   │   └── proiskhozhdenie-cheloveka.md
-│       │   ├── demo-no-kratizm/
-│       │   │   ├── denezhnaya-korrupciya.md
-│       │   │   ├── falsifikaciya-vyborov.md
-│       │   │   ├── illyuziya-uchastiya.md
-│       │   │   ├── kognitivnyi-grazhdanizm.md
-│       │   │   ├── lozhnaya-vybornost.md
-│       │   │   ├── mificheskie-prava-hofesh.md
-│       │   │   ├── README.md
-│       │   │   └── tainye-elity.md
-│       │   ├── demonizm/
-│       │   │   ├── demonicheskaya-priroda-grekhov.md
-│       │   │   ├── demonicheskie-obety-sdelki.md
-│       │   │   ├── demonicheskie-proekcii.md
-│       │   │   ├── demonicheskoe-vliyanie.md
-│       │   │   ├── dukhovnoe-rabstvo.md
-│       │   │   ├── dukhovnye-ierarkhii-demonov.md
-│       │   │   ├── manipulyativnye-lzheucheniya.md
-│       │   │   ├── proiskhozhdenie-demonov.md
-│       │   │   └── README.md
-│       │   ├── determinizm/
-│       │   │   ├── kvantovaya-neopredelennost.md
-│       │   │   ├── modalnye-logiki.md
-│       │   │   ├── neirodeterminizm.md
-│       │   │   ├── neiroobman.md
-│       │   │   ├── psikhologicheskii-fatalizm.md
-│       │   │   ├── stoicheskii-logos-1.md
-│       │   │   ├── stoicheskii-logos.md
-│       │   │   └── svoboda-voli.md
-│       │   ├── druidizm/
-│       │   │   ├── kult-prirody.md
-│       │   │   ├── magiya-druidov.md
-│       │   │   ├── prorochestva.md
-│       │   │   ├── zhertvoprinosheniya.md
-│       │   │   └── zhrecheskii-klass.md
-│       │   ├── gastrolatrizm/
-│       │   │   ├── fastfud-kulty/
-│       │   │   │   └── README.md
-│       │   │   ├── khramy-pisheviki/
-│       │   │   │   ├── bary.md
-│       │   │   │   ├── fastfud-zavedeniya.md
-│       │   │   │   ├── gipermarkety.md
-│       │   │   │   ├── kafe-sladostei.md
-│       │   │   │   ├── kofeini.md
-│       │   │   │   ├── konditerskie.md
-│       │   │   │   ├── kulinarnye-shou.md
-│       │   │   │   ├── myasnye-rynki.md
-│       │   │   │   ├── README.md
-│       │   │   │   ├── restorany.md
-│       │   │   │   ├── supermarkety.md
-│       │   │   │   └── yarmarki.md
-│       │   │   ├── kult-sladkogo/
-│       │   │   │   ├── kinder.md
-│       │   │   │   ├── milka.md
-│       │   │   │   ├── nutella.md
-│       │   │   │   └── README.md
-│       │   │   ├── bibleiskoe-oproverzhenie.md
-│       │   │   ├── dukhovnaya-priroda.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   ├── industrialnyi-uboi.md
-│       │   │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   │   ├── lozhnoe-prichastie.md
-│       │   │   └── README.md
-│       │   ├── gedonizm/
-│       │   │   ├── dukhovnaya-bednost.md
-│       │   │   ├── illyuziya-schastya.md
-│       │   │   ├── institut-semi.md
-│       │   │   ├── mimoletnye-udovolstviya.md
-│       │   │   ├── moralnaya-otvetstvennost.md
-│       │   │   ├── plotskie-strasti.md
-│       │   │   ├── psikhologiya-gedonizma.md
-│       │   │   └── rabstvo-ploti.md
-│       │   ├── geiminduizm/
-│       │   │   ├── azart-kak-vera.md
-│       │   │   ├── geym-dizaynery-kohen.md
-│       │   │   ├── illyuziya-svobody.md
-│       │   │   ├── kult-igroka.md
-│       │   │   ├── ludo-kult.md
-│       │   │   ├── ludomaniya.md
-│       │   │   ├── mekhanika-zavisimosti.md
-│       │   │   ├── obozhestvlenie-geimerov.md
-│       │   │   ├── pogruzhenie-v-igru.md
-│       │   │   ├── README.md
-│       │   │   ├── religiya-kiberprostranstva.md
-│       │   │   ├── ritualy-prokachki.md
-│       │   │   ├── roblox.md
-│       │   │   ├── simvolika-lutboksov.md
-│       │   │   ├── svyashennye-artefakty.md
-│       │   │   ├── vechnaya-igra.md
-│       │   │   ├── virtualnye-miry.md
-│       │   │   ├── vlasteliny-reitingov.md
-│       │   │   └── vliyanie-na-soznanie.md
-│       │   ├── geliocentrizm/
-│       │   │   ├── bibleiskaya-kosmologiya.md
-│       │   │   ├── bibleiskoe-oproverzhenie.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   ├── filosofskie-korni.md
-│       │   │   └── istoki-proiskhozhdeniya.md
-│       │   ├── genetizm/
-│       │   │   ├── crispr.md
-│       │   │   ├── eksperimenty-na-embrionakh.md
-│       │   │   ├── gennaya-terapiya.md
-│       │   │   ├── gmo.md
-│       │   │   ├── proekt-geneticheskogo-sovershenstva.md
-│       │   │   ├── README.md
-│       │   │   └── sinteticheskie-khromosomy.md
-│       │   ├── geoinzhenerizm/
-│       │   │   ├── osnovnye-napravleniya/
-│       │   │   │   ├── carbon-dioxide-removal.md
-│       │   │   │   ├── cloudseeding.md
-│       │   │   │   ├── geoengineering-via-satellites.md
-│       │   │   │   ├── ice-preservation.md
-│       │   │   │   ├── ocean-fertilization.md
-│       │   │   │   ├── README.md
-│       │   │   │   ├── solar-radiation-management.md
-│       │   │   │   └── stratospheric-aerosol-injection.md
-│       │   │   ├── bibleiskoe-oproverzhenie.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   ├── istoki-proiskhozhdeniya.md
-│       │   │   ├── khimtreily.md
-│       │   │   └── podtemy.md
-│       │   ├── geraldizm/
-│       │   │   ├── franciya.md
-│       │   │   ├── README.md
-│       │   │   ├── rf.md
-│       │   │   ├── tatarstan.md
-│       │   │   └── vatikan.md
-│       │   ├── germetizm/
-│       │   │   ├── edinstvo-vsego.md
-│       │   │   ├── illyuziya-poznaniya.md
-│       │   │   ├── knigi-germesa.md
-│       │   │   ├── okkultnye-praktiki.md
-│       │   │   └── tainye-znaniya.md
-│       │   ├── globalizm/
-│       │   │   ├── sravnenie-stran/
-│       │   │   │   ├── egipet-i-greciya.md
-│       │   │   │   ├── kitai-i-yaponiya.md
-│       │   │   │   ├── meksika-i-peru.md
-│       │   │   │   ├── polsha-i-ukraina.md
-│       │   │   │   ├── rossiya-i-indiya.md
-│       │   │   │   └── turciya-i-iran.md
-│       │   │   ├── mirovoe-pravitelstvo.md
-│       │   │   ├── novyy-mirovoy-poryadok.md
-│       │   │   ├── struktura-urovnei.md
-│       │   │   ├── svyaz-s-massonami.md
-│       │   │   └── urovnevaya-struktura.md
-│       │   ├── gnosticizm/
-│       │   │   ├── demiurg.md
-│       │   │   ├── dualizm.md
-│       │   │   ├── khristologiya-gnostikov.md
-│       │   │   ├── mifologiya-gnostikov.md
-│       │   │   ├── misticizm-gnostikov.md
-│       │   │   └── otricanie-tela.md
-│       │   ├── gumanizm/
-│       │   │   ├── antropocentricheskaya-moral.md
-│       │   │   ├── chelovecheskoe-samosoznanie.md
-│       │   │   ├── gumanitarnye-nauki.md
-│       │   │   ├── istoricheskie-korni.md
-│       │   │   ├── prava-cheloveka.md
-│       │   │   ├── sekulyarizaciya.md
-│       │   │   ├── svoboda-bez-boga.md
-│       │   │   └── teologicheskie-vyzovy.md
-│       │   ├── ierarkhizm/
-│       │   │   ├── geopoliticheskie-igry.md
-│       │   │   ├── gorodskaya-politika.md
-│       │   │   ├── padshie-angely.md
-│       │   │   ├── README.md
-│       │   │   ├── rostovshichestvo.md
-│       │   │   ├── semeinye-klany.md
-│       │   │   ├── socialnoe-davlenie.md
-│       │   │   ├── vavilonskaya-sistema.md
-│       │   │   ├── velikaya-bludnica.md
-│       │   │   ├── vlast-boga.md
-│       │   │   └── zolotoi-milliard.md
-│       │   ├── induizm/
-│       │   │   ├── cikl-sansary.md
-│       │   │   ├── induistskie-ritualy.md
-│       │   │   ├── karma.md
-│       │   │   ├── okkultnaya-ioga.md
-│       │   │   ├── ponyatie-mokshi-osvobozhdeniya.md
-│       │   │   ├── README.md
-│       │   │   ├── reinkarnaciya.md
-│       │   │   └── sataninskie-mantry.md
-│       │   ├── islam/
-│       │   │   ├── alkhimiya.md
-│       │   │   ├── allakh.md
-│       │   │   ├── chernyi-kamen.md
-│       │   │   ├── dzhikhad.md
-│       │   │   ├── koran.md
-│       │   │   ├── kult-kaaby.md
-│       │   │   ├── obraz-mekki.md
-│       │   │   ├── palomnichestvo-tavaaf.md
-│       │   │   ├── README.md
-│       │   │   └── sufizm.md
-│       │   ├── iudaizm/
-│       │   │   ├── napravleniya-ucheniya/
-│       │   │   │   ├── ezoterizm.md
-│       │   │   │   ├── khasidizm.md
-│       │   │   │   ├── kriptoiudaizm.md
-│       │   │   │   ├── ortodoksizm.md
-│       │   │   │   ├── ravvinizm.md
-│       │   │   │   └── semitizm.md
-│       │   │   ├── simvolicheskie-artefakty/
-│       │   │   │   ├── README.md
-│       │   │   │   └── tfilin.md
-│       │   │   ├── simvolicheskie-znaki/
-│       │   │   │   ├── cicit.md
-│       │   │   │   ├── khanukiya.md
-│       │   │   │   ├── kipa-yarmulka.md
-│       │   │   │   ├── menora.md
-│       │   │   │   ├── README.md
-│       │   │   │   ├── svitok-tory.md
-│       │   │   │   └── zvezda-davida.md
-│       │   │   ├── svyashennaya-literatura/
-│       │   │   │   └── README.md
-│       │   │   ├── bibleiskoe-oproverzhenie.md
-│       │   │   ├── dukhovnaya-priroda.md
-│       │   │   ├── dukhovnye-plody.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   │   ├── lunnyi-kult.md
-│       │   │   ├── osnovy-ucheniya.md
-│       │   │   ├── podtemy.md
-│       │   │   ├── vneshnie-protivorechiya.md
-│       │   │   └── vnutrennie-protivorechiya.md
-│       │   ├── izinkulungu/
-│       │   │   ├── komponenty-religii/
-│       │   │   │   ├── shamany-i-znakhari.md
-│       │   │   │   └── verkhovnoe-bozhestvo-umdeli.md
-│       │   │   ├── bibleiskoe-oproverzhenie.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   ├── istoki-proiskhozhdeniya.md
-│       │   │   ├── klyuchevye-ritualy.md
-│       │   │   ├── simvolika-znakov.md
-│       │   │   ├── svyaz-hip-hopom.md
-│       │   │   └── zulusskaya-kosmogoniya.md
-│       │   ├── vavilonizm/
-│       │   │   ├── simvolicheskie-artefakty/
-│       │   │   │   ├── konus-urukaginy.md
-│       │   │   │   ├── lzhederevo-zhizni.md
-│       │   │   │   ├── sumki.md
-│       │   │   │   ├── vavilonskaya-bashnya.md
-│       │   │   │   └── vavilonskie-sady.md
-│       │   │   ├── simvolicheskie-znaki/
-│       │   │   │   ├── diademy.md
-│       │   │   │   ├── khram-esagila.md
-│       │   │   │   ├── krest.md
-│       │   │   │   ├── lotos-i-palma.md
-│       │   │   │   ├── ritualnye-zhezly.md
-│       │   │   │   ├── rogatyi-shlem.md
-│       │   │   │   ├── shishka.md
-│       │   │   │   ├── solnce-i-luna.md
-│       │   │   │   ├── zmeya.md
-│       │   │   │   └── zolotye-ukrasheniya.md
-│       │   │   ├── svyashennye-knigi/
-│       │   │   │   ├── enuma-elish.md
-│       │   │   │   ├── epos-o-gilgameshe.md
-│       │   │   │   ├── kodeks-khamurapi.md
-│       │   │   │   ├── magicheskie-teksty.md
-│       │   │   │   └── vavilonskii-talmud.md
-│       │   │   ├── babylon-mindset.md
-│       │   │   ├── bibleiskaya-proverka.md
-│       │   │   ├── bibleiskoe-obosnovanie.md
-│       │   │   ├── dukhovnye-plody.md
-│       │   │   ├── etimologicheskii-razbor.md
-│       │   │   ├── glossarii.md
-│       │   │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   │   ├── mirovozzrencheskaya-struktura.md
-│       │   │   ├── osnovy-ucheniya.md
-│       │   │   ├── sovremennaya-forma.md
-│       │   │   ├── sovremennyi-vavilon.md
-│       │   │   ├── sravnitelnyi-analiz.md
-│       │   │   ├── vavilonskaya-cerkov.md
-│       │   │   ├── vavilonskaya-sistema.md
-│       │   │   ├── vneshnie-protivorechiya.md
-│       │   │   └── vykhod-iz-vavilona.md
-│       │   ├── vudizm/
-│       │   │   ├── demonicheskaya-ierarkhiya/
-│       │   │   │   ├── baron-samedi.md
-│       │   │   │   ├── dukhi-smerti.md
-│       │   │   │   ├── loa.md
-│       │   │   │   ├── papa-legba.md
-│       │   │   │   └── README.md
-│       │   │   ├── vizualnye-elementy/
-│       │   │   │   ├── kukly-vudu.md
-│       │   │   │   ├── README.md
-│       │   │   │   ├── simvoly-veve.md
-│       │   │   │   └── totemy.md
-│       │   │   ├── bibleiskoe-oproverzhenie.md
-│       │   │   ├── dukhovnye-posledstviya.md
-│       │   │   ├── istoricheskie-korni.md
-│       │   │   ├── khristianskoe-smeshenie.md
-│       │   │   ├── obryady-i-praktiki.md
-│       │   │   ├── podtemy.md
-│       │   │   └── religioznye-vliyaniya.md
-│       │   └── zoroastrizm/
-│       │       └── vvedenie.md
-│       ├── relyativizm/
-│       │   ├── dukhovnaya-dezorientaciya.md
-│       │   ├── kognitivnye-iskazheniya.md
-│       │   ├── lozhnaya-tolerantnost.md
-│       │   ├── moralnaya-neodnoznachnost.md
-│       │   ├── protivodeistvennoe-smirenie.md
-│       │   ├── racionalnaya-vera.md
-│       │   └── subektivizm-opyta.md
-│       ├── satanizm/
-│       │   ├── misticheskie-formy/
-│       │   │   ├── kult-laveya.md
-│       │   │   └── lyuciferianstvo.md
-│       │   ├── osobennosti-ucheniya/
-│       │   │   ├── arkhetip-osvobozhdeniya.md
-│       │   │   ├── ezotericheskii-egocentrizm.md
-│       │   │   ├── kabbalistika.md
-│       │   │   ├── kult-sebyalyubiya.md
-│       │   │   ├── tenevaya-iniciaciya.md
-│       │   │   └── transgressiya.md
-│       │   ├── simvolicheskie-znaki/
-│       │   │   ├── pauk.md
-│       │   │   ├── README.md
-│       │   │   ├── statuya-bafometa.md
-│       │   │   ├── zmei.md
-│       │   │   └── zvezda-remfana.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── podtemy.md
-│       │   ├── sataninskaya-literatura.md
-│       │   ├── sataninskie-ritualy.md
-│       │   ├── sataninskie-taktiki.md
-│       │   ├── sataninskie-zapovedi.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── saturnizm/
-│       │   ├── cikly-razrusheniya-obnovleniya.md
-│       │   ├── istoriya-proiskhozhdeniya.md
-│       │   ├── karmicheskaya-spravedlivost.md
-│       │   ├── khramy-saturna.md
-│       │   ├── kult-ogranicheniya.md
-│       │   ├── mekhanizm-karmy.md
-│       │   ├── saturnianskaya-tma.md
-│       │   ├── simvolika-zmei.md
-│       │   ├── skrytyi-satanizm.md
-│       │   └── vlastelin-vremeni.md
-│       ├── scientizm/
-│       │   ├── bezbozhnaya-moral.md
-│       │   ├── dukhovnaya-pustota.md
-│       │   ├── epistemologicheskii-krizis.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── metanauchnye-osnovaniya.md
-│       │   ├── nauchnyi-kult.md
-│       │   ├── paradigmalnye-sdvigi.md
-│       │   └── simvolika-nauki.md
-│       ├── sekulyarizm/
-│       │   ├── ekonomicheskii-aspekt.md
-│       │   ├── filosofskaya-osnova.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── pravovoe-ustroistvo.md
-│       │   ├── religioznaya-svoboda.md
-│       │   └── socialnye-posledstviya.md
-│       ├── selebritizm/
-│       │   ├── kult-blogerov/
-│       │   │   ├── mr-beast.md
-│       │   │   └── README.md
-│       │   ├── kult-lichnostei/
-│       │   │   └── michelle-lama.md
-│       │   ├── kult-pevcov/
-│       │   │   ├── beyonce.md
-│       │   │   ├── billie-eilish.md
-│       │   │   ├── doja-cat.md
-│       │   │   ├── grimes.md
-│       │   │   ├── idols.md
-│       │   │   ├── lady-gaga.md
-│       │   │   ├── lil-nas-x.md
-│       │   │   ├── morgenshtern.md
-│       │   │   ├── README.md
-│       │   │   ├── rihanna.md
-│       │   │   ├── taylor-swift.md
-│       │   │   ├── travis-scott.md
-│       │   │   └── xxx-tentacion.md
-│       │   ├── razbor-pesen/
-│       │   │   ├── judas-lady-gaga.md
-│       │   │   ├── justin-bieber-where.md
-│       │   │   └── README.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnoe-derevo.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── kommercializaciya-lichnosti.md
-│       │   ├── kult-artistov.md
-│       │   ├── kult-gedonizma.md
-│       │   ├── manipulyaciya-vnimaniem.md
-│       │   ├── mediinye-maski.md
-│       │   ├── README.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── shamanizm/
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── glossarii.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── podtemy.md
-│       │   ├── simvolicheskie-artefakty.md
-│       │   ├── simvolicheskie-znaki.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── shovinizm/
-│       │   ├── vidy-shovinizma/
-│       │   │   ├── ekonomicheskii.md
-│       │   │   ├── etnicheskii.md
-│       │   │   ├── ideologicheskii.md
-│       │   │   ├── intellektualnyi.md
-│       │   │   ├── klassovyi.md
-│       │   │   ├── kulturnyi.md
-│       │   │   ├── lgbt.md
-│       │   │   ├── muzhskoi.md
-│       │   │   ├── rasovyi.md
-│       │   │   ├── religioznyi.md
-│       │   │   ├── voenno-politicheskii.md
-│       │   │   └── zhenskii.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── osnovy-ucheniya.md
-│       │   ├── sovremennoe-vliyanie.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── sinarkhizm/
-│       │   ├── manipulyaciya-sociumom.md
-│       │   ├── mekhanizmy-kontrolya-mass.md
-│       │   ├── protivostoyanie-khristianstvu.md
-│       │   ├── sinarkhicheskie-struktury.md
-│       │   ├── skrytye-zagovory.md
-│       │   └── tainye-soyuzy-elit.md
-│       ├── sinematizm/
-│       │   ├── kino-giganty/
-│       │   │   ├── bollivud.md
-│       │   │   ├── disney.md
-│       │   │   ├── hollywood.md
-│       │   │   ├── marvel-dc.md
-│       │   │   ├── netflix.md
-│       │   │   ├── paramount-pictures.md
-│       │   │   ├── sony-pictures.md
-│       │   │   ├── universal-pictures.md
-│       │   │   └── walt-disney.md
-│       │   ├── mult-giganty/
-│       │   │   ├── blue-sky-studios.md
-│       │   │   ├── cartoon-network-studios.md
-│       │   │   ├── disney-pixar.md
-│       │   │   ├── dreamworks-animations.md
-│       │   │   ├── illumination-minions.md
-│       │   │   ├── laika-studios.md
-│       │   │   ├── netflix-animation.md
-│       │   │   ├── nickelodeon.md
-│       │   │   ├── sony-pictures.md
-│       │   │   └── warner-bros.md
-│       │   ├── sataninskaya-kinofalsh/
-│       │   │   ├── chuzhie-protiv-khishnika.md
-│       │   │   ├── doktor-strendzh.md
-│       │   │   ├── ekzorcist.md
-│       │   │   ├── matrica.md
-│       │   │   └── shiroko-zakrytymi-glazami.md
-│       │   ├── sataninskaya-multfalsh/
-│       │   │   ├── cifrovoi-cirk-1.md
-│       │   │   ├── cifrovoi-cirk.md
-│       │   │   ├── koralin.md
-│       │   │   ├── korporaciya-monstrov.md
-│       │   │   ├── luni-tyunz.md
-│       │   │   ├── README.md
-│       │   │   └── shrek.md
-│       │   ├── formirovanie-mirovozzreniya.md
-│       │   ├── ispolzovanie-arkhetipov.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── kult-lichnosti.md
-│       │   ├── poklonenie-znamenitostyam.md
-│       │   └── README.md
-│       ├── sinkretizm/
-│       │   ├── loa.md
-│       │   ├── README.md
-│       │   └── vudu.md
-│       ├── sintoizm/
-│       │   ├── imperatorskii-dom.md
-│       │   ├── kshafim-oberegi-omamori.md
-│       │   ├── kult-dukhov-kami.md
-│       │   ├── lzheprazdniki.md
-│       │   ├── ritualnye-obryady.md
-│       │   ├── ritualy-ochisheniya-kharai.md
-│       │   ├── svyashennaya-profanaciya.md
-│       │   └── svyashennye-mesta.md
-│       ├── spiritizm/
-│       │   ├── demonicheskoe-vozdeistvie.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── okkultnye-aspekty.md
-│       │   ├── osnovnye-doktriny.md
-│       │   └── sovremennye-formy.md
-│       ├── stigmatizm/
-│       │   ├── bibleiskaya-proverka.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── fiziologicheskoe-vliyanie.md
-│       │   ├── glossarii.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── mirovozzrencheskaya-struktura.md
-│       │   ├── osnovy-ucheniya.md
-│       │   ├── simvolicheskie-artefakty.md
-│       │   ├── simvolicheskie-znaki.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── subektivizm/
-│       │   ├── iskazhyonnoe-ponimanie.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── lichnostnyi-krizis.md
-│       │   ├── otnositelnost-cennostei.md
-│       │   └── religioznye-predstavleniya.md
-│       ├── talmudizm/
-│       │   ├── teologicheskaya-literatura/
-│       │   │   ├── disputy-mezhdu-shkolami.md
-│       │   │   ├── galakha.md
-│       │   │   ├── gemara.md
-│       │   │   ├── mishna.md
-│       │   │   ├── predanie-starcev.md
-│       │   │   ├── README.md
-│       │   │   ├── tolkovanie-tory.md
-│       │   │   └── ustnaya-tora-pismennaya.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnaya-priroda.md
-│       │   ├── dukhovnye-plody.md
-│       │   ├── istoricheskie-korni.md
-│       │   ├── podtemy.md
-│       │   ├── sataninskii-podkontekst.md
-│       │   ├── sociokulturnoe-vliyanie.md
-│       │   ├── vneshnie-protivorechiya.md
-│       │   └── vnutrennie-protivorechiya.md
-│       ├── tekhnoteizm/
-│       │   ├── biotekhnologii/
-│       │   │   ├── biochipy.md
-│       │   │   ├── iskusstvennaya-genetika-crispr.md
-│       │   │   ├── khimicheskii-apgreid.md
-│       │   │   ├── klonirovanie.md
-│       │   │   ├── neirointerfeisy.md
-│       │   │   ├── neirolinki.md
-│       │   │   └── tekhnosapiens.md
-│       │   ├── cifrovye-tekhnologii/
-│       │   │   ├── augmented-reality-ar.md
-│       │   │   ├── metaverse.md
-│       │   │   ├── neuralink.md
-│       │   │   ├── nubbin.md
-│       │   │   ├── photography.md
-│       │   │   ├── smartphone.md
-│       │   │   ├── television.md
-│       │   │   └── virtual-reality-vr.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── big-data.md
-│       │   ├── duhovnoe-vliyanie-shena.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── osnovy-ucheniya.md
-│       │   ├── podtemy.md
-│       │   ├── README.md
-│       │   └── tekhno-nazvaniya.md
-│       ├── teocentrizm/
-│       │   ├── bozhii-obraz-cheloveka.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── khristocentrizm.md
-│       │   ├── opasnosti-ukhoda.md
-│       │   ├── prakticheskoe-primenenie.md
-│       │   └── protivostoyanie-antropocentrizmu.md
-│       ├── toiizm/
-│       │   ├── igrushki-brendy/
-│       │   │   ├── barbie.md
-│       │   │   └── lego.md
-│       │   ├── arkhetipy-igrushek.md
-│       │   ├── bibleiskoe-oproverzhenie.md
-│       │   ├── dukhovnye-fetishi.md
-│       │   ├── etimologicheskii-razbor.md
-│       │   ├── igrushechnaya-privyazannost.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── kult-kukl.md
-│       │   ├── okkultnoe-vliyanie.md
-│       │   ├── podtemy.md
-│       │   └── README.md
-│       ├── totemizm/
-│       │   └── istoricheskoe-proiskhozhdenie.md
-│       ├── transgumanizm/
-│       │   ├── neirointerfeisy/
-│       │   │   ├── bci.md
-│       │   │   ├── darpa.md
-│       │   │   ├── meta.md
-│       │   │   └── README.md
-│       │   ├── androidnye-tela.md
-│       │   ├── cifrovoe-bessmertie.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── kiber-avatary.md
-│       │   ├── kultura-sverkhcheloveka.md
-│       │   ├── postchelovecheskie-eksperimenty.md
-│       │   ├── religiya-antikhrista.md
-│       │   └── robotizaciya.md
-│       ├── ufologizm/
-│       │   ├── abdukcii-pokhisheniya.md
-│       │   ├── drevnie-astronavty.md
-│       │   ├── drevnie-civilizacii.md
-│       │   ├── geneticheskie-eksperimenty.md
-│       │   ├── istoricheskoe-proiskhozhdenie.md
-│       │   ├── kontakterstvo.md
-│       │   ├── nlo-kult.md
-│       │   └── README.md
-│       ├── universalizm/
-│       │   ├── filosofskoe-osnovanie.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── khristianskie-tradicii.md
-│       │   ├── koncepciya-ada.md
-│       │   ├── kritika-universalizma.md
-│       │   ├── mezhreligioznyi-dialog.md
-│       │   ├── religioznyi-plyuralizm.md
-│       │   ├── socialnye-aspekty.md
-│       │   └── teologicheskoe-vliyanie.md
-│       ├── utilitarizm/
-│       │   ├── bibleiskie-alternativy.md
-│       │   ├── istoki-proiskhozhdeniya.md
-│       │   ├── opasnosti-i-riski.md
-│       │   ├── prakticheskoe-protivostoyanie.md
-│       │   ├── protivorechiya-s-khristianstvom.md
-│       │   └── vidy-utilitarizma.md
-│       ├── greek-freedom-distortion.md
-│       ├── hellenization-vs-hebraization.md
-│       ├── miryam-vs-ishtar.md
-│       ├── mutualizm.md
-│       ├── pochemu-tanah-nikogda.md
-│       ├── razoblachenie-sovremennogo-kulta.md
-│       ├── ruach-fruit.md
-│       ├── shaul-against-philosophy.md
-│       └── shema-yhwh-echad.md
-├── terminology/
-│   ├── ahava.md
-│   ├── arum.md
-│   ├── arur.md
-│   ├── asur.md
-│   ├── avar-atid.md
-│   ├── avodah-zarah.md
-│   ├── avon.md
-│   ├── barach.md
-│   ├── bavel.md
-│   ├── bayit.md
-│   ├── beit-ha-mikdash.md
-│   ├── brit.md
-│   ├── chamas.md
-│   ├── cherut.md
-│   ├── chesed.md
-│   ├── derech-apayim.md
-│   ├── derech.md
-│   ├── el.md
-│   ├── elil.md
-│   ├── elilim.md
-│   ├── emet.md
-│   ├── emuna.md
-│   ├── erech-apayim.md
-│   ├── etz-ha-daat.md
-│   ├── eved.md
-│   ├── gerim.md
-│   ├── gibor.md
-│   ├── golem.md
-│   ├── goyim.md
-│   ├── hacker.md
-│   ├── heichal.md
-│   ├── het.md
-│   ├── ivri.md
-│   ├── karaism.md
-│   ├── karet.md
-│   ├── kavod.md
-│   ├── kehillah.md
-│   ├── koach.md
-│   ├── kodesh.md
-│   ├── kohen-hagadol.md
-│   ├── kohen.md
-│   ├── korban.md
-│   ├── ktav-ivri.md
-│   ├── lamad.md
-│   ├── lashon-ha-kodesh.md
-│   ├── levad.md
-│   ├── levav.md
-│   ├── malach.md
-│   ├── malchut.md
-│   ├── mashiah-peshat.md
-│   ├── melech.md
-│   ├── mene-tekel.md
-│   ├── midbar.md
-│   ├── mikveh.md
-│   ├── mishchah.md
-│   ├── mishkan.md
-│   ├── mishpat.md
-│   ├── naaf.md
-│   ├── nachash.md
-│   ├── navi.md
-│   ├── nefesh.md
-│   ├── neshamah.md
-│   ├── neshech.md
-│   ├── nishmah.md
-│   ├── olam.md
-│   ├── or-tam.md
-│   ├── pachad.md
-│   ├── palaestina.md
-│   ├── panim.md
-│   ├── pesel.md
-│   ├── ra.md
-│   ├── rapha.md
-│   ├── resha.md
-│   ├── ruach-hakodesh.md
-│   ├── ruach.md
-│   ├── satan.md
-│   ├── shabbat.md
-│   ├── shalom.md
-│   ├── sheerit.md
-│   ├── shekel.md
-│   ├── shem.md
-│   ├── sheol.md
-│   ├── shlem-avon.md
-│   ├── shmitah.md
-│   ├── tefilah.md
-│   ├── tohu-va-vohu.md
-│   ├── torah.md
-│   ├── tov.md
-│   ├── tshuva.md
-│   ├── tvilah.md
-│   ├── tzedek.md
-│   ├── yeshuah.md
-│   ├── yetzer-lev.md
-│   ├── yhwh-not-religion.md
-│   ├── yhwh.md
-│   ├── yir-at-yhwh.md
-│   ├── yovel.md
-│   └── zarak.md
-├── tools/
-│   ├── automation/
-│   │   ├── auto-add-metadata.py
-│   │   ├── auto-doc.py
-│   │   ├── auto-fix.py
-│   │   ├── auto-ideas.py
-│   │   ├── auto-tasks.py
-│   │   └── auto-versions.py
-│   ├── backup/
-│   │   ├── backup.sh
-│   │   ├── create-backup-scheduled.sh
-│   │   └── export-repo.sh
-│   ├── cache/
-│   │   ├── golem-config.json
-│   │   ├── scan-cache.json
-│   │   └── tanakh.json
-│   ├── checkers/
-│   │   ├── check-code-quality.py
-│   │   ├── check-consistency.py
-│   │   ├── check-duplicates.py
-│   │   ├── check-empty-files.py
-│   │   ├── check-env.py
-│   │   ├── check-exposure.py
-│   │   ├── check-external-links.py
-│   │   ├── check-file-names-clarity.py
-│   │   ├── check-file-sizes.py
-│   │   ├── check-fix-encoding.py
-│   │   ├── check-fix-metadata.py
-│   │   ├── check-fix-transliteration.py
-│   │   ├── check-links.py
-│   │   ├── check-metadata-consistency.py
-│   │   ├── check-metadata.py
-│   │   ├── check-names-language.py
-│   │   ├── check-naming.py
-│   │   ├── check-orphans.py
-│   │   ├── check-religionisms.py
-│   │   ├── check-sort-files.py
-│   │   ├── check-tahor-sync.py
-│   │   └── check-tanakh-references.py
-│   ├── generators/
-│   │   ├── generate-book.py
-│   │   ├── generate-changelog.py
-│   │   ├── generate-exposure-suggestions.py
-│   │   ├── generate-files-json.py
-│   │   ├── generate-fill-empty.py
-│   │   ├── generate-glossary.py
-│   │   ├── generate-graph.py
-│   │   ├── generate-index.py
-│   │   ├── generate-metadata.py
-│   │   ├── generate-nav.py
-│   │   ├── generate-related-links.py
-│   │   ├── generate-retrospective.py
-│   │   ├── generate-training-data.py
-│   │   └── generate-web.py
-│   ├── lib/
-│   │   ├── ui.py
-│   │   └── utils.py
-│   ├── reports/
-│   │   ├── report-daily.py
-│   │   ├── report-dashboard.py
-│   │   ├── report-health.py
-│   │   └── report-stats.py
-│   ├── sync/
-│   │   ├── sync-changelogs.py
-│   │   └── sync-structure.py
-│   ├── utils/
-│   │   ├── clear-cache.py
-│   │   ├── code-injector.py
-│   │   ├── rename-script.py
-│   │   └── search.py
-│   ├── golem.py
-│   └── update-paths.ps1
-├── web/
-│   ├── export/
-│   │   ├── dashboard.html
-│   │   └── golem-book.html
-│   ├── api-data.js
-│   ├── app.js
-│   ├── favicon.svg
-│   ├── files.json
-│   ├── index.html
-│   ├── package.json
-│   ├── server.js
-│   └── style.css
-├── export-repo.sh
-├── package-lock.json
-├── README.md
-├── requirements.txt
-└── structure.md
+---
+
+## 📁 terminology/ (98 файлов)
+
+   *98 файлов в корне*
+
+## 📁 researches/ (1759 файлов)
+
+├── archive/ (14 файлов)
+├── books/ (2 файла)
+├── companies/ (10 файлов)
+├── economy/ (4 файла)
+├── history/ (15 файлов)
+├── language/ (16 файлов)
+├── languages/ (8 файлов)
+├── media/ (3 файла)
+├── medicine/ (6 файлов)
+├── names/ (3 файла)
+├── physis/
+├── practices/ (6 файлов)
+├── psychology/ (2 файла)
+├── roman-law/ (1 файл)
+├── science/ (3 файла)
+├── slavery/ (4 файла)
+├── sociology/ (3 файла)
+├── sport/ (8 файлов)
+├── systems/ (22 файла)
+├── tanakh/ (92 файла)
+└── teachings/ (9 файлов)
+    ├── arkhiv/ (16 файлов)
+    │   └── raspalcovki/ (8 файлов)
+    ├── eddaizm/ (6 файлов)
+    │   └── simvolika/ (6 файлов)
+    ├── egalitarizm/ (7 файлов)
+    ├── eiblizm/ (10 файлов)
+    ├── ekspansionizm/ (8 файлов)
+    ├── ekumenizm/ (9 файлов)
+    │   └── mezhreligioznyi-dialog/ (2 файла)
+    ├── elitarizm/ (8 файлов)
+    ├── elitizm/ (9 файлов)
+    │   └── urovni-obrazovaniya/ (3 файла)
+    ├── emocionalizm/ (7 файлов)
+    ├── empirizm/ (8 файлов)
+    ├── evfemizm/ (8 файлов)
+    ├── ezoterizm/ (10 файлов)
+    ├── fariseistvo/
+    ├── farmacevtizm/ (11 файлов)
+    ├── fashizm/ (11 файлов)
+    │   ├── istoricheskoe-razvitie/ (1 файл)
+    │   └── vozmozhnye-teorii/ (2 файла)
+    ├── favoritizm/ (9 файлов)
+    ├── feminizm/ (8 файлов)
+    ├── fizikalizm/ (14 файлов)
+    │   ├── argumenty/ (2 файла)
+    │   └── vidy-fizikalizma/ (3 файла)
+    ├── frankizm/ (7 файлов)
+    │   └── dukhovnaya-vrazhdebnost/ (2 файла)
+    ├── hristianstvo/ (2 файла)
+    │   └── bibleiskie-lzhebozhki/ (2 файла)
+    ├── kabbalistizm/ (12 файлов)
+    ├── kalvinizm/ (6 файлов)
+    ├── kannibalizm/ (11 файлов)
+    ├── katolicizm/ (9 файлов)
+    │   ├── osnovnye-napravleniya/ (5 файлов)
+    │   └── osnovy-ucheniya/ (8 файлов)
+    ├── kemetizm/ (21 файл)
+    │   ├── egipetskie-lzhebozhki/ (4 файла)
+    │   ├── osnovy-ucheniya/ (4 файла)
+    │   ├── simvolicheskie-artefakty/ (4 файла)
+    │   └── svyashennaya-literatura/ (7 файлов)
+    ├── kiberkratizm/ (11 файлов)
+    ├── klerikalizm/ (10 файлов)
+    ├── kleronomizm/ (14 файлов)
+    │   └── tysyacheletnie-semi/ (6 файлов)
+    ├── koldovstvo/ (8 файлов)
+    ├── kommensalizm/ (7 файлов)
+    ├── kommunizm/ (7 файлов)
+    ├── kosmetizm/ (6 файлов)
+    │   └── alkhimicheskii-sostav/ (4 файла)
+    ├── kosmogoniya/ (3 файла)
+    ├── kosmologizm/ (10 файлов)
+    ├── lyuciferizm/ (3 файла)
+    ├── magizm/ (5 файлов)
+    ├── mammonizm/ (6 файлов)
+    │   ├── finansovaya-sistema/ (3 файла)
+    │   ├── plan-klausa-shvaba/ (3 файла)
+    │   └── simvolika-finansov/ (2 файла)
+    ├── manikheistvo/ (8 файлов)
+    ├── mariologizm/ (6 файлов)
+    ├── marksizm/ (10 файлов)
+    ├── massonizm/ (13 файлов)
+    │   ├── religioznaya-literatura/ (7 файлов)
+    │   └── simvolika-ucheniya/ (3 файла)
+    ├── materializm/
+    ├── medicizm/ (6 файлов)
+    │   ├── lzhebozhki/ (6 файлов)
+    │   └── simvolika-mediciny/ (5 файлов)
+    ├── mediumizm/ (5 файлов)
+    ├── misticizm/ (5 файлов)
+    │   └── tainye-ucheniya/ (3 файла)
+    ├── mitraizm/ (1 файл)
+    ├── molokhizm/ (11 файлов)
+    ├── mormonizm/ (13 файлов)
+    │   ├── osnovy-ucheniya/ (3 файла)
+    │   └── sravnitelnyi-analiz/ (3 файла)
+    ├── naturalizm/ (10 файлов)
+    ├── neiromaterializm/ (6 файлов)
+    ├── nekromantizm/ (6 файлов)
+    ├── nepotizm/ (10 файлов)
+    ├── nikolaizm/ (4 файла)
+    ├── numerologizm/ (7 файлов)
+    ├── okkultizm/ (12 файлов)
+    │   └── simvolika-znakov/ (5 файлов)
+    ├── olimpizm/ (10 файлов)
+    │   └── futbol/ (2 файла)
+    ├── omnizm/ (12 файлов)
+    ├── oneirokritizm/ (6 файлов)
+    ├── pacifizm/ (11 файлов)
+    ├── panarkhizm/ (10 файлов)
+    ├── panteizm/ (7 файлов)
+    ├── parapsikhologiya/ (6 файлов)
+    ├── parazitizm/ (4 файла)
+    │   ├── biologicheskii-parazitizm/ (4 файла)
+    │   └── skrytye-formy/ (9 файлов)
+    ├── patriotizm/ (12 файлов)
+    ├── pietizm/ (5 файлов)
+    ├── platonizm/ (15 файлов)
+    ├── plyuralizm/ (8 файлов)
+    ├── policizm/ (8 файлов)
+    ├── politeizm/ (1 файл)
+    ├── politizm/ (3 файла)
+    │   └── osnovnye-principy/ (9 файлов)
+    ├── pornizm/ (11 файлов)
+    │   └── skrytye-dukhi/ (7 файлов)
+    ├── pragmatizm/ (4 файла)
+    ├── pravoslavie/ (6 файлов)
+    │   ├── elementy-religii/ (12 файлов)
+    │   ├── kult-devy-marii-mariologiya/ (4 файла)
+    │   └── sravnitelnyi-analiz/ (2 файла)
+    ├── prazdnizm/ (2 файла)
+    ├── programmizm/ (12 файлов)
+    ├── psikhologizm/ (14 файлов)
+    │   └── psikheya-i-eros/ (2 файла)
+    ├── psikhurgiya/
+    ├── pyatidesyatizm/ (3 файла)
+    │   └── osnovy-ucheniya/ (14 файлов)
+    ├── racionalizm/ (5 файлов)
+    ├── redukcionizm/ (6 файлов)
+    ├── regalizm/ (10 файлов)
+    ├── religionizmy/
+    │   ├── adventizm/ (5 файлов)
+    │   ├── aidolizm/ (21 файл)
+    │   ├── akademizm/ (4 файла)
+    │   ├── alkhimiya/ (8 файлов)
+    │   ├── amishizm/ (7 файлов)
+    │   ├── amoralizm/ (6 файлов)
+    │   ├── animizm/ (5 файлов)
+    │   ├── antagonizm/ (5 файлов)
+    │   ├── antikhristianstvo/ (6 файлов)
+    │   ├── antropocentrizm/ (3 файла)
+    │   ├── asketizm/ (3 файла)
+    │   ├── astrologizm/ (4 файла)
+    │   ├── ateizm/ (3 файла)
+    │   ├── avraamizm/ (7 файлов)
+    │   ├── avtoritarizm/ (12 файлов)
+    │   ├── baptizm/ (2 файла)
+    │   ├── buddizm/ (3 файла)
+    │   ├── daosizm/ (7 файлов)
+    │   ├── darvinizm/ (3 файла)
+    │   ├── demo-no-kratizm/ (8 файлов)
+    │   ├── demonizm/ (9 файлов)
+    │   ├── determinizm/ (8 файлов)
+    │   ├── druidizm/ (5 файлов)
+    │   ├── gastrolatrizm/ (7 файлов)
+    │   ├── gedonizm/ (8 файлов)
+    │   ├── geiminduizm/ (19 файлов)
+    │   ├── geliocentrizm/ (5 файлов)
+    │   ├── genetizm/ (7 файлов)
+    │   ├── geoinzhenerizm/ (5 файлов)
+    │   ├── geraldizm/ (5 файлов)
+    │   ├── germetizm/ (5 файлов)
+    │   ├── globalizm/ (5 файлов)
+    │   ├── gnosticizm/ (6 файлов)
+    │   ├── gumanizm/ (8 файлов)
+    │   ├── ierarkhizm/ (11 файлов)
+    │   ├── induizm/ (8 файлов)
+    │   ├── islam/ (10 файлов)
+    │   ├── iudaizm/ (10 файлов)
+    │   ├── izinkulungu/ (7 файлов)
+    │   ├── vavilonizm/ (16 файлов)
+    │   ├── vudizm/ (7 файлов)
+    │   └── zoroastrizm/ (1 файл)
+    ├── relyativizm/ (7 файлов)
+    ├── satanizm/ (11 файлов)
+    │   ├── misticheskie-formy/ (2 файла)
+    │   ├── osobennosti-ucheniya/ (6 файлов)
+    │   └── simvolicheskie-znaki/ (5 файлов)
+    ├── saturnizm/ (10 файлов)
+    ├── scientizm/ (8 файлов)
+    ├── sekulyarizm/ (6 файлов)
+    ├── selebritizm/ (14 файлов)
+    │   ├── kult-blogerov/ (2 файла)
+    │   ├── kult-lichnostei/ (1 файл)
+    │   ├── kult-pevcov/ (13 файлов)
+    │   └── razbor-pesen/ (3 файла)
+    ├── shamanizm/ (11 файлов)
+    ├── shovinizm/ (8 файлов)
+    │   └── vidy-shovinizma/ (12 файлов)
+    ├── sinarkhizm/ (6 файлов)
+    ├── sinematizm/ (6 файлов)
+    │   ├── kino-giganty/ (9 файлов)
+    │   ├── mult-giganty/ (10 файлов)
+    │   ├── sataninskaya-kinofalsh/ (5 файлов)
+    │   └── sataninskaya-multfalsh/ (7 файлов)
+    ├── sinkretizm/ (3 файла)
+    ├── sintoizm/ (8 файлов)
+    ├── spiritizm/ (5 файлов)
+    ├── stigmatizm/ (13 файлов)
+    ├── subektivizm/ (5 файлов)
+    ├── talmudizm/ (9 файлов)
+    │   └── teologicheskaya-literatura/ (8 файлов)
+    ├── tekhnoteizm/ (9 файлов)
+    │   ├── biotekhnologii/ (7 файлов)
+    │   └── cifrovye-tekhnologii/ (8 файлов)
+    ├── teocentrizm/ (6 файлов)
+    ├── toiizm/ (10 файлов)
+    │   └── igrushki-brendy/ (2 файла)
+    ├── totemizm/ (1 файл)
+    ├── transgumanizm/ (8 файлов)
+    │   └── neirointerfeisy/ (4 файла)
+    ├── ufologizm/ (8 файлов)
+    ├── universalizm/ (9 файлов)
+    └── utilitarizm/ (6 файлов)
+
+## 📁 instructions/ (42 файла)
+
+├── checkers/ (6 файлов)
+├── exposure/ (8 файлов)
+├── methodology/ (5 файлов)
+├── tahor/ (6 файлов)
+├── templates/ (3 файла)
+└── tools/ (1 файл)
+
+## 📁 tools/ (66 файлов)
+
+├── automation/ (6 файлов)
+├── backup/ (3 файла)
+├── cache/ (5 файлов)
+├── checkers/ (22 файла)
+├── generators/ (15 файлов)
+├── lib/ (2 файла)
+├── reports/ (4 файла)
+├── sync/ (2 файла)
+└── utils/ (4 файла)
+
+## 📁 ed-neural/ (22 файла)
+
+├── docs/ (3 файла)
+├── eval/ (2 файла)
+├── inference/ (5 файлов)
+├── models/ (1 файл)
+├── scripts/ (5 файлов)
+└── training-data/ (5 файлов)
+
+## 📁 ed-agent/ (4 файла)
+
+   *4 файлов в корне*
+
+## 📁 web/ (10 файлов)
+
+└── export/ (2 файла)
+
+## 📁 docs/ (29 файлов)
+
+   *29 файлов в корне*
+
+## 📁 drafts/ (3 файла)
+
+   *3 файлов в корне*
+
+## 📁 ideas/ (14 файлов)
+
+   *14 файлов в корне*
+
+## 📁 davar/ (7 файлов)
+
+└── examples/ (3 файла)
+
+## 📁 reports/ (3 файла)
+
+   *3 файлов в корне*
+
+---
+
+**Всего:  (2057 файлов)**
