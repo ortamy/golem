@@ -10,9 +10,35 @@ const WEB_DIR = __dirname;
 const SCAN_DIRS = [
     { folder: 'terminology', label: 'Терминология' },
     { folder: 'researches', label: 'Исследования' },
+    { folder: 'learn-hebrew', label: 'Изучение иврита' },
 ];
 
 const IGNORE_FILES = ['README.md', 'STRUCTURE.md', 'GLOSSARY.md', 'CHANGELOG.md'];
+
+const SUBCATEGORY_LABELS = {
+    'archive': 'Архив',
+    'books': 'Книги',
+    'companies': 'Компании',
+    'economy': 'Экономика',
+    'history': 'История',
+    'language': 'Язык',
+    'languages': 'Языки',
+    'media': 'Медиа',
+    'medicine': 'Медицина',
+    'names': 'Имена',
+    'physis': 'Природа',
+    'practices': 'Практики',
+    'psychology': 'Психология',
+    'roman-law': 'Римское право',
+    'science': 'Наука',
+    'simvolika': 'Символика',
+    'slavery': 'Рабство',
+    'sociology': 'Общество',
+    'sport': 'Спорт',
+    'systems': 'Системы',
+    'tanakh': 'ТаНаХ',
+    'teachings': 'Учения',
+};
 
 const MIME = {
     '.html': 'text/html; charset=utf-8',
@@ -50,9 +76,11 @@ function walkDir(dirPath, baseFolder, label, files) {
             const parts = relPath.split('/');
             let subcategory = '';
             if (parts[0] === 'researches' && parts.length > 2) {
-                subcategory = parts[1];
+                subcategory = SUBCATEGORY_LABELS[parts[1]] || parts[1];
             } else if (parts[0] === 'instructions' && parts.length > 2) {
-                subcategory = parts[1];
+                subcategory = SUBCATEGORY_LABELS[parts[1]] || parts[1];
+            } else if (parts[0] === 'learn-hebrew' && parts.length > 2) {
+                subcategory = SUBCATEGORY_LABELS[parts[1]] || parts[1];
             }
             files.push({
                 path: relPath,
@@ -119,7 +147,7 @@ const server = http.createServer((req, res) => {
         try {
             const files = scanFiles();
             res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-            res.end(JSON.stringify(files));
+            res.end(JSON.stringify(files, null, 2));
         } catch (e) {
             console.error('Ошибка сканирования:', e.message);
             res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
@@ -181,5 +209,12 @@ server.listen(PORT, () => {
     console.log(`  Сервер запущен: http://localhost:${PORT}/`);
     console.log(`  API файлов:     http://localhost:${PORT}/api/files`);
     console.log(`  API файла:      http://localhost:${PORT}/api/file?path=terminology/yhwh.md`);
+    console.log('========================================\n');
+    console.log('  Категории:');
+    SCAN_DIRS.forEach(({ folder, label }) => {
+        const dirPath = path.join(ROOT, folder);
+        const exists = fs.existsSync(dirPath);
+        console.log(`    ${exists ? '✅' : '⚠️ '} ${label} (${folder})`);
+    });
     console.log('========================================\n');
 });
