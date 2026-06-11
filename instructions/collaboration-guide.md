@@ -1,19 +1,20 @@
 # 🤝 РУКОВОДСТВО ДЛЯ КОНТРИБЬЮТОРОВ (COLLABORATION GUIDE)
 
 **Метаданные файла**
-- **Файл:** `instructions/collaboration-guide.md`
-- **Версия:** 1.0
+- **Файл:** `instructions/COLLABORATION-GUIDE.md`
+- **Версия:** 1.1
 - **Дата создания:** 2026-06-05
-- **Последнее обновление:** 2026-06-05
-- **Причина обновления:** Первичное создание
+- **Последнее обновление:** 2026-06-11
+- **Причина обновления:** Обновлены цифры, имена файлов, добавлен Cline
 - **Статус:** Активный
 - **Тема:** Как участвовать в проекте «Голем» — правила, процесс, коммуникация
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/collaboration-guide.md`, `instructions/research-principles.md`, `instructions/forbidden-words.md`, `instructions/workflow.md`, `instructions/exposure/exposure-methods.md`
-- **Хеш:** 486c3dc5
+- **Связанные файлы:** `instructions/COLLABORATION-GUIDE.md`, `instructions/RESEARCH-PRINCIPLES.md`, `instructions/FORBIDDEN-WORDS.md`, `CONTROL.md`, `instructions/exposure/exposure-language.md`, `instructions/exposure/exposure-methods.md`
+- **Хеш:** ожидает
 - **Достоверность:** средняя
-- **Последний аудит:** 2026-06-09
+- **Последний аудит:** 2026-06-11
+
 ---
 
 ## 🔥 ВВЕДЕНИЕ
@@ -72,9 +73,9 @@
 ### ШАГ 1: ПРОЧИТАЙ
 
 - `README.md` — лицо проекта
-- `instructions/research-principles.md` — 38 принципов
-- `instructions/forbidden-words.md` — запрещённые слова
-- `instructions/workflow.md` — рабочий процесс
+- `instructions/RESEARCH-PRINCIPLES.md` — 38 принципов
+- `instructions/FORBIDDEN-WORDS.md` — запрещённые слова
+- `CONTROL.md` — пульт управления проектом
 
 ### ШАГ 2: ВЫБЕРИ ЗАДАЧУ
 
@@ -86,19 +87,20 @@
 ### ШАГ 3: СОЗДАЙ ЧЕРНОВИК
 
 - создай файл в `drafts/`
-- следуй шаблону `research-template.md`
+- следуй шаблону `instructions/templates/RESEARCH-TEMPLATE.md`
 - заполни метаданные
 
 ### ШАГ 4: ПРОВЕРЬ СЕБЯ
 
 - заголовок: эмоджи + КАПС
-- имя файла: латиница, дефис
+- имя файла: латиница, дефис, КАПСОМ
 - нет религионимов
 - есть стихи ТаНаХа с переводом
 
 ### ШАГ 5: ОТПРАВЬ НА АУДИТ
 
-- напиши Свидетелю (Эд) или редактору
+- напиши Свидетелю (Эд) — используй `instructions/CHAT-AGENT-PROMPT.md`
+- или поручи Cline (ИИ-ассистент в VS Code) — используй `instructions/CHAT-ASSISTANT-PROMPT.md`
 - дождись проверки по 4 этапам
 - исправь замечания
 
@@ -120,7 +122,7 @@
 - предложить замены
 
 **2. MIVDAK — полезность**
-- оценить по 23 методам
+- оценить по 32 методам
 - сказать, чего не хватает
 
 **3. TIKUN — задачи**
@@ -133,7 +135,7 @@
 
 ### ФОРМАТ ОТВЕТА
 
-```markdown
+```
 ## АУДИТ [НАЗВАНИЕ ФАЙЛА]
 
 ### BDIKAH
@@ -156,11 +158,17 @@
 
 ## 💬 КАК ОБЩАТЬСЯ
 
-### В ЧАТЕ С СВИДЕТЕЛЕМ
+### В ЧАТЕ С ЭДОМ (СВИДЕТЕЛЕМ)
 
+- используй `instructions/CHAT-AGENT-PROMPT.md` для начала чата
 - задавай вопросы прямо
 - присылай тексты на проверку
-- уточняй непонятные моменты
+
+### В CLINE (VS CODE)
+
+- используй `instructions/CHAT-ASSISTANT-PROMPT.md` для начала
+- Cline пишет код, правит файлы, запускает скрипты
+- для ежедневной рутины: `instructions/CLINE-ROUTINE.md`
 
 ### В ISSUES
 
@@ -255,7 +263,7 @@
 
 ## 🏆 ПРИЗНАНИЕ
 
-Все контрибьюторы попадают в `docs/CONTRIBUTORS.md` (будет создан).
+Все контрибьюторы попадают в `docs/CONTRIBUTORS.md`.
 
 Крупные вклады отмечаются в `docs/CHANGELOG.md`.
 
@@ -263,10 +271,13 @@
 
 ## 📖 ДОПОЛНИТЕЛЬНЫЕ МАТЕРИАЛЫ
 
-- `workflow.md` — детальный рабочий процесс
-- `coding-standards.md` — стандарты кода
-- `research-principles.md` — 38 принципов
-- `forbidden-words.md` — запрещённые слова
+- `CONTROL.md` — пульт управления
+- `instructions/CODING-STANDARDS.md` — стандарты кода
+- `instructions/RESEARCH-PRINCIPLES.md` — 38 принципов
+- `instructions/FORBIDDEN-WORDS.md` — запрещённые слова
+- `instructions/CHAT-AGENT-PROMPT.md` — для чата с Эдом
+- `instructions/CHAT-ASSISTANT-PROMPT.md` — для работы с Cline
+- `instructions/CLINE-ROUTINE.md` — алгоритм ежедневной работы
 
 ---
 
@@ -285,6 +296,3 @@
 Мы не судим людей. Мы проверяем утверждения.
 
 Путь Яхве — путь истины. Истина объединяет.
-
-
----

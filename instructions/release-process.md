@@ -1,18 +1,19 @@
 # 📦 ПРОЦЕСС ВЫПУСКА ВЕРСИЙ (RELEASE PROCESS)
 
 **Метаданные файла**
-- **Файл:** `instructions/release-process.md`
-- **Версия:** 1.0
+- **Файл:** `instructions/RELEASE-PROCESS.md`
+- **Версия:** 1.1
 - **Дата создания:** 2026-06-05
-- **Последнее обновление:** 2026-06-05
-- **Причина обновления:** Первичное создание
+- **Последнее обновление:** 2026-06-11
+- **Причина обновления:** Обновлены пути к скриптам, добавлены новые проверки
 - **Статус:** Активный
 - **Тема:** Как выпускать новые версии проекта «Голем»
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Хеш:** 11e947db
+- **Хеш:** ожидает
 - **Достоверность:** средняя
-- **Последний аудит:** 2026-06-09
+- **Последний аудит:** 2026-06-11
+
 ---
 
 ## 🔥 ВВЕДЕНИЕ
@@ -69,25 +70,26 @@
 
 ### ПЕРЕД ВЫПУСКОМ
 
-- [ ] проверить, что все изменения закоммичены
-- [ ] запустить все проверки: `python3 tools/menu.py` → пункт 16
-- [ ] убедиться, что нет критических ошибок
-- [ ] обновить версии во всех файлах: `python3 tools/update-versions.py --type minor`
+- [ ] проверить что все изменения закоммичены
+- [ ] запустить все проверки: `python tools/golem.py` → Run all checks
+- [ ] убедиться что нет критических ошибок
+- [ ] обновить версии: `python tools/automation/auto-versions.py --type minor`
 
 ### ВО ВРЕМЯ ВЫПУСКА
 
-- [ ] создать тег в Git: `git tag -a v1.1.0 -m "Версия 1.1.0"`
+- [ ] создать тег: `git tag -a v1.1.0 -m "Версия 1.1.0"`
 - [ ] запушить тег: `git push --tags`
 - [ ] создать релиз на GitHub с описанием изменений
 
 ### ПОСЛЕ ВЫПУСКА
 
-- [ ] создать бэкап: `./tools/backup.sh`
+- [ ] обновить веб-интерфейс: `python tools/generators/generate-files-json.py`
+- [ ] создать бэкап: `bash tools/backup/backup.sh`
 - [ ] уведомить участников
 
 ---
 
-## 📝 CHANGELOG.MD
+## 📝 CHANGELOG
 
 **ФОРМАТ:**
 
@@ -95,7 +97,7 @@
 ## [1.1.0] - 2026-06-05
 
 ### Добавлено
-- новый инструмент: `tools/check-links.py`
+- новый инструмент: `tools/checkers/check-links.py`
 
 ### Исправлено
 
@@ -106,7 +108,7 @@
 - каждая версия — отдельная секция
 - дата в формате ГГГГ-ММ-ДД
 - группировка: Добавлено, Исправлено, Удалено
-- ссылки на файлы и issues
+- ссылки на файлы
 
 ---
 
@@ -123,17 +125,17 @@ git push origin v1.1.0
 - нажать "Create a new release"
 - выбрать тег
 - заголовок: `Версия 1.1.0`
-- описание: выдержка из CHANGELOG.md
+- описание: выдержка из CHANGELOG
 - прикрепить архив (опционально)
 
 ---
 
 ## 📊 СТАТУСЫ ВЕРСИЙ
 
-- **ALPHA** — внутреннее тестирование, не для публичного использования
+- **ALPHA** — внутреннее тестирование
 - **BETA** — публичное тестирование, возможны ошибки
-- **STABLE** — стабильная версия, рекомендуется для всех
-- **DEPRECATED** — устаревшая версия, не рекомендуется
+- **STABLE** — стабильная версия
+- **DEPRECATED** — устаревшая версия
 - **LEGACY** — только для исторических справок
 
 **ТЕКУЩИЙ СТАТУС:** STABLE
@@ -144,8 +146,8 @@ git push origin v1.1.0
 
 **АВТОМАТИЧЕСКИ:**
 ```bash
-python3 tools/update-versions.py --type minor
-python3 tools/update-versions.py --type major --dry-run
+python tools/automation/auto-versions.py --type minor
+python tools/automation/auto-versions.py --type major --dry-run
 ```
 
 **РУЧНОЕ ОБНОВЛЕНИЕ:**
@@ -157,106 +159,43 @@ python3 tools/update-versions.py --type major --dry-run
 
 ## ✅ ЧЕК-ЛИСТ РЕЛИЗА
 
-**ПОДГОТОВКА (ЗА 2 ДНЯ)**
-- [ ] определить тип версии (major/minor/patch)
-- [ ] собрать список изменений
-- [ ] обновить ROADMAP.md
+**ПРОВЕРКИ**
+- [ ] `python tools/checkers/check-religionisms.py`
+- [ ] `python tools/checkers/check-naming.py`
+- [ ] `python tools/checkers/check-links.py`
+- [ ] `python tools/checkers/check-duplicates.py`
+- [ ] `python tools/checkers/check-empty-files.py`
+- [ ] `python tools/checkers/check-code-quality.py`
+- [ ] `python tools/reports/report-stats.py`
 
-**ПРОВЕРКИ (ЗА 1 ДЕНЬ)**
-- [ ] запустить `check-naming.py`
-- [ ] запустить `validate-metadata.py`
-- [ ] запустить `check-links.py`
-- [ ] запустить `find-duplicates.py`
-- [ ] запустить `stats-report.py`
+**ОБНОВЛЕНИЯ**
+- [ ] обновить версии: `auto-versions.py`
+- [ ] обновить CHANGELOG
+- [ ] обновить структуру: `python tools/sync/sync-structure.py`
+- [ ] обновить глоссарий: `python tools/generators/generate-glossary.py`
+- [ ] обновить веб: `python tools/generators/generate-files-json.py`
 
-**ОБНОВЛЕНИЯ (ЗА 1 ЧАС)**
-- [ ] обновить версии: `update-versions.py`
-- [ ] обновить CHANGELOG.md
-- [ ] обновить README.md (если нужно)
-- [ ] обновить структуру: `sync-structure.py`
-- [ ] обновить глоссарий: `generate-glossary.py`
-- [ ] обновить навигацию: `generate-nav.py`
-
-**ПУБЛИКАЦИЯ (В ДЕНЬ РЕЛИЗА)**
-- [ ] сделать коммит: `git add . && git commit -m "Релиз v1.1.0"`
-- [ ] создать тег: `git tag -a v1.1.0`
-- [ ] запушить: `git push --tags`
-- [ ] создать релиз на GitHub
-- [ ] сделать бэкап: `./tools/backup.sh`
-- [ ] уведомить участников
+**ПУБЛИКАЦИЯ**
+- [ ] коммит: `git add . && git commit -m "Релиз v1.1.0"`
+- [ ] тег: `git tag -a v1.1.0`
+- [ ] пуш: `git push --tags`
+- [ ] релиз на GitHub
+- [ ] бэкап: `bash tools/backup/backup.sh`
 
 ---
 
 ## 🚫 ЧЕГО НЕ ДЕЛАТЬ
 
 - не выпускать релиз без проверок
-- не менять версию вручную в каждом файле (используй скрипт)
+- не менять версию вручную в каждом файле
 - не забывать обновлять CHANGELOG
 - не удалять старые теги
 - не выпускать major-версию без обсуждения
 
 ---
 
-## 📋 ПРИМЕР РЕЛИЗА
-
-**ВЕРСИЯ:** 1.2.0 (MINOR)
-
-**ИЗМЕНЕНИЯ:**
-- Добавлено: 5 новых терминов
-- Добавлено: 3 новых исследования
-- Добавлено: инструмент `check-links.py`
-- Исправлено: 10 опечаток
-- Исправлено: 2 битые ссылки
-
-**ШАГИ:**
-```bash
-# обновить версии
-python3 tools/update-versions.py --type minor
-
-# обновить CHANGELOG
-# (редактировать вручную)
-
-# проверки
-python3 tools/check-naming.py
-python3 tools/validate-metadata.py
-python3 tools/check-links.py
-
-# обновить структуру
-python3 tools/sync-structure.py
-python3 tools/generate-glossary.py
-
-# коммит
-git add .
-git commit -m "Релиз v1.2.0"
-
-# тег
-git tag -a v1.2.0 -m "Релиз версии 1.2.0"
-git push --tags
-
-# релиз на GitHub
-# (создать вручную)
-
-# бэкап
-./tools/backup.sh
-```
-
----
-
-## 🔄 ОБНОВЛЕНИЕ ПРОЦЕССА
-
-Процесс выпуска обновляется по мере развития проекта.
-
-Крупные изменения обсуждаются в issues.
-
----
-
 ## 🛡️ ВОЗВРАЩЕНИЕ
 
-Релизы — это вехи на пути.
-
-Каждая версия — шаг вперёд к истине.
+Релизы — вехи на пути. Каждая версия — шаг к истине.
 
 Путь Яхве — последовательное движение.
-
-
----
