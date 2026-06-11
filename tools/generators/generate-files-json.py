@@ -11,23 +11,31 @@ from lib.utils import REPO_ROOT
 
 WEB_DIR = REPO_ROOT / "web"
 SCAN_DIRS = [
-    ("terminology", "Терминология"),
-    ("researches", "Исследования"),
-    ("learn-hebrew", "Изучение иврита"),
+    ("content/terminology", "Терминология"),
+    ("content/tanakh", "ТаНаХ"),
+    ("content/bashah", "БаШаХ"),
+    ("content/researches", "Исследования"),
+    ("content/teachings", "Учения"),
+    ("content/learn-hebrew", "Изучение иврита"),
 ]
 IGNORE_FILES = {"README.md", "STRUCTURE.md", "GLOSSARY.md", "CHANGELOG.md"}
 
 SUBCATEGORY_LABELS = {
     'archive': 'Архив',
     'books': 'Книги',
+    'chronology': 'Хронология',
     'companies': 'Компании',
+    'concepts': 'Понятия',
     'economy': 'Экономика',
+    'events': 'События',
     'history': 'История',
     'language': 'Язык',
     'languages': 'Языки',
+    'manuscripts': 'Рукописи',
     'media': 'Медиа',
     'medicine': 'Медицина',
     'names': 'Имена',
+    'persons': 'Личности',
     'physis': 'Природа',
     'practices': 'Практики',
     'psychology': 'Психология',
@@ -86,8 +94,8 @@ def walk_dir(dir_path, base_folder, label):
         content = entry.read_text(encoding="utf-8", errors="ignore")
         parts = rel.split("/")
         subcategory = ""
-        if len(parts) > 2:
-            subcategory = SUBCATEGORY_LABELS.get(parts[1], parts[1])
+        if len(parts) > 3:
+            subcategory = SUBCATEGORY_LABELS.get(parts[2], parts[2])
         files.append({
             "path": rel,
             "title": extract_title(content) or entry.stem.replace("-", " "),
