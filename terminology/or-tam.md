@@ -11,14 +11,16 @@
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
 - **Связанные файлы:** `researches/tanakh/or-tam.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/tahor/names.md`
-- **Хеш:** 6e136be5
+- **Хеш:** ca662cc5
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
+- **Проверок на религионизмы:** 1
+- **Последняя проверка:** 2026-06-11
 ---
 
 ## 🔥 ВВЕДЕНИЕ
 
-Имя — это не таг. Это суть. В ТаНаХ имя определяет тева вещи. Назвал — значит познал суть.
+Имя — это не таг. Это суть. В ... имя определяет тева вещи. Назвал — значит познал суть.
 
 אוֹר תָּם (Ор Там) — Ор Цельный. Два слова. Два корня. Один машмаут.
 

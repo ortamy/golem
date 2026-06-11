@@ -11,9 +11,11 @@
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
 - **Связанные файлы:** `researches/companies/jpmorgan.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`
-- **Хеш:** 3173ac22
+- **Хеш:** d9a58f56
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
+- **Проверок на религионизмы:** 1
+- **Последняя проверка:** 2026-06-11
 ---
 
 ## 🔥 ВВЕДЕНИЕ
@@ -129,7 +131,7 @@ JPMorgan — это заимодавец. Он даёт деньги в рост
 
 ## 🛡️ ВОЗВРАЩЕНИЕ
 
-Долг — это рабство. процент запрещён в Торе (Шмот 22:24) — это укус. Богатство — не йешуа.
+Долг — это рабство. процент запрещён в ... (Шмот 22:24) — это укус. Богатство — не йешуа.
 
 Не будь должником. Не будь заимодавцем. Не служи маммоне. Служи Яхве.
 

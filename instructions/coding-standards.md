@@ -173,17 +173,102 @@ fi
 
 ```
 tools/
-├── check-naming.py
-├── add-metadata.py
-├── validate-metadata.py
-└── menu.py
+├── golem.py                    # главный CLI-интерфейс
+├── remove-duplicate-links.py
+├── update-paths.ps1
+├── checkers/                   # префикс: check-
+│   ├── check-code-quality.py
+│   ├── check-consistency.py
+│   ├── check-duplicates.py
+│   ├── check-empty-files.py
+│   ├── check-env.py
+│   ├── check-exposure.py
+│   ├── check-external-links.py
+│   ├── check-file-names-clarity.py
+│   ├── check-file-sizes.py
+│   ├── check-fix-encoding.py
+│   ├── check-fix-metadata.py
+│   ├── check-fix-transliteration.py
+│   ├── check-links.py
+│   ├── check-metadata-consistency.py
+│   ├── check-metadata.py
+│   ├── check-names-language.py
+│   ├── check-naming.py
+│   ├── check-orphans.py
+│   ├── check-religionisms.py
+│   ├── check-sort-files.py
+│   ├── check-tahor-sync.py
+│   └── check-tanakh-references.py
+├── generators/                 # префикс: generate-
+│   ├── generate-book.py
+│   ├── generate-changelog.py
+│   ├── generate-exposure-suggestions.py
+│   ├── generate-files-json.py
+│   ├── generate-fill-empty.py
+│   ├── generate-glossary.py
+│   ├── generate-graph.py
+│   ├── generate-index.py
+│   ├── generate-metadata.py
+│   ├── generate-nav.py
+│   ├── generate-related-links.py
+│   ├── generate-retrospective.py
+│   ├── generate-training-data.py
+│   └── generate-web.py
+├── reports/                    # префикс: report-
+│   ├── report-daily.py
+│   ├── report-dashboard.py
+│   ├── report-health.py
+│   └── report-stats.py
+├── automation/                 # префикс: auto-
+│   ├── auto-add-metadata.py
+│   ├── auto-doc.py
+│   ├── auto-fix.py
+│   ├── auto-ideas.py
+│   ├── auto-tasks.py
+│   └── auto-versions.py
+├── sync/                       # префикс: sync-
+│   ├── sync-changelogs.py
+│   └── sync-structure.py
+├── utils/                      # вспомогательные инструменты
+│   ├── clear-cache.py
+│   ├── code-injector.py
+│   ├── rename-script.py
+│   └── search.py
+├── backup/                     # скрипты бэкапа
+│   ├── backup.sh
+│   ├── create-backup-scheduled.sh
+│   └── export-repo.sh
+├── lib/                        # библиотеки
+│   ├── ui.py
+│   └── utils.py
+└── cache/                      # кэши (JSON-файлы)
+    ├── dirty-files.json
+    ├── golem-config.json
+    ├── religionisms-cache.json
+    ├── scan-cache.json
+    └── tanakh.json
 
-davar/
-├── spec/
-│   ├── grammar.md
-│   └── types.md
+ed-agent/                       # Эд — полуавтономный агент
+├── agent.py
+├── memory.py
+├── tools.py
+└── config.yml
+
+ed-neural/                      # нейросетевые эксперименты
+├── README.md
+├── docs/
+├── eval/
+├── inference/
+├── models/
+├── scripts/
+└── training-data/
+
+davar/                          # язык программирования Давар
+├── davar-architecture.md
+├── davar-language.md
+├── README.md
+├── STRUCTURE.md
 └── examples/
-    └── hello-world.dvr
 ```
 
 ---
