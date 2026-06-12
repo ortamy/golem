@@ -880,6 +880,396 @@
     "related": []
   },
   {
+    "path": "content/tanakh/books/amos.md",
+    "title": "Амос — עָמוֹס",
+    "topic": "Разбор книги «Амос» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/bemidbar.md",
+    "title": "Бемидбар — בְּמִדְבַּר",
+    "topic": "Разбор книги «Бемидбар» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/bereshit.md",
+    "title": "Берешит — בְּרֵאשִׁית",
+    "topic": "Разбор книги «Берешит» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/chaggai.md",
+    "title": "Хагай — חַגַּי",
+    "topic": "Разбор книги «Хагай» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/chavakuk.md",
+    "title": "Хавакук — חֲבַקּוּק",
+    "topic": "Разбор книги «Хавакук» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/daniel.md",
+    "title": "Даниэль — דָּנִיֵּאל",
+    "topic": "Разбор книги «Даниэль» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/divrei-hayamim-alef.md",
+    "title": "Диврей hа-Ямим Алеф — דִּבְרֵי הַיָּמִים א",
+    "topic": "Разбор книги «Диврей hа-Ямим Алеф» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/divrei-hayamim-bet.md",
+    "title": "Диврей hа-Ямим Бет — דִּבְרֵי הַיָּמִים ב",
+    "topic": "Разбор книги «Диврей hа-Ямим Бет» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/dvarim.md",
+    "title": "Дварим — דְּבָרִים",
+    "topic": "Разбор книги «Дварим» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/eikhah.md",
+    "title": "Эйха — אֵיכָה",
+    "topic": "Разбор книги «Эйха» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/ester.md",
+    "title": "Эстер — אֶסְתֵּר",
+    "topic": "Разбор книги «Эстер» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/ezra.md",
+    "title": "Эзра — עֶזְרָא",
+    "topic": "Разбор книги «Эзра» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/hoshea.md",
+    "title": "Ошеа — הוֹשֵׁעַ",
+    "topic": "Разбор книги «Ошеа» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/iyov.md",
+    "title": "Ийов — אִיּוֹב",
+    "topic": "Разбор книги «Ийов» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/kohelet.md",
+    "title": "Кохелет — קֹהֶלֶת",
+    "topic": "Разбор книги «Кохелет» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/malakhi.md",
+    "title": "Малахи — מַלְאָכִי",
+    "topic": "Разбор книги «Малахи» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/melachim-alef.md",
+    "title": "Млахим Алеф — מְלָכִים א",
+    "topic": "Разбор книги «Млахим Алеф» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/melachim-bet.md",
+    "title": "Млахим Бет — מְלָכִים ב",
+    "topic": "Разбор книги «Млахим Бет» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/mikhah.md",
+    "title": "Михэ — מִיכָה",
+    "topic": "Разбор книги «Михэ» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/mishlei.md",
+    "title": "Мишлей — מִשְׁלֵי",
+    "topic": "Разбор книги «Мишлей» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/nachum.md",
+    "title": "Нахум — נַחוּם",
+    "topic": "Разбор книги «Нахум» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/nechemyah.md",
+    "title": "Нехемья — נְחֶמְיָה",
+    "topic": "Разбор книги «Нехемья» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/ovadyah.md",
+    "title": "Овадья — עֹבַדְיָה",
+    "topic": "Разбор книги «Овадья» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/rut.md",
+    "title": "Рут — רוּת",
+    "topic": "Разбор книги «Рут» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/shir-hashirim.md",
+    "title": "Шир hа-Ширим — שִׁיר הַשִּׁירִים",
+    "topic": "Разбор книги «Шир hа-Ширим» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/shmot.md",
+    "title": "Шмот — שְׁמוֹת",
+    "topic": "Разбор книги «Шмот» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/shmuel-alef.md",
+    "title": "Шмуэль Алеф — שְׁמוּאֵל א",
+    "topic": "Разбор книги «Шмуэль Алеф» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/shmuel-bet.md",
+    "title": "Шмуэль Бет — שְׁמוּאֵל ב",
+    "topic": "Разбор книги «Шмуэль Бет» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/shoftim.md",
+    "title": "Шофтим — שֹׁפְטִים",
+    "topic": "Разбор книги «Шофтим» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/tehillim.md",
+    "title": "Теhиллим — תְּהִלִּים",
+    "topic": "Разбор книги «Теhиллим» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/tsefanyah.md",
+    "title": "Цфания — צְפַנְיָה",
+    "topic": "Разбор книги «Цфания» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/vayikra.md",
+    "title": "Ваикра — וַיִּקְרָא",
+    "topic": "Разбор книги «Ваикра» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/yehezkel.md",
+    "title": "Йехезкель — יְחֶזְקֵאל",
+    "topic": "Разбор книги «Йехезкель» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/yehoshua.md",
+    "title": "Йеhошуа — יְהוֹשֻׁעַ",
+    "topic": "Разбор книги «Йеhошуа» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/yeshayahu.md",
+    "title": "Йешаяу — יְשַׁעְיָהוּ",
+    "topic": "Разбор книги «Йешаяу» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/yirmeyahu.md",
+    "title": "Йирмейяу — יִרְמְיָהוּ",
+    "topic": "Разбор книги «Йирмейяу» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/yoel.md",
+    "title": "Йоэль — יוֹאֵל",
+    "topic": "Разбор книги «Йоэль» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/yonah.md",
+    "title": "Йона — יוֹנָה",
+    "topic": "Разбор книги «Йона» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
+    "path": "content/tanakh/books/zechariah.md",
+    "title": "Зехарья — זְכַרְיָה",
+    "topic": "Разбор книги «Зехарья» — автор, структура, ключевые темы, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/связанная-книга.md"
+    ]
+  },
+  {
     "path": "content/tanakh/brit-ania.md",
     "title": "БРИТ-АНИЯ: КОРАБЛЬ Брит ИЛИ ИМПЕРИЯ ЛЖИ?",
     "topic": "Требует уточнения",
@@ -984,9 +1374,265 @@
     "related": []
   },
   {
+    "path": "content/tanakh/events/akedat-itzchak.md",
+    "title": "Акедат Ицхак — עֲקֵדַת יִצְחָק",
+    "topic": "Разбор события «Акедат Ицхак» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/binyan-bayit-sheni.md",
+    "title": "Биньян Байт Шени — בִּנְיַן בַּיִת שֵׁנִי",
+    "topic": "Разбор события «Биньян Байт Шени» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/binyan-habayit.md",
+    "title": "Биньян hа-Байт — בִּנְיַן הַבַּיִת",
+    "topic": "Разбор события «Биньян hа-Байт» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/briat-haolam.md",
+    "title": "Бриат hа-Олам — בְּרִיאַת הָעוֹלָם",
+    "topic": "Разбор события «Бриат hа-Олам» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/brit-begivon.md",
+    "title": "Брит бе-Гивон — בְּרִית בְּגִבְעוֹן",
+    "topic": "Разбор события «Брит бе-Гивон» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/brit-bein-habetarim.md",
+    "title": "Брит бейн hа-Бтарим — בְּרִית בֵּין הַבְּתָרִים",
+    "topic": "Разбор события «Брит бейн hа-Бтарим» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/brit-moav.md",
+    "title": "Брит Моав — בְּרִית מוֹאָב",
+    "topic": "Разбор события «Брит Моав» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/chanukah.md",
+    "title": "Ханука — חֲנֻכָּה",
+    "topic": "Разбор события «Ханука» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/chet-achan.md",
+    "title": "Хет Ахан — חֵטְא עָכָן",
+    "topic": "Разбор события «Хет Ахан» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/chet-david.md",
+    "title": "Хет Давид — חֵטְא דָּוִד",
+    "topic": "Разбор события «Хет Давид» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/chet-haegel.md",
+    "title": "Хет hа-Эгель — חֵטְא הָעֵגֶל",
+    "topic": "Разбор события «Хет hа-Эгель» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/churban-bayit-rishon.md",
+    "title": "Хурбан Байт Ришон — חֻרְבַּן בַּיִת רִאשׁוֹן",
+    "topic": "Разбор события «Хурбан Байт Ришон» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/galut-bavel.md",
+    "title": "Галут Бавель — גָּלוּת בָּבֶל",
+    "topic": "Разбор события «Галут Бавель» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/kriat-yam-suf.md",
+    "title": "Крият Ям Суф — קְרִיעַת יַם סוּף",
+    "topic": "Разбор события «Крият Ям Суф» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/kriat-yericho.md",
+    "title": "Крият Йерихо — קְרִיעַת יְרִיחוֹ",
+    "topic": "Разбор события «Крият Йерихо» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/mabul.md",
+    "title": "Мабуль — מַבּוּל",
+    "topic": "Разбор события «Мабуль» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/mashiach-david.md",
+    "title": "Машиах Давид — מְשִׁיחַ דָוִד",
+    "topic": "Разбор события «Машиах Давид» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/matan-torah.md",
+    "title": "Маттан Тора — מַתַּן תּוֹרָה",
+    "topic": "Разбор события «Маттан Тора» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/meraglim.md",
+    "title": "Мераглим — מְרַגְּלִים",
+    "topic": "Разбор события «Мераглим» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/mered-avshalom.md",
+    "title": "Мередавшалом — מֶרֶד אַבְשָׁלוֹם",
+    "topic": "Разбор события «Мередавшалом» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/mey-merivah.md",
+    "title": "Мей Мерива — מֵי מְרִיבָה",
+    "topic": "Разбор события «Мей Мерива» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/milchemet-ai.md",
+    "title": "Милхемет Ай — מִלְחֶמֶת הָעַי",
+    "topic": "Разбор события «Милхемет Ай» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/milchemet-dvorah.md",
+    "title": "Милхемет Двора — מִלְחֶמֶת דְּבוֹרָה",
+    "topic": "Разбор события «Милхемет Двора» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/milchemet-gidon.md",
+    "title": "Милхемет Гидон — מִלְחֶמֶת גִּדְעוֹן",
+    "topic": "Разбор события «Милхемет Гидон» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/nechash-nechoshet.md",
+    "title": "Нехаш Нехошет — נְחַשׁ נְחֹשֶׁת",
+    "topic": "Разбор события «Нехаш Нехошет» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/nefilat-shimshon.md",
+    "title": "Нефилат Шимшон — נְפִילַת שִׁמְשׁוֹן",
+    "topic": "Разбор события «Нефилат Шимшон» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
     "path": "content/tanakh/events/nehushtan.md",
     "title": "נְחַשׁ הַנְּחֹשֶׁת — МЕДНЫЙ ЗМЕЙ: ПОДМЕНА САРАФА НА НАХАША",
     "topic": "Полное исследование медного змея (Нехуштан) — был ли это инструмент Яхве или языческий идол, проникш",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/pesel-michah.md",
+    "title": "Песель Миха — פֶּסֶל מִיכָה",
+    "topic": "Разбор события «Песель Миха» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/petach-hayarden.md",
+    "title": "Петах hа-Ярден — פְּתַח הַיַּרְדֵּן",
+    "topic": "Разбор события «Петах hа-Ярден» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/pilegesh-bagivah.md",
+    "title": "Пилегеш бе-Гива — פִּילֶגֶשׁ בְּגִבְעָה",
+    "topic": "Разбор события «Пилегеш бе-Гива» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/purim.md",
+    "title": "Пурим — פּוּרִים",
+    "topic": "Разбор события «Пурим» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/shivat-tzion.md",
+    "title": "Шиват Цион — שִׁיבַת צִיּוֹן",
+    "topic": "Разбор события «Шиват Цион» — ход, участники, значение, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "События",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/events/yetziat-mitzraim.md",
+    "title": "Ециат Мицраим — יְצִיאַת מִצְרַיִם",
+    "topic": "Разбор события «Ециат Мицраим» — ход, участники, значение, связь с Машиахом",
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": []
@@ -1311,6 +1957,198 @@
     "topic": "Полное исследование палео-иврита: происхождение, мивне, значение букв-образов, археологические свиде",
     "category": "ТаНаХ",
     "subcategory": "",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/aharon.md",
+    "title": "Аhарон — אַהֲרֹן",
+    "topic": "Разбор личности «Аhарон» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/avraham.md",
+    "title": "Авраhам — אַבְרָהָם",
+    "topic": "Разбор личности «Авраhам» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/daniel-person.md",
+    "title": "Даниэль — דָּנִיֵּאל",
+    "topic": "Разбор личности «Даниэль» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/david.md",
+    "title": "Давид — דָּוִד",
+    "topic": "Разбор личности «Давид» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/dvorah.md",
+    "title": "Двора — דְּבוֹרָה",
+    "topic": "Разбор личности «Двора» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/elisha.md",
+    "title": "Элиша — אֱלִישָׁע",
+    "topic": "Разбор личности «Элиша» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/eliyahu.md",
+    "title": "Элияу — אֵלִיָּהוּ",
+    "topic": "Разбор личности «Элияу» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/ester-person.md",
+    "title": "Эстер — אֶסְתֵּר",
+    "topic": "Разбор личности «Эстер» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/ezra-person.md",
+    "title": "Эзра — עֶזְרָא",
+    "topic": "Разбор личности «Эзра» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/gidon.md",
+    "title": "Гидон — גִּדְעוֹן",
+    "topic": "Разбор личности «Гидон» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/itzchak.md",
+    "title": "Ицхак — יִצְחָק",
+    "topic": "Разбор личности «Ицхак» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/moshe.md",
+    "title": "Моше — מֹשֶׁה",
+    "topic": "Разбор личности «Моше» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/nechemyah-person.md",
+    "title": "Нехемья — נְחֶמְיָה",
+    "topic": "Разбор личности «Нехемья» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/rut-person.md",
+    "title": "Рут — רוּת",
+    "topic": "Разбор личности «Рут» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/shaul.md",
+    "title": "Шауль — שָׁאוּל",
+    "topic": "Разбор личности «Шауль» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/shimshon.md",
+    "title": "Шимшон — שִׁמְשׁוֹן",
+    "topic": "Разбор личности «Шимшон» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/shlomo.md",
+    "title": "Шломо — שְׁלֹמֹה",
+    "topic": "Разбор личности «Шломо» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/shmuel.md",
+    "title": "Шмуэль — שְׁמוּאֵל",
+    "topic": "Разбор личности «Шмуэль» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/yaakov.md",
+    "title": "Яаков — יַעֲקֹב",
+    "topic": "Разбор личности «Яаков» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/yehezkel-person.md",
+    "title": "Йехезкель — יְחֶזְקֵאל",
+    "topic": "Разбор личности «Йехезкель» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/yehoshua.md",
+    "title": "Йеhошуа — יְהוֹשֻׁעַ",
+    "topic": "Разбор личности «Йеhошуа» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/yeshayahu-person.md",
+    "title": "Йешаяу — יְשַׁעְיָהוּ",
+    "topic": "Разбор личности «Йешаяу» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/yirmeyahu-person.md",
+    "title": "Йирмейяу — יִרְמְיָהוּ",
+    "topic": "Разбор личности «Йирмейяу» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/persons/yosef.md",
+    "title": "Йосеф — יוֹסֵף",
+    "topic": "Разбор личности «Йосеф» — жизнь, ошибки, плоды, связь с Машиахом",
+    "category": "ТаНаХ",
+    "subcategory": "Личности",
     "related": []
   },
   {
