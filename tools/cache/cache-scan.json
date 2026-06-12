@@ -7664,8 +7664,8 @@
     "clean": true
   },
   "content\\researches\\economy\\mortgage-dead-pledge.md": {
-    "mtime": 1781210043.2591884,
-    "clean": false
+    "mtime": 1781285858.4550679,
+    "clean": true
   },
   "content\\researches\\companies\\vanguard.md": {
     "mtime": 1781209780.6956134,
@@ -8340,7 +8340,7 @@
     "clean": true
   },
   "content\\tanakh\\paleo-hebrew.md": {
-    "mtime": 1781209884.5756314,
+    "mtime": 1781248069.6307437,
     "clean": true
   },
   "content\\tanakh\\rabbinic-judaism.md": {
@@ -8352,7 +8352,7 @@
     "clean": false
   },
   "content\\tanakh\\philosophemes.md": {
-    "mtime": 1781210046.6444902,
+    "mtime": 1781285862.0940094,
     "clean": false
   },
   "content\\tanakh\\remnant-israel.md": {
@@ -8360,7 +8360,7 @@
     "clean": true
   },
   "content\\tanakh\\serpent-healing.md": {
-    "mtime": 1781176868.516243,
+    "mtime": 1781285862.358428,
     "clean": true
   },
   "content\\tanakh\\religia-rome.md": {
@@ -8368,7 +8368,7 @@
     "clean": false
   },
   "content\\tanakh\\secta-meaning.md": {
-    "mtime": 1781209884.7998247,
+    "mtime": 1781248079.518692,
     "clean": false
   },
   "content\\tanakh\\ruchot-infected.md": {
@@ -14496,7 +14496,7 @@
     "clean": true
   },
   "content\\terminology\\ahava.md": {
-    "mtime": 1781209889.1372523,
+    "mtime": 1781285863.5721862,
     "clean": false
   },
   "content\\teachings\\utilitarizm\\vidy-utilitarizma.md": {
@@ -14916,7 +14916,7 @@
     "clean": true
   },
   "content\\researches\\sport\\bookmakers-as-mammon.md": {
-    "mtime": 1781210044.7164445,
+    "mtime": 1781285860.0590818,
     "clean": false
   },
   "content\\researches\\sport\\children-sport-sacrifice.md": {
@@ -14945,6 +14945,1062 @@
   },
   "content\\researches\\sport\\women-sport.md": {
     "mtime": 1781209881.9942338,
+    "clean": false
+  },
+  "content\\tanakh\\events\\nehushtan.md": {
+    "mtime": 1781285861.451549,
+    "clean": true
+  },
+  "content\\tanakh\\fruits-as-judgement.md": {
+    "mtime": 1781285861.493546,
+    "clean": false
+  },
+  "content\\tanakh\\greek-freedom-distortion.md": {
+    "mtime": 1781210047.3731797,
+    "clean": false
+  },
+  "content\\tanakh\\hellenization-vs-hebraization.md": {
+    "mtime": 1781210047.4002244,
+    "clean": false
+  },
+  "content\\tanakh\\miryam-vs-ishtar.md": {
+    "mtime": 1781210047.6712992,
+    "clean": false
+  },
+  "content\\tanakh\\pochemu-tanah-nikogda.md": {
+    "mtime": 1781209780.962287,
+    "clean": false
+  },
+  "content\\tanakh\\razoblachenie-sovremennogo-kulta.md": {
+    "mtime": 1781210048.0539286,
+    "clean": false
+  },
+  "content\\tanakh\\ruach-fruit.md": {
+    "mtime": 1781209888.6029887,
+    "clean": false
+  },
+  "content\\tanakh\\shaul-against-philosophy.md": {
+    "mtime": 1781209888.8017356,
+    "clean": true
+  },
+  "content\\tanakh\\shema-yhwh-echad.md": {
+    "mtime": 1781176901.6825917,
+    "clean": true
+  },
+  "content\\teachings\\ableism.md": {
+    "mtime": 1781285862.7504535,
+    "clean": true
+  },
+  "content\\teachings\\absurdism.md": {
+    "mtime": 1781212983.2963014,
+    "clean": true
+  },
+  "content\\teachings\\accelerationism.md": {
+    "mtime": 1781212983.5139196,
+    "clean": true
+  },
+  "content\\teachings\\adventism.md": {
+    "mtime": 1781212983.0138488,
+    "clean": true
+  },
+  "content\\teachings\\anarchism.md": {
+    "mtime": 1781212983.1558847,
+    "clean": true
+  },
+  "content\\teachings\\anarcho-capitalism.md": {
+    "mtime": 1781212983.158455,
+    "clean": true
+  },
+  "content\\teachings\\anarcho-communism.md": {
+    "mtime": 1781212983.1604536,
+    "clean": true
+  },
+  "content\\teachings\\anarcho-syndicalism.md": {
+    "mtime": 1781212983.1636322,
+    "clean": true
+  },
+  "content\\teachings\\anglicanism.md": {
+    "mtime": 1781212983.0044372,
+    "clean": true
+  },
+  "content\\teachings\\animism.md": {
+    "mtime": 1781212983.0642774,
+    "clean": true
+  },
+  "content\\teachings\\antinatalism.md": {
+    "mtime": 1781212983.329322,
+    "clean": true
+  },
+  "content\\teachings\\arianism.md": {
+    "mtime": 1781212983.0186162,
+    "clean": true
+  },
+  "content\\teachings\\art-minimalism.md": {
+    "mtime": 1781212983.425519,
+    "clean": true
+  },
+  "content\\teachings\\asceticism.md": {
+    "mtime": 1781212983.3345592,
+    "clean": true
+  },
+  "content\\teachings\\authoritarianism.md": {
+    "mtime": 1781212983.18352,
+    "clean": true
+  },
+  "content\\teachings\\bahaism.md": {
+    "mtime": 1781212982.9738317,
+    "clean": true
+  },
+  "content\\teachings\\baptism.md": {
+    "mtime": 1781212983.0091946,
+    "clean": true
+  },
+  "content\\teachings\\biotechnologism.md": {
+    "mtime": 1781212983.5024831,
+    "clean": true
+  },
+  "content\\teachings\\buddhism.md": {
+    "mtime": 1781287034.1865,
+    "clean": false
+  },
+  "content\\teachings\\calvinism.md": {
+    "mtime": 1781212983.0071697,
+    "clean": true
+  },
+  "content\\teachings\\candombleism.md": {
+    "mtime": 1781212983.0741975,
+    "clean": true
+  },
+  "content\\teachings\\cannibalism.md": {
+    "mtime": 1781212983.5739465,
+    "clean": true
+  },
+  "content\\teachings\\capitalism.md": {
+    "mtime": 1781212983.1349735,
+    "clean": true
+  },
+  "content\\teachings\\cartesianism.md": {
+    "mtime": 1781212983.6396604,
+    "clean": true
+  },
+  "content\\teachings\\castrism.md": {
+    "mtime": 1781212983.152875,
+    "clean": true
+  },
+  "content\\teachings\\catholicism.md": {
+    "mtime": 1781285888.628431,
+    "clean": false
+  },
+  "content\\teachings\\celebritism.md": {
+    "mtime": 1781212983.438308,
+    "clean": true
+  },
+  "content\\teachings\\chaosism.md": {
+    "mtime": 1781212983.6141272,
+    "clean": true
+  },
+  "content\\teachings\\chauvinism.md": {
+    "mtime": 1781212983.350243,
+    "clean": true
+  },
+  "content\\teachings\\childfreeism.md": {
+    "mtime": 1781212983.3717332,
+    "clean": true
+  },
+  "content\\teachings\\christianism.md": {
+    "mtime": 1781212982.9918916,
+    "clean": true
+  },
+  "content\\teachings\\cinematism.md": {
+    "mtime": 1781212983.43529,
+    "clean": true
+  },
+  "content\\teachings\\clericalism.md": {
+    "mtime": 1781212983.5993493,
+    "clean": true
+  },
+  "content\\teachings\\cleronomism.md": {
+    "mtime": 1781212983.602408,
+    "clean": true
+  },
+  "content\\teachings\\colonialism.md": {
+    "mtime": 1781212983.1758456,
+    "clean": true
+  },
+  "content\\teachings\\commensalism.md": {
+    "mtime": 1781212983.580948,
+    "clean": true
+  },
+  "content\\teachings\\communism.md": {
+    "mtime": 1781287034.2974212,
+    "clean": false
+  },
+  "content\\teachings\\conceptualism.md": {
+    "mtime": 1781212983.4301667,
+    "clean": true
+  },
+  "content\\teachings\\confucianism.md": {
+    "mtime": 1781212982.9624147,
+    "clean": true
+  },
+  "content\\teachings\\consumerism.md": {
+    "mtime": 1781212983.4462917,
+    "clean": true
+  },
+  "content\\teachings\\corporatism.md": {
+    "mtime": 1781212983.5494616,
+    "clean": true
+  },
+  "content\\teachings\\cosmeticism.md": {
+    "mtime": 1781212983.3931837,
+    "clean": true
+  },
+  "content\\teachings\\cosmism.md": {
+    "mtime": 1781212983.475794,
+    "clean": true
+  },
+  "content\\teachings\\cosmogonism.md": {
+    "mtime": 1781212983.110485,
+    "clean": true
+  },
+  "content\\teachings\\cosmologism.md": {
+    "mtime": 1781212983.1074378,
+    "clean": true
+  },
+  "content\\teachings\\creationism.md": {
+    "mtime": 1781212983.524237,
+    "clean": true
+  },
+  "content\\teachings\\criticism.md": {
+    "mtime": 1781212983.2783227,
+    "clean": true
+  },
+  "content\\teachings\\cryonicism.md": {
+    "mtime": 1781212983.50506,
+    "clean": true
+  },
+  "content\\teachings\\cubism.md": {
+    "mtime": 1781212983.4169245,
+    "clean": true
+  },
+  "content\\teachings\\cybercratism.md": {
+    "mtime": 1781212983.4855845,
+    "clean": true
+  },
+  "content\\teachings\\cyberpunkism.md": {
+    "mtime": 1781212983.4895551,
+    "clean": true
+  },
+  "content\\teachings\\cynicism.md": {
+    "mtime": 1781212983.3062522,
+    "clean": true
+  },
+  "content\\teachings\\dadaism.md": {
+    "mtime": 1781212983.4222684,
+    "clean": true
+  },
+  "content\\teachings\\daoism.md": {
+    "mtime": 1781212982.9600236,
+    "clean": true
+  },
+  "content\\teachings\\darwinism.md": {
+    "mtime": 1781287034.4386265,
+    "clean": false
+  },
+  "content\\teachings\\decelerationism.md": {
+    "mtime": 1781212983.5177445,
+    "clean": true
+  },
+  "content\\teachings\\deconstructivism.md": {
+    "mtime": 1781212983.2756875,
+    "clean": true
+  },
+  "content\\teachings\\democratism.md": {
+    "mtime": 1781212983.18153,
+    "clean": true
+  },
+  "content\\teachings\\determinism.md": {
+    "mtime": 1781212983.2533019,
+    "clean": true
+  },
+  "content\\teachings\\digitalism.md": {
+    "mtime": 1781212983.495724,
+    "clean": true
+  },
+  "content\\teachings\\dissonancism.md": {
+    "mtime": 1781212983.6176426,
+    "clean": true
+  },
+  "content\\teachings\\distributism.md": {
+    "mtime": 1781212983.5547476,
+    "clean": true
+  },
+  "content\\teachings\\druidism.md": {
+    "mtime": 1781212983.0594296,
+    "clean": true
+  },
+  "content\\teachings\\dualism.md": {
+    "mtime": 1781212983.2383833,
+    "clean": true
+  },
+  "content\\teachings\\ecumenism.md": {
+    "mtime": 1781212983.3603148,
+    "clean": true
+  },
+  "content\\teachings\\egalitarianism.md": {
+    "mtime": 1781212983.2100463,
+    "clean": true
+  },
+  "content\\teachings\\elitarism.md": {
+    "mtime": 1781212983.214481,
+    "clean": true
+  },
+  "content\\teachings\\elitism.md": {
+    "mtime": 1781212983.2130435,
+    "clean": true
+  },
+  "content\\teachings\\emotionalism.md": {
+    "mtime": 1781212983.340662,
+    "clean": true
+  },
+  "content\\teachings\\empiricism.md": {
+    "mtime": 1781212983.283723,
+    "clean": true
+  },
+  "content\\teachings\\environmentalism.md": {
+    "mtime": 1781212983.363789,
+    "clean": true
+  },
+  "content\\teachings\\epicureanism.md": {
+    "mtime": 1781212983.303248,
+    "clean": true
+  },
+  "content\\teachings\\esotericism.md": {
+    "mtime": 1781212983.081133,
+    "clean": true
+  },
+  "content\\teachings\\eugenicism.md": {
+    "mtime": 1781212983.3910208,
+    "clean": true
+  },
+  "content\\teachings\\euphemism.md": {
+    "mtime": 1781212983.337093,
+    "clean": true
+  },
+  "content\\teachings\\existentialism.md": {
+    "mtime": 1781212983.2987375,
+    "clean": true
+  },
+  "content\\teachings\\expansionism.md": {
+    "mtime": 1781212983.3570702,
+    "clean": true
+  },
+  "content\\teachings\\expressionism.md": {
+    "mtime": 1781212983.4113483,
+    "clean": true
+  },
+  "content\\teachings\\extropianism.md": {
+    "mtime": 1781212983.4819117,
+    "clean": true
+  },
+  "content\\teachings\\fascism.md": {
+    "mtime": 1781287034.5226085,
+    "clean": false
+  },
+  "content\\teachings\\fatalism.md": {
+    "mtime": 1781212983.2582579,
+    "clean": true
+  },
+  "content\\teachings\\favoritism.md": {
+    "mtime": 1781212983.3482103,
+    "clean": true
+  },
+  "content\\teachings\\feminism.md": {
+    "mtime": 1781212983.379733,
+    "clean": true
+  },
+  "content\\teachings\\feudalism.md": {
+    "mtime": 1781212983.1785002,
+    "clean": true
+  },
+  "content\\teachings\\frankism.md": {
+    "mtime": 1781212983.5703807,
+    "clean": true
+  },
+  "content\\teachings\\free-tradeism.md": {
+    "mtime": 1781212983.5458958,
+    "clean": true
+  },
+  "content\\teachings\\futurism.md": {
+    "mtime": 1781212983.4190483,
+    "clean": true
+  },
+  "content\\teachings\\gamism.md": {
+    "mtime": 1781212983.4441752,
+    "clean": true
+  },
+  "content\\teachings\\georgism.md": {
+    "mtime": 1781212983.5572975,
+    "clean": true
+  },
+  "content\\teachings\\globalism.md": {
+    "mtime": 1781212983.17318,
+    "clean": true
+  },
+  "content\\teachings\\hacktivism.md": {
+    "mtime": 1781212983.6111267,
+    "clean": true
+  },
+  "content\\teachings\\hasidism.md": {
+    "mtime": 1781212983.040046,
+    "clean": true
+  },
+  "content\\teachings\\hedonism.md": {
+    "mtime": 1781212983.331421,
+    "clean": true
+  },
+  "content\\teachings\\hegelianism.md": {
+    "mtime": 1781212983.655896,
+    "clean": true
+  },
+  "content\\teachings\\hinduism.md": {
+    "mtime": 1781287034.595564,
+    "clean": false
+  },
+  "content\\teachings\\holidayism.md": {
+    "mtime": 1781212983.432169,
+    "clean": true
+  },
+  "content\\teachings\\humanism.md": {
+    "mtime": 1781287034.6265588,
+    "clean": false
+  },
+  "content\\teachings\\iconoclasm.md": {
+    "mtime": 1781212983.0264237,
+    "clean": true
+  },
+  "content\\teachings\\idealism.md": {
+    "mtime": 1781212983.2346475,
+    "clean": true
+  },
+  "content\\teachings\\immortalism.md": {
+    "mtime": 1781212983.478372,
+    "clean": true
+  },
+  "content\\teachings\\imperialism.md": {
+    "mtime": 1781212983.1743498,
+    "clean": true
+  },
+  "content\\teachings\\impressionism.md": {
+    "mtime": 1781212983.4093518,
+    "clean": true
+  },
+  "content\\teachings\\intellectualism.md": {
+    "mtime": 1781212983.3747203,
+    "clean": true
+  },
+  "content\\teachings\\jainism.md": {
+    "mtime": 1781212982.9682317,
+    "clean": true
+  },
+  "content\\teachings\\jehovism.md": {
+    "mtime": 1781212982.980431,
+    "clean": true
+  },
+  "content\\teachings\\kabbalism.md": {
+    "mtime": 1781212983.0355022,
+    "clean": true
+  },
+  "content\\teachings\\kantianism.md": {
+    "mtime": 1781212983.6516001,
+    "clean": true
+  },
+  "content\\teachings\\karaism.md": {
+    "mtime": 1781212983.037017,
+    "clean": true
+  },
+  "content\\teachings\\kemetism.md": {
+    "mtime": 1781212983.0488029,
+    "clean": true
+  },
+  "content\\teachings\\keynesianism.md": {
+    "mtime": 1781212983.5343592,
+    "clean": true
+  },
+  "content\\teachings\\laveyan-satanism.md": {
+    "mtime": 1781212983.1202939,
+    "clean": true
+  },
+  "content\\teachings\\leibnizianism.md": {
+    "mtime": 1781212983.6469102,
+    "clean": true
+  },
+  "content\\teachings\\lgbtqism.md": {
+    "mtime": 1781212983.3837302,
+    "clean": true
+  },
+  "content\\teachings\\libertarianism.md": {
+    "mtime": 1781212983.1870477,
+    "clean": true
+  },
+  "content\\teachings\\literary-naturalism.md": {
+    "mtime": 1781212983.403782,
+    "clean": true
+  },
+  "content\\teachings\\luciferianism.md": {
+    "mtime": 1781212983.1236694,
+    "clean": true
+  },
+  "content\\teachings\\luddism.md": {
+    "mtime": 1781212983.5082245,
+    "clean": true
+  },
+  "content\\teachings\\lutheranism.md": {
+    "mtime": 1781212983.0014374,
+    "clean": true
+  },
+  "content\\teachings\\magism.md": {
+    "mtime": 1781212983.0846848,
+    "clean": true
+  },
+  "content\\teachings\\mammonism.md": {
+    "mtime": 1781212983.5603516,
+    "clean": true
+  },
+  "content\\teachings\\manichaeism.md": {
+    "mtime": 1781212983.56709,
+    "clean": true
+  },
+  "content\\teachings\\maoism.md": {
+    "mtime": 1781212983.1506574,
+    "clean": true
+  },
+  "content\\teachings\\mariologism.md": {
+    "mtime": 1781212983.0274246,
+    "clean": true
+  },
+  "content\\teachings\\marxism-leninism.md": {
+    "mtime": 1781212983.1440923,
+    "clean": true
+  },
+  "content\\teachings\\marxism.md": {
+    "mtime": 1781212983.1420925,
+    "clean": true
+  },
+  "content\\teachings\\masculinism.md": {
+    "mtime": 1781212983.381731,
+    "clean": true
+  },
+  "content\\teachings\\masonism.md": {
+    "mtime": 1781212983.56466,
+    "clean": true
+  },
+  "content\\teachings\\materialism.md": {
+    "mtime": 1781212983.2321174,
+    "clean": true
+  },
+  "content\\teachings\\medicism.md": {
+    "mtime": 1781212983.587371,
+    "clean": true
+  },
+  "content\\teachings\\mediumism.md": {
+    "mtime": 1781212983.0904198,
+    "clean": true
+  },
+  "content\\teachings\\mercantilism.md": {
+    "mtime": 1781212983.5283508,
+    "clean": true
+  },
+  "content\\teachings\\methodism.md": {
+    "mtime": 1781212983.0113697,
+    "clean": true
+  },
+  "content\\teachings\\minimalism.md": {
+    "mtime": 1781212983.4504406,
+    "clean": true
+  },
+  "content\\teachings\\mithraism.md": {
+    "mtime": 1781212983.0571823,
+    "clean": true
+  },
+  "content\\teachings\\mitnagdism.md": {
+    "mtime": 1781212983.0430677,
+    "clean": true
+  },
+  "content\\teachings\\molochism.md": {
+    "mtime": 1781212983.1304286,
+    "clean": true
+  },
+  "content\\teachings\\monarchism.md": {
+    "mtime": 1781212983.1898973,
+    "clean": true
+  },
+  "content\\teachings\\monetarism.md": {
+    "mtime": 1781212983.5361078,
+    "clean": true
+  },
+  "content\\teachings\\monism.md": {
+    "mtime": 1781212983.2417533,
+    "clean": true
+  },
+  "content\\teachings\\monophysitism.md": {
+    "mtime": 1781212983.0240872,
+    "clean": true
+  },
+  "content\\teachings\\moonism.md": {
+    "mtime": 1781212982.98295,
+    "clean": true
+  },
+  "content\\teachings\\mormonism.md": {
+    "mtime": 1781212983.562341,
+    "clean": true
+  },
+  "content\\teachings\\mutualism.md": {
+    "mtime": 1781212983.5848372,
+    "clean": true
+  },
+  "content\\teachings\\mysticism.md": {
+    "mtime": 1781212983.0821328,
+    "clean": true
+  },
+  "content\\teachings\\narcissism.md": {
+    "mtime": 1781212983.3430643,
+    "clean": true
+  },
+  "content\\teachings\\naturalism.md": {
+    "mtime": 1781212983.2437696,
+    "clean": true
+  },
+  "content\\teachings\\nazism.md": {
+    "mtime": 1781212983.1672347,
+    "clean": true
+  },
+  "content\\teachings\\necromantism.md": {
+    "mtime": 1781212983.0958374,
+    "clean": true
+  },
+  "content\\teachings\\neoliberalism.md": {
+    "mtime": 1781212983.5404792,
+    "clean": true
+  },
+  "content\\teachings\\neoluddism.md": {
+    "mtime": 1781212983.5121076,
+    "clean": true
+  },
+  "content\\teachings\\neoplatonism.md": {
+    "mtime": 1781212983.628351,
+    "clean": true
+  },
+  "content\\teachings\\nepotism.md": {
+    "mtime": 1781212983.346065,
+    "clean": true
+  },
+  "content\\teachings\\nestorianism.md": {
+    "mtime": 1781212983.0206254,
+    "clean": true
+  },
+  "content\\teachings\\neuromaterialism.md": {
+    "mtime": 1781212983.2493205,
+    "clean": true
+  },
+  "content\\teachings\\new-ageism.md": {
+    "mtime": 1781212982.9850385,
+    "clean": true
+  },
+  "content\\teachings\\nicolaism.md": {
+    "mtime": 1781212983.131428,
+    "clean": true
+  },
+  "content\\teachings\\nihilism.md": {
+    "mtime": 1781212983.2940853,
+    "clean": true
+  },
+  "content\\teachings\\norse-paganism.md": {
+    "mtime": 1781285863.225483,
+    "clean": true
+  },
+  "content\\teachings\\numerologism.md": {
+    "mtime": 1781212983.0973632,
+    "clean": true
+  },
+  "content\\teachings\\occultism.md": {
+    "mtime": 1781212983.0791311,
+    "clean": true
+  },
+  "content\\teachings\\olympism.md": {
+    "mtime": 1781212983.0537562,
+    "clean": true
+  },
+  "content\\teachings\\omnism.md": {
+    "mtime": 1781212983.2210684,
+    "clean": true
+  },
+  "content\\teachings\\oneirocriticism.md": {
+    "mtime": 1781212983.0996475,
+    "clean": true
+  },
+  "content\\teachings\\orthodoxism.md": {
+    "mtime": 1781287034.9684942,
+    "clean": false
+  },
+  "content\\teachings\\pacifism.md": {
+    "mtime": 1781212983.353242,
+    "clean": true
+  },
+  "content\\teachings\\panarchism.md": {
+    "mtime": 1781212983.201451,
+    "clean": true
+  },
+  "content\\teachings\\parapsychologism.md": {
+    "mtime": 1781212983.1019278,
+    "clean": true
+  },
+  "content\\teachings\\parasitism.md": {
+    "mtime": 1781212983.5775492,
+    "clean": true
+  },
+  "content\\teachings\\pastafarianism.md": {
+    "mtime": 1781212982.9875808,
+    "clean": true
+  },
+  "content\\teachings\\patriotism.md": {
+    "mtime": 1781212983.6045723,
+    "clean": true
+  },
+  "content\\teachings\\pentecostalism.md": {
+    "mtime": 1781212983.015857,
+    "clean": true
+  },
+  "content\\teachings\\pharisaism.md": {
+    "mtime": 1781212983.0305738,
+    "clean": true
+  },
+  "content\\teachings\\pharmaceuticism.md": {
+    "mtime": 1781212983.589453,
+    "clean": true
+  },
+  "content\\teachings\\phenomenalism.md": {
+    "mtime": 1781212983.2641244,
+    "clean": true
+  },
+  "content\\teachings\\physicalism.md": {
+    "mtime": 1781212983.245762,
+    "clean": true
+  },
+  "content\\teachings\\physiocratism.md": {
+    "mtime": 1781212983.5309317,
+    "clean": true
+  },
+  "content\\teachings\\pietism.md": {
+    "mtime": 1781212983.375718,
+    "clean": true
+  },
+  "content\\teachings\\platonism.md": {
+    "mtime": 1781212983.6257915,
+    "clean": true
+  },
+  "content\\teachings\\pluralism.md": {
+    "mtime": 1781212983.2180367,
+    "clean": true
+  },
+  "content\\teachings\\policism.md": {
+    "mtime": 1781212983.5914521,
+    "clean": true
+  },
+  "content\\teachings\\politism.md": {
+    "mtime": 1781212983.19489,
+    "clean": true
+  },
+  "content\\teachings\\polytheism.md": {
+    "mtime": 1781212983.1154826,
+    "clean": true
+  },
+  "content\\teachings\\pop-artism.md": {
+    "mtime": 1781212983.4280808,
+    "clean": true
+  },
+  "content\\teachings\\pornism.md": {
+    "mtime": 1781212983.3856528,
+    "clean": true
+  },
+  "content\\teachings\\positivism.md": {
+    "mtime": 1781212983.2671359,
+    "clean": true
+  },
+  "content\\teachings\\postmodernism.md": {
+    "mtime": 1781212983.27036,
+    "clean": true
+  },
+  "content\\teachings\\pragmatism.md": {
+    "mtime": 1781212983.289106,
+    "clean": true
+  },
+  "content\\teachings\\programmism.md": {
+    "mtime": 1781212983.4926794,
+    "clean": true
+  },
+  "content\\teachings\\protectionism.md": {
+    "mtime": 1781212983.5430205,
+    "clean": true
+  },
+  "content\\teachings\\protestantism.md": {
+    "mtime": 1781287035.0774708,
+    "clean": false
+  },
+  "content\\teachings\\psychologism.md": {
+    "mtime": 1781212983.5944414,
+    "clean": true
+  },
+  "content\\teachings\\psychurgism.md": {
+    "mtime": 1781212983.597332,
+    "clean": true
+  },
+  "content\\teachings\\pythagoreanism.md": {
+    "mtime": 1781212983.6303904,
+    "clean": true
+  },
+  "content\\teachings\\rastafarianism.md": {
+    "mtime": 1781212982.9748325,
+    "clean": true
+  },
+  "content\\teachings\\rationalism.md": {
+    "mtime": 1781212983.2804954,
+    "clean": true
+  },
+  "content\\teachings\\realism.md": {
+    "mtime": 1781212983.401363,
+    "clean": true
+  },
+  "content\\teachings\\reductionism.md": {
+    "mtime": 1781212983.3128486,
+    "clean": true
+  },
+  "content\\teachings\\regalism.md": {
+    "mtime": 1781212983.1969163,
+    "clean": true
+  },
+  "content\\teachings\\relativism.md": {
+    "mtime": 1781212983.2269452,
+    "clean": true
+  },
+  "content\\teachings\\religionism.md": {
+    "mtime": 1781212983.6216862,
+    "clean": true
+  },
+  "content\\teachings\\romanticism.md": {
+    "mtime": 1781212983.3983438,
+    "clean": true
+  },
+  "content\\teachings\\samaritanism.md": {
+    "mtime": 1781212983.0450685,
+    "clean": true
+  },
+  "content\\teachings\\santeriaism.md": {
+    "mtime": 1781212983.0710788,
+    "clean": true
+  },
+  "content\\teachings\\satanism.md": {
+    "mtime": 1781287035.1384852,
+    "clean": false
+  },
+  "content\\teachings\\saturnism.md": {
+    "mtime": 1781212983.127154,
+    "clean": true
+  },
+  "content\\teachings\\scholasticism.md": {
+    "mtime": 1781212983.6371996,
+    "clean": true
+  },
+  "content\\teachings\\scientism.md": {
+    "mtime": 1781212983.3176386,
+    "clean": true
+  },
+  "content\\teachings\\scientology.md": {
+    "mtime": 1781212982.9772832,
+    "clean": true
+  },
+  "content\\teachings\\secularism.md": {
+    "mtime": 1781212983.3240962,
+    "clean": true
+  },
+  "content\\teachings\\shamanism.md": {
+    "mtime": 1781212983.0620103,
+    "clean": true
+  },
+  "content\\teachings\\shintoism.md": {
+    "mtime": 1781212983.0762377,
+    "clean": true
+  },
+  "content\\teachings\\sikhism.md": {
+    "mtime": 1781212982.9654481,
+    "clean": true
+  },
+  "content\\teachings\\singularitarianism.md": {
+    "mtime": 1781212983.4715486,
+    "clean": true
+  },
+  "content\\teachings\\skepticism.md": {
+    "mtime": 1781212983.2852516,
+    "clean": true
+  },
+  "content\\teachings\\socialism.md": {
+    "mtime": 1781212983.1369925,
+    "clean": true
+  },
+  "content\\teachings\\solidarism.md": {
+    "mtime": 1781212983.5521677,
+    "clean": true
+  },
+  "content\\teachings\\solipsism.md": {
+    "mtime": 1781212983.2616189,
+    "clean": true
+  },
+  "content\\teachings\\sophism.md": {
+    "mtime": 1781212983.634375,
+    "clean": true
+  },
+  "content\\teachings\\sorceryism.md": {
+    "mtime": 1781212983.0882504,
+    "clean": true
+  },
+  "content\\teachings\\spinozism.md": {
+    "mtime": 1781212983.6451263,
+    "clean": true
+  },
+  "content\\teachings\\spiritism.md": {
+    "mtime": 1781212983.0924237,
+    "clean": true
+  },
+  "content\\teachings\\stalinism.md": {
+    "mtime": 1781212983.1486456,
+    "clean": true
+  },
+  "content\\teachings\\stigmatism.md": {
+    "mtime": 1781212983.3954043,
+    "clean": true
+  },
+  "content\\teachings\\stoicism.md": {
+    "mtime": 1781212983.3011758,
+    "clean": true
+  },
+  "content\\teachings\\structuralism.md": {
+    "mtime": 1781212983.2725704,
+    "clean": true
+  },
+  "content\\teachings\\subjectivism.md": {
+    "mtime": 1781212983.2295854,
+    "clean": true
+  },
+  "content\\teachings\\surrealism.md": {
+    "mtime": 1781212983.4143517,
+    "clean": true
+  },
+  "content\\teachings\\symbolism.md": {
+    "mtime": 1781212983.4073012,
+    "clean": true
+  },
+  "content\\teachings\\synarchism.md": {
+    "mtime": 1781212983.1994493,
+    "clean": true
+  },
+  "content\\teachings\\syncretism.md": {
+    "mtime": 1781212983.112481,
+    "clean": true
+  },
+  "content\\teachings\\talmudism.md": {
+    "mtime": 1781212983.0330257,
+    "clean": true
+  },
+  "content\\teachings\\technocratism.md": {
+    "mtime": 1781212983.453574,
+    "clean": true
+  },
+  "content\\teachings\\technopessimism.md": {
+    "mtime": 1781212983.4622471,
+    "clean": true
+  },
+  "content\\teachings\\technotheism.md": {
+    "mtime": 1781212983.4564242,
+    "clean": true
+  },
+  "content\\teachings\\technoutopianism.md": {
+    "mtime": 1781212983.459283,
+    "clean": true
+  },
+  "content\\teachings\\theocentrism.md": {
+    "mtime": 1781212983.3261006,
+    "clean": true
+  },
+  "content\\teachings\\theocratism.md": {
+    "mtime": 1781212983.1918929,
+    "clean": true
+  },
+  "content\\teachings\\totalitarianism.md": {
+    "mtime": 1781212983.1850522,
+    "clean": true
+  },
+  "content\\teachings\\totemism.md": {
+    "mtime": 1781212983.0670216,
+    "clean": true
+  },
+  "content\\teachings\\toyism.md": {
+    "mtime": 1781212983.4403539,
+    "clean": true
+  },
+  "content\\teachings\\transhumanism.md": {
+    "mtime": 1781212983.4668329,
+    "clean": true
+  },
+  "content\\teachings\\trotskyism.md": {
+    "mtime": 1781212983.1460872,
+    "clean": true
+  },
+  "content\\teachings\\ufologism.md": {
+    "mtime": 1781212983.1049483,
+    "clean": true
+  },
+  "content\\teachings\\universalism.md": {
+    "mtime": 1781212983.225336,
+    "clean": true
+  },
+  "content\\teachings\\utilitarianism.md": {
+    "mtime": 1781212983.2910922,
+    "clean": true
+  },
+  "content\\teachings\\veganism.md": {
+    "mtime": 1781212983.3683732,
+    "clean": true
+  },
+  "content\\teachings\\vegetarianism.md": {
+    "mtime": 1781212983.365791,
+    "clean": true
+  },
+  "content\\teachings\\virtualism.md": {
+    "mtime": 1781212983.4999146,
+    "clean": true
+  },
+  "content\\teachings\\voodooism.md": {
+    "mtime": 1781212983.0690632,
+    "clean": true
+  },
+  "content\\teachings\\wokeism.md": {
+    "mtime": 1781212983.607085,
+    "clean": true
+  },
+  "content\\teachings\\zionism.md": {
+    "mtime": 1781212983.169773,
+    "clean": true
+  },
+  "content\\teachings\\zoroastrianism.md": {
+    "mtime": 1781212982.9703722,
+    "clean": true
+  },
+  "content\\teachings\\atheism.md": {
+    "mtime": 1781287034.1395123,
+    "clean": false
+  },
+  "content\\teachings\\islam.md": {
+    "mtime": 1781287034.6975443,
     "clean": false
   }
 }
