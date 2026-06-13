@@ -886,7 +886,9 @@
     "category": "ТаНаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/связанная-книга.md"
+      "content/tanakh/books/hoshea.md",
+      "content/tanakh/books/yeshayahu.md",
+      "content/bashah/books/maasei-15.md"
     ]
   },
   {
@@ -896,7 +898,12 @@
     "category": "ТаНаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/связанная-книга.md"
+      "content/tanakh/books/bereshit.md",
+      "content/tanakh/books/shmot.md",
+      "content/tanakh/books/vayikra.md",
+      "content/tanakh/books/dvarim.md",
+      "content/bashah/books/yochanan-3.md",
+      "content/bashah/books/ikarim-10.md"
     ]
   },
   {
@@ -906,7 +913,11 @@
     "category": "ТаНаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/связанная-книга.md"
+      "content/tanakh/books/shmot.md",
+      "content/tanakh/books/bemidbar.md",
+      "content/bashah/books/matityahu-1.md",
+      "content/bashah/books/galatim-3.md",
+      "content/bashah/books/ivrim-7.md"
     ]
   },
   {
@@ -916,7 +927,10 @@
     "category": "ТаНаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/связанная-книга.md"
+      "content/tanakh/books/zechariah.md",
+      "content/tanakh/books/ezra.md",
+      "content/tanakh/books/malakhi.md",
+      "content/bashah/books/ivrim-12.md"
     ]
   },
   {
@@ -926,7 +940,11 @@
     "category": "ТаНаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/связанная-книга.md"
+      "content/bashah/books/rim-1.md",
+      "content/bashah/books/galatim-3.md",
+      "content/bashah/books/ivrim-10.md",
+      "content/tanakh/books/tsefanyah.md",
+      "content/tanakh/books/yirmeyahu.md"
     ]
   },
   {
@@ -936,7 +954,10 @@
     "category": "ТаНаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/связанная-книга.md"
+      "content/tanakh/books/yehezkel.md",
+      "content/tanakh/books/ezra.md",
+      "content/bashah/books/matityahu-24.md",
+      "content/bashah/books/ikarim-15.md"
     ]
   },
   {
@@ -1091,13 +1112,11 @@
   },
   {
     "path": "content/tanakh/books/nechemyah.md",
-    "title": "Нехемья — נְחֶמְיָה",
-    "topic": "Разбор книги «Нехемья» — автор, структура, ключевые темы, связь с Машиахом",
+    "title": "test",
+    "topic": "",
     "category": "ТаНаХ",
     "subcategory": "Книги",
-    "related": [
-      "content/tanakh/books/связанная-книга.md"
-    ]
+    "related": []
   },
   {
     "path": "content/tanakh/books/ovadyah.md",
@@ -5691,11 +5710,7 @@
   },
   {
     "path": "content/teachings/norse-paganism.md",
-<<<<<<< HEAD
     "title": "СЕВЕРНОЕ СЛУЖЕНИЕ ЧУЖОМУ (АВОДА ЗАРА, עֲבוֹדָה זָרָה) — ПРОВЕРКА МЕТОДОМ ДЕРЕВА",
-=======
-    "title": "СЕВЕРНОЕ ЯЗЫЧЕСТВО — ПРОВЕРКА МЕТОДОМ ДЕРЕВА",
->>>>>>> a04da8a3d133ba2a0a2e1ac04bd10674656953d1
     "topic": "Проверка учения «Северное язычество» методом дерева — от семени до плодов",
     "category": "Учения",
     "subcategory": "",
