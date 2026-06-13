@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "../node_modules/preline/variants.css";
+
+@theme {
+  --color-accent: #ff4d00;
+  --color-gold: #d4a843;
+  --color-parchment: #f5e6c8;
+  --color-stone: #2a2a2a;
+  --color-dark-bg: #1a1a1a;
+  --color-light-bg: #fafafa;
+}
+
+/* Thin custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
