@@ -4,6 +4,15 @@
   "description": "Golem dynamic web server",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build:css": "tailwindcss -i src/input.css -o style.css --minify"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.19"
+  },
+  "dependencies": {
+    "preline": "^4.2.0"
   }
 }
