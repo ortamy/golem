@@ -3263,6 +3263,14 @@
     "related": []
   },
   {
+    "path": "content/researches/laws/ignorantia-juris.md",
+    "title": "IGNORANTIA JURIS NON EXCUSAT — НЕЗНАНИЕ ... НЕ ОСВОБОЖДАЕТ",
+    "topic": "Римский принцип «незнание закона не освобождает от ответственности» — происхождение, логика, критика",
+    "category": "Исследования",
+    "subcategory": "laws",
+    "related": []
+  },
+  {
     "path": "content/researches/media/disney-epstein.md",
     "title": "DISNEY — ДВОРЕЦ ДЛЯ ПОХИЩЕНИЯ ДЕТЕЙ",
     "topic": "Disney как система grooming — от мультфильмов до списков Эпштейна",
@@ -3423,14 +3431,6 @@
     "related": []
   },
   {
-    "path": "content/researches/roman-law/ignorantia-juris.md",
-    "title": "IGNORANTIA JURIS NON EXCUSAT — НЕЗНАНИЕ ... НЕ ОСВОБОЖДАЕТ",
-    "topic": "Римский принцип «незнание закона не освобождает от ответственности» — происхождение, логика, критика",
-    "category": "Исследования",
-    "subcategory": "Римское право",
-    "related": []
-  },
-  {
     "path": "content/researches/science/mathematics.md",
     "title": "ΜΆΘΗΜΑ — МАТЕМАТИКА КАК ... О БУКВАХ",
     "topic": "μάθημα (матема) — математика как учение о буквах, числах и их подмена системой",
@@ -3452,54 +3452,6 @@
     "topic": "Разоблачение астрологического культа и греческого понятия «планета». Светила в ТаНаХ — служители Яхв",
     "category": "Исследования",
     "subcategory": "Наука",
-    "related": []
-  },
-  {
-    "path": "content/researches/simvolika/drevo-iggdrasil.md",
-    "title": "Древо Иггдрасиль",
-    "topic": "Древо Иггдрасиль",
-    "category": "Исследования",
-    "subcategory": "Символика",
-    "related": []
-  },
-  {
-    "path": "content/researches/simvolika/myolnir.md",
-    "title": "Мьёльнир",
-    "topic": "Мьёльнир",
-    "category": "Исследования",
-    "subcategory": "Символика",
-    "related": []
-  },
-  {
-    "path": "content/researches/simvolika/runy.md",
-    "title": "Руны",
-    "topic": "Руны",
-    "category": "Исследования",
-    "subcategory": "Символика",
-    "related": []
-  },
-  {
-    "path": "content/researches/simvolika/simvoly-beskonechnosti.md",
-    "title": "От бесконечности",
-    "topic": "От бесконечности",
-    "category": "Исследования",
-    "subcategory": "Символика",
-    "related": []
-  },
-  {
-    "path": "content/researches/simvolika/troinoi-rog.md",
-    "title": "Тройной рог",
-    "topic": "Тройной рог",
-    "category": "Исследования",
-    "subcategory": "Символика",
-    "related": []
-  },
-  {
-    "path": "content/researches/simvolika/valknut.md",
-    "title": "Валькнут",
-    "topic": "Валькнут",
-    "category": "Исследования",
-    "subcategory": "Символика",
     "related": []
   },
   {
@@ -3564,70 +3516,6 @@
     "topic": "Почему два семитских народа, потомки Авраама, находятся в вечном конфликте",
     "category": "Исследования",
     "subcategory": "Общество",
-    "related": []
-  },
-  {
-    "path": "content/researches/sport/bookmakers-as-mammon.md",
-    "title": "БУКМЕКЕРСКИЕ КОНТОРЫ — ЛЕГАЛИЗОВАННЫЙ Байт МАММОНЫ",
-    "topic": "Букмекерские конторы как религиозная система поклонения деньгам",
-    "category": "Исследования",
-    "subcategory": "Спорт",
-    "related": []
-  },
-  {
-    "path": "content/researches/sport/children-sport-sacrifice.md",
-    "title": "ДЕТСКИЙ СПОРТ — ПРИНЕСЕНИЕ ДЕТЕЙ В ...",
-    "topic": "Детский спорт как система жертвоприношения — отнятое детство, здоровье и будущее",
-    "category": "Исследования",
-    "subcategory": "Спорт",
-    "related": []
-  },
-  {
-    "path": "content/researches/sport/edinoborstva-kak-religioznaya.md",
-    "title": "ЕДИНОБОРСТВА — РИТУАЛЬНОЕ НАСИЛИЕ КАК Дэрех",
-    "topic": "Единоборства как религиозная система — октагон-алтарь, кровь-жертва, пояс-венец",
-    "category": "Исследования",
-    "subcategory": "Спорт",
-    "related": []
-  },
-  {
-    "path": "content/researches/sport/fitness-cult.md",
-    "title": "ФИТНЕС-ИНДУСТРИЯ — Гуф КАК КУЛЬТ",
-    "topic": "Фитнес-индустрия как религионизм — спортзал как מקדש, тренер как жрец, тело как идол",
-    "category": "Исследования",
-    "subcategory": "Спорт",
-    "related": []
-  },
-  {
-    "path": "content/researches/sport/football-as-religion.md",
-    "title": "ФУТБОЛ — МИРОВАЯ Дэрех МЯЧА",
-    "topic": "Футбол как мировая религия — жесты, символы, контроль сознания через отвлечение",
-    "category": "Исследования",
-    "subcategory": "Спорт",
-    "related": []
-  },
-  {
-    "path": "content/researches/sport/olimpiyskie-igry-kak.md",
-    "title": "ОЛИМПИЙСКИЕ ИГРЫ — ВОЗРОЖДЕНИЕ ЯЗЫЧЕСКОГО КУЛЬТА",
-    "topic": "Олимпийские игры как возрождённое язычество — Зевс заменён на МОК, алтарь на стадион, жертва на реко",
-    "category": "Исследования",
-    "subcategory": "Спорт",
-    "related": []
-  },
-  {
-    "path": "content/researches/sport/sport-as-coliseum.md",
-    "title": "СПОРТ КАК КОЛИЗЕЙ — Лехем И ЗРЕЛИЩ НОВОГО РИМА",
-    "topic": "Спорт как инструмент контроля — от римского Колизея до современной индустрии",
-    "category": "Исследования",
-    "subcategory": "Спорт",
-    "related": []
-  },
-  {
-    "path": "content/researches/sport/women-sport.md",
-    "title": "ЖЕНСКИЙ СПОРТ — Hашмада ЖЕНСТВЕННОСТИ",
-    "topic": "Женский спорт как инструмент уничтожения женственности — гормоны, травмы, потеря способности к детор",
-    "category": "Исследования",
-    "subcategory": "Спорт",
     "related": []
   },
   {
