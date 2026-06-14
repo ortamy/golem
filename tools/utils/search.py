@@ -1,4 +1,4 @@
-# tools/utils/search.py — поисковый движок по репозиторию
+# tools/utils/search.py — search
 import sys
 import re
 from pathlib import Path

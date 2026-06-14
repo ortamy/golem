@@ -1,4 +1,4 @@
-# tools/checkers/check-fix-encoding.py — конвертация Windows-1251 → UTF-8
+# tools/checkers/check-fix-encoding.py — fix encoding
 import sys
 from pathlib import Path
 

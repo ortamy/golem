@@ -1,4 +1,4 @@
-# tools/utils/clear-cache.py — сброс всего кэша проекта
+# tools/utils/clear-cache.py — clear cache
 import sys
 from pathlib import Path
 

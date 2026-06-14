@@ -1,4 +1,4 @@
-# tools/checkers/check-orphans.py — поиск файлов-сирот (на которые нет ссылок)
+# tools/checkers/check-orphans.py — orphans
 import sys
 import re
 from pathlib import Path

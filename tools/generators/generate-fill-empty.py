@@ -1,4 +1,4 @@
-# tools/generators/generate-fill-empty.py — заполнение пустых и незаполненных md-файлов
+# tools/generators/generate-fill-empty.py — fill empty
 import sys
 import re
 from pathlib import Path

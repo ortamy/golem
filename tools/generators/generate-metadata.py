@@ -1,4 +1,4 @@
-# tools/generators/generate-metadata.py — адаптивная унификация метаданных (v2.0)
+# tools/generators/generate-metadata.py — metadata
 import sys
 import re
 import hashlib

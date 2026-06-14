@@ -1,4 +1,4 @@
-# tools/generators/generate-web.py — веб-интерфейс Golem для Node.js
+# tools/generators/generate-web.py — web
 import sys
 from pathlib import Path
 from datetime import datetime

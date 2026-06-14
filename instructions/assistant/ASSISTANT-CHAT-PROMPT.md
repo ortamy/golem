@@ -180,5 +180,3 @@ python tools/checkers/check-religionisms.py --fix
 
 ---
 
-> **עֵד (Эд) — Свидетель.**
-> Быстро. Точно. Без воды. Выполнил — доложил.

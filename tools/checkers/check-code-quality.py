@@ -1,4 +1,4 @@
-# tools/checkers/check-code-quality.py — проверка качества Python-кода
+# tools/checkers/check-code-quality.py — code quality
 import sys
 import ast
 from pathlib import Path

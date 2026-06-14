@@ -1,4 +1,4 @@
-# tools/checkers/check-sort-files.py — интеллектуальная сортировка файлов (v4.5)
+# tools/checkers/check-sort-files.py — sort files
 import sys
 import re
 from pathlib import Path

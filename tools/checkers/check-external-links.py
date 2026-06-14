@@ -1,4 +1,4 @@
-# tools/checkers/check-external-links.py — проверка внешних HTTP-ссылок
+# tools/checkers/check-external-links.py — external links
 import sys
 import re
 import urllib.request

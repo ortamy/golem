@@ -1,4 +1,4 @@
-# tools/automation/auto-tasks.py — управление задачами из TECHNICAL-DEBT.md
+# tools/automation/auto-tasks.py — tasks
 
 import re
 import sys

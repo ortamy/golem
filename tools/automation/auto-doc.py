@@ -1,4 +1,4 @@
-# tools/automation/auto-doc.py — перенос документации в папку docs/
+# tools/automation/auto-doc.py — doc
 import sys
 import shutil
 import re

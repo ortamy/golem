@@ -1,4 +1,4 @@
-# tools/sync/sync-structure.py — синхронизация STRUCTURE.md
+# tools/sync/sync-structure.py — structure
 import sys
 from pathlib import Path
 from datetime import datetime

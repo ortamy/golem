@@ -74,9 +74,9 @@
 
 ### БаШаХ — создать новые
 
-- [x] `content/bashah/concepts/besorah.md` ✅
-- [x] `content/bashah/concepts/kehillah.md` ✅
-- [x] `content/bashah/persons/keifa.md` ✅
+- [x] `content/bashah/concepts/besorah.md` ✅ — 2026-06-14
+- [x] `content/bashah/concepts/kehillah.md` ✅ — 2026-06-14
+- [x] `content/bashah/persons/keifa.md` ✅ — 2026-06-14
 - [ ] `content/bashah/persons/yohanan-matbil.md` — Йоханан Погружатель
 - [ ] `content/bashah/events/seudat-aharon.md` — Последняя трапеза
 - [ ] `content/bashah/events/shavuot-ruach.md` — Шавуот — дарование Дыхания
@@ -143,21 +143,21 @@
 
 ## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (2026-06-11)
 
-- [x] Реорганизация архитектуры: `content/`, `ed/`, `guides/`, `dictionaries/`
-- [x] Переименование всех скриптов с префиксами
-- [x] `tahor/` → `dictionaries/`
-- [x] `philosophemes.md` → `exposure/`
-- [x] `drafts/` → `backlog/`
-- [x] `instructions/` → чистая методология
-- [x] 20 руководств в `guides/`
-- [x] Шаблон исследования v4.0
-- [x] Словарь философем (35)
-- [x] Словарь латинизмов (180+)
-- [x] Веб-интерфейс v9.2 — подкатегории для всех категорий
-- [x] 6 категорий контента в веб-интерфейсе
-- [x] `learn-hebrew/` — 5 файлов
-- [x] `bashah/` — 3 новых файла
-- [x] `GUIDE-CODING.md` v2.0
-- [x] `CONTROL.md` v3.0
-- [x] `STRATEGY.md` v1.0
-- [x] `WEB-INTERFACE.md` v1.0
+- [x] Реорганизация архитектуры: `content/`, `ed/`, `guides/`, `dictionaries/` — 2026-06-14
+- [x] Переименование всех скриптов с префиксами — 2026-06-14
+- [x] `tahor/` → `dictionaries/` — 2026-06-14
+- [x] `philosophemes.md` → `exposure/` — 2026-06-14
+- [x] `drafts/` → `backlog/` — 2026-06-14
+- [x] `instructions/` → чистая методология — 2026-06-14
+- [x] 20 руководств в `guides/` — 2026-06-14
+- [x] Шаблон исследования v4.0 — 2026-06-14
+- [x] Словарь философем (35) — 2026-06-14
+- [x] Словарь латинизмов (180+) — 2026-06-14
+- [x] Веб-интерфейс v9.2 — подкатегории для всех категорий — 2026-06-14
+- [x] 6 категорий контента в веб-интерфейсе — 2026-06-14
+- [x] `learn-hebrew/` — 5 файлов — 2026-06-14
+- [x] `bashah/` — 3 новых файла — 2026-06-14
+- [x] `GUIDE-CODING.md` v2.0 — 2026-06-14
+- [x] `CONTROL.md` v3.0 — 2026-06-14
+- [x] `STRATEGY.md` v1.0 — 2026-06-14
+- [x] `WEB-INTERFACE.md` v1.0 — 2026-06-14

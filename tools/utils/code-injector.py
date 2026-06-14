@@ -1,4 +1,4 @@
-# tools/utils/code-injector.py — вставка, замена, удаление кода в файлах
+# tools/utils/code-injector.py — code injector
 import sys
 import re
 import shutil

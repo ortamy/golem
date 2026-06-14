@@ -1,19 +1,26 @@
-# 📜 ЧЕКЕРЫ ПРОЕКТА «ГОЛЕМ» — ПОЛНЫЙ СПРАВОЧНИК
+```markdown
+# 📜 GUIDE-CHECKERS — СПРАВОЧНИК ЧЕКЕРОВ
 
 **Метаданные файла**
-- **Файл:** `docs/CHECKERS-GUIDE.md`
-- **Версия:** 1.0
+- **Файл:** `guides/GUIDE-CHECKERS.md`
+- **Версия:** 2.0
 - **Дата создания:** 2026-06-09
-- **Последнее обновление:** 2026-06-09
-- **Причина обновления:** Первичное создание
+- **Последнее обновление:** 2026-06-14
+- **Причина обновления:** Полное обновление — добавлены новые чекеры, обновлены названия
 - **Статус:** Активный
 - **Тема:** Полный справочник по всем чекерам проекта — что делает, как запускать, какие флаги
+- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Язык:** русский
+- **Связанные файлы:** `tools/checkers/`, `guides/GUIDE-AUDIT.md`, `guides/GUIDE-CODING.md`
+- **Хеш:** ожидает
+- **Достоверность:** высокая
+- **Последний аудит:** 2026-06-14
 
 ---
 
 ## 🔥 ВВЕДЕНИЕ
 
-Чекеры — это скрипты, которые проверяют репозиторий на нарушения. Каждый чекер отвечает за свою область. Вместе они обеспечивают чистоту проекта по всем фронтам.
+Чекеры — скрипты проверки файлов проекта. Каждый чекер отвечает за свою область. Вместе они обеспечивают чистоту проекта по всем фронтам.
 
 Все чекеры находятся в `tools/checkers/`. Запускать из корня репозитория.
 
@@ -21,228 +28,67 @@
 
 ## 📋 КАТАЛОГ ЧЕКЕРОВ
 
----
+### check-tahor.py — Проверка языковых подмен
 
-### 1. `check-naming.py` — Проверка имён файлов
+Главный чекер проекта. Проверяет тексты на наличие языковых подмен из 20 словарей: религионимы, грецизмы, латинизмы, модернизмы и другие.
 
-**Что проверяет:** соответствие имён md-файлов правилам проекта.
-
-**Правила:**
-- Только латиница, цифры и дефис (`a-z`, `0-9`, `-`)
-- Первый символ — буква
-- Расширение `.md`
-
-**Нарушения:**
-- Русские буквы в имени
-- Пробелы, подчёркивания, точки в середине
-- Нестандартное расширение
-
-**Запуск:**
 ```bash
-python tools/checkers/check-naming.py
+python tools/checkers/check-tahor.py
+python tools/checkers/check-tahor.py --fix
+python tools/checkers/check-tahor.py --rebuild
+python tools/checkers/check-tahor.py --verbose
 ```
 
+- `--fix` — автоматически исправляет найденные подмены
+- `--rebuild` — перестраивает кэш словарей из `instructions/dictionaries/`
+- `--verbose` — подробный вывод всех файлов
+- `--save` — сохранить отчёт в `reports/`
+
+Первое упоминание заменяется на полную форму (с ивритом), последующие — на краткую. Заголовки заменяются КАПСОМ.
+
 ---
 
-### 2. `validate-metadata.py` — Проверка метаданных
+### check-headers.py — Проверка формата заголовков H1
 
-**Что проверяет:** наличие и корректность блока метаданных в md-файлах.
+Проверяет что все `.md` файлы имеют правильный формат заголовков: ивритское слово + русское название.
 
-**Проверяемые поля:** Файл, Версия, Дата создания, Статус, Тема.
-
-**Нарушения:**
-- Отсутствие блока `**Метаданные файла**`
-- Отсутствие обязательных полей
-- Неверный формат версии (должна быть `X.Y`)
-- Нестандартный статус (допустимы: Активный, Черновик, Завершён)
-- Несовпадение пути в поле «Файл:» с реальным путём
-
-**Флаги:**
-- `--fix` — автоматически исправляет обнаруженные проблемы
-
-**Запуск:**
 ```bash
-python tools/checkers/validate-metadata.py
-python tools/checkers/validate-metadata.py --fix
+python tools/checkers/check-headers.py
 ```
 
+Создаёт CSV с нарушениями в `tools/cache/headers-violations.csv`.
+
 ---
 
-### 3. `fix-metadata-fields.py` — Исправление полей метаданных
+### check-mivdak.py — Аудит полезности текстов
 
-**Что проверяет:** корректность названий полей метаданных. Исправляет искажённые названия.
+Оценивает качество исследований: наличие обязательных разделов, применение методов exposure, обнаружение типов искажений.
 
-**Примеры исправлений:**
-- `hитхадшут` → `Последнее обновление:`
-- `Маамад` → `Статус:`
-- `Носе` → `Тема:`
-
-**Флаги:**
-- `--fix` — автоматически исправляет
-
-**Запуск:**
 ```bash
-python tools/checkers/fix-metadata-fields.py
-python tools/checkers/fix-metadata-fields.py --fix
+python tools/checkers/check-mivdak.py
 ```
 
+Показывает процент качества по типам файлов, топ лучших и худших.
+
 ---
 
-### 4. `check-metadata-consistency.py` — Сверка путей в метаданных
+### check-file-headers.py — Проверка заголовков файлов кода
 
-**Что проверяет:** совпадение поля «Файл:» в метаданных с реальным путём.
+Проверяет что все файлы кода имеют заголовок с путём и описанием в первой строке.
 
-**Флаги:**
-- `--fix` — автоматически исправляет несовпадения
-
-**Запуск:**
 ```bash
-python tools/checkers/check-metadata-consistency.py
-python tools/checkers/check-metadata-consistency.py --fix
+python tools/checkers/check-file-headers.py
+python tools/checkers/check-file-headers.py --fix
 ```
 
----
-
-### 5. `check-links.py` — Проверка внутренних ссылок
-
-**Что проверяет:** все ссылки вида `[текст](docs/INDEX.md)` в md-файлах. Проверяет, что целевой файл существует.
-
-**Нарушения:** битые ссылки на несуществующие файлы.
-
-**Запуск:**
-```bash
-python tools/checkers/check-links.py
-```
+Находит несовпадения между путём в заголовке и реальным путём файла.
 
 ---
 
-### 6. `validate-external-links.py` — Проверка внешних ссылок
+### check-code-quality.py — Проверка качества кода
 
-**Что проверяет:** все HTTP(S) ссылки в md-файлах. Проверяет доступность URL.
+Проверяет Python-скрипты на соответствие стандартам.
 
-**Особенности:**
-- Таймаут: 5 секунд
-- Игнорирует localhost и example.com
-- Не проверяет SSL-сертификаты строго
-
-**Запуск:**
-```bash
-python tools/checkers/validate-external-links.py
-```
-
----
-
-### 7. `find-duplicates.py` — Поиск дубликатов
-
-**Что проверяет:** схожесть содержимого md-файлов. Находит файлы с похожим текстом.
-
-**Порог:** 85% схожести (по первым 1000 символам).
-
-**Запуск:**
-```bash
-python tools/checkers/find-duplicates.py
-```
-
----
-
-### 8. `find-orphans.py` — Поиск файлов-сирот
-
-**Что проверяет:** находит md-файлы, на которые нет ни одной ссылки из других файлов.
-
-**Исключения:** системные файлы (README, CHANGELOG, etc.), папки `instructions/`, `docs/`.
-
-**Запуск:**
-```bash
-python tools/checkers/find-orphans.py
-```
-
----
-
-### 9. `check-empty-files.py` — Поиск пустых/незаполненных файлов
-
-**Что проверяет:** файлы с телом меньше 100 символов или с маркерами незаполненности.
-
-**Маркеры:** TODO, FIXME, ЗАПОЛНИТЬ, НАПИСАТЬ, `...`
-
-**Запуск:**
-```bash
-python tools/checkers/check-empty-files.py
-```
-
----
-
-### 10. `consistency-checker.py` — Проверка согласованности
-
-**Что проверяет:**
-- Единообразие транслитерации (Яхве, эмет, хесед, руах...)
-- Битые внутренние ссылки
-- Соответствие папки в метаданных реальному пути
-
-**Запуск:**
-```bash
-python tools/checkers/consistency-checker.py
-```
-
----
-
-### 11. `check-religionisms.py` — Проверка и исправление религионимов
-
-**Что проверяет:** наличие религионимов (русских слов, подменяющих ивритские понятия).
-
-**Что делает:**
-- Заменяет «Бог» → «Элоhим», «Господь» → «Яхве», «грех» → «промах» и т.д.
-- Защищает метаданные от замены
-- Ивритские слова в белом списке не заменяются
-- Обновляет счётчик проверок в метаданных
-
-**Флаги:**
-- `--fix` — исправляет найденные религионимы
-- `--rebuild` — перестраивает кэш словарей
-
-**Запуск:**
-```bash
-python tools/checkers/check-religionisms.py
-python tools/checkers/check-religionisms.py --fix
-python tools/checkers/check-religionisms.py --rebuild --fix
-```
-
----
-
-### 12. `check-tahor-sync.py` — Сверка словарей tahor/
-
-**Что проверяет:** синхронизацию между `instructions/tahor/` и `instructions/forbidden-words.md`.
-
-**Что находит:**
-- Слова, которые есть в `tahor/`, но отсутствуют в `forbidden-words.md`
-- Слова, которые есть в `forbidden-words.md`, но отсутствуют в `tahor/`
-- Дубликаты между файлами `tahor/`
-
-**Запуск:**
-```bash
-python tools/checkers/check-tahor-sync.py
-```
-
----
-
-### 13. `check-code-quality.py` — Проверка качества кода
-
-**Что проверяет:** Python-скрипты в папке `tools/`.
-
-**Проверяемые критерии:**
-- Неиспользуемые импорты
-- Отсутствие docstring у функций
-- Слишком длинные функции (>50 строк)
-- Слишком длинные строки (>100 символов)
-- Пробелы в конце строк
-- Использование `eval()` (небезопасно)
-- Отсутствие пустой строки в конце файла
-- Смешанные отступы (табы + пробелы)
-- Отсутствие shebang у исполняемых файлов
-
-**Флаги:**
-- `--fix` — автоматически исправляет пробелы и пустые строки
-
-**Запуск:**
 ```bash
 python tools/checkers/check-code-quality.py
 python tools/checkers/check-code-quality.py --fix
@@ -250,134 +96,171 @@ python tools/checkers/check-code-quality.py --fix
 
 ---
 
-### 14. `check-file-names-language.py` — Проверка языка имён файлов
+### check-links.py — Проверка внутренних ссылок
 
-**Что проверяет:** соответствие языка имени файла его категории.
+Проверяет все ссылки вида `[текст](путь)` в `.md` файлах.
 
-**Правила:**
-- `terminology/` и `tanakh/` → только иврит
-- Остальные папки → только английский
-- Смесь языков → нарушение
-- Русские буквы → нарушение
-
-**Запуск:**
 ```bash
-python tools/checkers/check-file-names-language.py
+python tools/checkers/check-links.py
 ```
 
 ---
 
-### 15. `check-file-names-clarity.py` — Проверка ясности имён файлов
+### check-naming.py — Проверка имён файлов
 
-**Что проверяет:** краткость и понятность имён.
+Проверяет соответствие имён `.md` файлов правилам проекта.
 
-**Правила:**
-- 1-3 слова через дефис
-- Длина до 50 символов
-- Транслитерация русских слов
-
-**Флаги:**
-- `--fix` — переименовывает файлы
-
-**Запуск:**
 ```bash
-python tools/checkers/check-file-names-clarity.py
-python tools/checkers/check-file-names-clarity.py --fix
+python tools/checkers/check-naming.py
 ```
 
 ---
 
-### 16. `check-file-sizes.py` — Анализ размеров файлов
+### check-duplicates.py — Поиск дубликатов
 
-**Что проверяет:** размеры всех md-файлов.
+Находит файлы с похожим содержимым.
 
-**Что находит:**
-- Пустые файлы (<100 Б)
-- Очень маленькие (<300 Б)
-- Аномально большие (>100 КБ)
-- Топ-10 самых больших
-
-**Запуск:**
 ```bash
-python tools/reports/check-file-sizes.py
+python tools/checkers/check-duplicates.py
 ```
 
 ---
 
-### 17. `check-exposure.py` — Полная проверка по exposure-критериям
+### check-orphans.py — Поиск файлов-сирот
 
-**Что проверяет:** файлы на наличие 10 типов искажений по 70+ маркерам.
+Находит файлы на которые нет ни одной ссылки.
 
-**Категории проверки:**
-- Подмена категории (живое → институт)
-- Юридизация (союз → контракт)
-- Психологизация (действие → чувство)
-- Сдвиг от действия к эмоции
-- Абстракция (конкретное → философское)
-- Сужение смысла
-- Дуализация (единое → противоположное)
-- Транслитерация вместо перевода
-- Имя подменено титулом
-- Финансовое рабство
+```bash
+python tools/checkers/check-orphans.py
+```
 
-**Важно:** не все найденные маркеры — нарушения. Контекст разоблачения учитывается человеком.
+---
 
-**Запуск:**
+### check-empty-files.py — Поиск пустых файлов
+
+Находит файлы с телом меньше 100 символов или с маркерами незаполненности.
+
+```bash
+python tools/checkers/check-empty-files.py
+```
+
+---
+
+### check-consistency.py — Проверка согласованности
+
+Проверяет единообразие транслитерации, битые ссылки, соответствие путей.
+
+```bash
+python tools/checkers/check-consistency.py
+```
+
+---
+
+### check-exposure.py — Проверка по exposure-критериям
+
+Проверяет файлы на наличие 10 типов искажений по 70+ маркерам.
+
 ```bash
 python tools/checkers/check-exposure.py
 ```
 
 ---
 
-### 18. `fix-encoding.py` — Исправление кодировки
+### check-env.py — Проверка окружения
 
-**Что делает:** конвертирует файлы из Windows-1251 в UTF-8.
+Показывает что установлено, чего не хватает для работы проекта.
 
-**Запуск:**
 ```bash
-python tools/checkers/fix-encoding.py
+python tools/checkers/check-env.py
 ```
 
 ---
 
-### 19. `clear-cache.py` — Очистка кэша
+### check-scripts-usefulness.py — Аудит полезности скриптов
 
-**Что делает:** удаляет все файлы кэша (`tools/cache/`).
+Анализирует все Python-скрипты и оценивает их полезность.
 
-**Когда нужно:** после обновления словарей `tahor/` или при странных результатах проверок.
-
-**Запуск:**
 ```bash
-python tools/checkers/clear-cache.py
+python tools/checkers/check-scripts-usefulness.py
+```
+
+---
+
+### check-countries.py — Проверка стран по критериям ТаНаХа
+
+Оценивает страны мира по 35 параметрам из 7 уровней.
+
+```bash
+python tools/checkers/check-countries.py
+```
+
+---
+
+### check-external-links.py — Проверка внешних ссылок
+
+Проверяет HTTP(S) ссылки на доступность.
+
+```bash
+python tools/checkers/check-external-links.py
+```
+
+---
+
+### check-fix-encoding.py — Исправление кодировки
+
+Конвертирует файлы из Windows-1251 в UTF-8.
+
+```bash
+python tools/checkers/check-fix-encoding.py
+```
+
+---
+
+### check-fix-metadata.py — Исправление метаданных
+
+Исправляет искажённые названия полей метаданных.
+
+```bash
+python tools/checkers/check-fix-metadata.py --fix
+```
+
+---
+
+### check-file-sizes.py — Анализ размеров файлов
+
+Показывает статистику по размерам `.md` файлов.
+
+```bash
+python tools/reports/check-file-sizes.py
 ```
 
 ---
 
 ## 🔄 ТИПОВОЙ ЦИКЛ ПРОВЕРКИ
 
-1. **Ежедневно:**
-   ```bash
-   python tools/checkers/check-links.py
-   python tools/checkers/find-orphans.py
-   ```
+### Ежедневно
+```bash
+python tools/checkers/check-tahor.py
+python tools/checkers/check-links.py
+python tools/checkers/check-headers.py
+```
 
-2. **При добавлении новых файлов:**
-   ```bash
-   python tools/checkers/check-naming.py
-   python tools/checkers/validate-metadata.py --fix
-   python tools/checkers/check-religionisms.py --fix
-   ```
+### Перед коммитом
+```bash
+python tools/checkers/check-tahor.py --fix
+python tools/checkers/check-file-headers.py --fix
+python tools/checkers/check-naming.py
+```
 
-3. **При изменении словарей:**
-   ```bash
-   python tools/checkers/check-tahor-sync.py
-   python tools/checkers/check-religionisms.py --rebuild --fix
-   ```
+### Раз в неделю
+```bash
+python tools/checkers/check-mivdak.py
+python tools/checkers/check-orphans.py
+python tools/checkers/check-duplicates.py
+```
 
-4. **Полный аудит (раз в неделю):**
-   ```bash
-   python tools/golem.py
-   # ДЕЙСТВИЯ → Запустить все проверки
-   ```
+### Полный аудит
+```bash
+python tools/golem.py
+```
 
----

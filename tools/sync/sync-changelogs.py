@@ -1,4 +1,4 @@
-# tools/sync/sync-changelogs.py — объединение CHANGELOG в один файл
+# tools/sync/sync-changelogs.py — changelogs
 import sys
 import re
 from pathlib import Path

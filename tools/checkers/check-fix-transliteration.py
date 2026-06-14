@@ -1,4 +1,4 @@
-# tools/checkers/check-fix-transliteration.py — автоматическое исправление транслитерации
+# tools/checkers/check-fix-transliteration.py — fix transliteration
 
 import re
 from pathlib import Path

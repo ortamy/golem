@@ -1,4 +1,4 @@
-# tools/utils/rename-script.py — переименование скриптов (ручной + авто-режим)
+# tools/utils/rename-script.py — rename script
 import sys
 from pathlib import Path
 

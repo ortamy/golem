@@ -1,4 +1,4 @@
-# tools/generators/generate-related-links.py — добавление блока «СВЯЗАННЫЕ ИССЛЕДОВАНИЯ»
+# tools/generators/generate-related-links.py — related links
 import sys
 import re
 from pathlib import Path

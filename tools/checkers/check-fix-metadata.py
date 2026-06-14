@@ -1,4 +1,4 @@
-# tools/checkers/check-fix-metadata.py — исправление полей метаданных (русский → правильный)
+# tools/checkers/check-fix-metadata.py — fix metadata
 import sys
 import re
 from pathlib import Path
