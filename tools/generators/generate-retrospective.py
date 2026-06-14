@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# tools/generators/generate-retrospective.py — генерация ретроспективы
 # generate-retrospective.py — автоматическая генерация ретроспективы
 
 import sys

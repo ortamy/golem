@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/neuro/inference/client.py — client
 # neural/inference/client.py — клиент для отправки запросов к серверу Свидетеля
 import argparse
 import json

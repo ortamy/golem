@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/generate-changelog.py
+# tools/generators/generate-changelog.py — changelog
 import sys
 import subprocess
 from pathlib import Path

@@ -1,4 +1,5 @@
 #!/bin/bash
+# tools/backup/backup-export.sh — backup export.sh
 # export-repo.sh — выгружает все md-файлы в один текст
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

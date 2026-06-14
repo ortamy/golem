@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/neuro/scripts/prepare-finetune-data.py — prepare finetune data
 # prepare_finetune_data.py — подготовка датасета для fine-tune модели «Эд»
 
 # import os  # TODO: проверить, используется ли

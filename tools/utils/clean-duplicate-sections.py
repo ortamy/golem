@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# tools/utils/clean-duplicate-sections.py — clean duplicate sections
 """
 Скрипт для удаления дублирующих секций ## 🔗 СВЯЗАННЫЕ ИССЛЕДОВАНИЯ в конце .md файлов.
 Связанные файлы в блоке метаданных (поле "Связанные файлы:") не трогает.

@@ -1,3 +1,4 @@
+// web/tailwind.config.js — tailwind.config
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [

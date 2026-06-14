@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# fix-transliteration.py — автоматическое исправление транслитерации
+# tools/checkers/check-fix-transliteration.py — автоматическое исправление транслитерации
 
 import re
 from pathlib import Path

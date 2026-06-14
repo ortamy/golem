@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/generators/generate-sync-structure.py — синхронизация STRUCTURE.md
+# tools/sync/sync-structure.py — синхронизация STRUCTURE.md
 import sys
 from pathlib import Path
 from datetime import datetime

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# ed/neuro/scripts/prepare-data.py — prepare data
 ```python
 #!/usr/bin/env python3
 # prepare_data.py — подготовка данных для обучения нейросети из репозитория

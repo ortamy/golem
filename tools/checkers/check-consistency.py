@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/check-consistency.py
+# tools/checkers/check-consistency.py — consistency
 import sys
 import re
 from pathlib import Path

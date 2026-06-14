@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/assistant/tools.py — tools
 # tools.py — инструменты ассистента «Эд» (v1.0)
 
 import os

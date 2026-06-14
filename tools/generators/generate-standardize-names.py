@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# tools/generators/generate-standardize-names.py — стандартизация имён файлов
 # generate-standardize-names.py — стандартизация имён файлов (v1.0)
 
 import os

@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/check-code-quality.py — проверка качества Python-кода
+# tools/checkers/check-code-quality.py — проверка качества Python-кода
 import sys
 import ast
 from pathlib import Path

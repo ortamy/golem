@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/agent/memory.py — memory
 # ed-agent/memory.py — память агента «Эд»
 import json
 from pathlib import Path

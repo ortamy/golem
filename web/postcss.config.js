@@ -1,3 +1,4 @@
+// web/postcss.config.js — postcss.config
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [

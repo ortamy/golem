@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/generators/unify-metadata.py — адаптивная унификация метаданных (v2.0)
+# tools/generators/generate-metadata.py — адаптивная унификация метаданных (v2.0)
 import sys
 import re
 import hashlib

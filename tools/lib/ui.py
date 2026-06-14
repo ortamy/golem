@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# tools/lib/ui.py — ui
 # tools/lib/ui.py — дизайн-система Golem (ч/б + оранжевый акцент)
 
 # import sys  # TODO: проверить, используется ли

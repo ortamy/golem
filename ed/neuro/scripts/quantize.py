@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/neuro/scripts/quantize.py — quantize
 # quantize.py — конвертация модели в формат GGUF для локального запуска
 
 import os

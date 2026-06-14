@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/checkers/check-metadata.py — исправление полей метаданных (русский → правильный)
+# tools/checkers/check-fix-metadata.py — исправление полей метаданных (русский → правильный)
 import sys
 import re
 from pathlib import Path

@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/code-injector.py — вставка, замена, удаление кода в файлах
+# tools/utils/code-injector.py — вставка, замена, удаление кода в файлах
 import sys
 import re
 import shutil

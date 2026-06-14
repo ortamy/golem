@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# tools/automation/auto-versions.py — обновление версий
 # update-versions.py — массовое обновление версий и дат в файлах
 
 import re

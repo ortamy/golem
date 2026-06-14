@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/neuro/scripts/generate-knowledge-cache.py — generate knowledge cache
 # neural/scripts/generate-knowledge-cache.py — генерация кэша знаний для RAG+CAG
 import sys
 import re

@@ -1,4 +1,5 @@
 #!/bin/bash
+# tools/backup/backup-scheduled.sh — backup scheduled.sh
 # create-backup-scheduled.sh — автоматический бэкап репозитория (для cron)
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

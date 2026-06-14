@@ -1,4 +1,5 @@
 #!/bin/bash
+# ed/neuro/models/download.sh — download.sh
 # download.sh — скачивание готовой модели ed-v1.gguf
 
 set -e

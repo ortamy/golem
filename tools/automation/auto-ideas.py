@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# tools/automation/auto-ideas.py — управление идеями
 # idea-manager.py — управление идеями с автоматической синхронизацией
 
 import sys

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/neuro/eval/benchmark.py — benchmark
 # benchmark.py — тесты скорости и точности модели
 
 import json

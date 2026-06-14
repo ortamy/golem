@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/assistant/assistant.py — assistant
 # assistant.py — ассистент «Эд» для VS Code (v1.0)
 
 import os

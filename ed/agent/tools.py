@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/agent/tools.py — tools
 # ed-agent/tools.py — описание инструментов агента
 import sys
 import subprocess

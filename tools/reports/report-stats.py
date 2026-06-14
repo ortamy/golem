@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/report-stats-report.py
+# tools/reports/report-stats.py — stats
 # import sys  # TODO: проверить, используется ли
 # import os  # TODO: проверить, используется ли
 import re

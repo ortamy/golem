@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# tools/automation/auto-add-metadata.py — добавление метаданных
 # add-metadata.py — массовое добавление метаданных в файлы
 
 # import os  # TODO: проверить, используется ли

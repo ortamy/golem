@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# tools/golem.py — главное меню управления проектом
 # golem.py — центральное управление проектом (v5.5 compact)
 
 import os

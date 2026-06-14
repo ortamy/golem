@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/neuro/scripts/train.py — train
 # train.py — fine-tune модели на данных из репозитория
 
 import os

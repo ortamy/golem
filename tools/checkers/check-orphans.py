@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/check-orphans.py — поиск файлов-сирот (на которые нет ссылок)
+# tools/checkers/check-orphans.py — поиск файлов-сирот (на которые нет ссылок)
 import sys
 import re
 from pathlib import Path

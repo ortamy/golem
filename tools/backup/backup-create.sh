@@ -1,4 +1,5 @@
 #!/bin/bash
+# tools/backup/backup-create.sh — backup create.sh
 # backup.sh — бэкап репозитория
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

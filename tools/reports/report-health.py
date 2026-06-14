@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# tools/reports/report-health.py — проверка здоровья проекта
 # report-health.py — проверка здоровья проекта
 
 import sys

@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/automation/check-sort-files.py — интеллектуальная сортировка файлов (v4.5)
+# tools/checkers/check-sort-files.py — интеллектуальная сортировка файлов (v4.5)
 import sys
 import re
 from pathlib import Path

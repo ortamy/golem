@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/neuro/inference/server.py — server
 # server.py — сервер для инференса локальной модели
 
 import os

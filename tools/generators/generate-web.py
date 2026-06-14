@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/generators/generate-node-web.py — веб-интерфейс Golem для Node.js
+# tools/generators/generate-web.py — веб-интерфейс Golem для Node.js
 import sys
 from pathlib import Path
 from datetime import datetime

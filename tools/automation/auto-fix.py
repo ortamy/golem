@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# tools/automation/auto-fix.py — авто-исправление задач
 # auto-fix.py — автоматическое выполнение задач с интеграцией идей
 
 import sys

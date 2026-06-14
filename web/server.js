@@ -1,3 +1,4 @@
+// web/server.js — сервер для локальной разработки
 // docs/web/server.js — динамический сервер Golem (Node.js)
 const http = require('http');
 const fs = require('fs');

@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/automation/task-manager.py — управление задачами из TECHNICAL-DEBT.md
+# tools/automation/auto-tasks.py — управление задачами из TECHNICAL-DEBT.md
 
 import re
 import sys

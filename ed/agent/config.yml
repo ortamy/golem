@@ -1,4 +1,4 @@
-# ed-agent/config.yml — конфигурация агента «Эд»
+# ed/agent/config.yml — конфигурация агента «Эд»
 
 agent:
   name: "Эд"

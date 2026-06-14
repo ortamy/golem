@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ed/agent/agent.py — agent
 # ed-agent/agent.py — ИИ-агент «Эд» с нейросетевым планированием
 import sys
 import json

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# tools/generators/generate-files-json.py — генерация files.json для веб-интерфейса
 # generate-files-json.py — генерирует files.json для статического веб-интерфейса
 
 import json

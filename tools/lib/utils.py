@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# tools/lib/utils.py — utils
 # tools/lib/utils.py — общие утилиты для всех скриптов (с Rich)
 # import sys  # TODO: проверить, используется ли
 from pathlib import Path

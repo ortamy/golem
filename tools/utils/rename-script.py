@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/rename-script.py — переименование скриптов (ручной + авто-режим)
+# tools/utils/rename-script.py — переименование скриптов (ручной + авто-режим)
 import sys
 from pathlib import Path
 

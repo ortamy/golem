@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# tools/search.py — поисковый движок по репозиторию
+# tools/utils/search.py — поисковый движок по репозиторию
 import sys
 import re
 from pathlib import Path
