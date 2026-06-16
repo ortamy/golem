@@ -194,12 +194,19 @@
     "related": []
   },
   {
-    "path": "content/terminology/eved.md",
-    "title": "עֶבֶד (ЭВЕД) — Эвед, А НЕ «РАБ» В УНИЗИТЕЛЬНОМ Машмаут",
-    "topic": "Библейское понятие авода и принадлежности Яхве, искажённое христианством в «раба» и в тора о «Страда",
+    "path": "content/terminology/eved-yhwh.md",
+    "title": "ЭВЕД ЯХВЕ — РАБ ЯХВЕ: КТО ЭТО И ОТКУДА",
+    "topic": "Полный разбор понятия עֶבֶד יְהוָה (Эвед Яхве) — Раб Яхве. Этимология, контекст ТаНаХа, четыре проро",
     "category": "Терминология",
     "subcategory": "",
-    "related": []
+    "related": [
+      "content/terminology/eved.md",
+      "content/terminology/mashiah-peshat.md",
+      "content/bashah/events/tvilat-yeshua.md",
+      "content/tanakh/books/yeshayahu.md",
+      "content/tanakh/persons/moshe.md",
+      "content/tanakh/persons/david.md"
+    ]
   },
   {
     "path": "content/terminology/gerim.md",
@@ -600,6 +607,22 @@
     "related": []
   },
   {
+    "path": "content/terminology/ruach-yhwh.md",
+    "title": "РУАХ ЯХВЕ — РУАХ КОДЕШ — РУАХ ЭЛОhИМ: ОДНО ДЫХАНИЕ, ТРИ ИМЕНИ",
+    "topic": "Полный разбор трёх имён дыхания Яхве — רוּחַ יְהוָה, רוּחַ הַקֹּדֶשׁ, רוּחַ אֱלֹהִים. Одно действие,",
+    "category": "Терминология",
+    "subcategory": "",
+    "related": [
+      "content/terminology/ruach.md",
+      "content/terminology/ruach-hakodesh.md",
+      "content/terminology/kodesh.md",
+      "content/terminology/elohim.md",
+      "content/terminology/yhwh.md",
+      "content/terminology/shema.md",
+      "content/researches/shift-yhwh-to-jesus.md"
+    ]
+  },
+  {
     "path": "content/terminology/ruach.md",
     "title": "רוּחַ (РУАХ) — ДЫХАНИЕ, А НЕ «ДУХ»",
     "topic": "Библейское понятие дыхания, ветра, движения воздуха, искажённое греко-римской философией в нематериа",
@@ -808,67 +831,823 @@
     "related": []
   },
   {
-    "path": "content/tanakh/abracadabra.md",
+    "path": "content/tanakh/archive/abracadabra.md",
     "title": "אַבְרָא כַּדְבְּרָא — НЕ «МАГИЯ», А ЛОЖЬ, ЗАКЛЯТАЯ В СЛОВАХ",
     "topic": "Разоблачение магической нусха «абракадабра» через иврит и ТаНаХ",
     "category": "ТаНаХ",
-    "subcategory": "",
+    "subcategory": "Архив",
     "related": []
   },
   {
-    "path": "content/tanakh/adonai-origin.md",
+    "path": "content/tanakh/archive/acharayut-support.md",
+    "title": "אַחֲרָיוּת — НЕ «ОТВЕТСТВЕННОСТЬ», А СОПРОВОЖДЕНИЕ",
+    "topic": "Разоблачение латинско-юридической подмены «ответственности». Ивритское אַחֲרָיוּת — это не долг пере",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/adonai-origin.md",
     "title": "אֲדֹנָי — НЕ «ГОСПОДЬ», А СКРЫТОЕ ИМЯ (ШЕМ, שֵׁם)",
     "topic": "Происхождение слова אֲדֹנָי (Адонай). Разоблачение его связи с ханаанским божеством и подмены Имени ",
     "category": "ТаНаХ",
-    "subcategory": "",
+    "subcategory": "Архив",
     "related": []
   },
   {
-    "path": "content/tanakh/apocalypse.md",
+    "path": "content/tanakh/archive/apocalypse.md",
     "title": "אַפּוֹקָלִיפְּסָה — НЕ «КОНЕЦ СВЕТА», А ОТКРЫТИЕ ЗАНАВЕСА",
     "topic": "Разоблачение ложного значения слова «апокалипсис» и возвращение ему библейского машмаут",
     "category": "ТаНаХ",
-    "subcategory": "",
+    "subcategory": "Архив",
     "related": []
   },
   {
-    "path": "content/tanakh/armageddon.md",
+    "path": "content/tanakh/archive/armageddon.md",
     "title": "הַר מְגִדּוֹ — НЕ «АРМАГЕДДОН»: МЕСТО БИТВЫ, А ВОЗВЫШЕННОСТЬ, ГДЕ СУДЯТ",
     "topic": "Разоблачение ложного образа «Армагеддона» как финальной войны и возвращение библейского машмаут",
     "category": "ТаНаХ",
-    "subcategory": "",
+    "subcategory": "Архив",
     "related": []
   },
   {
-    "path": "content/tanakh/aseret-hadvarim.md",
+    "path": "content/tanakh/archive/aseret-hadvarim.md",
     "title": "עֲשֶׂרֶת הַדִּבְּרוֹת — НЕ «ЗАПОВЕДИ», А ДЕСЯТЬ ВЫСКАЗЫВАНИЙ-УЗЛОВ",
     "topic": "Разоблачение религиозной подмены «заповедей». Десять речений — это не «законы», а **мицвот** — узлы ",
     "category": "ТаНаХ",
-    "subcategory": "",
+    "subcategory": "Архив",
     "related": []
   },
   {
-    "path": "content/tanakh/balaam-strategy.md",
+    "path": "content/tanakh/archive/balaam-strategy.md",
     "title": "אֶצְבַּע בִּלְעָם — ПЕРСТ ВААЛАМА: КАК УНИЧТОЖИТЬ ИЗРАИЛЬ БЕЗ ВОЙНЫ",
     "topic": "Стратегия Ваалама: как уничтожить Израиль без войны. Схема соблазна изнутри, повторённая Римом. Подм",
     "category": "ТаНаХ",
-    "subcategory": "",
+    "subcategory": "Архив",
     "related": []
   },
   {
-    "path": "content/tanakh/bashah-structure.md",
+    "path": "content/tanakh/archive/bashah-structure.md",
     "title": "БАШАХ (ב.ש.ח) — Мивне ЕВРЕЙСКОГО НОВОГО Брит",
     "topic": "Предложение новой аббревиатуры «БаШаХ» для еврейского Нового Брит, аналогичной ТаНаХ, с историческим",
     "category": "ТаНаХ",
-    "subcategory": "",
+    "subcategory": "Архив",
     "related": []
   },
   {
-    "path": "content/tanakh/bereans.md",
+    "path": "content/tanakh/archive/bereans.md",
     "title": "ВЕРИЙЦЫ: ПРОВЕРЯЮЩИЕ, А НЕ ПОДЧИНЯЮЩИЕСЯ",
     "topic": "Кто такие верийцы (береане) в Деяниях 17:10-15, их противопоставление николаитам, и восстановление п",
     "category": "ТаНаХ",
-    "subcategory": "",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/brit-ania.md",
+    "title": "БРИТ-АНИЯ: КОРАБЛЬ Брит ИЛИ ИМПЕРИЯ ЛЖИ?",
+    "topic": "Требует уточнения",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/brit-hadashah.md",
+    "title": "בְּרִית חֲדָשָׁה — НЕ «НОВЫЙ ЗАВЕТ», А ВОССТАНОВЛЕННЫЙ Брит",
+    "topic": "Разоблачение мунах «Новый Завет» и возвращение изначального понятия «Обновлённый Союз»",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/brit-nissuin.md",
+    "title": "בְּרִית נִשּׂוּאִין — НЕ «СВАДЬБА», А Брит КРОВИ И Сеуда",
+    "topic": "Разоблачение современного брака как юридической сделки. Возвращение к ТаНаХ: брак как בְּרִית (брит)",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/catholic-church.md",
+    "title": "КАТОЛИЧЕСКАЯ Кеhила — РИМСКАЯ ПОДДЕЛКА Дэрех YHWH",
+    "topic": "Всестороннее разоблачение Римско-католической церкви как системы подмены иудейского мессианского дви",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/chadash-restored.md",
+    "title": "חָדָשׁ — НЕ «НОВЫЙ», А ВОЗВРАЩЁННЫЙ",
+    "topic": "Разоблачение ложного перевода слова «хадаш» как «новый» и возвращение истинного машмаут — «возвращён",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/dam-chesed.md",
+    "title": "דָּם וְחֶסֶד — КРОВЬ (ДАМ, דָּם) И ВЕРНОСТЬ: ПОЧЕМУ ЯХВЕ НЕ ЖЕСТОК",
+    "topic": "Исследование так называемых «жестоких» текстов ТаНаХ. Доказательство того, что проблема не в Яхве, а",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/darchei-tzadikim.md",
+    "title": "דַּרְכֵי הַצַּדִּיקִים — Дэрех Цадик",
+    "topic": "Типология дэрех в ТаНаХ. Авраhам, Исаак, Яаков, Моше, Давид, Йосеф, Йешуа. Не разоблачение, а созерц",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/derech-ha-nachash.md",
+    "title": "דֶּרֶךְ הַנָּחָשׁ — Дэрех ЗМЕЯ: КАК СТАТЬ НЕВИДИМЫМ ДЛЯ СИСТЕМЫ",
+    "topic": "Как построить свою систему внутри системы. Семь принципов обхода, материальная база, практические ша",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/dereh-yhwh.md",
+    "title": "דֶּרֶךְ יְהוָה — Дэрех ЯХВЕ: ОТ ЕГИПТА ДО НОВОГО ЙЕРУШАЛАИМА",
+    "topic": "Единый дэрех Яхве через всю историю Израиля. От Исхода из Египта до грядущего Нового Йерушалаима. Ка",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/digital-bavel.md",
+    "title": "ЦИФРОВОЙ ВАВИЛОН (DIGITAL BAVEL)",
+    "topic": "Как современная цифровая система повторяет архитектуру Вавилонской башни — контроль через ирбув и це",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/digital-coliseum.md",
+    "title": "קוֹלוֹסֵאוּם דִּיגִיטָלִי — ЦИФРОВОЙ КОЛИЗЕЙ: Лехем И ЗРЕЛИЩ 2.0",
+    "topic": "Как Рим переизобрёл «хлеба и зрелищ» в цифровую ткуфа. Атомизация зрителя. Одиночество как инструмен",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/drashat-hahar.md",
+    "title": "דְּרָשַׁת הָהָר — НАГОРНАЯ ПРОПОВЕДЬ: ПЕШИТТА ПРОТИВ ГРЕЧЕСКОГО",
+    "topic": "Восстановление ивритского оригинала Нагорной проповеди через Пешитту. Сравнение с греческим текстом ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/eved-amdut.md",
+    "title": "עֶבֶד וְעַבְדוּת — НЕ «РАБ», А Эвед, КОТОРЫЙ МОЖЕТ СТАТЬ СВОБОДНЫМ",
+    "topic": "Разоблачение римского понятия «раб» (servus) через призму ТаНаХ. עֶבֶד — не бесправная вещь, а эвед ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/exorcism-myth.md",
+    "title": "גֵּרוּשׁ שֵׁדִים — ИЗГНАНИЕ БЕСОВ: МИФ ИЛИ РЕАЛЬНОСТЬ?",
+    "topic": "Библейское понимание хошех и ор. Разоблачение римско-языческой практики «изгнания бесов» как чуждой ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/fallen-messengers.md",
+    "title": "מַלְאָכִים נוֹפְלִים — ПАДШИЕ ВЕСТНИКИ: РАЗОБЛАЧЕНИЕ МИФА",
+    "topic": "Разоблачение мифа о падших ангелах — истина о падших вестниках, искажающих ТаНаХ ради выгоды",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/fruits-as-judgement.md",
+    "title": "פְּרִי — ПЛОДЫ КАК СУД: ЧТО СПРОСИТ ЯХВЕ",
+    "topic": "Плоды как критерий суда Яхве — не вера, не слова, а дела",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/gog-and-magog.md",
+    "title": "ГОГ И МАГОГ — НАРОДЫ СЕВЕРА, КОТОРЫХ НИКТО НЕ ВИДЕЛ",
+    "topic": "Гог и Магог — этимология, происхождение, проверка через ТаНаХ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/greek-freedom-distortion.md",
+    "title": "ἐλευθερία (ЭЛЕУТЕРИЯ): КАК ГРЕЧЕСКАЯ СВОБОДА (ХЕРУТ, חֵרוּת) ПОДМЕНИЛА ДРОР",
+    "topic": "Греческая философская свобода (ἐλευθερία) как подмена библейского понятия дрор (דְּרוֹר) и хофеш (חו",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": [
+      "ἐλευθερία"
+    ]
+  },
+  {
+    "path": "content/tanakh/archive/ha-derech.md",
+    "title": "ХА-ДЕРЕХ — Дэрех, КОТОРЫЙ НЕЛЬЗЯ КОНТРОЛИРОВАТЬ",
+    "topic": "Почему кеhила (и любая власть) заменила живой Дэрех (ха-дерех) на религию, организацию и икар — и ка",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/ha-mashchit.md",
+    "title": "הַמַּשְׁחִית — ГУБИТЕЛЬ: РАЗОБЛАЧЕНИЕ МИФА ОБ Малъах Мавет",
+    "topic": "Разоблачение мифа об «ангеле-губителе» в ночь Песаха. Кто прошёл через Египет — Яхве или малъах? Ана",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/hellenization-vs-hebraization.md",
+    "title": "שְׁתֵּי דְּרָכִים (ШТЕЙ ДРАХИМ) — ДВЕ ДОРОГИ: ЭЛЛИНИЗАЦИЯ И ИВРИТИЗАЦИЯ",
+    "topic": "Сравнение двух путей мышления: греческого (эллинизация) и ивритского (ивритизация) — их влияние на п",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/hevel-kayin.md",
+    "title": "הֶבֶל — ХЕВЕЛЬ: ДЫХАНИЕ, КОТОРОЕ ГРОМЧЕ ГОЛОСА",
+    "topic": "Раскрытие образов Каина и Авеля через ивритские корни. Два дэрех: приобретать или дышать, строить ил",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/immanu-el.md",
+    "title": "עִמָּנוּ אֵל — ИММАНУ ...: ЧТО ОЗНАЧАЕТ ЭТО ИМЯ (ШЕМ, שֵׁם)",
+    "topic": "Исследование имени Имману Эль из Йешаяhу 7:14. Что означает это имя? К кому оно относится? Связь с Й",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/karma.md",
+    "title": "КАРМА — ... ВОЗДАЯНИЯ ИЛИ ВАВИЛОНСКАЯ ЛОВУШКА?",
+    "topic": "Требует уточнения",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/keshet.md",
+    "title": "קֶשֶׁת — НЕ «РАДУГА», А БОЕВОЙ ЛУК, ПОВЕШЕННЫЙ НА НЕБЕСА (ШАМАИМ, שָׁמַיִם)",
+    "topic": "Библейское значение слова קֶשֶׁת как боевого лука, ставшего знаком мира. Снятие ложных машмаут.",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/khazars-turks.md",
+    "title": "הַכּוּזָרִים — ХАЗАРЫ: НЕ «ЕВРЕИ», А ТЮРКИ, ПРИНЯВШИЕ ИУДАИЗМ",
+    "topic": "Разоблачение мифа о хазарском происхождении евреев. Хазары — тюрки, а не потомки Авраhама. История, ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/kotz-sting.md",
+    "title": "קוֹץ — ЖАЛО: ГДЕ ТВОЯ Ницахон, Мавет?",
+    "topic": "Два жала у Шауля: жало мавет (промах) и жало в басар (немощь). Разбор через ТаНаХ и Пешитту. Мавет п",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/krazha.md",
+    "title": "גְּנֵבַת הַשֵּׁם — КРАЖА ИМЕНИ: КАК יהוה СТАЛ «ГОСПОДОМ»",
+    "topic": "גְּנֵבַת הַשֵּׁם — КРАЖА ИМЕНИ: КАК יהוה СТАЛ «ГОСПОДОМ»",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/mabbel-recreation.md",
+    "title": "מַבּוּל — НЕ «ПОТОП», А ВОЗВРАЩЕНИЕ К Бриа",
+    "topic": "Разоблачение религиозной лжи о «потопе» как о каре. Событие мабуль — это отмена нежизнеспособного по",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/magen-david.md",
+    "title": "МАГЕН ДАВИД — Маген, КОТОРОГО НЕ БЫЛО",
+    "topic": "Происхождение и значение Маген Давид — шестиконечная звезда как поздний символ, не имеющий отношения",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/makkot-strikes.md",
+    "title": "מַכּוֹת — НЕ «КАЗНИ», А УДАРЫ, КОТОРЫЕ НЕЛЬЗЯ ОТКУПИТЬ",
+    "topic": "Разоблачение юридической подмены «казни египетские». В иврите — «удары», которых нельзя избежать сде",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/maschiah-cruteria.md",
+    "title": "מָשִׁיחַ — ...: КРИТЕРИИ, ТЕКСТЫ И ПРОВЕРКА",
+    "topic": "Полный разбор всех стихов ТаНаХ о Машиах. Проверка соответствия Йехошуа критериям Машиах.",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/mashal-melachim.md",
+    "title": "Машал О ДЕРЕВЬЯХ — ПЕРВАЯ АНТИСИСТЕМНАЯ Машал",
+    "topic": "Притча о деревьях (Шофтим 9) — первая антисистемная притча ТаНаХа, разоблачающая механизм власти",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/masoretic-text.md",
+    "title": "מָסֹרֶת — МАСОРЕТЫ: ХРАНИТЕЛИ, А НЕ ИСКАЗИТЕЛИ",
+    "topic": "Защита масоретского текста от обвинений в искажении. Доказательство, что масореты сохранили оригинал",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/mavet-vida.md",
+    "title": "МАВЕТ И ДААТ — ... ПРОТИВ ГРЕЧЕСКОГО ...",
+    "topic": "מָוֶת (мавет) — смерть и знание в ТаНаХе против греческого учения",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/melech-messenger.md",
+    "title": "מַלְאָךְ — НЕ «АНГЕЛ», А ВЕСТНИК, КОТОРЫЙ ПРИНОСИТ Давар",
+    "topic": "Разоблачение римской подмены «ангелов». מַלְאָךְ — не бесплотный руах с крыльями, а посланник, прино",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/mered-refusal.md",
+    "title": "מֶרֶד — НЕ «ВОССТАНИЕ», А ОТКАЗ НЕСТИ ЯРМО",
+    "topic": "Разоблачение латинско-церковного понятия «восстание». Библейское מֶרֶד — не бунт ради бунта, а созна",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/migdal-bavel.md",
+    "title": "מִגְדַּל בָּבֶל — РАССЕЯНИЕ ЯЗЫКОВ: КАК ИМПЕРИИ УКРАЛИ Машмаут",
+    "topic": "Как рассеяние языков привело к утрате машмаут. Имперские языки (греческий, латынь, славянский) как и",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/minecraft-tanakh.md",
+    "title": "מַיִן קְרָאפְט — МАЙНКРАФТ: ТАНАХИЧЕСКИЙ АНАЛИЗ",
+    "topic": "Анализ Minecraft через призму ТаНаХ. Архетипы бриа, грехопадения, исхода и восстановления в игровой ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/miryam-vs-ishtar.md",
+    "title": "מִרְיָם נֶגֶד אִשְׁתָּר (МИРЬЯМ НЕГЕД ИШТАР) — МИРЬЯМ ПРОТИВ ИШТАР: РАЗОБЛАЧЕНИЕ",
+    "topic": "Разоблачение культа «богородицы» как языческой подмены, уходящей корнями в культ Иштар. Яхве — единс",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/mizmor-23.md",
+    "title": "מִזְמוֹר כ״ג — Мизмор 23",
+    "topic": "Точный перевод Псалма 23 с иврита с транслитерацией и разбором",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/moadim-yhwh.md",
+    "title": "מוֹעֲדִים — НАЗНАЧЕННЫЕ ВРЕМЕНА ЯХВЕ: ПОДМЕНА Хаг",
+    "topic": "Полный разбор назначенных времён Яхве (моадим). Их машмаут, даты и подмена христианскими и языческим",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/morashat-israel.md",
+    "title": "מוֹרָשָׁה — НАСЛЕДИЕ: ЧТО ЦЕЛОСТНОСТЬ (ШАЛОМ, שָׁלוֹם) ДАЛИ ЕВРЕИ",
+    "topic": "Сравнительное исследование вклада Израиля и пятнадцати мировых систем в цивилизацию. Почему все импе",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/mushtarah.md",
+    "title": "מוּשְׁטָר — МУШТРА: КАК СИСТЕМА ПРЕВРАТИЛА Авода В ДРЕССИРОВКУ",
+    "topic": "Разоблачение муштры как инструмента системы. Сравнение муштры и дэрех Яхве. Как отличить дрессировку",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/nachash-serpent.md",
+    "title": "נָחָשׁ — ЗМЕЙ: НЕ ШЕД С ХВОСТОМ, А АЛГОРИТМ СОМНЕНИЯ",
+    "topic": "Раскрытие этимологии и сущности змея в Эдеме. Разоблачение римского образа «дьявола» как искажения б",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/nicaea-council.md",
+    "title": "НИКЕЙСКИЙ Кеhила: ИМПЕРСКАЯ СПЕЦОПЕРАЦИЯ ПРОТИВ Эмет",
+    "topic": "Как Римская империя на Никейском кеhила 325 года создала подделку — «богочеловека» вместо еврейского",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/nicham-keifa.md",
+    "title": "נִחָם — Кина ПЕТРА: НЕ Тшува, А ГЛУБОКИЙ ВЗДОХ",
+    "topic": "Разбор нефила и возвращения Ке́йфы (Петра) через ивритские понятия נִחָם и חֲרָטָה. Истинный машмаут",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/nicham.md",
+    "title": "נִחָם — НЕ «РАСКАЯНИЕ», А ГЛУБОКИЙ ВЗДОХ",
+    "topic": "Возвращение библейского машмаут слова נִחָם. Разоблачение религиозной подмены «раскаяния».",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/niddah.md",
+    "title": "נִדָּה — НЕ «НЕЧИСТОТА», А ОТДЕЛЁННОСТЬ",
+    "topic": "Возвращение библейского машмаут слова נִדָּה. Разоблачение мифа о «проклятии Евы» и нечистоте женщин",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/nishmat-chayim.md",
+    "title": "נִשְׁמַת חַיִּים — КОГДА ДЫХАНИЕ СТАНОВИТСЯ ЛОЖЬЮ",
+    "topic": "Дыхание жизни (нишмат хаим) как индикатор эмет. Как ложь, пахад и гордость нарушают дыхание Яхве в а",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/olam-haba.md",
+    "title": "עוֹלָם הַבָּא — ЦЕЛОСТНОСТЬ (ШАЛОМ, שָׁלוֹם) ГРЯДУЩИЙ: НЕ «БУДУЩЕЕ», А СОКРЫТОЕ",
+    "topic": "Разоблачение подмены понятия עוֹלָם הַבָּא (олам ха-ба) в нацрут. Это не «будущий мир», а грядущий п",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/olympic-games.md",
+    "title": "מִשְׂחֲקֵי אוֹלִימְפְּיָה — НЕ «СПОРТ», А ИНСТРУМЕНТ ОСЛАБЛЕНИЯ",
+    "topic": "Разоблачение Олимпийских игр как инструмента контроля и отвлечения. От древнего авода Зевсу до совре",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/or-tam.md",
+    "title": "אוֹר תָּם — Ор ЦЕЛЬНЫЙ: ИМЯ (ШЕМ, שֵׁם), КОТОРОЕ ВИДИТ СУТЬ",
+    "topic": "Раскрытие имени Ор Там (אוֹר תָּם) как криа и диагноза. Ор, который не мерцает. Цельность, которая н",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/paleo-hebrew.md",
+    "title": "הַכְּתָב הָעִבְרִי הַקָּדוּם — ПАЛЕО-ИВРИТ: ЯЗЫК, КОТОРЫМ ГОВОРИЛ ЯХВЕ",
+    "topic": "Полное исследование палео-иврита: происхождение, мивне, значение букв-образов, археологические свиде",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/philosophemes.md",
+    "title": "philosophemes",
+    "topic": "",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/plebs-control.md",
+    "title": "פְּלֵבְּס — ПЛЕБЕИ: СИСТЕМА КОНТРОЛЯ ЧЕРЕЗ Лехем И ЗРЕЛИЩА",
+    "topic": "Разоблачение римской системы контроля масс через призму ТаНаХ. Плебс — это не просто «беднота», а ду",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/pochemu-tanah-nikogda.md",
+    "title": "תַּנַ\"ךְ (ТАНАХ) — ЭТО НЕ «ВЕТХИЙ ЗАВЕТ»: РАЗОБЛАЧЕНИЕ ТЕРМИНА",
+    "topic": "Почему ТаНаХ никогда не назывался «Ветхим Заветом» и как Рим создал этот термин для унижения Микры",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/prayer-distortion.md",
+    "title": "Тфила: ОТ ЖИВОГО ДЕЙСТВИЯ К РИТУАЛЬНОМУ ЗАКЛИНАНИЮ",
+    "topic": "Требует уточнения",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/psychikos-pneumatikos.md",
+    "title": "PSYCHIKOS И PNEUMATIKOS: ДВА РЕЖИМА Тодаа ПО ШАУЛЮ",
+    "topic": "Разбор греческих мунах ψυχικός (психикос) и πνευματικός (пневматикос) в посланиях Шауля (Павла), их ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/rabbinic-judaism.md",
+    "title": "עֲבוֹדַת הָרַבָּנוּת — РАВВИНИСТИЧЕСКИЙ ИУДАИЗМ: ИСКАЖЕНИЕ Эмет",
+    "topic": "Историческое и лингвистическое разоблачение раввинистического иудаизма. Как устная масорет подменила",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/razoblachenie-sovremennogo-kulta.md",
+    "title": "אֱמוּנָה לְעַצְמוֹ אוֹ אֱמוּנָה לַיהוָה (ЭМУНА ЛЕ-АЦМО О ЭМУНА ЛАЯХВЕ) — БЫТЬ СО",
+    "topic": "Разоблачение современного культа «верности себе» (эмуна ле-ацмо) через призму ТаНаХа. Истинная вера ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/religia-rome.md",
+    "title": "רֶלִיגְיָה — Давар, ПРИДУМАННОЕ РИМОМ",
+    "topic": "Полное разоблачение латинского происхождения слова «религия» как инструмента контроля. В ТаНаХ нет «",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/remnant-israel.md",
+    "title": "שְׁאֵרִית יִשְׂרָאֵל — Шеэрит ИЗРАИЛЯ: ТЕ, КТО ИЩЕТ ЯХВЕ",
+    "topic": "Статистический и танахический анализ: сколько евреев в Израиле искренне ищут Яхве. Понятие «остатка»",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/resurrection-analysis.md",
+    "title": "תְּחִיַּת הַמֵּתִים — ОЖИВЛЕНИЕ УМЕРШИХ: Гуф, Руах ИЛИ МЕТАФОРА?",
+    "topic": "Глубокий анализ концепции оживления мёртвых в ТаНаХ. Физическое кима, духовное hитъорерут и шеол.",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/ruach-fruit.md",
+    "title": "פְּרִי רוּחַ (ПРИ РУАХ) — ПЛОД ДЫХАНИЯ: НЕ «НАСТРОЕНИЕ», А КЛАПАН ЖИЗНИ",
+    "topic": "Разоблачение психологической лжи о «негативных эмоциях» и культе «серьёзности». Слова — это клапан, ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/ruchot-infected.md",
+    "title": "רוּחוֹת — НЕ «ЗЛЫЕ ДУХИ», А ДЫХАНИЕ, КОТОРОЕ ЗАРАЖАЕТ",
+    "topic": "Разоблачение христианского тора о «злых духах» и «бесах». В ТаНаХ רוּחַ רָעָה — это не личность, а з",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/satan-adversary.md",
+    "title": "שָׂטָן — НЕ «САТАНА», А ПРОТИВНИК. И ЕГО ВЕСТНИК — НЕ Шед",
+    "topic": "Полное разоблачение христианского образа «сатаны» и «ангела сатаны». В ТаНаХ שָׂטָן — тафкид, а не л",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/secta-meaning.md",
+    "title": "Кат: СЛЕДОВАТЬ ИЛИ ОТРЕЗАТЬ?",
+    "topic": "Требует уточнения",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/serpent-healing.md",
+    "title": "נְחַשׁ הַנְּחֹשֶׁת — МЕДНЫЙ ЗМЕЙ: ПОДМЕНА САРАФА НА НАХАША",
+    "topic": "Полное исследование медного змея (Нехуштан) — был ли это инструмент Яхве или языческий идол, проникш",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/shaul-against-philosophy.md",
+    "title": "שָׁאוּל נֶגֶד פִילוֹסוֹפִיָה — ШАУЛЬ ОСУЖДАЕТ ГРЕЧЕСКУЮ ФИЛОСОФИЮ",
+    "topic": "Доказательство, что Шауль (Шауль) в Послании к Колоссянам 2:8 осуждал именно греческую философию, ко",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/shaul-victim.md",
+    "title": "שָׁאוּל — Корбан ПОЛИТИЧЕСКОЙ ПОДМЕНЫ",
+    "topic": "Разоблачение католической и протестантской подмены образа Шауля (Павла). Восстановление эмет: Шауль ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/shema-yhwh-echad.md",
+    "title": "שְׁמַע יִשְׂרָאֵל: ЯХВЕ ОДИН — НЕ «ТРОИЦА»",
+    "topic": "Доказательство единственности Яхве из ТаНаХ. Разоблачение тора о Троице как греческой философской по",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/shemot-yhwh.md",
+    "title": "שֵׁמוֹת יְהוָה — ИМЕНА, НЕСУЩИЕ ИМЯ (ШЕМ, שֵׁם) ЯХВЕ",
+    "topic": "Полный свод имён из ТаНаХ и БаШаХа, в которых запечатлено Имя יהוה. Каждое имя — эдут и hитгалут.",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/shirat-hayam.md",
+    "title": "שִׁירַת הַיָּם — ПЕСНЬ МОШЕ: ОРИГИНАЛ ПРОТИВ ПОДМЕН",
+    "topic": "שִׁירַת הַיָּם — ПЕСНЬ МОШЕ: ОРИГИНАЛ ПРОТИВ ПОДМЕН",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/shlavim-yetziah.md",
+    "title": "שְׁלָבִים יְצִיאָה — ЭТАПЫ ИСХОДА: Дэрех ОТ РАБСТВА К Хофеш",
+    "topic": "שְׁלָבִים יְצִיאָה — ЭТАПЫ ИСХОДА: Дэрех ОТ РАБСТВА К Хофеш",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/shmot-ha-sfarim.md",
+    "title": "שְׁמוֹת הַסְּפָרִים — ИМЕНА КНИГ: ПОДМЕНА НАЗВАНИЙ ...",
+    "topic": "Как оригинальные ивритские названия книг ТаНаХа были подменены греческими, латинскими и английскими ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/sifrei-bashakh.md",
+    "title": "סִפְרֵי בְּשׂוֹרַת יֵשׁוּעַ — КНИГИ БАШАХА: ПОДМЕНА НАЗВАНИЙ",
+    "topic": "Разоблачение подмены названий книг БаШаХа в греческом, латинском, славянском и русском переводах. Во",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/sifrei-tanakh.md",
+    "title": "סִפְרֵי תַּנַ״ךְ — КНИГИ ...: ПОДМЕНА НАЗВАНИЙ",
+    "topic": "Разоблачение подмены названий книг ТаНаХ в греческом, латинском, славянском и русском переводах. Воз",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/slavic-substrate.md",
+    "title": "אֱמוּנָה כְּפוּלָה — ДВОЕВЕРИЕ: ГРЕЧЕСКАЯ ОБОЛОЧКА, СЛАВЯНСКОЕ НУТРО",
+    "topic": "Как славяне сохранили свой культ под греческой оболочкой. Двоеверие. Греко-славянский гибрид. Культ ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/sod-hamalchut.md",
+    "title": "סוֹד הַמַּלְכוּת — Сод МАЛХУТ: СОКРЫТОЕ ПРАВЛЕНИЕ (МАЛХУТ, מַלְכוּת)",
+    "topic": "Разоблачение подмены понятия מַלְכוּת (Малхут). Царство Яхве — не шетах, не «рай после смерти», не «",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/talmud-unmasked.md",
+    "title": "תַּלְמוּד — ...: Масорет СТАРЦЕВ ИЛИ Давар ЯХВЕ?",
+    "topic": "Разоблачение Талмуд как человеческого масорет, подменившего Тора. Анализ противоречий между ТаНаХ и ",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/tarbut-cult.md",
+    "title": "תַּרְבּוּת — НЕ «КУЛЬТУРА», А Hиштахавая СКРЫТЫМ Элоhим",
+    "topic": "Разоблачение латинского корня «культуры» как скрытого культа. Культура — это hиштахавая, а не безоби",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/tfilat-yeshua.md",
+    "title": "תְּפִלַּת יֵשׁוּעַ — ТФИЛА ЙЕШУА: ИВРИТСКИЙ ОРИГИНАЛ",
+    "topic": "Восстановление ивритского оригинала тфилы Йешуа (Матфей 6:9–13). Разбор каждого слова и обличение си",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/theophoric-names.md",
+    "title": "שֵׁמוֹת נוֹשְׂאֵי יהוה — ИМЕНА, НЕСУЩИЕ ИМЯ (ШЕМ, שֵׁם) ЯХВЕ",
+    "topic": "Имена в ТаНаХ, содержащие Имя יהוה (YHWH), и их подделка в греческих, латинских и славянских перевод",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/tikvah-tension.md",
+    "title": "תִּקְוָה — НЕ «НАДЕЖДА», А НАТЯНУТОСТЬ К ИСТОЧНИКУ",
+    "topic": "Разоблачение подмены понятия «надежда». תִּקְוָה — не пассивное ожидание, а активное натяжение, гото",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/trebuet-utochneniya.md",
+    "title": "Шеол — РОЗА И ДЕРЕВО: РАСКРЫТИЕ ПОД Хама ЯХВЕ",
+    "topic": "Требует уточнения",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": [
+      "שֶׁמֶשׁ צְדָקָה"
+    ]
+  },
+  {
+    "path": "content/tanakh/archive/tsom-istinnyi.md",
+    "title": "ИСТИННЫЙ ЦОМ — ЙЕШАЯhУ 58",
+    "topic": "Йешаяhу 58 — разоблачение ритуального цом и раскрытие истинного смысла צוֹם (цом)",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/tzeva-hashamayim.md",
+    "title": "צְבָא הַשָּׁמַיִם — НЕ «ВОИНСТВО НЕБЕСНОЕ», А «СОБРАНИЕ СВЕТИЛ»",
+    "topic": "Разоблачение римской милитаризации шамаим. צָבָא — не «армия», а «собрание служащих».",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/tzohar-window.md",
+    "title": "צֹהַר — ОКНО КОВЧЕГА: ВОРОН, ГОЛУБЬ И ВЫБОР",
+    "topic": "Раскрытие символики окна ковчега, ворона и голубя через ивритские корни. Рухани машмаут выбора между",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/yahvism.md",
+    "title": "ЯХВИЗМ: ПРОИСХОЖДЕНИЕ Мунах И ЕГО ЗНАЧЕНИЯ",
+    "topic": "Происхождение мунах «яхвизм», его академическое употребление и религиозное использование как таг",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/yegia-kapayim.md",
+    "title": "יְגִיעַ כַּפַּיִם — НЕ «ТЯЖЁЛЫЙ ТРУД», А Авода РУКАМИ, ЧТОБЫ ЕСТЬ",
+    "topic": "Разоблачение искажения понятия амаль в переводах и возвращение библейского машмаут — амаль как браха",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/yehoshua-research.md",
+    "title": "יֵשׁוּעַ — ЙЕХОШУА: Шеол, КОТОРОГО УБИЛА СИСТЕМА",
+    "topic": "Историческое расследование личности Йехошуа из Нацерета. Кто он был на самом деле. Кто его судил, кт",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
+    "related": []
+  },
+  {
+    "path": "content/tanakh/archive/yetzer-lev.md",
+    "title": "יֵצֶר לֵב — ЙЕЦЕР ЛЕВ: ПОМЫШЛЕНИЕ СЕРДЦА, А НЕ «ЭГОИЗМ»",
+    "topic": "Разбор понятия יֵצֶר לֵב (йецер лев) — помышление сердца. Разоблачение «эгоизма» как греко-психологи",
+    "category": "ТаНаХ",
+    "subcategory": "Архив",
     "related": []
   },
   {
@@ -1281,113 +2060,9 @@
     ]
   },
   {
-    "path": "content/tanakh/brit-ania.md",
-    "title": "БРИТ-АНИЯ: КОРАБЛЬ Брит ИЛИ ИМПЕРИЯ ЛЖИ?",
-    "topic": "Требует уточнения",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/brit-hadashah.md",
-    "title": "בְּרִית חֲדָשָׁה — НЕ «НОВЫЙ ЗАВЕТ», А ВОССТАНОВЛЕННЫЙ Брит",
-    "topic": "Разоблачение мунах «Новый Завет» и возвращение изначального понятия «Обновлённый Союз»",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/brit-nissuin.md",
-    "title": "בְּרִית נִשּׂוּאִין — НЕ «СВАДЬБА», А Брит КРОВИ И Сеуда",
-    "topic": "Разоблачение современного брака как юридической сделки. Возвращение к ТаНаХ: брак как בְּרִית (брит)",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/catholic-church.md",
-    "title": "КАТОЛИЧЕСКАЯ Кеhила — РИМСКАЯ ПОДДЕЛКА Дэрех YHWH",
-    "topic": "Всестороннее разоблачение Римско-католической церкви как системы подмены иудейского мессианского дви",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/chadash-restored.md",
-    "title": "חָדָשׁ — НЕ «НОВЫЙ», А ВОЗВРАЩЁННЫЙ",
-    "topic": "Разоблачение ложного перевода слова «хадаш» как «новый» и возвращение истинного машмаут — «возвращён",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
     "path": "content/tanakh/chayei-olam.md",
     "title": "חַיֵּי עוֹלָם — ЖИЗНЬ СКРЫТОГО ГОРИЗОНТА",
     "topic": "עוֹלָם (олам) — скрытое время, а не «вечность». חַיֵּי עוֹלָם — жизнь скрытого горизонта",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/dam-chesed.md",
-    "title": "דָּם וְחֶסֶד — КРОВЬ (ДАМ, דָּם) И ВЕРНОСТЬ: ПОЧЕМУ ЯХВЕ НЕ ЖЕСТОК",
-    "topic": "Исследование так называемых «жестоких» текстов ТаНаХ. Доказательство того, что проблема не в Яхве, а",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/darchei-tzadikim.md",
-    "title": "דַּרְכֵי הַצַּדִּיקִים — Дэрех Цадик",
-    "topic": "Типология дэрех в ТаНаХ. Авраhам, Исаак, Яаков, Моше, Давид, Йосеф, Йешуа. Не разоблачение, а созерц",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/derech-ha-nachash.md",
-    "title": "דֶּרֶךְ הַנָּחָשׁ — Дэрех ЗМЕЯ: КАК СТАТЬ НЕВИДИМЫМ ДЛЯ СИСТЕМЫ",
-    "topic": "Как построить свою систему внутри системы. Семь принципов обхода, материальная база, практические ша",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/dereh-yhwh.md",
-    "title": "דֶּרֶךְ יְהוָה — Дэрех ЯХВЕ: ОТ ЕГИПТА ДО НОВОГО ЙЕРУШАЛАИМА",
-    "topic": "Единый дэрех Яхве через всю историю Израиля. От Исхода из Египта до грядущего Нового Йерушалаима. Ка",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/digital-bavel.md",
-    "title": "ЦИФРОВОЙ ВАВИЛОН (DIGITAL BAVEL)",
-    "topic": "Как современная цифровая система повторяет архитектуру Вавилонской башни — контроль через ирбув и це",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/digital-coliseum.md",
-    "title": "קוֹלוֹסֵאוּם דִּיגִיטָלִי — ЦИФРОВОЙ КОЛИЗЕЙ: Лехем И ЗРЕЛИЩ 2.0",
-    "topic": "Как Рим переизобрёл «хлеба и зрелищ» в цифровую ткуфа. Атомизация зрителя. Одиночество как инструмен",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/drashat-hahar.md",
-    "title": "דְּרָשַׁת הָהָר — НАГОРНАЯ ПРОПОВЕДЬ: ПЕШИТТА ПРОТИВ ГРЕЧЕСКОГО",
-    "topic": "Восстановление ивритского оригинала Нагорной проповеди через Пешитту. Сравнение с греческим текстом ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/eved-amdut.md",
-    "title": "עֶבֶד וְעַבְדוּת — НЕ «РАБ», А Эвед, КОТОРЫЙ МОЖЕТ СТАТЬ СВОБОДНЫМ",
-    "topic": "Разоблачение римского понятия «раб» (servus) через призму ТаНаХ. עֶבֶד — не бесправная вещь, а эвед ",
     "category": "ТаНаХ",
     "subcategory": "",
     "related": []
@@ -1657,344 +2332,6 @@
     "related": []
   },
   {
-    "path": "content/tanakh/exorcism-myth.md",
-    "title": "גֵּרוּשׁ שֵׁדִים — ИЗГНАНИЕ БЕСОВ: МИФ ИЛИ РЕАЛЬНОСТЬ?",
-    "topic": "Библейское понимание хошех и ор. Разоблачение римско-языческой практики «изгнания бесов» как чуждой ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/fallen-messengers.md",
-    "title": "מַלְאָכִים נוֹפְלִים — ПАДШИЕ ВЕСТНИКИ: РАЗОБЛАЧЕНИЕ МИФА",
-    "topic": "Разоблачение мифа о падших ангелах — истина о падших вестниках, искажающих ТаНаХ ради выгоды",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/fruits-as-judgement.md",
-    "title": "פְּרִי — ПЛОДЫ КАК СУД: ЧТО СПРОСИТ ЯХВЕ",
-    "topic": "Плоды как критерий суда Яхве — не вера, не слова, а дела",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/gog-and-magog.md",
-    "title": "ГОГ И МАГОГ — НАРОДЫ СЕВЕРА, КОТОРЫХ НИКТО НЕ ВИДЕЛ",
-    "topic": "Гог и Магог — этимология, происхождение, проверка через ТаНаХ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/greek-freedom-distortion.md",
-    "title": "ἐλευθερία (ЭЛЕУТЕРИЯ): КАК ГРЕЧЕСКАЯ СВОБОДА (ХЕРУТ, חֵרוּת) ПОДМЕНИЛА ДРОР",
-    "topic": "Греческая философская свобода (ἐλευθερία) как подмена библейского понятия дрор (דְּרוֹר) и хофеш (חו",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": [
-      "ἐλευθερία"
-    ]
-  },
-  {
-    "path": "content/tanakh/ha-derech.md",
-    "title": "ХА-ДЕРЕХ — Дэрех, КОТОРЫЙ НЕЛЬЗЯ КОНТРОЛИРОВАТЬ",
-    "topic": "Почему кеhила (и любая власть) заменила живой Дэрех (ха-дерех) на религию, организацию и икар — и ка",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/ha-mashchit.md",
-    "title": "הַמַּשְׁחִית — ГУБИТЕЛЬ: РАЗОБЛАЧЕНИЕ МИФА ОБ Малъах Мавет",
-    "topic": "Разоблачение мифа об «ангеле-губителе» в ночь Песаха. Кто прошёл через Египет — Яхве или малъах? Ана",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/hellenization-vs-hebraization.md",
-    "title": "שְׁתֵּי דְּרָכִים (ШТЕЙ ДРАХИМ) — ДВЕ ДОРОГИ: ЭЛЛИНИЗАЦИЯ И ИВРИТИЗАЦИЯ",
-    "topic": "Сравнение двух путей мышления: греческого (эллинизация) и ивритского (ивритизация) — их влияние на п",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/hevel-kayin.md",
-    "title": "הֶבֶל — ХЕВЕЛЬ: ДЫХАНИЕ, КОТОРОЕ ГРОМЧЕ ГОЛОСА",
-    "topic": "Раскрытие образов Каина и Авеля через ивритские корни. Два дэрех: приобретать или дышать, строить ил",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/immanu-el.md",
-    "title": "עִמָּנוּ אֵל — ИММАНУ ...: ЧТО ОЗНАЧАЕТ ЭТО ИМЯ (ШЕМ, שֵׁם)",
-    "topic": "Исследование имени Имману Эль из Йешаяhу 7:14. Что означает это имя? К кому оно относится? Связь с Й",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/karma.md",
-    "title": "КАРМА — ... ВОЗДАЯНИЯ ИЛИ ВАВИЛОНСКАЯ ЛОВУШКА?",
-    "topic": "Требует уточнения",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/keshet.md",
-    "title": "קֶשֶׁת — НЕ «РАДУГА», А БОЕВОЙ ЛУК, ПОВЕШЕННЫЙ НА НЕБЕСА (ШАМАИМ, שָׁמַיִם)",
-    "topic": "Библейское значение слова קֶשֶׁת как боевого лука, ставшего знаком мира. Снятие ложных машмаут.",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/khazars-turks.md",
-    "title": "הַכּוּזָרִים — ХАЗАРЫ: НЕ «ЕВРЕИ», А ТЮРКИ, ПРИНЯВШИЕ ИУДАИЗМ",
-    "topic": "Разоблачение мифа о хазарском происхождении евреев. Хазары — тюрки, а не потомки Авраhама. История, ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/kotz-sting.md",
-    "title": "קוֹץ — ЖАЛО: ГДЕ ТВОЯ Ницахон, Мавет?",
-    "topic": "Два жала у Шауля: жало мавет (промах) и жало в басар (немощь). Разбор через ТаНаХ и Пешитту. Мавет п",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/krazha.md",
-    "title": "גְּנֵבַת הַשֵּׁם — КРАЖА ИМЕНИ: КАК יהוה СТАЛ «ГОСПОДОМ»",
-    "topic": "גְּנֵבַת הַשֵּׁם — КРАЖА ИМЕНИ: КАК יהוה СТАЛ «ГОСПОДОМ»",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/mabbel-recreation.md",
-    "title": "מַבּוּל — НЕ «ПОТОП», А ВОЗВРАЩЕНИЕ К Бриа",
-    "topic": "Разоблачение религиозной лжи о «потопе» как о каре. Событие мабуль — это отмена нежизнеспособного по",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/magen-david.md",
-    "title": "МАГЕН ДАВИД — Маген, КОТОРОГО НЕ БЫЛО",
-    "topic": "Происхождение и значение Маген Давид — шестиконечная звезда как поздний символ, не имеющий отношения",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/makkot-strikes.md",
-    "title": "מַכּוֹת — НЕ «КАЗНИ», А УДАРЫ, КОТОРЫЕ НЕЛЬЗЯ ОТКУПИТЬ",
-    "topic": "Разоблачение юридической подмены «казни египетские». В иврите — «удары», которых нельзя избежать сде",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/maschiah-cruteria.md",
-    "title": "מָשִׁיחַ — ...: КРИТЕРИИ, ТЕКСТЫ И ПРОВЕРКА",
-    "topic": "Полный разбор всех стихов ТаНаХ о Машиах. Проверка соответствия Йехошуа критериям Машиах.",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/mashal-melachim.md",
-    "title": "Машал О ДЕРЕВЬЯХ — ПЕРВАЯ АНТИСИСТЕМНАЯ Машал",
-    "topic": "Притча о деревьях (Шофтим 9) — первая антисистемная притча ТаНаХа, разоблачающая механизм власти",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/masoretic-text.md",
-    "title": "מָסֹרֶת — МАСОРЕТЫ: ХРАНИТЕЛИ, А НЕ ИСКАЗИТЕЛИ",
-    "topic": "Защита масоретского текста от обвинений в искажении. Доказательство, что масореты сохранили оригинал",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/mavet-vida.md",
-    "title": "МАВЕТ И ДААТ — ... ПРОТИВ ГРЕЧЕСКОГО ...",
-    "topic": "מָוֶת (мавет) — смерть и знание в ТаНаХе против греческого учения",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/melech-messenger.md",
-    "title": "מַלְאָךְ — НЕ «АНГЕЛ», А ВЕСТНИК, КОТОРЫЙ ПРИНОСИТ Давар",
-    "topic": "Разоблачение римской подмены «ангелов». מַלְאָךְ — не бесплотный руах с крыльями, а посланник, прино",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/mered-refusal.md",
-    "title": "מֶרֶד — НЕ «ВОССТАНИЕ», А ОТКАЗ НЕСТИ ЯРМО",
-    "topic": "Разоблачение латинско-церковного понятия «восстание». Библейское מֶרֶד — не бунт ради бунта, а созна",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/migdal-bavel.md",
-    "title": "מִגְדַּל בָּבֶל — РАССЕЯНИЕ ЯЗЫКОВ: КАК ИМПЕРИИ УКРАЛИ Машмаут",
-    "topic": "Как рассеяние языков привело к утрате машмаут. Имперские языки (греческий, латынь, славянский) как и",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/minecraft-tanakh.md",
-    "title": "מַיִן קְרָאפְט — МАЙНКРАФТ: ТАНАХИЧЕСКИЙ АНАЛИЗ",
-    "topic": "Анализ Minecraft через призму ТаНаХ. Архетипы бриа, грехопадения, исхода и восстановления в игровой ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/miryam-vs-ishtar.md",
-    "title": "מִרְיָם נֶגֶד אִשְׁתָּר (МИРЬЯМ НЕГЕД ИШТАР) — МИРЬЯМ ПРОТИВ ИШТАР: РАЗОБЛАЧЕНИЕ",
-    "topic": "Разоблачение культа «богородицы» как языческой подмены, уходящей корнями в культ Иштар. Яхве — единс",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/mizmor-23.md",
-    "title": "מִזְמוֹר כ״ג — Мизмор 23",
-    "topic": "Точный перевод Псалма 23 с иврита с транслитерацией и разбором",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/moadim-yhwh.md",
-    "title": "מוֹעֲדִים — НАЗНАЧЕННЫЕ ВРЕМЕНА ЯХВЕ: ПОДМЕНА Хаг",
-    "topic": "Полный разбор назначенных времён Яхве (моадим). Их машмаут, даты и подмена христианскими и языческим",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/morashat-israel.md",
-    "title": "מוֹרָשָׁה — НАСЛЕДИЕ: ЧТО ЦЕЛОСТНОСТЬ (ШАЛОМ, שָׁלוֹם) ДАЛИ ЕВРЕИ",
-    "topic": "Сравнительное исследование вклада Израиля и пятнадцати мировых систем в цивилизацию. Почему все импе",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/mushtarah.md",
-    "title": "מוּשְׁטָר — МУШТРА: КАК СИСТЕМА ПРЕВРАТИЛА Авода В ДРЕССИРОВКУ",
-    "topic": "Разоблачение муштры как инструмента системы. Сравнение муштры и дэрех Яхве. Как отличить дрессировку",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/nachash-serpent.md",
-    "title": "נָחָשׁ — ЗМЕЙ: НЕ ШЕД С ХВОСТОМ, А АЛГОРИТМ СОМНЕНИЯ",
-    "topic": "Раскрытие этимологии и сущности змея в Эдеме. Разоблачение римского образа «дьявола» как искажения б",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/nicaea-council.md",
-    "title": "НИКЕЙСКИЙ Кеhила: ИМПЕРСКАЯ СПЕЦОПЕРАЦИЯ ПРОТИВ Эмет",
-    "topic": "Как Римская империя на Никейском кеhила 325 года создала подделку — «богочеловека» вместо еврейского",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/nicham-keifa.md",
-    "title": "נִחָם — Кина ПЕТРА: НЕ Тшува, А ГЛУБОКИЙ ВЗДОХ",
-    "topic": "Разбор нефила и возвращения Ке́йфы (Петра) через ивритские понятия נִחָם и חֲרָטָה. Истинный машмаут",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/nicham.md",
-    "title": "נִחָם — НЕ «РАСКАЯНИЕ», А ГЛУБОКИЙ ВЗДОХ",
-    "topic": "Возвращение библейского машмаут слова נִחָם. Разоблачение религиозной подмены «раскаяния».",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/niddah.md",
-    "title": "נִדָּה — НЕ «НЕЧИСТОТА», А ОТДЕЛЁННОСТЬ",
-    "topic": "Возвращение библейского машмаут слова נִדָּה. Разоблачение мифа о «проклятии Евы» и нечистоте женщин",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/nishmat-chayim.md",
-    "title": "נִשְׁמַת חַיִּים — КОГДА ДЫХАНИЕ СТАНОВИТСЯ ЛОЖЬЮ",
-    "topic": "Дыхание жизни (нишмат хаим) как индикатор эмет. Как ложь, пахад и гордость нарушают дыхание Яхве в а",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/olam-haba.md",
-    "title": "עוֹלָם הַבָּא — ЦЕЛОСТНОСТЬ (ШАЛОМ, שָׁלוֹם) ГРЯДУЩИЙ: НЕ «БУДУЩЕЕ», А СОКРЫТОЕ",
-    "topic": "Разоблачение подмены понятия עוֹלָם הַבָּא (олам ха-ба) в нацрут. Это не «будущий мир», а грядущий п",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/olympic-games.md",
-    "title": "מִשְׂחֲקֵי אוֹלִימְפְּיָה — НЕ «СПОРТ», А ИНСТРУМЕНТ ОСЛАБЛЕНИЯ",
-    "topic": "Разоблачение Олимпийских игр как инструмента контроля и отвлечения. От древнего авода Зевсу до совре",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/or-tam.md",
-    "title": "אוֹר תָּם — Ор ЦЕЛЬНЫЙ: ИМЯ (ШЕМ, שֵׁם), КОТОРОЕ ВИДИТ СУТЬ",
-    "topic": "Раскрытие имени Ор Там (אוֹר תָּם) как криа и диагноза. Ор, который не мерцает. Цельность, которая н",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/paleo-hebrew.md",
-    "title": "הַכְּתָב הָעִבְרִי הַקָּדוּם — ПАЛЕО-ИВРИТ: ЯЗЫК, КОТОРЫМ ГОВОРИЛ ЯХВЕ",
-    "topic": "Полное исследование палео-иврита: происхождение, мивне, значение букв-образов, археологические свиде",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/persons/acharayut-support.md",
-    "title": "אַחֲרָיוּת — НЕ «ОТВЕТСТВЕННОСТЬ», А СОПРОВОЖДЕНИЕ",
-    "topic": "Разоблачение латинско-юридической подмены «ответственности». Ивритское אַחֲרָיוּת — это не долг пере",
-    "category": "ТаНаХ",
-    "subcategory": "Личности",
-    "related": []
-  },
-  {
     "path": "content/tanakh/persons/aharon.md",
     "title": "Аhарон — אַהֲרֹן",
     "topic": "Разбор личности «Аhарон» — жизнь, ошибки, плоды, связь с Машиахом",
@@ -2187,323 +2524,113 @@
     "related": []
   },
   {
-    "path": "content/tanakh/philosophemes.md",
-    "title": "philosophemes",
+    "path": "content/bashah/books/besorah-luka.md",
+    "title": "besorah luka",
     "topic": "",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/plebs-control.md",
-    "title": "פְּלֵבְּס — ПЛЕБЕИ: СИСТЕМА КОНТРОЛЯ ЧЕРЕЗ Лехем И ЗРЕЛИЩА",
-    "topic": "Разоблачение римской системы контроля масс через призму ТаНаХ. Плебс — это не просто «беднота», а ду",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/pochemu-tanah-nikogda.md",
-    "title": "תַּנַ\"ךְ (ТАНАХ) — ЭТО НЕ «ВЕТХИЙ ЗАВЕТ»: РАЗОБЛАЧЕНИЕ ТЕРМИНА",
-    "topic": "Почему ТаНаХ никогда не назывался «Ветхим Заветом» и как Рим создал этот термин для унижения Микры",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/prayer-distortion.md",
-    "title": "Тфила: ОТ ЖИВОГО ДЕЙСТВИЯ К РИТУАЛЬНОМУ ЗАКЛИНАНИЮ",
-    "topic": "Требует уточнения",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/psychikos-pneumatikos.md",
-    "title": "PSYCHIKOS И PNEUMATIKOS: ДВА РЕЖИМА Тодаа ПО ШАУЛЮ",
-    "topic": "Разбор греческих мунах ψυχικός (психикос) и πνευματικός (пневматикос) в посланиях Шауля (Павла), их ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/rabbinic-judaism.md",
-    "title": "עֲבוֹדַת הָרַבָּנוּת — РАВВИНИСТИЧЕСКИЙ ИУДАИЗМ: ИСКАЖЕНИЕ Эмет",
-    "topic": "Историческое и лингвистическое разоблачение раввинистического иудаизма. Как устная масорет подменила",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/razoblachenie-sovremennogo-kulta.md",
-    "title": "אֱמוּנָה לְעַצְמוֹ אוֹ אֱמוּנָה לַיהוָה (ЭМУНА ЛЕ-АЦМО О ЭМУНА ЛАЯХВЕ) — БЫТЬ СО",
-    "topic": "Разоблачение современного культа «верности себе» (эмуна ле-ацмо) через призму ТаНаХа. Истинная вера ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/religia-rome.md",
-    "title": "רֶלִיגְיָה — Давар, ПРИДУМАННОЕ РИМОМ",
-    "topic": "Полное разоблачение латинского происхождения слова «религия» как инструмента контроля. В ТаНаХ нет «",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/remnant-israel.md",
-    "title": "שְׁאֵרִית יִשְׂרָאֵל — Шеэрит ИЗРАИЛЯ: ТЕ, КТО ИЩЕТ ЯХВЕ",
-    "topic": "Статистический и танахический анализ: сколько евреев в Израиле искренне ищут Яхве. Понятие «остатка»",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/resurrection-analysis.md",
-    "title": "תְּחִיַּת הַמֵּתִים — ОЖИВЛЕНИЕ УМЕРШИХ: Гуф, Руах ИЛИ МЕТАФОРА?",
-    "topic": "Глубокий анализ концепции оживления мёртвых в ТаНаХ. Физическое кима, духовное hитъорерут и шеол.",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/ruach-fruit.md",
-    "title": "פְּרִי רוּחַ (ПРИ РУАХ) — ПЛОД ДЫХАНИЯ: НЕ «НАСТРОЕНИЕ», А КЛАПАН ЖИЗНИ",
-    "topic": "Разоблачение психологической лжи о «негативных эмоциях» и культе «серьёзности». Слова — это клапан, ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/ruchot-infected.md",
-    "title": "רוּחוֹת — НЕ «ЗЛЫЕ ДУХИ», А ДЫХАНИЕ, КОТОРОЕ ЗАРАЖАЕТ",
-    "topic": "Разоблачение христианского тора о «злых духах» и «бесах». В ТаНаХ רוּחַ רָעָה — это не личность, а з",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/satan-adversary.md",
-    "title": "שָׂטָן — НЕ «САТАНА», А ПРОТИВНИК. И ЕГО ВЕСТНИК — НЕ Шед",
-    "topic": "Полное разоблачение христианского образа «сатаны» и «ангела сатаны». В ТаНаХ שָׂטָן — тафкид, а не л",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/secta-meaning.md",
-    "title": "Кат: СЛЕДОВАТЬ ИЛИ ОТРЕЗАТЬ?",
-    "topic": "Требует уточнения",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/serpent-healing.md",
-    "title": "נְחַשׁ הַנְּחֹשֶׁת — МЕДНЫЙ ЗМЕЙ: ПОДМЕНА САРАФА НА НАХАША",
-    "topic": "Полное исследование медного змея (Нехуштан) — был ли это инструмент Яхве или языческий идол, проникш",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/shaul-against-philosophy.md",
-    "title": "שָׁאוּל נֶגֶד פִילוֹסוֹפִיָה — ШАУЛЬ ОСУЖДАЕТ ГРЕЧЕСКУЮ ФИЛОСОФИЮ",
-    "topic": "Доказательство, что Шауль (Шауль) в Послании к Колоссянам 2:8 осуждал именно греческую философию, ко",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/shaul-victim.md",
-    "title": "שָׁאוּל — Корбан ПОЛИТИЧЕСКОЙ ПОДМЕНЫ",
-    "topic": "Разоблачение католической и протестантской подмены образа Шауля (Павла). Восстановление эмет: Шауль ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/shema-yhwh-echad.md",
-    "title": "שְׁמַע יִשְׂרָאֵל: ЯХВЕ ОДИН — НЕ «ТРОИЦА»",
-    "topic": "Доказательство единственности Яхве из ТаНаХ. Разоблачение тора о Троице как греческой философской по",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/shemot-yhwh.md",
-    "title": "שֵׁמוֹת יְהוָה — ИМЕНА, НЕСУЩИЕ ИМЯ (ШЕМ, שֵׁם) ЯХВЕ",
-    "topic": "Полный свод имён из ТаНаХ и БаШаХа, в которых запечатлено Имя יהוה. Каждое имя — эдут и hитгалут.",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/shirat-hayam.md",
-    "title": "שִׁירַת הַיָּם — ПЕСНЬ МОШЕ: ОРИГИНАЛ ПРОТИВ ПОДМЕН",
-    "topic": "שִׁירַת הַיָּם — ПЕСНЬ МОШЕ: ОРИГИНАЛ ПРОТИВ ПОДМЕН",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/shlavim-yetziah.md",
-    "title": "שְׁלָבִים יְצִיאָה — ЭТАПЫ ИСХОДА: Дэрех ОТ РАБСТВА К Хофеш",
-    "topic": "שְׁלָבִים יְצִיאָה — ЭТАПЫ ИСХОДА: Дэрех ОТ РАБСТВА К Хофеш",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/shmot-ha-sfarim.md",
-    "title": "שְׁמוֹת הַסְּפָרִים — ИМЕНА КНИГ: ПОДМЕНА НАЗВАНИЙ ...",
-    "topic": "Как оригинальные ивритские названия книг ТаНаХа были подменены греческими, латинскими и английскими ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/sifrei-bashakh.md",
-    "title": "סִפְרֵי בְּשׂוֹרַת יֵשׁוּעַ — КНИГИ БАШАХА: ПОДМЕНА НАЗВАНИЙ",
-    "topic": "Разоблачение подмены названий книг БаШаХа в греческом, латинском, славянском и русском переводах. Во",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/sifrei-tanakh.md",
-    "title": "סִפְרֵי תַּנַ״ךְ — КНИГИ ...: ПОДМЕНА НАЗВАНИЙ",
-    "topic": "Разоблачение подмены названий книг ТаНаХ в греческом, латинском, славянском и русском переводах. Воз",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/slavic-substrate.md",
-    "title": "אֱמוּנָה כְּפוּלָה — ДВОЕВЕРИЕ: ГРЕЧЕСКАЯ ОБОЛОЧКА, СЛАВЯНСКОЕ НУТРО",
-    "topic": "Как славяне сохранили свой культ под греческой оболочкой. Двоеверие. Греко-славянский гибрид. Культ ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/sod-hamalchut.md",
-    "title": "סוֹד הַמַּלְכוּת — Сод МАЛХУТ: СОКРЫТОЕ ПРАВЛЕНИЕ (МАЛХУТ, מַלְכוּת)",
-    "topic": "Разоблачение подмены понятия מַלְכוּת (Малхут). Царство Яхве — не шетах, не «рай после смерти», не «",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/talmud-unmasked.md",
-    "title": "תַּלְמוּד — ...: Масорет СТАРЦЕВ ИЛИ Давар ЯХВЕ?",
-    "topic": "Разоблачение Талмуд как человеческого масорет, подменившего Тора. Анализ противоречий между ТаНаХ и ",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/tarbut-cult.md",
-    "title": "תַּרְבּוּת — НЕ «КУЛЬТУРА», А Hиштахавая СКРЫТЫМ Элоhим",
-    "topic": "Разоблачение латинского корня «культуры» как скрытого культа. Культура — это hиштахавая, а не безоби",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/tfilat-yeshua.md",
-    "title": "תְּפִלַּת יֵשׁוּעַ — ТФИЛА ЙЕШУА: ИВРИТСКИЙ ОРИГИНАЛ",
-    "topic": "Восстановление ивритского оригинала тфилы Йешуа (Матфей 6:9–13). Разбор каждого слова и обличение си",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/theophoric-names.md",
-    "title": "שֵׁמוֹת נוֹשְׂאֵי יהוה — ИМЕНА, НЕСУЩИЕ ИМЯ (ШЕМ, שֵׁם) ЯХВЕ",
-    "topic": "Имена в ТаНаХ, содержащие Имя יהוה (YHWH), и их подделка в греческих, латинских и славянских перевод",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/tikvah-tension.md",
-    "title": "תִּקְוָה — НЕ «НАДЕЖДА», А НАТЯНУТОСТЬ К ИСТОЧНИКУ",
-    "topic": "Разоблачение подмены понятия «надежда». תִּקְוָה — не пассивное ожидание, а активное натяжение, гото",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/trebuet-utochneniya.md",
-    "title": "Шеол — РОЗА И ДЕРЕВО: РАСКРЫТИЕ ПОД Хама ЯХВЕ",
-    "topic": "Требует уточнения",
-    "category": "ТаНаХ",
-    "subcategory": "",
+    "category": "БаШаХ",
+    "subcategory": "Книги",
     "related": [
-      "שֶׁמֶשׁ צְדָקָה"
+      "content/tanakh/books/[книга].md",
+      "content/bashah/books/[книга].md",
+      "content/terminology/[термин].md"
     ]
   },
   {
-    "path": "content/tanakh/tsom-istinnyi.md",
-    "title": "ИСТИННЫЙ ЦОМ — ЙЕШАЯhУ 58",
-    "topic": "Йешаяhу 58 — разоблачение ритуального цом и раскрытие истинного смысла צוֹם (цом)",
-    "category": "ТаНаХ",
-    "subcategory": "",
+    "path": "content/bashah/books/besorah-markus.md",
+    "title": "besorah markus",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/[книга].md",
+      "content/bashah/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/books/besorah-mattityahu.md",
+    "title": "besorah mattityahu",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/[книга].md",
+      "content/bashah/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/books/besorah-yohanan.md",
+    "title": "besorah yohanan",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/[книга].md",
+      "content/bashah/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/books/hitgalut.md",
+    "title": "hitgalut",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/[книга].md",
+      "content/bashah/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/books/maasei-shlichim.md",
+    "title": "maasei shlichim",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Книги",
+    "related": [
+      "content/tanakh/books/[книга].md",
+      "content/bashah/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/chronology/timeline.md",
+    "title": "timeline",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Хронология",
     "related": []
   },
   {
-    "path": "content/tanakh/tzeva-hashamayim.md",
-    "title": "צְבָא הַשָּׁמַיִם — НЕ «ВОИНСТВО НЕБЕСНОЕ», А «СОБРАНИЕ СВЕТИЛ»",
-    "topic": "Разоблачение римской милитаризации шамаим. צָבָא — не «армия», а «собрание служащих».",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/tzohar-window.md",
-    "title": "צֹהַר — ОКНО КОВЧЕГА: ВОРОН, ГОЛУБЬ И ВЫБОР",
-    "topic": "Раскрытие символики окна ковчега, ворона и голубя через ивритские корни. Рухани машмаут выбора между",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/yahvism.md",
-    "title": "ЯХВИЗМ: ПРОИСХОЖДЕНИЕ Мунах И ЕГО ЗНАЧЕНИЯ",
-    "topic": "Происхождение мунах «яхвизм», его академическое употребление и религиозное использование как таг",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/yegia-kapayim.md",
-    "title": "יְגִיעַ כַּפַּיִם — НЕ «ТЯЖЁЛЫЙ ТРУД», А Авода РУКАМИ, ЧТОБЫ ЕСТЬ",
-    "topic": "Разоблачение искажения понятия амаль в переводах и возвращение библейского машмаут — амаль как браха",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/yehoshua-research.md",
-    "title": "יֵשׁוּעַ — ЙЕХОШУА: Шеол, КОТОРОГО УБИЛА СИСТЕМА",
-    "topic": "Историческое расследование личности Йехошуа из Нацерета. Кто он был на самом деле. Кто его судил, кт",
-    "category": "ТаНаХ",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/tanakh/yetzer-lev.md",
-    "title": "יֵצֶר לֵב — ЙЕЦЕР ЛЕВ: ПОМЫШЛЕНИЕ СЕРДЦА, А НЕ «ЭГОИЗМ»",
-    "topic": "Разбор понятия יֵצֶר לֵב (йецер лев) — помышление сердца. Разоблачение «эгоизма» как греко-психологи",
-    "category": "ТаНаХ",
-    "subcategory": "",
+    "path": "content/bashah/concepts/besorah-concept.md",
+    "title": "besorah concept",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Понятия",
     "related": []
   },
   {
     "path": "content/bashah/concepts/besorah.md",
     "title": "בְּשׂוֹרָה — БЛАГАЯ ВЕСТЬ",
     "topic": "Что такое בְּשׂוֹרָה (бсора) — благая весть, а не «евангелие»",
+    "category": "БаШаХ",
+    "subcategory": "Понятия",
+    "related": []
+  },
+  {
+    "path": "content/bashah/concepts/brit-hadashah.md",
+    "title": "brit hadashah",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Понятия",
+    "related": []
+  },
+  {
+    "path": "content/bashah/concepts/kehillah-concept.md",
+    "title": "kehillah concept",
+    "topic": "",
     "category": "БаШаХ",
     "subcategory": "Понятия",
     "related": []
@@ -2523,6 +2650,806 @@
     "category": "БаШаХ",
     "subcategory": "Понятия",
     "related": []
+  },
+  {
+    "path": "content/bashah/concepts/mashiah-bashah.md",
+    "title": "mashiah bashah",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Понятия",
+    "related": []
+  },
+  {
+    "path": "content/bashah/concepts/psychikos-pneumatikos.md",
+    "title": "psychikos pneumatikos",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Понятия",
+    "related": []
+  },
+  {
+    "path": "content/bashah/events/beit-chananyah.md",
+    "title": "beit chananyah",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "События",
+    "related": [
+      "content/tanakh/events/[событие].md",
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md"
+    ]
+  },
+  {
+    "path": "content/bashah/events/petach-kefas.md",
+    "title": "petach kefas",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "События",
+    "related": [
+      "content/tanakh/events/[событие].md",
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md"
+    ]
+  },
+  {
+    "path": "content/bashah/events/seudat-aharon.md",
+    "title": "seudat aharon",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "События",
+    "related": [
+      "content/tanakh/events/[событие].md",
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md"
+    ]
+  },
+  {
+    "path": "content/bashah/events/shavuot-ruach.md",
+    "title": "shavuot ruach",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "События",
+    "related": [
+      "content/tanakh/events/[событие].md",
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md"
+    ]
+  },
+  {
+    "path": "content/bashah/events/tvilat-yeshua.md",
+    "title": "ТВИЛА ЙЕШУА — ПОГРУЖЕНИЕ МАШИАХА: ПОСВЯЩЕНИЕ, А НЕ ПОКАЯНИЕ",
+    "topic": "Полное исследование твилы Йешуа — цель, значение, исторический контекст, связь с ТаНаХом, разоблачен",
+    "category": "БаШаХ",
+    "subcategory": "События",
+    "related": [
+      "content/terminology/tvilah.md",
+      "content/terminology/mashiah-peshat.md",
+      "content/terminology/kohen.md",
+      "content/bashah/persons/yohanan-matbil.md",
+      "content/bashah/events/shavuot-ruach.md",
+      "content/bashah/concepts/mashiah-bashah.md",
+      "instructions/exposure/exposure-distortions.md"
+    ]
+  },
+  {
+    "path": "content/bashah/geography/antiohia.md",
+    "title": "antiohia",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "geography",
+    "related": []
+  },
+  {
+    "path": "content/bashah/geography/corinth.md",
+    "title": "corinth",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "geography",
+    "related": []
+  },
+  {
+    "path": "content/bashah/geography/ephesus.md",
+    "title": "ephesus",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "geography",
+    "related": []
+  },
+  {
+    "path": "content/bashah/geography/kfar-nachum.md",
+    "title": "kfar nachum",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "geography",
+    "related": []
+  },
+  {
+    "path": "content/bashah/geography/nazeret.md",
+    "title": "nazeret",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "geography",
+    "related": []
+  },
+  {
+    "path": "content/bashah/geography/roma.md",
+    "title": "roma",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "geography",
+    "related": []
+  },
+  {
+    "path": "content/bashah/geography/yerushalaim.md",
+    "title": "yerushalaim",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "geography",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/colossians.md",
+    "title": "colossians",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/corinthians-alef.md",
+    "title": "corinthians alef",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/corinthians-bet.md",
+    "title": "corinthians bet",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/ephesians.md",
+    "title": "ephesians",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/galatians.md",
+    "title": "galatians",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/ivrim.md",
+    "title": "ivrim",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/keifa-alef.md",
+    "title": "keifa alef",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/keifa-bet.md",
+    "title": "keifa bet",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/philemon.md",
+    "title": "philemon",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/philippians.md",
+    "title": "philippians",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/romans.md",
+    "title": "romans",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/thessalonians-alef.md",
+    "title": "thessalonians alef",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/thessalonians-bet.md",
+    "title": "thessalonians bet",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/timothy-alef.md",
+    "title": "timothy alef",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/timothy-bet.md",
+    "title": "timothy bet",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/titus.md",
+    "title": "titus",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/yaakov.md",
+    "title": "yaakov",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/yehudah.md",
+    "title": "yehudah",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/yohanan-alef.md",
+    "title": "yohanan alef",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/yohanan-bet.md",
+    "title": "yohanan bet",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/letters/yohanan-gimel.md",
+    "title": "yohanan gimel",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "letters",
+    "related": []
+  },
+  {
+    "path": "content/bashah/manuscripts/greek-manuscripts.md",
+    "title": "greek manuscripts",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Рукописи",
+    "related": []
+  },
+  {
+    "path": "content/bashah/manuscripts/peshitta.md",
+    "title": "peshitta",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Рукописи",
+    "related": []
+  },
+  {
+    "path": "content/bashah/nevua/hitgalut-yohanan.md",
+    "title": "hitgalut yohanan",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "nevua",
+    "related": []
+  },
+  {
+    "path": "content/bashah/nevua/hurban-bayit.md",
+    "title": "hurban bayit",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "nevua",
+    "related": []
+  },
+  {
+    "path": "content/bashah/persons/andrey.md",
+    "title": "andrey",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/bar-abba.md",
+    "title": "bar abba",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/chananyah.md",
+    "title": "chananyah",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/elyakim.md",
+    "title": "elyakim",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/keifa.md",
+    "title": "keifa",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/luka.md",
+    "title": "luka",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/markus.md",
+    "title": "markus",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/marta.md",
+    "title": "marta",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/mattityahu-levi.md",
+    "title": "mattityahu levi",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/mattityahu.md",
+    "title": "mattityahu",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/miryam-magdalit.md",
+    "title": "miryam magdalit",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/nakdimon.md",
+    "title": "nakdimon",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/natanael.md",
+    "title": "natanael",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/philipus.md",
+    "title": "philipus",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/shaul.md",
+    "title": "shaul",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/shimon-kfar-nachum.md",
+    "title": "shimon kfar nachum",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/shoshannah.md",
+    "title": "shoshannah",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/toma.md",
+    "title": "toma",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/yaakov-achim.md",
+    "title": "yaakov achim",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/yaakov-shlichim.md",
+    "title": "yaakov shlichim",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/yehudah.md",
+    "title": "yehudah",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/yochanan-kohen.md",
+    "title": "yochanan kohen",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/yohanan-matbil.md",
+    "title": "yohanan matbil",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/persons/yohanan-talmid.md",
+    "title": "yohanan talmid",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/tanakh/persons/[личность].md",
+      "content/tanakh/books/[книга].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/practices/seuda-adon.md",
+    "title": "seuda adon",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/[практика].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/practices/smicha.md",
+    "title": "smicha",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/[практика].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/practices/tfilat-kehillah.md",
+    "title": "tfilat kehillah",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/[практика].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/practices/tvilat-ruach.md",
+    "title": "tvilat ruach",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/[практика].md",
+      "content/terminology/[термин].md"
+    ]
+  },
+  {
+    "path": "content/bashah/teachings/drashat-hahar.md",
+    "title": "drashat hahar",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "teachings",
+    "related": [
+      "instructions/methodology/methodology-tree.md",
+      "content/teachings/[связанное-учение].md",
+      "instructions/exposure/exposure-religionism.md"
+    ]
+  },
+  {
+    "path": "content/bashah/teachings/mashal-ben-sorer.md",
+    "title": "mashal ben sorer",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "teachings",
+    "related": [
+      "instructions/methodology/methodology-tree.md",
+      "content/teachings/[связанное-учение].md",
+      "instructions/exposure/exposure-religionism.md"
+    ]
+  },
+  {
+    "path": "content/bashah/teachings/mashal-shomer-tzon.md",
+    "title": "mashal shomer tzon",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "teachings",
+    "related": [
+      "instructions/methodology/methodology-tree.md",
+      "content/teachings/[связанное-учение].md",
+      "instructions/exposure/exposure-religionism.md"
+    ]
+  },
+  {
+    "path": "content/bashah/teachings/mashal-zorea.md",
+    "title": "mashal zorea",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "teachings",
+    "related": [
+      "instructions/methodology/methodology-tree.md",
+      "content/teachings/[связанное-учение].md",
+      "instructions/exposure/exposure-religionism.md"
+    ]
+  },
+  {
+    "path": "content/bashah/teachings/tfilat-yeshua-teaching.md",
+    "title": "tfilat yeshua teaching",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "teachings",
+    "related": [
+      "instructions/methodology/methodology-tree.md",
+      "content/teachings/[связанное-учение].md",
+      "instructions/exposure/exposure-religionism.md"
+    ]
+  },
+  {
+    "path": "content/bashah/terminology/bsora.md",
+    "title": "bsora",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "terminology",
+    "related": [
+      "content/terminology/[термин-1].md",
+      "content/terminology/[термин-2].md",
+      "content/terminology/[термин-3].md"
+    ]
+  },
+  {
+    "path": "content/bashah/terminology/kehillah.md",
+    "title": "kehillah",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "terminology",
+    "related": [
+      "content/terminology/[термин-1].md",
+      "content/terminology/[термин-2].md",
+      "content/terminology/[термин-3].md"
+    ]
+  },
+  {
+    "path": "content/bashah/terminology/pesha.md",
+    "title": "pesha",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "terminology",
+    "related": [
+      "content/terminology/[термин-1].md",
+      "content/terminology/[термин-2].md",
+      "content/terminology/[термин-3].md"
+    ]
+  },
+  {
+    "path": "content/bashah/terminology/shaliah.md",
+    "title": "shaliah",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "terminology",
+    "related": [
+      "content/terminology/[термин-1].md",
+      "content/terminology/[термин-2].md",
+      "content/terminology/[термин-3].md"
+    ]
+  },
+  {
+    "path": "content/bashah/terminology/shutafut.md",
+    "title": "shutafut",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "terminology",
+    "related": [
+      "content/terminology/[термин-1].md",
+      "content/terminology/[термин-2].md",
+      "content/terminology/[термин-3].md"
+    ]
+  },
+  {
+    "path": "content/bashah/terminology/tvilah.md",
+    "title": "tvilah",
+    "topic": "",
+    "category": "БаШаХ",
+    "subcategory": "terminology",
+    "related": [
+      "content/terminology/[термин-1].md",
+      "content/terminology/[термин-2].md",
+      "content/terminology/[термин-3].md"
+    ]
   },
   {
     "path": "content/researches/archive/adrenokhrom.md",
