@@ -1,163 +1,126 @@
-# 📋 ТЕХНИЧЕСКИЙ ДОЛГ
+# 📋 ТЕХНИЧЕСКИЙ ДОЛГ — АВТОМАТИЗАЦИЯ
 
 **Метаданные файла**
 - **Файл:** `docs/TECHNICAL-DEBT.md`
-- **Версия:** 2.2
+- **Версия:** 3.0
 - **Дата создания:** 2026-05-28
-- **Последнее обновление:** 2026-06-11
-- **Причина обновления:** Добавлены задачи по наполнению новых категорий контентом
+- **Последнее обновление:** 2026-06-16
+- **Причина обновления:** Добавлены задачи по автоматизации, папка exposed, авто-обновление скриптов
 - **Статус:** Активный
-- **Тема:** Технический долг и задачи по развитию проекта
+- **Тема:** Технический долг и задачи по автоматизации проекта
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
 - **Связанные файлы:** `docs/TECHNICAL-DEBT.md`, `docs/IDEAS.md`, `docs/ROADMAP.md`
 - **Хеш:** ожидает
 - **Достоверность:** средняя
-- **Последний аудит:** 2026-06-11
+- **Последний аудит:** 2026-06-16
 
 ---
 
-## 📋 АКТИВНЫЕ ЗАДАЧИ
+## 🤖 АВТОМАТИЗАЦИЯ — КРИТИЧЕСКОЕ
 
-### 🤖 Автономный агент «Эд»
+### Авто-обновление при создании новых папок
 
-- [ ] Запустить `ed/neuro/inference/server.py` локально
-- [ ] Дообучить `ed/agent/agent.py` — добавить планировщик
-- [ ] Интеграция с Cline — Эд создаёт файлы задач, Cline читает и выполняет
-- [ ] Память агента — контекст между сессиями через `memory.py`
-- [ ] Режим «автономный стратег»
+Система должна автоматически подхватывать новые папки в `content/` без ручного обновления кода.
 
-### 🆕 Новые скрипты
+**Что нужно сделать:**
 
-- [ ] `check-md-quality.py` — проверка качества .md файлов
-- [ ] `generate-sitemap.py` — sitemap.xml
-- [ ] `generate-search-index.py` — полнотекстовый индекс для веб-интерфейса
-- [ ] `generate-rss.py` — RSS новых исследований
-- [ ] `watch-changes.py` — следит за файлами и запускает чекеры
-- [ ] `deploy.sh` — деплой одной командой
-- [ ] `backup-rotation.py` — ротация старых бэкапов
+- [ ] `server.js` — `SCAN_DIRS` должен сканировать `content/` рекурсивно, а не по жёстко заданному списку. Любая новая папка в `content/` → новая категория на сайте
+- [ ] `generate-files-json.py` — то же самое. Сканировать `content/` целиком, а не по списку
+- [ ] `SUBCATEGORY_LABELS` — вынести в отдельный JSON `tools/cache/cache-subcategories.json`, который можно редактировать без правки кода
+- [ ] При создании новой папки в `content/` — `files.json` обновляется автоматически через GitHub Actions
 
-### База ТаНаХа
+### Авто-обновление golem.py
 
-- [ ] Загрузить полный ТаНаХ в `tanakh.db`
-- [ ] Интегрировать `check-tanakh-references.py` с `check-links.py`
+- [x] `auto_discover_scripts()` — уже сделано. Новые скрипты в `tools/checkers/`, `generators/`, `reports/` появляются в меню автоматически
+- [ ] То же самое для `ed/assistant/tools.py` — чтобы новые скрипты появлялись в реестре инструментов ассистента
+- [ ] То же самое для `ed/agent/tools.py` — чтобы агент знал о новых скриптах
 
-### Веб-интерфейс
+### Авто-обновление dictionaries
 
-- [ ] Языковые версии (RU, EN, HE)
-- [ ] Полнотекстовый поиск по содержимому файлов
-- [ ] Подсветка иврита (rtl, шрифт)
-- [ ] PWA — установка на телефон
-- [ ] Офлайн-доступ через Service Worker
-- [ ] Хлебные крошки в ПК-версии
-- [ ] Режим чтения — скрыть сайдбар
-- [ ] Подвал с цитатой дня
-
-### Контент — заполнить пустые файлы
-
-- [ ] `content/terminology/yetzer-lev.md`
-- [ ] `content/terminology/erech-apayim.md`
+- [ ] `check-tahor.py` — при `--rebuild` должен автоматически находить все новые `.md` файлы в `instructions/dictionaries/` и добавлять их в кэш
+- [x] `build_tahor_cache()` — уже сканирует все файлы в `dictionaries/`. При добавлении нового словаря — перестроить кэш
 
 ---
 
-## 📝 НОВЫЕ ФАЙЛЫ ДЛЯ НАПОЛНЕНИЯ КАТЕГОРИЙ
+## 📂 НОВАЯ ПАПКА — content/exposed/
 
-### БаШаХ — перенести из researches/tanakh/
+### Создать папку для разоблачений
 
-- [ ] `brit-hadashah.md` → `content/bashah/concepts/brit-hadashah.md`
-- [ ] `drashat-hahar.md` → `content/bashah/teachings/drashat-hahar.md`
-- [ ] `tfilat-yeshua.md` → `content/bashah/teachings/tfilat-yeshua.md`
-- [ ] `sifrei-bashakh.md` → `content/bashah/books/sifrei-bashah.md`
-- [ ] `psychikos-pneumatikos.md` → `content/bashah/concepts/psychikos-pneumatikos.md`
-- [ ] `nicham-keifa.md` → `content/bashah/persons/nicham-keifa.md`
-- [ ] `shaul-victim.md` → `content/bashah/persons/shaul.md`
+- [x] Создать `content/exposed/`
+- [ ] Перенести туда файлы разоблачений из `researches/`:
+  - `enuma-exposed.md`
+  - `erasmus-textus-receptus.md`
+  - `antichrist-exposed.md`
+  - `fallen-messengers.md`
+  - `byzantine-pietism.md`
+  - `orphan-consciousness.md`
+  - `religion-energy-harvest.md`
+  - `sigils-as-circuits.md`
+  - `bluetooth.md`
+  - `microprocessors-as-temples.md`
+  - `cities-as-processors.md`
+  - `serpent-healing.md`
+- [ ] Обновить внутренние ссылки в перенесённых файлах
+- [ ] Обновить `files.json`
 
-### БаШаХ — создать новые
+### Автоматизация exposed
 
-- [x] `content/bashah/concepts/besorah.md` ✅ — 2026-06-14
-- [x] `content/bashah/concepts/kehillah.md` ✅ — 2026-06-14
-- [x] `content/bashah/persons/keifa.md` ✅ — 2026-06-14
-- [ ] `content/bashah/persons/yohanan-matbil.md` — Йоханан Погружатель
-- [ ] `content/bashah/events/seudat-aharon.md` — Последняя трапеза
-- [ ] `content/bashah/events/shavuot-ruach.md` — Шавуот — дарование Дыхания
-- [ ] `content/bashah/events/tvilat-yeshua.md` — Погружение Йешуа
-- [ ] `content/bashah/chronology/timeline.md` — Хронология событий БаШаХа
-- [ ] `content/bashah/books/besorah-yohanan.md` — Бсора от Йоханана
-- [ ] `content/bashah/books/iggrot-shaul.md` — Послания Шауля
-- [ ] `content/bashah/books/hitgalut.md` — Откровение Йоханана
-- [ ] `content/bashah/manuscripts/peshitta.md` — Пешитта
-- [ ] `content/bashah/manuscripts/greek-manuscripts.md` — Греческие рукописи
-
-### ТаНаХ — создать новые
-
-- [ ] `content/tanakh/books/` — обзоры книг ТаНаХа
-- [ ] `content/tanakh/books/bereshit.md` — Берешит
-- [ ] `content/tanakh/books/shmot.md` — Шмот
-- [ ] `content/tanakh/books/tehillim.md` — Теhиллим
-- [ ] `content/tanakh/books/yeshayahu.md` — Йешаяhу
-- [ ] `content/tanakh/manuscripts/masoretic-text.md` — Масоретский текст
-- [ ] `content/tanakh/manuscripts/qumran.md` — Кумранские рукописи
-- [ ] `content/tanakh/manuscripts/septuaginta.md` — Септуагинта
-- [ ] `content/tanakh/translations/synodal.md` — Синодальный перевод
-- [ ] `content/tanakh/translations/vulgata.md` — Вульгата
-- [ ] `content/tanakh/chronology/timeline.md` — Хронология ТаНаХа
-- [ ] `content/tanakh/persons/avraham.md` — Авраhам
-- [ ] `content/tanakh/persons/moshe.md` — Моше
-- [ ] `content/tanakh/persons/david.md` — Давид
-- [ ] `content/tanakh/persons/eliyahu.md` — Элияhу
-- [ ] `content/tanakh/events/yetziat-mitzraim.md` — Исход
-- [ ] `content/tanakh/events/matan-torah.md` — Дарование Торы
-- [ ] `content/tanakh/events/galut-bavel.md` — Вавилонский плен
-- [ ] `content/tanakh/concepts/brit.md` — Союз
-- [ ] `content/tanakh/concepts/korban.md` — Приближение
-- [ ] `content/tanakh/concepts/shabbat.md` — Шаббат
-- [ ] `content/tanakh/prophecies/mashiach.md` — Пророчества о Машиахе
-- [ ] `content/tanakh/prophecies/yom-yhwh.md` — День Яхве
-- [ ] `content/tanakh/prophecies/new-yerushalaim.md` — Новый Йерушалаим
-- [ ] `content/tanakh/geography/yerushalaim.md` — Йерушалаим
-- [ ] `content/tanakh/geography/mitzraim.md` — Мицраим
-- [ ] `content/tanakh/geography/bavel.md` — Бавэль
-- [ ] `content/tanakh/poetry/tehillim.md` — Псалмы
-- [ ] `content/tanakh/poetry/mishlei.md` — Притчи
-
-### Изучение иврита
-
-- [ ] `content/learn-hebrew/paleo-hebrew.md` — Палео-иврит подробно
-- [ ] `content/learn-hebrew/verbs.md` — Глагольная система
-- [ ] `content/learn-hebrew/syntax.md` — Синтаксис
-- [ ] `content/learn-hebrew/reading-practice.md` — Практика чтения
-- [ ] `content/learn-hebrew/common-roots.md` — 50 частых корней
-
-### Терминология — из ideas/TERMINOLOGY-BACKLOG.md
-
-- [ ] `yeho-shua.md` — יְהוֹשֻׁעַ
-- [ ] `shem-yhwh.md` — שֵׁם יְהֹוָה
-- [ ] `ruach-ha-kodesh.md` — רוּחַ הַקֹּדֶשׁ
-- [ ] `nefilim.md` — נְּפִלִים
-- [ ] `davar.md` — דָּבָר
-- [ ] `mishkan.md` — מִשְׁכָּן
-- [ ] `tzelem-elohim.md` — צֶלֶם אֱלֹהִים
-- [ ] `goyim.md` — גּוֹיִם
+- [ ] `server.js` — после переноса на авто-сканирование, папка `exposed/` подхватится сама
+- [ ] `SUBCATEGORY_LABELS` — добавить подкатегории если появятся
 
 ---
 
-## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ (2026-06-11)
+## 🔧 GOLEM.PY — ДОРАБОТКИ
 
-- [x] Реорганизация архитектуры: `content/`, `ed/`, `guides/`, `dictionaries/` — 2026-06-14
-- [x] Переименование всех скриптов с префиксами — 2026-06-14
-- [x] `tahor/` → `dictionaries/` — 2026-06-14
-- [x] `philosophemes.md` → `exposure/` — 2026-06-14
-- [x] `drafts/` → `backlog/` — 2026-06-14
-- [x] `instructions/` → чистая методология — 2026-06-14
-- [x] 20 руководств в `guides/` — 2026-06-14
-- [x] Шаблон исследования v4.0 — 2026-06-14
-- [x] Словарь философем (35) — 2026-06-14
-- [x] Словарь латинизмов (180+) — 2026-06-14
-- [x] Веб-интерфейс v9.2 — подкатегории для всех категорий — 2026-06-14
-- [x] 6 категорий контента в веб-интерфейсе — 2026-06-14
-- [x] `learn-hebrew/` — 5 файлов — 2026-06-14
-- [x] `bashah/` — 3 новых файла — 2026-06-14
-- [x] `GUIDE-CODING.md` v2.0 — 2026-06-14
-- [x] `CONTROL.md` v3.0 — 2026-06-14
-- [x] `STRATEGY.md` v1.0 — 2026-06-14
-- [x] `WEB-INTERFACE.md` v1.0 — 2026-06-14
+- [x] `auto_discover_scripts()` — автоматическое сканирование
+- [x] `LOG_FILE` → `TOOLS_DIR / "golem.log"`
+- [x] `CONFIG_FILE` → `TOOLS_DIR / "golem-config.json"`
+- [x] Меню: добавлен `rebuild_tahor`
+- [x] `scan_dirs` → `["content", "instructions", "docs"]`
+- [ ] Добавить `check-headers` в `run_all_checks`
+- [ ] Добавить `check-countries` в меню
+- [ ] Обновить dashboard — убрать несуществующие чекеры, добавить новые
+
+---
+
+## 🌐 ВЕБ-ИНТЕРФЕЙС
+
+- [ ] Починить мобильную версию — поиск и категории
+- [ ] Интегрировать иконки (заменить эмодзи)
+- [ ] Хлебные крошки
+- [ ] Прогресс чтения
+- [ ] Размер шрифта
+- [ ] CSS-дерево для учений (Tree-Health)
+- [ ] Полнотекстовый поиск через `golem.db`
+- [ ] PWA + офлайн-доступ
+
+---
+
+## 🧠 НЕЙРОСЕТЬ
+
+- [ ] Запустить `ed/neuro/`
+- [ ] Сгенерировать кэш знаний
+- [ ] Fine-tune на терминах и исследованиях
+
+---
+
+## 📊 БАЗА ДАННЫХ
+
+- [x] Создать `data/golem.db`
+- [ ] Наполнить из `.md` файлов
+- [ ] Интегрировать с веб-интерфейсом
+- [ ] Интегрировать с нейросетью
+
+---
+
+## ✅ ВЫПОЛНЕННЫЕ ЗАДАЧИ
+
+- [x] 218 учений заполнены
+- [x] `check-tahor.py` — проверка чистоты языка
+- [x] 19 словарей в `instructions/dictionaries/`
+- [x] Шаблоны для всех типов файлов
+- [x] `auto_discover_scripts()` в `golem.py`
+- [x] `build_tahor_cache()` — авто-парсинг словарей
+- [x] `--file` и `--fix` для одного файла в `check-tahor.py`
+- [x] Перенос `CONFIG_FILE` и `LOG_FILE` в `TOOLS_DIR`
