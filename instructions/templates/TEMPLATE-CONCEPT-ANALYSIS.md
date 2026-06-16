@@ -1,7 +1,7 @@
 # 📜 תַּבְנִית נִתּוּחַ מֻשָּׂג — ШАБЛОН АНАЛИЗА ПОНЯТИЯ
 
 **Метаданные файла**
-- **Файл:** `instructions/templates/concept-analysis-template.md`
+- **Файл:** `instructions/templates/CONCEPT-ANALYSIS-TEMPLATE.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-05-28
 - **Последнее обновление:** 2026-05-28
