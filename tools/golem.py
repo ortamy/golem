@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-# tools/golem.py — главное меню управления проектом
-# golem.py — центральное управление проектом (v5.5 compact)
+# tools/golem.py — центральное управление проектом (v6.0)
 
 import os
 import sys
@@ -25,9 +24,9 @@ else:
 REPO_ROOT = Path(__file__).parent.parent
 TOOLS_DIR = Path(__file__).parent
 CACHE_DIR = TOOLS_DIR / "cache"
-CONFIG_FILE = CACHE_DIR / "golem-config.json"
-LOG_FILE = REPO_ROOT / "golem.log"
-VERSION = "5.5"
+CONFIG_FILE = TOOLS_DIR / "golem-config.json"
+LOG_FILE = TOOLS_DIR / "golem.log"
+VERSION = "6.0"
 
 current_lang = "ru"
 LANGUAGES = {}
@@ -67,78 +66,38 @@ def init_colors():
         ORANGE = SELECTED = DIM = WHITE = GREEN = RED = curses.A_NORMAL
 
 
-# Обновлённые пути к переименованным скриптам
-SCRIPT_PATHS = {
-    # checkers
-    "check_religionisms": "tools/checkers/check-religionisms.py",
-    "check_code_quality": "tools/checkers/check-code-quality.py",
-    "check_empty_files": "tools/checkers/check-empty-files.py",
-    "check_duplicates": "tools/checkers/check-duplicates.py",
-    "check_links": "tools/checkers/check-links.py",
-    "check_naming": "tools/checkers/check-naming.py",
-    "check_file_names_clarity": "tools/checkers/check-file-names-clarity.py",
-    "check_names_language": "tools/checkers/check-names-language.py",
-    "check_file_sizes": "tools/checkers/check-file-sizes.py",
-    "check_exposure": "tools/checkers/check-exposure.py",
-    "check_metadata": "tools/checkers/check-metadata.py",
-    "check_metadata_consistency": "tools/checkers/check-metadata-consistency.py",
-    "check_tahor_sync": "tools/checkers/check-tahor-sync.py",
-    "check_tanakh_references": "tools/checkers/check-tanakh-references.py",
-    "check_consistency": "tools/checkers/check-consistency.py",
-    "check_orphans": "tools/checkers/check-orphans.py",
-    "check_external_links": "tools/checkers/check-external-links.py",
-    "check_fix_encoding": "tools/checkers/check-fix-encoding.py",
-    "check_fix_metadata": "tools/checkers/check-fix-metadata.py",
-    "check_sort_files": "tools/checkers/check-sort-files.py",
-    "check_env": "tools/checkers/check-env.py",
-    "check_fix_transliteration": "tools/checkers/check-fix-transliteration.py",
-    # generators
-    "generate_book": "tools/generators/generate-book.py",
-    "generate_files_json": "tools/generators/generate-files-json.py",
-    "generate_glossary": "tools/generators/generate-glossary.py",
-    "generate_nav": "tools/generators/generate-nav.py",
-    "generate_index": "tools/generators/generate-index.py",
-    "generate_graph": "tools/generators/generate-graph.py",
-    "generate_changelog": "tools/generators/generate-changelog.py",
-    "generate_retrospective": "tools/generators/generate-retrospective.py",
-    "generate_exposure_suggestions": "tools/generators/generate-exposure-suggestions.py",
-    "generate_web": "tools/generators/generate-web.py",
-    "generate_metadata": "tools/generators/generate-metadata.py",
-    "generate_related_links": "tools/generators/generate-related-links.py",
-    "generate_fill_empty": "tools/generators/generate-fill-empty.py",
-    "generate_training_data": "tools/generators/generate-training-data.py",
-    # reports
-    "report_dashboard": "tools/reports/report-dashboard.py",
-    "report_stats": "tools/reports/report-stats.py",
-    "report_daily": "tools/reports/report-daily.py",
-    "report_health": "tools/reports/report-health.py",
-    # automation
-    "auto_add_metadata": "tools/automation/auto-add-metadata.py",
-    "auto_fix": "tools/automation/auto-fix.py",
-    "auto_doc": "tools/automation/auto-doc.py",
-    "auto_versions": "tools/automation/auto-versions.py",
-    "auto_tasks": "tools/automation/auto-tasks.py",
-    "auto_ideas": "tools/automation/auto-ideas.py",
-    # sync
-    "sync_structure": "tools/sync/sync-structure.py",
-    "sync_changelogs": "tools/sync/sync-changelogs.py",
-    # backup
-    "backup_create": "tools/backup/backup-create.sh",
-    "backup_export": "tools/backup/backup-export.sh",
-    "backup_scheduled": "tools/backup/backup-scheduled.sh",
-    # utils
-    "clear_cache": "tools/utils/clear-cache.py",
-    "search": "tools/utils/search.py",
-    "rename_script": "tools/utils/rename-script.py",
-}
+def auto_discover_scripts():
+    """Автоматически находит все скрипты в tools/ и строит SCRIPT_PATHS"""
+    paths = {}
+    scan_folders = {
+        "checkers": "check",
+        "generators": "generate",
+        "reports": "report",
+        "automation": "auto",
+        "sync": "sync",
+        "utils": "",
+        "backup": "backup",
+    }
+    for folder, prefix in scan_folders.items():
+        folder_path = TOOLS_DIR / folder
+        if not folder_path.exists():
+            continue
+        for script in sorted(folder_path.glob("*")):
+            if script.suffix not in (".py", ".sh"):
+                continue
+            name = script.stem.replace("-", "_")
+            key = f"{prefix}_{name}" if prefix else name
+            rel_path = str(script.relative_to(REPO_ROOT)).replace("\\", "/")
+            paths[key] = rel_path
+    return paths
+
+
+SCRIPT_PATHS = auto_discover_scripts()
 
 
 def get_script(name):
-    """Возвращает полный путь к скрипту."""
     rel = SCRIPT_PATHS.get(name)
-    if rel:
-        return REPO_ROOT / rel
-    return None
+    return REPO_ROOT / rel if rel else None
 
 
 def log(msg):
@@ -154,9 +113,10 @@ def load_languages():
     LANGUAGES = {
         "ru": {
             "title": "ГОЛЕМ", "actions": "ДЕЙСТВИЯ", "tools": "ИНСТРУМЕНТЫ", "exit": "ВЫХОД",
-            "language": "ЯЗЫК", "dashboard": "ДАШБОРД",
+            "language": "ЯЗЫК", "dashboard": "ДАШБОРД", "dictionaries": "СЛОВАРИ",
             "run_all_checks": "Запустить все проверки",
             "run_all_fixes": "Запустить все исправления", "full_audit": "Полный аудит",
+            "rebuild_tahor": "Перестроить словарь таhор",
             "checkers": "Чекеры", "generators": "Генераторы", "reports": "Отчёты",
             "automation": "Автоматизация", "backup": "Бэкап", "back": "← НАЗАД",
             "running": "Выполняется: {}",
@@ -167,9 +127,10 @@ def load_languages():
         },
         "en": {
             "title": "GOLEM", "actions": "ACTIONS", "tools": "TOOLS", "exit": "EXIT",
-            "language": "LANGUAGE", "dashboard": "DASHBOARD",
+            "language": "LANGUAGE", "dashboard": "DASHBOARD", "dictionaries": "DICTIONARIES",
             "run_all_checks": "Run all checks",
             "run_all_fixes": "Run all fixes", "full_audit": "Full audit",
+            "rebuild_tahor": "Rebuild tahor dictionary",
             "checkers": "Checkers", "generators": "Generators", "reports": "Reports",
             "automation": "Automation", "backup": "Backup", "back": "← BACK",
             "running": "Running: {}",
@@ -180,9 +141,10 @@ def load_languages():
         },
         "he": {
             "title": "GOLEM", "actions": "PEULOT", "tools": "KELIM", "exit": "YETZIA",
-            "language": "SAFA", "dashboard": "DASHBOARD",
+            "language": "SAFA", "dashboard": "DASHBOARD", "dictionaries": "MILONIM",
             "run_all_checks": "Haratz bdikot",
             "run_all_fixes": "Haratz tikunim", "full_audit": "Bikoret",
+            "rebuild_tahor": "Bne milon tahor",
             "checkers": "Bodkim", "generators": "Meholelim", "reports": "Duchot",
             "automation": "Automazia", "backup": "Gibuoy", "back": "← CHAZOR",
             "running": "Mevatze: {}",
@@ -285,7 +247,7 @@ def hr(stdscr, y, w):
 def get_stats():
     stats = {"files": 0, "lines": 0, "hebrew": 0, "checkers": 0, "generators": 0,
              "metadata_pct": 0, "recent": [], "checks": {}}
-    scan_dirs = ["terminology", "researches", "instructions", "docs"]
+    scan_dirs = ["content", "instructions", "docs"]
     total = with_meta = 0
     for d in scan_dirs:
         dp = REPO_ROOT / d
@@ -313,10 +275,10 @@ def get_stats():
     recent.sort(reverse=True)
     stats["recent"] = [r[1] for r in recent[:6]]
     stats["checks"] = {
-        "Religionisms": True, "Code Quality": True, "Empty Files": True,
+        "Tahor": True, "Code": True, "Empty": True,
         "Duplicates": True, "Links": True, "Naming": True,
-        "Sizes": True, "Exposure": False, "Tanakh Refs": False,
-        "Metadata": True, "Tahor Sync": True,
+        "Headers": False, "Exposure": False, "Countries": False,
+        "Metadata": True, "Consistency": True,
     }
     return stats
 
@@ -335,99 +297,65 @@ def show_dashboard(stdscr):
             h, w = stdscr.getmaxyx()
             stdscr.clear()
             stdscr.bkgd(' ', WHITE)
-
             y = 2
             title = "ГОЛЕМ — ДАШБОРД"
             stdscr.addstr(y, max(0, (w - len(title)) // 2), title, ORANGE | curses.A_BOLD)
             stdscr.addstr(y, w - 10, f"v{VERSION}", DIM)
-
-            y = 4
-            hr(stdscr, y, w)
-
+            y = 4; hr(stdscr, y, w)
             y = 6
             stdscr.addstr(y, 4, f"  {stats['files']} файлов    {stats['lines']:,} строк", WHITE)
             y += 1
             stdscr.addstr(y, 4, f"  {stats['hebrew']:,} ивритских слов    {stats['checkers']} чекеров    {stats['generators']} генераторов", WHITE)
             y += 1
             stdscr.addstr(y, 4, f"  {stats['metadata_pct']}% метаданных", WHITE)
-
-            y += 2
-            hr(stdscr, y, w)
-            y += 2
-            stdscr.addstr(y, 4, "ПОСЛЕДНИЕ ИЗМЕНЕНИЯ", ORANGE | curses.A_BOLD)
-            y += 1
+            y += 2; hr(stdscr, y, w); y += 2
+            stdscr.addstr(y, 4, "ПОСЛЕДНИЕ ИЗМЕНЕНИЯ", ORANGE | curses.A_BOLD); y += 1
             for f in stats["recent"][:4]:
                 if y >= h - 8: break
-                stdscr.addstr(y, 6, f"  • {f[:w-14]}", DIM)
-                y += 1
-
-            y += 2
-            hr(stdscr, y, w)
-            y += 2
-            stdscr.addstr(y, 4, "СТАТУС ПРОВЕРОК", ORANGE | curses.A_BOLD)
-            y += 1
+                stdscr.addstr(y, 6, f"  • {f[:w-14]}", DIM); y += 1
+            y += 2; hr(stdscr, y, w); y += 2
+            stdscr.addstr(y, 4, "СТАТУС ПРОВЕРОК", ORANGE | curses.A_BOLD); y += 1
             ck = list(stats["checks"].keys())
             for chunk in [ck[i:i+4] for i in range(0, len(ck), 4)]:
                 if y >= h - 3: break
                 line = "  ".join(f"{'v' if stats['checks'].get(n, False) else 'x'} {n}" for n in chunk)
-                stdscr.addstr(y, 6, line, WHITE)
-                y += 1
-
-            y = h - 3
-            hr(stdscr, y, w)
+                stdscr.addstr(y, 6, line, WHITE); y += 1
+            y = h - 3; hr(stdscr, y, w)
             stdscr.addstr(h - 2, 4, "Enter/m: меню    r: обновить    q: выход", DIM)
             stdscr.refresh()
-
             key = stdscr.getch()
             if key in (ord('r'), ord('R'), ord('к'), ord('К')):
-                try:
-                    stats = get_stats()
-                except Exception:
-                    pass
+                try: stats = get_stats()
+                except Exception: pass
                 continue
-            elif key in (ord('q'), ord('й')):
-                return "quit"
-            else:
-                return "menu"
-        except Exception:
-            return "menu"
+            elif key in (ord('q'), ord('й')): return "quit"
+            else: return "menu"
+        except Exception: return "menu"
 
 
 def draw_menu(stdscr, title_key, items, selected):
     h, w = stdscr.getmaxyx()
     stdscr.clear()
     stdscr.bkgd(' ', WHITE)
-
     ver = f"v{VERSION}"
-    if current_lang == "ru":
-        ls = "[RU] EN HE"
-    elif current_lang == "en":
-        ls = "RU [EN] HE"
-    else:
-        ls = "RU EN [HE]"
-
+    if current_lang == "ru": ls = "[RU] EN HE"
+    elif current_lang == "en": ls = "RU [EN] HE"
+    else: ls = "RU EN [HE]"
     title = t('title')
-
     stdscr.addstr(2, 4, ver, DIM)
     stdscr.addstr(2, max(0, (w - len(title)) // 2), title, ORANGE | curses.A_BOLD)
     stdscr.addstr(2, w - len(ls) - 6, ls, ORANGE | curses.A_BOLD)
-
-    y = 4
-    hr(stdscr, y, w)
-
+    y = 4; hr(stdscr, y, w)
     start_y = 6
     for i, item in enumerate(items):
         yy = start_y + i
-        if yy >= h - 3:
-            break
+        if yy >= h - 3: break
         if i == selected:
             stdscr.addstr(yy, 4, " " * (w - 8), SELECTED)
             stdscr.addstr(yy, 6, f"› {item}", SELECTED | curses.A_BOLD)
         else:
             stdscr.addstr(yy, 6, f"  {item}", WHITE)
-
-    y = h - 3
-    hr(stdscr, y, w)
+    y = h - 3; hr(stdscr, y, w)
     stdscr.addstr(h - 2, 4, t('up_down'), DIM)
     stdscr.refresh()
 
@@ -481,8 +409,9 @@ def menu_backup(stdscr):
 
 def menu_actions(stdscr):
     return menu_loop(stdscr, 'actions',
-              [t('run_all_checks'), t('run_all_fixes'), t('full_audit'), t('back')],
-              [lambda: run_all_checks(stdscr), lambda: run_all_fixes(stdscr), lambda: run_full_audit(stdscr), None])
+              [t('run_all_checks'), t('run_all_fixes'), t('full_audit'), t('rebuild_tahor'), t('back')],
+              [lambda: run_all_checks(stdscr), lambda: run_all_fixes(stdscr),
+               lambda: run_full_audit(stdscr), lambda: rebuild_tahor(stdscr), None])
 
 def menu_tools(stdscr):
     return menu_loop(stdscr, 'tools',
@@ -533,15 +462,17 @@ def run_all_checks(stdscr):
 
 def run_all_fixes(stdscr):
     for name, args in [
+        ("check_tahor", ["--fix"]),
         ("check_metadata", ["--fix"]),
-        ("check_metadata_consistency", ["--fix"]),
-        ("check_fix_metadata", ["--fix"]),
-        ("check_religionisms", ["--fix"]),
         ("check_code_quality", ["--fix"]),
         ("sync_structure", []),
         ("generate_glossary", []),
-        ("generate_nav", []),
+        ("generate_files_json", []),
     ]: _run_py(stdscr, name, args=args)
+
+
+def rebuild_tahor(stdscr):
+    _run_py(stdscr, "check_tahor", ["--rebuild"])
 
 
 def run_full_audit(stdscr):
