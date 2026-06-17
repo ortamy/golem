@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # tools/generators/generate-files-json.py — генерация files.json для веб-интерфейса
-# generate-files-json.py — генерирует files.json для статического веб-интерфейса
 
 import json
 import sys
@@ -17,8 +16,11 @@ SCAN_DIRS = [
     ("content/bashah", "БаШаХ"),
     ("content/researches", "Исследования"),
     ("content/teachings", "Учения"),
-    ("content/learn-hebrew", "Изучение иврита"),
+    ("content/hebrew", "Изучение иврита"),
+    ("content/practices", "Практики"),
+    ("content/exposed", "Раскрытое")
 ]
+
 IGNORE_FILES = {"README.md", "STRUCTURE.md", "GLOSSARY.md", "CHANGELOG.md"}
 
 SUBCATEGORY_LABELS = {
@@ -30,6 +32,9 @@ SUBCATEGORY_LABELS = {
     'economy': 'Экономика',
     'events': 'События',
     'history': 'История',
+    'laws': 'Законы',
+    'sports': 'Спорт',
+    'technology': 'Технологии',
     'language': 'Язык',
     'manuscripts': 'Рукописи',
     'media': 'Медиа',
@@ -40,7 +45,7 @@ SUBCATEGORY_LABELS = {
     'psychology': 'Психология',
     'roman-law': 'Римское право',
     'science': 'Наука',
-    'simvolika': 'Символика',
+    'symbols': 'Символика',
     'slavery': 'Рабство',
     'sociology': 'Общество',
     'sport': 'Спорт',
