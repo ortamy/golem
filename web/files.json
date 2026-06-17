@@ -3733,6 +3733,18 @@
     "related": []
   },
   {
+    "path": "content/researches/archive/religion-war-machine.md",
+    "title": "РЕЛИГИОЗНАЯ ВЛАСТЬ КАК МАШИНА ВОЙНЫ: ОТ БАР-КОХБЫ ДО СОВРЕМЕННОСТИ",
+    "topic": "Исследование механизма, при котором религиозная власть посылает своих последователей на смерть. Бар-",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [
+      "instructions/exposure/exposure-system-architecture.md",
+      "instructions/exposure/exposure-bavel.md",
+      "content/researches/bavel-sacrifice.md"
+    ]
+  },
+  {
     "path": "content/researches/archive/ritual-zerkala.md",
     "title": "Минhаг зеркала",
     "topic": "🪞 Минhаг зеркала",
