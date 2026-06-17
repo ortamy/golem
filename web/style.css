@@ -44,14 +44,15 @@ body.dark #font-size-controls{border-bottom:1px solid #333}
 .font-size-btn:hover,.font-size-btn.active{color:#ff4d00;border-color:#ff4d00}
 
 #file-list{flex:1;overflow-y:auto;scroll-behavior:smooth}
-.file-item{padding:7px 20px;cursor:pointer;font-size:11px;border-left:2px solid transparent;transition:background .2s ease,padding-left .2s ease}
+.file-icon{vertical-align:middle;margin-right:4px;display:inline-block;flex-shrink:0}
+.file-item{display:flex;align-items:center;padding:7px 20px;cursor:pointer;font-size:11px;border-left:2px solid transparent;transition:background .2s ease,padding-left .2s ease}
 body.light .file-item{border-bottom:1px solid #eee}
 body.dark .file-item{border-bottom:1px solid #2a2a2a}
 .file-item:hover{padding-left:24px}
 body.light .file-item:hover{background:#fafafa}
 body.dark .file-item:hover{background:#222}
-.file-item .title{font-weight:600}
-.file-item .topic{font-size:10px;margin-top:2px}
+.file-item .title{flex:1;font-weight:600}
+.file-item .topic{flex:0 0 100%;font-size:10px;margin-top:2px;padding-left:20px}
 body.light .file-item .topic{color:#999}
 body.dark .file-item .topic{color:#777}
 
@@ -115,9 +116,9 @@ body.dark .path-hint{color:#555}
 .bookmark-btn{cursor:pointer;color:#ccc;font-size:14px;margin-left:8px;transition:all .3s ease}
 .bookmark-btn:hover{transform:scale(1.2);color:#ff4d00}
 .bookmark-btn.active{color:#ff4d00}
-.bookmark-item{font-size:10px;padding:4px 20px;cursor:pointer;color:#ff4d00}
+.bookmark-item{display:flex;align-items:center;font-size:10px;padding:4px 20px;cursor:pointer;color:#ff4d00}
 .bookmark-item:hover{opacity:.8}
-.history-item{font-size:10px;padding:4px 20px;cursor:pointer;color:#999}
+.history-item{display:flex;align-items:center;font-size:10px;padding:4px 20px;cursor:pointer;color:#999}
 .history-item:hover{color:#ff4d00}
 
 #toc-panel{width:200px;min-width:200px;overflow-y:auto;padding:16px;transition:all .4s ease}
@@ -167,11 +168,11 @@ body.light #search-mobile,body.light #category-select-mobile{background:#fff;bor
 body.dark #search-mobile,body.dark #category-select-mobile{background:#222;border:1px solid #333;color:#ddd}
 #subcategory-select-mobile{display:none}
 
-.file-item-mobile{padding:12px 10px;cursor:pointer;user-select:none}
+.file-item-mobile{display:flex;align-items:center;padding:12px 10px;cursor:pointer;user-select:none}
 body.light .file-item-mobile{border-bottom:1px solid #eee}
 body.dark .file-item-mobile{border-bottom:1px solid #2a2a2a}
-.file-item-mobile .title{font-size:15px;font-weight:600}
-.file-item-mobile .topic{font-size:12px;margin-top:4px}
+.file-item-mobile .title{flex:1;font-size:15px;font-weight:600}
+.file-item-mobile .topic{flex:0 0 100%;font-size:12px;margin-top:4px;padding-left:20px}
 body.light .file-item-mobile .topic{color:#999}
 body.dark .file-item-mobile .topic{color:#777}
 

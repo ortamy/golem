@@ -14,6 +14,7 @@ SCAN_DIRS = [
     ("content/terminology", "Терминология"),
     ("content/tanakh", "ТаНаХ"),
     ("content/bashah", "БаШаХ"),
+    ("content/tzel", "Цель"),
     ("content/researches", "Исследования"),
     ("content/teachings", "Учения"),
     ("content/hebrew", "Изучение иврита"),
@@ -51,7 +52,65 @@ SUBCATEGORY_LABELS = {
     'sport': 'Спорт',
     'systems': 'Системы',
     'tanakh': 'ТаНаХ',
+    # tzel subcategories
+    'adam': 'Адам',
+    'brit-nissuin': 'Брит-нисуин',
+    'elohim': 'Элоhим',
+    'hitgalut': 'Хитгалут',
+    'kehillah': 'Кеhилла',
+    'kelim': 'Келим',
+    'makom': 'Маком',
+    'mikra': 'Микра',
+    'moadim': 'Моадим',
+    'ruach': 'Руах',
+    'shedim': 'Шедим',
+    'tamid': 'Тамид',
 }
+
+ICON_RULES = {
+    "content/terminology": "scroll.png",
+    "content/researches": "book.png",
+    "content/teachings": "heart.png",
+    "content/practices": "shield.png",
+    "content/hebrew": "lamp.png",
+    "content/exposed": "sword.png",
+    "content/tanakh/books": "scrolls.png",
+    "content/tanakh/persons": "person.png",
+    "content/tanakh/events": "event.png",
+    "content/bashah/books": "scrolls.png",
+    "content/bashah/letters": "scales.png",
+    "content/bashah/persons": "person.png",
+    "content/bashah/events": "event.png",
+    "content/bashah/teachings": "heart.png",
+    "content/bashah/terminology": "scroll.png",
+    "content/bashah/concepts": "anchor.png",
+    "content/bashah/practices": "shield.png",
+    "content/bashah/chronology": "hourglass.png",
+    "content/bashah/manuscripts": "manuscripts.png",
+    "content/bashah/geography": "geography.png",
+    "content/bashah/nevua": "torch.png",
+    "content/tzel/adam": "vase.png",
+    "content/tzel/brit-nissuin": "ring.png",
+    "content/tzel/elohim": "elohim.png",
+    "content/tzel/hitgalut": "alert.png",
+    "content/tzel/kehillah": "kehillah.png",
+    "content/tzel/kelim": "hammer-and-chisel.png",
+    "content/tzel/makom": "makom.png",
+    "content/tzel/mikra": "mikra.png",
+    "content/tzel/moadim": "track.png",
+    "content/tzel/ruach": "ruach.png",
+    "content/tzel/shedim": "shedim.png",
+    "content/tzel/tamid": "tamid.png",
+}
+
+
+def resolve_icon(rel_path):
+    """Resolve icon filename based on path prefix rules (most specific first)."""
+    sorted_rules = sorted(ICON_RULES.items(), key=lambda x: -len(x[0]))
+    for prefix, icon in sorted_rules:
+        if rel_path.startswith(prefix):
+            return icon
+    return "default.png"
 
 
 def extract_title(content):
@@ -106,6 +165,7 @@ def walk_dir(dir_path, base_folder, label):
             "category": label,
             "subcategory": subcategory,
             "related": extract_related(content),
+            "icon": resolve_icon(rel),
         })
     return files
 
@@ -121,6 +181,18 @@ def generate():
     out_path = WEB_DIR / "files.json"
     out_path.write_text(json.dumps(all_files, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"✅ {out_path} — {len(all_files)} файлов")
+
+    # Статистика по иконкам
+    icon_count = {}
+    for f in all_files:
+        icon = f.get("icon", "default.png")
+        icon_count[icon] = icon_count.get(icon, 0) + 1
+    print(f"\n📊 Статистика иконок:")
+    for icon, count in sorted(icon_count.items(), key=lambda x: -x[1]):
+        print(f"  {icon}: {count}")
+    default_count = icon_count.get("default.png", 0)
+    print(f"\n✅ Файлов с иконками: {len(all_files) - default_count}")
+    print(f"✅ default.png: {default_count}")
 
 
 if __name__ == "__main__":

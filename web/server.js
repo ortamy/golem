@@ -14,7 +14,7 @@ const SCAN_DIRS = [
     { folder: 'content/bashah', label: 'БаШаХ' },
     { folder: 'content/researches', label: 'Исследования' },
     { folder: 'content/teachings', label: 'Учения' },
-    { folder: 'content/learn-hebrew', label: 'Изучение иврита' },
+    { folder: 'content/hebrew', label: 'Изучение иврита' },
 ];
 
 const IGNORE_FILES = ['README.md', 'STRUCTURE.md', 'GLOSSARY.md', 'CHANGELOG.md'];
@@ -48,6 +48,52 @@ const SUBCATEGORY_LABELS = {
     'tanakh': 'ТаНаХ',
     'teachings': 'Учения',
 };
+
+const ICON_RULES = {
+    "content/terminology": "scroll.png",
+    "content/researches": "book.png",
+    "content/teachings": "heart.png",
+    "content/practices": "shield.png",
+    "content/hebrew": "lamp.png",
+    "content/exposed": "sword.png",
+    "content/tanakh/books": "scrolls.png",
+    "content/tanakh/persons": "person.png",
+    "content/tanakh/events": "event.png",
+    "content/bashah/books": "scrolls.png",
+    "content/bashah/letters": "scales.png",
+    "content/bashah/persons": "person.png",
+    "content/bashah/events": "event.png",
+    "content/bashah/teachings": "heart.png",
+    "content/bashah/terminology": "scroll.png",
+    "content/bashah/concepts": "anchor.png",
+    "content/bashah/practices": "shield.png",
+    "content/bashah/chronology": "hourglass.png",
+    "content/bashah/manuscripts": "manuscripts.png",
+    "content/bashah/geography": "geography.png",
+    "content/bashah/nevua": "torch.png",
+    "content/tzel/adam": "vase.png",
+    "content/tzel/brit-nissuin": "ring.png",
+    "content/tzel/elohim": "elohim.png",
+    "content/tzel/hitgalut": "alert.png",
+    "content/tzel/kehillah": "kehillah.png",
+    "content/tzel/kelim": "hammer-and-chisel.png",
+    "content/tzel/makom": "makom.png",
+    "content/tzel/mikra": "mikra.png",
+    "content/tzel/moadim": "track.png",
+    "content/tzel/ruach": "ruach.png",
+    "content/tzel/shedim": "shedim.png",
+    "content/tzel/tamid": "tamid.png",
+};
+
+function resolveIcon(relPath) {
+    var sorted = Object.keys(ICON_RULES).sort(function(a, b) { return b.length - a.length; });
+    for (var i = 0; i < sorted.length; i++) {
+        if (relPath.startsWith(sorted[i])) {
+            return ICON_RULES[sorted[i]];
+        }
+    }
+    return "default.png";
+}
 
 const MIME = {
     '.html': 'text/html; charset=utf-8',
@@ -94,6 +140,7 @@ function walkDir(dirPath, baseFolder, label, files) {
                 category: label,
                 subcategory: subcategory,
                 related: related,
+                icon: resolveIcon(relPath),
             });
         }
     }

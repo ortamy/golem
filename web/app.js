@@ -30,6 +30,23 @@
         fetch(url).then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); }).then(cb).catch(function(e) { console.error(e); });
     }
 
+    function getIconHtml(iconName) {
+        if (!iconName || iconName === 'default.png') return '';
+        return '<img class="file-icon" src="icons/32/'+iconName+'" alt="" width="16" height="16"> ';
+    }
+
+    function renderTitle(file) {
+        var title = file.title || file.path;
+        // Убираем все эмодзи из начала заголовка
+        title = title.replace(/^[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim();
+        // Если есть иконка — вставляем её
+        if (file.icon && file.icon !== 'default.png') {
+            var iconPath = 'icons/32/' + file.icon;
+            return '<img src="' + iconPath + '" class="icon" alt="" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">' + esc(title);
+        }
+        return esc(title);
+    }
+
     // Навигация
     function buildSelects() {
         var counts = {}, cats = [];
@@ -92,7 +109,7 @@
                 container.appendChild(h);
             }
             var d = document.createElement('div'); d.className = itemClass;
-            d.innerHTML = '<div class="title">'+esc(f.title||f.path)+'</div>'+(f.topic?'<div class="topic">'+esc((f.topic||'').substring(0,90))+'</div>':'');
+            d.innerHTML = '<div class="title">' + renderTitle(f) + '</div>'+(f.topic?'<div class="topic">'+esc((f.topic||'').substring(0,90))+'</div>':'');
             d.onclick = (function(p){ return function(){ clickHandler(p); }; })(f.path);
             container.appendChild(d);
         });
@@ -257,7 +274,7 @@
             bookmarks.forEach(function(p) {
                 var d = document.createElement('div'); d.className = 'bookmark-item';
                 var bf = FILES.find(function(x){ return x.path===p; });
-                d.textContent = bf?(bf.title||p):p;
+                d.innerHTML = bf ? renderTitle(bf) : esc(p);
                 d.onclick = function(){ if(isMobile()) openFileMobile(p); else loadFile(p); };
                 list.appendChild(d);
             });
@@ -272,7 +289,7 @@
             fileHistory.slice(0,8).forEach(function(p) {
                 var d = document.createElement('div'); d.className = 'history-item';
                 var f = FILES.find(function(x){ return x.path===p; });
-                d.textContent = (f?f.title:p||'').substring(0,40);
+                d.innerHTML = f ? renderTitle(f) : esc((p||'').substring(0,40));
                 d.onclick = function(){ if(isMobile()) openFileMobile(p); else loadFile(p); };
                 list.appendChild(d);
             });
