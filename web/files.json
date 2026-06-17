@@ -286,6 +286,21 @@
     "icon": "scroll.png"
   },
   {
+    "path": "content/terminology/halleluyah.md",
+    "title": "הַלְלוּיָהּ — hАЛЛЕЛУЙА: НАПРАВЬТЕ ВЗГЛЯД К СВЕТУ",
+    "topic": "Полный разбор слова הַלְלוּיָהּ (halleluyah) — не «хвала Богу», а инструкция: направьте взгляд к све",
+    "category": "Терминология",
+    "subcategory": "",
+    "related": [
+      "content/terminology/yhwh.md",
+      "content/terminology/tefilah.md",
+      "content/terminology/kavod.md",
+      "content/terminology/barach.md",
+      "content/learn-hebrew/paleo-hebrew.md"
+    ],
+    "icon": "scroll.png"
+  },
+  {
     "path": "content/terminology/heichal.md",
     "title": "הֵיכָל (hЕЙХАЛЬ) — ДВОРЕЦ, А НЕ «ХРАМ»",
     "topic": "Библейское понятие дворца как царского святилища Яхве, искажённое греко-римской терминологией в обез",
@@ -790,6 +805,21 @@
     "category": "Терминология",
     "subcategory": "",
     "related": [],
+    "icon": "scroll.png"
+  },
+  {
+    "path": "content/terminology/tachlit.md",
+    "title": "תַּכְלִית — ТАХЛИТ: ЦЕЛЬ, КОТОРАЯ ОПРЕДЕЛЯЕТ ДЕЙСТВИЕ",
+    "topic": "Полный разбор понятия תַּכְלִית (тахлит) — цель, конечная точка, практический смысл. Этимология, кон",
+    "category": "Терминология",
+    "subcategory": "",
+    "related": [
+      "content/terminology/derech.md",
+      "content/terminology/tikvah.md",
+      "content/terminology/emuna.md",
+      "content/terminology/avodah.md",
+      "content/terminology/tshuva.md"
+    ],
     "icon": "scroll.png"
   },
   {
@@ -9563,18 +9593,6 @@
       "content/researches/bavel-sacrifice.md"
     ],
     "icon": "book.png"
-  },
-  {
-    "path": "content/researches/archive/religion-war-machine.md",
-    "title": "РЕЛИГИОЗНАЯ ВЛАСТЬ КАК МАШИНА ВОЙНЫ: ОТ БАР-КОХБЫ ДО СОВРЕМЕННОСТИ",
-    "topic": "Исследование механизма, при котором религиозная власть посылает своих последователей на смерть. Бар-",
-    "category": "Исследования",
-    "subcategory": "Архив",
-    "related": [
-      "instructions/exposure/exposure-system-architecture.md",
-      "instructions/exposure/exposure-bavel.md",
-      "content/researches/bavel-sacrifice.md"
-    ]
   },
   {
     "path": "content/researches/archive/ritual-zerkala.md",
