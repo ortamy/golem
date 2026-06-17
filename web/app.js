@@ -164,7 +164,9 @@
         h = h.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
         h = h.replace(/^### (.+)$/gm, '<h3 id="$1">$1</h3>');
         h = h.replace(/^## (.+)$/gm, '<h2 id="$1">$1</h2>');
-        h = h.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+        h = h.replace(/^# (.+)$/gm, function(m, title) {
+            return '<h1>' + title.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim() + '</h1>';
+        });
         h = h.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
         h = h.replace(/`([^`]+)`/g, '<code>$1</code>');
         h = h.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
@@ -183,14 +185,22 @@
         var url = IS_LOCAL ? '/api/file?path='+encodeURIComponent(p) : p;
         fetchText(url, function(md) {
             var isBm = bookmarks.indexOf(p) >= 0;
+            var file = FILES.find(function(x){ return x.path === p; });
+            var iconImg = (file && file.icon && file.icon !== 'default.png')
+                ? '<img src="icons/32/' + file.icon + '" class="content-icon" alt="" style="width:28px;height:28px;vertical-align:middle;margin-right:10px;">'
+                : '';
+            var html = parseMD(md);
+            // Вставляем иконку в первый H1
+            html = html.replace('<h1>', '<h1>' + iconImg);
             c.innerHTML = '<div id="breadcrumbs">'+renderBreadcrumbs(p)+'</div>' +
                 '<div class="path-hint">'+esc(p)+' <span class="bookmark-btn'+(isBm?' active':'')+
                 '" onclick="toggleBookmark(\''+p.replace(/'/g,"\\'")+'\')">'+(isBm?'★':'☆')+'</span></div>'+
-                parseMD(md)+renderRelated(p);
+                html+renderRelated(p);
             addToHistory(p); buildTOC(md); setupQuoteCopy();
             void c.offsetWidth; c.classList.add('fade-in');
         }, function() { c.innerHTML = '<div style="color:#ff4d00;padding:40px;">Ошибка: '+esc(p)+'</div>'; });
     }
+
 
     function openFileMobile(p) {
         currentPath = p;
@@ -203,8 +213,16 @@
         $('stats-mobile').style.display = 'none';
         var c = $('file-content-mobile'); c.innerHTML = '<div class="spinner"></div>';
         var url = IS_LOCAL ? '/api/file?path='+encodeURIComponent(p) : p;
-        fetchText(url, function(md) { c.innerHTML = parseMD(md)+renderRelatedMobile(p); addToHistory(p); },
-            function() { c.innerHTML = '<div style="color:#ff4d00;padding:40px;">Ошибка: '+esc(p)+'</div>'; });
+        fetchText(url, function(md) {
+            var file = FILES.find(function(x){ return x.path === p; });
+            var iconImg = (file && file.icon && file.icon !== 'default.png')
+                ? '<img src="icons/32/' + file.icon + '" class="content-icon" alt="" style="width:28px;height:28px;vertical-align:middle;margin-right:10px;">'
+                : '';
+            var html = parseMD(md);
+            html = html.replace('<h1>', '<h1>' + iconImg);
+            c.innerHTML = html+renderRelatedMobile(p);
+            addToHistory(p);
+        }, function() { c.innerHTML = '<div style="color:#ff4d00;padding:40px;">Ошибка: '+esc(p)+'</div>'; });
     }
 
     function closeFile() {
