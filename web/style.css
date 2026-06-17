@@ -79,7 +79,7 @@ body.light #breadcrumbs{color:#999}
 body.dark #breadcrumbs{color:#666}
 body.dark .bc-sep{color:#555}
 
-#content h1{display:block;width:100%;font-size:26px;margin-bottom:8px;font-weight:300;letter-spacing:2px;padding-bottom:10px;transition:all .4s ease;word-break:normal}
+#content h1{display:block;width:100%;font-size:26px;margin-bottom:8px;font-weight:300;letter-spacing:2px;padding-bottom:10px;transition:all .4s ease;word-break:normal;white-space:normal}
 body.light #content h1{color:#111;border-bottom:1px solid #111}
 body.dark #content h1{color:#ff4d00;border-bottom:1px solid #333}
 #content h2{display:block;width:100%;font-size:15px;margin:24px 0 6px;font-weight:600;word-break:normal}
@@ -195,7 +195,7 @@ body.dark #file-top-bar{background:#1a1a1a;border-bottom:1px solid #333}
 #file-bookmark-btn{font-size:24px;cursor:pointer;background:none;border:none;color:#ccc}
 #file-bookmark-btn.active{color:#ff4d00}
 #file-content-mobile{animation:fadeSlideIn .4s ease forwards}
-#file-content-mobile h1{display:block;width:100%;font-size:20px;margin-bottom:8px;font-weight:300;padding-bottom:8px;word-break:normal}
+#file-content-mobile h1{display:block;width:100%;font-size:20px;margin-bottom:8px;font-weight:300;padding-bottom:8px;word-break:normal;white-space:normal}
 body.light #file-content-mobile h1{color:#111;border-bottom:1px solid #111}
 body.dark #file-content-mobile h1{color:#ff4d00;border-bottom:1px solid #333}
 #file-content-mobile h2{display:block;width:100%;font-size:16px;margin:20px 0 6px;word-break:normal}
