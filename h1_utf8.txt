@@ -1,0 +1,214 @@
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\avodah\blagovestie.md|Благовестие
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\avodah\kreshenie.md|???????? - ПОГРУЖЕНИЕ (ТВИЛА, ????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\avodah\krov-zaveta.md|Кровь ??????? - СОЮЗ (БРИТ, ???????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\avodah\nogoomovenie.md|Ногоомовение
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\avodah\obrezanie-ploti.md|Обрезание плоти
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\avodah\omovenie-vody.md|Омовение воды
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\avodah\postroenie-khrama.md|Построение ?????? - ДОМ; ИЛИ ????????? - МЕСТО ОТДЕЛЁННОСТИ (БАЙТ, ??????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\avodah\prichastie.md|?????????? - УЧАСТИЕ (ШУТАФУТ, ??????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\avodah\rukopolozhenie.md|???????? - ВОЗЛОЖЕНИЕ РУК (СМИХА, ????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\avodah\zhertvoprinoshenie.md|Жертвоприношение
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\kehillot\dom-bozhii.md|Дом Божий
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\kehillot\eva-iz-adama.md|Ева из Адама
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\kehillot\gorod-na-gore.md|Город на горе
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\kehillot\izrail.md|Израиль
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\kehillot\kovcheg-noya.md|?????? - ЯЩИК; ИЛИ ?????? - ЯЩИК (ТЭВА, ??????) Ноя
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\kehillot\nevesta-khrista.md|Невеста Христа
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\kehillot\pole-i-zhatva.md|ОБЛАСТЬ ДЕЙСТВИЯ СИЛ  ?????? - ПОЛЕ. ПОДМЕНА: ФИЗИЧЕСКОЕ ПОЛЕ ЗАМЕНЕНО НА <ЭНЕРГЕТИЧЕСКОЕ ПОЛЕ> (САДЕ, ??????) и жатва
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\kehillot\skiniya-moiseya.md|????????? - ОБИТАНИЕ (МИШКАН, ?????????) Моисея
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\kehillot\stado-i-pastva.md|Стадо и ????? - СТАДО (ЭДЕР, ?????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\kehillot\telo-khristovo.md|Тело Христово
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\malachim\efes.md|Ефес
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\malachim\fiatirma.md|Фиатирма
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\malachim\laodikiya.md|Лаодикия
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\malachim\pergam.md|Пергам
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\malachim\sardy.md|Сарды
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\malachim\smirna.md|Смирна
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\malachim\tiatira.md|Тиатира
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mesharetim\apostol.md|???????? - ПОСЛАННИК (ШАЛИАХ, ????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mesharetim\diakon.md|???????? - СЛУЖИТЕЛЬ (МЕШАРЭТ, ????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mesharetim\diakonissa.md|Диаконисса
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mesharetim\episkop.md|??????? - НАДЗИРАТЕЛЬ (ПАКИД, ???????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mesharetim\pastor.md|Пастор
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mesharetim\presviter.md|????? - СТАРЕЙШИНА (ЗАКЕН, ?????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mesharetim\prorok.md|?????? - ВЕСТНИК (НАВИ, ??????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mesharetim\uchitel.md|Учитель
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mishkan\kovcheg-zaveta.md|?????? ??????? - СОЮЗ (БРИТ, ???????); ИЛИ ?????? - ЯЩИК (ТЭВА, ??????) ??????? - СОЮЗ (БРИТ, ???????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mishkan\stol-khlebov-predlozheniya.md|Стол хлебов READINESS  ?????? - ГОТОВЫЙ. ТАНАХ: <ГОТОВО СЕРДЦЕ МОЁ (НАХОН, ??????) ПРОДАТЬ  ????? - ДАТЬ. ИЛИ: ????? - ПРОДАТЬ (НАТАН, ?????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mishkan\svetilnik.md|Светильник
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mishkan\umyvalnik.md|Умывальник
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mishkan\zavesa.md|Завеса
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mishkan\zhertvennik-kureniya.md|????????? - ????????? - ЖЕРТВЕННИК (МИЗБЕАХ, ?????????) (МИЗБЕАХ, ?????????) курения
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\mishkan\zhertvennik-vsesozhzheniya.md|????????? - ????????? - ЖЕРТВЕННИК (МИЗБЕАХ, ?????????) (МИЗБЕАХ, ?????????) всесожжения
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\rechitzah\omovenie-lica.md|Омовение лица
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\rechitzah\omovenie-nog.md|Омовение ног
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\rechitzah\omovenie-ruk.md|Омовение рук
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\rechitzah\omovenie-serdca.md|Омовение ЧАСТЬ ТЕЛА  ?????? - ЧЛЕН ТЕЛА (ЭЙВАР, ??????) КРОВООБРАЩЕНИЯ  ??? - СЕРДЦЕ (ЛЕВ, ???)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\andrei.md|Андрей
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\filipp.md|Филипп
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\foma.md|Фома
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\iakov-syn-alfeev.md|??????? - СЛЕДУЮЩИЙ ПО ПЯТАМ (ЯАКОВ, ???????) (сын Алфеев)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\iakov-zavedei.md|??????? - СЛЕДУЮЩИЙ ПО ПЯТАМ (ЯАКОВ, ???????) (Заведей)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\ioann.md|???????? - ЯХВЕ ПОМИЛОВАЛ (ЙОХАНАН, ????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\iuda-faddei.md|???????? - ВОСХВАЛЕНИЕ ЯХВЕ (ЙЕHУДА, ????????) (Фаддей)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\iuda-iskariot.md|???????? - ВОСХВАЛЕНИЕ ЯХВЕ (ЙЕHУДА, ????????) (Искариот)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\matfei-levii.md|Матфей (Левий)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\matfii.md|Матфий
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\savl-pavel.md|??????? - ИСПРОШЕННЫЙ (ШАУЛЬ, ???????) (Павел)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\simon-kananit.md|Симон Кананит
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\simon-petr.md|Симон (Петр)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shlichim\varfolomei-nafanail.md|Варфоломей (Нафанаил)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shutafut\khleb.md|Хлеб
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shutafut\vecherya.md|Вечеря
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\shutafut\vino.md|Вино
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\tvilah\kreshenie-ognyom.md|???????? - ПОГРУЖЕНИЕ (ТВИЛА, ????????) огнём
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\tvilah\kreshenie-svyatym-dukhom.md|???????? - ПОГРУЖЕНИЕ (ТВИЛА, ????????) Святым Духом
+C:\Users\cjfrf\Downloads\golem\content\tzel\kehillah\tvilah\kreshenie-vodoi.md|???????? - ПОГРУЖЕНИЕ (ТВИЛА, ????????) водой
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\avanim\agat.md|Агат
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\avanim\berill.md|Берилл
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\avanim\khalkidonit.md|Халкидонит
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\avanim\oniks.md|Оникс
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\avanim\rubin.md|Рубин
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\avanim\sapfir.md|Сапфир
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\avanim\smaragd.md|Смарагд
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\avanim\topaz.md|Топаз
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\avanim\yakhont.md|Яхонт
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\avanim\zmeevik.md|Змеевик
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\kamen.md|?? Камень
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\khleb.md|?? Хлеб
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\khramina.md|??? Храмина
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\molot.md|?? Молот
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\nozh.md|?? Нож
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\ognennyi-mech.md|??? Огненный SWORD  ????? - SWORD  ????? - МЕЧ. ТАНАХ: <МЕЧ ЯХВЕ>. В БЫТУ: <МЕЧ ПРАВОСУДИЯ> (ХЕРЕВ, ?????). ТАНАХ: <МЕЧ ЯХВЕ>. В БЫТУ: <МЕЧ ПРАВОСУДИЯ> (ХЕРЕВ, ?????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\posokh.md|?? Посох
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\skipetr.md|?? Скипетр
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\sosud-kovsh.md|?? Сосуд (ковш)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\svetilnik-lampada.md|??? Светильник (??? - СВЕТИЛЬНИК (НЕР, ???))
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\ternovyi-venok.md|?? Терновый венок
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\tofet.md|?? Тофет
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\veryovka-uzy.md|?? Верёвка (узы)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\vily.md|?? Вилы
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\vino-i-voda.md|?? Вино и вода
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\vino.md|?? Вино
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\begadim\zhezl.md|?? Жезл
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\asir.md|Асир
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\dan.md|Дан
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\gad.md|Гад
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\iosif.md|Иосиф
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\issakhar.md|Иссахар
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\iuda.md|???????? - ВОСХВАЛЕНИЕ ЯХВЕ (ЙЕHУДА, ????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\levii.md|Левий
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\nefalim.md|Нефалим
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\ruvim.md|Рувим
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\simeon.md|Симеон
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\veniamin.md|Вениамин
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\birka'im\zavulon.md|Завулон
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chukim\zakon-bozhii.md|??????? - НАСТАВЛЕНИЕ (ТОРА, ???????) Божий
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chukim\zakon-brachnyi.md|??????? - НАСТАВЛЕНИЕ (ТОРА, ???????) брачный
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chukim\zakon-gigieny.md|??????? - НАСТАВЛЕНИЕ (ТОРА, ???????) ЧИСТОТА  ??????? - ОЧИЩЕНИЕ (ТАHАРА, ???????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chukim\zakon-grekha.md|??????? - НАСТАВЛЕНИЕ (ТОРА, ???????) ????? - ПРОМАХ (ХЭТ, ?????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chukim\zakon-obrezaniya.md|??????? - НАСТАВЛЕНИЕ (ТОРА, ???????) обрезания
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chukim\zakon-sudebnyi.md|??????? - НАСТАВЛЕНИЕ (ТОРА, ???????) судебный
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chukim\zakon-svyashenstva.md|??????? - НАСТАВЛЕНИЕ (ТОРА, ???????) священства
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chukim\zakon-teni.md|??????? - НАСТАВЛЕНИЕ (ТОРА, ???????) тени
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chushim\gnev.md|Гнев
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chushim\lyubov.md|Любовь
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chushim\nenavist.md|Ненависть
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chushim\radost.md|Радость
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chushim\strakh.md|Страх
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chushim\styd.md|Стыд
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\chushim\vina.md|ЮРИДИЧЕСКАЯ ОТВЕТСТВЕННОСТЬ  ?????? - ПРИЗНАНИЕ ЮРИДИЧЕСКАЯ ОТВЕТСТВЕННОСТЬ  ?????? - ПРИЗНАНИЕ ВИНЫ (АШАМ, ??????) (АШАМ, ??????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\maftehot\klyuch-bezdny.md|Ключ бездны
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\maftehot\klyuch-doma-davidova.md|Ключ дома Давидова
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\maftehot\klyuch-znaniya.md|Ключ знания
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\maftehot\klyuchi-ada-i-smerti.md|Ключи ада и смерти
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\maftehot\klyuchi-carstva.md|Ключи Царства
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\malchei\david.md|?????? - ВОЗЛЮБЛЕННЫЙ (?????? - ВОЗЛЮБЛЕННЫЙ (ДАВИД, ??????), ??????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\malchei\iisus-khristos.md|???????? - ЯХВЕ СПАСАЕТ; ПОЛНАЯ ФОРМА - ?????????? (ЙЕШУА, ????????) ???????? - ПОМАЗАННИК (МАШИАХ, ????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\malchei\saul.md|Саул
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\malchei\solomon.md|???????? - МИР (ШЛОМО, ????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\mishchah\carskoe.md|?? Царское
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\mishchah\khramovoe.md|?? Храмовое
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\mishchah\messianskoe.md|?? Мессианское
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\mishchah\prorocheskoe.md|?? Пророческое
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\mishchah\svyashennicheskoe.md|??? Священническое
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\otot-brit\chasha-i-khleb.md|Чаша и хлеб
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\otot-brit\krov-zhertvy.md|Кровь ???????? - ПРИБЛИЖЕНИЕ (КОРБАН, ????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\otot-brit\obrezanie.md|Обрезание
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\otot-brit\raduga.md|Радуга
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\otot-brit\subbota.md|??????? - ОСТАНОВКА (ШАББАТ, ???????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\sefarim\evangelie.md|?????????? - БЛАГАЯ ВЕСТЬ (БСОРА, ??????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\sefarim\kniga-otkroveniya.md|Книга Откровения
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\sefarim\tora.md|Тора
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\tefilah\dym.md|Дым
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\tefilah\fimiam.md|??????? - КУРЕНИЕ (КЕТОРЕТ, ???????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\tefilah\kadilnica.md|Кадильница
+C:\Users\cjfrf\Downloads\golem\content\tzel\kelim\tefilah\ogon.md|Огонь
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\arim\erikhon.md|Ерихон
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\arim\evus.md|Евус
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\arim\galileya.md|Галилея
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\arim\ierusalim.md|????????????? - ГОРОД ?????? ??????????? - МАСЛО ПОМАЗАНИЯ (ШЕМЕН HА-МИШХА, ??????) / ОСНОВАНИЕ ШАЛЕМА (ЙЕРУШАЛАИМ, ?????????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\arim\kapernaum.md|Капернаум
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\arim\nazaret.md|??????? - ОТРАСЛЬ (НАЦРАТ, ???????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\arim\nineviya.md|Ниневия
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\arim\sion.md|??????? - ЗНАК (ЦИЙОН, ???????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\arim\sodom-i-gomorra.md|Содом и Гоморра
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\arim\tir.md|Тир
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\arim\vifleem.md|????? ????? - ДОМ ХЛЕБА (БЕЙТ-ЛЕХЕМ, ?????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\artzot\egipet.md|???? ????????? - УЗОСТЬ (МИЦРАИМ, ?????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\artzot\filistiya.md|???? Филистия
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\artzot\iordan.md|?? ???????? - СПУСКАЮЩИЙСЯ (ЙАРДЕН, ????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\artzot\izrail.md|???? Израиль
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\artzot\moav-i-ammon.md|???? Моав и Аммон
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\artzot\siriya.md|???? Сирия
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\artzot\vavilon.md|????? Вавилон
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\dolina-ginnom.md|Долина Гинном
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\edemskii-sad.md|Эдемский сад
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\effafa.md|Еффафа
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\galgal.md|Галгал
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\gefsimaniya.md|???? ????????? - МАСЛОДАВИЛЬНЯ (ГАТ-ШМАНИМ, ????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\golgofa.md|?????????????? - ЧЕРЕП (ГУЛГУЛЬТА, ??????????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\gora-sinai.md|Гора Синай
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\ikoniya.md|Икония
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\khanaan.md|Ханаан
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\krasnoe-more.md|Красное море
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\luz-vifil.md|Луз (Вифиль)
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\mamre.md|Мамре
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\moriya.md|Мория
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\novyi-ierusalim.md|Новый ????????????? - ГОРОД ?????? ??????????? - МАСЛО ПОМАЗАНИЯ (ШЕМЕН HА-МИШХА, ??????) / ОСНОВАНИЕ ШАЛЕМА (ЙЕРУШАЛАИМ, ?????????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\penuel.md|Пенуэл
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\pustynya.md|Пустыня
+C:\Users\cjfrf\Downloads\golem\content\tzel\makom\mekomot\vifezda.md|Вифезда
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\adar.md|Адар
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\av.md|Ав
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\enul.md|Енул
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\iyar.md|Ияр
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\kislev.md|Кислев
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\markheshvan-bul.md|Мархешван (Бул)
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\nisan.md|Нисан
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\shevat.md|Шеват
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\sivan.md|Сиван
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\tammuz.md|Таммуз
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\tebef.md|Тебеф
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\chodashim\tishri-afanim.md|Тишри (Афаним)
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\mikraot\iom-kippur-den-ochisheniya-iskupitelnaya-zhertva-khrista.md|Йом-Киппур (День CLEANSING  ??????? - ОЧИЩЕНИЕ. ПОДМЕНА: ОЧИЩЕНИЕ ОТ ГРЕХА ЗАМЕНЕНО НА <ЭНЕРГЕТИЧЕСКОЕ ОЧИЩЕНИЕ> (ТАHАРА, ???????))  Искупительная жертва Христа
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\mikraot\iskhod-iz-egipta-spasenie-ot-grekha.md|Исход из Египта  ????????? - ИЗБАВЛЕНИЕ (ЙЕШУА, ?????????) от греха
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\mikraot\mednaya-zmeya-raspyatie-khrista.md|Медная змея  ???????? - ПОВЕШЕНИЕ НА СТОЛБЕ (ЦЛИВА, ????????) Христа
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\mikraot\noev-kovcheg-spasenie-cherez-khrista.md|Ноев ?????? - ЯЩИК; ИЛИ ?????? - ЯЩИК (ТЭВА, ??????)  Спасение через Христа
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\mikraot\paskha-zhertva-khrista.md|?????? - ПРОХОЖДЕНИЕ МИМО (ПЕСАХ, ??????)  ???????? - ПРИБЛИЖЕНИЕ (КОРБАН, ????????) Христа
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\mikraot\perekhod-cherez-more-kreshenie.md|Переход через море  ???????? - ПОГРУЖЕНИЕ (ТВИЛА, ????????)
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\mikraot\pyatidesyatnica.md|Пятидесятница
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\moadim\bikkurim-pervye-plody.md|Биккурим (Первые плоды)
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\moadim\iom-kippur-den-iskupleniya.md|Йом Киппур (День ????????? - ВЫКУП (ГЕУЛА, ?????????))
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\moadim\khanuka-prazdnik-osvyasheniya.md|Ханука (Праздник ???????? - ОТДЕЛЕНИЕ (КИДУШ, ????????))
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\moadim\maca-prazdnik-opresnokov.md|Маца (Праздник опресноков)
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\moadim\pesakh-paskha.md|Песах (?????? - ПРОХОЖДЕНИЕ МИМО (ПЕСАХ, ??????))
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\moadim\rosh-khashana-novoletie-trubnyi-prazdnik.md|Рош Хашана (Новолетие/Трубный праздник)
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\moadim\shabbat-subbota.md|Шаббат (??????? - ОСТАНОВКА (ШАББАТ, ???????))
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\moadim\shavuot-pyatidesyatnica.md|Шавуот (Пятидесятница)
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\moadim\sukkot-prazdnik-kushei.md|Суккот (Праздник Кущей)
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\shomerim\chetvertaya-strazha.md|Четвертая стража
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\shomerim\pervaya-strazha.md|Первая стража
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\shomerim\tretya-strazha.md|Третья стража
+C:\Users\cjfrf\Downloads\golem\content\tzel\mikra\shomerim\vtoraya-strazha.md|Вторая стража
+C:\Users\cjfrf\Downloads\golem\content\tzel\moadim\chastnye-temy.md|Частные темы
