@@ -329,16 +329,19 @@ def fix_header_line(line, replacements, mega_regex, replaced_in_file):
 
 
 def fix_body_line(line, replacements, mega_regex, replaced_in_file):
-    for match_word in mega_regex.finditer(line):
-        word = match_word.group()
-        wl = word.lower()
-        start, end = match_word.start(), match_word.end()
+    result = []
+    pos = 0
+    for match in mega_regex.finditer(line):
+        word = match.group()
+        start, end = match.start(), match.end()
+        
         if start > 0 and line[start-1].isalpha():
             continue
         if end < len(line) and line[end].isalpha():
             continue
+        
         for w, data in replacements.items():
-            if w.lower() == wl:
+            if w.lower() == word.lower():
                 key = data["short"]
                 if key not in replaced_in_file:
                     replacement = data["first"]
@@ -347,9 +350,17 @@ def fix_body_line(line, replacements, mega_regex, replaced_in_file):
                     replacement = data["short"]
                 if word[0].isupper():
                     replacement = replacement[0].upper() + replacement[1:]
-                line = line[:start] + replacement + line[end:]
+                
+                result.append(line[pos:start])
+                result.append(replacement)
+                pos = end
                 break
-    return line
+    
+    if pos == 0:
+        return line
+    
+    result.append(line[pos:])
+    return "".join(result)
 
 
 def check_one_file(md_file, replacements, fast_filter, mega_regex, scan_cache, check_only):
