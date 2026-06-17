@@ -158,26 +158,83 @@
         if (ab) ab.classList.add('active');
     }
 
-    function parseMD(t, fileIcon) {
-        t = t.replace(/\*\*Метаданные файла\*\*[\s\S]*?(?=\n---|\n# |\n## )/, '');
-        var h = t;
-        h = h.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
-        h = h.replace(/^### (.+)$/gm, '<h3 id="$1">$1</h3>');
-        h = h.replace(/^## (.+)$/gm, '<h2 id="$1">$1</h2>');
-        h = h.replace(/^# (.+)$/gm, function(m, title) {
+function parseMD(t, fileIcon) {
+    t = t.replace(/\*\*Метаданные файла\*\*[\s\S]*?(?=\n---|\n# |\n## )/, '');
+    
+    var lines = t.split('\n');
+    var html = '';
+    var inParagraph = false;
+    
+    for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        
+        // Пустая строка — закрываем параграф
+        if (line.trim() === '') {
+            if (inParagraph) { html += '</p>'; inParagraph = false; }
+            continue;
+        }
+        
+        // Заголовки
+        if (line.match(/^#### (.+)$/)) {
+            if (inParagraph) { html += '</p>'; inParagraph = false; }
+            html += '<h4>' + line.replace(/^#### /, '') + '</h4>';
+            continue;
+        }
+        if (line.match(/^### (.+)$/)) {
+            if (inParagraph) { html += '</p>'; inParagraph = false; }
+            var h3title = line.replace(/^### /, '').replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim();
+            html += '<h3 id="' + h3title + '">' + h3title + '</h3>';
+            continue;
+        }
+        if (line.match(/^## (.+)$/)) {
+            if (inParagraph) { html += '</p>'; inParagraph = false; }
+            var h2title = line.replace(/^## /, '').replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim();
+            html += '<h2 id="' + h2title + '">' + h2title + '</h2>';
+            continue;
+        }
+        if (line.match(/^# (.+)$/)) {
+            if (inParagraph) { html += '</p>'; inParagraph = false; }
+            var h1title = line.replace(/^# /, '').replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim();
             var iconHtml = fileIcon ? fileIcon : '';
-            return '<h1>' + iconHtml + title.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim() + '</h1>';
-        });
-        h = h.replace(/!\[icon\]\(([^)]+)\)/g, '<img src="$1" class="h2-icon" alt="" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">');
-        h = h.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
-        h = h.replace(/`([^`]+)`/g, '<code>$1</code>');
-        h = h.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-        h = h.replace(/\*(.+?)\*/g, '<em>$1</em>');
-        h = h.replace(/^---$/gm, '<hr>');
-        h = h.replace(/\n\n/g, '</p><p>');
-        h = '<p>'+h+'</p>';
-        return h.replace(/<p><\/p>/g, '');
+            html += '<h1>' + iconHtml + h1title + '</h1>';
+            continue;
+        }
+        
+        // Горизонтальная линия
+        if (line.match(/^---$/)) {
+            if (inParagraph) { html += '</p>'; inParagraph = false; }
+            html += '<hr>';
+            continue;
+        }
+        
+        // Цитата
+        if (line.match(/^> (.+)$/)) {
+            if (inParagraph) { html += '</p>'; inParagraph = false; }
+            html += '<blockquote>' + line.replace(/^> /, '') + '</blockquote>';
+            continue;
+        }
+        
+        // Обычный текст — параграф
+        if (!inParagraph) {
+            html += '<p>';
+            inParagraph = true;
+        } else {
+            html += '\n';
+        }
+        
+        // Inline форматирование
+        line = line.replace(/!\[icon\]\(([^)]+)\)/g, '<img src="$1" class="h2-icon" alt="" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">');
+        line = line.replace(/`([^`]+)`/g, '<code>$1</code>');
+        line = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        line = line.replace(/\*(.+?)\*/g, '<em>$1</em>');
+        
+        html += line;
     }
+    
+    if (inParagraph) { html += '</p>'; }
+    
+    return html;
+}
 
     function loadFile(p) {
         currentPath = p;
