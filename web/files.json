@@ -234,11 +234,16 @@
   },
   {
     "path": "content/terminology/goyim.md",
-    "title": "גּוֹי (ГОЙ) — НАРОД, А НЕ «ЯЗЫЧНИК»",
-    "topic": "Библейское понятие народа, искажённое христианством в уничижительное «язычник» и «неверный»",
+    "title": "ГОЙИМ — НАРОДЫ: ЧУЖИЕ ИЛИ ПРИШЕЛЬЦЫ?",
+    "topic": "Полный разбор слова גּוֹיִם (гойим) — народы. Этимология, значение в ТаНаХе, искажение в переводах, ",
     "category": "Терминология",
     "subcategory": "",
-    "related": []
+    "related": [
+      "content/terminology/goy.md",
+      "content/terminology/gerim.md",
+      "content/terminology/ivri.md",
+      "content/terminology/am.md"
+    ]
   },
   {
     "path": "content/terminology/hacker.md",
@@ -2668,6 +2673,20 @@
     "related": []
   },
   {
+    "path": "content/bashah/concepts/yohanan-matbil.md",
+    "title": "ЙОХАНАН ПОГРУЖАТЕЛЬ — ГЛАС В ПУСТЫНЕ",
+    "topic": "Разбор личности Йоханана Погружателя — призвание, служение, связь с Элияhу, твила тшувы, свидетельст",
+    "category": "БаШаХ",
+    "subcategory": "Понятия",
+    "related": [
+      "content/bashah/events/tvilat-yeshua.md",
+      "content/bashah/persons/keifa.md",
+      "content/bashah/persons/shaul.md",
+      "content/terminology/tvilah.md",
+      "content/terminology/navi.md"
+    ]
+  },
+  {
     "path": "content/bashah/events/beit-chananyah.md",
     "title": "beit chananyah",
     "topic": "",
@@ -4628,6 +4647,24 @@
     "related": []
   },
   {
+    "path": "content/researches/systems/bavel-sacrifice.md",
+    "title": "ВАВИЛОНСКАЯ ЖЕРТВА: КАК КУЛЬТ МАРДУКА ПОДМЕНИЛ КОРБАН",
+    "topic": "Глубокое исследование происхождения концепции жертвы из вавилонского культа. Как культ Мардука через",
+    "category": "Исследования",
+    "subcategory": "Системы",
+    "related": [
+      "content/researches/korban-zevah.md",
+      "content/researches/enuma-bereshit.md",
+      "content/terminology/korban.md",
+      "content/terminology/ola.md",
+      "content/terminology/asham.md",
+      "content/terminology/chatat.md",
+      "content/terminology/zevah.md",
+      "instructions/exposure/exposure-distortions.md",
+      "instructions/exposure/exposure-mechanisms.md"
+    ]
+  },
+  {
     "path": "content/researches/systems/chofesh-vs-dror.md",
     "title": "חוֹפֶשׁ וְדְרוֹר: ДВА ЛИКА Хофеш",
     "topic": "Различие между חוֹפֶשׁ (хофеш) — хофеш от (отрицательной) и דְּרוֹר (дрор) — хофеш для (положительно",
@@ -4690,6 +4727,21 @@
     "category": "Исследования",
     "subcategory": "Системы",
     "related": []
+  },
+  {
+    "path": "content/researches/systems/gematria.md",
+    "title": "ГЕМАТРИЯ — РАЗОБЛАЧЕНИЕ СИСТЕМЫ ЧИСЛОВОГО КОНТРОЛЯ",
+    "topic": "Разоблачение гематрии как системы контроля — происхождение, методы, опровержение из ТаНаХа",
+    "category": "Исследования",
+    "subcategory": "Системы",
+    "related": [
+      "content/terminology/gematria.md",
+      "content/researches/systems/talmud-judaism.md",
+      "content/researches/history/greek-as-weapon.md",
+      "instructions/exposure/exposure-distortions.md",
+      "instructions/exposure/exposure-mechanisms.md",
+      "instructions/exposure/exposure-system-architecture.md"
+    ]
   },
   {
     "path": "content/researches/systems/lyubaya-vlast-chelovecheskaya.md",
@@ -7638,49 +7690,5 @@
       "instructions/methodology/methodology-tree.md",
       "instructions/exposure/exposure-religionism.md"
     ]
-  },
-  {
-    "path": "content/learn-hebrew/alphabet.md",
-    "title": "АЛФАВИТ ИВРИТА — 22 БУКВЫ",
-    "topic": "Полный алфавит иврита — 22 буквы, произношение, написание, палео-иврит",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [
-      "vowels.md"
-    ]
-  },
-  {
-    "path": "content/learn-hebrew/grammar.md",
-    "title": "ГРАММАТИКА ИВРИТА — ВРЕМЯ, РОД, ЧИСЛО",
-    "topic": "Грамматика иврита — время, род, число, спряжение, синтаксис",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/learn-hebrew/roots.md",
-    "title": "КОРНЕВАЯ СИСТЕМА ИВРИТА — ТРЁХБУКВЕННЫЙ КЛЮЧ",
-    "topic": "Корневая система иврита — как три согласные буквы порождают сотни слов",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": []
-  },
-  {
-    "path": "content/learn-hebrew/vowel.md",
-    "title": "ОГЛАСОВКИ ИВРИТА — ГЛАСНЫЕ",
-    "topic": "Система огласовок иврита — точки и чёрточки, которые делают буквы звучащими",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [
-      "крн"
-    ]
-  },
-  {
-    "path": "content/learn-hebrew/why-hebrew.md",
-    "title": "ПОЧЕМУ ИВРИТ — ЯЗЫК НАДЁЖНОСТЬ (ЭМЕТ, אֱמֶת)",
-    "topic": "Почему иврит — единственный язык, на котором Яхве говорил с человеком",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": []
   }
 ]
