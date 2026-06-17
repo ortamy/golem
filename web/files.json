@@ -2350,7 +2350,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/binyan-bayit-sheni.md",
@@ -2359,7 +2359,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/binyan-habayit.md",
@@ -2368,7 +2368,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/briat-haolam.md",
@@ -2377,7 +2377,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/brit-begivon.md",
@@ -2386,7 +2386,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/brit-bein-habetarim.md",
@@ -2395,7 +2395,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/brit-moav.md",
@@ -2404,7 +2404,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/chanukah.md",
@@ -2413,7 +2413,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/chet-achan.md",
@@ -2422,7 +2422,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/chet-david.md",
@@ -2431,7 +2431,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/chet-haegel.md",
@@ -2440,7 +2440,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/churban-bayit-rishon.md",
@@ -2449,7 +2449,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/galut-bavel.md",
@@ -2458,7 +2458,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/kriat-yam-suf.md",
@@ -2467,7 +2467,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/kriat-yericho.md",
@@ -2476,7 +2476,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/mabul.md",
@@ -2485,7 +2485,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/mashiach-david.md",
@@ -2494,7 +2494,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/matan-torah.md",
@@ -2503,7 +2503,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/meraglim.md",
@@ -2512,7 +2512,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/mered-avshalom.md",
@@ -2521,7 +2521,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/mey-merivah.md",
@@ -2530,7 +2530,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/milchemet-ai.md",
@@ -2539,7 +2539,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/milchemet-dvorah.md",
@@ -2548,7 +2548,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/milchemet-gidon.md",
@@ -2557,7 +2557,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/nechash-nechoshet.md",
@@ -2566,7 +2566,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/nefilat-shimshon.md",
@@ -2575,7 +2575,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/nehushtan.md",
@@ -2584,7 +2584,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/pesel-michah.md",
@@ -2593,7 +2593,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/petach-hayarden.md",
@@ -2602,7 +2602,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/pilegesh-bagivah.md",
@@ -2611,7 +2611,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/purim.md",
@@ -2620,7 +2620,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/shivat-tzion.md",
@@ -2629,7 +2629,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/events/yetziat-mitzraim.md",
@@ -2638,7 +2638,7 @@
     "category": "ТаНаХ",
     "subcategory": "События",
     "related": [],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/aharon.md",
@@ -2647,7 +2647,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/avraham.md",
@@ -2656,7 +2656,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/daniel-person.md",
@@ -2665,7 +2665,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/david.md",
@@ -2674,7 +2674,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/dvorah.md",
@@ -2683,7 +2683,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/elisha.md",
@@ -2692,7 +2692,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/eliyahu.md",
@@ -2701,7 +2701,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/ester-person.md",
@@ -2710,7 +2710,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/ezra-person.md",
@@ -2719,7 +2719,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/gidon.md",
@@ -2728,7 +2728,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/itzchak.md",
@@ -2737,7 +2737,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/moshe.md",
@@ -2746,7 +2746,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/nechemyah-person.md",
@@ -2755,7 +2755,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/rut-person.md",
@@ -2764,7 +2764,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/shaul.md",
@@ -2773,7 +2773,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/shimshon.md",
@@ -2782,7 +2782,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/shlomo.md",
@@ -2791,7 +2791,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/shmuel.md",
@@ -2800,7 +2800,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/yaakov.md",
@@ -2809,7 +2809,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/yehezkel-person.md",
@@ -2818,7 +2818,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/yehoshua.md",
@@ -2827,7 +2827,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/yeshayahu-person.md",
@@ -2836,7 +2836,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/yirmeyahu-person.md",
@@ -2845,7 +2845,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tanakh/persons/yosef.md",
@@ -2854,7 +2854,7 @@
     "category": "ТаНаХ",
     "subcategory": "Личности",
     "related": [],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/books/besorah-luka.md",
@@ -3041,7 +3041,7 @@
       "content/tanakh/persons/[личность].md",
       "content/tanakh/books/[книга].md"
     ],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/events/petach-kefas.md",
@@ -3054,7 +3054,7 @@
       "content/tanakh/persons/[личность].md",
       "content/tanakh/books/[книга].md"
     ],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/events/seudat-aharon.md",
@@ -3067,7 +3067,7 @@
       "content/tanakh/persons/[личность].md",
       "content/tanakh/books/[книга].md"
     ],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/events/shavuot-ruach.md",
@@ -3080,7 +3080,7 @@
       "content/tanakh/persons/[личность].md",
       "content/tanakh/books/[книга].md"
     ],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/events/tvilat-yeshua.md",
@@ -3097,7 +3097,7 @@
       "content/bashah/concepts/mashiah-bashah.md",
       "instructions/exposure/exposure-distortions.md"
     ],
-    "icon": "event.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/geography/antiohia.md",
@@ -3106,7 +3106,7 @@
     "category": "БаШаХ",
     "subcategory": "geography",
     "related": [],
-    "icon": "geography.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/geography/corinth.md",
@@ -3115,7 +3115,7 @@
     "category": "БаШаХ",
     "subcategory": "geography",
     "related": [],
-    "icon": "geography.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/geography/ephesus.md",
@@ -3124,7 +3124,7 @@
     "category": "БаШаХ",
     "subcategory": "geography",
     "related": [],
-    "icon": "geography.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/geography/kfar-nachum.md",
@@ -3133,7 +3133,7 @@
     "category": "БаШаХ",
     "subcategory": "geography",
     "related": [],
-    "icon": "geography.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/geography/nazeret.md",
@@ -3142,7 +3142,7 @@
     "category": "БаШаХ",
     "subcategory": "geography",
     "related": [],
-    "icon": "geography.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/geography/roma.md",
@@ -3151,7 +3151,7 @@
     "category": "БаШаХ",
     "subcategory": "geography",
     "related": [],
-    "icon": "geography.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/geography/yerushalaim.md",
@@ -3160,7 +3160,7 @@
     "category": "БаШаХ",
     "subcategory": "geography",
     "related": [],
-    "icon": "geography.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/letters/colossians.md",
@@ -3358,7 +3358,7 @@
     "category": "БаШаХ",
     "subcategory": "Рукописи",
     "related": [],
-    "icon": "manuscripts.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/manuscripts/peshitta.md",
@@ -3367,7 +3367,7 @@
     "category": "БаШаХ",
     "subcategory": "Рукописи",
     "related": [],
-    "icon": "manuscripts.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/nevua/hitgalut-yohanan.md",
@@ -3398,7 +3398,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/bar-abba.md",
@@ -3411,7 +3411,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/chananyah.md",
@@ -3424,7 +3424,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/elyakim.md",
@@ -3437,7 +3437,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/keifa.md",
@@ -3450,7 +3450,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/luka.md",
@@ -3463,7 +3463,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/markus.md",
@@ -3476,7 +3476,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/marta.md",
@@ -3489,7 +3489,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/mattityahu-levi.md",
@@ -3502,7 +3502,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/mattityahu.md",
@@ -3515,7 +3515,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/miryam-magdalit.md",
@@ -3528,7 +3528,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/nakdimon.md",
@@ -3541,7 +3541,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/natanael.md",
@@ -3554,7 +3554,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/philipus.md",
@@ -3567,7 +3567,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/shaul.md",
@@ -3580,7 +3580,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/shimon-kfar-nachum.md",
@@ -3593,7 +3593,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/shoshannah.md",
@@ -3606,7 +3606,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/toma.md",
@@ -3619,7 +3619,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/yaakov-achim.md",
@@ -3632,7 +3632,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/yaakov-shlichim.md",
@@ -3645,7 +3645,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/yehudah.md",
@@ -3658,7 +3658,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/yochanan-kohen.md",
@@ -3671,7 +3671,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/yohanan-matbil.md",
@@ -3684,7 +3684,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/yohanan-talmid.md",
@@ -3697,7 +3697,7 @@
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
     ],
-    "icon": "person.png"
+    "icon": "default.png"
   },
   {
     "path": "content/bashah/practices/seuda-adon.md",
@@ -4599,7 +4599,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/etzim/etz-daat-tov-ra.md",
@@ -4608,7 +4608,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/keruvim/adam.md",
@@ -4617,7 +4617,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/keruvim/aryeh.md",
@@ -4626,7 +4626,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/keruvim/nesher.md",
@@ -4635,7 +4635,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/keruvim/shor.md",
@@ -4644,7 +4644,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/chesed.md",
@@ -4653,7 +4653,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/dvar-chochmah.md",
@@ -4662,7 +4662,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/emunah.md",
@@ -4671,7 +4671,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/ezrah.md",
@@ -4680,7 +4680,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/hadrachah.md",
@@ -4689,7 +4689,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/havdalat-ruach.md",
@@ -4698,7 +4698,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/leshonot.md",
@@ -4707,7 +4707,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/nevuah.md",
@@ -4716,7 +4716,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/niflaot.md",
@@ -4725,7 +4725,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/pitaron.md",
@@ -4734,7 +4734,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/refuah.md",
@@ -4743,7 +4743,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/matnot-ruach/tokhachah.md",
@@ -4752,7 +4752,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/melachot/boneh.md",
@@ -4761,7 +4761,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/melachot/charash.md",
@@ -4770,7 +4770,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/melachot/chovel.md",
@@ -4779,7 +4779,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/melachot/ganan.md",
@@ -4788,7 +4788,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/melachot/ikar.md",
@@ -4797,7 +4797,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/melachot/roeh.md",
@@ -4806,7 +4806,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/melachot/yotzer.md",
@@ -4815,7 +4815,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/neshek/avnet-emet.md",
@@ -4824,7 +4824,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/neshek/cherev-ruach.md",
@@ -4833,7 +4833,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/neshek/kova-yeshua.md",
@@ -4842,7 +4842,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/neshek/magen-tzedek.md",
@@ -4851,7 +4851,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/neshek/naalei-besorah.md",
@@ -4860,7 +4860,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/neshek/shiryon-tzedek.md",
@@ -4869,7 +4869,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/panim/av-shamayim.md",
@@ -4878,7 +4878,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/panim/ben-elohim.md",
@@ -4887,7 +4887,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/panim/ruach-hakodesh.md",
@@ -4896,7 +4896,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot/pri-ahavah.md",
@@ -4905,7 +4905,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot/pri-kedushah.md",
@@ -4914,7 +4914,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot/pri-maasim-tovim.md",
@@ -4923,7 +4923,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot/pri-ruchani.md",
@@ -4932,7 +4932,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot/pri-savlanut-emunah.md",
@@ -4941,7 +4941,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot/pri-teshuvah.md",
@@ -4950,7 +4950,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot/pri-tzedek.md",
@@ -4959,7 +4959,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot-ruach/ahavah.md",
@@ -4968,7 +4968,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot-ruach/anavah.md",
@@ -4977,7 +4977,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot-ruach/emunah.md",
@@ -4986,7 +4986,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot-ruach/erech-apayim.md",
@@ -4995,7 +4995,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot-ruach/rivyon.md",
@@ -5004,7 +5004,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot-ruach/shalom.md",
@@ -5013,7 +5013,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot-ruach/simchah.md",
@@ -5022,7 +5022,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/perot-ruach/tovah.md",
@@ -5031,7 +5031,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/shemot-el/adonai.md",
@@ -5040,7 +5040,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/shemot-el/el-shaddai.md",
@@ -5049,7 +5049,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/shemot-el/elohim.md",
@@ -5058,7 +5058,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/shemot-el/kyrios.md",
@@ -5067,7 +5067,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/shemot-el/yhwh-nissi.md",
@@ -5076,7 +5076,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/shemot-el/yhwh-rafa.md",
@@ -5085,7 +5085,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/shemot-el/yhwh-shalom.md",
@@ -5094,7 +5094,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/shemot-el/yhwh-tzidkenu.md",
@@ -5103,7 +5103,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/elohim/shemot-el/yhwh.md",
@@ -5112,7 +5112,7 @@
     "category": "Цель",
     "subcategory": "Элоhим",
     "related": [],
-    "icon": "elohim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/hitgalut/chotamot/seal-1-white-horse.md",
@@ -5454,7 +5454,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/avodah/binyan-mikdash.md",
@@ -5463,7 +5463,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/avodah/dam-brit.md",
@@ -5472,7 +5472,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/avodah/korban.md",
@@ -5481,7 +5481,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/avodah/milah-basar.md",
@@ -5490,7 +5490,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/avodah/rechitzat-mayim.md",
@@ -5499,7 +5499,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/avodah/rechitzat-regel.md",
@@ -5508,7 +5508,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/avodah/shutafut.md",
@@ -5517,7 +5517,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/avodah/smichah.md",
@@ -5526,7 +5526,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/avodah/tvilah.md",
@@ -5535,7 +5535,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/kehillot/beit-elohim.md",
@@ -5544,7 +5544,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/kehillot/chava-adam.md",
@@ -5553,7 +5553,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/kehillot/eder-roeh.md",
@@ -5562,7 +5562,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/kehillot/guf-mashiach.md",
@@ -5571,7 +5571,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/kehillot/ir-har.md",
@@ -5580,7 +5580,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/kehillot/kalah-mashiach.md",
@@ -5589,7 +5589,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/kehillot/mishkan-moshe.md",
@@ -5598,7 +5598,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/kehillot/sadeh-katzir.md",
@@ -5607,7 +5607,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/kehillot/tevat-noach.md",
@@ -5616,7 +5616,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/kehillot/yisrael.md",
@@ -5625,7 +5625,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/malachim/efes.md",
@@ -5634,7 +5634,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/malachim/laodicea.md",
@@ -5643,7 +5643,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/malachim/pergamum.md",
@@ -5652,7 +5652,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/malachim/sardis.md",
@@ -5661,7 +5661,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/malachim/smyrna.md",
@@ -5670,7 +5670,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/malachim/thyatira.md",
@@ -5679,7 +5679,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mesharetim/mesharet.md",
@@ -5688,7 +5688,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mesharetim/mesharetet.md",
@@ -5697,7 +5697,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mesharetim/moreh.md",
@@ -5706,7 +5706,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mesharetim/navi.md",
@@ -5715,7 +5715,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mesharetim/pakid.md",
@@ -5724,7 +5724,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mesharetim/roeh.md",
@@ -5733,7 +5733,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mesharetim/shaliach.md",
@@ -5742,7 +5742,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mesharetim/zaken.md",
@@ -5751,7 +5751,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mishkan/aron-brit.md",
@@ -5766,7 +5766,7 @@
       "instructions/IMAGE-MAP.md",
       "instructions/IMAGES-CATALOGUE.md"
     ],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mishkan/kiyor.md",
@@ -5775,7 +5775,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mishkan/menorah.md",
@@ -5784,7 +5784,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mishkan/mizbeach-ketoret.md",
@@ -5793,7 +5793,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mishkan/mizbeach-olah.md",
@@ -5802,7 +5802,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mishkan/parochet.md",
@@ -5811,7 +5811,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/mishkan/shulchan-lechem-panim.md",
@@ -5820,7 +5820,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/rechitzah/rechitzat-lev.md",
@@ -5829,7 +5829,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/rechitzah/rechitzat-panim.md",
@@ -5838,7 +5838,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/rechitzah/rechitzat-raglayim.md",
@@ -5847,7 +5847,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/rechitzah/rechitzat-yadayim.md",
@@ -5856,7 +5856,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/andrew.md",
@@ -5865,7 +5865,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/bartalmay-natanel.md",
@@ -5874,7 +5874,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/mattityahu-levi.md",
@@ -5883,7 +5883,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/mattityahu.md",
@@ -5892,7 +5892,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/philip.md",
@@ -5901,7 +5901,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/shaul-paulus.md",
@@ -5910,7 +5910,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/shimon-hakanani.md",
@@ -5919,7 +5919,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/shimon-kefa.md",
@@ -5928,7 +5928,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/toma.md",
@@ -5937,7 +5937,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/yaakov-bar-alfei.md",
@@ -5946,7 +5946,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/yaakov-bar-zavdai.md",
@@ -5955,7 +5955,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/yehudah-ish-kariot.md",
@@ -5964,7 +5964,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/yehudah-taddai.md",
@@ -5973,7 +5973,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shlichim/yochanan.md",
@@ -5982,7 +5982,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shutafut/lechem.md",
@@ -5991,7 +5991,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shutafut/seudah.md",
@@ -6000,7 +6000,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/shutafut/yayin.md",
@@ -6009,7 +6009,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/tvilah/tvilat-esh.md",
@@ -6018,7 +6018,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/tvilah/tvilat-mayim.md",
@@ -6027,7 +6027,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kehillah/tvilah/tvilat-ruach.md",
@@ -6036,7 +6036,7 @@
     "category": "Цель",
     "subcategory": "Кеhилла",
     "related": [],
-    "icon": "kehillah.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/kelim/avanim/akate.md",
@@ -6774,7 +6774,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/arim/galil.md",
@@ -6783,7 +6783,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/arim/kfar-nachum.md",
@@ -6792,7 +6792,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/arim/natzrat.md",
@@ -6801,7 +6801,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/arim/nineveh.md",
@@ -6810,7 +6810,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/arim/sedom-amorah.md",
@@ -6819,7 +6819,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/arim/tsiyon.md",
@@ -6828,7 +6828,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/arim/tzor.md",
@@ -6837,7 +6837,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/arim/yerecho.md",
@@ -6846,7 +6846,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/arim/yerushalayim.md",
@@ -6855,7 +6855,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/arim/yevus.md",
@@ -6864,7 +6864,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/artzot/aram.md",
@@ -6873,7 +6873,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/artzot/bavel.md",
@@ -6882,7 +6882,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/artzot/mitzrayim.md",
@@ -6891,7 +6891,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/artzot/moav-amon.md",
@@ -6900,7 +6900,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/artzot/peleshet.md",
@@ -6909,7 +6909,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/artzot/yarden.md",
@@ -6918,7 +6918,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/artzot/yisrael.md",
@@ -6927,7 +6927,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/beit-chasda.md",
@@ -6936,7 +6936,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/efata.md",
@@ -6945,7 +6945,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/gan-eden.md",
@@ -6954,7 +6954,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/gat-shmanim.md",
@@ -6963,7 +6963,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/gei-hinnom.md",
@@ -6972,7 +6972,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/gilgal.md",
@@ -6981,7 +6981,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/gulgoleth.md",
@@ -6990,7 +6990,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/har-sinai.md",
@@ -6999,7 +6999,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/har-tsiyon.md",
@@ -7008,7 +7008,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/ikonion.md",
@@ -7017,7 +7017,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/knaan.md",
@@ -7026,7 +7026,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/luz-beit-el.md",
@@ -7035,7 +7035,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/mamre.md",
@@ -7044,7 +7044,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/midbar.md",
@@ -7053,7 +7053,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/moriyah.md",
@@ -7062,7 +7062,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/penuel.md",
@@ -7071,7 +7071,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/yam-suf.md",
@@ -7080,7 +7080,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/makom/mekomot/yerushalayim-chadasha.md",
@@ -7089,7 +7089,7 @@
     "category": "Цель",
     "subcategory": "Маком",
     "related": [],
-    "icon": "makom.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/adar.md",
@@ -7098,7 +7098,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/av.md",
@@ -7107,7 +7107,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/elul.md",
@@ -7116,7 +7116,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/iyar.md",
@@ -7125,7 +7125,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/kislev.md",
@@ -7134,7 +7134,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/marcheshvan.md",
@@ -7143,7 +7143,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/nisan.md",
@@ -7152,7 +7152,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/shevat.md",
@@ -7161,7 +7161,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/sivan.md",
@@ -7170,7 +7170,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/tammuz.md",
@@ -7179,7 +7179,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/tevet.md",
@@ -7188,7 +7188,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/chodashim/tishri.md",
@@ -7197,7 +7197,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/mikraot/kriat-yam-suf.md",
@@ -7206,7 +7206,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/mikraot/nechash-hanechoshet-mashiach.md",
@@ -7215,7 +7215,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/mikraot/pesach-korban-mashiach.md",
@@ -7224,7 +7224,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/mikraot/shavuot.md",
@@ -7233,7 +7233,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/mikraot/tevat-noach-mashiach.md",
@@ -7242,7 +7242,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/mikraot/yetziyat-mitzrayim-yeshua.md",
@@ -7251,7 +7251,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/mikraot/yom-kippur-korban-mashiach.md",
@@ -7260,7 +7260,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/moadim/bikkurim.md",
@@ -7269,7 +7269,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/moadim/chag-hamatzot.md",
@@ -7278,7 +7278,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/moadim/chanukah.md",
@@ -7287,7 +7287,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/moadim/pesach.md",
@@ -7296,7 +7296,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/moadim/rosh-hashanah.md",
@@ -7305,7 +7305,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/moadim/shabbat.md",
@@ -7314,7 +7314,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/moadim/shavuot.md",
@@ -7323,7 +7323,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/moadim/sukkot.md",
@@ -7332,7 +7332,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/moadim/yom-kippur.md",
@@ -7341,7 +7341,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/shomerim/ashmurat-revii.md",
@@ -7350,7 +7350,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/shomerim/ashmurat-rishonah.md",
@@ -7359,7 +7359,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/shomerim/ashmurat-shlishit.md",
@@ -7368,7 +7368,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/mikra/shomerim/ashmurat-shnit.md",
@@ -7377,7 +7377,7 @@
     "category": "Цель",
     "subcategory": "Микра",
     "related": [],
-    "icon": "mikra.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/moadim/moadim-topics.md",
@@ -7395,7 +7395,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/behemot/dvora-dov.md",
@@ -7404,7 +7404,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/behemot/nachash-seh.md",
@@ -7413,7 +7413,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/behemot/nesher-yonah.md",
@@ -7422,7 +7422,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/behemot/sus-chamor.md",
@@ -7431,7 +7431,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/behemot/tson-izim.md",
@@ -7440,7 +7440,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/behemot/yanshuf-aryeh.md",
@@ -7449,7 +7449,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/akrav.md",
@@ -7458,7 +7458,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/arbeh.md",
@@ -7467,7 +7467,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/aryeh.md",
@@ -7476,7 +7476,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/chamor.md",
@@ -7485,7 +7485,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/chatul.md",
@@ -7494,7 +7494,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/livyatan.md",
@@ -7503,7 +7503,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/nachash.md",
@@ -7512,7 +7512,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/nesher.md",
@@ -7521,7 +7521,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/peten.md",
@@ -7530,7 +7530,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/sair.md",
@@ -7539,7 +7539,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/seh.md",
@@ -7548,7 +7548,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/shor.md",
@@ -7557,7 +7557,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/shual.md",
@@ -7566,7 +7566,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/shualei-shimshon.md",
@@ -7575,7 +7575,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/tannin.md",
@@ -7584,7 +7584,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/tzefa.md",
@@ -7593,7 +7593,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/chayot/zeev.md",
@@ -7602,7 +7602,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/cholim/cheresh.md",
@@ -7611,7 +7611,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/cholim/ilem.md",
@@ -7620,7 +7620,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/cholim/iver.md",
@@ -7629,7 +7629,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/cholim/met.md",
@@ -7638,7 +7638,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/cholim/nivkeh.md",
@@ -7647,7 +7647,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/cholim/piseach.md",
@@ -7656,7 +7656,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/cholim/zav.md",
@@ -7665,7 +7665,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/guf/aryeh.md",
@@ -7674,7 +7674,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/guf/einayim.md",
@@ -7683,7 +7683,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/guf/guf.md",
@@ -7692,7 +7692,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/guf/peh.md",
@@ -7701,7 +7701,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/guf/raglayim.md",
@@ -7710,7 +7710,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/guf/rosh.md",
@@ -7719,7 +7719,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/guf/yadayim.md",
@@ -7728,7 +7728,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/kli-chelev.md",
@@ -7737,7 +7737,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/kli-dam.md",
@@ -7746,7 +7746,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/kli-ketoret.md",
@@ -7755,7 +7755,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/kli-man.md",
@@ -7764,7 +7764,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/kli-mayim-kedoshim.md",
@@ -7773,7 +7773,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/kli-mayim-marim.md",
@@ -7782,7 +7782,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/kli-minchah.md",
@@ -7791,7 +7791,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/kli-rek.md",
@@ -7800,7 +7800,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/kli-shemen-kodesh.md",
@@ -7809,7 +7809,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/kli-shemen-mishchah.md",
@@ -7818,7 +7818,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/kli-yayin.md",
@@ -7827,7 +7827,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/kelim/yam-hanechoshet.md",
@@ -7836,7 +7836,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/leshonot/aramaic.md",
@@ -7845,7 +7845,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/leshonot/greek.md",
@@ -7854,7 +7854,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/leshonot/hebrew.md",
@@ -7863,7 +7863,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-amidah.md",
@@ -7872,7 +7872,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-anavah.md",
@@ -7881,7 +7881,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-chatunah.md",
@@ -7890,7 +7890,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-hod.md",
@@ -7899,7 +7899,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-kefel.md",
@@ -7908,7 +7908,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-kodesh.md",
@@ -7917,7 +7917,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-nigdalim.md",
@@ -7926,7 +7926,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-nochri.md",
@@ -7935,7 +7935,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-shesh.md",
@@ -7944,7 +7944,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-tiferet.md",
@@ -7953,7 +7953,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-tzemer.md",
@@ -7962,7 +7962,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-tzivoniyim.md",
@@ -7971,7 +7971,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/levushim/bigdei-yeshua.md",
@@ -7980,7 +7980,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/makot/arbeh.md",
@@ -7989,7 +7989,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/makot/arov.md",
@@ -7998,7 +7998,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/makot/barad.md",
@@ -8007,7 +8007,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/makot/choshech.md",
@@ -8016,7 +8016,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/makot/dam.md",
@@ -8025,7 +8025,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/makot/dever.md",
@@ -8034,7 +8034,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/makot/kinim.md",
@@ -8043,7 +8043,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/makot/makat-bechorot.md",
@@ -8052,7 +8052,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/makot/shchin.md",
@@ -8061,7 +8061,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/makot/tzfardeim.md",
@@ -8070,7 +8070,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/matachot/barzel.md",
@@ -8079,7 +8079,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/matachot/bedil.md",
@@ -8088,7 +8088,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/matachot/kesef.md",
@@ -8097,7 +8097,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/matachot/nechoshet.md",
@@ -8106,7 +8106,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/matachot/oferet.md",
@@ -8115,7 +8115,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/matachot/zahav.md",
@@ -8124,7 +8124,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/chenek-yehudah.md",
@@ -8133,7 +8133,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/hereg-paulus.md",
@@ -8142,7 +8142,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/hereg-yaakov.md",
@@ -8151,7 +8151,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/mavet-bartalmay.md",
@@ -8160,7 +8160,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/mavet-filippos.md",
@@ -8169,7 +8169,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/mavet-mattityahu.md",
@@ -8178,7 +8178,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/mavet-toma.md",
@@ -8187,7 +8187,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/mavet-yehudah.md",
@@ -8196,7 +8196,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/mavet-yochanan.md",
@@ -8205,7 +8205,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/tzlivat-kefa.md",
@@ -8214,7 +8214,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/tzlivat-shimon-kefa.md",
@@ -8223,7 +8223,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/mavet/tzlivat-shimon.md",
@@ -8232,7 +8232,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/ashir-elazar.md",
@@ -8241,7 +8241,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/ashir-ksil.md",
@@ -8250,7 +8250,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/bayit-sela.md",
@@ -8259,7 +8259,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/ben-shovav.md",
@@ -8268,7 +8268,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/eser-almot.md",
@@ -8277,7 +8277,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/gar-chardal.md",
@@ -8286,7 +8286,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/kormim-raim.md",
@@ -8295,7 +8295,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/mevakesh-lechem.md",
@@ -8304,7 +8304,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/mishteh-chatunah.md",
@@ -8313,7 +8313,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/parush-mochess.md",
@@ -8322,7 +8322,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/seh-oved.md",
@@ -8331,7 +8331,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/shnei-chayavim.md",
@@ -8340,7 +8340,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/shomroni-tov.md",
@@ -8349,7 +8349,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/meshalim/zorea.md",
@@ -8358,7 +8358,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-1.md",
@@ -8367,7 +8367,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-1000.md",
@@ -8376,7 +8376,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-12.md",
@@ -8385,7 +8385,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-144000.md",
@@ -8394,7 +8394,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-2.md",
@@ -8403,7 +8403,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-3.md",
@@ -8412,7 +8412,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-4.md",
@@ -8421,7 +8421,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-40.md",
@@ -8430,7 +8430,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-5.md",
@@ -8439,7 +8439,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-6.md",
@@ -8448,7 +8448,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-666.md",
@@ -8457,7 +8457,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-7.md",
@@ -8466,7 +8466,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-70.md",
@@ -8475,7 +8475,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-8.md",
@@ -8484,7 +8484,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/misparim/mispar-9.md",
@@ -8493,7 +8493,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/seor/seor-parushim.md",
@@ -8502,7 +8502,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/seor/seor-tzedukim.md",
@@ -8511,7 +8511,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/taharah/dud.md",
@@ -8520,7 +8520,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/taharah/esh.md",
@@ -8529,7 +8529,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/taharah/kli.md",
@@ -8538,7 +8538,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/taharah/kur.md",
@@ -8547,7 +8547,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/taharah/tanur.md",
@@ -8556,7 +8556,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/techiah/bat-yair.md",
@@ -8565,7 +8565,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/techiah/ben-almanat-nain.md",
@@ -8574,7 +8574,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/techiah/ben-isha-shunemit.md",
@@ -8583,7 +8583,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/techiah/elazar.md",
@@ -8592,7 +8592,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/techiah/naar-eutychus.md",
@@ -8601,7 +8601,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/techiah/techiat-yeshua.md",
@@ -8610,7 +8610,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/yesodot/amud-esh.md",
@@ -8619,7 +8619,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/yesodot/avir.md",
@@ -8628,7 +8628,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/yesodot/barad.md",
@@ -8637,7 +8637,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/yesodot/barak.md",
@@ -8646,7 +8646,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/yesodot/eretz.md",
@@ -8655,7 +8655,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/yesodot/esh.md",
@@ -8664,7 +8664,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/yesodot/mayim.md",
@@ -8673,7 +8673,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/yesodot/raam.md",
@@ -8682,7 +8682,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/yesodot/ruach.md",
@@ -8691,7 +8691,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/ruach/yesodot/searah.md",
@@ -8700,7 +8700,7 @@
     "category": "Цель",
     "subcategory": "Руах",
     "related": [],
-    "icon": "ruach.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/avonot/atzlut.md",
@@ -8709,7 +8709,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/avonot/batzah.md",
@@ -8718,7 +8718,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/avonot/chemah.md",
@@ -8727,7 +8727,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/avonot/gaavah.md",
@@ -8736,7 +8736,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/avonot/kinah.md",
@@ -8745,7 +8745,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/avonot/sheker.md",
@@ -8754,7 +8754,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/avonot/shichrut.md",
@@ -8763,7 +8763,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/avonot/tavah.md",
@@ -8772,7 +8772,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/avonot/zolelut.md",
@@ -8781,7 +8781,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/chayot/akrav-oretz.md",
@@ -8790,7 +8790,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/chayot/aryeh-shochet.md",
@@ -8799,7 +8799,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/chayot/egel-zahav.md",
@@ -8808,7 +8808,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/chayot/nachash-ramah.md",
@@ -8817,7 +8817,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/chayot/peten-eretz.md",
@@ -8826,7 +8826,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/chayot/tzefa-eretz.md",
@@ -8835,7 +8835,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/choshech/bavel.md",
@@ -8844,7 +8844,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/choshech/choshech-tohu.md",
@@ -8853,7 +8853,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/choshech/gehenna.md",
@@ -8862,7 +8862,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/choshech/gog-umagog.md",
@@ -8871,7 +8871,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/choshech/keruv-nofel.md",
@@ -8880,7 +8880,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/choshech/kochot-choshech.md",
@@ -8889,7 +8889,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/choshech/nachash-tannin.md",
@@ -8898,7 +8898,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/choshech/neron-anti-mashiach.md",
@@ -8907,7 +8907,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/choshech/tehom.md",
@@ -8916,7 +8916,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/kerav/hitalut.md",
@@ -8925,7 +8925,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/kerav/kerav-ruchani.md",
@@ -8934,7 +8934,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/kerav/michshol.md",
@@ -8943,7 +8943,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/kerav/nisayon.md",
@@ -8952,7 +8952,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/nefilah/afar-chol.md",
@@ -8961,7 +8961,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/nefilah/dam-korbanot.md",
@@ -8970,7 +8970,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/nefilah/nachash.md",
@@ -8979,7 +8979,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/nefilah/pri-asur.md",
@@ -8988,7 +8988,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/rodefim/aurelian.md",
@@ -8997,7 +8997,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/rodefim/decius.md",
@@ -9006,7 +9006,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/rodefim/diocletian.md",
@@ -9015,7 +9015,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/rodefim/domitian.md",
@@ -9024,7 +9024,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/rodefim/marcus-aurelius.md",
@@ -9033,7 +9033,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/rodefim/maximinus-thrax.md",
@@ -9042,7 +9042,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/rodefim/nero.md",
@@ -9051,7 +9051,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/rodefim/septimius-severus.md",
@@ -9060,7 +9060,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/rodefim/trajan.md",
@@ -9069,7 +9069,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/rodefim/valerian.md",
@@ -9078,7 +9078,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/ruchot-raot/ruach-choli.md",
@@ -9087,7 +9087,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/ruchot-raot/ruach-gaavah.md",
@@ -9096,7 +9096,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/ruchot-raot/ruach-kinah-sinah.md",
@@ -9105,7 +9105,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/ruchot-raot/ruach-kishuf.md",
@@ -9114,7 +9114,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/ruchot-raot/ruach-mavet.md",
@@ -9123,7 +9123,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/ruchot-raot/ruach-pachad.md",
@@ -9132,7 +9132,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/ruchot-raot/ruach-sheker.md",
@@ -9141,7 +9141,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/ruchot-raot/ruach-tumah.md",
@@ -9150,7 +9150,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/ruchot-raot/ruach-yiush.md",
@@ -9159,7 +9159,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/ruchot-raot/ruach-zenut.md",
@@ -9168,7 +9168,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/shemot-shedim/azazel-1.md",
@@ -9177,7 +9177,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/shemot-shedim/azazel.md",
@@ -9186,7 +9186,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/shemot-shedim/belial.md",
@@ -9195,7 +9195,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/shemot-shedim/livyatan.md",
@@ -9204,7 +9204,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/shemot-shedim/ruach-raah.md",
@@ -9213,7 +9213,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/shemot-shedim/satan.md",
@@ -9222,7 +9222,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/shemot-shedim/shed.md",
@@ -9231,7 +9231,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/sheol/gehenna.md",
@@ -9240,7 +9240,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/sheol/hades.md",
@@ -9249,7 +9249,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/sheol/sheol.md",
@@ -9258,7 +9258,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/shedim/sheol/tartarus.md",
@@ -9267,7 +9267,7 @@
     "category": "Цель",
     "subcategory": "Шедим",
     "related": [],
-    "icon": "shedim.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/tamid/tavnit.md",
@@ -9276,7 +9276,7 @@
     "category": "Цель",
     "subcategory": "Тамид",
     "related": [],
-    "icon": "tamid.png"
+    "icon": "default.png"
   },
   {
     "path": "content/tzel/tamid/tzelem.md",
@@ -9285,7 +9285,7 @@
     "category": "Цель",
     "subcategory": "Тамид",
     "related": [],
-    "icon": "tamid.png"
+    "icon": "default.png"
   },
   {
     "path": "content/researches/archive/adrenokhrom.md",

@@ -223,7 +223,6 @@ function parseMD(t, fileIcon) {
         }
         
         // Inline форматирование
-        line = line.replace(/!\[icon\]\(([^)]+)\)/g, '<img src="$1" class="h2-icon" alt="" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">');
         line = line.replace(/`([^`]+)`/g, '<code>$1</code>');
         line = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
         line = line.replace(/\*(.+?)\*/g, '<em>$1</em>');
@@ -232,6 +231,9 @@ function parseMD(t, fileIcon) {
     }
     
     if (inParagraph) { html += '</p>'; }
+    
+    // Замена ![icon](path) на img во всём html (заголовки, параграфы и т.д.)
+    html = html.replace(/!\[icon\]\(([^)]+)\)/g, '<img src="$1" class="h2-icon" alt="" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">');
     
     return html;
 }
