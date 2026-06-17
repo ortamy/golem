@@ -1,7 +1,7 @@
 # 📜 ШАБЛОН ИССЛЕДОВАНИЯ — СТАНДАРТ
 
 **Метаданные файла**
-- **Файл:** `instructions/templates/RESEARCH-TEMPLATE.md`
+- **Файл:** `instructions/templates/TEMPLATE-RESEARCH.md`
 - **Версия:** 4.0
 - **Дата создания:** 2026-05-28
 - **Последнее обновление:** 2026-06-11
