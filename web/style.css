@@ -79,12 +79,12 @@ body.light #breadcrumbs{color:#999}
 body.dark #breadcrumbs{color:#666}
 body.dark .bc-sep{color:#555}
 
-#content h1{font-size:26px;margin-bottom:8px;font-weight:300;letter-spacing:2px;padding-bottom:10px;transition:all .4s ease;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#content h1{display:block;width:100%;font-size:26px;margin-bottom:8px;font-weight:300;letter-spacing:2px;padding-bottom:10px;transition:all .4s ease;word-break:normal}
 body.light #content h1{color:#111;border-bottom:1px solid #111}
 body.dark #content h1{color:#ff4d00;border-bottom:1px solid #333}
-#content h2{font-size:15px;margin:24px 0 6px;font-weight:600}
-#content h3{font-size:13px;margin:18px 0 4px;font-weight:600}
-#content h4{font-size:12px;margin:14px 0 3px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#ff4d00}
+#content h2{display:block;width:100%;font-size:15px;margin:24px 0 6px;font-weight:600;word-break:normal}
+#content h3{display:block;width:100%;font-size:13px;margin:18px 0 4px;font-weight:600;word-break:normal}
+#content h4{display:block;width:100%;font-size:12px;margin:14px 0 3px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#ff4d00;word-break:normal}
 #content p{line-height:1.7;margin-bottom:8px;font-size:13px}
 #content blockquote{border-left:2px solid #ff4d00;padding:8px 14px;margin:12px 0;font-style:italic;cursor:pointer;transition:background .25s ease}
 body.light #content blockquote{background:#fafafa;color:#555}
@@ -195,11 +195,11 @@ body.dark #file-top-bar{background:#1a1a1a;border-bottom:1px solid #333}
 #file-bookmark-btn{font-size:24px;cursor:pointer;background:none;border:none;color:#ccc}
 #file-bookmark-btn.active{color:#ff4d00}
 #file-content-mobile{animation:fadeSlideIn .4s ease forwards}
-#file-content-mobile h1{font-size:20px;margin-bottom:8px;font-weight:300;padding-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#file-content-mobile h1{display:block;width:100%;font-size:20px;margin-bottom:8px;font-weight:300;padding-bottom:8px;word-break:normal}
 body.light #file-content-mobile h1{color:#111;border-bottom:1px solid #111}
 body.dark #file-content-mobile h1{color:#ff4d00;border-bottom:1px solid #333}
-#file-content-mobile h2{font-size:16px;margin:20px 0 6px}
-#file-content-mobile h3{font-size:14px;margin:16px 0 4px}
+#file-content-mobile h2{display:block;width:100%;font-size:16px;margin:20px 0 6px;word-break:normal}
+#file-content-mobile h3{display:block;width:100%;font-size:14px;margin:16px 0 4px;word-break:normal}
 #file-content-mobile p,#file-content-mobile li{font-size:15px;line-height:1.7;margin-bottom:6px}
 #file-content-mobile blockquote{border-left:2px solid #ff4d00;padding:8px 12px;margin:10px 0;font-style:italic}
 body.light #file-content-mobile blockquote{background:#fafafa;color:#555}
