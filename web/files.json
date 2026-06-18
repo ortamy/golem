@@ -9641,11 +9641,16 @@
   },
   {
     "path": "content/researches/archive/tanakh-resistance.md",
-    "title": "tanakh resistance",
-    "topic": "",
+    "title": "ТАНАХ — КОНСТИТУЦИЯ СОПРОТИВЛЕНИЯ: ВОЙНА, ЗЕМЛЯ, ИМЯ",
+    "topic": "ТаНаХ как летопись сопротивления империям. Воины Израиля, Маккавеи, Бар-Кохба. Разоблачение попытки ",
     "category": "Исследования",
     "subcategory": "Архив",
-    "related": [],
+    "related": [
+      "content/researches/religion-war-machine.md",
+      "content/researches/bavel-sacrifice.md",
+      "content/tanakh/books/yehoshua.md",
+      "instructions/exposure/exposure-bavel.md"
+    ],
     "icon": "book.png"
   },
   {
