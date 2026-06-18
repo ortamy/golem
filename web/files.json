@@ -9640,6 +9640,15 @@
     "icon": "book.png"
   },
   {
+    "path": "content/researches/archive/tanakh-resistance.md",
+    "title": "tanakh resistance",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
     "path": "content/researches/archive/tatuirovki.md",
     "title": "Татуировки",
     "topic": "✍Татуировки",
