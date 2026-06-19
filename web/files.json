@@ -9429,6 +9429,20 @@
     "icon": "book.png"
   },
   {
+    "path": "content/researches/archive/masonic-hive.md",
+    "title": "УЛЕЙ МАСОНОВ: РАЗОБЛАЧЕНИЕ ПЧЕЛИНОЙ ИЕРАРХИИ",
+    "topic": "Разоблачение масонской концепции улья как иерархической системы. Пчелиная матка — не королева. Пчёлы",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [
+      "content/researches/bavel-sacrifice.md",
+      "instructions/exposure/exposure-system-architecture.md",
+      "instructions/exposure/exposure-bavel.md",
+      "content/tanakh/persons/dvorah.md"
+    ],
+    "icon": "book.png"
+  },
+  {
     "path": "content/researches/archive/microplastics.md",
     "title": "מִיקְרוֹפְּלַסְטִיק — МИКРОПЛАСТИК: НЕВИДИМОЕ ЗАГРЯЗНЕНИЕ",
     "topic": "מִיקְרוֹפְּלַסְטִיק — МИКРОПЛАСТИК: НЕВИДИМОЕ ЗАГРЯЗНЕНИЕ",
