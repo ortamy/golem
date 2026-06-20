@@ -9488,6 +9488,20 @@
     "icon": "book.png"
   },
   {
+    "path": "content/researches/archive/personality-cult.md",
+    "title": "КУЛЬТ ЛИЧНОСТИ: КОГДА ЧЕЛОВЕК СТАНОВИТСЯ ИДОЛОМ",
+    "topic": "Культ личности как религиозный феномен. Человек на месте Яхве. От фараона до современности. Механизм",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [
+      "content/researches/bavel-sacrifice.md",
+      "instructions/exposure/exposure-system-architecture.md",
+      "instructions/exposure/exposure-bavel.md",
+      "content/tanakh/persons/moshe.md"
+    ],
+    "icon": "book.png"
+  },
+  {
     "path": "content/researches/archive/ploskaya-zemlya.md",
     "title": "Плоская земля",
     "topic": "🌏 Плоская земля",
