@@ -745,6 +745,20 @@
     "icon": "scroll.png"
   },
   {
+    "path": "content/terminology/sfat-kenaan.md",
+    "title": "СФАТ КЕНААН: ЯЗЫК ЗЕМЛИ, А НЕ ЯЗЫК НЕБЕС",
+    "topic": "Исследование выражения שְׂפַת כְּנַעַן (сфат Кенаан) — язык Кенаана. Почему иврит назван по имени зе",
+    "category": "Терминология",
+    "subcategory": "",
+    "related": [
+      "content/terminology/ivri.md",
+      "content/terminology/kadosh.md",
+      "content/terminology/lashon.md",
+      "content/learn-hebrew/why-hebrew.md"
+    ],
+    "icon": "scroll.png"
+  },
+  {
     "path": "content/terminology/shabbat.md",
     "title": "שַׁבָּת — ...: ПОКОЙ, КОТОРЫЙ ДЕРЖИТ ЦЕЛОСТНОСТЬ (ШАЛОМ, שָׁלוֹם)",
     "topic": "Полный разбор Шаббат. Не «выходной», а знак брит. Связь с бриа, исходом и хофеш. Как система подмени",
