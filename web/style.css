@@ -139,7 +139,7 @@ body.dark #copy-toast{background:#fff;color:#111}
 #copy-toast.show{opacity:1}
 
 /* Скрываем мобильные элементы на десктопе */
-#burger-btn,#burger-overlay,#burger-menu,#mobile-list-view,#stats-mobile,#file-page{display:none}
+#burger-btn,#burger-overlay,#burger-menu,#mobile-controls,#mobile-list-view,#stats-mobile,#file-page{display:none}
 
 @keyframes mobileFadeIn{0%{opacity:0}100%{opacity:1}}
 
@@ -162,7 +162,8 @@ body.dark #burger-logo{color:#ff4d00}
 body.light .burger-item{color:#111}
 body.dark .burger-item{color:#ccc}
 
-#mobile-list-view{display:block;padding:56px 12px 20px;animation:mobileFadeIn .2s ease}
+#mobile-controls{display:block;padding:56px 12px 8px;animation:mobileFadeIn .2s ease}
+#mobile-list-view{display:block;padding:0 12px 20px;animation:mobileFadeIn .2s ease}
 #search-mobile,#category-select-mobile,#subcategory-select-mobile{width:100%;padding:12px;font-size:16px;height:44px;margin-bottom:8px;font-family:'Courier New',monospace;outline:none;border-radius:2px}
 body.light #search-mobile,body.light #category-select-mobile{background:#fff;border:1px solid #ccc;color:#111}
 body.dark #search-mobile,body.dark #category-select-mobile{background:#222;border:1px solid #333;color:#ddd}

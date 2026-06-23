@@ -22,6 +22,11 @@
         return d.innerHTML;
     }
 
+    // Экранирование HTML для защиты от XSS
+    function escHtml(s) {
+        return s.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>').replace(/"/g, '"').replace(/'/g, '&#039;');
+    }
+
     function fetchJSON(url, cb) {
         fetch(url).then(function(r) { return r.json(); }).then(cb).catch(function(e) { console.error(e); });
     }
@@ -177,26 +182,29 @@ function parseMD(t, fileIcon) {
         // Заголовки
         if (line.match(/^#### (.+)$/)) {
             if (inParagraph) { html += '</p>'; inParagraph = false; }
-            html += '<h4>' + line.replace(/^#### /, '') + '</h4>';
+            html += '<h4>' + escHtml(line.replace(/^#### /, '')) + '</h4>';
             continue;
         }
         if (line.match(/^### (.+)$/)) {
             if (inParagraph) { html += '</p>'; inParagraph = false; }
-            var h3title = line.replace(/^### /, '').replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim();
-            html += '<h3 id="' + h3title + '">' + h3title + '</h3>';
+            var h3raw = line.replace(/^### /, '');
+            var h3title = h3raw.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim();
+            html += '<h3 id="' + h3title + '">' + escHtml(h3title) + '</h3>';
             continue;
         }
         if (line.match(/^## (.+)$/)) {
             if (inParagraph) { html += '</p>'; inParagraph = false; }
-            var h2title = line.replace(/^## /, '').replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim();
-            html += '<h2 id="' + h2title + '">' + h2title + '</h2>';
+            var h2raw = line.replace(/^## /, '');
+            var h2title = h2raw.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim();
+            html += '<h2 id="' + h2title + '">' + escHtml(h2title) + '</h2>';
             continue;
         }
         if (line.match(/^# (.+)$/)) {
             if (inParagraph) { html += '</p>'; inParagraph = false; }
-            var h1title = line.replace(/^# /, '').replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim();
+            var h1raw = line.replace(/^# /, '');
+            var h1title = h1raw.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu, '').trim();
             var iconHtml = fileIcon ? fileIcon : '';
-            html += '<h1>' + iconHtml + h1title + '</h1>';
+            html += '<h1>' + iconHtml + escHtml(h1title) + '</h1>';
             continue;
         }
         
@@ -210,7 +218,7 @@ function parseMD(t, fileIcon) {
         // Цитата
         if (line.match(/^> (.+)$/)) {
             if (inParagraph) { html += '</p>'; inParagraph = false; }
-            html += '<blockquote>' + line.replace(/^> /, '') + '</blockquote>';
+            html += '<blockquote>' + escHtml(line.replace(/^> /, '')) + '</blockquote>';
             continue;
         }
         
@@ -222,17 +230,18 @@ function parseMD(t, fileIcon) {
             html += '\n';
         }
         
-        // Inline форматирование
-        line = line.replace(/`([^`]+)`/g, '<code>$1</code>');
-        line = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-        line = line.replace(/\*(.+?)\*/g, '<em>$1</em>');
+        // Inline форматирование — сначала экранируем, потом добавляем теги
+        var parsedLine = escHtml(line);
+        parsedLine = parsedLine.replace(/`([^`]+)`/g, '<code>$1</code>');
+        parsedLine = parsedLine.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        parsedLine = parsedLine.replace(/\*(.+?)\*/g, '<em>$1</em>');
         
-        html += line;
+        html += parsedLine;
     }
     
     if (inParagraph) { html += '</p>'; }
     
-    // Замена ![icon](path) на img во всём html (заголовки, параграфы и т.д.)
+    // Замена ![icon](path) на img во всём html (безопасно — src экранирован)
     html = html.replace(/!\[icon\]\(([^)]+)\)/g, '<img src="$1" class="h2-icon" alt="" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">');
     
     return html;
