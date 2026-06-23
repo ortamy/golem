@@ -582,6 +582,15 @@
     "icon": "scroll.png"
   },
   {
+    "path": "content/terminology/nes-ot-mofet.md",
+    "title": "nes ot mofet",
+    "topic": "",
+    "category": "Терминология",
+    "subcategory": "",
+    "related": [],
+    "icon": "scroll.png"
+  },
+  {
     "path": "content/terminology/neshamah.md",
     "title": "נְשָׁמָה — НЭШАМА: ДЫХАНИЕ ЖИЗНИ",
     "topic": "Разбор понятия נְשָׁמָה (нэшама) — дыхание жизни. То, что Яхве вдунул в Адама. Отличие от руах и нэф",
@@ -733,6 +742,20 @@
     "category": "Терминология",
     "subcategory": "",
     "related": [],
+    "icon": "scroll.png"
+  },
+  {
+    "path": "content/terminology/sfat-kenaan.md",
+    "title": "СФАТ КЕНААН: ЯЗЫК ЗЕМЛИ, А НЕ ЯЗЫК НЕБЕС",
+    "topic": "Исследование выражения שְׂפַת כְּנַעַן (сфат Кенаан) — язык Кенаана. Почему иврит назван по имени зе",
+    "category": "Терминология",
+    "subcategory": "",
+    "related": [
+      "content/terminology/ivri.md",
+      "content/terminology/kadosh.md",
+      "content/terminology/lashon.md",
+      "content/learn-hebrew/why-hebrew.md"
+    ],
     "icon": "scroll.png"
   },
   {
@@ -9420,6 +9443,20 @@
     "icon": "book.png"
   },
   {
+    "path": "content/researches/archive/masonic-hive.md",
+    "title": "УЛЕЙ МАСОНОВ: РАЗОБЛАЧЕНИЕ ПЧЕЛИНОЙ ИЕРАРХИИ",
+    "topic": "Разоблачение масонской концепции улья как иерархической системы. Пчелиная матка — не королева. Пчёлы",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [
+      "content/researches/bavel-sacrifice.md",
+      "instructions/exposure/exposure-system-architecture.md",
+      "instructions/exposure/exposure-bavel.md",
+      "content/tanakh/persons/dvorah.md"
+    ],
+    "icon": "book.png"
+  },
+  {
     "path": "content/researches/archive/microplastics.md",
     "title": "מִיקְרוֹפְּלַסְטִיק — МИКРОПЛАСТИК: НЕВИДИМОЕ ЗАГРЯЗНЕНИЕ",
     "topic": "מִיקְרוֹפְּלַסְטִיק — МИКРОПЛАСТИК: НЕВИДИМОЕ ЗАГРЯЗНЕНИЕ",
@@ -9462,6 +9499,20 @@
     "category": "Исследования",
     "subcategory": "Архив",
     "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/archive/personality-cult.md",
+    "title": "КУЛЬТ ЛИЧНОСТИ: КОГДА ЧЕЛОВЕК СТАНОВИТСЯ ИДОЛОМ",
+    "topic": "Культ личности как религиозный феномен. Человек на месте Яхве. От фараона до современности. Механизм",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [
+      "content/researches/bavel-sacrifice.md",
+      "instructions/exposure/exposure-system-architecture.md",
+      "instructions/exposure/exposure-bavel.md",
+      "content/tanakh/persons/moshe.md"
+    ],
     "icon": "book.png"
   },
   {
@@ -9640,6 +9691,20 @@
     "icon": "book.png"
   },
   {
+    "path": "content/researches/archive/tanakh-resistance.md",
+    "title": "ТАНАХ — КОНСТИТУЦИЯ СОПРОТИВЛЕНИЯ: ВОЙНА, ЗЕМЛЯ, ИМЯ",
+    "topic": "ТаНаХ как летопись сопротивления империям. Воины Израиля, Маккавеи, Бар-Кохба. Разоблачение попытки ",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [
+      "content/researches/religion-war-machine.md",
+      "content/researches/bavel-sacrifice.md",
+      "content/tanakh/books/yehoshua.md",
+      "instructions/exposure/exposure-bavel.md"
+    ],
+    "icon": "book.png"
+  },
+  {
     "path": "content/researches/archive/tatuirovki.md",
     "title": "Татуировки",
     "topic": "✍Татуировки",
@@ -9655,6 +9720,20 @@
     "category": "Исследования",
     "subcategory": "Архив",
     "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/archive/vertical-pupil.md",
+    "title": "ВЕРТИКАЛЬНЫЙ ЗРАЧОК: ОБРАЗ ХИЩНИКА И ОВЦЫ ЯХВЕ",
+    "topic": "Вертикальный зрачок хищников как образ духовной технологии чужих сил. Сужение света, контроль воспри",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [
+      "content/researches/bavel-sacrifice.md",
+      "content/terminology/nachash.md",
+      "content/terminology/arum.md",
+      "instructions/exposure/exposure-bavel.md"
+    ],
     "icon": "book.png"
   },
   {
