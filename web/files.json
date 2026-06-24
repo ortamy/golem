@@ -9714,6 +9714,15 @@
     "icon": "book.png"
   },
   {
+    "path": "content/researches/archive/trinity-exposure.md",
+    "title": "ТРОИЦА: ДОГМАТ, КОТОРОГО НЕТ — ИСТОРИЯ ОДНОЙ ПОДМЕНЫ",
+    "topic": "Догмат Троицы как эллинско-римская адаптация. Историческое расследование. Отсутствие в ТаНаХе и у ра",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
     "path": "content/researches/archive/twin-towers.md",
     "title": "Twin Towers",
     "topic": "🗼 Twin Towers",
