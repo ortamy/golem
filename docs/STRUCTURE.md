@@ -4,7 +4,7 @@
 - **Файл:** `docs/STRUCTURE.md`
 - **Версия:** 2.5
 - **Дата создания:** 2026-05-28
-- **Последнее обновление:** 2026-06-14
+- **Последнее обновление:** 2026-06-25
 - **Причина обновления:** Автоматическая синхронизация
 - **Статус:** Активный
 - **Тема:** Полная структура репозитория «Голем»
@@ -32,21 +32,158 @@
 
     - `bashah/`
         - `books/`
+            - `besorah-luka.md`
+            - `besorah-markus.md`
+            - `besorah-mattityahu.md`
+            - `besorah-yohanan.md`
+            - `hitgalut.md`
+            - `maasei-shlichim.md`
         - `chronology/`
+            - `timeline.md`
         - `concepts/`
+            - `besorah-concept.md`
             - `besorah.md`
+            - `brit-hadashah.md`
+            - `kehillah-concept.md`
             - `kehillah.md`
             - `keifa.md`
+            - `mashiah-bashah.md`
+            - `psychikos-pneumatikos.md`
+            - `yohanan-matbil.md`
         - `events/`
+            - `beit-chananyah.md`
+            - `petach-kefas.md`
+            - `seudat-aharon.md`
+            - `shavuot-ruach.md`
+            - `tvilat-yeshua.md`
+        - `geography/`
+            - `antiohia.md`
+            - `corinth.md`
+            - `ephesus.md`
+            - `kfar-nachum.md`
+            - `nazeret.md`
+            - `roma.md`
+            - `yerushalaim.md`
+        - `letters/`
+            - `colossians.md`
+            - `corinthians-alef.md`
+            - `corinthians-bet.md`
+            - `ephesians.md`
+            - `galatians.md`
+            - `ivrim.md`
+            - `keifa-alef.md`
+            - `keifa-bet.md`
+            - `philemon.md`
+            - `philippians.md`
+            - `romans.md`
+            - `thessalonians-alef.md`
+            - `thessalonians-bet.md`
+            - `timothy-alef.md`
+            - `timothy-bet.md`
+            - `titus.md`
+            - `yaakov.md`
+            - `yehudah.md`
+            - `yohanan-alef.md`
+            - `yohanan-bet.md`
+            - `yohanan-gimel.md`
         - `manuscripts/`
+            - `greek-manuscripts.md`
+            - `peshitta.md`
+        - `nevua/`
+            - `hitgalut-yohanan.md`
+            - `hurban-bayit.md`
         - `persons/`
+            - `andrey.md`
+            - `bar-abba.md`
+            - `chananyah.md`
+            - `elyakim.md`
+            - `keifa.md`
+            - `luka.md`
+            - `markus.md`
+            - `marta.md`
+            - `mattityahu-levi.md`
+            - `mattityahu.md`
+            - `miryam-magdalit.md`
+            - `nakdimon.md`
+            - `natanael.md`
+            - `philipus.md`
+            - `shaul.md`
+            - `shimon-kfar-nachum.md`
+            - `shoshannah.md`
+            - `toma.md`
+            - `yaakov-achim.md`
+            - `yaakov-shlichim.md`
+            - `yehudah.md`
+            - `yochanan-kohen.md`
+            - `yohanan-matbil.md`
+            - `yohanan-talmid.md`
+        - `practices/`
+            - `seuda-adon.md`
+            - `smicha.md`
+            - `tfilat-kehillah.md`
+            - `tvilat-ruach.md`
         - `teachings/`
-    - `learn-hebrew/`
+            - `drashat-hahar.md`
+            - `mashal-ben-sorer.md`
+            - `mashal-shomer-tzon.md`
+            - `mashal-zorea.md`
+            - `tfilat-yeshua-teaching.md`
+        - `terminology/`
+            - `bsora.md`
+            - `kehillah.md`
+            - `pesha.md`
+            - `shaliah.md`
+            - `shutafut.md`
+            - `tvilah.md`
+    - `exposed/`
+        - `antichrist-exposed.md`
+        - `demons-exposed.md`
+    - `hebrew/`
+        - `adjectives.md`
+        - `adverbs.md`
         - `alphabet.md`
+        - `binyanim-deep.md`
+        - `chain-of-substitution.md`
+        - `conjunctions.md`
+        - `construct-chain.md`
+        - `demonstratives.md`
+        - `direct-object.md`
+        - `exodus-20-deep.md`
+        - `false-roots.md`
+        - `first-verses.md`
         - `grammar.md`
+        - `hebrew-loanwords.md`
+        - `hebrew-names.md`
+        - `hebrew-vs-greek.md`
+        - `indirect-speech.md`
+        - `interrogatives.md`
+        - `narrative-structure.md`
+        - `negation-types.md`
+        - `numbers.md`
+        - `paleo-alphabet-deep.md`
+        - `paleo-creation.md`
+        - `paleo-hebrew.md`
+        - `paleo-names.md`
+        - `paleo-torah.md`
+        - `parallelism.md`
+        - `prepositions.md`
+        - `pronominal-suffixes.md`
+        - `psalm-23-deep.md`
+        - `questions-in-tanakh.md`
+        - `reading.md`
+        - `root-dictionary.md`
         - `roots.md`
+        - `shema-deep.md`
+        - `smikhut.md`
+        - `syntax.md`
+        - `time-no-time.md`
+        - `verbs.md`
+        - `verse-analysis-method.md`
         - `vowel.md`
         - `why-hebrew.md`
+        - `word-families.md`
+        - `word-order-emphasis.md`
+        - `word-study-template.md`
     - `practices/`
         - `aliyah-laregel.md`
         - `brit-milah.md`
@@ -77,6 +214,7 @@
             - `adrenokhrom.md`
             - `allopaty.md`
             - `analoi-krug-uroborosa.md`
+            - `bavel-layer.md`
             - `caduceus-control.md`
             - `ded-moroz-karachun.md`
             - `disney-i-epstein.md`
@@ -87,23 +225,28 @@
             - `hygieia.md`
             - `khazarskii-kaganat.md`
             - `krug-smerti.md`
+            - `masonic-hive.md`
             - `microplastics.md`
             - `new-year.md`
             - `orakul-pifii.md`
             - `paracelsus.md`
             - `pedophilia.md`
+            - `personality-cult.md`
             - `ploskaya-zemlya.md`
             - `pornography.md`
             - `psychology.md`
             - `pyramid-bunker.md`
             - `rak.md`
+            - `religion-war-machine.md`
             - `ritual-zerkala.md`
             - `rock-mantras.md`
             - `schwab.md`
             - `slavs.md`
             - `standard-oil.md`
+            - `tanakh-resistance.md`
             - `tatuirovki.md`
             - `twin-towers.md`
+            - `vertical-pupil.md`
         - `books/`
             - `analiz-poryadka-genri.md`
             - `machiavelli-the-prince.md`
@@ -126,6 +269,8 @@
         - `history/`
             - `alchemy.md`
             - `byzantine-pietas.md`
+            - `enuma-exposed.md`
+            - `erasmus-textus-receptus.md`
             - `history-of-banks.md`
             - `history-of-economy.md`
             - `history-of-languages.md`
@@ -138,6 +283,7 @@
             - `hitler-and-jews.md`
             - `israel-palestine.md`
             - `israel-vs-yehudi.md`
+            - `maccabees.md`
             - `march-8-history.md`
             - `missing-hebrew-scrolls.md`
         - `language/`
@@ -170,6 +316,7 @@
         - `media/`
             - `disney-epstein.md`
             - `hollywood-druid-wood.md`
+            - `orphan-consciousness.md`
             - `television.md`
         - `medicine/`
             - `copper-utensils.md`
@@ -224,6 +371,7 @@
             - `valknut.md`
         - `systems/`
             - `bavel-mitzrayim-sdom.md`
+            - `bavel-sacrifice.md`
             - `chofesh-vs-dror.md`
             - `chronos-vs-kairos.md`
             - `daat-tree.md`
@@ -232,6 +380,7 @@
             - `derech-ha-gever.md`
             - `evening-morning-day.md`
             - `galatim-two-systems.md`
+            - `gematria.md`
             - `lyubaya-vlast-chelovecheskaya.md`
             - `mitzraim-system.md`
             - `peterburg-neve-arhitektura.md`
@@ -253,6 +402,109 @@
             - `microprocessors-as-temples.md`
             - `sigil-as-circuits.md`
     - `tanakh/`
+        - `archive/`
+            - `abracadabra.md`
+            - `acharayut-support.md`
+            - `adonai-origin.md`
+            - `apocalypse.md`
+            - `armageddon.md`
+            - `aseret-hadvarim.md`
+            - `balaam-strategy.md`
+            - `bashah-structure.md`
+            - `bereans.md`
+            - `brit-ania.md`
+            - `brit-hadashah.md`
+            - `brit-nissuin.md`
+            - `catholic-church.md`
+            - `chadash-restored.md`
+            - `dam-chesed.md`
+            - `darchei-tzadikim.md`
+            - `derech-ha-nachash.md`
+            - `dereh-yhwh.md`
+            - `digital-bavel.md`
+            - `digital-coliseum.md`
+            - `drashat-hahar.md`
+            - `eved-amdut.md`
+            - `exorcism-myth.md`
+            - `fallen-messengers.md`
+            - `fruits-as-judgement.md`
+            - `gog-and-magog.md`
+            - `greek-freedom-distortion.md`
+            - `ha-derech.md`
+            - `ha-mashchit.md`
+            - `hellenization-vs-hebraization.md`
+            - `hevel-kayin.md`
+            - `immanu-el.md`
+            - `karma.md`
+            - `keshet.md`
+            - `khazars-turks.md`
+            - `kotz-sting.md`
+            - `krazha.md`
+            - `mabbel-recreation.md`
+            - `magen-david.md`
+            - `makkot-strikes.md`
+            - `maschiah-cruteria.md`
+            - `mashal-melachim.md`
+            - `masoretic-text.md`
+            - `mavet-vida.md`
+            - `melech-messenger.md`
+            - `mered-refusal.md`
+            - `migdal-bavel.md`
+            - `minecraft-tanakh.md`
+            - `miryam-vs-ishtar.md`
+            - `mizmor-23.md`
+            - `moadim-yhwh.md`
+            - `morashat-israel.md`
+            - `mushtarah.md`
+            - `nachash-serpent.md`
+            - `nicaea-council.md`
+            - `nicham-keifa.md`
+            - `nicham.md`
+            - `niddah.md`
+            - `nishmat-chayim.md`
+            - `olam-haba.md`
+            - `olympic-games.md`
+            - `or-tam.md`
+            - `paleo-hebrew.md`
+            - `philosophemes.md`
+            - `plebs-control.md`
+            - `pochemu-tanah-nikogda.md`
+            - `prayer-distortion.md`
+            - `psychikos-pneumatikos.md`
+            - `rabbinic-judaism.md`
+            - `razoblachenie-sovremennogo-kulta.md`
+            - `religia-rome.md`
+            - `remnant-israel.md`
+            - `resurrection-analysis.md`
+            - `ruach-fruit.md`
+            - `ruchot-infected.md`
+            - `satan-adversary.md`
+            - `secta-meaning.md`
+            - `serpent-healing.md`
+            - `shaul-against-philosophy.md`
+            - `shaul-victim.md`
+            - `shema-yhwh-echad.md`
+            - `shemot-yhwh.md`
+            - `shirat-hayam.md`
+            - `shlavim-yetziah.md`
+            - `shmot-ha-sfarim.md`
+            - `sifrei-bashakh.md`
+            - `sifrei-tanakh.md`
+            - `slavic-substrate.md`
+            - `sod-hamalchut.md`
+            - `talmud-unmasked.md`
+            - `tarbut-cult.md`
+            - `tfilat-yeshua.md`
+            - `theophoric-names.md`
+            - `tikvah-tension.md`
+            - `trebuet-utochneniya.md`
+            - `tsom-istinnyi.md`
+            - `tzeva-hashamayim.md`
+            - `tzohar-window.md`
+            - `yahvism.md`
+            - `yegia-kapayim.md`
+            - `yehoshua-research.md`
+            - `yetzer-lev.md`
         - `books/`
             - `amos.md`
             - `bemidbar.md`
@@ -293,8 +545,6 @@
             - `yoel.md`
             - `yonah.md`
             - `zechariah.md`
-        - `chronology/`
-        - `concepts/`
         - `events/`
             - `akedat-itzchak.md`
             - `binyan-bayit-sheni.md`
@@ -329,8 +579,6 @@
             - `purim.md`
             - `shivat-tzion.md`
             - `yetziat-mitzraim.md`
-        - `geography/`
-        - `manuscripts/`
         - `persons/`
             - `aharon.md`
             - `avraham.md`
@@ -356,109 +604,7 @@
             - `yeshayahu-person.md`
             - `yirmeyahu-person.md`
             - `yosef.md`
-        - `poetry/`
-        - `translations/`
-        - `abracadabra.md`
-        - `acharayut-support.md`
-        - `adonai-origin.md`
-        - `apocalypse.md`
-        - `armageddon.md`
-        - `aseret-hadvarim.md`
-        - `balaam-strategy.md`
-        - `bashah-structure.md`
-        - `bereans.md`
-        - `brit-ania.md`
-        - `brit-hadashah.md`
-        - `brit-nissuin.md`
-        - `catholic-church.md`
-        - `chadash-restored.md`
-        - `dam-chesed.md`
-        - `darchei-tzadikim.md`
-        - `derech-ha-nachash.md`
-        - `dereh-yhwh.md`
-        - `digital-bavel.md`
-        - `digital-coliseum.md`
-        - `drashat-hahar.md`
-        - `eved-amdut.md`
-        - `exorcism-myth.md`
-        - `fruits-as-judgement.md`
-        - `gog-and-magog.md`
-        - `greek-freedom-distortion.md`
-        - `ha-derech.md`
-        - `ha-mashchit.md`
-        - `hellenization-vs-hebraization.md`
-        - `hevel-kayin.md`
-        - `immanu-el.md`
-        - `karma.md`
-        - `keshet.md`
-        - `khazars-turks.md`
-        - `kotz-sting.md`
-        - `krazha.md`
-        - `mabbel-recreation.md`
-        - `magen-david.md`
-        - `makkot-strikes.md`
-        - `maschiah-cruteria.md`
-        - `mashal-melachim.md`
-        - `masoretic-text.md`
-        - `mavet-vida.md`
-        - `melech-messenger.md`
-        - `mered-refusal.md`
-        - `migdal-bavel.md`
-        - `minecraft-tanakh.md`
-        - `miryam-vs-ishtar.md`
-        - `mizmor-23.md`
-        - `moadim-yhwh.md`
-        - `morashat-israel.md`
-        - `mushtarah.md`
-        - `nachash-serpent.md`
-        - `nicaea-council.md`
-        - `nicham-keifa.md`
-        - `nicham.md`
-        - `niddah.md`
-        - `nishmat-chayim.md`
-        - `olam-haba.md`
-        - `olympic-games.md`
-        - `or-tam.md`
-        - `paleo-hebrew.md`
-        - `philosophemes.md`
-        - `plebs-control.md`
-        - `pochemu-tanah-nikogda.md`
-        - `prayer-distortion.md`
-        - `psychikos-pneumatikos.md`
-        - `rabbinic-judaism.md`
-        - `razoblachenie-sovremennogo-kulta.md`
-        - `religia-rome.md`
-        - `remnant-israel.md`
-        - `resurrection-analysis.md`
-        - `ruach-fruit.md`
-        - `ruchot-infected.md`
-        - `satan-adversary.md`
-        - `secta-meaning.md`
-        - `serpent-healing.md`
-        - `shaul-against-philosophy.md`
-        - `shaul-victim.md`
-        - `shema-yhwh-echad.md`
-        - `shemot-yhwh.md`
-        - `shirat-hayam.md`
-        - `shlavim-yetziah.md`
-        - `shmot-ha-sfarim.md`
-        - `sifrei-bashakh.md`
-        - `sifrei-tanakh.md`
-        - `slavic-substrate.md`
-        - `sod-hamalchut.md`
-        - `talmud-unmasked.md`
-        - `tarbut-cult.md`
-        - `tfilat-yeshua.md`
-        - `theophoric-names.md`
-        - `tikvah-tension.md`
-        - `trebuet-utochneniya.md`
-        - `tsom-istinnyi.md`
-        - `tzeva-hashamayim.md`
-        - `tzohar-window.md`
-        - `yahvism.md`
-        - `yegia-kapayim.md`
-        - `yehoshua-research.md`
-        - `yetzer-lev.md`
+        - `chayei-olam.md`
     - `teachings/`
         - `ableism.md`
         - `absurdism.md`
@@ -739,12 +885,13 @@
         - `emuna.md`
         - `erech-apayim.md`
         - `etz-ha-daat.md`
-        - `eved.md`
+        - `eved-yhwh.md`
         - `gerim.md`
         - `gibor.md`
         - `golem.md`
         - `goyim.md`
         - `hacker.md`
+        - `halleluyah.md`
         - `heichal.md`
         - `het.md`
         - `ivri.md`
@@ -776,6 +923,7 @@
         - `nachash.md`
         - `navi.md`
         - `nefesh.md`
+        - `nes-ot-mofet.md`
         - `neshamah.md`
         - `neshech.md`
         - `nishmah.md`
@@ -789,8 +937,10 @@
         - `rapha.md`
         - `resha.md`
         - `ruach-hakodesh.md`
+        - `ruach-yhwh.md`
         - `ruach.md`
         - `satan.md`
+        - `sfat-kenaan.md`
         - `shabbat.md`
         - `shalom.md`
         - `sheerit.md`
@@ -799,6 +949,7 @@
         - `sheol.md`
         - `shlem-avon.md`
         - `shmitah.md`
+        - `tachlit.md`
         - `tefilah.md`
         - `tohu-va-vohu.md`
         - `torah.md`
@@ -813,6 +964,693 @@
         - `yir-at-yhwh.md`
         - `yovel.md`
         - `zarak.md`
+    - `tzel/`
+        - `adam/`
+            - `amim/`
+                - `amalek.md`
+                - `arameans.md`
+                - `assyrians.md`
+                - `babylonians.md`
+                - `canaanites.md`
+                - `edomites.md`
+                - `egyptians.md`
+                - `elamites.md`
+                - `ishmaelites.md`
+                - `israelites.md`
+                - `kushites.md`
+                - `libyans.md`
+                - `medes.md`
+                - `midianites.md`
+                - `moabites.md`
+                - `philistines.md`
+                - `yavanites.md`
+            - `gilim/`
+                - `avot-mekudash.md`
+                - `melo-mashiach.md`
+                - `neorim.md`
+                - `olel-ruach.md`
+            - `ishim/`
+                - `adam.md`
+                - `aharon.md`
+                - `avraham.md`
+                - `chava.md`
+                - `david.md`
+                - `eliyahu.md`
+                - `hagar.md`
+                - `hevel.md`
+                - `iyov.md`
+                - `izevel.md`
+                - `kayin.md`
+                - `keturah.md`
+                - `moshe.md`
+                - `noach.md`
+                - `sarah.md`
+                - `shlomo.md`
+                - `yaakov.md`
+                - `yishmael.md`
+                - `yitzchak.md`
+                - `yosef.md`
+            - `shemot/`
+                - `avram-avraham.md`
+                - `chananyah-mishael-azaryah.md`
+                - `daniel-belshazzar.md`
+                - `hoshea-yeshua.md`
+                - `levi-mattityahu.md`
+                - `sarai-sarah.md`
+                - `shaul-paulus.md`
+                - `shimon-kefa.md`
+                - `yaakov-yisrael.md`
+                - `yosef-tzafnat-paaneach.md`
+            - `zugot/`
+                - `adam-mashiach.md`
+                - `aharon-mashiach.md`
+                - `basar-ruach.md`
+                - `bavel-yerushalayim.md`
+                - `chava-kehilat.md`
+                - `david-mashiach.md`
+                - `esav-yaakov.md`
+                - `moshe-mashiach.md`
+                - `sarah-hagar.md`
+                - `shaul-david.md`
+                - `shaul-shaul.md`
+                - `shimshon-mashiach.md`
+                - `yehoshua-yeshua.md`
+                - `yehudah-ish-kariot.md`
+                - `yishmael-yitzchak.md`
+                - `yitzchak-mashiach.md`
+                - `yonah-mashiach.md`
+        - `brit-nissuin/`
+            - `chatunah/`
+                - `erushin.md`
+                - `kidushin.md`
+                - `mikva.md`
+                - `nikakh.md`
+                - `sudat-nisuin.md`
+            - `mishteh/`
+                - `brak.md`
+                - `expecting-groom.md`
+                - `kehilat-kala.md`
+                - `mashiach-groom.md`
+                - `preparing-for-marriage.md`
+        - `elohim/`
+            - `etzim/`
+                - `etz-chayim.md`
+                - `etz-daat-tov-ra.md`
+            - `keruvim/`
+                - `adam.md`
+                - `aryeh.md`
+                - `nesher.md`
+                - `shor.md`
+            - `matnot-ruach/`
+                - `chesed.md`
+                - `dvar-chochmah.md`
+                - `emunah.md`
+                - `ezrah.md`
+                - `hadrachah.md`
+                - `havdalat-ruach.md`
+                - `leshonot.md`
+                - `nevuah.md`
+                - `niflaot.md`
+                - `pitaron.md`
+                - `refuah.md`
+                - `tokhachah.md`
+            - `melachot/`
+                - `boneh.md`
+                - `charash.md`
+                - `chovel.md`
+                - `ganan.md`
+                - `ikar.md`
+                - `roeh.md`
+                - `yotzer.md`
+            - `neshek/`
+                - `avnet-emet.md`
+                - `cherev-ruach.md`
+                - `kova-yeshua.md`
+                - `magen-tzedek.md`
+                - `naalei-besorah.md`
+                - `shiryon-tzedek.md`
+            - `panim/`
+                - `av-shamayim.md`
+                - `ben-elohim.md`
+                - `ruach-hakodesh.md`
+            - `perot/`
+                - `pri-ahavah.md`
+                - `pri-kedushah.md`
+                - `pri-maasim-tovim.md`
+                - `pri-ruchani.md`
+                - `pri-savlanut-emunah.md`
+                - `pri-teshuvah.md`
+                - `pri-tzedek.md`
+            - `perot-ruach/`
+                - `ahavah.md`
+                - `anavah.md`
+                - `emunah.md`
+                - `erech-apayim.md`
+                - `rivyon.md`
+                - `shalom.md`
+                - `simchah.md`
+                - `tovah.md`
+            - `shemot-el/`
+                - `adonai.md`
+                - `el-shaddai.md`
+                - `elohim.md`
+                - `kyrios.md`
+                - `yhwh-nissi.md`
+                - `yhwh-rafa.md`
+                - `yhwh-shalom.md`
+                - `yhwh-tzidkenu.md`
+                - `yhwh.md`
+        - `hitgalut/`
+            - `chotamot/`
+                - `seal-1-white-horse.md`
+                - `seal-2-red-horse.md`
+                - `seal-3-black-horse.md`
+                - `seal-4-pale-horse.md`
+                - `seal-5-martyrs.md`
+                - `seal-6-cosmic.md`
+                - `seal-7-silence.md`
+            - `kos-chemah/`
+                - `bowl-1.md`
+                - `bowl-2.md`
+                - `bowl-3.md`
+                - `bowl-4.md`
+                - `bowl-5.md`
+                - `bowl-6.md`
+                - `bowl-7.md`
+            - `kosot/`
+                - `kos-bavel.md`
+                - `kos-bracha.md`
+                - `kos-brit.md`
+                - `kos-chemah.md`
+                - `kos-yisurim.md`
+            - `mishpat/`
+                - `avnei-mishpat.md`
+                - `moznei-mishpat.md`
+            - `rochvim/`
+                - `rochev-adom.md`
+                - `rochev-lavan.md`
+                - `rochev-shachor.md`
+                - `rochev-yarok.md`
+            - `shofarot/`
+                - `shofar-1.md`
+                - `shofar-2.md`
+                - `shofar-3.md`
+                - `shofar-4.md`
+                - `shofar-5.md`
+                - `shofar-6.md`
+                - `shofar-7.md`
+            - `zemanim/`
+                - `etz-yeshua.md`
+                - `kos-yeshua.md`
+                - `masa-ishit.md`
+                - `masa-klali.md`
+                - `ol-yeshua.md`
+        - `kehillah/`
+            - `avodah/`
+                - `besorah.md`
+                - `binyan-mikdash.md`
+                - `dam-brit.md`
+                - `korban.md`
+                - `milah-basar.md`
+                - `rechitzat-mayim.md`
+                - `rechitzat-regel.md`
+                - `shutafut.md`
+                - `smichah.md`
+                - `tvilah.md`
+            - `kehillot/`
+                - `beit-elohim.md`
+                - `chava-adam.md`
+                - `eder-roeh.md`
+                - `guf-mashiach.md`
+                - `ir-har.md`
+                - `kalah-mashiach.md`
+                - `mishkan-moshe.md`
+                - `sadeh-katzir.md`
+                - `tevat-noach.md`
+                - `yisrael.md`
+            - `malachim/`
+                - `efes.md`
+                - `laodicea.md`
+                - `pergamum.md`
+                - `sardis.md`
+                - `smyrna.md`
+                - `thyatira.md`
+            - `mesharetim/`
+                - `mesharet.md`
+                - `mesharetet.md`
+                - `moreh.md`
+                - `navi.md`
+                - `pakid.md`
+                - `roeh.md`
+                - `shaliach.md`
+                - `zaken.md`
+            - `mishkan/`
+                - `aron-brit.md`
+                - `kiyor.md`
+                - `menorah.md`
+                - `mizbeach-ketoret.md`
+                - `mizbeach-olah.md`
+                - `parochet.md`
+                - `shulchan-lechem-panim.md`
+            - `rechitzah/`
+                - `rechitzat-lev.md`
+                - `rechitzat-panim.md`
+                - `rechitzat-raglayim.md`
+                - `rechitzat-yadayim.md`
+            - `shlichim/`
+                - `andrew.md`
+                - `bartalmay-natanel.md`
+                - `mattityahu-levi.md`
+                - `mattityahu.md`
+                - `philip.md`
+                - `shaul-paulus.md`
+                - `shimon-hakanani.md`
+                - `shimon-kefa.md`
+                - `toma.md`
+                - `yaakov-bar-alfei.md`
+                - `yaakov-bar-zavdai.md`
+                - `yehudah-ish-kariot.md`
+                - `yehudah-taddai.md`
+                - `yochanan.md`
+            - `shutafut/`
+                - `lechem.md`
+                - `seudah.md`
+                - `yayin.md`
+            - `tvilah/`
+                - `tvilat-esh.md`
+                - `tvilat-mayim.md`
+                - `tvilat-ruach.md`
+        - `kelim/`
+            - `avanim/`
+                - `akate.md`
+                - `bareket.md`
+                - `beryl.md`
+                - `chalcedony.md`
+                - `leshem.md`
+                - `odem.md`
+                - `onyx.md`
+                - `pitdah.md`
+                - `sappir.md`
+                - `tarshish.md`
+            - `begadim/`
+                - `atar-kotzim.md`
+                - `binyan.md`
+                - `cherev-esh.md`
+                - `chevel-mosrot.md`
+                - `even.md`
+                - `kli-kovsh.md`
+                - `lechem.md`
+                - `maakelet.md`
+                - `mateh.md`
+                - `mazleg.md`
+                - `ner-lampada.md`
+                - `patish.md`
+                - `sharvit.md`
+                - `shevet.md`
+                - `tofet.md`
+                - `yayin-mayim.md`
+                - `yayin.md`
+                - `zera.md`
+            - `birka'im/`
+                - `asher.md`
+                - `benyamin.md`
+                - `dan.md`
+                - `gad.md`
+                - `levi.md`
+                - `naphthali.md`
+                - `reuben.md`
+                - `shimon.md`
+                - `yehudah.md`
+                - `yissachar.md`
+                - `yosef.md`
+                - `zebulun.md`
+            - `chukim/`
+                - `chukat-chet.md`
+                - `chukat-elohim.md`
+                - `chukat-kehuna.md`
+                - `chukat-milah.md`
+                - `chukat-mishpat.md`
+                - `chukat-nissuin.md`
+                - `chukat-taharah.md`
+                - `chukat-tzel.md`
+            - `chushim/`
+                - `ahavah.md`
+                - `asham.md`
+                - `boshet.md`
+                - `chemah.md`
+                - `pachad.md`
+                - `simchah.md`
+                - `sinah.md`
+            - `maftehot/`
+                - `mafteach-beit-david.md`
+                - `mafteach-daat.md`
+                - `mafteach-malchut.md`
+                - `mafteach-sheol-mavet.md`
+                - `mafteach-tehom.md`
+            - `malchei/`
+                - `david.md`
+                - `shaul.md`
+                - `shlomo.md`
+                - `techiat-yeshua.md`
+            - `mishchah/`
+                - `mishchat-kehuna.md`
+                - `mishchat-mashiach.md`
+                - `mishchat-meluchah.md`
+                - `mishchat-mikdash.md`
+                - `mishchat-nevuah.md`
+            - `otot-brit/`
+                - `dam-korban.md`
+                - `keshet.md`
+                - `kos-ve-lechem.md`
+                - `milah.md`
+                - `shabbat.md`
+            - `sefarim/`
+                - `besorah.md`
+                - `sefer-hitgalut.md`
+                - `torah.md`
+            - `tefilah/`
+                - `ashan.md`
+                - `esh.md`
+                - `ketoret.md`
+                - `mikteret.md`
+        - `makom/`
+            - `arim/`
+                - `beit-lechem.md`
+                - `galil.md`
+                - `kfar-nachum.md`
+                - `natzrat.md`
+                - `nineveh.md`
+                - `sedom-amorah.md`
+                - `tsiyon.md`
+                - `tzor.md`
+                - `yerecho.md`
+                - `yerushalayim.md`
+                - `yevus.md`
+            - `artzot/`
+                - `aram.md`
+                - `bavel.md`
+                - `mitzrayim.md`
+                - `moav-amon.md`
+                - `peleshet.md`
+                - `yarden.md`
+                - `yisrael.md`
+            - `mekomot/`
+                - `beit-chasda.md`
+                - `efata.md`
+                - `gan-eden.md`
+                - `gat-shmanim.md`
+                - `gei-hinnom.md`
+                - `gilgal.md`
+                - `gulgoleth.md`
+                - `har-sinai.md`
+                - `har-tsiyon.md`
+                - `ikonion.md`
+                - `knaan.md`
+                - `luz-beit-el.md`
+                - `mamre.md`
+                - `midbar.md`
+                - `moriyah.md`
+                - `penuel.md`
+                - `yam-suf.md`
+                - `yerushalayim-chadasha.md`
+        - `mikra/`
+            - `chodashim/`
+                - `adar.md`
+                - `av.md`
+                - `elul.md`
+                - `iyar.md`
+                - `kislev.md`
+                - `marcheshvan.md`
+                - `nisan.md`
+                - `shevat.md`
+                - `sivan.md`
+                - `tammuz.md`
+                - `tevet.md`
+                - `tishri.md`
+            - `mikraot/`
+                - `kriat-yam-suf.md`
+                - `nechash-hanechoshet-mashiach.md`
+                - `pesach-korban-mashiach.md`
+                - `shavuot.md`
+                - `tevat-noach-mashiach.md`
+                - `yetziyat-mitzrayim-yeshua.md`
+                - `yom-kippur-korban-mashiach.md`
+            - `moadim/`
+                - `bikkurim.md`
+                - `chag-hamatzot.md`
+                - `chanukah.md`
+                - `pesach.md`
+                - `rosh-hashanah.md`
+                - `shabbat.md`
+                - `shavuot.md`
+                - `sukkot.md`
+                - `yom-kippur.md`
+            - `shomerim/`
+                - `ashmurat-revii.md`
+                - `ashmurat-rishonah.md`
+                - `ashmurat-shlishit.md`
+                - `ashmurat-shnit.md`
+        - `moadim/`
+            - `moadim-topics.md`
+        - `ruach/`
+            - `behemot/`
+                - `ayal-nachash.md`
+                - `dvora-dov.md`
+                - `nachash-seh.md`
+                - `nesher-yonah.md`
+                - `sus-chamor.md`
+                - `tson-izim.md`
+                - `yanshuf-aryeh.md`
+            - `chayot/`
+                - `akrav.md`
+                - `arbeh.md`
+                - `aryeh.md`
+                - `chamor.md`
+                - `chatul.md`
+                - `livyatan.md`
+                - `nachash.md`
+                - `nesher.md`
+                - `peten.md`
+                - `sair.md`
+                - `seh.md`
+                - `shor.md`
+                - `shual.md`
+                - `shualei-shimshon.md`
+                - `tannin.md`
+                - `tzefa.md`
+                - `zeev.md`
+            - `cholim/`
+                - `cheresh.md`
+                - `ilem.md`
+                - `iver.md`
+                - `met.md`
+                - `nivkeh.md`
+                - `piseach.md`
+                - `zav.md`
+            - `guf/`
+                - `aryeh.md`
+                - `einayim.md`
+                - `guf.md`
+                - `peh.md`
+                - `raglayim.md`
+                - `rosh.md`
+                - `yadayim.md`
+            - `kelim/`
+                - `kli-chelev.md`
+                - `kli-dam.md`
+                - `kli-ketoret.md`
+                - `kli-man.md`
+                - `kli-mayim-kedoshim.md`
+                - `kli-mayim-marim.md`
+                - `kli-minchah.md`
+                - `kli-rek.md`
+                - `kli-shemen-kodesh.md`
+                - `kli-shemen-mishchah.md`
+                - `kli-yayin.md`
+                - `yam-hanechoshet.md`
+            - `leshonot/`
+                - `aramaic.md`
+                - `greek.md`
+                - `hebrew.md`
+            - `levushim/`
+                - `bigdei-amidah.md`
+                - `bigdei-anavah.md`
+                - `bigdei-chatunah.md`
+                - `bigdei-hod.md`
+                - `bigdei-kefel.md`
+                - `bigdei-kodesh.md`
+                - `bigdei-nigdalim.md`
+                - `bigdei-nochri.md`
+                - `bigdei-shesh.md`
+                - `bigdei-tiferet.md`
+                - `bigdei-tzemer.md`
+                - `bigdei-tzivoniyim.md`
+                - `bigdei-yeshua.md`
+            - `makot/`
+                - `arbeh.md`
+                - `arov.md`
+                - `barad.md`
+                - `choshech.md`
+                - `dam.md`
+                - `dever.md`
+                - `kinim.md`
+                - `makat-bechorot.md`
+                - `shchin.md`
+                - `tzfardeim.md`
+            - `matachot/`
+                - `barzel.md`
+                - `bedil.md`
+                - `kesef.md`
+                - `nechoshet.md`
+                - `oferet.md`
+                - `zahav.md`
+            - `mavet/`
+                - `chenek-yehudah.md`
+                - `hereg-paulus.md`
+                - `hereg-yaakov.md`
+                - `mavet-bartalmay.md`
+                - `mavet-filippos.md`
+                - `mavet-mattityahu.md`
+                - `mavet-toma.md`
+                - `mavet-yehudah.md`
+                - `mavet-yochanan.md`
+                - `tzlivat-kefa.md`
+                - `tzlivat-shimon-kefa.md`
+                - `tzlivat-shimon.md`
+            - `meshalim/`
+                - `ashir-elazar.md`
+                - `ashir-ksil.md`
+                - `bayit-sela.md`
+                - `ben-shovav.md`
+                - `eser-almot.md`
+                - `gar-chardal.md`
+                - `kormim-raim.md`
+                - `mevakesh-lechem.md`
+                - `mishteh-chatunah.md`
+                - `parush-mochess.md`
+                - `seh-oved.md`
+                - `shnei-chayavim.md`
+                - `shomroni-tov.md`
+                - `zorea.md`
+            - `misparim/`
+                - `mispar-1.md`
+                - `mispar-1000.md`
+                - `mispar-12.md`
+                - `mispar-144000.md`
+                - `mispar-2.md`
+                - `mispar-3.md`
+                - `mispar-4.md`
+                - `mispar-40.md`
+                - `mispar-5.md`
+                - `mispar-6.md`
+                - `mispar-666.md`
+                - `mispar-7.md`
+                - `mispar-70.md`
+                - `mispar-8.md`
+                - `mispar-9.md`
+            - `seor/`
+                - `seor-parushim.md`
+                - `seor-tzedukim.md`
+            - `taharah/`
+                - `dud.md`
+                - `esh.md`
+                - `kli.md`
+                - `kur.md`
+                - `tanur.md`
+            - `techiah/`
+                - `bat-yair.md`
+                - `ben-almanat-nain.md`
+                - `ben-isha-shunemit.md`
+                - `elazar.md`
+                - `naar-eutychus.md`
+                - `techiat-yeshua.md`
+            - `yesodot/`
+                - `amud-esh.md`
+                - `avir.md`
+                - `barad.md`
+                - `barak.md`
+                - `eretz.md`
+                - `esh.md`
+                - `mayim.md`
+                - `raam.md`
+                - `ruach.md`
+                - `searah.md`
+        - `shedim/`
+            - `avonot/`
+                - `atzlut.md`
+                - `batzah.md`
+                - `chemah.md`
+                - `gaavah.md`
+                - `kinah.md`
+                - `sheker.md`
+                - `shichrut.md`
+                - `tavah.md`
+                - `zolelut.md`
+            - `chayot/`
+                - `akrav-oretz.md`
+                - `aryeh-shochet.md`
+                - `egel-zahav.md`
+                - `nachash-ramah.md`
+                - `peten-eretz.md`
+                - `tzefa-eretz.md`
+            - `choshech/`
+                - `bavel.md`
+                - `choshech-tohu.md`
+                - `gehenna.md`
+                - `gog-umagog.md`
+                - `keruv-nofel.md`
+                - `kochot-choshech.md`
+                - `nachash-tannin.md`
+                - `neron-anti-mashiach.md`
+                - `tehom.md`
+            - `kerav/`
+                - `hitalut.md`
+                - `kerav-ruchani.md`
+                - `michshol.md`
+                - `nisayon.md`
+            - `nefilah/`
+                - `afar-chol.md`
+                - `dam-korbanot.md`
+                - `nachash.md`
+                - `pri-asur.md`
+            - `rodefim/`
+                - `aurelian.md`
+                - `decius.md`
+                - `diocletian.md`
+                - `domitian.md`
+                - `marcus-aurelius.md`
+                - `maximinus-thrax.md`
+                - `nero.md`
+                - `septimius-severus.md`
+                - `trajan.md`
+                - `valerian.md`
+            - `ruchot-raot/`
+                - `ruach-choli.md`
+                - `ruach-gaavah.md`
+                - `ruach-kinah-sinah.md`
+                - `ruach-kishuf.md`
+                - `ruach-mavet.md`
+                - `ruach-pachad.md`
+                - `ruach-sheker.md`
+                - `ruach-tumah.md`
+                - `ruach-yiush.md`
+                - `ruach-zenut.md`
+            - `shemot-shedim/`
+                - `azazel-1.md`
+                - `azazel.md`
+                - `belial.md`
+                - `livyatan.md`
+                - `ruach-raah.md`
+                - `satan.md`
+                - `shed.md`
+            - `sheol/`
+                - `gehenna.md`
+                - `hades.md`
+                - `sheol.md`
+                - `tartarus.md`
+        - `tamid/`
+            - `tavnit.md`
+            - `tzelem.md`
 
 ## docs/
 
@@ -871,6 +1709,7 @@
     - `GUIDE-EXPOSURE.md`
     - `GUIDE-FAQ.md`
     - `GUIDE-GIT.md`
+    - `GUIDE-ICONS.md`
     - `GUIDE-NEURO.md`
     - `GUIDE-ONBOARDING.md`
     - `GUIDE-SCRIPTS.md`
@@ -886,9 +1725,11 @@
 ## instructions/
 
     - `agent/`
-        - `AGENT-CHAT-PROMPT.md`
+        - `AGENT-PROMPT.md`
         - `AGENT-RETROSPECTIVE.md`
         - `AGENT-ROUTINE.md`
+        - `AUDIT-REPORT.md`
+        - `AUDIT-SYSTEM.md`
     - `assistant/`
         - `ASSISTANT-CHAT-PROMPT.md`
         - `ASSISTANT-RETROSPECTIVE.md`
@@ -924,8 +1765,11 @@
         - `dictionaries-sportisms.md`
         - `dictionaries-technologisms.md`
     - `exposure/`
+        - `exposure-bavel.md`
+        - `exposure-dictionary.md`
         - `exposure-distortions.md`
         - `exposure-language.md`
+        - `exposure-linguistic-methods.md`
         - `exposure-mechanisms.md`
         - `exposure-methods.md`
         - `exposure-philosophemes.md`
@@ -951,12 +1795,12 @@
         - `TEMPLATE-SELF-LEARNING.md`
         - `TEMPLATE-TEACHING.md`
         - `TEMPLATE-TERM.md`
-    - `FORBIDDEN-WORDS.md`
-    - `IMAGE-MAP.md`
-    - `IMAGES-CATALOGUE.md`
-    - `MANIFEST.md`
-    - `RELEASE-PROCESS.md`
-    - `RESEARCH-PRINCIPLES.md`
+        - `TEMPLATE-TZEL.md`
+    - `image-map.md`
+    - `images-catalogue.md`
+    - `manifest.md`
+    - `release-process.md`
+    - `research-principles.md`
 
 ## web/
 
@@ -1010,7 +1854,6 @@
                     - `providers/`
                     - `readers/`
                     - `types/`
-        - `@parcel/`
         - `@svgdotjs/`
             - `svg.draggable.js/`
                 - `dist/`
@@ -1040,7 +1883,6 @@
                 - `lib/`
                 - `scripts/`
                 - `src/`
-        - `@tailwindcss/`
         - `@types/`
             - `culori/`
                 - `bundled/`

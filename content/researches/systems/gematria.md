@@ -316,6 +316,11 @@
 - `instructions/exposure/exposure-mechanisms.md` — механизмы подмены
 - `instructions/exposure/exposure-system-architecture.md` — архитектура седер
 
+
+## 🔥 ВВЕДЕНИЕ
+
+TODO: написать введение
+
 ---
 
 📊 ИТОГО: 4 доказано, 0 предположение → הַשְׁעָרָה — догадка (hашара, הַשְׁעָרָה), 0 опровергнуто
