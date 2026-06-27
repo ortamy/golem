@@ -1,0 +1,98 @@
+<!-- web/he/about/index.html — אודות הפרויקט (עברית) -->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אודות — גולם</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+<style>
+.top-bar { position: fixed; top: 0; left: 0; right: 0; background: #2c1810; color: #ede0c8; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; z-index: 1000; border-bottom: 1px solid #4a3020; direction: rtl; }
+.top-bar .logo { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 700; font-style: italic; color: #b8860b; letter-spacing: 4px; }
+.top-bar .logo a { color: #b8860b; text-decoration: none; }
+.top-bar nav { display: flex; gap: 20px; align-items: center; }
+.top-bar nav a { font-family: 'EB Garamond', 'Times New Roman', serif; font-size: 14px; color: #ede0c8; text-decoration: none; letter-spacing: 1px; transition: color 0.3s; }
+.top-bar nav a:hover { color: #b8860b; }
+.lang-switcher select { background: #3a2215; color: #ede0c8; border: 1px solid #5c3a2a; border-radius: 4px; padding: 4px 8px; font-family: 'EB Garamond', 'Times New Roman', serif; font-size: 13px; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; min-width: 80px; }
+.lang-switcher select:focus { border-color: #b8860b; }
+.lang-switcher select option { background: #2c1810; color: #ede0c8; }
+.lang-switcher select option:disabled { color: #5c4a3a; }
+.site-footer { background: #2c1810; color: #8a7a6a; padding: 40px 24px 24px; text-align: center; }
+.footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-links a { color: #b8860b; text-decoration: none; font-size: 14px; letter-spacing: 1px; font-family: 'EB Garamond', 'Times New Roman', serif; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+.footer-links a:hover { border-bottom-color: #b8860b; }
+.footer-copy { font-size: 12px; letter-spacing: 2px; font-family: 'Cormorant Garamond', 'Times New Roman', serif; }
+body { font-family: 'EB Garamond', 'Times New Roman', serif; font-size: 18px; line-height: 1.8; background: #ede0c8; color: #2c1810; margin: 0; padding-top: 56px; }
+.content { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+.content h1 { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #d4c4a8; }
+.content h2 { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 26px; font-weight: 600; color: #2c1810; margin: 32px 0 12px; }
+.content p { font-size: 18px; line-height: 1.8; margin-bottom: 14px; color: #2c1810; }
+.content p.sub { color: #5c4a3a; font-style: italic; margin-top: -8px; }
+@media (max-width:768px) { .content { padding: 40px 16px 60px; } .content h1 { font-size: 28px; } }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="logo"><a href="../index.html">גולם</a></div>
+  <nav>
+    <a href="../research/index.html">מחקר</a>
+    <a href="index.html">אודות</a>
+    <span class="lang-switcher">
+      <select onchange="if(this.value) window.location.href=this.value;">
+        <option value="" selected>HE</option>
+        <option value="../../ru/about/index.html">RU</option>
+        <option value="../../en/about/index.html">EN</option>
+        <option value="" disabled>ES (בקרוב)</option>
+        <option value="" disabled>DE (בקרוב)</option>
+        <option value="" disabled>FR (בקרוב)</option>
+        <option value="" disabled>PT (בקרוב)</option>
+        <option value="" disabled>AR (בקרוב)</option>
+        <option value="" disabled>ZH (בקרוב)</option>
+        <option value="" disabled>JA (בקרוב)</option>
+        <option value="" disabled>KO (בקרוב)</option>
+      </select>
+    </span>
+  </nav>
+</header>
+
+<div class="content">
+  <h1>𐤀 אודות הפרויקט</h1>
+  <p class="sub">פרויקט "גולם" אינו דת. זה שחזור.</p>
+
+  <h2>מהו "גולם"?</h2>
+  <p>"גולם" (גֹּלֶם) הוא חומר גלם, חימר לא מעובד, שממנו היוצר יוצר צורה. כך גם הפרויקט שלנו: אנו לוקחים את הטקסט הגולמי, המעוות במשך מאות שנים של תרגומים, ומחזירים אותו לצורתו המקורית — בשפה העברית שבה ניתנה כל מילה.</p>
+  
+  <p>התנ״ך אינו "התנ"ך" בתרגום. התנ״ך הוא המקור. התרגומים היווניים, הלטיניים והסלאביים שינו, ערכו והתאימו את הטקסט לצורכי אימפריות. פרויקט "גולם" מסיר שכבות של עיוות תרגומי כדי לחשוף את המקור כפי שהוא נועד להיות.</p>
+
+  <h2>למה זה חשוב?</h2>
+  <p>המערכת החליפה את השם האישי יהוה ב"אדוני" — תואר השאול מההיררכיה היוונית והרומית. היא הפכה את "משיח" (נמשח — תפקיד) ל"כריסטוס" (תואר, ואחר כך שם). היא עשתה מ"תורה" (הוראה) — "חוק", ומ"תשובה" (חזרה) — "חרטה".</p>
+  
+  <p>כל עיוות כזה אינו מקרי. זוהי ארכיטקטורה. המערכת תרגמה בכוונה את התנ״ך כדי לשרת אימפריות, לא את האמת.</p>
+
+  <h2>מה אנחנו עושים?</h2>
+  <p>אנו משחזרים. אנו לוקחים כל מילת מפתח בתנ״ך ומראים את שורשה, משמעותה בעברית וכיצד היא עוותה בתרגומים. איננו מלמדים "להאמין" — אנו מלמדים לקרוא, לנתח, לראות.</p>
+  
+  <p>אנו חושפים מערכות המציגות עצמן כ"סדר הטבעי של הדברים": ספורט כדת, רפואה ככהונה, חינוך כאילוף, כסף כאליל. כל אלה הם אלילים (אלילים) שאנשים עובדים במקום יהוה.</p>
+
+  <h2>זו אינה דת</h2>
+  <p>אין לנו דוגמות, אין כת, אין "ישועה דרך חברות". איננו קוראים לכם להצטרף לארגון או לשלם מעשרות. איננו טוענים לאמת מוחלטת — אנו רק מראים היכן המקור אומר דבר אחד והתרגומים אומרים דבר אחר. הבחירה תמיד בידכם.</p>
+  
+  <p>יהוה אחד. תורה — הוראה. משיח — משוח. תשובה — חזרה. זו אינה אמונה. אלו עובדות הטקסט. קראו את המקור ושפטו בעצמכם.</p>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">מניפסט</a>
+    <a href="../research/index.html">מחקר</a>
+    <a href="../../content/hebrew">עברית</a>
+    <a href="index.html">אודות</a>
+    <a href="https://github.com/ortamy/golem">GitHub</a>
+    <a href="#" onclick="alert('בקרוב'); return false;">התחבר</a>
+  </div>
+  <div class="footer-copy">פרויקט "גולם". שחזור האמת. יהוה אחד.</div>
+</footer>
+
+</body>
+</html>
