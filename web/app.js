@@ -453,7 +453,17 @@ function parseMD(t, fileIcon) {
         FILES = data;
         buildSelects();
         render();
-    }, function(e) {
+    
+        // Open file from hash if present (e.g. #open=content/.../file.md)
+        var hash = window.location.hash;
+        if (hash && hash.indexOf('#open=') === 0) {
+            var filePath = decodeURIComponent(hash.substring(6));
+            setTimeout(function() {
+                if (isMobile()) { openFileMobile(filePath); }
+                else { loadFile(filePath); }
+            }, 100);
+        }
+}, function(e) {
         console.error(e.message);
         var el = isMobile()?$('mobile-list-view'):$('file-list');
         if (el) el.innerHTML = '<div style="padding:20px;color:#c0392b;">Ошибка загрузки</div>';

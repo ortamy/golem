@@ -1,4 +1,4 @@
-# 👶 Google Kids Reaction
+#  Google Kids Reaction
 
 **Метаданные файла**
 - **Версия:** 1.0
@@ -6,7 +6,7 @@
 - **Последнее обновление:** 2026-06-09
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
-- **Тема:** 👶 Google Kids Reaction
+- **Тема:**  Google Kids Reaction
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
 - **Хеш:** 5e0331b3

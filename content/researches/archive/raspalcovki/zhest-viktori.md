@@ -2,7 +2,7 @@
 description: Что стоит за двумя пальцами
 ---
 
-# ✌️ Жест «Виктори»
+#  Жест «Виктори»
 
 **Метаданные файла**
 - **Файл:** `researches/teachings/arkhiv/raspalcovki/zhest-viktori.md`
@@ -11,7 +11,7 @@ description: Что стоит за двумя пальцами
 - **Последнее обновление:** 2026-06-09
 - **Причина обновления:** Первичное создание
 - **Статус:** Активный
-- **Тема:** ✌Жест «Виктори»
+- **Тема:** Жест «Виктори»
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
 - **Связанные файлы:** `researches/teachings/arkhiv/raspalcovki/zhest-viktori.md`, `instructions/exposure/exposure-methods.md`, `terminology/el.md`, `terminology/mashiah-peshat.md`, `terminology/torah.md`

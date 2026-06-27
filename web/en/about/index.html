@@ -1,0 +1,102 @@
+<!-- web/en/about/index.html — About the Project (English) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Golem</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+<style>.content p.sub { color: #5c4a3a; font-style: italic; margin-top: -8px; }
+@media (max-width:768px) { }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="logo"><a href="../index.html">GOLEM</a></div>
+  <nav>
+    <a href="../research/index.html">Research</a>
+    <a href="index.html">About</a>
+    <span class="lang-switcher">
+      <select onchange="if(this.value) window.location.href=this.value;">
+        <option value="" selected>EN</option>
+        <option value="../../ru/about/index.html">RU</option>
+        <option value="../../he/about/index.html">HE</option>
+        <option value="" disabled>ES (soon)</option>
+        <option value="" disabled>DE (soon)</option>
+        <option value="" disabled>FR (soon)</option>
+        <option value="" disabled>PT (soon)</option>
+        <option value="" disabled>AR (soon)</option>
+        <option value="" disabled>ZH (soon)</option>
+        <option value="" disabled>JA (soon)</option>
+        <option value="" disabled>KO (soon)</option>
+      </select>
+    </span>
+  </nav>
+  <div class="hamburger-btn" onclick="toggleSidePanel()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<div class="content">
+  <h1>𐤀 About the Project</h1>
+  <p class="sub">Project "Golem" is not a religion. It is a restoration.</p>
+
+  <h2>What is "Golem"?</h2>
+  <p>"Golem" (גֹּלֶם) is unformed matter, raw clay from which the Creator shapes form. So is our project: we take the raw text, distorted by centuries of translation, and return it to its original form — in the Hebrew language in which every word was given.</p>
+  
+  <p>The TaNaKh is not the Bible. The Bible is a product of Hellenization, Roman censorship, and Slavic adaptation. Project "Golem" strips away layers of translational distortion to reveal the original as it was meant to be.</p>
+
+  <h2>Why does this matter?</h2>
+  <p>The system replaced the personal Name Yahveh (יהוה) with "Lord" — a title borrowed from Greek and Roman hierarchy. It turned "mashiach" (anointed one — a function) into "Christ" (a title, then a name). It made "torah" (instruction) into "law", and "teshuvah" (return) into "repentance".</p>
+  
+  <p>Each such distortion is not an accident. It is architecture. The system deliberately translated the TaNaKh to serve empires, not Truth.</p>
+
+  <h2>What do we do?</h2>
+  <p>We restore. We take every key word of the TaNaKh and show its root, its meaning in Hebrew, and how it was distorted in translations. We do not teach "belief" — we teach reading, analyzing, seeing.</p>
+  
+  <p>We expose systems that present themselves as "the natural order of things": sports as religion, medicine as priesthood, education as training, money as idol. All of these are elilim (nothings) that people worship instead of Yahveh.</p>
+
+  <h2>This is not a religion</h2>
+  <p>We have no dogmas, no cult, no "salvation through membership". We do not call you to join an organization or pay tithes. We do not claim ultimate truth — we only show where the original says one thing and translations say another. The choice is always yours.</p>
+  
+  <p>Yahveh is one. Torah is instruction. Mashiach is anointed. Teshuvah is return. This is not a creed. These are facts of the text. Read the original and judge for yourself.</p>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Manifesto</a>
+    <a href="../research/index.html">Research</a>
+    <a href="../../content/hebrew">Hebrew</a>
+    <a href="index.html">About</a>
+    <a href="https://github.com/ortamy/golem">GitHub</a>
+    <a href="#" onclick="alert('Coming soon'); return false;">Sign in</a>
+  </div>
+  <div class="footer-copy">Project "Golem". Restoring truth. Yahveh is one.</div>
+</footer>
+
+<!-- ===== SIDE PANEL (HAMBURGER) ===== -->
+<div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
+<div class="side-panel" id="sidePanel">
+  <div class="side-panel-header">
+    <span class="logo-text">GOLEM</span>
+    <button class="side-panel-close" onclick="toggleSidePanel()">✕</button>
+  </div>
+  <div class="side-panel-links">
+    <a href="../index.html">Home</a>
+    <a href="../research/index.html">Research</a>
+    <a href="../../content/hebrew">Hebrew</a>
+    <a href="index.html">About</a>
+    <a href="index.html">Manifesto</a>
+  </div>
+</div>
+<script>
+function toggleSidePanel() {
+  document.getElementById('sidePanel').classList.toggle('open');
+  document.getElementById('sidePanelOverlay').classList.toggle('show');
+}
+</script>
+
+</body>
+</html>

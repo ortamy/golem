@@ -1,4 +1,4 @@
-# 🍞 ИСТИННЫЙ ЦОМ — ЙЕШАЯhУ 58
+#  ИСТИННЫЙ ЦОМ — ЙЕШАЯhУ 58
 
 **Метаданные файла**
 - **Файл:** `researches/tanakh/tsom-istinnyi.md`
@@ -8,7 +8,7 @@
 - **Причина обновления:** Убраны религионизмы (נפש, ענווה, пост, грешники, лицемеры, Нагорная проповедь, כבוד, правда)
 - **Статус:** Активный
 - **Тема:** Йешаяhу 58 — разоблачение ритуального цом и раскрытие истинного смысла צוֹם (цом)
-- **Аудит:** bdikah ✅ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
+- **Аудит:** bdikah  | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
 - **Связанные файлы:** `researches/tanakh/tsom-istinnyi.md`, `researches/practices/prazdniki-yhwh.md`, `researches/practices/chistaya-rech.md`
 - **Хеш:** dd0e03d1

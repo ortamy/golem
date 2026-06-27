@@ -937,3 +937,132 @@ body::before {
     background: linear-gradient(90deg, transparent, #d4c4a8, #b8860b, #d4c4a8, transparent);
   }
 }
+
+/* ===== ГАМБУРГЕР-МЕНЮ (для лендингов и внутренних страниц) ===== */
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #5c3a2a;
+  border-radius: 4px;
+  gap: 5px;
+  padding: 6px;
+  transition: border-color 0.3s;
+  flex-shrink: 0;
+}
+.hamburger-btn:hover {
+  border-color: #b8860b;
+}
+.hamburger-btn span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #ede0c8;
+  border-radius: 1px;
+  transition: background 0.3s;
+}
+.hamburger-btn:hover span {
+  background: #b8860b;
+}
+
+/* Оверлей */
+.side-panel-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(44, 24, 16, 0.7);
+  z-index: 1999;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.side-panel-overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+/* Боковая панель */
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  z-index: 2000;
+  background: #2c1810;
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+  overflow-y: auto;
+  color: #ede0c8;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.3);
+}
+.side-panel.open {
+  transform: translateX(0);
+}
+
+/* Шапка панели */
+.side-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #4a3020;
+}
+.side-panel-header .logo-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  color: #b8860b;
+  letter-spacing: 4px;
+}
+.side-panel-close {
+  font-size: 24px;
+  cursor: pointer;
+  color: #8a7a6a;
+  background: none;
+  border: none;
+  font-family: 'EB Garamond', Georgia, serif;
+  transition: color 0.3s;
+  line-height: 1;
+}
+.side-panel-close:hover {
+  color: #b8860b;
+}
+
+/* Ссылки панели */
+.side-panel-links {
+  padding: 10px 0;
+}
+.side-panel-links a {
+  display: block;
+  padding: 14px 24px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 17px;
+  color: #ede0c8;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s;
+  border-left: 3px solid transparent;
+}
+.side-panel-links a:hover {
+  background: #3a2215;
+  color: #b8860b;
+  border-left-color: #b8860b;
+}
+
+/* Скрываем гамбургер в мобильном интерфейсе app.js (там свой бургер) */
+@media (min-width: 769px) {
+  #burger-btn,
+  #burger-menu,
+  #burger-overlay {
+    display: none !important;
+  }
+}

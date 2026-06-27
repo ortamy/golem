@@ -1,0 +1,175 @@
+<!-- web/en/research/index.html — Research (English) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Golem</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+<style>.research-header { padding: 40px 24px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+.research-header h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin-bottom: 8px; }
+.research-header p { font-size: 16px; color: #5c4a3a; }
+
+@media (max-width:768px) { .research-header { padding: 24px 16px 12px; } .research-header h1 { font-size: 28px; } }
+#research-search { width: 100%; max-width: 600px; padding: 10px 14px; font-family: 'EB Garamond', Georgia, serif; font-size: 16px; outline: none; border-radius: 4px; background: #faf3e0; border: 1px solid #d4c4a8; color: #2c1810; margin: 0 auto 20px; display: block; }
+#research-search:focus { border-color: #b8860b; box-shadow: 0 0 0 2px rgba(184,134,11,0.2); }
+#research-list { max-width: 900px; margin: 0 auto; padding: 0 24px 60px; }
+.research-item { display: block; padding: 14px 0; border-bottom: 1px solid #d4c4a8; text-decoration: none; color: #2c1810; }
+.research-item:hover { color: #b8860b; }
+.research-item .r-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; font-weight: 600; }
+.research-item .r-cat { font-size: 11px; color: #b8860b; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+.research-item .r-topic { font-size: 13px; color: #5c4a3a; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="logo"><a href="../index.html">GOLEM</a></div>
+  <nav>
+    <a href="index.html">Research</a>
+    <a href="../about/index.html">About</a>
+    <span class="lang-switcher">
+      <select onchange="if(this.value) window.location.href=this.value;">
+        <option value="" selected>EN</option>
+        <option value="../../ru/research/index.html">RU</option>
+        <option value="../../he/research/index.html">HE</option>
+        <option value="" disabled>ES (soon)</option>
+        <option value="" disabled>DE (soon)</option>
+        <option value="" disabled>FR (soon)</option>
+        <option value="" disabled>PT (soon)</option>
+        <option value="" disabled>AR (soon)</option>
+        <option value="" disabled>ZH (soon)</option>
+        <option value="" disabled>JA (soon)</option>
+        <option value="" disabled>KO (soon)</option>
+      </select>
+    </span>
+  </nav>
+  <div class="hamburger-btn" onclick="toggleSidePanel()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<div class="research-header">
+  <h1>𐤎 Research</h1>
+  <p>Hundreds of articles restoring the true meaning of the TaNaKh</p>
+</div>
+
+<input type="text" id="research-search" placeholder="Поиск..." oninput="filterResearch()">
+<button id="back-to-list" onclick="backToList()" style="display:none;margin:0 auto 20px;padding:8px 16px;background:#b8860b;color:#faf3e0;border:none;border-radius:4px;cursor:pointer;font-family:EB Garamond,serif;font-size:14px;">← Back to list</button>
+<div id="research-content" style="display:none;"></div>
+<div id="research-list"></div>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../about/index.html">Manifesto</a>
+    <a href="index.html">Research</a>
+    <a href="../../content/hebrew">Hebrew</a>
+    <a href="../about/index.html">About</a>
+    <a href="https://github.com/ortamy/golem">GitHub</a>
+    <a href="#" onclick="alert('Coming soon'); return false;">Sign in</a>
+  </div>
+  <div class="footer-copy">Project "Golem". Restoring truth. Yahveh is one.</div>
+</footer>
+
+<!-- ===== SIDE PANEL (HAMBURGER) ===== -->
+<div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
+<div class="side-panel" id="sidePanel">
+  <div class="side-panel-header">
+    <span class="logo-text">GOLEM</span>
+    <button class="side-panel-close" onclick="toggleSidePanel()">✕</button>
+  </div>
+  <div class="side-panel-links">
+    <a href="../index.html">Home</a>
+    <a href="index.html">Research</a>
+    <a href="../../content/hebrew">Hebrew</a>
+    <a href="../about/index.html">About</a>
+    <a href="../about/index.html">Manifesto</a>
+  </div>
+</div>
+<script>
+function toggleSidePanel() {
+  document.getElementById('sidePanel').classList.toggle('open');
+  document.getElementById('sidePanelOverlay').classList.toggle('show');
+}
+
+var RESEARCH_FILES = [];
+fetch('../../files.json')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    RESEARCH_FILES = data;
+    renderResearchList(RESEARCH_FILES);
+  });
+
+function renderResearchList(files) {
+  var list = document.getElementById('research-list');
+  list.innerHTML = '';
+  files.forEach(function(f) {
+    var a = document.createElement('a');
+    a.className = 'research-item';
+    a.href = 'javascript:void(0)';
+    a.onclick = (function(p) { return function() { openResearchFile(p); }; })(f.path);
+    var title = document.createElement('div');
+    title.className = 'r-title';
+    title.textContent = f.title;
+    var cat = document.createElement('div');
+    cat.className = 'r-cat';
+    cat.textContent = f.category;
+    var topic = document.createElement('div');
+    topic.className = 'r-topic';
+    topic.textContent = f.topic;
+    a.appendChild(title);
+    a.appendChild(cat);
+    a.appendChild(topic);
+    list.appendChild(a);
+  });
+}
+
+function filterResearch() {
+  var q = document.getElementById('research-search').value.toLowerCase();
+  if (!q) { renderResearchList(RESEARCH_FILES); return; }
+  var filtered = RESEARCH_FILES.filter(function(f) {
+    return (f.title + ' ' + f.topic + ' ' + f.category).toLowerCase().indexOf(q) !== -1;
+  });
+  renderResearchList(filtered);
+}
+
+function backToList() {
+  document.getElementById('research-content').style.display = 'none';
+  document.getElementById('research-list').style.display = 'block';
+  document.getElementById('research-search').style.display = 'block';
+  document.getElementById('back-to-list').style.display = 'none';
+  window.scrollTo(0, 0);
+}
+
+function openResearchFile(p) {
+  var content = document.getElementById('research-content');
+  var title = p.split('/').pop().replace('.md', '');
+  content.innerHTML = '<div class="content"><h1>' + title + '</h1><div class="md-body">' + title + '</div></div>';
+  content.style.display = 'block';
+  document.getElementById('research-list').style.display = 'none';
+  document.getElementById('research-search').style.display = 'none';
+  document.getElementById('back-to-list').style.display = 'inline-block';
+  window.scrollTo(0, 0);
+  fetch('../../' + p)
+    .then(function(r) { return r.text(); })
+    .then(function(md) {
+      var body = content.querySelector('.md-body');
+      body.innerHTML = parseSimpleMD(md);
+    })
+    .catch(function() { content.querySelector('.md-body').innerHTML = '<p style="color:#c0392b">' + errLabel + '</p>'; });
+}
+
+function parseSimpleMD(t) {
+  t = t.replace(/^#+ (.+)$/gm, '<h2>$1</h2>');
+  t = t.replace(/\\*\\*(.+?)\\*\\*/g, '<strong>$1</strong>');
+  t = t.replace(/\\*(.+?)\\*/g, '<em>$1</em>');
+  t = t.replace(/`(.+?)`/g, '<code>$1</code>');
+  t = t.replace(/\\n/g, '<br>');
+  return t;
+}
+</script>
+
+
+</body>
+</html>

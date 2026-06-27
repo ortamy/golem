@@ -1,4 +1,4 @@
-<!-- web/index.html — главная страница веб-интерфейса -->
+<!-- web/index.html — Головний файл, редирект по языку -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,118 +7,40 @@
 <title>Golem — Свидетель Истины</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="style.css">
+<style>
+  body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.8; background: #ede0c8; color: #2c1810; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; flex-direction: column; padding: 20px; text-align: center; }
+  .loader { border: 3px solid #d4c4a8; border-top: 3px solid #b8860b; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 20px; }
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin: 20px 0; }
+  p { color: #5c4a3a; font-size: 18px; }
+  a { color: #b8860b; text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: #b8860b; }
+  .lang-grid { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin: 20px 0; }
+  .lang-link { padding: 8px 16px; background: #faf3e0; border: 1px solid #d4c4a8; border-radius: 4px; font-size: 14px; transition: background 0.3s; }
+  .lang-link:hover { background: #f5edd5; }
+  .lang-link.active { border-color: #b8860b; background: #b8860b; color: #faf3e0; }
+</style>
 </head>
 <body>
-
-<!-- Сайдбар -->
-<div id="sidebar">
-    <div id="logo"><pre>
- ██████╗  ██████╗ ██╗     ███████╗███╗   ███╗
-██╔════╝ ██╔═══██╗██║     ██╔════╝████╗ ████║
-██║  ███╗██║   ██║██║     █████╗  ██╔████╔██║
-██║   ██║██║   ██║██║     ██╔══╝  ██║╚██╔╝██║
-╚██████╔╝╚██████╔╝███████╗███████╗██║ ╚═╝ ██║
- ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚═╝     ╚═╝
-    </pre></div>
-
-    <div id="filters">
-        <input type="text" id="search" placeholder="Поиск..." oninput="render()">
-        <select id="category-select" onchange="render()">
-            <option value="">Все категории</option>
-        </select>
-        <select id="subcategory-select" onchange="render()" style="display:none;margin-top:6px">
-            <option value="">Все подкатегории</option>
-        </select>
-        <div id="toggle-theme" title="Тема едина как Истина">☦</div>
-    </div>
-
-    <div id="sidebar-actions">
-        <span class="sidebar-btn" onclick="randomFile()">Случайный</span>
-        <span class="sidebar-btn" onclick="copyCurrentLink()">Копировать</span>
-        <span class="sidebar-btn" onclick="window.print()">Печать</span>
-    </div>
-
-    <div id="font-size-controls">
-        <span class="font-size-btn" data-size="small" onclick="setFontSize('small')">A</span>
-        <span class="font-size-btn active" data-size="medium" onclick="setFontSize('medium')">A</span>
-        <span class="font-size-btn" data-size="large" onclick="setFontSize('large')">A</span>
-    </div>
-
-    <div id="file-list"></div>
-
-    <div id="sidebar-footer">
-        <div id="bookmarks-section" style="display:none">
-            <div class="cat-header">Закладки</div>
-            <div id="bookmarks-list"></div>
-        </div>
-        <div id="history-section" style="display:none">
-            <div class="cat-header">История</div>
-            <div id="history-list"></div>
-        </div>
-        <div id="stats">Файлов: <span id="total-count">0</span></div>
-    </div>
+<div class="loader"></div>
+<h1>Golem</h1>
+<p>Определение языка…</p>
+<div class="lang-grid">
+  <a href="ru/index.html" class="lang-link">Русский</a>
+  <a href="en/index.html" class="lang-link">English</a>
+  <a href="he/index.html" class="lang-link" dir="rtl">עברית</a>
+  <span class="lang-link" style="opacity:0.4;cursor:default">Español (скоро)</span>
+  <span class="lang-link" style="opacity:0.4;cursor:default">Deutsch (скоро)</span>
+  <span class="lang-link" style="opacity:0.4;cursor:default">Français (скоро)</span>
 </div>
-
-<!-- Контент -->
-<div id="main-area">
-    <div id="content">
-        <div id="progress-bar"></div>
-        <div id="empty">&larr; Выберите файл</div>
-    </div>
-    <div id="toc-panel" style="display:none">
-        <div class="toc-header">Содержание</div>
-        <div id="toc-list"></div>
-    </div>
-</div>
-
-<!-- Мобильное -->
-<div id="burger-overlay" onclick="closeBurger()"></div>
-<button id="burger-btn" onclick="toggleBurger()">☰</button>
-
-<div id="burger-menu">
-    <div id="burger-logo">GOLEM</div>
-    <div id="burger-actions">
-        <span class="burger-item" style="opacity:0.5;cursor:default">☦ Свет Истины</span>
-        <span class="burger-item" onclick="randomFile()">⟳ Случайный</span>
-        <span class="burger-item" onclick="copyCurrentLink()">🔗 Копировать</span>
-        <span class="burger-item" onclick="window.print()">🖶 Печать</span>
-    </div>
-    <div id="burger-bookmarks-section">
-        <div class="cat-header">Закладки</div>
-        <div id="burger-bookmarks-list"></div>
-    </div>
-    <div id="burger-history-section">
-        <div class="cat-header">История</div>
-        <div id="burger-history-list"></div>
-    </div>
-</div>
-
-<!-- Мобильный список -->
-<div id="mobile-controls">
-    <input type="text" id="search-mobile" placeholder="Поиск..." oninput="render()">
-    <select id="category-select-mobile" onchange="render()">
-        <option value="">Все категории</option>
-    </select>
-    <select id="subcategory-select-mobile" onchange="render()" style="display:none">
-        <option value="">Все подкатегории</option>
-    </select>
-</div>
-<div id="mobile-list-view"></div>
-<div id="stats-mobile">Файлов: 0</div>
-
-<!-- Мобильная страница файла -->
-<div id="file-page" style="display:none">
-    <div id="file-top-bar">
-        <button id="back-btn" onclick="closeFile()">←</button>
-        <span id="file-path-hint"></span>
-        <span id="file-bookmark-btn" class="bookmark-btn">☆</span>
-    </div>
-    <div id="file-content-mobile"></div>
-</div>
-
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<div id="copy-toast">Скопировано</div>
-
-<script src="app.js"></script>
+<script>
+(function() {
+  var lang = navigator.language || navigator.userLanguage || 'ru';
+  var map = { 'ru': 'ru/index.html', 'en': 'en/index.html', 'he': 'he/index.html' };
+  var mainLang = lang.split('-')[0];
+  var target = map[mainLang] || 'ru/index.html';
+  setTimeout(function() { window.location.href = target; }, 1200);
+})();
+</script>
 </body>
 </html>
