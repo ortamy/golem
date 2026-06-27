@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- web/en/research/index.html — Research (English) -->
 <!DOCTYPE html>
 <html lang="en">
@@ -172,4 +173,84 @@ function parseSimpleMD(t) {
 
 
 </body>
+=======
+<!-- web/en/research/index.html — Research (English) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Golem</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+<style>
+.top-bar { position: fixed; top: 0; left: 0; right: 0; background: #2c1810; color: #ede0c8; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; z-index: 1000; border-bottom: 1px solid #4a3020; }
+.top-bar .logo { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 700; font-style: italic; color: #b8860b; letter-spacing: 4px; }
+.top-bar .logo a { color: #b8860b; text-decoration: none; }
+.top-bar nav { display: flex; gap: 20px; align-items: center; }
+.top-bar nav a { font-family: 'EB Garamond', Georgia, serif; font-size: 14px; color: #ede0c8; text-decoration: none; letter-spacing: 1px; transition: color 0.3s; }
+.top-bar nav a:hover { color: #b8860b; }
+.lang-switcher select { background: #3a2215; color: #ede0c8; border: 1px solid #5c3a2a; border-radius: 4px; padding: 4px 8px; font-family: 'EB Garamond', Georgia, serif; font-size: 13px; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; min-width: 80px; }
+.lang-switcher select:focus { border-color: #b8860b; }
+.lang-switcher select option { background: #2c1810; color: #ede0c8; }
+.lang-switcher select option:disabled { color: #5c4a3a; }
+.site-footer { background: #2c1810; color: #8a7a6a; padding: 40px 24px 24px; text-align: center; }
+.footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-links a { color: #b8860b; text-decoration: none; font-size: 14px; letter-spacing: 1px; font-family: 'EB Garamond', Georgia, serif; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+.footer-links a:hover { border-bottom-color: #b8860b; }
+.footer-copy { font-size: 12px; letter-spacing: 2px; font-family: 'Cormorant Garamond', Georgia, serif; }
+body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.8; background: #ede0c8; color: #2c1810; margin: 0; padding-top: 56px; }
+.research-header { padding: 40px 24px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+.research-header h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin-bottom: 8px; }
+.research-header p { font-size: 16px; color: #5c4a3a; }
+.research-frame { width: 100%; height: calc(100vh - 56px); border: none; display: block; }
+@media (max-width:768px) { .research-header { padding: 24px 16px 12px; } .research-header h1 { font-size: 28px; } }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="logo"><a href="../index.html">GOLEM</a></div>
+  <nav>
+    <a href="index.html">Research</a>
+    <a href="../about/index.html">About</a>
+    <span class="lang-switcher">
+      <select onchange="if(this.value) window.location.href=this.value;">
+        <option value="" selected>EN</option>
+        <option value="../../ru/research/index.html">RU</option>
+        <option value="../../he/research/index.html">HE</option>
+        <option value="" disabled>ES (soon)</option>
+        <option value="" disabled>DE (soon)</option>
+        <option value="" disabled>FR (soon)</option>
+        <option value="" disabled>PT (soon)</option>
+        <option value="" disabled>AR (soon)</option>
+        <option value="" disabled>ZH (soon)</option>
+        <option value="" disabled>JA (soon)</option>
+        <option value="" disabled>KO (soon)</option>
+      </select>
+    </span>
+  </nav>
+</header>
+
+<div class="research-header">
+  <h1>𐤎 Research</h1>
+  <p>Hundreds of articles restoring the true meaning of the TaNaKh</p>
+</div>
+
+<iframe class="research-frame" src="../../index.html" title="Research"></iframe>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../about/index.html">Manifesto</a>
+    <a href="index.html">Research</a>
+    <a href="../../content/hebrew">Hebrew</a>
+    <a href="../about/index.html">About</a>
+    <a href="https://github.com/ortamy/golem">GitHub</a>
+    <a href="#" onclick="alert('Coming soon'); return false;">Sign in</a>
+  </div>
+  <div class="footer-copy">Project "Golem". Restoring truth. Yahveh is one.</div>
+</footer>
+
+</body>
+>>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
 </html>
