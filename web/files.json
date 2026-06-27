@@ -14039,6 +14039,24 @@
     "icon": "heart.png"
   },
   {
+    "path": "content/hebrew/adjectives.md",
+    "title": "ПРИЛАГАТЕЛЬНЫЕ — СОГЛАСОВАНИЕ И СТЕПЕНИ СРАВНЕНИЯ",
+    "topic": "Прилагательные, согласование с существительным, степени сравнения",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/adverbs.md",
+    "title": "НАРЕЧИЯ — ОБРАЗОВАНИЕ И ПОЗИЦИЯ",
+    "topic": "Наречия в иврите: образование, позиция в предложении, основные виды",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
     "path": "content/hebrew/alphabet.md",
     "title": "АЛФАВИТ ИВРИТА — 22 БУКВЫ",
     "topic": "Полный алфавит иврита — 22 буквы, произношение, написание, палео-иврит",
@@ -14059,9 +14077,72 @@
     "icon": "lamp.png"
   },
   {
+    "path": "content/hebrew/chain-of-substitution.md",
+    "title": "МЕТОД ЦЕПОЧКИ ПОДМЕНЫ",
+    "topic": "Метод цепочки подмены — как греческие и славянские слова заменили ивритские",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/conjunctions.md",
+    "title": "СОЮЗЫ — ו, כִּי, אֲשֶׁר",
+    "topic": "Союзы ו, כִּי, אֲשֶׁר. Соединение, причина, относительность",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/construct-chain.md",
+    "title": "ДЛИННЫЕ ЦЕПОЧКИ СМИХУТА — СОПРЯЖЕНИЕ",
+    "topic": "Цепочки смихута. Сопряжение существительных. Многоуровневые конструкции",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/demonstratives.md",
+    "title": "УКАЗАТЕЛЬНЫЕ МЕСТОИМЕНИЯ — זֶה, זֹאת, אֵלֶּה",
+    "topic": "Указательные местоимения זֶה, זֹאת, אֵלֶּה, זוֹ, זֹה",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/direct-object.md",
+    "title": "ЧАСТИЦА אֵת — ПРЯМОЕ ДОПОЛНЕНИЕ",
+    "topic": "Частица אֵת (эт). Прямое дополнение. Слияние с местоимениями",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/exodus-20-deep.md",
+    "title": "ПОЛНЫЙ РАЗБОР ДЕСЯТИ РЕЧЕНИЙ",
+    "topic": "Полный разбор десяти речений (Шмот 20:1-17)",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
     "path": "content/hebrew/false-roots.md",
     "title": "שָׁרָשִׁים מְדֻמִּים — ЛОЖНЫЕ КОРНИ: СЛОВА-БЛИЗНЕЦЫ",
     "topic": "Ложные корни в иврите. Слова, которые звучат одинаково, но пишутся через разные буквы. אור и עור. Ом",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/first-verses.md",
+    "title": "ПОЛНЫЙ РАЗБОР БЕРЕШИТ 1:1-5",
+    "topic": "Полный разбор первых пяти стихов ТаНаХа",
     "category": "Изучение иврита",
     "subcategory": "",
     "related": [],
@@ -14077,9 +14158,99 @@
     "icon": "lamp.png"
   },
   {
+    "path": "content/hebrew/hebrew-loanwords.md",
+    "title": "ЗАИМСТВОВАНИЯ В ИВРИТЕ",
+    "topic": "Заимствованные слова в ТаНаХе из аккадского, арамейского, египетского",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/hebrew-names.md",
+    "title": "ЗНАЧЕНИЕ ИМЁН В ТаНаХе — ОТ АДАМА ДО ШЛОМО",
+    "topic": "Значение имён в ТаНаХе. Имя как суть",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/hebrew-study-plan.md",
+    "title": "ПЛАН ИЗУЧЕНИЯ ИВРИТА ПО ДНЯМ",
+    "topic": "План изучения иврита по дням — 30 дней до чтения ТаНаХа",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/hebrew-vs-greek.md",
+    "title": "ИВРИТ ПРОТИВ ГРЕЧЕСКОГО — ДВА МЫШЛЕНИЯ",
+    "topic": "Иврит против греческого. Два типа мышления, два языка, два мира",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/indirect-speech.md",
+    "title": "КОСВЕННАЯ РЕЧЬ — לֵאמֹר",
+    "topic": "Косвенная речь в ТаНаХе. Формула לֵאמֹר. Отличие от прямой речи",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/interrogatives.md",
+    "title": "ВОПРОСИТЕЛЬНЫЕ СЛОВА — מָה, מִי, לָמָּה, אֵיךְ",
+    "topic": "Вопросительные слова מָה, מִי, לָמָּה, אֵיךְ и риторические вопросы в ТаНаХе",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
     "path": "content/hebrew/narrative-structure.md",
     "title": "מִבְנֶה סִפּוּרִי — СТРУКТУРА ПОВЕСТВОВАНИЯ: КАК ИВРИТ РАССКАЗЫВАЕТ ИСТОРИИ",
     "topic": "Структура повествования в ТаНаХе. Как иврит рассказывает истории. Вав переворота. Хиазм в повествова",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/negation-types.md",
+    "title": "ОТРИЦАНИЯ — לֹא, אַל, אֵין",
+    "topic": "Отрицания לֹא, אַל, אֵין. Разница в употреблении",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/numbers.md",
+    "title": "ЧИСЛА — ЕДИНСТВЕННОЕ, МНОЖЕСТВЕННОЕ, ДВОЙСТВЕННОЕ",
+    "topic": "Числа в иврите: единственное, множественное, двойственное. Счёт в ТаНаХе",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/paleo-alphabet-deep.md",
+    "title": "𐤁 22 БУКВЫ ПАЛЕО-ИВРИТА ПОДРОБНО",
+    "topic": "22 буквы палео-иврита: форма, значение, звук",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/paleo-creation.md",
+    "title": "𐤁 БЕРЕШИТ 1 ЧЕРЕЗ ПАЛЕО-ИВРИТ",
+    "topic": "Берешит 1 через палео-иврит. Каждое слово в свете древнего письма",
     "category": "Изучение иврита",
     "subcategory": "",
     "related": [],
@@ -14097,6 +14268,24 @@
     "icon": "lamp.png"
   },
   {
+    "path": "content/hebrew/paleo-names.md",
+    "title": "𐤀 ИМЕНА В ПАЛЕО-ИВРИТЕ",
+    "topic": "Имена ТаНаХа, записанные палео-еврейскими буквами",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/paleo-torah.md",
+    "title": "𐤄 ДЕСЯТЬ РЕЧЕНИЙ В ПАЛЕО-ИВРИТЕ",
+    "topic": "Десять речений (Шмот 20) в палео-иврите. Буквальный разбор",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
     "path": "content/hebrew/parallelism.md",
     "title": "תַּקְבִּילָה — ПАРАЛЛЕЛИЗМ: КАК РАБОТАЕТ СТИХ В ТАНАХЕ",
     "topic": "Параллелизм в поэзии ТаНаХа. Как работает стих. Типы параллелизма. Как понимать, а не просто читать.",
@@ -14106,9 +14295,36 @@
     "icon": "lamp.png"
   },
   {
+    "path": "content/hebrew/prepositions.md",
+    "title": "ПРЕДЛОГИ И ПРЕФИКСЫ — ב, כ, ל, מ",
+    "topic": "Предлоги и префиксы ב, כ, ל, מ. Слияние с артиклем",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
     "path": "content/hebrew/pronominal-suffixes.md",
     "title": "כִּנּוּיֵי שַׁיָּכוּת — ПРИТЯЖАТЕЛЬНЫЕ СУФФИКСЫ: МОЙ, ТВОЙ, НАШ",
     "topic": "Притяжательные суффиксы в иврите. Как крепятся к словам. Местоименные окончания. Смихут с суффиксом.",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/psalm-23-deep.md",
+    "title": "ПОЛНЫЙ РАЗБОР ТЕhИЛИМ 23",
+    "topic": "Полный разбор Теhилим 23 — псалом Давида",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/questions-in-tanakh.md",
+    "title": "ВОПРОСЫ В ТаНаХе — ЯХВЕ СПРАШИВАЕТ ЧЕЛОВЕКА",
+    "topic": "Вопросы Яхве к человеку в ТаНаХе. Природа божественного вопроса",
     "category": "Изучение иврита",
     "subcategory": "",
     "related": [],
@@ -14126,9 +14342,27 @@
     "icon": "lamp.png"
   },
   {
+    "path": "content/hebrew/root-dictionary.md",
+    "title": "СЛОВАРЬ 50 ГЛАВНЫХ КОРНЕЙ ТаНаХа",
+    "topic": "50 важнейших корней ТаНаХа с примерами",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
     "path": "content/hebrew/roots.md",
     "title": "КОРНЕВАЯ УПОРЯДОЧЕННОЕ ЦЕЛОЕ → סֵדֶר — ПОРЯДОК. ПОДМЕНА: ПОРЯДОК ЯХВЕ ЗАМЕНЁН НА",
     "topic": "Корневая система иврита — как три согласные буквы порождают сотни слов",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/shema-deep.md",
+    "title": "ПОЛНЫЙ РАЗБОР ШМА ИСРАЭЛЬ",
+    "topic": "Полный разбор Шма Исраэль (Дварим 6:4-9)",
     "category": "Изучение иврита",
     "subcategory": "",
     "related": [],
@@ -14164,6 +14398,15 @@
     "icon": "lamp.png"
   },
   {
+    "path": "content/hebrew/translation-comparison.md",
+    "title": "СРАВНЕНИЕ ПЕРЕВОДОВ",
+    "topic": "Сравнение синодального перевода с ивритским оригиналом",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
     "path": "content/hebrew/verbs.md",
     "title": "ГЛАГОЛЬНАЯ УПОРЯДОЧЕННОЕ ЦЕЛОЕ → סֵדֶר — ПОРЯДОК. ПОДМЕНА: ПОРЯДОК ЯХВЕ ЗАМЕНЁН ",
     "topic": "Урок иврита — глагольная система: завершённое и незавершённое действие, биньяны, корни",
@@ -14172,6 +14415,15 @@
     "related": [
       "content/learn-hebrew/syntax.md"
     ],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/verse-analysis-method.md",
+    "title": "АЛГОРИТМ РАЗБОРА СТИХА",
+    "topic": "Пошаговый алгоритм разбора любого стиха ТаНаХа",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
     "icon": "lamp.png"
   },
   {
@@ -14195,9 +14447,27 @@
     "icon": "lamp.png"
   },
   {
+    "path": "content/hebrew/word-families.md",
+    "title": "СЕМЬИ СЛОВ ОТ ОДНОГО КОРНЯ",
+    "topic": "Семьи слов от одного корня. Как один корень порождает разные значения",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
     "path": "content/hebrew/word-order-emphasis.md",
     "title": "הַטְעָמָה תַּחְבִּירִית — ПОРЯДОК СЛОВ И ЭМФАЗА",
     "topic": "Порядок слов в иврите. Эмфаза. Что стоит первым и почему. Как порядок меняет смысл.",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/word-study-template.md",
+    "title": "ШАБЛОН ИССЛЕДОВАНИЯ СЛОВА",
+    "topic": "Шаблон для глубокого исследования любого слова ТаНаХа",
     "category": "Изучение иврита",
     "subcategory": "",
     "related": [],
