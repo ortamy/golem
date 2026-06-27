@@ -7,12 +7,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accent: "#ff4d00",
-        gold: "#d4a843",
-        parchment: "#f5e6c8",
-        stone: "#2a2a2a",
-        dark: "#1a1a1a",
-        light: "#fafafa",
+        gold: "#b8860b",
+        parchment: "#ede0c8",
+        ivory: "#faf3e0",
+        ink: "#2c1810",
+        muted: "#5c4a3a",
+        red: "#c0392b",
+        green: "#4a7c3f",
+        border: "#d4c4a8",
+      },
+      fontFamily: {
+        heading: ['Cormorant Garamond', 'Georgia', 'Times New Roman', 'serif'],
+        body: ['EB Garamond', 'Georgia', 'Times New Roman', 'serif'],
+        mono: ['Courier New', 'Courier', 'monospace'],
       },
     },
   },

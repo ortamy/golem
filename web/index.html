@@ -1,6 +1,6 @@
 <!-- web/index.html — главная страница веб-интерфейса -->
 <!DOCTYPE html>
-<html lang="ru" class="dark">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark">
+<body>
 
 <!-- Сайдбар -->
 <div id="sidebar">
@@ -29,7 +29,7 @@
         <select id="subcategory-select" onchange="render()" style="display:none;margin-top:6px">
             <option value="">Все подкатегории</option>
         </select>
-        <div id="toggle-theme" onclick="toggleTheme()">◐</div>
+        <div id="toggle-theme" title="Тема едина как Истина">☦</div>
     </div>
 
     <div id="sidebar-actions">
@@ -78,7 +78,7 @@
 <div id="burger-menu">
     <div id="burger-logo">GOLEM</div>
     <div id="burger-actions">
-        <span class="burger-item" onclick="toggleTheme()">◐ Тема</span>
+        <span class="burger-item" style="opacity:0.5;cursor:default">☦ Свет Истины</span>
         <span class="burger-item" onclick="randomFile()">⟳ Случайный</span>
         <span class="burger-item" onclick="copyCurrentLink()">🔗 Копировать</span>
         <span class="burger-item" onclick="window.print()">🖶 Печать</span>

@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="10" fill="#1a1a1a"/>
-  <text x="50" y="68" font-size="60" font-family="serif" fill="#ff4d00" text-anchor="middle">עד</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Свиток / палео-ивритская буква Алеф как favicon -->
+  <rect width="32" height="32" rx="4" fill="#2c1810"/>
+  <!-- Масляная лампа / свиток -->
+  <path d="M6 26 L6 10 Q16 4 26 10 L26 26 Z" fill="#b8860b" stroke="#faf3e0" stroke-width="0.5"/>
+  <rect x="8" y="8" width="16" height="18" rx="1" fill="#faf3e0" opacity="0.9"/>
+  <!-- Текст на свитке — палео-א -->
+  <text x="16" y="22" font-family="serif" font-size="18" text-anchor="middle" fill="#2c1810" font-weight="bold">א</text>
+  <!-- Пламя -->
+  <path d="M14 4 Q16 0 18 4" fill="#b8860b" opacity="0.8"/>
 </svg>

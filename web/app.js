@@ -1,4 +1,4 @@
-// web/app.js — Golem Web Interface v10.0
+// web/app.js — Golem Web Interface v11.0
 
 (function() {
     'use strict';
@@ -24,7 +24,7 @@
 
     // Экранирование HTML для защиты от XSS
     function escHtml(s) {
-        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+        return s.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>').replace(/"/g, '"').replace(/'/g, '&#039;');
     }
 
     function fetchJSON(url, cb) {
@@ -223,7 +223,7 @@ function parseMD(t, fileIcon) {
         // Горизонтальная линия
         if (line.match(/^---$/)) {
             if (inParagraph) { html += '</p>'; inParagraph = false; }
-            html += '<hr>';
+            html += '<hr class="meander">';
             continue;
         }
         
@@ -277,7 +277,7 @@ function parseMD(t, fileIcon) {
                 parseMD(md, iconHtml)+renderRelated(p);
             addToHistory(p); buildTOC(md); setupQuoteCopy();
             void c.offsetWidth; c.classList.add('fade-in');
-        }, function() { c.innerHTML = '<div style="color:#ff4d00;padding:40px;">Ошибка: '+esc(p)+'</div>'; });
+        }, function() { c.innerHTML = '<div style="color:#c0392b;padding:40px;">Ошибка: '+esc(p)+'</div>'; });
     }
 
 
@@ -299,7 +299,7 @@ function parseMD(t, fileIcon) {
                 : '';
             c.innerHTML = parseMD(md, iconHtml)+renderRelatedMobile(p);
             addToHistory(p);
-        }, function() { c.innerHTML = '<div style="color:#ff4d00;padding:40px;">Ошибка: '+esc(p)+'</div>'; });
+        }, function() { c.innerHTML = '<div style="color:#c0392b;padding:40px;">Ошибка: '+esc(p)+'</div>'; });
     }
 
     function closeFile() {
@@ -327,7 +327,7 @@ function parseMD(t, fileIcon) {
     function renderLinks(p, clickFn) {
         var f = FILES.find(function(x){ return x.path===p; });
         if (!f || !f.related || !f.related.length) return '';
-        var h = '<hr><h3>Связанные файлы</h3><ul>';
+        var h = '<hr class="meander"><h3>Связанные файлы</h3><ul>';
         f.related.forEach(function(r) {
             var rf = FILES.find(function(x){ return x.path===r; }), tt = rf?(rf.title||r):r;
             h += '<li><span class="related-link" onclick="'+clickFn.name+'(\''+r.replace(/'/g,"\\'")+'\')">'+esc(tt)+'</span></li>';
@@ -410,36 +410,21 @@ function parseMD(t, fileIcon) {
         navigator.clipboard.writeText(u).then(showToast);
     }
 
-    function toggleTheme() {
-        var b = document.body;
-        var isLight = b.classList.contains('light');
-        b.classList.toggle('light', !isLight);
-        b.classList.toggle('dark', isLight);
-        localStorage.setItem('golem_theme', isLight?'dark':'light');
-    }
-
     // Обработчик ресайза — перерисовывает интерфейс при смене ширины окна
     var lastWidth = window.innerWidth;
     window.addEventListener('resize', function() {
         var w = window.innerWidth;
         if ((lastWidth <= 768) !== (w <= 768)) {
-            // Пересекли границу мобильного/десктопа — перерендериваем
             lastWidth = w;
-            // Сбросим filteredCache и перерисуем
             if (FILES.length) {
                 render();
             }
         } else {
-            // В пределах одного режима — просто обновим layout при необходимости
             lastWidth = w;
         }
     });
 
     // Инициализация
-    if (localStorage.getItem('golem_theme') === 'light') {
-        document.body.classList.remove('dark'); document.body.classList.add('light');
-    }
-
     setFontSize(fontSize);
     window.addEventListener('scroll', updateProgressBar);
     window.addEventListener('scroll', function() {
@@ -455,7 +440,6 @@ function parseMD(t, fileIcon) {
         if (e.key === 'r') randomFile();
     });
 
-    window.toggleTheme = toggleTheme;
     window.toggleBurger = toggleBurger;
     window.closeBurger = closeBurger;
     window.randomFile = randomFile;
@@ -472,6 +456,6 @@ function parseMD(t, fileIcon) {
     }, function(e) {
         console.error(e.message);
         var el = isMobile()?$('mobile-list-view'):$('file-list');
-        if (el) el.innerHTML = '<div style="padding:20px;color:#ff4d00;">Ошибка загрузки</div>';
+        if (el) el.innerHTML = '<div style="padding:20px;color:#c0392b;">Ошибка загрузки</div>';
     });
 })();
