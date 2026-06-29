@@ -9,10 +9,9 @@
 <link rel="stylesheet" href="../style.css">
 <style>
 /* ===== ЛЕНДИНГ — ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ===== */
+html { height: 100%; }
+body { display: block !important; margin: 0; padding: 0; min-height: 100%; height: auto !important; }
 
-<<<<<<< HEAD
-/* Навигационная панель *//* Переключатель языков *//* Секции */
-=======
 /* Навигационная панель */
 .top-bar {
   position: fixed; top: 0; left: 0; right: 0;
@@ -53,7 +52,6 @@
 .lang-switcher select option:disabled { color: #5c4a3a; }
 
 /* Секции */
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
 .section {
   padding: 80px 24px;
   max-width: 960px;
@@ -154,13 +152,8 @@
 
 /* Карточки */
 .card-grid {
-<<<<<<< HEAD
   display: flex;
   flex-direction: column;
-=======
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
   gap: 20px;
   margin: 24px 0;
 }
@@ -229,10 +222,6 @@
 }
 .step-content p { font-size: 16px; color: #5c4a3a; line-height: 1.7; }
 
-<<<<<<< HEAD
-/* Футер *//* Мобильная адаптация */
-@media (max-width: 768px) {
-=======
 /* Футер */
 .site-footer {
   background: #2c1810; color: #8a7a6a;
@@ -263,7 +252,6 @@
   .top-bar .logo { font-size: 16px; letter-spacing: 2px; }
   .top-bar nav { gap: 10px; }
   .top-bar nav a { font-size: 12px; }
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
   .hero h1 { font-size: 28px; }
   .hero p { font-size: 17px; }
   .hero::before { font-size: 100px; letter-spacing: 30px; }
@@ -271,10 +259,7 @@
   .section { padding: 50px 16px; }
   .section-dark .section-inner { padding: 50px 16px; }
   .section-title { font-size: 26px; }
-<<<<<<< HEAD
-=======
   .card-grid { grid-template-columns: 1fr; }
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
   .btn { padding: 10px 20px; font-size: 14px; }
 }
 
@@ -285,6 +270,8 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
 </style>
 </head>
 <body>
+
+<div id="landing-wrap" style="display:block !important; width:100%;">
 
 <!-- ===== ВЕРХНЯЯ ПАНЕЛЬ ===== -->
 <header class="top-bar">
@@ -308,12 +295,9 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
       </select>
     </span>
   </nav>
-<<<<<<< HEAD
   <div class="hamburger-btn" onclick="toggleSidePanel()">
     <span></span><span></span><span></span>
   </div>
-=======
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
 </header>
 
 <!-- ===== СЕКЦИЯ 1 — ГЕРОЙ ===== -->
@@ -455,7 +439,6 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
   <div class="footer-copy">Проект «Голем». Восстановление истины. Яхве один.</div>
 </footer>
 
-<<<<<<< HEAD
 <!-- ===== БОКОВАЯ ПАНЕЛЬ (ГАМБУРГЕР) ===== -->
 <div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
 <div class="side-panel" id="sidePanel">
@@ -478,7 +461,7 @@ function toggleSidePanel() {
 }
 </script>
 
-=======
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
+</div><!-- /landing-wrap -->
+
 </body>
 </html>

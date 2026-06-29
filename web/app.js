@@ -13,6 +13,7 @@
         fontSize = localStorage.getItem('golem_fontSize') || 'medium',
         filteredCache = null;
 
+    document.body.classList.add('app-mode');
     function isMobile() { return window.innerWidth <= 768; }
     function $(id) { return document.getElementById(id); }
 

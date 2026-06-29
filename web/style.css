@@ -21,10 +21,13 @@ body {
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   font-size: 18px;
   line-height: 1.8;
-  display: flex;
-  height: 100vh;
   background: #ede0c8;
   color: #2c1810;
+  margin: 0;
+}
+body.app-mode {
+  display: flex;
+  height: 100vh;
 }
 ::selection {
   background: #b8860b;

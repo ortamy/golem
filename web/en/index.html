@@ -8,9 +8,10 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="stylesheet" href="../style.css">
 <style>
-<<<<<<< HEAD
-/* Shared landing styles (same as ru/index.html) */.section { padding: 80px 24px; max-width: 960px; margin: 0 auto; position: relative; }
-=======
+/* ===== RESET FOR LANDING (override global body { display:flex } from style.css) ===== */
+html, body { height: 100%; margin: 0; }
+body { display: block !important; height: auto !important; min-height: 100vh; }
+
 /* Shared landing styles (same as ru/index.html) */
 .top-bar {
   position: fixed; top: 0; left: 0; right: 0;
@@ -45,7 +46,6 @@
 .lang-switcher select option { background: #2c1810; color: #ede0c8; }
 .lang-switcher select option:disabled { color: #5c4a3a; }
 .section { padding: 80px 24px; max-width: 960px; margin: 0 auto; position: relative; }
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
 .section-dark { background: #2c1810; color: #ede0c8; max-width: 100%; padding-left: 0; padding-right: 0; }
 .section-dark .section-inner { max-width: 960px; margin: 0 auto; padding: 80px 24px; }
 .hero {
@@ -93,11 +93,7 @@
   border-bottom: 2px solid #d4c4a8;
 }
 .section-dark .section-title { border-bottom-color: #5c3a2a; }
-<<<<<<< HEAD
 .card-grid { display: flex; flex-direction: column; gap: 20px; margin: 24px 0; }
-=======
-.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 24px 0; }
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
 .card {
   background: #faf3e0; border: 1px solid #d4c4a8; border-radius: 4px;
   padding: 28px; transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -118,9 +114,6 @@
 .step-number { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; font-weight: 700; color: #b8860b; min-width: 48px; }
 .step-content { flex: 1; }
 .step-content h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 600; color: #2c1810; margin-bottom: 4px; }
-<<<<<<< HEAD
-.step-content p { font-size: 16px; color: #5c4a3a; line-height: 1.7; }@media (max-width: 768px) {
-=======
 .step-content p { font-size: 16px; color: #5c4a3a; line-height: 1.7; }
 .site-footer { background: #2c1810; color: #8a7a6a; padding: 40px 24px 24px; text-align: center; }
 .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
@@ -133,7 +126,6 @@
   .top-bar .logo { font-size: 16px; letter-spacing: 2px; }
   .top-bar nav { gap: 10px; }
   .top-bar nav a { font-size: 12px; }
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
   .hero h1 { font-size: 28px; }
   .hero p { font-size: 17px; }
   .hero::before { font-size: 100px; letter-spacing: 30px; }
@@ -141,10 +133,7 @@
   .section { padding: 50px 16px; }
   .section-dark .section-inner { padding: 50px 16px; }
   .section-title { font-size: 26px; }
-<<<<<<< HEAD
-=======
   .card-grid { grid-template-columns: 1fr; }
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
   .btn { padding: 10px 20px; font-size: 14px; }
 }
 </style>
@@ -172,12 +161,9 @@
       </select>
     </span>
   </nav>
-<<<<<<< HEAD
   <div class="hamburger-btn" onclick="toggleSidePanel()">
     <span></span><span></span><span></span>
   </div>
-=======
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
 </header>
 
 <section class="hero">
@@ -312,7 +298,6 @@
   <div class="footer-copy">Project "Golem". Restoring truth. Yahveh is one.</div>
 </footer>
 
-<<<<<<< HEAD
 <!-- ===== SIDE PANEL (HAMBURGER) ===== -->
 <div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
 <div class="side-panel" id="sidePanel">
@@ -335,7 +320,5 @@ function toggleSidePanel() {
 }
 </script>
 
-=======
->>>>>>> 4134747d0acce50fc80b7f802c0236836185eefd
 </body>
 </html>
