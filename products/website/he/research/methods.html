@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שיטות חשיפה — פרויקט «גולם»</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <span class="logo-text" onclick="location.href='../index.html'">גולם</span>
+        <button class="burger-btn" onclick="toggleSidePanel()">☰</button>
+    </header>
+
+    <div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
+    <div class="side-panel" id="sidePanel">
+        <button class="side-panel-close" onclick="toggleSidePanel()">✕</button>
+        <div class="side-panel-links">
+            <a href="../index.html">Главная</a>
+            <a href="index.html">Исследования</a>
+            <a href="methods.html">Методы разоблачения</a>
+            <a href="dictionaries.html">Словари</a>
+            <a href="methodology.html">Методология</a>
+            <a href="checkers.html">Чекеры</a>
+            <a href="../../content/hebrew">Иврит</a>
+            <a href="../about/index.html">О проекте</a>
+        </div>
+        <div class="lang-switcher">
+            <a href="../../ru/research/methods.html">RU</a>
+            <a href="../../en/research/methods.html">EN</a>
+            <a href="methods.html" class="active">HE</a>
+        </div>
+    </div>
+
+    <main class="content">
+        <h1>שיטות חשיפה</h1>
+        <p class="subtitle">עשר שיטות לשוניות החושפות עיוותים בתרגומים ומחזירות למקור העברי.</p>
+
+        <div class="cards-grid">
+
+            <div class="card">
+                <div class="card-icon">🔪</div>
+                <h2 class="card-title">ניתוח אטימולוגי</h2>
+                <p class="card-desc">חותכים את התרגום ומגיעים לשורש התלת-עיצורי. מראים מה המילה משמעותה במקור.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">𐤀</div>
+                <h2 class="card-title">מומחיות פליאוגרפית</h2>
+                <p class="card-desc">מפרקים את המילה לאותיות פליאו-עבריות וקוראים אותה כרצף של תמונות.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🕸</div>
+                <h2 class="card-title">השוואה שמית</h2>
+                <p class="card-desc">משווים את המילה העברית למילים דומות בערבית, ארמית, אכדית.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📐</div>
+                <h2 class="card-title">חשיפה מורפולוגית</h2>
+                <p class="card-desc">מראים שהצורה הדקדוקית נושאת משמעות שהתרגום מאבד.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📏</div>
+                <h2 class="card-title">ניתוח תחבירי</h2>
+                <p class="card-desc">סדר המילים בעברית נושא משמעות. הדגשה. מה שבא ראשון — חשוב.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <h2 class="card-title">שחזור סמנטי</h2>
+                <p class="card-desc">מראים את כל משמעויות השורש בתנ"ך. לא רק אחת. את כולן.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h2 class="card-title">זיהוי פונקציונלי</h2>
+                <p class="card-desc">מראים שמילה בעברית מתארת לא טבע אלא פעולה. לא "מי" אלא "מה זה עושה".</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🖼</div>
+                <h2 class="card-title">מיפוי תמונתי</h2>
+                <p class="card-desc">מילים עבריות מושרשות במציאות פיזית. יש להן ריח, צליל, משקל.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⛓️</div>
+                <h2 class="card-title">שבירת שרשרת התרגום</h2>
+                <p class="card-desc">צועדים לאורך כל השרשרת: סינודלי ← סלאבי ← לטיני ← יווני ← עברי.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔗</div>
+                <h2 class="card-title">אבחון סמיכות</h2>
+                <p class="card-desc">סמיכות היא חיבור. שתי מילים הופכות לאחת. המערכת שוברת את הסמיכות.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-copy">פרויקט «גולם». השבת האמת. יהוה אחד.</div>
+    </footer>
+
+    <script>
+        function toggleSidePanel() {
+            document.getElementById('sidePanel').classList.toggle('open');
+            document.getElementById('sidePanelOverlay').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

@@ -121,6 +121,37 @@ body { display: block !important; height: auto !important; min-height: 100vh; }
 .footer-links a:hover { border-bottom-color: #b8860b; }
 .footer-copy { font-size: 12px; letter-spacing: 2px; font-family: 'Cormorant Garamond', Georgia, serif; }
 
+/* Side panel language switcher */
+.side-panel-lang-switcher {
+  padding: 20px 24px;
+  border-top: 1px solid #4a3020;
+  margin-top: auto;
+}
+.side-panel-lang-switcher select {
+  width: 100%;
+  background: #3a2215;
+  color: #ede0c8;
+  border: 1px solid #5c3a2a;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.side-panel-lang-switcher select:focus {
+  border-color: #b8860b;
+}
+.side-panel-lang-switcher select option {
+  background: #2c1810;
+  color: #ede0c8;
+}
+.side-panel-lang-switcher select option:disabled {
+  color: #5c4a3a;
+}
+
 @media (max-width: 768px) {
   .top-bar { padding: 0 14px; }
   .top-bar .logo { font-size: 16px; letter-spacing: 2px; }
@@ -142,25 +173,6 @@ body { display: block !important; height: auto !important; min-height: 100vh; }
 
 <header class="top-bar">
   <div class="logo"><a href="index.html">GOLEM</a></div>
-  <nav>
-    <a href="research/index.html">Research</a>
-    <a href="about/index.html">About</a>
-    <span class="lang-switcher">
-      <select onchange="if(this.value) window.location.href=this.value;">
-        <option value="" selected>EN</option>
-        <option value="../ru/index.html">RU</option>
-        <option value="../he/index.html">HE</option>
-        <option value="" disabled>ES (soon)</option>
-        <option value="" disabled>DE (soon)</option>
-        <option value="" disabled>FR (soon)</option>
-        <option value="" disabled>PT (soon)</option>
-        <option value="" disabled>AR (soon)</option>
-        <option value="" disabled>ZH (soon)</option>
-        <option value="" disabled>JA (soon)</option>
-        <option value="" disabled>KO (soon)</option>
-      </select>
-    </span>
-  </nav>
   <div class="hamburger-btn" onclick="toggleSidePanel()">
     <span></span><span></span><span></span>
   </div>
@@ -306,11 +318,29 @@ body { display: block !important; height: auto !important; min-height: 100vh; }
     <button class="side-panel-close" onclick="toggleSidePanel()">✕</button>
   </div>
   <div class="side-panel-links">
-    <a href="index.html">Home</a>
-    <a href="research/index.html">Research</a>
-    <a href="../content/hebrew">Hebrew</a>
-    <a href="about/index.html">About</a>
-    <a href="about/index.html">Manifesto</a>
+            <a href="../index.html">Главная</a>
+            <a href="index.html">Исследования</a>
+            <a href="methods.html">Методы разоблачения</a>
+            <a href="dictionaries.html">Словари</a>
+            <a href="methodology.html">Методология</a>
+            <a href="checkers.html">Чекеры</a>
+            <a href="../../content/hebrew">Иврит</a>
+            <a href="../about/index.html">О проекте</a>
+        </div>
+  <div class="side-panel-lang-switcher">
+    <select onchange="if(this.value) window.location.href=this.value;">
+      <option value="" selected>EN</option>
+      <option value="../ru/index.html">RU</option>
+      <option value="../he/index.html">HE</option>
+      <option value="" disabled>ES (soon)</option>
+      <option value="" disabled>DE (soon)</option>
+      <option value="" disabled>FR (soon)</option>
+      <option value="" disabled>PT (soon)</option>
+      <option value="" disabled>AR (soon)</option>
+      <option value="" disabled>ZH (soon)</option>
+      <option value="" disabled>JA (soon)</option>
+      <option value="" disabled>KO (soon)</option>
+    </select>
   </div>
 </div>
 <script>

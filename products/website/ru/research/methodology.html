@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Методология — Голем</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+<style>
+body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.5; background: #ede0c8; color: #2c1810; margin: 0; padding-top: 56px; }
+h1, h2, h3 { line-height: 1.2; }
+p, li { line-height: 1.5; margin-bottom: 4px; }
+.top-bar { position: fixed; top: 0; left: 0; right: 0; background: #2c1810; color: #ede0c8; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; z-index: 2001; border-bottom: 1px solid #4a3020; }
+.top-bar .logo a { color: #b8860b; text-decoration: none; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 700; font-style: italic; letter-spacing: 4px; }
+.content { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+.content h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin: 0 0 8px 0; }
+.content .subtitle { color: #5c4a3a; margin: 0 0 32px 0; }
+.cards-grid { display: flex; flex-direction: column; gap: 12px; }
+.card { background: #faf3e0; border: 1px solid #d4c4a8; border-radius: 4px; padding: 20px 24px; }
+.card h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 600; color: #2c1810; margin: 0 0 4px 0; }
+.card p { font-size: 15px; color: #5c4a3a; margin: 0; }
+.site-footer { background: #2c1810; color: #8a7a6a; padding: 40px 24px 24px; text-align: center; margin-top: 60px; }
+.footer-copy { font-size: 12px; letter-spacing: 2px; font-family: 'Cormorant Garamond', Georgia, serif; }
+@media (max-width:768px) { .content { padding: 20px 16px; } }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="logo"><a href="../index.html">ГОЛЕМ</a></div>
+  <div class="hamburger-btn" onclick="toggleSidePanel()"><span></span><span></span><span></span></div>
+</header>
+
+<main class="content">
+  <h1>Методология</h1>
+  <p class="subtitle">Принципы и правила восстановления истины. Как мы работаем с текстом, переводами и историей.</p>
+
+  <div class="cards-grid">
+    <div class="card"><h2>Археология смысла</h2><p>Метод послойного снятия исторических напластований с понятия. Как слово понимали в разные эпохи — от ТаНаХа до современности.</p></div>
+    <div class="card"><h2>Метод послойного вскрытия</h2><p>Обратное движение от современного перевода к ивритскому источнику через шесть слоёв: русский, славянский, латынь, греческий, иврит.</p></div>
+    <div class="card"><h2>Реконструкция ивритского подтекста</h2><p>Восстановление ивритского оригинала там, где он был утерян. Обратная семитизация греческих и латинских понятий.</p></div>
+    <div class="card"><h2>Методология перевода</h2><p>Правила и принципы честного перевода с иврита. Как передать смысл, не искажая его греко-римскими категориями.</p></div>
+    <div class="card"><h2>Методология транслитерации</h2><p>Стандарт передачи ивритских слов русскими буквами. Чтобы имена и понятия были узнаваемы.</p></div>
+    <div class="card"><h2>Проверка через Шма</h2><p>Каждое утверждение должно пройти проверку фундаментом: «Яхве один». Всё, что противоречит этому — ложь.</p></div>
+    <div class="card"><h2>Принцип «Кто? Когда? Зачем?»</h2><p>Для каждой подмены нужно ответить на три вопроса: Кто это сделал? Когда? Зачем? Без ответов подмена не доказана.</p></div>
+    <div class="card"><h2>Принцип плодов</h2><p>Если учение принесло плоды смерти — инквизицию, погромы, разрушение семей — оно не от Яхве. Дерево познаётся по плодам.</p></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-copy">Проект «Голем». Восстановление истины. Яхве один.</div>
+</footer>
+
+<div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
+<div class="side-panel" id="sidePanel">
+  <div class="side-panel-header"><span class="logo-text">ГОЛЕМ</span><button class="side-panel-close" onclick="toggleSidePanel()">✕</button></div>
+  <div class="side-panel-links">
+    <a href="../index.html">Главная</a><a href="index.html">Исследования</a><a href="methods.html">Методы разоблачения</a><a href="dictionaries.html">Словари</a><a href="methodology.html">Методология</a><a href="checkers.html">Чекеры</a><a href="../../content/hebrew">Иврит</a><a href="../about/index.html">О проекте</a>
+  </div>
+  <div class="side-panel-lang-switcher">
+    <select onchange="if(this.value) window.location.href=this.value;">
+      <option value="" selected>RU</option>
+      <option value="../../en/research/methodology.html">EN</option>
+      <option value="../../he/research/methodology.html">HE</option>
+    </select>
+  </div>
+</div>
+
+<script>
+function toggleSidePanel(){document.getElementById('sidePanel').classList.toggle('open');document.getElementById('sidePanelOverlay').classList.toggle('show');}
+</script>
+
+</body>
+</html>

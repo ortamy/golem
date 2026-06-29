@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods of Exposure — Project «Golem»</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <span class="logo-text" onclick="location.href='../index.html'">GOLEM</span>
+        <button class="burger-btn" onclick="toggleSidePanel()">☰</button>
+    </header>
+
+    <div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
+    <div class="side-panel" id="sidePanel">
+        <button class="side-panel-close" onclick="toggleSidePanel()">✕</button>
+        <div class="side-panel-links">
+            <a href="../index.html">Главная</a>
+            <a href="index.html">Исследования</a>
+            <a href="methods.html">Методы разоблачения</a>
+            <a href="dictionaries.html">Словари</a>
+            <a href="methodology.html">Методология</a>
+            <a href="checkers.html">Чекеры</a>
+            <a href="../../content/hebrew">Иврит</a>
+            <a href="../about/index.html">О проекте</a>
+        </div>
+        <div class="lang-switcher">
+            <a href="../../ru/research/methods.html">RU</a>
+            <a href="methods.html" class="active">EN</a>
+            <a href="../../he/research/methods.html">HE</a>
+        </div>
+    </div>
+
+    <main class="content">
+        <h1>Methods of Exposure</h1>
+        <p class="subtitle">Ten linguistic methods that expose distortions in translations and return to the Hebrew original.</p>
+
+        <div class="cards-grid">
+
+            <div class="card">
+                <div class="card-icon">🔪</div>
+                <h2 class="card-title">Etymological Surgery</h2>
+                <p class="card-desc">We cut through the translation and reach the three-letter root. We show what the word meant originally, before the system disguised it.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">𐤀</div>
+                <h2 class="card-title">Paleographic Expertise</h2>
+                <p class="card-desc">We break the word into Paleo-Hebrew letters and read it as a sequence of images. The meaning of the word is embedded in its form.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🕸</div>
+                <h2 class="card-title">Comparative Semitology</h2>
+                <p class="card-desc">We compare the Hebrew word with related words in Arabic, Aramaic, and Akkadian. We reveal the common semantic core.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📐</div>
+                <h2 class="card-title">Morphological Exposure</h2>
+                <p class="card-desc">We show that the grammatical form of a word carries meaning that translation loses. Binyan, number, gender, tense — this is theology.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📏</div>
+                <h2 class="card-title">Syntactic Dissection</h2>
+                <p class="card-desc">Hebrew word order carries meaning. Emphasis. What comes first is what matters. Translations smooth out the order, losing the accents.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <h2 class="card-title">Semantic Reconstruction</h2>
+                <p class="card-desc">We show all meanings of the root in the Tanakh. Not just one dictionary meaning. All of them. In different contexts. We restore the full picture.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h2 class="card-title">Functional Identification</h2>
+                <p class="card-desc">We show that a word in Hebrew describes not a nature but an action. Not "who" but "what it does." The system turned functions into beings.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🖼</div>
+                <h2 class="card-title">Imagery Mapping</h2>
+                <p class="card-desc">Hebrew words are rooted in physical reality. They smell, they sound, they have weight. We return the flesh to the image.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⛓️</div>
+                <h2 class="card-title">Translation Chain Disruption</h2>
+                <p class="card-desc">We walk the entire chain: Synodal → Slavonic → Latin → Greek → Hebrew. At each step, we show what was lost.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔗</div>
+                <h2 class="card-title">Smikhut Diagnostics</h2>
+                <p class="card-desc">Smikhut is fusion. Two words become one. The system breaks the smikhut, creating false distance. We restore the unity.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-copy">Project «Golem». Restoring truth. Yahweh is one.</div>
+    </footer>
+
+    <script>
+        function toggleSidePanel() {
+            document.getElementById('sidePanel').classList.toggle('open');
+            document.getElementById('sidePanelOverlay').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

@@ -1,11 +1,10 @@
-// web/server.js — сервер для локальной разработки
-// docs/web/server.js — динамический сервер Golem (Node.js)
+// products/website/server.js — сервер для локальной разработки
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
 const PORT = 8080;
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = path.resolve(__dirname, '../..');
 const WEB_DIR = __dirname;
 
 const SCAN_DIRS = [
@@ -178,7 +177,61 @@ function extractRelated(content) {
     return related;
 }
 
-// Сервер
+function renderMdPage(title, content, filePath) {
+    let html = content
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+        .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/^\> (.+)$/gm, '<blockquote>$1</blockquote>')
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/\n/g, '<br>');
+
+    html = '<p>' + html + '</p>';
+
+    return `<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title} — Голем</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/style.css">
+<style>
+body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.8; background: #ede0c8; color: #2c1810; margin: 0; padding-top: 56px; }
+.top-bar { position: fixed; top: 0; left: 0; right: 0; background: #2c1810; color: #ede0c8; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; z-index: 1000; border-bottom: 1px solid #4a3020; }
+.top-bar .logo { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 700; font-style: italic; color: #b8860b; letter-spacing: 4px; }
+.top-bar .logo a { color: #b8860b; text-decoration: none; }
+.md-content { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+.md-content h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin-bottom: 8px; }
+.md-content h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; color: #b8860b; margin-top: 32px; margin-bottom: 16px; }
+.md-content h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; color: #2c1810; margin-top: 24px; }
+.md-content p { margin-bottom: 16px; }
+.md-content code { background: #faf3e0; padding: 2px 6px; border-radius: 3px; font-size: 15px; border: 1px solid #d4c4a8; }
+.md-content blockquote { border-left: 3px solid #b8860b; padding-left: 16px; margin-left: 0; color: #5c4a3a; font-style: italic; }
+.site-footer { background: #2c1810; color: #8a7a6a; padding: 40px 24px 24px; text-align: center; margin-top: 60px; }
+.footer-copy { font-size: 12px; letter-spacing: 2px; font-family: 'Cormorant Garamond', Georgia, serif; }
+</style>
+</head>
+<body>
+<header class="top-bar">
+  <div class="logo"><a href="/ru/index.html">ГОЛЕМ</a></div>
+</header>
+<main class="md-content">
+${html}
+</main>
+<footer class="site-footer">
+  <div class="footer-copy">Проект «Голем». Восстановление истины. Яхве один.</div>
+</footer>
+</body>
+</html>`;
+}
+
 const server = http.createServer((req, res) => {
     const url = new URL(req.url, `http://localhost:${PORT}`);
     const pathname = url.pathname;
@@ -223,6 +276,32 @@ const server = http.createServer((req, res) => {
             const content = fs.readFileSync(fullPath, 'utf-8');
             res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
             res.end(content);
+        } catch (e) {
+            res.writeHead(500);
+            res.end('Error reading file');
+        }
+        return;
+    }
+
+    if (pathname === '/view') {
+        const filePath = url.searchParams.get('path');
+        if (!filePath || !filePath.endsWith('.md')) {
+            res.writeHead(400);
+            res.end('Missing path parameter');
+            return;
+        }
+        const fullPath = path.join(ROOT, filePath);
+        if (!fs.existsSync(fullPath)) {
+            res.writeHead(404);
+            res.end('File not found');
+            return;
+        }
+        try {
+            const content = fs.readFileSync(fullPath, 'utf-8');
+            const title = extractTitle(content) || filePath.replace('.md', '').replace(/-/g, ' ');
+            const html = renderMdPage(title, content, filePath);
+            res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+            res.end(html);
         } catch (e) {
             res.writeHead(500);
             res.end('Error reading file');
