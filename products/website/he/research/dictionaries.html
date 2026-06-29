@@ -4,21 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>מילונים</title>
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
 <style>
-body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.5; background: #ede0c8; color: #2c1810; margin: 0; padding-top: 56px; }
+body { font-family: 'EB Garamond', 'Times New Roman', serif; font-size: 18px; line-height: 1.5; background: #ede0c8; color: #2c1810; margin: 0; padding-top: 56px; }
 h1, h2, h3 { line-height: 1.2; }
-p, li, blockquote { line-height: 1.5; margin-bottom: 4px; }
-.top-bar { position: fixed; top: 0; left: 0; right: 0; background: #2c1810; color: #ede0c8; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; z-index: 2001; border-bottom: 1px solid #4a3020; }
-.top-bar.logo a { color: #b8860b; text-decoration: none; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 700; font-style: italic; letter-spacing: 4px; }
+.top-bar { position: fixed; top: 0; left: 0; right: 0; background: #2c1810; color: #ede0c8; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; z-index: 2001; border-bottom: 1px solid #4a3020; direction: rtl; }
+.top-bar .logo a { color: #b8860b; text-decoration: none; font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 20px; font-weight: 700; font-style: italic; letter-spacing: 4px; }
 #page-view { max-width: 900px; margin: 0 auto; padding: 24px; }
-#page-view h1 { text-align: center; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin: 0 0 8px 0; }
+#page-view h1 { text-align: center; font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin: 0 0 8px 0; }
 .site-footer { background: #2c1810; color: #8a7a6a; padding: 40px 24px 24px; text-align: center; margin-top: 60px; }
-.footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
-.footer-links a { color: #b8860b; text-decoration: none; font-size: 14px; letter-spacing: 1px; font-family: 'EB Garamond', Georgia, serif; }
-.footer-links a:hover { text-decoration: underline; }
-.footer-copy { font-size: 12px; letter-spacing: 2px; font-family: 'Cormorant Garamond', Georgia, serif; }
+.footer-copy { font-size: 12px; letter-spacing: 2px; font-family: 'Cormorant Garamond', 'Times New Roman', serif; }
 @media (max-width:768px) { #page-view { padding: 16px; } }
 </style>
 </head>
@@ -26,42 +22,17 @@ p, li, blockquote { line-height: 1.5; margin-bottom: 4px; }
 
 <header class="top-bar">
   <div class="logo"><a href="index.html">גולם</a></div>
-  <div class="hamburger-btn" onclick="toggleSidePanel()"><span></span><span></span><span></span></div>
 </header>
 
 <div id="page-view">
   <h1>מילונים</h1>
-  <p>מילונים של מונחים ראשיים בתנ"ך</p>
+  <p>מילונים של מונחים מפתח בתנ״ך</p>
 </div>
 
 <footer class="site-footer">
-  <div class="footer-links">
-    <a href="about/index.html">מניפסט</a>
-    <a href="research/index.html">מחקרים</a>
-    <a href="../content/hebrew">עברית</a>
-    <a href="about/index.html">על הפרויקט</a>
-    <a href="https://github.com/ortamy/golem">GitHub</a>
-  </div>
-  <div class="footer-copy">פרויקט גולם. השבת האמת. יהוה אחד.</div>
+  <div class="footer-copy">פרויקט "גולם". שחזור האמת. יהוה אחד.</div>
 </footer>
 
-<div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
-<div class="side-panel" id="sidePanel">
-  <div class="side-panel-header"><span class="logo-text">גולם</span><button class="side-panel-close" onclick="toggleSidePanel()">✕</button></div>
-  <div class="side-panel-links">
-    <a href="index.html">בית</a><a href="tanakh/index.html">תנ"ך</a><a href="checker/index.html">בדיקה</a><a href="word/index.html">מילים</a><a href="../content/hebrew">עברית</a><a href="about/index.html">על הפרויקט</a>
-  </div>
-  <div class="side-panel-lang-switcher">
-    <select onchange="if(this.value) window.location.href=this.value;">
-      <option value="" selected>HE</option>
-      <option value="../ru/research/dictionaries.html">RU</option>
-      <option value="../en/research/dictionaries.html">EN</option>
-    </select>
-  </div>
-</div>
-
-<script>
-function toggleSidePanel(){document.getElementById('sidePanel').classList.toggle('open');document.getElementById('sidePanelOverlay').classList.toggle('show');}
-</script>
+<script src="../../js/burger-menu.js"></script>
 </body>
 </html>

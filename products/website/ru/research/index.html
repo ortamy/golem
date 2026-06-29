@@ -74,38 +74,12 @@ img { max-width: 24px; height: auto; display: inline-block; vertical-align: midd
   <div class="footer-links">
     <a href="../about/index.html">Манифест</a>
     <a href="index.html">Исследования</a>
-    <a href="../../content/hebrew">Иврит</a>
     <a href="../about/index.html">О проекте</a>
     <a href="https://github.com/ortamy/golem">GitHub</a>
   </div>
   <div class="footer-copy">Проект «Голем». Восстановление истины. Яхве один.</div>
 </footer>
 
-<div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
-<div class="side-panel" id="sidePanel">
-  <div class="side-panel-header"><span class="logo-text">ГОЛЕМ</span><button class="side-panel-close" onclick="toggleSidePanel()">✕</button></div>
-  <div class="side-panel-links">
-    <a href="../index.html">Главная</a><a href="index.html">Исследования</a><a href="methods.html">Методы разоблачения</a><a href="dictionaries.html">Словари</a><a href="methodology.html">Методология</a><a href="../../content/hebrew">Иврит</a><a href="../about/index.html">О проекте</a>
-  </div>
-  <div class="side-panel-lang-switcher">
-    <select onchange="if(this.value) window.location.href=this.value;">
-      <option value="" selected>RU</option>
-      <option value="../../en/research/index.html">EN</option>
-      <option value="../../he/research/index.html">HE</option>
-      <option value="" disabled>ES (скоро)</option>
-      <option value="" disabled>DE (скоро)</option>
-      <option value="" disabled>FR (скоро)</option>
-      <option value="" disabled>PT (скоро)</option>
-      <option value="" disabled>AR (скоро)</option>
-      <option value="" disabled>ZH (скоро)</option>
-      <option value="" disabled>JA (скоро)</option>
-      <option value="" disabled>KO (скоро)</option>
-    </select>
-  </div>
-</div>
-
-<script>
-function toggleSidePanel(){document.getElementById('sidePanel').classList.toggle('open');document.getElementById('sidePanelOverlay').classList.toggle('show');}
 var RESEARCH_FILES=[];
 fetch('../../files.json').then(function(r){return r.json()}).then(function(d){RESEARCH_FILES=d;buildFilters();checkUrl();});
 function buildFilters(){var cats={};RESEARCH_FILES.forEach(function(f){var c=f.category||'Без категории';if(!cats[c])cats[c]={};var s=f.subcategory||'';if(s)cats[c][s]=true;});var s=document.getElementById('filter-category');Object.keys(cats).sort().forEach(function(c){var o=document.createElement('option');o.value=c;o.textContent=c+' ('+RESEARCH_FILES.filter(function(f){return(f.category||'Без категории')===c;}).length+')';s.appendChild(o);});}
@@ -118,5 +92,6 @@ function mdToHtml(md){var h=md;h=h.replace(/(\*\*Метаданные файла
 function backToList(){document.getElementById('file-view').style.display='none';document.getElementById('back-to-list').style.display='none';document.getElementById('research-view').style.display='block';window.history.pushState({},'','index.html');window.scrollTo(0,0);}
 window.addEventListener('popstate',function(){checkUrl();});
 </script>
+<script src="../../js/burger-menu.js"></script>
 </body>
 </html>

@@ -443,7 +443,6 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
   <div class="footer-links">
     <a href="about/index.html">Манифест</a>
     <a href="research/index.html">Исследования</a>
-    <a href="../content/hebrew">Иврит</a>
     <a href="about/index.html">О проекте</a>
     <a href="https://github.com/ortamy/golem">GitHub</a>
     <a href="#" onclick="alert('Скоро'); return false;">Войти</a>
@@ -451,49 +450,9 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
   <div class="footer-copy">Проект «Голем». Восстановление истины. Яхве один.</div>
 </footer>
 
-<!-- ===== БОКОВАЯ ПАНЕЛЬ (ГАМБУРГЕР) ===== -->
-<div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
-<div class="side-panel" id="sidePanel">
-  <div class="side-panel-header">
-    <span class="logo-text">ГОЛЕМ</span>
-    <button class="side-panel-close" onclick="toggleSidePanel()">✕</button>
-  </div>
-  <div class="side-panel-links">
-            <div class="side-panel-links">
-              <a href="index.html">Главная</a>
-              <a href="research/index.html">Исследования</a>
-              <a href="research/methods.html">Методы разоблачения</a>
-              <a href="research/dictionaries.html">Словари</a>
-              <a href="research/methodology.html">Методология</a>
-              <a href="../content/hebrew">Иврит</a>
-              <a href="about/index.html">О проекте</a>
-            </div>
-          </div>  
-        </div>
-  <div class="side-panel-lang-switcher">
-    <select onchange="if(this.value) window.location.href=this.value;">
-      <option value="" selected>RU</option>
-      <option value="../en/index.html">EN</option>
-      <option value="../he/index.html">HE</option>
-      <option value="" disabled>ES (скоро)</option>
-      <option value="" disabled>DE (скоро)</option>
-      <option value="" disabled>FR (скоро)</option>
-      <option value="" disabled>PT (скоро)</option>
-      <option value="" disabled>AR (скоро)</option>
-      <option value="" disabled>ZH (скоро)</option>
-      <option value="" disabled>JA (скоро)</option>
-      <option value="" disabled>KO (скоро)</option>
-    </select>
-  </div>
-</div>
-<script>
-function toggleSidePanel() {
-  document.getElementById('sidePanel').classList.toggle('open');
-  document.getElementById('sidePanelOverlay').classList.toggle('show');
-}
-</script>
 
 </div><!-- /landing-wrap -->
 
+<script src="../js/burger-menu.js"></script>
 </body>
 </html>

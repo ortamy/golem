@@ -3,65 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>אמצעים</title>
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="stylesheet" href="../style.css">
+<title>שיטות חשיפה</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
 <style>
-body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.5; background: #ede0c8; color: #2c1810; margin: 0; padding-top: 56px; }
+body { font-family: 'EB Garamond', 'Times New Roman', serif; font-size: 18px; line-height: 1.5; background: #ede0c8; color: #2c1810; margin: 0; padding-top: 56px; }
 h1, h2, h3 { line-height: 1.2; }
-p, li, blockquote { line-height: 1.5; margin-bottom: 4px; }
-.top-bar { position: fixed; top: 0; left: 0; right: 0; background: #2c1810; color: #ede0c8; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; z-index: 2001; border-bottom: 1px solid #4a3020; }
-.top-bar.logo a { color: #b8860b; text-decoration: none; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 700; font-style: italic; letter-spacing: 4px; }
-#page-view { max-width: 900px; margin: 0 auto; padding: 24px; }
-#page-view h1 { text-align: center; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin: 0 0 8px 0; }
+p, li { line-height: 1.5; margin-bottom: 4px; }
+.top-bar { position: fixed; top: 0; left: 0; right: 0; background: #2c1810; color: #ede0c8; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; z-index: 2001; border-bottom: 1px solid #4a3020; direction: rtl; }
+.top-bar .logo a { color: #b8860b; text-decoration: none; font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 20px; font-weight: 700; font-style: italic; letter-spacing: 4px; }
+.content { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+.content h1 { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin: 0 0 8px 0; }
+.content .subtitle { color: #5c4a3a; margin: 0 0 32px 0; }
+.cards-grid { display: flex; flex-direction: column; gap: 12px; }
+.card { background: #faf3e0; border: 1px solid #d4c4a8; border-radius: 4px; padding: 20px 24px; }
+.card h2 { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 20px; font-weight: 600; color: #2c1810; margin: 0 0 4px 0; }
+.card p { font-size: 15px; color: #5c4a3a; margin: 0; }
 .site-footer { background: #2c1810; color: #8a7a6a; padding: 40px 24px 24px; text-align: center; margin-top: 60px; }
-.footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
-.footer-links a { color: #b8860b; text-decoration: none; font-size: 14px; letter-spacing: 1px; font-family: 'EB Garamond', Georgia, serif; }
-.footer-links a:hover { text-decoration: underline; }
-.footer-copy { font-size: 12px; letter-spacing: 2px; font-family: 'Cormorant Garamond', Georgia, serif; }
-@media (max-width:768px) { #page-view { padding: 16px; } }
+.footer-copy { font-size: 12px; letter-spacing: 2px; font-family: 'Cormorant Garamond', 'Times New Roman', serif; }
+@media (max-width:768px) { .content { padding: 20px 16px; } }
 </style>
 </head>
 <body>
 
 <header class="top-bar">
-  <div class="logo"><a href="index.html">גולם</a></div>
-  <div class="hamburger-btn" onclick="toggleSidePanel()"><span></span><span></span><span></span></div>
+  <div class="logo"><a href="../index.html">גולם</a></div>
 </header>
 
-<div id="page-view">
-  <h1>אמצעים</h1>
-  <p>אמצעים של מחקר וניתוח</p>
-</div>
+<main class="content">
+  <h1>שיטות חשיפה</h1>
+  <p class="subtitle">עשרת שיטות הלינגוויסטיות שחושפות חלופין בתרגומים ומחזירות למקור העברי.</p>
+
+  <div class="cards-grid">
+    <div class="card"><h2>כירורגיה אטיולוגיה</h2><p>חותכים את התרגום ומגיעים לשורש שלוש אותיות. מראים מה המילה הייתה אומרת במקור, לפני שהמערכת הלבישה אותה.</p></div>
+    <div class="card"><h2>בדיקת פלאוגרפיה</h2><p>מפרקים את המילה לאותיות פלאו-עבריות וקוראים אותה כ רצף של תמונות. המשקל של המילה טמון בצורתה.</p></div>
+    <div class="card"><h2>סמיטולוגיה השוואתית</h2><p>משווים מילה עברית למילים קרובות בערבית, ארמית, אכדית. מראים ядро סמנטי משותף.</p></div>
+    <div class="card"><h2>חשיפה מורפולוגית</h2><p>מראים שהצורה הדקדוקית של המילה נושאת משקל שהתרגום מאבד. בניין, מספר, מין — זה תאולוגיה.</p></div>
+    <div class="card"><h2>ניתוח תחבירי</h2><p>סדר המילים בעברית נושאת משקל. אמופתיה. מה שעומד ראשון — זה העיקר. תרגומים מחליקים את הסדר, מאבדים דגשים.</p></div>
+    <div class="card"><h2>שחזור סמנטי</h2><p>מראים את כל המשמעויות של השורש בתנ״ך. לא רק אחת במילון. הכל. בהקשים שונים. משחזרים תמונה מלאה.</p></div>
+    <div class="card"><h2>זיהוי פונקציונלי</h2><p>מראים שהמילה בעברית מתארת לא טבע, אלא פעולה. לא "מי", אלא "מה עושה". המערכת הפכה פונקציות לעצמים.</p></div>
+    <div class="card"><h2>מיפוי תמונתי</h2><p>מילים עבריות שורשיות במציאות פיזית. הן מריחות, משמיעות, יש להן משקל. מחזירים לתמונה את הבשר שלה.</p></div>
+    <div class="card"><h2>שבירת שרשרת התרגום</h2><p>עוברים את כל השרשרת: סינודלי → סלאבי → לטיני → יווני → עברי. בכל שלב מראים מה איבד.</p></div>
+    <div class="card"><h2>דיאגנוסטיקת סמיכות</h2><p>סמיכות זו סגירה. שתי מילים הופכות לאחת. המערכת קורעת את הסמיכות, יוצרת מרחק כוזב. אנו משחזרים את היחוד.</p></div>
+  </div>
+</main>
 
 <footer class="site-footer">
-  <div class="footer-links">
-    <a href="about/index.html">מניפסט</a>
-    <a href="research/index.html">מחקרים</a>
-    <a href="../content/hebrew">עברית</a>
-    <a href="about/index.html">על הפרויקט</a>
-    <a href="https://github.com/ortamy/golem">GitHub</a>
-  </div>
-  <div class="footer-copy">פרויקט גולם. השבת האמת. יהוה אחד.</div>
+  <div class="footer-copy">פרויקט "גולם". שחזור האמת. יהוה אחד.</div>
 </footer>
 
-<div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
-<div class="side-panel" id="sidePanel">
-  <div class="side-panel-header"><span class="logo-text">גולם</span><button class="side-panel-close" onclick="toggleSidePanel()">✕</button></div>
-  <div class="side-panel-links">
-    <a href="index.html">בית</a><a href="tanakh/index.html">תנ"ך</a><a href="checker/index.html">בדיקה</a><a href="word/index.html">מילים</a><a href="../content/hebrew">עברית</a><a href="about/index.html">על הפרויקט</a>
-  </div>
-  <div class="side-panel-lang-switcher">
-    <select onchange="if(this.value) window.location.href=this.value;">
-      <option value="" selected>HE</option>
-      <option value="../ru/research/methods.html">RU</option>
-      <option value="../en/research/methods.html">EN</option>
-    </select>
-  </div>
-</div>
-
-<script>
-function toggleSidePanel(){document.getElementById('sidePanel').classList.toggle('open');document.getElementById('sidePanelOverlay').classList.toggle('show');}
-</script>
+<script src="../../js/burger-menu.js"></script>
 </body>
 </html>

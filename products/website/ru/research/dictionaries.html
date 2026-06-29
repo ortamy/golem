@@ -26,7 +26,7 @@ p, li, blockquote { line-height: 1.5; margin-bottom: 4px; }
 
 <header class="top-bar">
   <div class="logo"><a href="index.html">ГОЛЕМ</a></div>
-  <div class="hamburger-btn" onclick="toggleSidePanel()"><span></span><span></span><span></span></div>
+  
 </header>
 
 <div id="page-view">
@@ -38,30 +38,12 @@ p, li, blockquote { line-height: 1.5; margin-bottom: 4px; }
   <div class="footer-links">
     <a href="about/index.html">Манифест</a>
     <a href="research/index.html">Исследования</a>
-    <a href="../content/hebrew">Иврит</a>
     <a href="about/index.html">О проекте</a>
     <a href="https://github.com/ortamy/golem">GitHub</a>
   </div>
   <div class="footer-copy">Проект «Голем». Восстановление истины. Яхве один.</div>
 </footer>
 
-<div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
-<div class="side-panel" id="sidePanel">
-  <div class="side-panel-header"><span class="logo-text">ГОЛЕМ</span><button class="side-panel-close" onclick="toggleSidePanel()">✕</button></div>
-  <div class="side-panel-links">
-    <a href="index.html">Главная</a><a href="tanakh/index.html">Танах</a><a href="checker/index.html">Проверка</a><a href="word/index.html">Слова</a><a href="../content/hebrew">Иврит</a><a href="about/index.html">О проекте</a>
-  </div>
-  <div class="side-panel-lang-switcher">
-    <select onchange="if(this.value) window.location.href=this.value;">
-      <option value="" selected>RU</option>
-      <option value="../en/research/dictionaries.html">EN</option>
-      <option value="../he/research/dictionaries.html">HE</option>
-    </select>
-  </div>
-</div>
-
-<script>
-function toggleSidePanel(){document.getElementById('sidePanel').classList.toggle('open');document.getElementById('sidePanelOverlay').classList.toggle('show');}
-</script>
+<script src="../../js/burger-menu.js"></script>
 </body>
 </html>

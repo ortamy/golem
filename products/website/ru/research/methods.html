@@ -53,24 +53,6 @@ p, li { line-height: 1.5; margin-bottom: 4px; }
   <div class="footer-copy">Проект «Голем». Восстановление истины. Яхве один.</div>
 </footer>
 
-<div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
-<div class="side-panel" id="sidePanel">
-  <div class="side-panel-header"><span class="logo-text">ГОЛЕМ</span><button class="side-panel-close" onclick="toggleSidePanel()">✕</button></div>
-  <div class="side-panel-links">
-    <a href="../index.html">Главная</a><a href="index.html">Исследования</a><a href="methods.html">Методы разоблачения</a><a href="dictionaries.html">Словари</a><a href="methodology.html">Методология</a><a href="../../content/hebrew">Иврит</a><a href="../about/index.html">О проекте</a>
-  </div>
-  <div class="side-panel-lang-switcher">
-    <select onchange="if(this.value) window.location.href=this.value;">
-      <option value="" selected>RU</option>
-      <option value="../../en/research/methods.html">EN</option>
-      <option value="../../he/research/methods.html">HE</option>
-    </select>
-  </div>
-</div>
-
-<script>
-function toggleSidePanel(){document.getElementById('sidePanel').classList.toggle('open');document.getElementById('sidePanelOverlay').classList.toggle('show');}
-</script>
-
+<script src="../../js/burger-menu.js"></script>
 </body>
 </html>
