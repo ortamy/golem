@@ -1,116 +1,67 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>שיטות חשיפה — פרויקט «גולם»</title>
-    <link rel="stylesheet" href="../../styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אמצעים</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../style.css">
+<style>
+body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.5; background: #ede0c8; color: #2c1810; margin: 0; padding-top: 56px; }
+h1, h2, h3 { line-height: 1.2; }
+p, li, blockquote { line-height: 1.5; margin-bottom: 4px; }
+.top-bar { position: fixed; top: 0; left: 0; right: 0; background: #2c1810; color: #ede0c8; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; z-index: 2001; border-bottom: 1px solid #4a3020; }
+.top-bar.logo a { color: #b8860b; text-decoration: none; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 700; font-style: italic; letter-spacing: 4px; }
+#page-view { max-width: 900px; margin: 0 auto; padding: 24px; }
+#page-view h1 { text-align: center; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin: 0 0 8px 0; }
+.site-footer { background: #2c1810; color: #8a7a6a; padding: 40px 24px 24px; text-align: center; margin-top: 60px; }
+.footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-links a { color: #b8860b; text-decoration: none; font-size: 14px; letter-spacing: 1px; font-family: 'EB Garamond', Georgia, serif; }
+.footer-links a:hover { text-decoration: underline; }
+.footer-copy { font-size: 12px; letter-spacing: 2px; font-family: 'Cormorant Garamond', Georgia, serif; }
+@media (max-width:768px) { #page-view { padding: 16px; } }
+</style>
 </head>
 <body>
 
-    <header class="top-bar">
-        <span class="logo-text" onclick="location.href='../index.html'">גולם</span>
-        <button class="burger-btn" onclick="toggleSidePanel()">☰</button>
-    </header>
+<header class="top-bar">
+  <div class="logo"><a href="index.html">גולם</a></div>
+  <div class="hamburger-btn" onclick="toggleSidePanel()"><span></span><span></span><span></span></div>
+</header>
 
-    <div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
-    <div class="side-panel" id="sidePanel">
-        <button class="side-panel-close" onclick="toggleSidePanel()">✕</button>
-        <div class="side-panel-links">
-            <a href="../index.html">Главная</a>
-            <a href="index.html">Исследования</a>
-            <a href="methods.html">Методы разоблачения</a>
-            <a href="dictionaries.html">Словари</a>
-            <a href="methodology.html">Методология</a>
-            <a href="checkers.html">Чекеры</a>
-            <a href="../../content/hebrew">Иврит</a>
-            <a href="../about/index.html">О проекте</a>
-        </div>
-        <div class="lang-switcher">
-            <a href="../../ru/research/methods.html">RU</a>
-            <a href="../../en/research/methods.html">EN</a>
-            <a href="methods.html" class="active">HE</a>
-        </div>
-    </div>
+<div id="page-view">
+  <h1>אמצעים</h1>
+  <p>אמצעים של מחקר וניתוח</p>
+</div>
 
-    <main class="content">
-        <h1>שיטות חשיפה</h1>
-        <p class="subtitle">עשר שיטות לשוניות החושפות עיוותים בתרגומים ומחזירות למקור העברי.</p>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="about/index.html">מניפסט</a>
+    <a href="research/index.html">מחקרים</a>
+    <a href="../content/hebrew">עברית</a>
+    <a href="about/index.html">על הפרויקט</a>
+    <a href="https://github.com/ortamy/golem">GitHub</a>
+  </div>
+  <div class="footer-copy">פרויקט גולם. השבת האמת. יהוה אחד.</div>
+</footer>
 
-        <div class="cards-grid">
+<div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
+<div class="side-panel" id="sidePanel">
+  <div class="side-panel-header"><span class="logo-text">גולם</span><button class="side-panel-close" onclick="toggleSidePanel()">✕</button></div>
+  <div class="side-panel-links">
+    <a href="index.html">בית</a><a href="tanakh/index.html">תנ"ך</a><a href="checker/index.html">בדיקה</a><a href="word/index.html">מילים</a><a href="../content/hebrew">עברית</a><a href="about/index.html">על הפרויקט</a>
+  </div>
+  <div class="side-panel-lang-switcher">
+    <select onchange="if(this.value) window.location.href=this.value;">
+      <option value="" selected>HE</option>
+      <option value="../ru/research/methods.html">RU</option>
+      <option value="../en/research/methods.html">EN</option>
+    </select>
+  </div>
+</div>
 
-            <div class="card">
-                <div class="card-icon">🔪</div>
-                <h2 class="card-title">ניתוח אטימולוגי</h2>
-                <p class="card-desc">חותכים את התרגום ומגיעים לשורש התלת-עיצורי. מראים מה המילה משמעותה במקור.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">𐤀</div>
-                <h2 class="card-title">מומחיות פליאוגרפית</h2>
-                <p class="card-desc">מפרקים את המילה לאותיות פליאו-עבריות וקוראים אותה כרצף של תמונות.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🕸</div>
-                <h2 class="card-title">השוואה שמית</h2>
-                <p class="card-desc">משווים את המילה העברית למילים דומות בערבית, ארמית, אכדית.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">📐</div>
-                <h2 class="card-title">חשיפה מורפולוגית</h2>
-                <p class="card-desc">מראים שהצורה הדקדוקית נושאת משמעות שהתרגום מאבד.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">📏</div>
-                <h2 class="card-title">ניתוח תחבירי</h2>
-                <p class="card-desc">סדר המילים בעברית נושא משמעות. הדגשה. מה שבא ראשון — חשוב.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🔍</div>
-                <h2 class="card-title">שחזור סמנטי</h2>
-                <p class="card-desc">מראים את כל משמעויות השורש בתנ"ך. לא רק אחת. את כולן.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">⚙️</div>
-                <h2 class="card-title">זיהוי פונקציונלי</h2>
-                <p class="card-desc">מראים שמילה בעברית מתארת לא טבע אלא פעולה. לא "מי" אלא "מה זה עושה".</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🖼</div>
-                <h2 class="card-title">מיפוי תמונתי</h2>
-                <p class="card-desc">מילים עבריות מושרשות במציאות פיזית. יש להן ריח, צליל, משקל.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">⛓️</div>
-                <h2 class="card-title">שבירת שרשרת התרגום</h2>
-                <p class="card-desc">צועדים לאורך כל השרשרת: סינודלי ← סלאבי ← לטיני ← יווני ← עברי.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🔗</div>
-                <h2 class="card-title">אבחון סמיכות</h2>
-                <p class="card-desc">סמיכות היא חיבור. שתי מילים הופכות לאחת. המערכת שוברת את הסמיכות.</p>
-            </div>
-
-        </div>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-copy">פרויקט «גולם». השבת האמת. יהוה אחד.</div>
-    </footer>
-
-    <script>
-        function toggleSidePanel() {
-            document.getElementById('sidePanel').classList.toggle('open');
-            document.getElementById('sidePanelOverlay').classList.toggle('show');
-        }
-    </script>
+<script>
+function toggleSidePanel(){document.getElementById('sidePanel').classList.toggle('open');document.getElementById('sidePanelOverlay').classList.toggle('show');}
+</script>
 </body>
 </html>

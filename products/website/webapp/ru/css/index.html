@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Methods</title>
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="stylesheet" href="../style.css">
+<title>Стили — Голем</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
 <style>
 body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.5; background: #ede0c8; color: #2c1810; margin: 0; padding-top: 56px; }
 h1, h2, h3 { line-height: 1.2; }
 p, li, blockquote { line-height: 1.5; margin-bottom: 4px; }
 .top-bar { position: fixed; top: 0; left: 0; right: 0; background: #2c1810; color: #ede0c8; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; z-index: 2001; border-bottom: 1px solid #4a3020; }
-.top-bar.logo a { color: #b8860b; text-decoration: none; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 700; font-style: italic; letter-spacing: 4px; }
+.top-bar .logo a { color: #b8860b; text-decoration: none; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 700; font-style: italic; letter-spacing: 4px; }
 #page-view { max-width: 900px; margin: 0 auto; padding: 24px; }
 #page-view h1 { text-align: center; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin: 0 0 8px 0; }
 .site-footer { background: #2c1810; color: #8a7a6a; padding: 40px 24px 24px; text-align: center; margin-top: 60px; }
@@ -25,37 +25,37 @@ p, li, blockquote { line-height: 1.5; margin-bottom: 4px; }
 <body>
 
 <header class="top-bar">
-  <div class="logo"><a href="index.html">Golem</a></div>
+  <div class="logo"><a href="../index.html">ГОЛЕМ</a></div>
   <div class="hamburger-btn" onclick="toggleSidePanel()"><span></span><span></span><span></span></div>
 </header>
 
 <div id="page-view">
-  <h1>Methods</h1>
-  <p>Methods of research and analysis</p>
+  <h1>Стили</h1>
+  <p>CSS-стили веб-приложения</p>
 </div>
 
 <footer class="site-footer">
   <div class="footer-links">
-    <a href="about/index.html">Manifest</a>
-    <a href="research/index.html">Research</a>
-    <a href="../content/hebrew">Hebrew</a>
-    <a href="about/index.html">About</a>
+    <a href="../about/index.html">Манифест</a>
+    <a href="../research/index.html">Исследования</a>
+    <a href="../../content/hebrew">Иврит</a>
+    <a href="../about/index.html">О проекте</a>
     <a href="https://github.com/ortamy/golem">GitHub</a>
   </div>
-  <div class="footer-copy">Golem Project. Restoration of Truth. Yahweh is One.</div>
+  <div class="footer-copy">Проект «Голем». Восстановление истины. Яхве один.</div>
 </footer>
 
 <div class="side-panel-overlay" id="sidePanelOverlay" onclick="toggleSidePanel()"></div>
 <div class="side-panel" id="sidePanel">
-  <div class="side-panel-header"><span class="logo-text">Golem</span><button class="side-panel-close" onclick="toggleSidePanel()">✕</button></div>
+  <div class="side-panel-header"><span class="logo-text">ГОЛЕМ</span><button class="side-panel-close" onclick="toggleSidePanel()">✕</button></div>
   <div class="side-panel-links">
-    <a href="index.html">Home</a><a href="tanakh/index.html">Tanakh</a><a href="checker/index.html">Checker</a><a href="word/index.html">Words</a><a href="../content/hebrew">Hebrew</a><a href="about/index.html">About</a>
+    <a href="../index.html">Главная</a><a href="../tanakh/index.html">Танах</a><a href="../checker/index.html">Проверка</a><a href="../word/index.html">Слова</a><a href="../../content/hebrew">Иврит</a><a href="../about/index.html">О проекте</a>
   </div>
   <div class="side-panel-lang-switcher">
     <select onchange="if(this.value) window.location.href=this.value;">
-      <option value="" selected>EN</option>
-      <option value="../ru/research/methods.html">RU</option>
-      <option value="../he/research/methods.html">HE</option>
+      <option value="" selected>RU</option>
+      <option value="">EN</option>
+      <option value="">HE</option>
     </select>
   </div>
 </div>

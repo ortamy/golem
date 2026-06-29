@@ -1,0 +1,37 @@
+[
+  {
+    "verse_num": 1,
+    "hebrew": "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ",
+    "translit": "Bereishit bara Elohim et hashamayim ve'et ha'aretz",
+    "literal": "В начале сотворил Элоhим небо и землю",
+    "synodal": "В начале сотворил Бог небо и землю"
+  },
+  {
+    "verse_num": 2,
+    "hebrew": "וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם",
+    "translit": "Veha'aretz hayetah tohu vavohu vechshech al-penei tehom veruach Elohim merachefet al-penei hamayim",
+    "literal": "А земля была пуста и хаотична, и тьма над бездною, и дух Элоhим парил над водою",
+    "synodal": "Земля же была безвидна и пуста, и тьма над бездною, и Дух Божий носился над водою"
+  },
+  {
+    "verse_num": 3,
+    "hebrew": "וַיֹּאמֶר אֱלֹהִים יְהִי אוֹר וַיְהִי אוֹר",
+    "translit": "Vayomer Elohim yehi or vayehi or",
+    "literal": "И сказал Элоhим: да будет свет, и стал свет",
+    "synodal": "И сказал Бог: да будет свет. И стал свет"
+  },
+  {
+    "verse_num": 4,
+    "hebrew": "וַיַּרְא אֱלֹהִים אֶת־הָאוֹר כִּי־טוֹב וַיַּבְדֵּל אֱלֹהִים בֵּין הָאוֹר וּבֵין הַחֹשֶׁךְ",
+    "translit": "Vayar Elohim et-ha'or ki-tov vayavdel Elohim bein ha'or uvein hachoshech",
+    "literal": "И увидел Элоhим свет, что он хорош, и отделил Элоhим свет от тьмы",
+    "synodal": "И увидел Бог свет, что он хорош, и отделил Бог свет от тьмы"
+  },
+  {
+    "verse_num": 5,
+    "hebrew": "וַיִּקְרָא אֱלֹהִים לָאוֹר יוֹם וְלַחֹשֶׁךְ קָרָא לָיְלָה וַיְהִי־עֶרֶב וַיְהִי־בֹקֶר יוֹם אֶחָד",
+    "translit": "Vayikra Elohim la'or yom velachoshech kara lailah vayehi-erev vayehi-voker yom echad",
+    "literal": "И назвал Элоhим свет днем, а тьму назвал ночью. И был вечер, и было утро: день один",
+    "synodal": "И назвал Бог свет днем, а тьму ночью. И был вечер, и было утро: день один"
+  }
+]
