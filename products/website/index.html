@@ -1,0 +1,46 @@
+<!-- web/index.html — Головний файл, редирект по языку -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golem — Свидетель Истины</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+  body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.8; background: #ede0c8; color: #2c1810; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; flex-direction: column; padding: 20px; text-align: center; }
+  .loader { border: 3px solid #d4c4a8; border-top: 3px solid #b8860b; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 20px; }
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin: 20px 0; }
+  p { color: #5c4a3a; font-size: 18px; }
+  a { color: #b8860b; text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: #b8860b; }
+  .lang-grid { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin: 20px 0; }
+  .lang-link { padding: 8px 16px; background: #faf3e0; border: 1px solid #d4c4a8; border-radius: 4px; font-size: 14px; transition: background 0.3s; }
+  .lang-link:hover { background: #f5edd5; }
+  .lang-link.active { border-color: #b8860b; background: #b8860b; color: #faf3e0; }
+</style>
+</head>
+<body>
+<div class="loader"></div>
+<h1>Golem</h1>
+<p>Определение языка…</p>
+<div class="lang-grid">
+  <a href="ru/index.html" class="lang-link">Русский</a>
+  <a href="en/index.html" class="lang-link">English</a>
+  <a href="he/index.html" class="lang-link" dir="rtl">עברית</a>
+  <span class="lang-link" style="opacity:0.4;cursor:default">Español (скоро)</span>
+  <span class="lang-link" style="opacity:0.4;cursor:default">Deutsch (скоро)</span>
+  <span class="lang-link" style="opacity:0.4;cursor:default">Français (скоро)</span>
+</div>
+<script>
+(function() {
+  var lang = navigator.language || navigator.userLanguage || 'ru';
+  var map = { 'ru': 'ru/index.html', 'en': 'en/index.html', 'he': 'he/index.html' };
+  var mainLang = lang.split('-')[0];
+  var target = map[mainLang] || 'ru/index.html';
+  setTimeout(function() { window.location.href = target; }, 1200);
+})();
+</script>
+</body>
+</html>

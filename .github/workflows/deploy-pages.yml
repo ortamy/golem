@@ -31,8 +31,8 @@ jobs:
 
       - name: Copy content folders
         run: |
-          cp -r content web/
-          cp -r instructions web/
+          cp -r content products/website/
+          cp -r instructions products/website/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -40,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: web/
+          path: products/website/
 
   deploy:
     needs: build

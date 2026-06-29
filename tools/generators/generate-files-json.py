@@ -6,10 +6,8 @@ import sys
 import re
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from lib.utils import REPO_ROOT
-
-WEB_DIR = REPO_ROOT / "web"
+REPO_ROOT = Path(__file__).parent.parent.parent
+WEB_DIR = REPO_ROOT / "products" / "website"
 SCAN_DIRS = [
     ("content/terminology", "Терминология"),
     ("content/tanakh", "ТаНаХ"),
@@ -52,7 +50,6 @@ SUBCATEGORY_LABELS = {
     'sport': 'Спорт',
     'systems': 'Системы',
     'tanakh': 'ТаНаХ',
-    # tzel subcategories
     'adam': 'Адам',
     'brit-nissuin': 'Брит-нисуин',
     'elohim': 'Элоhим',
@@ -105,7 +102,6 @@ ICON_RULES = {
 
 
 def resolve_icon(rel_path):
-    """Resolve icon filename based on path prefix rules (most specific first)."""
     sorted_rules = sorted(ICON_RULES.items(), key=lambda x: -len(x[0]))
     for prefix, icon in sorted_rules:
         if rel_path.startswith(prefix):
@@ -182,7 +178,6 @@ def generate():
     out_path.write_text(json.dumps(all_files, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"✅ {out_path} — {len(all_files)} файлов")
 
-    # Статистика по иконкам
     icon_count = {}
     for f in all_files:
         icon = f.get("icon", "default.png")
