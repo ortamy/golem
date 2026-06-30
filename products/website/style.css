@@ -1069,3 +1069,25 @@ body::before {
     display: none !important;
   }
 }
+
+/* ===== FOCUS-VISIBLE ДЛЯ КЛАВИАТУРНОЙ НАВИГАЦИИ ===== */
+*:focus-visible {
+  outline: 2px solid #b8860b;
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #b8860b;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Убираем outline для мыши, оставляем только для клавиатуры */
+*:focus:not(:focus-visible) {
+  outline: none;
+}

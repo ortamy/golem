@@ -1,7 +1,8 @@
 // products/website/server.js — сервер для локальной разработки
 const http = require('http');
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
+const zlib = require('zlib');
 
 const PORT = 8080;
 const ROOT = path.resolve(__dirname, '../..');
@@ -17,6 +18,10 @@ const SCAN_DIRS = [
 ];
 
 const IGNORE_FILES = ['README.md', 'STRUCTURE.md', 'GLOSSARY.md', 'CHANGELOG.md'];
+
+const CACHE_TTL = 5 * 60 * 1000; // 5 минут
+let filesCache = null;
+let filesCacheTime = 0;
 
 const SUBCATEGORY_LABELS = {
     'archive': 'Архив',
@@ -105,25 +110,45 @@ const MIME = {
     '.ico': 'image/x-icon',
 };
 
-function scanFiles() {
+async function scanFiles() {
+    const now = Date.now();
+    if (filesCache && (now - filesCacheTime) < CACHE_TTL) {
+        return filesCache;
+    }
+
     const files = [];
     for (const { folder, label } of SCAN_DIRS) {
         const dirPath = path.join(ROOT, folder);
-        if (!fs.existsSync(dirPath)) continue;
-        walkDir(dirPath, folder, label, files);
+        try {
+            await walkDir(dirPath, folder, label, files);
+        } catch (e) {
+            console.error('Ошибка сканирования папки', folder, e.message);
+        }
     }
+    filesCache = files;
+    filesCacheTime = now;
     return files;
 }
 
-function walkDir(dirPath, baseFolder, label, files) {
-    const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+async function walkDir(dirPath, baseFolder, label, files) {
+    let entries;
+    try {
+        entries = await fs.readdir(dirPath, { withFileTypes: true });
+    } catch (e) {
+        return;
+    }
     for (const entry of entries) {
         const fullPath = path.join(dirPath, entry.name);
         if (entry.isDirectory()) {
-            walkDir(fullPath, baseFolder, label, files);
+            await walkDir(fullPath, baseFolder, label, files);
         } else if (entry.name.endsWith('.md') && !IGNORE_FILES.includes(entry.name)) {
             const relPath = path.relative(ROOT, fullPath).replace(/\\/g, '/');
-            const content = fs.readFileSync(fullPath, 'utf-8');
+            let content;
+            try {
+                content = await fs.readFile(fullPath, 'utf-8');
+            } catch (e) {
+                continue;
+            }
             const title = extractTitle(content) || entry.name.replace('.md', '').replace(/-/g, ' ');
             const topic = extractTopic(content);
             const related = extractRelated(content);
@@ -232,11 +257,32 @@ ${html}
 </html>`;
 }
 
-const server = http.createServer((req, res) => {
+function compress(content, mimeType) {
+    const textTypes = ['text/html', 'text/css', 'application/javascript', 'application/json', 'text/plain', 'image/svg+xml'];
+    const isText = textTypes.some(t => mimeType.startsWith(t));
+    if (!isText) return { body: content, headers: {} };
+
+    const acceptEncoding = (req.headers['accept-encoding'] || '').split(',').map(s => s.trim());
+    if (acceptEncoding.includes('gzip')) {
+        return {
+            body: zlib.gzipSync(content),
+            headers: { 'Content-Encoding': 'gzip', 'Vary': 'Accept-Encoding' }
+        };
+    }
+    if (acceptEncoding.includes('deflate')) {
+        return {
+            body: zlib.deflateSync(content),
+            headers: { 'Content-Encoding': 'deflate', 'Vary': 'Accept-Encoding' }
+        };
+    }
+    return { body: content, headers: {} };
+}
+
+const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, `http://localhost:${PORT}`);
     const pathname = url.pathname;
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -248,9 +294,11 @@ const server = http.createServer((req, res) => {
 
     if (pathname === '/api/files') {
         try {
-            const files = scanFiles();
-            res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-            res.end(JSON.stringify(files, null, 2));
+            const files = await scanFiles();
+            const body = JSON.stringify(files, null, 2);
+            const compressed = compress(body, 'application/json');
+            res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', ...compressed.headers });
+            res.end(compressed.body);
         } catch (e) {
             console.error('Ошибка сканирования:', e.message);
             res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
@@ -266,19 +314,31 @@ const server = http.createServer((req, res) => {
             res.end('Missing path parameter');
             return;
         }
-        const fullPath = path.join(ROOT, filePath);
-        if (!fs.existsSync(fullPath) || !filePath.endsWith('.md')) {
-            res.writeHead(404);
-            res.end('File not found');
+        const normalized = path.normalize(filePath).replace(/\\/g, '/');
+        if (normalized.includes('..')) {
+            res.writeHead(403);
+            res.end('Forbidden');
+            return;
+        }
+        const fullPath = path.join(ROOT, normalized);
+        if (!normalized.endsWith('.md')) {
+            res.writeHead(400);
+            res.end('Only .md files allowed');
             return;
         }
         try {
-            const content = fs.readFileSync(fullPath, 'utf-8');
+            const stat = await fs.stat(fullPath);
+            if (!stat.isFile()) {
+                res.writeHead(404);
+                res.end('Not found');
+                return;
+            }
+            const content = await fs.readFile(fullPath, 'utf-8');
             res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
             res.end(content);
         } catch (e) {
-            res.writeHead(500);
-            res.end('Error reading file');
+            res.writeHead(404);
+            res.end('Not found');
         }
         return;
     }
@@ -290,21 +350,29 @@ const server = http.createServer((req, res) => {
             res.end('Missing path parameter');
             return;
         }
-        const fullPath = path.join(ROOT, filePath);
-        if (!fs.existsSync(fullPath)) {
-            res.writeHead(404);
-            res.end('File not found');
+        const normalized = path.normalize(filePath).replace(/\\/g, '/');
+        if (normalized.includes('..')) {
+            res.writeHead(403);
+            res.end('Forbidden');
             return;
         }
+        const fullPath = path.join(ROOT, normalized);
         try {
-            const content = fs.readFileSync(fullPath, 'utf-8');
+            const stat = await fs.stat(fullPath);
+            if (!stat.isFile()) {
+                res.writeHead(404);
+                res.end('Not found');
+                return;
+            }
+            const content = await fs.readFile(fullPath, 'utf-8');
             const title = extractTitle(content) || filePath.replace('.md', '').replace(/-/g, ' ');
             const html = renderMdPage(title, content, filePath);
-            res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-            res.end(html);
+            const compressed = compress(html, 'text/html');
+            res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', ...compressed.headers });
+            res.end(compressed.body);
         } catch (e) {
-            res.writeHead(500);
-            res.end('Error reading file');
+            res.writeHead(404);
+            res.end('Not found');
         }
         return;
     }
@@ -312,11 +380,20 @@ const server = http.createServer((req, res) => {
     let filePath = pathname === '/' ? '/index.html' : pathname;
     let fullPath = path.join(WEB_DIR, filePath);
 
-    if (!fs.existsSync(fullPath)) {
+    try {
+        await fs.access(fullPath);
+    } catch {
         fullPath = path.join(ROOT, filePath);
     }
 
-    if (!fs.existsSync(fullPath) || fs.statSync(fullPath).isDirectory()) {
+    try {
+        const stat = await fs.stat(fullPath);
+        if (stat.isDirectory()) {
+            res.writeHead(404);
+            res.end('Not found');
+            return;
+        }
+    } catch {
         res.writeHead(404);
         res.end('Not found');
         return;
@@ -324,9 +401,10 @@ const server = http.createServer((req, res) => {
 
     const ext = path.extname(fullPath);
     const mimeType = MIME[ext] || 'application/octet-stream';
-    const content = fs.readFileSync(fullPath);
-    res.writeHead(200, { 'Content-Type': mimeType });
-    res.end(content);
+    const content = await fs.readFile(fullPath);
+    const compressed = compress(content, mimeType);
+    res.writeHead(200, { 'Content-Type': mimeType, ...compressed.headers });
+    res.end(compressed.body);
 });
 
 server.listen(PORT, () => {
