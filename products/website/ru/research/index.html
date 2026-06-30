@@ -80,6 +80,7 @@ img { max-width: 24px; height: auto; display: inline-block; vertical-align: midd
   <div class="footer-copy">Проект «Голем». Восстановление истины. Яхве один.</div>
 </footer>
 
+<script>
 var RESEARCH_FILES=[];
 fetch('../../files.json').then(function(r){return r.json()}).then(function(d){RESEARCH_FILES=d;buildFilters();checkUrl();});
 function buildFilters(){var cats={};RESEARCH_FILES.forEach(function(f){var c=f.category||'Без категории';if(!cats[c])cats[c]={};var s=f.subcategory||'';if(s)cats[c][s]=true;});var s=document.getElementById('filter-category');Object.keys(cats).sort().forEach(function(c){var o=document.createElement('option');o.value=c;o.textContent=c+' ('+RESEARCH_FILES.filter(function(f){return(f.category||'Без категории')===c;}).length+')';s.appendChild(o);});}
@@ -92,6 +93,7 @@ function mdToHtml(md){var h=md;h=h.replace(/(\*\*Метаданные файла
 function backToList(){document.getElementById('file-view').style.display='none';document.getElementById('back-to-list').style.display='none';document.getElementById('research-view').style.display='block';window.history.pushState({},'','index.html');window.scrollTo(0,0);}
 window.addEventListener('popstate',function(){checkUrl();});
 </script>
+
 <script src="../../js/burger-menu.js"></script>
 </body>
 </html>
