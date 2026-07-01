@@ -1,400 +1,185 @@
-# ИНДЕКС РЕПОЗИТОРИЯ
+# 📑 ИНДЕКС DOCS
 
-**Метаданные файла**
-- **Файл:** `docs/INDEX.md`
-- **Версия:** 1.0
-- **Дата создания:** 2026-06-09
-- **Последнее обновление:** 2026-06-09
-- **Причина обновления:** Автоматическая генерация
-- **Статус:** Активный
-- **Тема:** Индекс всех файлов репозитория
-- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
-- **Язык:** русский
-- **Хеш:** 397a5e3e
-- **Достоверность:** средняя
-- **Последний аудит:** 2026-06-09
----
-
-## instructions/
-
-- **📜 CHAT-PROMPT — ШАБЛОН ДЛЯ НОВОГО ЧАТА** — Шаблон промпта для восстановления Свидетеля (Эд) в новом чате. → [instructions/chat-prompt.md](instructions/chat-prompt.md)
-- **💻 СТАНДАРТЫ КОДА (CODING STANDARDS)** — Стандарты оформления кода для инструментов и языка Давар → [instructions/coding-standards.md](instructions/coding-standards.md)
-- **🤝 РУКОВОДСТВО ДЛЯ КОНТРИБЬЮТОРОВ (COLLABORATION GUIDE)** — Как участвовать в проекте «Голем» — правила, процесс, коммуникация → [instructions/collaboration-guide.md](instructions/collaboration-guide.md)
-- **📜 מַפַּת מִלִּים אֲסוּרוֹת — КАРТА ЗАПРЕЩЁННЫХ СЛОВ** — Индекс запрещённых слов с краткими заменами и ссылками на полные файлы по катего → [instructions/forbidden-words.md](instructions/forbidden-words.md)
-- **📜 תַּבְנִית מַפַּת דִּמּוּיִם — ШАБЛОН КАРТЫ ОБРАЗОВ** — Шаблон для исследования библейских образов. От земного объекта к смыслу. Принцип → [instructions/image-map.md](instructions/image-map.md)
-- **📜 דִּמּוּיִם — ОБРАЗЫ ТАНАХА И БАШАХА** — Полный каталог образов ТаНаХа и БаШаХа для исследования. Предметы, люди, события → [instructions/images-catalogue.md](instructions/images-catalogue.md)
-- **📜 מִנְשָׁר — МАНИФЕСТ ВОССТАНОВЛЕНИЯ** — Программный документ. Кто мы, что восстанавливаем, какие инструменты используем, → [instructions/manifest.md](instructions/manifest.md)
-- **📦 ПРОЦЕСС ВЫПУСКА ВЕРСИЙ (RELEASE PROCESS)** — Как выпускать новые версии проекта «Голем» → [instructions/release-process.md](instructions/release-process.md)
-- **📜 עֶקְרוֹנוֹת — ПРИНЦИПЫ ИССЛЕДОВАНИЙ** — Принципы и правила нашей работы по разоблачению лжи и возвращению к истине ТаНаХ → [instructions/research-principles.md](instructions/research-principles.md)
-- **📜 רֶטְרוֹסְפֶּקְטִיבָה — РЕТРОСПЕКТИВА: ИТОГИ И УЛУЧШЕНИЯ** — Формат ретроспективы для проекта «Голем». Что прошло хорошо, что можно улучшить, → [instructions/retrospective.md](instructions/retrospective.md)
-- **🔒 ПОЛИТИКА БЕЗОПАСНОСТИ (SECURITY POLICY)** — Политика безопасности для API ключей, токенов и конфиденциальных данных → [instructions/security-policy.md](instructions/security-policy.md)
-- **🛠️ УСТРАНЕНИЕ ПРОБЛЕМ (TROUBLESHOOTING)** — Частые проблемы и их решения при работе с репозиторием и инструментами → [instructions/troubleshooting.md](instructions/troubleshooting.md)
-- **🔄 РАБОЧИЙ ПРОЦЕСС (WORKFLOW)** — Стандартный рабочий процесс для всех участников проекта → [instructions/workflow.md](instructions/workflow.md)
-
-## instructions/checkers/
-
-- **📜 בְּדִיקָה — BDIKAH-CHECKER: ПРОВЕРКА ТЕКСТА НА РЕЛИГИОНИЗМЫ** — Инструмент проверки текстов на религионизмы, грецизмы, церковнославянизмы и лати → [instructions/checkers/bdikah-checker.md](instructions/checkers/bdikah-checker.md)
-- **✅ ЧЕКЕР СОГЛАСОВАННОСТИ (CONSISTENCY CHECKER)** — Проверка согласованности терминов и ссылок между разными файлами → [instructions/checkers/consistency-checker.md](instructions/checkers/consistency-checker.md)
-- **📜 בְּדִיקַת עֻבְדּוֹת — FACTCHECKER: ПРОВЕРКА ФАКТОВ** — Инструмент проверки фактических утверждений в текстах. Отделение доказанного от  → [instructions/checkers/factcheck.md](instructions/checkers/factcheck.md)
-- **📜 מִבְדָּק — MIVDAK: АУДИТ ПОЛЕЗНОСТИ ТЕКСТА** — Полный цикл аудита текста с использованием всех инструментов разоблачения. Чек-л → [instructions/checkers/mivdak.md](instructions/checkers/mivdak.md)
-- **✅ ЧЕК-ЛИСТ ЗАГРУЗКИ ФАЙЛОВ ДЛЯ НАСТРОЙКИ НЕЙРОСЕТИ** — Чек-лист всех файлов, которые необходимо загрузить в нейросеть перед началом раб → [instructions/checkers/startup-checklist.md](instructions/checkers/startup-checklist.md)
-- **📜 תִּקּוּן — TIKUN-FIX: ШАБЛОН ЗАДАЧ ПО ОБНОВЛЕНИЮ** — Шаблон для фиксации задач по обновлению файлов репозитория. Формат вывода и прим → [instructions/checkers/tikun-fix.md](instructions/checkers/tikun-fix.md)
-
-## instructions/exposure/
-
-- **📜 סוּגֵי עִיוּת — ТИПЫ ИСКАЖЕНИЙ И ИХ ПРИЁМЫ** — Классификация типов искажений, через которые проходят ивритские понятия при пере → [instructions/exposure/exposure-distortions.md](instructions/exposure/exposure-distortions.md)
-- **📜 מַנְגְּנוֹנֵי חֲשִׂיפָה — МЕХАНИЗМЫ И ПРИЁМЫ ПОДМЕНЫ** — Три механизма подмены и все известные приёмы. Как именно система искажает истину → [instructions/exposure/exposure-mechanisms.md](instructions/exposure/exposure-mechanisms.md)
-- **📜 שִׁיטוֹת חֲשִׂיפָה — МЕТОДЫ РАЗОБЛАЧЕНИЯ** — 23 метода разоблачения религиозной лжи. Каждый метод: суть, как применять, конкр → [instructions/exposure/exposure-methods.md](instructions/exposure/exposure-methods.md)
-- **📜 עֶקְרוֹנוֹת חֲשִׂיפָה — ОСНОВНЫЕ ПРИНЦИПЫ РАЗОБЛАЧЕНИЯ** — Основные принципы разоблачения религиозной лжи. Критерии истины и лжи. Базовые п → [instructions/exposure/exposure-principles.md](instructions/exposure/exposure-principles.md)
-
-## instructions/methodology/
-
-- **📜 אַרְכֵאוֹלוֹגְיָה שֶׁל מַשְׁמָעֻיּוֹת — АРХЕОЛОГИЯ СМЫСЛОВ** — Методология послойного анализа библейских понятий. Семь врат — от современного и → [instructions/methodology/archeology-methodology.md](instructions/methodology/archeology-methodology.md)
-- **📜 שִׁחְזוּר בְּשׂוֹרַת יֵשׁוּעַ — ВОССТАНОВЛЕНИЕ ИВРИТСКОГО ОРИГИНАЛА** — Методы восстановления ивритского оригинала греческих писаний. От обратного перев → [instructions/methodology/hebrew-reconstruction.md](instructions/methodology/hebrew-reconstruction.md)
-- **📖 ПЕРЕВОДЧЕСКАЯ МЕТОДОЛОГИЯ** — Практическое руководство по переводу и исследованию ивритских терминов → [instructions/methodology/translation-methodology.md](instructions/methodology/translation-methodology.md)
-- **📜 תַּרְגּוּמֵי שֶׁקֶר — КЛЮЧЕВЫЕ ТРАНСЛИТЕРАЦИИ, ИСКАЖАЮЩИЕ СМЫСЛ** — Полный свод транслитераций, которые подменили собой ивритские и греческие оригин → [instructions/methodology/transliteration-distortions.md](instructions/methodology/transliteration-distortions.md)
-- **📜 שִׁיטַת הָעֵץ — МЕТОД ДЕРЕВА: КАК ПРОВЕРЯТЬ УЧЕНИЕ** — Инструмент проверки любого учения по модели дерева. От корней до плодов. Основан → [instructions/methodology/tree-method.md](instructions/methodology/tree-method.md)
-
-## instructions/tahor/
-
-- **📜 ГРЕЦИЗМЫ** — Полный список грецизмов с заменами. Слова, пришедшие из греческого языка через С → [instructions/tahor/grecisms.md](instructions/tahor/grecisms.md)
-- **📜 ЛАТИНИЗМЫ** — Полный список латинизмов с заменами. Слова, пришедшие из латыни через Вульгату и → [instructions/tahor/latinisms.md](instructions/tahor/latinisms.md)
-- **📜 שֵׁמוֹת — ИМЕНА И НАЗВАНИЯ: КАРТА ОЧИЩЕНИЯ** — Полный список собственных имён и географических названий, искажённых в переводах → [instructions/tahor/names.md](instructions/tahor/names.md)
-- **📜 בִּטּוּיִים — ФРАЗЫ И ВЫРАЖЕНИЯ: КАРТА ОЧИЩЕНИЯ** — Полный список устойчивых фраз и выражений, требующих возврата к ивритскому смысл → [instructions/tahor/phrases.md](instructions/tahor/phrases.md)
-- **📜 РЕЛИГИОНИЗМЫ** — Полный список религионимов с заменами. Слова, которые система создала или переос → [instructions/tahor/religionims.md](instructions/tahor/religionims.md)
-- **📜 סְלָבִיִּים — ЦЕРКОВНОСЛАВЯНИЗМЫ: КАРТА ОЧИЩЕНИЯ** — Полный список церковнославянизмов с заменами. Слова, созданные или переосмысленн → [instructions/tahor/slavicisms.md](instructions/tahor/slavicisms.md)
-
-## instructions/templates/
-
-- **📜 תַּבְנִית נִתּוּחַ מֻשָּׂג — ШАБЛОН АНАЛИЗА ПОНЯТИЯ** — Шаблон послойного анализа библейского понятия. Семь врат: от современного искаже → [instructions/templates/concept-analysis-template.md](instructions/templates/concept-analysis-template.md)
-- **📜 תַּבְנִית מֶחְקָר — ШАБЛОН ИССЛЕДОВАНИЯ** — Утверждённый шаблон для всех исследований в папках `terminology/` и `researches/ → [instructions/templates/research-template.md](instructions/templates/research-template.md)
-- **📜 תַּבְנִית לְמִידָה עַצְמִית — ШАБЛОН САМООБУЧЕНИЯ НЕЙРОСЕТИ** — Шаблон для самостоятельного обучения нейросети работе с текстами ТаНаХа. → [instructions/templates/self-learning-template.md](instructions/templates/self-learning-template.md)
-
-## researches/
-
-- **📜 אַבְרָא כַּדְבְּרָא — НЕ «МАГИЯ», А ЛОЖЬ, ЗАКЛЯТАЯ В СЛОВАХ** — Разоблачение магической нусха «абракадабра» через иврит и ТаНаХ → [researches/tanakh/abracadabra.md](researches/tanakh/abracadabra.md)
-- **🗿 АБСТРАКТНЫЕ БОЖКИ VS ЯХВЕ: БЕЗВОЛИЕ ИЛИ Хофеш** — Как языческие божества делают адам пассивным рабом, а Яхве требует действия и вы → [researches/abstract-gods-vs-yhwh.md](researches/abstract-gods-vs-yhwh.md)
-- **📜 אַחֲרָיוּת — НЕ «ОТВЕТСТВЕННОСТЬ», А СОПРОВОЖДЕНИЕ** — Разоблачение латинско-юридической подмены «ответственности». Ивритское אַחֲרָיוּ → [researches/tanakh/acharayut-support.md](researches/tanakh/acharayut-support.md)
-- **📜 אֲדֹנָי — НЕ «ГОСПОДЬ», А СКРЫТОЕ ИМЯ** — Происхождение слова אֲדֹנָי (Адонай). Разоблачение его связи с ханаанским божест → [researches/tanakh/adonai-origin.md](researches/tanakh/adonai-origin.md)
-- **📜 אַפּוֹקָלִיפְּסָה — НЕ «КОНЕЦ СВЕТА», А ОТКРЫТИЕ ЗАНАВЕСА** — Разоблачение ложного значения слова «апокалипсис» и возвращение ему библейского  → [researches/tanakh/apocalypse.md](researches/tanakh/apocalypse.md)
-- **📜 הַר מְגִדּוֹ — НЕ «АРМАГЕДДОН»: МЕСТО БИТВЫ, А ВОЗВЫШЕННОСТЬ, ГДЕ СУДЯТ** — Разоблачение ложного образа «Армагеддона» как финальной войны и возвращение библ → [researches/tanakh/armageddon.md](researches/tanakh/armageddon.md)
-- **📜 עֲשֶׂרֶת הַדִּבְּרוֹת — НЕ «ЗАПОВЕДИ», А ДЕСЯТЬ ВЫСКАЗЫВАНИЙ-УЗЛОВ** — Разоблачение религиозной подмены «заповедей». Десять речений — это не «законы»,  → [researches/tanakh/aseret-hadvarim.md](researches/tanakh/aseret-hadvarim.md)
-- **📜 אַתָּה — НЕ «ВЫ», А «ТЫ»: ОТСУТСТВИЕ ИЕРАРХИИ В ИВРИТЕ** — Разоблачение латинско-европейской подмены обращения. В библейском иврите нет «Вы → [researches/language/atah-not-you.md](researches/language/atah-not-you.md)
-- **📜 אֶצְבַּע בִּלְעָם — ПЕРСТ ВААЛАМА: КАК УНИЧТОЖИТЬ ИЗРАИЛЬ БЕЗ ВОЙНЫ** — Стратегия Ваалама: как уничтожить Израиль без войны. Схема соблазна изнутри, пов → [researches/tanakh/balaam-strategy.md](researches/tanakh/balaam-strategy.md)
-- **📜 БАШАХ (ב.ש.ח) — Мивне ЕВРЕЙСКОГО НОВОГО Брит** — Предложение новой аббревиатуры «БаШаХ» для еврейского Нового Брит, аналогичной Т → [researches/tanakh/bashah-structure.md](researches/tanakh/bashah-structure.md)
-- **👥 ВЕРИЙЦЫ: ПРОВЕРЯЮЩИЕ, А НЕ ПОДЧИНЯЮЩИЕСЯ** — Кто такие верийцы (береане) в Деяниях 17:10-15, их противопоставление николаитам → [researches/tanakh/bereans.md](researches/tanakh/bereans.md)
-- **📜 גּוּף כְּמִקְדָּשׁ — Гуф КАК ДОМ ОТДЕЛЁННОСТИ** — Гуф как Дом Отделённости. От Мишкана до Йехошуа. Переносное шхина Яхве в адам. Р → [researches/sociology/body-as-temple.md](researches/sociology/body-as-temple.md)
-- **🇬🇧 БРИТ-АНИЯ: КОРАБЛЬ Брит ИЛИ ИМПЕРИЯ ЛЖИ?** — Требует уточнения → [researches/tanakh/brit-ania.md](researches/tanakh/brit-ania.md)
-- **📜 בְּרִית חֲדָשָׁה — НЕ «НОВЫЙ ЗАВЕТ», А ВОССТАНОВЛЕННЫЙ Брит** — Разоблачение мунах «Новый Завет» и возвращение изначального понятия «Обновлённый → [researches/tanakh/brit-hadashah.md](researches/tanakh/brit-hadashah.md)
-- **📜 בְּרִית נִשּׂוּאִין — НЕ «СВАДЬБА», А Брит КРОВИ И Сеуда** — Разоблачение современного брака как юридической сделки. Возвращение к ТаНаХ: бра → [researches/tanakh/brit-nissuin.md](researches/tanakh/brit-nissuin.md)
-- **📜 סְפָרִים בָּאֵשׁ — СЖИГАНИЕ КНИГ: КАК РИМ УНИЧТОЖАЛ Эмет** — Историческое разоблачение hашмада Римом ивритских оригиналов Микрa и подмены их  → [researches/language/burning-of-books.md](researches/language/burning-of-books.md)
-- **📜 КАТОЛИЧЕСКАЯ Кеhила — РИМСКАЯ ПОДДЕЛКА Дэрех YHWH** — Всестороннее разоблачение Римско-католической церкви как системы подмены иудейск → [researches/tanakh/catholic-church.md](researches/tanakh/catholic-church.md)
-- **📜 חָדָשׁ — НЕ «НОВЫЙ», А ВОЗВРАЩЁННЫЙ** — Разоблачение ложного перевода слова «хадаш» как «новый» и возвращение истинного  → [researches/tanakh/chadash-restored.md](researches/tanakh/chadash-restored.md)
-- **חוֹפֶשׁ וְדְרוֹר: ДВА ЛИКА Хофеш** — Различие между חוֹפֶשׁ (хофеш) — хофеш от (отрицательной) и דְּרוֹר (дрор) — хоф → [researches/systems/chofesh-vs-dror.md](researches/systems/chofesh-vs-dror.md)
-- **📜 דַּעַת — ПОЗНАНИЕ: НЕ ИНФОРМАЦИЯ, А БЛИЗОСТЬ** — Раскрытие библейского машмаут דַּעַת (даат). Разоблачение греческого дуализма «д → [researches/systems/daat-tree.md](researches/systems/daat-tree.md)
-- **📜 דָּם וְחֶסֶד — КРОВЬ И ВЕРНОСТЬ: ПОЧЕМУ ЯХВЕ НЕ ЖЕСТОК** — Исследование так называемых «жестоких» текстов ТаНаХ. Доказательство того, что п → [researches/tanakh/dam-chesed.md](researches/tanakh/dam-chesed.md)
-- **📜 דָּם וְחֶסֶד — КРОВЬ И ПРЕДАННАЯ Аhава: ПОЧЕМУ ЯХВЕ НЕ ЖЕСТОК** — Разоблачение ложного образа «жестокого Яхве» через анализ ивритских оригиналов.  → [researches/language/dam-ve-chesed.md](researches/language/dam-ve-chesed.md)
-- **📜 דַּם יֵשׁוּעַ — КРОВЬ ВЕСТНИКА КАК ПЕЧАТЬ Брит С ЯХВЕ** — Разоблачение римской тора капара. Кровь Йехошуа — не магическая корбан, а печать → [researches/systems/dam-yeshua-seal.md](researches/systems/dam-yeshua-seal.md)
-- **📜 דַּרְכֵי הַצַּדִּיקִים — Дэрех Цадик** — Типология дэрех в ТаНаХ. Авраhам, Исаак, Яаков, Моше, Давид, Йосеф, Йешуа. Не ра → [researches/tanakh/darchei-tzadikim.md](researches/tanakh/darchei-tzadikim.md)
-- **📜 דֶּרֶךְ הַגֶּבֶר — Дэрех МУЖЧИНЫ: Хофеш ЧЕРЕЗ ПУСТЫНЮ** — Что ТаНаХ говорит о мужском дэрех. Три истории: Авраам, Ицхак, Яаков. Пять внутр → [researches/systems/derech-ha-gever.md](researches/systems/derech-ha-gever.md)
-- **📜 דֶּרֶךְ הַנָּחָשׁ — Дэрех ЗМЕЯ: КАК СТАТЬ НЕВИДИМЫМ ДЛЯ СИСТЕМЫ** — Как построить свою систему внутри системы. Семь принципов обхода, материальная б → [researches/tanakh/derech-ha-nachash.md](researches/tanakh/derech-ha-nachash.md)
-- **📜 דֶּרֶךְ יְהוָה — Дэрех ЯХВЕ: ОТ ЕГИПТА ДО НОВОГО ЙЕРУШАЛАИМА** — Единый дэрех Яхве через всю историю Израиля. От Исхода из Египта до грядущего Но → [researches/tanakh/dereh-yhwh.md](researches/tanakh/dereh-yhwh.md)
-- **🏛️ ЦИФРОВОЙ ВАВИЛОН (DIGITAL BAVEL)** — Как современная цифровая система повторяет архитектуру Вавилонской башни — контр → [researches/tanakh/digital-bavel.md](researches/tanakh/digital-bavel.md)
-- **📜 קוֹלוֹסֵאוּם דִּיגִיטָלִי — ЦИФРОВОЙ КОЛИЗЕЙ: Лехем И ЗРЕЛИЩ 2.0** — Как Рим переизобрёл «хлеба и зрелищ» в цифровую ткуфа. Атомизация зрителя. Одино → [researches/tanakh/digital-coliseum.md](researches/tanakh/digital-coliseum.md)
-- **📜 דְּרָשַׁת הָהָר — НАГОРНАЯ ПРОПОВЕДЬ: ПЕШИТТА ПРОТИВ ГРЕЧЕСКОГО** — Восстановление ивритского оригинала Нагорной проповеди через Пешитту. Сравнение  → [researches/tanakh/drashat-hahar.md](researches/tanakh/drashat-hahar.md)
-- **📜 אֱמוּנָה לְעַצְמוֹ אוֹ אֱמוּנָה לַיהוָה — БЫТЬ СОБОЙ ИЛИ БЫТЬ С ЯХВЕ?** — Разоблачение современного культа «верности себе» через призму ТаНаХ. Истинная эм → [researches/emunah-self-vs-yhwh.md](researches/emunah-self-vs-yhwh.md)
-- **📜 עֶבֶד וְעַבְדוּת — НЕ «РАБ», А Эвед, КОТОРЫЙ МОЖЕТ СТАТЬ СВОБОДНЫМ** — Разоблачение римского понятия «раб» (servus) через призму ТаНаХ. עֶבֶד — не бесп → [researches/tanakh/eved-amdut.md](researches/tanakh/eved-amdut.md)
-- **📜 וַיְהִי־עֶרֶב וַיְהִי־בֹקֶר — И БЫЛ ВЕЧЕР, И БЫЛО Бокер: НАЧАЛО ДНЯ** — Почему еврейский день начинается с заката. Сравнение с римским, греческим и совр → [researches/systems/evening-morning-day.md](researches/systems/evening-morning-day.md)
-- **📜 גֵּרוּשׁ שֵׁדִים — ИЗГНАНИЕ БЕСОВ: МИФ ИЛИ РЕАЛЬНОСТЬ?** — Библейское понимание хошех и ор. Разоблачение римско-языческой практики «изгнани → [researches/tanakh/exorcism-myth.md](researches/tanakh/exorcism-myth.md)
-- **📖 ГАЛАТИМ: ВОЙНА ДВУХ СИСТЕМ** — Анализ послания к Галатим — война системы рабства и системы сыновства → [researches/systems/galatim-two-systems.md](researches/systems/galatim-two-systems.md)
-- **📜 קוּבְּיָה אוֹ חַיִּים — ИГРАТЬ ИЛИ ЖИТЬ?** — Разоблачение азартных игр как системы, разрушающей жизнь. Библейский взгляд на а → [researches/economy/gambling-vs-life.md](researches/economy/gambling-vs-life.md)
-- **🇬🇷 ЭЛЕУТЕРИЯ: КАК ГРЕЧЕСКАЯ Хофеш ПОДМЕНИЛА ДРОР** — Требует уточнения → [researches/teachings/greek-freedom-distortion.md](researches/teachings/greek-freedom-distortion.md)
-- **🛣️ ХА-ДЕРЕХ — Дэрех, КОТОРЫЙ НЕЛЬЗЯ КОНТРОЛИРОВАТЬ** — Почему кеhила (и любая власть) заменила живой Дэрех (ха-дерех) на религию, орган → [researches/tanakh/ha-derech.md](researches/tanakh/ha-derech.md)
-- **📜 הַמַּשְׁחִית — ГУБИТЕЛЬ: РАЗОБЛАЧЕНИЕ МИФА ОБ Малъах Мавет** — Разоблачение мифа об «ангеле-губителе» в ночь Песаха. Кто прошёл через Египет —  → [researches/tanakh/ha-mashchit.md](researches/tanakh/ha-mashchit.md)
-- **📜 לֵב וּמֹחַ — Лев И МОЗГ: ТАНАХИЧЕСКАЯ МОДЕЛЬ Тодаа** — Лев против мозга. ТаНаХическая модель тодаа: лев как центр мышления, мозг как фи → [researches/psychology/heart-vs-brain.md](researches/psychology/heart-vs-brain.md)
-- **📜 שְׂפַת אֱמֶת — ПОЧЕМУ ИВРИТ — ЕДИНСТВЕННЫЙ ЯЗЫК, КОТОРЫЙ НЕ ЛЖЁТ** — Разоблачение несовершенства и склонности к искажениям греческого, латинского, ан → [researches/language/hebrew-truth.md](researches/language/hebrew-truth.md)
-- **📜 שְׂפַת אֱמֶת — ИВРИТ И ЯЗЫКИ МИРА: ЛИНГВИСТИКА, МЫШЛЕНИЕ И Гораль НАРОДОВ** — Сравнительное исследование иврита и других языков мира. Как лингвистика влияет н → [researches/language/hebrew-vs-languages.md](researches/language/hebrew-vs-languages.md)
-- **📜 שְׁתֵּי דְּרָכִים — ДВЕ ДОРОГИ: ЭЛЛИНИЗАЦИЯ И ИВРИТИЗАЦИЯ** — שְׁתֵּי דְּרָכִים — ДВЕ ДОРОГИ: ЭЛЛИНИЗАЦИЯ И ИВРИТИЗАЦИЯ → [researches/teachings/hellenization-vs-hebraization.md](researches/teachings/hellenization-vs-hebraization.md)
-- **📜 הֶבֶל — ХЕВЕЛЬ: ДЫХАНИЕ, КОТОРОЕ ГРОМЧЕ ГОЛОСА** — Раскрытие образов Каина и Авеля через ивритские корни. Два дэрех: приобретать ил → [researches/tanakh/hevel-kayin.md](researches/tanakh/hevel-kayin.md)
-- **🔥 ГИТЛЕР И ЕВРЕИ: ПОЧЕМУ ОН УНИЧТОЖАЛ НОСИТЕЛЕЙ Хофеш** — Истинные мотивы Холокоста: Гитлер уничтожал не «расу», а носителей правды о том, → [researches/history/hitler-and-jews.md](researches/history/hitler-and-jews.md)
-- **📜 עִמָּנוּ אֵל — ИММАНУ Эль: ЧТО ОЗНАЧАЕТ ЭТО ИМЯ** — Исследование имени Имману Эль из Йешаяhу 7:14. Что означает это имя? К кому оно  → [researches/tanakh/immanu-el.md](researches/tanakh/immanu-el.md)
-- **📜 אִשָּׁה יִרְאַת יְהוָה — КАК ВЫБИРАТЬ ЖЕНУ ПО ТаНаХ** — Критерии выбора жены согласно ТаНаХ. Разоблачение мифа «только еврейка». Дэрех,  → [researches/sociology/ishah-yirat-yhwh.md](researches/sociology/ishah-yirat-yhwh.md)
-- **📜 יִשְׂרָאֵל וִיהוּדִי — ИЗРАИЛЬТЯНЕ И ЕВРЕИ: РАЗЛИЧИЕ ПОНЯТИЙ** — Различие между понятиями «израильтяне» и «евреи». Происхождение мунах, история,  → [researches/history/israel-vs-yehudi.md](researches/history/israel-vs-yehudi.md)
-- **🕋 ИУДЕИ И МУСУЛЬМАНЕ: БРАТЬЯ ИЛИ ВРАГИ?** — Почему два семитских народа, потомки Авраама, находятся в вечном конфликте → [researches/sociology/jews-vs-muslims.md](researches/sociology/jews-vs-muslims.md)
-- **🌀 КАРМА — Тора ВОЗДАЯНИЯ ИЛИ ВАВИЛОНСКАЯ ЛОВУШКА?** — Требует уточнения → [researches/tanakh/karma.md](researches/tanakh/karma.md)
-- **📜 קֶשֶׁת — НЕ «РАДУГА», А БОЕВОЙ ЛУК, ПОВЕШЕННЫЙ НА НЕБО** — Библейское значение слова קֶשֶׁת как боевого лука, ставшего знаком мира. Снятие  → [researches/tanakh/keshet.md](researches/tanakh/keshet.md)
-- **📜 הַכּוּזָרִים — ХАЗАРЫ: НЕ «ЕВРЕИ», А ТЮРКИ, ПРИНЯВШИЕ ИУДАИЗМ** — Разоблачение мифа о хазарском происхождении евреев. Хазары — тюрки, а не потомки → [researches/tanakh/khazars-turks.md](researches/tanakh/khazars-turks.md)
-- **📜 קוֹל דְּמָמָה דַקָּה — КАК УСЛЫШАТЬ ГОЛОС ЯХВЕ** — Где и как говорит Яхве. Тишина против рааш. Как отличить голос Яхве от голоса эг → [researches/medicine/kol-dmamah-dakah.md](researches/medicine/kol-dmamah-dakah.md)
-- **📜 קוֹץ — ЖАЛО: ГДЕ ТВОЯ Ницахон, Мавет?** — Два жала у Шауля: жало мавет (промах) и жало в басар (немощь). Разбор через ТаНа → [researches/tanakh/kotz-sting.md](researches/tanakh/kotz-sting.md)
-- **📜 לֶחֶם וְיַיִן — НЕ «ПРИЧАСТИЕ», А Сеуда Брит** — Разоблачение подмены сеуда брит на «причастие». Подмена объекта hиштахавая: Йешу → [researches/language/lechem-ve-yayin.md](researches/language/lechem-ve-yayin.md)
-- **📜 לֵב — МОЗГ В Лев: НАУКА ПОДТВЕРЖДАЕТ ТаНаХ** — Научное открытие «мозга в сердце» как подтверждение библейской антропологии. Лев → [researches/psychology/lev-mind.md](researches/psychology/lev-mind.md)
-- **📜 עִבְרִית מוּל תַּרְגּוּמִים — СКОЛЬКО Машмаут ПОТЕРЯНО В ПЕРЕВОДАХ** — Количественная и качественная оценка искажений. Что потеряно, что добавлено, что → [researches/language/loss-in-translation.md](researches/language/loss-in-translation.md)
-- **📜 מַבּוּל — НЕ «ПОТОП», А ВОЗВРАЩЕНИЕ К Бриа** — Разоблачение религиозной лжи о «потопе» как о каре. Событие мабуль — это отмена  → [researches/tanakh/mabbel-recreation.md](researches/tanakh/mabbel-recreation.md)
-- **📜 מַכּוֹת — НЕ «КАЗНИ», А УДАРЫ, КОТОРЫЕ НЕЛЬЗЯ ОТКУПИТЬ** — Разоблачение юридической подмены «казни египетские». В иврите — «удары», которых → [researches/tanakh/makkot-strikes.md](researches/tanakh/makkot-strikes.md)
-- **🌹 Шеол — РОЗА И ДЕРЕВО: РАСКРЫТИЕ ПОД Хама ЯХВЕ** — Требует уточнения → [researches/man-as-rose-and-tree.md](researches/man-as-rose-and-tree.md)
-- **🌹 8 МАРТА: ОТ КАСТРЮЛЬ ДО РЕВОЛЮЦИИ** — Требует уточнения → [researches/history/march-8-history.md](researches/history/march-8-history.md)
-- **📜 מָשִׁיחַ — Машиах: КРИТЕРИИ, ТЕКСТЫ И ПРОВЕРКА** — Полный разбор всех стихов ТаНаХ о Машиах. Проверка соответствия Йехошуа критерия → [researches/tanakh/maschiah-cruteria.md](researches/tanakh/maschiah-cruteria.md)
-- **📜 מָסֹרֶת — МАСОРЕТЫ: ХРАНИТЕЛИ, А НЕ ИСКАЗИТЕЛИ** — Защита масоретского текста от обвинений в искажении. Доказательство, что масорет → [researches/tanakh/masoretic-text.md](researches/tanakh/masoretic-text.md)
-- **📜 מַלְאָךְ — НЕ «АНГЕЛ», А ВЕСТНИК, КОТОРЫЙ ПРИНОСИТ Давар** — Разоблачение римской подмены «ангелов». מַלְאָךְ — не бесплотный руах с крыльями → [researches/tanakh/melech-messenger.md](researches/tanakh/melech-messenger.md)
-- **📜 מֶרֶד — НЕ «ВОССТАНИЕ», А ОТКАЗ НЕСТИ ЯРМО** — Разоблачение латинско-церковного понятия «восстание». Библейское מֶרֶד — не бунт → [researches/tanakh/mered-refusal.md](researches/tanakh/mered-refusal.md)
-- **📜 מִגְדַּל בָּבֶל — РАССЕЯНИЕ ЯЗЫКОВ: КАК ИМПЕРИИ УКРАЛИ Машмаут** — Как рассеяние языков привело к утрате машмаут. Имперские языки (греческий, латын → [researches/tanakh/migdal-bavel.md](researches/tanakh/migdal-bavel.md)
-- **📜 מַיִן קְרָאפְט — МАЙНКРАФТ: ТАНАХИЧЕСКИЙ АНАЛИЗ** — Анализ Minecraft через призму ТаНаХ. Архетипы бриа, грехопадения, исхода и восст → [researches/tanakh/minecraft-tanakh.md](researches/tanakh/minecraft-tanakh.md)
-- **📜 מִרְיָם נֶגֶד אִשְׁתָּר — МИРЬЯМ ПРОТИВ ИШТАР: РАЗОБЛАЧЕНИЕ КУЛЬТА «БОГОРОДИЦЫ»** — Разоблачение культа «богородицы» как языческой подмены, уходящей корнями в культ → [researches/teachings/miryam-vs-ishtar.md](researches/teachings/miryam-vs-ishtar.md)
-- **📜 Сод ИСЧЕЗНУВШИХ СВИТКОВ** — Почему ивритские оригиналы апостольских писаний не найдены, хотя вероятность их  → [researches/history/missing-hebrew-scrolls.md](researches/history/missing-hebrew-scrolls.md)
-- **📜 מִזְמוֹר לְדָוִד — Мизмор 23: СИНОДАЛЬНЫЙ ТУМАН ПРОТИВ ИВРИТСКОЙ Бехирут** — Разоблачение синодального перевода 23-го псалма. Построчный разбор ивритского ор → [researches/tanakh/mizmor-23.md](researches/tanakh/mizmor-23.md)
-- **📜 מוֹעֲדִים — НАЗНАЧЕННЫЕ ВРЕМЕНА ЯХВЕ: ПОДМЕНА Хаг** — Полный разбор назначенных времён Яхве (моадим). Их машмаут, даты и подмена христ → [researches/tanakh/moadim-yhwh.md](researches/tanakh/moadim-yhwh.md)
-- **💱 РУБЛЬ, ЕВРО, ДОЛЛАР: ЯЗЫЧЕСКИЕ ЗНАКИ НА ДЕНЬГАХ** — Разоблачение языческого происхождения от валют (₽, €, $) и их связи с древними б → [researches/economy/money-symbols.md](researches/economy/money-symbols.md)
-- **📜 מוֹרָשָׁה — НАСЛЕДИЕ: ЧТО МИРУ ДАЛИ ЕВРЕИ** — Сравнительное исследование вклада Израиля и пятнадцати мировых систем в цивилиза → [researches/tanakh/morashat-israel.md](researches/tanakh/morashat-israel.md)
-- **📜 מוּשְׁטָר — МУШТРА: КАК СИСТЕМА ПРЕВРАТИЛА Авода В ДРЕССИРОВКУ** — Разоблачение муштры как инструмента системы. Сравнение муштры и дэрех Яхве. Как  → [researches/tanakh/mushtarah.md](researches/tanakh/mushtarah.md)
-- **📜 נָחָשׁ — ЗМЕЙ: НЕ Шед С ХВОСТОМ, А АЛГОРИТМ СОМНЕНИЯ** — Раскрытие этимологии и сущности змея в Эдеме. Разоблачение римского образа «дьяв → [researches/tanakh/nachash-serpent.md](researches/tanakh/nachash-serpent.md)
-- **📜 НИКЕЙСКИЙ Кеhила: ИМПЕРСКАЯ СПЕЦОПЕРАЦИЯ ПРОТИВ Эмет** — Как Римская империя на Никейском кеhила 325 года создала подделку — «богочеловек → [researches/tanakh/nicaea-council.md](researches/tanakh/nicaea-council.md)
-- **📜 נִחָם — Кина ПЕТРА: НЕ Тшува, А ГЛУБОКИЙ ВЗДОХ** — Разбор нефила и возвращения Ке́йфы (Петра) через ивритские понятия נִחָם и חֲרָט → [researches/tanakh/nicham-keifa.md](researches/tanakh/nicham-keifa.md)
-- **📜 נִחָם — НЕ «РАСКАЯНИЕ», А ГЛУБОКИЙ ВЗДОХ** — Возвращение библейского машмаут слова נִחָם. Разоблачение религиозной подмены «р → [researches/tanakh/nicham.md](researches/tanakh/nicham.md)
-- **📜 נִדָּה — НЕ «НЕЧИСТОТА», А ОТДЕЛЁННОСТЬ** — Возвращение библейского машмаут слова נִדָּה. Разоблачение мифа о «проклятии Евы → [researches/tanakh/niddah.md](researches/tanakh/niddah.md)
-- **📜 נִשְׁמַת חַיִּים — КОГДА ДЫХАНИЕ СТАНОВИТСЯ ЛОЖЬЮ** — Дыхание жизни (нишмат хаим) как индикатор эмет. Как ложь, пахад и гордость наруш → [researches/tanakh/nishmat-chayim.md](researches/tanakh/nishmat-chayim.md)
-- **📜 עוֹלָם הַבָּא — МИР ГРЯДУЩИЙ: НЕ «БУДУЩЕЕ», А СОКРЫТОЕ** — Разоблачение подмены понятия עוֹלָם הַבָּא (олам ха-ба) в нацрут. Это не «будущи → [researches/tanakh/olam-haba.md](researches/tanakh/olam-haba.md)
-- **📜 מִשְׂחֲקֵי אוֹלִימְפְּיָה — НЕ «СПОРТ», А ИНСТРУМЕНТ ОСЛАБЛЕНИЯ** — Разоблачение Олимпийских игр как инструмента контроля и отвлечения. От древнего  → [researches/tanakh/olympic-games.md](researches/tanakh/olympic-games.md)
-- **📜 אוֹר תָּם — Ор ЦЕЛЬНЫЙ: ИМЯ, КОТОРОЕ ВИДИТ СУТЬ** — Раскрытие имени Ор Там (אוֹר תָּם) как криа и диагноза. Ор, который не мерцает.  → [researches/tanakh/or-tam.md](researches/tanakh/or-tam.md)
-- **📜 הַכְּתָב הָעִבְרִי הַקָּדוּם — ПАЛЕО-ИВРИТ: ЯЗЫК, КОТОРЫМ ГОВОРИЛ ЯХВЕ** — Полное исследование палео-иврита: происхождение, мивне, значение букв-образов, а → [researches/tanakh/paleo-hebrew.md](researches/tanakh/paleo-hebrew.md)
-- **🏛️ ПЕТЕРБУРГ — РИМ НА НЕВЕ: АРХИТЕКТУРА КАК ИНСТРУМЕНТ КОНТРОЛЯ** — Разоблачение египетско-греко-римской архитектуры Петербурга как инструмента импе → [researches/petersburg-rome-on-neva.md](researches/petersburg-rome-on-neva.md)
-- **📜 פִילוֹסוֹפֵמוֹת — ГРЕЧЕСКИЕ ФИЛОСОФЕМЫ: КОГДА МЫСЛЬ СТАНОВИТСЯ ТЮРЬМОЙ** — Как греческие философские категории исказили ивритские понятия. Разоблачение под → [researches/tanakh/philosophemes.md](researches/tanakh/philosophemes.md)
-- **📜 פְּלָנֵטָה — НЕ «ПЛАНЕТА», А «БЛУЖДАЮЩАЯ ЗВЕЗДА»** — Разоблачение астрологического культа и греческого понятия «планета». Светила в Т → [researches/science/planetah-wandering-star.md](researches/science/planetah-wandering-star.md)
-- **📜 פְּלֵבְּס — ПЛЕБЕИ: СИСТЕМА КОНТРОЛЯ ЧЕРЕЗ Лехем И ЗРЕЛИЩА** — Разоблачение римской системы контроля масс через призму ТаНаХ. Плебс — это не пр → [researches/tanakh/plebs-control.md](researches/tanakh/plebs-control.md)
-- **🙏 Тфила: ОТ ЖИВОГО ДЕЙСТВИЯ К РИТУАЛЬНОМУ ЗАКЛИНАНИЮ** — Требует уточнения → [researches/tanakh/prayer-distortion.md](researches/tanakh/prayer-distortion.md)
-- **🧠 PSYCHIKOS И PNEUMATIKOS: ДВА РЕЖИМА Тодаа ПО ШАУЛЮ** — Разбор греческих мунах ψυχικός (психикос) и πνευματικός (пневматикос) в послания → [researches/tanakh/psychikos-pneumatikos.md](researches/tanakh/psychikos-pneumatikos.md)
-- **📜 תַּכְלִית הַתַּנַ"ךְ — ЦЕЛЬ ТАНАХА: ДЛЯ ЧЕГО ОН БЫЛ НАПИСАН** — Исследование истинной цели ТаНаХа. Для чего он был написан на самом деле. Не рел → [researches/systems/purpose-of-tanakh.md](researches/systems/purpose-of-tanakh.md)
-- **📜 עֲבוֹדַת הָרַבָּנוּת — РАВВИНИСТИЧЕСКИЙ ИУДАИЗМ: ИСКАЖЕНИЕ Эмет** — Историческое и лингвистическое разоблачение раввинистического иудаизма. Как устн → [researches/tanakh/rabbinic-judaism.md](researches/tanakh/rabbinic-judaism.md)
-- **📜 רֶלִיגְיָה — Давар, ПРИДУМАННОЕ РИМОМ** — Полное разоблачение латинского происхождения слова «религия» как инструмента кон → [researches/tanakh/religia-rome.md](researches/tanakh/religia-rome.md)
-- **📜 שְׁאֵרִית יִשְׂרָאֵל — Шеэрит ИЗРАИЛЯ: ТЕ, КТО ИЩЕТ ЯХВЕ** — Статистический и танахический анализ: сколько евреев в Израиле искренне ищут Яхв → [researches/tanakh/remnant-israel.md](researches/tanakh/remnant-israel.md)
-- **📜 תְּחִיַּת הַמֵּתִים — ОЖИВЛЕНИЕ УМЕРШИХ: Гуф, Руах ИЛИ МЕТАФОРА?** — Глубокий анализ концепции оживления мёртвых в ТаНаХ. Физическое кима, духовное h → [researches/tanakh/resurrection-analysis.md](researches/tanakh/resurrection-analysis.md)
-- **📜 פְּרִי רוּחַ — НЕ «НАСТРОЕНИЕ», А ЗАКРЫТЫЙ КЛАПАН ДЫХАНИЯ** — Разоблачение психологической лжи о «негативных эмоциях» и культе «серьёзности».  → [researches/teachings/ruach-fruit.md](researches/teachings/ruach-fruit.md)
-- **📜 רוּחוֹת — НЕ «ЗЛЫЕ ДУХИ», А ДЫХАНИЕ, КОТОРОЕ ЗАРАЖАЕТ** — Разоблачение христианского тора о «злых духах» и «бесах». В ТаНаХ רוּחַ רָעָה —  → [researches/tanakh/ruchot-infected.md](researches/tanakh/ruchot-infected.md)
-- **📜 שָׂטָן — НЕ «САТАНА», А ПРОТИВНИК. И ЕГО ВЕСТНИК — НЕ Шед** — Полное разоблачение христианского образа «сатаны» и «ангела сатаны». В ТаНаХ שָׂ → [researches/tanakh/satan-adversary.md](researches/tanakh/satan-adversary.md)
-- **✂️ Кат: СЛЕДОВАТЬ ИЛИ ОТРЕЗАТЬ?** — Требует уточнения → [researches/tanakh/secta-meaning.md](researches/tanakh/secta-meaning.md)
-- **📜 נְחַשׁ נְחֹשֶׁת — УКУС И ВЗГЛЯД: ЧТО ИСЦЕЛЯЛО?** — Разоблачение религиозной лжи о медном змее как о «прообразе Христа». Исцелял не  → [researches/tanakh/serpent-healing.md](researches/tanakh/serpent-healing.md)
-- **📜 שָׁאַל וּבִקֵּשׁ — МОЛИТЬСЯ ИЛИ СОВЕТОВАТЬСЯ?** — Разоблачение подмены понятий «молитва-прошение» через ивритские корни שָׁאַל и ב → [researches/language/shaal-u-vikesh.md](researches/language/shaal-u-vikesh.md)
-- **📜 שָׁאוּל נֶגֶד פִילוֹסוֹפִיָה — ШАУЛЬ ОСУЖДАЕТ ГРЕЧЕСКУЮ ФИЛОСОФИЮ** — Доказательство, что Шауль (Шауль) в Послании к Колоссянам 2:8 осуждал именно гре → [researches/teachings/shaul-against-philosophy.md](researches/teachings/shaul-against-philosophy.md)
-- **📜 שָׁאוּל — Корбан ПОЛИТИЧЕСКОЙ ПОДМЕНЫ** — Разоблачение католической и протестантской подмены образа Шауля (Павла). Восстан → [researches/tanakh/shaul-victim.md](researches/tanakh/shaul-victim.md)
-- **📜 שְׁאֵרִית — ШЕЭРИТ: Шеэрит** — Разбор понятия שְׁאֵרִית (шеэрит) — шеэрит. Те, кто остался верен Яхве. Связь с  → [terminology/sheerit.md](terminology/sheerit.md)
-- **📜 שְׁמַע יִשְׂרָאֵל: ЯХВЕ ОДИН — НЕ «ТРОИЦА»** — Доказательство единственности Яхве из ТаНаХ. Разоблачение тора о Троице как греч → [researches/teachings/shema-yhwh-echad.md](researches/teachings/shema-yhwh-echad.md)
-- **📜 שֵׁמוֹת יְהוָה — ИМЕНА, НЕСУЩИЕ ИМЯ ЯХВЕ** — Полный свод имён из ТаНаХ и БаШаХа, в которых запечатлено Имя יהוה. Каждое имя — → [researches/tanakh/shemot-yhwh.md](researches/tanakh/shemot-yhwh.md)
-- **📜 שִׁירַת הַיָּם — ПЕСНЬ МОШЕ: ОРИГИНАЛ ПРОТИВ ПОДМЕН** — שִׁירַת הַיָּם — ПЕСНЬ МОШЕ: ОРИГИНАЛ ПРОТИВ ПОДМЕН → [researches/tanakh/shirat-hayam.md](researches/tanakh/shirat-hayam.md)
-- **📜 שְׁלָבִים יְצִיאָה — ЭТАПЫ ИСХОДА: Дэрех ОТ РАБСТВА К Хофеш** — שְׁלָבִים יְצִיאָה — ЭТАПЫ ИСХОДА: Дэрех ОТ РАБСТВА К Хофеш → [researches/tanakh/shlavim-yetziah.md](researches/tanakh/shlavim-yetziah.md)
-- **📜 סִפְרֵי בְּשׂוֹרַת יֵשׁוּעַ — КНИГИ БАШАХА: ПОДМЕНА НАЗВАНИЙ** — Разоблачение подмены названий книг БаШаХа в греческом, латинском, славянском и р → [researches/tanakh/sifrei-bashakh.md](researches/tanakh/sifrei-bashakh.md)
-- **📜 סִפְרֵי תַּנַ״ךְ — КНИГИ ТаНаХ: ПОДМЕНА НАЗВАНИЙ** — Разоблачение подмены названий книг ТаНаХ в греческом, латинском, славянском и ру → [researches/tanakh/sifrei-tanakh.md](researches/tanakh/sifrei-tanakh.md)
-- **📜 אֱמוּנָה כְּפוּלָה — ДВОЕВЕРИЕ: ГРЕЧЕСКАЯ ОБОЛОЧКА, СЛАВЯНСКОЕ НУТРО** — Как славяне сохранили свой культ под греческой оболочкой. Двоеверие. Греко-славя → [researches/tanakh/slavic-substrate.md](researches/tanakh/slavic-substrate.md)
-- **📜 סוֹד הַמַּלְכוּת — Сод МАЛХУТ: СОКРЫТОЕ ЦАРСТВО** — Разоблачение подмены понятия מַלְכוּת (Малхут). Царство Яхве — не шетах, не «рай → [researches/tanakh/sod-hamalchut.md](researches/tanakh/sod-hamalchut.md)
-- **📜 מַמְלָכָה — ГОСУДАРСТВО: СИМПТОМ СЛОМАННОГО ДОВЕРИЯ** — Государство как симптом сломанного доверия. История от Вавилона до цифровой эпох → [researches/systems/state-as-symptom.md](researches/systems/state-as-symptom.md)
-- **📜 גְּנֵבַת הַשֵּׁם — КРАЖА ИМЕНИ: КАК יהוה СТАЛ «ГОСПОДОМ»** — גְּנֵבַת הַשֵּׁם — КРАЖА ИМЕНИ: КАК יהוה СТАЛ «ГОСПОДОМ» → [researches/substitution-of-the-name.md](researches/substitution-of-the-name.md)
-- **📜 תַּלְמוּד — Талмуд: Масорет СТАРЦЕВ ИЛИ Давар ЯХВЕ?** — Разоблачение Талмуд как человеческого масорет, подменившего Тора. Анализ противо → [researches/tanakh/talmud-unmasked.md](researches/tanakh/talmud-unmasked.md)
-- **📜 ТаНаХ — ЭТО НЕ «ВЕТХИЙ ЗАВЕТ»: РАЗОБЛАЧЕНИЕ Мунах** — Почему ТаНаХ никогда не назывался «Ветхим Заветом» и как Рим создал этот мунах д → [researches/tanakh-not-old-testament.md](researches/tanakh-not-old-testament.md)
-- **📜 תַּרְבּוּת — НЕ «КУЛЬТУРА», А Hиштахавая СКРЫТЫМ Элоhим** — Разоблачение латинского корня «культуры» как скрытого культа. Культура — это hиш → [researches/tanakh/tarbut-cult.md](researches/tanakh/tarbut-cult.md)
-- **📜 תְּפִלַּת יֵשׁוּעַ — ТФИЛА ЙЕШУА: ИВРИТСКИЙ ОРИГИНАЛ** — Восстановление ивритского оригинала тфилы Йешуа (Матфей 6:9–13). Разбор каждого  → [researches/tanakh/tfilat-yeshua.md](researches/tanakh/tfilat-yeshua.md)
-- **📜 שֵׁמוֹת נוֹשְׂאֵי יהוה — ИМЕНА, НЕСУЩИЕ ИМЯ ЯХВЕ** — Имена в ТаНаХ, содержащие Имя יהוה (YHWH), и их подделка в греческих, латинских  → [researches/tanakh/theophoric-names.md](researches/tanakh/theophoric-names.md)
-- **👑 ТРИ Амуд ВЛАСТИ: Пахад, НЕВЕДЕНИЕ, ЗАВИСИМОСТЬ** — Как любая власть (человеческая, церковная, государственная) держится на пахад, н → [researches/three-pillars-of-power.md](researches/three-pillars-of-power.md)
-- **📜 תִּקְוָה — НЕ «НАДЕЖДА», А НАТЯНУТОСТЬ К ИСТОЧНИКУ** — Разоблачение подмены понятия «надежда». תִּקְוָה — не пассивное ожидание, а акти → [researches/tanakh/tikvah-tension.md](researches/tanakh/tikvah-tension.md)
-- **📜 זְמָן, עוֹלָם, הַיּוֹם — ВРЕМЯ В ТаНаХ: НЕ ЛИНИЯ, А СОБЫТИЕ** — Разоблачение греческого понимания времени как линии. Библейское время — это זְמָ → [researches/language/time-in-tanakh.md](researches/language/time-in-tanakh.md)
-- **📜 עֵץ הַשָּׂפוֹת — ДРЕВО ЯЗЫКОВ: ОТ ЕДИНОГО ЯЗЫКА К ВАВИЛОНУ** — Классификация языков мира. Языковые семьи и ветви. Связь с Вавилонской башней. М → [researches/language/tree-language.md](researches/language/tree-language.md)
-- **📜 צְבָא הַשָּׁמַיִם — НЕ «ВОИНСТВО НЕБЕСНОЕ», А «СОБРАНИЕ СВЕТИЛ»** — Разоблачение римской милитаризации шамаим. צָבָא — не «армия», а «собрание служа → [researches/tanakh/tzeva-hashamayim.md](researches/tanakh/tzeva-hashamayim.md)
-- **📜 צֹהַר — ОКНО КОВЧЕГА: ВОРОН, ГОЛУБЬ И ВЫБОР** — Раскрытие символики окна ковчега, ворона и голубя через ивритские корни. Рухани  → [researches/tanakh/tzohar-window.md](researches/tanakh/tzohar-window.md)
-- **📜 אֶרֶץ כְּנַעַן — ПОЧЕМУ YHWH ОТДАЛ ЗЕМЛЮ ХАНААНА ИЗРАИЛЮ?** — Эмет об изгнании хананеев без религиозного дыма. Четыре библейских диагноза вмес → [researches/systems/why-canaan-land.md](researches/systems/why-canaan-land.md)
-- **📜 דָּבָר, שָׁלוֹם, אֱמֶת — ПОЧЕМУ ЛЮДИ НЕ МОГУТ ДОГОВОРИТЬСЯ: ВЗГЛЯД ИЗ ТаНаХ** — Лингвистическая ловушка конфликтов. Как греческий дуализм разделяет, а ивритская → [researches/why-people-cant-agree.md](researches/why-people-cant-agree.md)
-- **🏷️ ЯХВИЗМ: ПРОИСХОЖДЕНИЕ Мунах И ЕГО ЗНАЧЕНИЯ** — Происхождение мунах «яхвизм», его академическое употребление и религиозное испол → [researches/tanakh/yahvism.md](researches/tanakh/yahvism.md)
-- **📜 יְגִיעַ כַּפַּיִם — НЕ «ТЯЖЁЛЫЙ ТРУД», А Авода РУКАМИ, ЧТОБЫ ЕСТЬ** — Разоблачение искажения понятия амаль в переводах и возвращение библейского машма → [researches/tanakh/yegia-kapayim.md](researches/tanakh/yegia-kapayim.md)
-- **📜 יְגִיעַ וְכֹחַ: КАК СИСТЕМА ВОРУЕТ Коах, А ЯХВЕ ЕЁ ВОЗВРАЩАЕТ** — Как система отнимает жизненную коах через ложные таава и отравленную пищу, и как → [researches/systems/yegia-ve-koach.md](researches/systems/yegia-ve-koach.md)
-- **📜 יֵשׁוּעַ — ЙЕХОШУА: Шеол, КОТОРОГО УБИЛА СИСТЕМА** — Историческое расследование личности Йехошуа из Нацерета. Кто он был на самом дел → [researches/tanakh/yehoshua-research.md](researches/tanakh/yehoshua-research.md)
-- **📜 יֵצֶר לֵב — ЙЕЦЕР ЛЕВ: ПОМЫШЛЕНИЕ СЕРДЦА, А НЕ «ЭГОИЗМ»** — Разбор понятия יֵצֶר לֵב (йецер лев) — помышление сердца. Разоблачение «эгоизма» → [terminology/yetzer-lev.md](terminology/yetzer-lev.md)
-
-## researches/books/
-
-- **📜 סֵדֶר עוֹלָמִי — МИРОВОЙ ПОРЯДОК: КИССИНДЖЕР И Мемшала ХАОСОМ** — Анализ «Мирового порядка» Генри Киссинджера (2014) через призму ТаНаХ. Порядок к → [researches/books/kissinger-the-world-order.md](researches/books/kissinger-the-world-order.md)
-- **📜 הַנָּסִיךְ — ГОСУДАРЬ: МАКИАВЕЛЛИ И ВЛАСТЬ БЕЗ ЯХВЕ** — Анализ «Государя» Никколо Макиавелли (1513) через призму ТаНаХ. Власть как госпо → [researches/books/machiavelli-the-prince.md](researches/books/machiavelli-the-prince.md)
-
-## researches/companies/
-
-- **📜 אָמָזוֹן — AMAZON: ТОРГОВЛЯ БЕЗ ЛИЦА** — Разоблачение Amazon через призму ТаНаХ. Глобальная торговля, контроль над ресурс → [researches/companies/amazon.md](researches/companies/amazon.md)
-- **📜 בְּלַקְרוֹק — BLACKROCK: ЧЁРНАЯ СКАЛА МИРОВОЙ ВЛАСТИ** — Разоблачение BlackRock через призму ТаНаХ. Крупнейшая инвестиционная компания ми → [researches/companies/blackrock.md](researches/companies/blackrock.md)
-- **📜 גּוֹלְדְמַן זַקְס — GOLDMAN SACHS: ДЕНЬГИ КАК ВЛАСТЬ** — Разоблачение Goldman Sachs через призму ТаНаХ. Финансовая власть как инструмент  → [researches/companies/goldman-sachs.md](researches/companies/goldman-sachs.md)
-- **📜 גּוּגֶל — GOOGLE: ОРАКУЛ СИСТЕМЫ** — Разоблачение Google через призму ТаНаХ. Контроль над информацией, алгоритмическа → [researches/companies/google.md](researches/companies/google.md)
-- **📜 י.ב.מ. — IBM: МАШИНА УЧЁТА И КОНТРОЛЯ** — Разоблачение IBM через призму ТаНаХ. История компании, связь с Холокостом, техно → [researches/companies/ibm.md](researches/companies/ibm.md)
-- **📜 גֵ'יי.פִּי.מוֹרְגָן — JPMORGAN CHASE: ИМПЕРИЯ КРЕДИТА И КОНТРОЛЯ** — Разоблачение JPMorgan Chase через призму ТаНаХа. Финансовая империя, кредитное р → [researches/companies/jpmorgan.md](researches/companies/jpmorgan.md)
-- **📜 מֶטָא — META: ЦИФРОВОЙ ВАВИЛОН** — Разоблачение Meta (Facebook) через призму ТаНаХ. Социальные сети как инструмент  → [researches/companies/meta.md](researches/companies/meta.md)
-- **📜 נֵיירָלִינְק — NEURALINK: ЧИП В МОЗГ КАК ПЕЧАТЬ ЗВЕРЯ** — Разоблачение Neuralink через призму ТаНаХ. Импланты в мозг как технология контро → [researches/companies/neuralink.md](researches/companies/neuralink.md)
-- **📜 פַּלַנְטִיר — PALANTIR: ВИДЯЩИЙ КАМЕНЬ СИСТЕМЫ** — Разоблачение Palantir через призму ТаНаХ. Технология тотальной слежки. «Видящие  → [researches/companies/palantir.md](researches/companies/palantir.md)
-- **📜 וַנְגַּארְד — VANGUARD: НЕВИДИМАЯ РУКА РЫНКА** — Разоблачение Vanguard через призму ТаНаХ. Концентрация капитала, невидимый контр → [researches/companies/vanguard.md](researches/companies/vanguard.md)
-
-## researches/history/
-
-- **📜 בָּנְקִים — ИСТОРИЯ БАНКОВ: ОТ Байт К Миспар** — История банков от Месопотамии до криптовалют через призму ТаНаХ. Как система зам → [researches/history/history-of-banks.md](researches/history/history-of-banks.md)
-- **📜 הִיסְטוֹרְיָה שֶׁל כַּלְכָּלָה — ИСТОРИЯ ЭКОНОМИКИ: ОТ ДАРА К ДОЛГУ** — История экономики от неолита до цифровой эпохи через призму ТаНаХ. Калькала Яхве → [researches/history/history-of-economy.md](researches/history/history-of-economy.md)
-- **📜 הִיסְטוֹרְיָה שֶׁל שָׂפָה — ИСТОРИЯ ЯЗЫКОВ: ОТ БАВЭЛЯ ДО BABEL** — История языков от Вавилонской башни до цифровой эпохи через призму ТаНаХ. Как яз → [researches/history/history-of-languages.md](researches/history/history-of-languages.md)
-- **📜 גָּלֵנוֹס — ГАЛЕН: МЕДИЦИНА ГУМОРОВ И Боре** — История медицины от Месопотамии до персонализированной медицины через призму ТаН → [researches/history/history-of-medicine.md](researches/history/history-of-medicine.md)
-- **📜 ИСТОРИЯ ДЕНЕГ: ОТ ШЕКЕЛЯ ДО ЦИФРОВОГО РАБСТВА** — Как конкретная мера веса превратилась в абстракцию контроля → [researches/history/history-of-money.md](researches/history/history-of-money.md)
-- **📜 הִיסְטוֹרְיָה שֶׁל מִשְׁטָר — ИСТОРИЯ ПОЛИТИКИ: ОТ ФАРАОНА К ЦИФРОВОЙ ИМПЕРИИ** — История polity от Месопотамии до цифровой эпохи через призму ТаНаХ. Власть как а → [researches/history/history-of-politics.md](researches/history/history-of-politics.md)
-- **📜 הִיסְטוֹרְיָה שֶׁל בֵּית־הַסֹּהַר — ИСТОРИЯ ТЮРЬМЫ: ОТ Бор К ПАНОПТИКУМУ** — История тюрьмы от Месопотамии до цифровой эпохи через призму ТаНаХ. Тюрьма в ТаН → [researches/history/history-of-prison.md](researches/history/history-of-prison.md)
-- **📜 הִיסְטוֹרְיָה שֶׁל דָּת — ИСТОРИЯ СИСТЕМ ВЕРОВАНИЙ: КАК РИМ СОЗДАЛ «РЕЛИГИЮ»** — История систем верований от первобытности до глобализации. Разоблачение «религии → [researches/history/history-of-religion.md](researches/history/history-of-religion.md)
-- **📜 הִיסְטוֹרְיָה שֶׁל בֵּית־סֵפֶר — ИСТОРИЯ ШКОЛЫ: ОТ Байт К Мифаль** — История школы от Месопотамии до цифровой эпохи через призму ТаНаХ. Образование в → [researches/history/history-of-school.md](researches/history/history-of-school.md)
-- **📜 יִשְׂרָאֵל וּפָלֶשְׂתִין — ИЗРАИЛЬ И Полешет: ЗЕМЛЯ И КРОВЬ** — История палестино-израильского конфликта через призму ТаНаХ. Двойное обещание, в → [researches/history/israel-palestine.md](researches/history/israel-palestine.md)
-
-## researches/languages/
-
-- **🗼 ВАВИЛОНСКАЯ БАШНЯ: КАК ЯЗЫКИ СТАЛИ ОРУЖИЕМ Пилуг** — Требует уточнения → [researches/languages/babel-languages.md](researches/languages/babel-languages.md)
-- **🇪🇬 ЕГИПЕТСКИЕ КОРНИ ИВРИТА: КОГДА РАБСТВО ОСТАВИЛО СЛЕДЫ В ЯЗЫКЕ** — Требует уточнения → [researches/languages/egyptian-unfluence.md](researches/languages/egyptian-unfluence.md)
-- **🇬🇷 ГРЕЧЕСКИЙ ЯЗЫК КАК ОРУЖИЕ: Хохма ВМЕСТО ЖИЗНИ** — Требует уточнения → [researches/languages/greek-as-weapon.md](researches/languages/greek-as-weapon.md)
-- **✡️ ИВРИТ КАК ЯЗЫК Бриа** — Требует уточнения → [researches/languages/hebrew-creational.md](researches/languages/hebrew-creational.md)
-- **📚 СРАВНИТЕЛЬНЫЙ АНАЛИЗ ПЕРЕВОДОВ** — Как одно ивритское давар прошло через греческий, латынь, славянский и русский, п → [researches/languages/language-comparison.md](researches/languages/language-comparison.md)
-- **🏛️ ЛАТЫНЬ — ЯЗЫК РИМСКОЙ ТЮРЬМЫ** — Требует уточнения → [researches/languages/latin-control.md](researches/languages/latin-control.md)
-- **🇷🇺 РУССКИЙ ЯЗЫК КАК СИНКРЕТИЧЕСКАЯ ЛОВУШКА** — Требует уточнения → [researches/languages/russian-syncretism.md](researches/languages/russian-syncretism.md)
-- **⛪ ЦЕРКОВНОСЛАВЯНСКИЙ — ЯЗЫК МАГИИ И Сод** — Требует уточнения → [researches/languages/slavic-distortion.md](researches/languages/slavic-distortion.md)
-
-## researches/names/
-
-- **🔥 ЕЛЕНА — ФАКЕЛ, КОТОРЫЙ СЖЁГ Эмет** — ЕЛЕНА — ФАКЕЛ, КОТОРЫЙ СЖЁГ Эмет → [researches/names/helena.md](researches/names/helena.md)
-- **📜 НЕТАНИЯ (NETANYAH) — ДАР ЯХВЕ** — НЕТАНИЯ (NETANYAH) — ДАР ЯХВЕ → [researches/names/natasha.md](researches/names/natasha.md)
-- **⚡ АРТЕМ — НЕ СЛАВЯНСКИЙ Элоhим, А ГРЕЧЕСКОЕ ИМЯ** — Разоблачение ложной этимологии имени «Артем» и возвращение к ивритскому оригинал → [researches/names/ortam.md](researches/names/ortam.md)
-
-## researches/other/
-
-- **📜 אָלוֹפַּתְיָה — АЛЛОПАТИЯ: ЛЕЧЕНИЕ СИМПТОМОВ ИЛИ Рефуа ЦЕЛОСТНОСТИ?** — Аллопатия и доказательная медицина через призму ТаНаХ. Лечение симптомов vs рефу → [researches/archive/allopaty.md](researches/archive/allopaty.md)
-- **🐍 КАДУЦЕЙ: ЗМЕИ, ПОЗВОНОЧНИК И КОНТРОЛЬ** — Как от двух змей, обвивающих жезл (кадуцей), связан с позвоночником, кундалини и → [researches/archive/caduceus-control.md](researches/archive/caduceus-control.md)
-- **📜 דּוֹרוֹת רֶשֶׁת — G-СВЯЗИ И КАТАСТРОФЫ: СОВПАДЕНИЕ ИЛИ АРХИТЕКТУРА?** — דּוֹרוֹת רֶשֶׁת — G-СВЯЗИ И КАТАСТРОФЫ: СОВПАДЕНИЕ ИЛИ АРХИТЕКТУРА? → [researches/archive/g-generations.md](researches/archive/g-generations.md)
-- **📜 גֶּרֶווֹל — GEREWOL: Авода Бриа ВМЕСТО ТВОРЦА** — Анализ минhаг Gerewol народа водаабе через призму ТаНаХ. Красота бриа как пэсэль → [researches/archive/gerewol.md](researches/archive/gerewol.md)
-- **📜 גֵהְיָה — ЧАША ГИГИЕИ: От Рефуа ИЛИ КУЛЬТ НАРОДОВ?** — Разоблачение от «Чаша Гигиеи» через призму ТаНаХ. Гигея — богиня здоровья. Змея  → [researches/archive/hygieia.md](researches/archive/hygieia.md)
-- **📜 מִיקְרוֹפְּלַסְטִיק — МИКРОПЛАСТИК: НЕВИДИМОЕ ЗАГРЯЗНЕНИЕ** — מִיקְרוֹפְּלַסְטִיק — МИКРОПЛАСТИК: НЕВИДИМОЕ ЗАГРЯЗНЕНИЕ → [researches/archive/microplastics.md](researches/archive/microplastics.md)
-- **📜 רֹאשׁ הַשָּׁנָה הַשִּׁקְרִי — НОВЫЙ ГОД: РИМСКИЙ КУЛЬТ ЯНУСА** — Разоблачение Нового года как римского культа. Янус, юлианский календарь, суевери → [researches/archive/new-year.md](researches/archive/new-year.md)
-- **📜 פָּרַצֵלְסוּס — ПАРАЦЕЛЬС: АЛХИМИК, ПЕРЕВОРОТЧИК, ЦЕЛИТЕЛЬ** — Исследование медицины Парацельса через призму ТаНаХ. Алхимия, токсикология и дух → [researches/archive/paracelsus.md](researches/archive/paracelsus.md)
-- **📜 תּוֹעֵבָה — ПЕДОФИЛИЯ: МЕДИЦИНСКИЙ Мунах ИЛИ ТОЭВА?** — История мунах «педофилия». Медицинская категория vs танахическое тоэва. Как наук → [researches/archive/pedophilia.md](researches/archive/pedophilia.md)
-- **📜 זָנָה — ПОРНОГРАФИЯ: ПРОДАЖА ОТДЕЛЁННОСТИ ЗА Таава** — Разоблачение порнографии через ТаНаХ. Πόρνος vs זָנָה. Связь с культами народов. → [researches/archive/pornography.md](researches/archive/pornography.md)
-- **📜 פְּסִיכוֹלוֹגְיָה — ПСИХОЛОГИЯ: ПСЮХЕ ПРОТИВ НЭФЕШ** — Разоблачение психологии как греко-римской системы. Псюхе против нэфеш. Миф о Пси → [researches/archive/psychology.md](researches/archive/psychology.md)
-- **📜 פִּירָמִידָה — ПИРАМИДА: ГРОБНИЦА ИЛИ БУНКЕР?** — Гипотеза: пирамида как надземный бункер и система водоснабжения. Инженерный анал → [researches/archive/pyramid-bunker.md](researches/archive/pyramid-bunker.md)
-- **📜 סְלָבִים — СЛАВЯНЕ: ЛЮДИ СЛОВА** — Этимология слова «славяне». Люди слова. Связь с ивритским пониманием языка. Язык → [researches/archive/slavs.md](researches/archive/slavs.md)
-
-## researches/practices/
-
-- **📜 יְצִיאָה — EXODUS: НАВЫКИ ДЛЯ АВТОНОМНОЙ ЖИЗНИ** — Навыки для автономной жизни вне системы. Земля, скот, выживание, инструменты, ци → [researches/practices/exodus-skills.md](researches/practices/exodus-skills.md)
-- **📜 שָׁבוּעַ עִבְרִי — ЕВРЕЙСКАЯ НЕДЕЛЯ: РИТМ Хофеш** — Еврейская неделя как ритм жизни. Авода, радиалки, подготовка к Шаббат, полный по → [researches/practices/hebrew-week.md](researches/practices/hebrew-week.md)
-- **📜 גַּן טִבְעִי — ПРИРОДНЫЙ САД: ВОЗВРАЩЕНИЕ К ЭДЕНУ** — Природный сад как танахический подход к земле. Возделывать и хранить. Сад Эдена  → [researches/practices/natural-garden.md](researches/practices/natural-garden.md)
-
-## researches/roman-law/
-
-- **📜 IGNORANTIA JURIS NON EXCUSAT — НЕЗНАНИЕ Тора НЕ ОСВОБОЖДАЕТ** — Римский принцип «незнание закона не освобождает от ответственности» — происхожде → [researches/roman-law/ignorantia-juris.md](researches/roman-law/ignorantia-juris.md)
-
-## researches/slavery/
-
-- **💰 ЭКОНОМИЧЕСКОЕ РАБСТВО (ECONOMIC SLAVERY)** — Требует уточнения → [researches/slavery/economic-slavery.md](researches/slavery/economic-slavery.md)
-- **🕊️ Хофеш В Тора (FREEDOM IN TORAH)** — Требует уточнения → [researches/slavery/freedom-in-torah.md](researches/slavery/freedom-in-torah.md)
-- **🧠 РАБСТВО В ГОЛОВЕ (MENTAL SLAVERY)** — Требует уточнения → [researches/slavery/mental-slavery.md](researches/slavery/mental-slavery.md)
-- **🌬️ ДЫХАТЕЛЬНОЕ РАБСТВО (RUACH SLAVERY)** — Требует уточнения → [researches/slavery/ruach-slavery.md](researches/slavery/ruach-slavery.md)
-
-## researches/systems/
-
-- **📜 בָּבֶל, מִצְרַיִם, סְדֹם — ТРИ СИСТЕМЫ, КОТОРЫЕ ДЕРЖАТ МИР В ЗАБЛУЖДЕНИИ** — Три системы, описанные в ТаНаХ, которые продолжают действовать сегодня. Вавилон  → [researches/systems/bavel-mitzrayim-sdom.md](researches/systems/bavel-mitzrayim-sdom.md)
-- **📜 מִצְרַיִם — МИЦРАИМ: КАК СИСТЕМА СУЖАЕТ ТВОЙ МИР** — Разбор системы Мицраима как архетипа порабощения мышления. Как система сужает ми → [researches/systems/mitzraim-system.md](researches/systems/mitzraim-system.md)
-- **📜 מִצְרַיִם הָאָדֹם — КРАСНЫЙ МИЦРАИМ: КАК СОВЕТСКАЯ ВЛАСТЬ СОЗДАЛА ИСКУССТВЕННЫЙ НАРОД** — Исследование советской системы как Мицраима. Как был создан искусственный народ  → [researches/systems/red-mitzrayim.md](researches/systems/red-mitzrayim.md)
-- **📜 רוּסְיָה — РОССИЯ: ТРЕТИЙ РИМ И ДВА ОРЛА** — Россия как наследница Византии. Два орла как от имперской преемственности от Мес → [researches/systems/russia-empire.md](researches/systems/russia-empire.md)
-- **📜 תַּלְמוּד — Талмуд: КАК ОГРАДА СТАЛА ВЫШЕ САДА** — Разоблачение талмудического иудаизма. Как после херес Дома Яхве мудрецы построил → [researches/systems/talmud-judaism.md](researches/systems/talmud-judaism.md)
-- **📜 וָתִיקָן — ВАТИКАН: ИМПЕРИЯ, СМЕНИВШАЯ КОЖУ** — Полное исследование Ватикана через призму ТаНаХ. Как Римская империя стала «церк → [researches/systems/vatican.md](researches/systems/vatican.md)
-
-## terminology/
-
-- **❤️ АГАПЭ (AHАVA) — Аhава** — Разбор понятия любви в ТаНаХ — действие, верность, выбор → [terminology/ahava.md](terminology/ahava.md)
-- **📜 עָרוּם — АРУМ: ХИТРЫЙ, ПРОНИЦАТЕЛЬНЫЙ** — Разбор понятия עָרוּם (арум) — хитрый, проницательный, видящий суть. Связь с עֵי → [terminology/arum.md](terminology/arum.md)
-- **📜 אָרוּר — АРУР: Арур КАК ОГРАНИЧЕНИЕ, А НЕ МЕСТЬ** — Разбор понятия אָרוּר (арур) — проклят. Не магическая порча, а потеря связи и ог → [terminology/arur.md](terminology/arur.md)
-- **📜 אָסוּר — АСУР: СВЯЗАННЫЙ, ОГРАНИЧЕННЫЙ, В ОКОВАХ** — Разбор понятия אָסוּר (асур) — связанный, ограниченный, в оковах. Близость по зв → [terminology/asur.md](terminology/asur.md)
-- **📜 עָבַר וְעָתִיד — АВАР И АТИД: СБЫВШЕЕСЯ И НЕСБЫВШЕЕСЯ** — Разбор ивритского понимания времени. Почему в ТаНаХ нет прошлого, настоящего и б → [terminology/avar-atid.md](terminology/avar-atid.md)
-- **📜 עֲבוֹדָה זָרָה — АВОДА ЗАРА: ЧУЖАЯ СЛУЖБА** — Разбор понятия עֲבוֹדָה זָרָה (авода зара) — «чужая служба». Почему ТаНаХ не зна → [terminology/avodah-zarah.md](terminology/avodah-zarah.md)
-- **📜 עָוֹן (АВОН) — ИСКРИВЛЕНИЕ, А НЕ «БЕЗЗАКОНИЕ»** — Библейское понятие искривления, искажения дэрех, искажённое христианством в юрид → [terminology/avon.md](terminology/avon.md)
-- **📜 בָּרַח (БАРАХ) — БЕГСТВО К YHWH, А НЕ «ПОБЕГ ОТ МИРА»** — Библейское понятие бегства как акта йешуа и исхода под водительством Яхве, искаж → [terminology/barach.md](terminology/barach.md)
-- **📜 בָּבֶל — БАВЭЛЬ: Ирбув, КОТОРОЕ НАЗЫВАЕТ СЕБЯ ПОРЯДКОМ** — Разбор понятия בָּבֶל (Бавэль) — Вавилон. Не просто империя, а внутренняя реальн → [terminology/bavel.md](terminology/bavel.md)
-- **📜 בַּיִת (БАЙТ) — ДОМ, А НЕ «ХРАМ»** — Библейское понятие Дома как места шхина Имени Яхве, искажённое христианством в « → [terminology/bayit.md](terminology/bayit.md)
-- **📜 בֵּית הַמִּקְדָּשׁ — БЕЙТ hА-МИКДАШ: ДОМ ОТДЕЛЁННОСТИ** — Разбор понятия בֵּית הַמִּקְדָּשׁ (Бейт hа-Микдаш) — Дом Отделённости. Не «храм» → [terminology/beit-ha-mikdash.md](terminology/beit-ha-mikdash.md)
-- **📜 בְּרִית (БРИТ) — Брит, А НЕ «ЗАВЕТ»** — Библейское понятие брит, договора, искажённое христианством как «завет» и подмен → [terminology/brit.md](terminology/brit.md)
-- **📜 חָמָס (ХАМАС) — НАСИЛИЕ, А НЕ ПРОСТО «ГРЕХ»** — Библейское понятие жестокого угнетения и беззакония с применением коах, искажённ → [terminology/chamas.md](terminology/chamas.md)
-- **📜 חֵרוּת — ХЕРУТ: Хофеш ДЛЯ ВЕРНОСТИ** — Разбор понятия חֵרוּת (херут) — хофеш. Не политическая независимость. Не мишпат  → [terminology/cherut.md](terminology/cherut.md)
-- **📜 חֶסֶד (ХЕСЕД) — ПРЕДАННАЯ Аhава, А НЕ «МИЛОСТЬ» И НЕ «БЛАГОДАТЬ»** — Библейское понятие верной, союзной любви, искажённое в нацрут как «благодать» (χ → [terminology/chesed.md](terminology/chesed.md)
-- **📜 אֶרֶךְ אַפַּיִם — ЭРЕХ АПАЙИМ: ДОЛГОЕ ДЫХАНИЕ ВМЕСТО ТЕРПЕНИЯ** — Разбор понятия אֶרֶךְ אַפַּיִם (эрех апайим) — долготерпение. Почему в ТаНаХ нет → [terminology/derech-apayim.md](terminology/derech-apayim.md)
-- **📜 דֶּרֶךְ (ДЕРЕХ) — Дэрех, А НЕ «РЕЛИГИЯ»** — Библейское понятие конкретного дэрех жизни, искажённое христианством в абстрактн → [terminology/derech.md](terminology/derech.md)
-- **📜 אֵל — НЕ «БОГ», А Коах, МОЩЬ, ИСТОЧНИК** — Возвращение библейского машмаут слова אֵל. Разоблачение религиозной подмены «Бог → [terminology/el.md](terminology/el.md)
-- **📜 אֱלִיל (ЭЛИЛЬ) — НИЧТОЖЕСТВО, А НЕ «ИДОЛ» КАК СТАТУЯ** — Библейское обозначение пэсэль как ничтожеств, искажённое греко-римским мышлением → [terminology/elil.md](terminology/elil.md)
-- **📜 אֱלִילִים — ЭЛИЛИМ: НИЧТОЖНЫЕ, БЕССИЛЬНЫЕ** — Разбор понятия אֱלִילִים (элилим) — ничтожные, бессильные. Давар вестников для ч → [terminology/elilim.md](terminology/elilim.md)
-- **📜 אֱמֶת (ЭМЕТ) — НАДЁЖНОСТЬ, А НЕ «ИСТИНА» КАК АБСТРАКЦИЯ** — Библейское понятие твёрдости, надёжности, верности слову, искажённое греческой ф → [terminology/emet.md](terminology/emet.md)
-- **📜 אֱמוּנָה (ЭМУНА) — ВЕРНОСТЬ, А НЕ «ВЕРА»** — Библейское понятие верности, твёрдости, искажённое христианством как пассивная « → [terminology/emuna.md](terminology/emuna.md)
-- **📜 ЭРЕХ АПАЙИМ (ERECH APAYIM) — ДОЛГОЕ ДЫХАНИЕ** — ЭРЕХ АПАЙИМ (ERECH APAYIM) — ДОЛГОЕ ДЫХАНИЕ → [terminology/erech-apayim.md](terminology/erech-apayim.md)
-- **📜 עֵץ הַדַּעַת — ЭЦ hА-ДААТ: ДЕРЕВО ПОЗНАНИЯ** — Разбор выражения עֵץ הַדַּעַת טוֹב וָרָע — дерево познания пригодного и разрушит → [terminology/etz-ha-daat.md](terminology/etz-ha-daat.md)
-- **📜 עֶבֶד (ЭВЕД) — Эвед, А НЕ «РАБ» В УНИЗИТЕЛЬНОМ Машмаут** — Библейское понятие авода и принадлежности Яхве, искажённое христианством в «раба → [terminology/eved.md](terminology/eved.md)
-- **📜 גֵּרִים (ГЕРИМ) — ПРИШЕЛЬЦЫ, А НЕ «ПРОЗЕЛИТЫ» И НЕ «ИНОВЕРЦЫ»** — Библейское понятие пришельца, живущего среди народа Израиля и связанного с ним б → [terminology/gerim.md](terminology/gerim.md)
-- **📜 גִּבּוֹר — ГИБОР: СИЛЬНЫЙ, ВОИН, МОГУЧИЙ** — Разбор понятия גִּבּוֹר (гибор) — сильный, воин, могучий. Два суг коах: коах сис → [terminology/gibor.md](terminology/gibor.md)
-- **📜 גֹּלֶם — ГОЛЕМ: НЕОФОРМЛЕННАЯ МАТЕРИЯ В РУКАХ ЯХВЕ** — Разбор понятия גֹּלֶם (голем). Единственное азкара в ТаНаХ, корень, значение. От → [terminology/golem.md](terminology/golem.md)
-- **📜 גּוֹי (ГОЙ) — НАРОД, А НЕ «ЯЗЫЧНИК»** — Библейское понятие народа, искажённое христианством в уничижительное «язычник» и → [terminology/goyim.md](terminology/goyim.md)
-- **💻 ХАКЕР — НЕ КОМПЬЮТЕРНЫЙ ВЗЛОМЩИК, А РЕЖУЩИЙ Эмет** — ХАКЕР — НЕ КОМПЬЮТЕРНЫЙ ВЗЛОМЩИК, А РЕЖУЩИЙ Эмет → [terminology/hacker.md](terminology/hacker.md)
-- **📜 הֵיכָל (hЕЙХАЛЬ) — ДВОРЕЦ, А НЕ «ХРАМ»** — Библейское понятие дворца как царского святилища Яхве, искажённое греко-римской  → [terminology/heichal.md](terminology/heichal.md)
-- **📜 חֵטְא (ХЭТ) — ПРОМАХ, А НЕ «ГРЕХ»** — Библейское понятие непопадания в матара, отклонения от дэрех, искажённое христиа → [terminology/het.md](terminology/het.md)
-- **📜 עִבְרִי — ИВРИ: ПЕРЕШЕДШИЙ РЕКУ** — Разбор понятия עִבְרִי (иври) — «перешедший». Не национальность, а состояние. Ав → [terminology/ivri.md](terminology/ivri.md)
-- **📜 קָרָאִים — КАРАИМЫ: ЧТЕЦЫ, ВЕРНУВШИЕСЯ К ТаНаХ** — Караимы — еврейское движение, отвергнувшее Устную Тора и вернувшееся к ТаНаХ как → [terminology/karaism.md](terminology/karaism.md)
-- **📜 כָּרֵת — КАРЕТ: ОТСЕЧЕНИЕ** — Разбор понятия כָּרֵת (карет) — отсечение. Предел, за которым адам не может вред → [terminology/karet.md](terminology/karet.md)
-- **📜 כָּבוֹד (КАВОД) — Кавод, А НЕ «СЛАВА»** — Библейское понятие весомого шхина Яхве, искажённое греко-римской мыслью в абстра → [terminology/kavod.md](terminology/kavod.md)
-- **📜 קְהִלָּה (КЕhИЛЛА) — Кеhила, А НЕ «ЦЕРКОВЬ»** — Библейское понятие кеhила народа Яхве, искажённое христианством в «церковь» как  → [terminology/kehillah.md](terminology/kehillah.md)
-- **📜 כֹּחַ — КОАХ: Коах, КОТОРУЮ ДАЁТ ЯХВЕ** — Разбор понятия כֹּחַ (коах) — коах. Физическая коах как дар Яхве. Разоблачение г → [terminology/koach.md](terminology/koach.md)
-- **📜 קֹדֶשׁ (КОДЕШ) — ОТДЕЛЁННОСТЬ, А НЕ «СВЯТОСТЬ»** — Библейское понятие отделённости для Яхве, искажённое христианством в моральную « → [terminology/kodesh.md](terminology/kodesh.md)
-- **📜 הַכֹּהֵן הַגָּדוֹל (hА-КОhЭН hА-ГАДОЛЬ) — ВЕЛИКИЙ КОЭН, А НЕ «ПЕРВОСВЯЩЕННИК»** — Библейское понятие главного служителя Яхве, искажённое христианством в «первосвя → [terminology/kohen-hagadol.md](terminology/kohen-hagadol.md)
-- **📜 כֹּהֵן — СЛУЖИТЕЛЬ, А НЕ «СВЯЩЕННИК»** — Разоблачение подмены понятия כֹּהֵן. Коhэн — служитель, приставленный к авода, а → [terminology/kohen.md](terminology/kohen.md)
-- **📜 קָרְבָּן (КОРБАН) — Корбан, А НЕ «ЖЕРТВА»** — Библейское понятие дара, приближающего к Яхве, искажённое христианством в умилос → [terminology/korban.md](terminology/korban.md)
-- **📜 כְּתָב עִבְרִי — КТАВ ИВРИ: ДРЕВНЕЕ ПИСЬМО** — Разбор понятия כְּתָב עִבְרִי (ктав иври) — древнего еврейского письма. История  → [terminology/ktav-ivri.md](terminology/ktav-ivri.md)
-- **📜 לָמַד — ЛАМАД: УЧИТЬ, УЧИТЬСЯ** — Разбор понятия לָמַד (ламад) — учить, учиться. Обучение в ТаНаХ: отец учит бен,  → [terminology/lamad.md](terminology/lamad.md)
-- **📜 לָשׁוֹן הַקֹּדֶשׁ — ЛАШОН hА-КОДЕШ: ЯЗЫК ОТДЕЛЁННОСТИ** — Разбор понятия לָשׁוֹן הַקֹּדֶשׁ (Лашон hа-Кодеш) — Язык Отделённости. Почему ив → [terminology/lashon-ha-kodesh.md](terminology/lashon-ha-kodesh.md)
-- **📜 לְבַד — ЛЕВАД: ОДИН, НО НЕ ОДИНОК** — Разбор понятия לְבַד (левад) — один, в одиночестве. Способность быть одному как  → [terminology/levad.md](terminology/levad.md)
-- **📜 לֵבָב (ЛЕВАВ) — Лев, А НЕ «РАЗУМ»** — Библейское понятие внутреннего адам как центра воли, разума и чувств, искажённое → [terminology/levav.md](terminology/levav.md)
-- **📜 מַלְאָךְ (МАЛЪАХ) — ВЕСТНИК, А НЕ «АНГЕЛ»** — Библейское понятие посланника, вестника, искажённое греко-римской культурой в «а → [terminology/malach.md](terminology/malach.md)
-- **👑 МАЛХУТ: ВЛАСТЬ НЕ В ЗДАНИЯХ, А В Лев** — Что такое מַלְכוּת (малхут) — царство, власть, правление. Не шетах, не здания, н → [terminology/malchut.md](terminology/malchut.md)
-- **📜 מָשִׁיחַ כִּפְשָׁטוֹ — Машиах КАК ФИЗИЧЕСКОЕ ДЕЙСТВИЕ** — Машиах (Машиах) как физическое действие, а не теологический тоар. В ТаНаХ Машиах → [terminology/mashiah-peshat.md](terminology/mashiah-peshat.md)
-- **📜 מֶלֶךְ — МЕЛЕХ: Мелех** — Разбор понятия מֶלֶךְ (мелех) — мелех. Мелех в ТаНаХ: эвед, а не господин. Огран → [terminology/melech.md](terminology/melech.md)
-- **📜 מְנֵא מְנֵא תְּקֵל וּפַרְסִין — МЕНЕ, ТЕКЕЛ, УПАРСИН: ПРИГОВОР НА СТЕНЕ** — Разбор арамейской надписи из Даниэля 5. Четыре слова, три корня, один приговор.  → [terminology/mene-tekel.md](terminology/mene-tekel.md)
-- **📜 מִדְבָּר — МИДБАР: ПУСТЫНЯ КАК Бхина** — Разбор понятия מִדְבָּר (мидбар) — пустыня. Не онеш, а бхина. Место, где умирает → [terminology/midbar.md](terminology/midbar.md)
-- **📜 מִקְוֶה (МИКВЕ) — Кеhила ВОД, А НЕ «КУПЕЛЬ»** — Библейское понятие кеhила вод для таhара, искажённое христианством как йесод «кр → [terminology/mikveh.md](terminology/mikveh.md)
-- **📜 מִשְׁחָה — МИШХА: Мишха** — Разбор понятия מִשְׁחָה (мишха) — мишха. Различие между елеем (шемен) и миром (м → [terminology/mishchah.md](terminology/mishchah.md)
-- **📜 מִשְׁכָּן (МИШКАН) — Мишкан, А НЕ «СКИНИЯ»** — Библейское понятие переносного святилища как места обитания Яхве среди народа, и → [terminology/mishkan.md](terminology/mishkan.md)
-- **📜 מִשְׁפָּט (МИШПАТ) — ПРАВОСУДИЕ, А НЕ «СУД»** — Библейское понятие восстановительного правосудия и справедливого порядка, искажё → [terminology/mishpat.md](terminology/mishpat.md)
-- **📜 נָאַף — НААФ: НАРУШЕНИЕ Брит** — Разбор глагола נָאַף (нааф). Не «прелюбодеяние», а разрыв брит. Связь с брит, за → [terminology/naaf.md](terminology/naaf.md)
-- **📜 נָּחָשׁ — НАХАШ: ЗМЕЙ** — Разбор понятия נָּחָשׁ (нахаш) — змей. Мудрость, которая действует тихо. Змей в  → [terminology/nachash.md](terminology/nachash.md)
-- **📜 נָבִיא (НАВИ) — ПРИЗВАННЫЙ, А НЕ «ПРОРОК» КАК ПРЕДСКАЗАТЕЛЬ** — Библейское понятие призванного говорить от пе Яхве, искажённое греко-римской кул → [terminology/navi.md](terminology/navi.md)
-- **📜 נֶפֶשׁ (НЕФЕШ) — ДЫШАЩЕЕ СУЩЕСТВО, А НЕ «ДУША»** — Библейское понятие живого, дышащего существа, искажённое греко-римским дуализмом → [terminology/nefesh.md](terminology/nefesh.md)
-- **📜 נְשָׁמָה — НЭШАМА: ДЫХАНИЕ ЖИЗНИ** — Разбор понятия נְשָׁמָה (нэшама) — дыхание жизни. То, что Яхве вдунул в Адама. О → [terminology/neshamah.md](terminology/neshamah.md)
-- **📜 נֶשֶׁךְ — НЕШЕХ: ПРОЦЕНТ, УКУС** — Разбор понятия נֶשֶׁךְ (нешех) — процент, укус. Запрет процента в Тора. Почему Я → [terminology/neshech.md](terminology/neshech.md)
-- **📜 נְשָׁמָה (НИШМА) — ДЫХАНИЕ ЖИЗНИ, А НЕ «ДУША» И НЕ «ДУХ»** — Библейское понятие дыхания жизни, вложенного Яхве, искажённое греко-римской антр → [terminology/nishmah.md](terminology/nishmah.md)
-- **📜 עוֹלָם — ОЛАМ: СКРЫТЫЙ ГОРИЗОНТ, А НЕ Олам** — Разбор понятия עוֹלָם (олам) — скрытое, далёкое время. Не «вечность» в греческом → [terminology/olam.md](terminology/olam.md)
-- **📜 אוֹר תָּם — ОР ТАМ: Ор ЦЕЛЬНЫЙ** — Разбор имени אוֹר תָּם (Ор Там) — Ор Цельный. Связь с бриа и Иовом. Имя как суть → [researches/tanakh/or-tam.md](researches/tanakh/or-tam.md)
-- **📜 פַּחַד — ПАХАД: Пахад, КОТОРЫЙ ПОРАБОЩАЕТ** — Разбор понятия פַּחַד (пахад) — пахад. Отличие от йиръа. Как система использует  → [terminology/pachad.md](terminology/pachad.md)
-- **📜 פָּלֶשְׂתִּינָה — Полешет: РИМСКОЕ ИМЯ ДЛЯ Hашмада Зикарон** — Происхождение названия «Палестина». Римский политический акт hашпала. Связь с фи → [terminology/palaestina.md](terminology/palaestina.md)
-- **📜 פָּנִים (ПАНИМ) — ЛИЦО, Шхина, А НЕ «ЛИК» И НЕ Целем** — Библейское понятие обращённого шхина Яхве, искажённое в иконопочитание и абстрак → [terminology/panim.md](terminology/panim.md)
-- **📜 פֶּסֶל (ПЕСЕЛЬ) — ИЗВАЯНИЕ, А НЕ «ИДОЛ» КАК АБСТРАКЦИЯ** — Библейский запрет на резные изображения, искажённый в нацрут через замену конкре → [terminology/pesel.md](terminology/pesel.md)
-- **📜 רַע (РА) — БЕДА, Херес, СБИВШЕЕСЯ ДЫХАНИЕ** — Библейское понятие разрушительности и бедствия, искажённое греческой философией  → [terminology/ra.md](terminology/ra.md)
-- **📜 רָפָא — РАФА: ИСЦЕЛЯТЬ** — Разбор понятия רָפָא (рафа) — исцелять. Яхве как целитель. Рефуа как возвращение → [terminology/rapha.md](terminology/rapha.md)
-- **📜 רֶשַׁע (РЕША) — НЕЧЕСТИЕ, А НЕ «ГРЕХ»** — Библейское понятие активного херес порядка и угнетения, искажённое христианством → [terminology/resha.md](terminology/resha.md)
-- **📜 רוּחַ הַקֹּדֶשׁ (РУАХ hА-КОДЕШ) — ДЫХАНИЕ ОТДЕЛЁННОСТИ, А НЕ «СВЯТОЙ ДУХ»** — Библейское понятие коах и шхина Яхве, освящающей и вдохновляющей, искажённое хри → [terminology/ruach-hakodesh.md](terminology/ruach-hakodesh.md)
-- **📜 רוּחַ (РУАХ) — ДЫХАНИЕ, А НЕ «ДУХ»** — Библейское понятие дыхания, ветра, движения воздуха, искажённое греко-римской фи → [terminology/ruach.md](terminology/ruach.md)
-- **📜 שָׂטָן (Сатан) — ПРОТИВНИК, А НЕ «ДЬЯВОЛ»** — Библейское понятие функции обвинения и противодействия, искажённое христианством → [terminology/satan.md](terminology/satan.md)
-- **📜 שַׁבָּת — Шаббат: ПОКОЙ, КОТОРЫЙ ДЕРЖИТ МИР** — Полный разбор Шаббат. Не «выходной», а знак брит. Связь с бриа, исходом и хофеш. → [terminology/shabbat.md](terminology/shabbat.md)
-- **📜 שָׁלוֹם (Шалом) — ЦЕЛОСТНОСТЬ, А НЕ ПРОСТО «МИР»** — Библейское понятие целостности, полноты и завершённости, искажённое христианство → [terminology/shalom.md](terminology/shalom.md)
-- **📜 שְׁאֵרִית — ШЕЭРИТ: Шеэрит** — Разбор понятия שְׁאֵרִית (шеэрит) — шеэрит. Те, кто остался верен Яхве. Связь с  → [terminology/sheerit.md](terminology/sheerit.md)
-- **📜 שֶׁקֶל — ШЕКЕЛЬ: МЕРА ВЕСА, А НЕ МОНЕТА** — Разбор понятия שֶׁקֶל (шекель). Мера веса, превращённая системой в финансовые ок → [terminology/shekel.md](terminology/shekel.md)
-- **📜 שֵׁם (ШЕМ) — ИМЯ, Шхина, РЕПУТАЦИЯ, А НЕ «ТИТУЛ»** — Библейское понятие имени как неотъемлемого проявления личности и шхина, искажённ → [terminology/shem.md](terminology/shem.md)
-- **📜 שְׁאוֹל (ШЕОЛ) — МОГИЛА, А НЕ «АД»** — Библейское понятие места мёртвых как общей могилы человечества, искажённое христ → [terminology/sheol.md](terminology/sheol.md)
-- **📜 שָׁלֵם עֲוֹן — МЕРА КРИВИЗНЫ: КОГДА ЧАША ПЕРЕПОЛНЯЕТСЯ** — Разбор понятия «мера кривизны». Как Яхве определяет моэд системы. Принцип перепо → [terminology/shlem-avon.md](terminology/shlem-avon.md)
-- **📜 שְׁמִטָּה — ШМИТА: Слиха ДОЛГОВ** — Разбор понятия שְׁמִטָּה (шмита) — слиха долгов. Экономический Тора ТаНаХ. Седьм → [terminology/shmitah.md](terminology/shmitah.md)
-- **📜 תְּפִלָּה — ТФИЛА: САМОИССЛЕДОВАНИЕ, А НЕ Тфила** — Разбор понятия תְּפִלָּה (тфила) — самоисследование. Четыре вида обращения к Яхв → [terminology/tefilah.md](terminology/tefilah.md)
-- **📜 תֹּהוּ וָבֹהוּ — ТОХУ ВА-ВОХУ: ХАОС, КОТОРЫЙ ЖДЁТ СЛОВА** — Разбор понятия תֹּהוּ וָבֹהוּ (тоху ва-воху) — пустота и безвидность. Состояние  → [terminology/tohu-va-vohu.md](terminology/tohu-va-vohu.md)
-- **📜 תּוֹרָה (Тора) — Тора, А НЕ «ЗАКОН»** — Библейское понятие Тора, указания дэрех, искажённое христианством как «закон» → [terminology/torah.md](terminology/torah.md)
-- **📜 טוֹב (ТОВ) — ПРИГОДНОЕ, А НЕ «ДОБРО»** — Библейское понятие функциональной пригодности и полезности, искажённое греческой → [terminology/tov.md](terminology/tov.md)
-- **📜 תְּשׁוּבָה (ТШУВА) — ВОЗВРАЩЕНИЕ, А НЕ «ПОКАЯНИЕ»** — Библейское понятие возвращения к Яхве, искажённое христианством как «покаяние» → [terminology/tshuva.md](terminology/tshuva.md)
-- **📜 טְבִילָה (ТВИЛА) — ПОГРУЖЕНИЕ, А НЕ «КРЕЩЕНИЕ»** — Библейское действие погружения в воду для таhара, искажённое христианством как п → [terminology/tvilah.md](terminology/tvilah.md)
-- **📜 צֶדֶק (ЦЕДЕК) — ВЕРНОСТЬ Брит, А НЕ «ПРАВЕДНОСТЬ»** — Библейское понятие активной верности брит, искажённое греческой философией и хри → [terminology/tzedek.md](terminology/tzedek.md)
-- **📜 יְשׁוּעָה (ЙЕШУА) — ИЗБАВЛЕНИЕ, А НЕ «СПАСЕНИЕ ДУШИ»** — Библейское понятие конкретного избавления от беды, искажённое христианством в аб → [terminology/yeshuah.md](terminology/yeshuah.md)
-- **📜 ЙЕЦЕР ЛЕВ (YETZER LEV) — ПОМЫШЛЕНИЕ СЕРДЦА** — ЙЕЦЕР ЛЕВ (YETZER LEV) — ПОМЫШЛЕНИЕ СЕРДЦА → [terminology/yetzer-lev.md](terminology/yetzer-lev.md)
-- **📜 דָּתוֹת בָּעוֹלָם — ПОЧЕМУ ЯХВЕ — НЕ Дэрех, А ИСТОЧНИК** — Яхве — не одна из религий. Он — Источник всего. Разоблачение религиозной системы → [terminology/yhwh-not-religion.md](terminology/yhwh-not-religion.md)
-- **📜 ИМЯ ЯХВЕ (YHWH) — ПОЛНОЕ Hитгалут** — Личное имя Творца, явленное в ТаНаХ — от Шмот 3:14 до Шмот 34:6-7, от палео-иври → [terminology/yhwh.md](terminology/yhwh.md)
-- **📜 יִרְאַת יְהוָה — ЙИРЪАТ ЯХВЕ: ВИДЕНИЕ, А НЕ Пахад** — Разбор выражения יִרְאַת יְהוָה (йиръат Яхве). Почему это не «страх Господень»,  → [terminology/yir-at-yhwh.md](terminology/yir-at-yhwh.md)
-- **📜 יוֹבֵל — ЙОВЕЛЬ: ВОЗВРАЩЕНИЕ ЗЕМЛИ** — Разбор понятия יוֹבֵל (йовель) — возвращение земли. Пятидесятый год хофеш. Земля → [terminology/yovel.md](terminology/yovel.md)
-- **📜 זרק — ШВЫРЯТЬ, А НЕ «ОКРОПЛЯТЬ»** — Разоблачение подмены глагола זרק. Кровь не «окропляют» — ею швыряют. Брит — это  → [terminology/zarak.md](terminology/zarak.md)
+**Описание:** Индекс всей документации проекта «ГОЛЕМ»
 
 ---
-*Сгенерировано автоматически: 2026-06-09*
+
+## 📊 СТАТИСТИКА
+
+- **Всего файлов:** 20+
+- **Папок:** 1
+- **Последнее обновление:** 2026-07-01
+
+---
+
+## 📚 ОСНОВНАЯ ДОКУМЕНТАЦИЯ
+
+### Архитектура и структура
+- [ARCHITECTURE.md](ARCHITECTURE.md) - архитектура проекта
+- [STRUCTURE.md](STRUCTURE.md) - полная структура репозитория
+- [INDEX.md](INDEX.md) - этот файл
+
+### Управление проектом
+- [BACKLOG.md](BACKLOG.md) - текущие задачи
+- [ROADMAP.md](ROADMAP.md) - дорожная карта
+- [TECHNICAL-DEBT.md](TECHNICAL-DEBT.md) - технический долг
+- [DECISIONS.md](DECISIONS.md) - журнал решений
+- [RETROSPECTIVE.md](RETROSPECTIVE.md) - ретроспектива
+
+### Контент и изменения
+- [CHANGELOG.md](CHANGELOG.md) - история изменений
+- [CONTRIBUTORS.md](CONTRIBUTORS.md) - контрибьюторы
+- [GLOSSARY.md](GLOSSARY.md) - глоссарий терминов
+- [GLOSSARY-DEV.md](GLOSSARY-DEV.md) - глоссарий разработки
+
+### Специальные документы
+- [CHAT-PROMPT.md](CHAT-PROMPT.md) - чат-промпт
+- [ED-AGENT.md](ED-AGENT.md) - документация агента
+- [ED-ASSISTANT.md](ED-ASSISTANT.md) - документация ассистента
+- [ED-DAVAR.md](ED-DAVAR.md) - документация Давар
+- [ED-NEURO.md](ED-NEURO.md) - документация Эд
+- [GRAPH.md](GRAPH.md) - граф проекта
+- [IDEAS.md](IDEAS.md) - идеи проекта
+- [STATS.md](STATS.md) - статистика
+- [STRATEGY.md](STRATEGY.md) - стратегия
+- [WEB-INTERFACE.md](WEB-INTERFACE.md) - веб-интерфейс
+- [CONTROL.md](CONTROL.md) - контроль проекта
+
+---
+
+## 📂 КАТЕГОРИИ
+
+### Проектная документация
+- ARCHITECTURE.md - архитектура
+- STRUCTURE.md - структура
+- ROADMAP.md - дорожная карта
+- BACKLOG.md - задачи
+- DECISIONS.md - решения
+- RETROSPECTIVE.md - ретроспектива
+
+### Техническая документация
+- TECHNICAL-DEBT.md - технический долг
+- CHANGELOG.md - изменения
+- CONTRIBUTORS.md - контрибьюторы
+- GLOSSARY.md - глоссарий
+- GRAPH.md - граф
+
+### Продуктовая документация
+- ED-AGENT.md - агент
+- ED-ASSISTANT.md - ассистент
+- ED-DAVAR.md - Давар
+- ED-NEURO.md - Эд
+- WEB-INTERFACE.md - веб-интерфейс
+
+### Методологическая документация
+- STRATEGY.md - стратегия
+- IDEAS.md - идеи
+- STATS.md - статистика
+- CONTROL.md - контроль
+
+---
+
+## 🔗 СВЯЗИ
+
+### Внешние связи
+- [README.md](../README.md) - главная страница
+- [content/](../content/) - контент
+- [products/](../products/) - продукты
+- [tools/](../tools/) - инструменты
+- [instructions/](../instructions/) - методология
+- [guides/](../guides/) - руководства
+
+---
+
+## 📝 ПРАВИЛА
+
+1. **Метаданные:** каждый файл должен иметь метаданные
+2. **Версионирование:** изменения фиксировать в CHANGELOG.md
+3. **Ссылки:** использовать относительные пути
+4. **Согласованность:** документация должна соответствовать ARCHITECTURE.md
+
+---
+
+## 🛠 ИСПОЛЬЗОВАНИЕ
+
+### Для разработчиков
+```bash
+# Начать с ARCHITECTURE.md
+# Затем STRUCTURE.md
+# Затем ROADMAP.md
+```
+
+### Для контрибьюторов
+```bash
+# Прочитать CONTRIBUTORS.md
+# Изучить DECISIONS.md
+# Проверить BACKLOG.md
+```
+
+### Для пользователей
+```bash
+# Начать с README.md
+# Затем GLOSSARY.md
+# Затем guides/
+```
+
+---
+
+## 📊 СТАТИСТИКА
+
+- **Всего документов:** 20+
+- **Архитектура:** 3 файла
+- **Управление:** 5 файлов
+- **Контент:** 4 файла
+- **Продукты:** 5 файлов
+- **Методология:** 3 файла
+
+---
+
+## 🔗 НАВИГАЦИЯ
+
+- [README.md](../README.md) - главная страница
+- [ARCHITECTURE.md](ARCHITECTURE.md) - архитектура проекта
+- [STRUCTURE.md](STRUCTURE.md) - полная структура
+
+### По категориям
+- [ARCHITECTURE.md](ARCHITECTURE.md) - архитектура
+- [STRUCTURE.md](STRUCTURE.md) - структура
+- [CHANGELOG.md](CHANGELOG.md) - изменения
+- [BACKLOG.md](BACKLOG.md) - задачи
+- [ROADMAP.md](ROADMAP.md) - дорожная карта
+- [TECHNICAL-DEBT.md](TECHNICAL-DEBT.md) - технический долг
+- [DECISIONS.md](DECISIONS.md) - решения
+- [RETROSPECTIVE.md](RETROSPECTIVE.md) - ретроспектива
+- [GLOSSARY.md](GLOSSARY.md) - глоссарий
+- [CONTRIBUTORS.md](CONTRIBUTORS.md) - контрибьюторы
+- [STRATEGY.md](STRATEGY.md) - стратегия
+- [IDEAS.md](IDEAS.md) - идеи
+- [STATS.md](STATS.md) - статистика
+- [GRAPH.md](GRAPH.md) - граф
+- [CONTROL.md](CONTROL.md) - контроль
+- [CHAT-PROMPT.md](CHAT-PROMPT.md) - чат-промпт
+- [ED-AGENT.md](ED-AGENT.md) - агент
+- [ED-ASSISTANT.md](ED-ASSISTANT.md) - ассистент
+- [ED-DAVAR.md](ED-DAVAR.md) - Давар
+- [ED-NEURO.md](ED-NEURO.md) - Эд
+- [WEB-INTERFACE.md](WEB-INTERFACE.md) - веб-интерфейс
+- [GLOSSARY-DEV.md](GLOSSARY-DEV.md) - глоссарий разработки
+
+---
+
+## 📝 ПРИМЕЧАНИЯ
+
+1. **Полнота:** индекс содержит все документы docs/
+2. **Актуальность:** обновляется при добавлении новых документов
+3. **Структура:** organised по категориям
+4. **Ссылки:** все ссылки рабочие
+5. **Поиск:** использовать Ctrl+F для быстрого поиска
+
+---
+
+## 🛠 ОБНОВЛЕНИЕ ИНДЕКСА
+
+```bash
+# Автоматическое обновление индекса
+python tools/generators/generate-index.py --docs
