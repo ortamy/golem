@@ -14257,53 +14257,6 @@
     "icon": "lamp.png"
   },
   {
-    "path": "content/hebrew/paleo-alphabet-deep.md",
-    "title": "𐤁 22 БУКВЫ ПАЛЕО-ИВРИТА ПОДРОБНО",
-    "topic": "22 буквы палео-иврита: форма, значение, звук",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [],
-    "icon": "lamp.png"
-  },
-  {
-    "path": "content/hebrew/paleo-creation.md",
-    "title": "𐤁 БЕРЕШИТ 1 ЧЕРЕЗ ПАЛЕО-ИВРИТ",
-    "topic": "Берешит 1 через палео-иврит. Каждое слово в свете древнего письма",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [],
-    "icon": "lamp.png"
-  },
-  {
-    "path": "content/hebrew/paleo-hebrew.md",
-    "title": "ПАЛЕО-ИВРИТ — ПИСЬМО ОБРАЗОВ: УРОК ИВРИТА",
-    "topic": "Урок иврита — палео-иврит: древнее письмо, где каждая буква — образ",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [
-      "content/learn-hebrew/verbs.md"
-    ],
-    "icon": "lamp.png"
-  },
-  {
-    "path": "content/hebrew/paleo-names.md",
-    "title": "𐤀 ИМЕНА В ПАЛЕО-ИВРИТЕ",
-    "topic": "Имена ТаНаХа, записанные палео-еврейскими буквами",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [],
-    "icon": "lamp.png"
-  },
-  {
-    "path": "content/hebrew/paleo-torah.md",
-    "title": "𐤄 ДЕСЯТЬ РЕЧЕНИЙ В ПАЛЕО-ИВРИТЕ",
-    "topic": "Десять речений (Шмот 20) в палео-иврите. Буквальный разбор",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [],
-    "icon": "lamp.png"
-  },
-  {
     "path": "content/hebrew/parallelism.md",
     "title": "תַּקְבִּילָה — ПАРАЛЛЕЛИЗМ: КАК РАБОТАЕТ СТИХ В ТАНАХЕ",
     "topic": "Параллелизм в поэзии ТаНаХа. Как работает стих. Типы параллелизма. Как понимать, а не просто читать.",
@@ -14325,15 +14278,6 @@
     "path": "content/hebrew/pronominal-suffixes.md",
     "title": "כִּנּוּיֵי שַׁיָּכוּת — ПРИТЯЖАТЕЛЬНЫЕ СУФФИКСЫ: МОЙ, ТВОЙ, НАШ",
     "topic": "Притяжательные суффиксы в иврите. Как крепятся к словам. Местоименные окончания. Смихут с суффиксом.",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [],
-    "icon": "lamp.png"
-  },
-  {
-    "path": "content/hebrew/psalm-23-deep.md",
-    "title": "ПОЛНЫЙ РАЗБОР ТЕhИЛИМ 23",
-    "topic": "Полный разбор Теhилим 23 — псалом Давида",
     "category": "Изучение иврита",
     "subcategory": "",
     "related": [],
@@ -14404,6 +14348,15 @@
     "related": [
       "content/learn-hebrew/reading-practice.md"
     ],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/tehilim-23-deep.md",
+    "title": "ПОЛНЫЙ РАЗБОР ТЕhИЛИМ 23",
+    "topic": "Полный разбор Теhилим 23 — псалом Давида",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
     "icon": "lamp.png"
   },
   {
