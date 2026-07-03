@@ -2358,6 +2358,19 @@
     "icon": "scrolls.png"
   },
   {
+    "path": "content/tanakh/brit-rishona-brit-hadasha.md",
+    "title": "ПЕРВЫЙ СОЮЗ И ВОССТАНОВЛЕННЫЙ СОЮЗ",
+    "topic": "Разоблачение греко-римской подмены «Ветхий Завет» vs «Новый Завет» через возвращение к ивритским пон",
+    "category": "ТаНаХ",
+    "subcategory": "",
+    "related": [
+      "content/terminology/brit.md",
+      "content/terminology/torah.md",
+      "content/researches/tanakh/yirmeyahu-31.md"
+    ],
+    "icon": "default.png"
+  },
+  {
     "path": "content/tanakh/chayei-olam.md",
     "title": "חַיֵּי עוֹלָם — ЖИЗНЬ СКРЫТОГО ГОРИЗОНТА",
     "topic": "עוֹלָם (олам) — скрытое время, а не «вечность». חַיֵּי עוֹלָם — жизнь скрытого горизонта",
