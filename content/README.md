@@ -126,100 +126,23 @@
 
 ---
 
-### tzel/ - 🎭 Тзель
-Типы, параллелизм, библейские типы
+### foundations/ - 🏛 Фундаментальные принципы
+Основы, прообразы, сосуды, места
 
 **Подпапки:**
-- `adam/` - Адам и типы
-  - `amim/` - народы
-  - `gilim/` - жертвы
-  - `ishim/` - личности
-  - `shemot/` - имена
-  - `zugot/` - пары
-- `brit-nissuin/` - брачный завет
-  - `chatunah/` - свадьба
-  - `mishteh/` - пир
-- `elohim/` - Божественные типы
-  - `etzim/` - деревья
-  - `keruvim/` - херувимы
-  - `matnot-ruach/` - духовные дары
-  - `melachot/` - работы
-  - `neshek/` - вооружение
-  - `panim/` - лица
-  - `perot/` - плоды
-  - `perot-ruach/` - плоды духа
-  - `shemot-el/` - имена Бога
-- `hitgalut/` - Откровение
-  - `chotamot/` - печати
-  - `kos-chemah/` - чаши гнева
-  - `kosot/` - чаши
-  - `mishpat/` - суды
-  - `rochvim/` - всадники
-  - `shofarot/` - трубы
-  - `zemanim/` - времена
+- `adam/` - прообразы личностей
+- `elohim/` - божественные прообразы
 - `kehillah/` - община
-  - `avodah/` - служение
-  - `kehillot/` - общины
-  - `malachim/` - ангелы
-  - `mesharetim/` - служители
-  - `mishkan/` - скиния
-  - `rechitzah/` - омовение
-  - `shlichim/` - посланники
-  - `shutafut/` - партнёрство
-  - `tvilah/` - погружение
 - `kelim/` - сосуды
-  - `avanim/` - камни
-  - `begadim/` - одежды
-  - `birka'im/` - колена
-  - `chukim/` - уставы
-  - `chushim/` - чувства
-  - `maftehot/` - ключи
-  - `malchei/` - цари
-  - `mishchah/` - помазание
-  - `otot-brit/` - знаки завета
-  - `sefarim/` - книги
-  - `tefilah/` - молитва
 - `makom/` - место
-  - `arim/` - города
-  - `artzot/` - земли
-  - `mekomot/` - места
-- `mikra/` - Писание
-  - `chodashim/` - месяцы
-  - `mikraot/` - чтения
-  - `moadim/` - праздники
-  - `shomerim/` - стражи
+- `mikra/` - писание
 - `moadim/` - праздники
-- `ruach/` - дух
-  - `behemot/` - животные
-  - `chayot/` - существа
-  - `cholim/` - болезни
-  - `guf/` - тело
-  - `kelim/` - сосуды
-  - `leshonot/` - языки
-  - `levushim/` - одежды
-  - `makot/` - удары
-  - `matachot/` - металлы
-  - `mavet/` - смерть
-  - `meshalim/` - притчи
-  - `misparim/` - числа
-  - `seor/` - закваска
-  - `taharah/` - чистота
-  - `techiah/` - воскресение
-  - `yesodot/` - основы
-- `shedim/` - демоны
-  - `avonot/` - грехи
-  - `chayot/` - существа
-  - `choshech/` - тьма
-  - `kerav/` - нападение
-  - `nefilah/` - падение
-  - `rodefim/` - гонители
-  - `ruchot-raot/` - злые духи
-  - `shemot-shedim/` - имена демонов
-  - `sheol/` - шеол
 - `tamid/` - постоянно
+- `guf/` - тело
+- `yesodot/` - основы
 
-**Количество файлов:** 300+  
-**Назначение:** Библейские типы, параллелизм, прообразы
+**Количество файлов:** 200+  
+**Назначение:** Фундаментальные понятия и прообразы из Танаха
 
 ---
 
@@ -229,7 +152,7 @@
 - `terminology/` ↔ `teachings/` - термины используются в учениях
 - `tanakh/` ↔ `bashah/` - Танах и Брита Хадаша
 - `researches/` ↔ `tanakh/` - исследования ссылаются на Танах
-- `tzel/` ↔ `tanakh/` - типы из Танаха
+- `foundations/` ↔ `tanakh/` - фундаментальные типы из Танаха
 
 ### Внешние связи
 - `docs/GLOSSARY.md` - глоссарий ссылается на terminology/
@@ -267,7 +190,7 @@
 - **teachings/:** 250+ файлов
 - **practices/:** 15+ файлов
 - **exposed/:** 3+ файлов
-- **tzel/:** 300+ файлов
+- **foundations/:** 200+ файлов
 
 ---
 
@@ -287,4 +210,4 @@
 - [teachings/](teachings/) - учения
 - [practices/](practices/) - практики
 - [exposed/](exposed/) - разоблачения
-- [tzel/](tzel/) - тзель
+- [foundations/](foundations/) - фундаментальные принципы

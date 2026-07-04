@@ -919,770 +919,770 @@
 
 ---
 
-## 🎭 ТЗЕЛЬ (300+ файлов)
+## 🏛 ФУНДАМЕНТЫ (200+ файлов)
 
-### adam/ - Адам и типы
+### adam/ - Прообразы личностей
 #### amim/ - Народы
-- [amalek.md](tzel/adam/amim/amalek.md) - Амалик
-- [arameans.md](tzel/adam/amim/arameans.md) - Арамеи
-- [assyrians.md](tzel/adam/amim/assyrians.md) - Ассирийцы
-- [babylonians.md](tzel/adam/amim/babylonians.md) - Вавилоняне
-- [canaanites.md](tzel/adam/amim/canaanites.md) - Ханаанеи
-- [edomites.md](tzel/adam/amim/edomites.md) - Едомляне
-- [egyptians.md](tzel/adam/amim/egyptians.md) - Египтяне
-- [elamites.md](tzel/adam/amim/elamites.md) - Эламиты
-- [ishmaelites.md](tzel/adam/amim/ishmaelites.md) - Измаильтяне
-- [israelites.md](tzel/adam/amim/israelites.md) - Израильтяне
-- [kushites.md](tzel/adam/amim/kushites.md) - Кушиты
-- [libyans.md](tzel/adam/amim/libyans.md) - Ливийцы
-- [medes.md](tzel/adam/amim/medes.md) - Мидяне
-- [midianites.md](tzel/adam/amim/midianites.md) - Мадианиты
-- [moabites.md](tzel/adam/amim/moabites.md) - Моавитяне
-- [philistines.md](tzel/adam/amim/philistines.md) - Филистимляне
-- [yavanites.md](tzel/adam/amim/yavanites.md) - Иаваниты
+- [amalek.md](researches/adam/amim/amalek.md) - Амалик
+- [arameans.md](researches/adam/amim/arameans.md) - Арамеи
+- [assyrians.md](researches/adam/amim/assyrians.md) - Ассирийцы
+- [babylonians.md](researches/adam/amim/babylonians.md) - Вавилоняне
+- [canaanites.md](researches/adam/amim/canaanites.md) - Ханаанеи
+- [edomites.md](researches/adam/amim/edomites.md) - Едомляне
+- [egyptians.md](researches/adam/amim/egyptians.md) - Египтяне
+- [elamites.md](researches/adam/amim/elamites.md) - Эламиты
+- [ishmaelites.md](researches/adam/amim/ishmaelites.md) - Измаильтяне
+- [israelites.md](researches/adam/amim/israelites.md) - Израильтяне
+- [kushites.md](researches/adam/amim/kushites.md) - Кушиты
+- [libyans.md](researches/adam/amim/libyans.md) - Ливийцы
+- [medes.md](researches/adam/amim/medes.md) - Мидяне
+- [midianites.md](researches/adam/amim/midianites.md) - Мадианиты
+- [moabites.md](researches/adam/amim/moabites.md) - Моавитяне
+- [philistines.md](researches/adam/amim/philistines.md) - Филистимляне
+- [yavanites.md](researches/adam/amim/yavanites.md) - Иаваниты
 
 #### gilim/ - Жертвы
-- [avot-mekudash.md](tzel/adam/gilim/avot-mekudash.md) - отцы освящённые
-- [melo-mashiach.md](tzel/adam/gilim/melo-mashiach.md) - полный мессия
-- [neorim.md](tzel/adam/gilim/neorim.md) - молодые быки
-- [olel-ruach.md](tzel/adam/gilim/olel-ruach.md) - поднимающий дух
+- [avot-mekudash.md](researches/adam/gilim/avot-mekudash.md) - отцы освящённые
+- [melo-mashiach.md](researches/adam/gilim/melo-mashiach.md) - полный мессия
+- [neorim.md](researches/adam/gilim/neorim.md) - молодые быки
+- [olel-ruach.md](researches/adam/gilim/olel-ruach.md) - поднимающий дух
 
 #### ishim/ - Личности
-- [adam.md](tzel/adam/ishim/adam.md) - Адам
-- [aharon.md](tzel/adam/ishim/aharon.md) - Аарон
-- [avraham.md](tzel/adam/ishim/avraham.md) - Авраам
-- [chava.md](tzel/adam/ishim/chava.md) - Хава
-- [david.md](tzel/adam/ishim/david.md) - Давид
-- [eliyahu.md](tzel/adam/ishim/eliyahu.md) - Элия
-- [hagar.md](tzel/adam/ishim/hagar.md) - Агарь
-- [hevel.md](tzel/adam/ishim/hevel.md) - Гевель
-- [iyov.md](tzel/adam/ishim/iyov.md) - Йов
-- [izevel.md](tzel/adam/ishim/izevel.md) - Иезавель
-- [kayin.md](tzel/adam/ishim/kayin.md) - Каин
-- [keturah.md](tzel/adam/ishim/keturah.md) - Кетура
-- [moshe.md](tzel/adam/ishim/moshe.md) - Моше
-- [noach.md](tzel/adam/ishim/noach.md) - Ноах
-- [sarah.md](tzel/adam/ishim/sarah.md) - Сара
-- [shlomo.md](tzel/adam/ishim/shlomo.md) - Шломо
-- [yaakov.md](tzel/adam/ishim/yaakov.md) - Яаков
-- [yishmael.md](tzel/adam/ishim/yishmael.md) - Ишмаэль
-- [yitzchak.md](tzel/adam/ishim/yitzchak.md) - Ицхак
-- [yosef.md](tzel/adam/ishim/yosef.md) - Йосеф
+- [adam.md](researches/adam/ishim/adam.md) - Адам
+- [aharon.md](researches/adam/ishim/aharon.md) - Аарон
+- [avraham.md](researches/adam/ishim/avraham.md) - Авраам
+- [chava.md](researches/adam/ishim/chava.md) - Хава
+- [david.md](researches/adam/ishim/david.md) - Давид
+- [eliyahu.md](researches/adam/ishim/eliyahu.md) - Элия
+- [hagar.md](researches/adam/ishim/hagar.md) - Агарь
+- [hevel.md](researches/adam/ishim/hevel.md) - Гевель
+- [iyov.md](researches/adam/ishim/iyov.md) - Йов
+- [izevel.md](researches/adam/ishim/izevel.md) - Иезавель
+- [kayin.md](researches/adam/ishim/kayin.md) - Каин
+- [keturah.md](researches/adam/ishim/keturah.md) - Кетура
+- [moshe.md](researches/adam/ishim/moshe.md) - Моше
+- [noach.md](researches/adam/ishim/noach.md) - Ноах
+- [sarah.md](researches/adam/ishim/sarah.md) - Сара
+- [shlomo.md](researches/adam/ishim/shlomo.md) - Шломо
+- [yaakov.md](researches/adam/ishim/yaakov.md) - Яаков
+- [yishmael.md](researches/adam/ishim/yishmael.md) - Ишмаэль
+- [yitzchak.md](researches/adam/ishim/yitzchak.md) - Ицхак
+- [yosef.md](researches/adam/ishim/yosef.md) - Йосеф
 
 #### shemot/ - Имена
-- [avram-avraham.md](tzel/adam/shemot/avram-avraham.md) - Аврам-Авраам
-- [chananyah-mishael-azaryah.md](tzel/adam/shemot/chananyah-mishael-azaryah.md) - Ханания-Мишаэль-Азария
-- [daniel-belshazzar.md](tzel/adam/shemot/daniel-belshazzar.md) - Даниил-Белшацар
-- [hoshea-yeshua.md](tzel/adam/shemot/hoshea-yeshua.md) - Ошея-Йеошуа
-- [levi-mattityahu.md](tzel/adam/shemot/levi-mattityahu.md) - Леви-Маттитьягу
-- [sarai-sarah.md](tzel/adam/shemot/sarai-sarah.md) - Сарай-Сара
-- [shaul-paulus.md](tzel/adam/shemot/shaul-paulus.md) - Шауль-Павел
-- [shimon-kefa.md](tzel/adam/shemot/shimon-kefa.md) - Шимон-Кайфа
-- [yaakov-yisrael.md](tzel/adam/shemot/yaakov-yisrael.md) - Яаков-Израиль
-- [yosef-tzafnat-paaneach.md](tzel/adam/shemot/yosef-tzafnat-paaneach.md) - Йосеф-Цафнат-Паанеах
+- [avram-avraham.md](researches/adam/shemot/avram-avraham.md) - Аврам-Авраам
+- [chananyah-mishael-azaryah.md](researches/adam/shemot/chananyah-mishael-azaryah.md) - Ханания-Мишаэль-Азария
+- [daniel-belshazzar.md](researches/adam/shemot/daniel-belshazzar.md) - Даниил-Белшацар
+- [hoshea-yeshua.md](researches/adam/shemot/hoshea-yeshua.md) - Ошея-Йеошуа
+- [levi-mattityahu.md](researches/adam/shemot/levi-mattityahu.md) - Леви-Маттитьягу
+- [sarai-sarah.md](researches/adam/shemot/sarai-sarah.md) - Сарай-Сара
+- [shaul-paulus.md](researches/adam/shemot/shaul-paulus.md) - Шауль-Павел
+- [shimon-kefa.md](researches/adam/shemot/shimon-kefa.md) - Шимон-Кайфа
+- [yaakov-yisrael.md](researches/adam/shemot/yaakov-yisrael.md) - Яаков-Израиль
+- [yosef-tzafnat-paaneach.md](researches/adam/shemot/yosef-tzafnat-paaneach.md) - Йосеф-Цафнат-Паанеах
 
 #### zugot/ - Пары
-- [adam-mashiach.md](tzel/adam/zugot/adam-mashiach.md) - Адам-Мессия
-- [aharon-mashiach.md](tzel/adam/zugot/aharon-mashiach.md) - Аарон-Мессия
-- [basar-ruach.md](tzel/adam/zugot/basar-ruach.md) - плоть-дух
-- [bavel-yerushalayim.md](tzel/adam/zugot/bavel-yerushalayim.md) - Вавилон-Йерушалаим
-- [chava-kehilat.md](tzel/adam/zugot/chava-kehilat.md) - Хава-община
-- [david-mashiach.md](tzel/adam/zugot/david-mashiach.md) - Давид-Мессия
-- [esav-yaakov.md](tzel/adam/zugot/esav-yaakov.md) - Эсав-Яаков
-- [moshe-mashiach.md](tzel/adam/zugot/moshe-mashiach.md) - Моше-Мессия
-- [sarah-hagar.md](tzel/adam/zugot/sarah-hagar.md) - Сара-Агарь
-- [shaul-david.md](tzel/adam/zugot/shaul-david.md) - Шауль-Давид
-- [shaul-shaul.md](tzel/adam/zugot/shaul-shaul.md) - Шауль-Шауль
-- [shimshon-mashiach.md](tzel/adam/zugot/shimshon-mashiach.md) - Шимшон-Мессия
-- [yehoshua-yeshua.md](tzel/adam/zugot/yehoshua-yeshua.md) - Йеошуа-Йеошуа
-- [yehudah-ish-kariot.md](tzel/adam/zugot/yehudah-ish-kariot.md) - Йегуда-Искариот
-- [yishmael-yitzchak.md](tzel/adam/zugot/yishmael-yitzchak.md) - Ишмаэль-Ицхак
-- [yitzchak-mashiach.md](tzel/adam/zugot/yitzchak-mashiach.md) - Ицхак-Мессия
-- [yonah-mashiach.md](tzel/adam/zugot/yonah-mashiach.md) - Йона-Мессия
+- [adam-mashiach.md](researches/adam/zugot/adam-mashiach.md) - Адам-Мессия
+- [aharon-mashiach.md](researches/adam/zugot/aharon-mashiach.md) - Аарон-Мессия
+- [basar-ruach.md](researches/adam/zugot/basar-ruach.md) - плоть-дух
+- [bavel-yerushalayim.md](researches/adam/zugot/bavel-yerushalayim.md) - Вавилон-Йерушалаим
+- [chava-kehilat.md](researches/adam/zugot/chava-kehilat.md) - Хава-община
+- [david-mashiach.md](researches/adam/zugot/david-mashiach.md) - Давид-Мессия
+- [esav-yaakov.md](researches/adam/zugot/esav-yaakov.md) - Эсав-Яаков
+- [moshe-mashiach.md](researches/adam/zugot/moshe-mashiach.md) - Моше-Мессия
+- [sarah-hagar.md](researches/adam/zugot/sarah-hagar.md) - Сара-Агарь
+- [shaul-david.md](researches/adam/zugot/shaul-david.md) - Шауль-Давид
+- [shaul-shaul.md](researches/adam/zugot/shaul-shaul.md) - Шауль-Шауль
+- [shimshon-mashiach.md](researches/adam/zugot/shimshon-mashiach.md) - Шимшон-Мессия
+- [yehoshua-yeshua.md](researches/adam/zugot/yehoshua-yeshua.md) - Йеошуа-Йеошуа
+- [yehudah-ish-kariot.md](researches/adam/zugot/yehudah-ish-kariot.md) - Йегуда-Искариот
+- [yishmael-yitzchak.md](researches/adam/zugot/yishmael-yitzchak.md) - Ишмаэль-Ицхак
+- [yitzchak-mashiach.md](researches/adam/zugot/yitzchak-mashiach.md) - Ицхак-Мессия
+- [yonah-mashiach.md](researches/adam/zugot/yonah-mashiach.md) - Йона-Мессия
 
 ### brit-nissuin/ - Брачный завет
 #### chatunah/ - Свадьба
-- [erushin.md](tzel/brit-nissuin/chatunah/erushin.md) - эрушин
-- [kidushin.md](tzel/brit-nissuin/chatunah/kidushin.md) - кидушин
-- [mikva.md](tzel/brit-nissuin/chatunah/mikva.md) - миква
-- [nikakh.md](tzel/brit-nissuin/chatunah/nikakh.md) - никах
-- [sudat-nisuin.md](tzel/brit-nissuin/chatunah/sudat-nisuin.md) - трапеза нисуин
+- [erushin.md](bashah/brit-nissuin/chatunah/erushin.md) - эрушин
+- [kidushin.md](bashah/brit-nissuin/chatunah/kidushin.md) - кидушин
+- [mikva.md](bashah/brit-nissuin/chatunah/mikva.md) - миква
+- [nikakh.md](bashah/brit-nissuin/chatunah/nikakh.md) - никах
+- [sudat-nisuin.md](bashah/brit-nissuin/chatunah/sudat-nisuin.md) - трапеза нисуин
 
 #### mishteh/ - Пир
-- [brak.md](tzel/brit-nissuin/mishteh/brak.md) - брахот
-- [expecting-groom.md](tzel/brit-nissuin/mishteh/expecting-groom.md) - ожидание жениха
-- [kehilat-kala.md](tzel/brit-nissuin/mishteh/kehilat-kala.md) - община невесты
-- [mashiach-groom.md](tzel/brit-nissuin/mishteh/mashiach-groom.md) - Мессия-жених
-- [preparing-for-marriage.md](tzel/brit-nissuin/mishteh/preparing-for-marriage.md) - подготовка к браку
+- [brak.md](bashah/brit-nissuin/mishteh/brak.md) - брахот
+- [expecting-groom.md](bashah/brit-nissuin/mishteh/expecting-groom.md) - ожидание жениха
+- [kehilat-kala.md](bashah/brit-nissuin/mishteh/kehilat-kala.md) - община невесты
+- [mashiach-groom.md](bashah/brit-nissuin/mishteh/mashiach-groom.md) - Мессия-жених
+- [preparing-for-marriage.md](bashah/brit-nissuin/mishteh/preparing-for-marriage.md) - подготовка к браку
 
 ### elohim/ - Божественные типы
 #### etzim/ - Деревья
-- [etz-chayim.md](tzel/elohim/etzim/etz-chayim.md) - Дерево жизни
-- [etz-daat-tov-ra.md](tzel/elohim/etzim/etz-daat-tov-ra.md) - Дерево познания добра и зла
+- [etz-chayim.md](researches/elohim/etzim/etz-chayim.md) - Дерево жизни
+- [etz-daat-tov-ra.md](researches/elohim/etzim/etz-daat-tov-ra.md) - Дерево познания добра и зла
 
 #### keruvim/ - Херувимы
-- [adam.md](tzel/elohim/keruvim/adam.md) - Адам
-- [aryeh.md](tzel/elohim/keruvim/aryeh.md) - лев
-- [nesher.md](tzel/elohim/keruvim/nesher.md) - орёл
-- [shor.md](tzel/elohim/keruvim/shor.md) - вол
+- [adam.md](researches/elohim/keruvim/adam.md) - Адам
+- [aryeh.md](researches/elohim/keruvim/aryeh.md) - лев
+- [nesher.md](researches/elohim/keruvim/nesher.md) - орёл
+- [shor.md](researches/elohim/keruvim/shor.md) - вол
 
 #### matnot-ruach/ - Духовные дары
-- [chesed.md](tzel/elohim/matnot-ruach/chesed.md) - милость
-- [dvar-chochmah.md](tzel/elohim/matnot-ruach/dvar-chochmah.md) - слово мудрости
-- [emunah.md](tzel/elohim/matnot-ruach/emunah.md) - вера
-- [ezrah.md](tzel/elohim/matnot-ruach/ezrah.md) - помощь
-- [hadrachah.md](tzel/elohim/matnot-ruach/hadrachah.md) - водительство
-- [havdalat-ruach.md](tzel/elohim/matnot-ruach/havdalat-ruach.md) - разделение духа
-- [leshonot.md](tzel/elohim/matnot-ruach/leshonot.md) - языки
-- [nevuah.md](tzel/elohim/matnot-ruach/nevuah.md) - пророчество
-- [niflaot.md](tzel/elohim/matnot-ruach/niflaot.md) - чудеса
-- [pitaron.md](tzel/elohim/matnot-ruach/pitaron.md) - откровение
-- [refuah.md](tzel/elohim/matnot-ruach/refuah.md) - исцеление
-- [tokhachah.md](tzel/elohim/matnot-ruach/tokhachah.md) - обличение
+- [chesed.md](researches/elohim/matnot-ruach/chesed.md) - милость
+- [dvar-chochmah.md](researches/elohim/matnot-ruach/dvar-chochmah.md) - слово мудрости
+- [emunah.md](researches/elohim/matnot-ruach/emunah.md) - вера
+- [ezrah.md](researches/elohim/matnot-ruach/ezrah.md) - помощь
+- [hadrachah.md](researches/elohim/matnot-ruach/hadrachah.md) - водительство
+- [havdalat-ruach.md](researches/elohim/matnot-ruach/havdalat-ruach.md) - разделение духа
+- [leshonot.md](researches/elohim/matnot-ruach/leshonot.md) - языки
+- [nevuah.md](researches/elohim/matnot-ruach/nevuah.md) - пророчество
+- [niflaot.md](researches/elohim/matnot-ruach/niflaot.md) - чудеса
+- [pitaron.md](researches/elohim/matnot-ruach/pitaron.md) - откровение
+- [refuah.md](researches/elohim/matnot-ruach/refuah.md) - исцеление
+- [tokhachah.md](researches/elohim/matnot-ruach/tokhachah.md) - обличение
 
 #### melachot/ - Работы
-- [boneh.md](tzel/elohim/melachot/boneh.md) - строить
-- [charash.md](tzel/elohim/melachot/charash.md) - резать
-- [chovel.md](tzel/elohim/melachot/chovel.md) - плуг
-- [ganan.md](tzel/elohim/melachot/ganan.md) - сажать
-- [ikar.md](tzel/elohim/melachot/ikar.md) - жать
-- [roeh.md](tzel/elohim/melachot/roeh.md) - пасти
-- [yotzer.md](tzel/elohim/melachot/yotzer.md) - создавать
+- [boneh.md](researches/elohim/melachot/boneh.md) - строить
+- [charash.md](researches/elohim/melachot/charash.md) - резать
+- [chovel.md](researches/elohim/melachot/chovel.md) - плуг
+- [ganan.md](researches/elohim/melachot/ganan.md) - сажать
+- [ikar.md](researches/elohim/melachot/ikar.md) - жать
+- [roeh.md](researches/elohim/melachot/roeh.md) - пасти
+- [yotzer.md](researches/elohim/melachot/yotzer.md) - создавать
 
 #### neshek/ - Вооружение
-- [avnet-emet.md](tzel/elohim/neshek/avnet-emet.md) - пояс истины
-- [cherev-ruach.md](tzel/elohim/neshek/cherev-ruach.md) - меч духа
-- [kova-yeshua.md](tzel/elohim/neshek/kova-yeshua.md) - шлем спасения
-- [magen-tzedek.md](tzel/elohim/neshek/magen-tzedek.md) - щит правды
-- [naalei-besorah.md](tzel/elohim/neshek/naalei-besorah.md) - обувь благовестия
-- [shiryon-tzedek.md](tzel/elohim/neshek/shiryon-tzedek.md) - броня правды
+- [avnet-emet.md](researches/elohim/neshek/avnet-emet.md) - пояс истины
+- [cherev-ruach.md](researches/elohim/neshek/cherev-ruach.md) - меч духа
+- [kova-yeshua.md](researches/elohim/neshek/kova-yeshua.md) - шлем спасения
+- [magen-tzedek.md](researches/elohim/neshek/magen-tzedek.md) - щит правды
+- [naalei-besorah.md](researches/elohim/neshek/naalei-besorah.md) - обувь благовестия
+- [shiryon-tzedek.md](researches/elohim/neshek/shiryon-tzedek.md) - броня правды
 
 #### panim/ - Лица
-- [av-shamayim.md](tzel/elohim/panim/av-shamayim.md) - отец небесный
-- [ben-elohim.md](tzel/elohim/panim/ben-elohim.md) - сын Бога
-- [ruach-hakodesh.md](tzel/elohim/panim/ruach-hakodesh.md) - святой дух
+- [av-shamayim.md](researches/elohim/panim/av-shamayim.md) - отец небесный
+- [ben-elohim.md](researches/elohim/panim/ben-elohim.md) - сын Бога
+- [ruach-hakodesh.md](researches/elohim/panim/ruach-hakodesh.md) - святой дух
 
 #### perot/ - Плоды
-- [pri-ahavah.md](tzel/elohim/perot/pri-ahavah.md) - плод любви
-- [pri-kedushah.md](tzel/elohim/perot/pri-kedushah.md) - плод святости
-- [pri-maasim-tovim.md](tzel/elohim/perot/pri-maasim-tovim.md) - плод добрых дел
-- [pri-ruchani.md](tzel/elohim/perot/pri-ruchani.md) - духовный плод
-- [pri-savlanut-emunah.md](tzel/elohim/perot/pri-savlanut-emunah.md) - плод долготерпения
-- [pri-teshuvah.md](tzel/elohim/perot/pri-teshuvah.md) - плод покаяния
-- [pri-tzedek.md](tzel/elohim/perot/pri-tzedek.md) - плод правды
+- [pri-ahavah.md](researches/elohim/perot/pri-ahavah.md) - плод любви
+- [pri-kedushah.md](researches/elohim/perot/pri-kedushah.md) - плод святости
+- [pri-maasim-tovim.md](researches/elohim/perot/pri-maasim-tovim.md) - плод добрых дел
+- [pri-ruchani.md](researches/elohim/perot/pri-ruchani.md) - духовный плод
+- [pri-savlanut-emunah.md](researches/elohim/perot/pri-savlanut-emunah.md) - плод долготерпения
+- [pri-teshuvah.md](researches/elohim/perot/pri-teshuvah.md) - плод покаяния
+- [pri-tzedek.md](researches/elohim/perot/pri-tzedek.md) - плод правды
 
 #### perot-ruach/ - Плоды духа
-- [ahavah.md](tzel/elohim/perot-ruach/ahavah.md) - любовь
-- [anavah.md](tzel/elohim/perot-ruach/anavah.md) - смирение
-- [emunah.md](tzel/elohim/perot-ruach/emunah.md) - вера
-- [erech-apayim.md](tzel/elohim/perot-ruach/erech-apayim.md) - долготерпение
-- [rivyon.md](tzel/elohim/perot-ruach/rivyon.md) - радость
-- [shalom.md](tzel/elohim/perot-ruach/shalom.md) - мир
-- [simchah.md](tzel/elohim/perot-ruach/simchah.md) - веселие
-- [tovah.md](tzel/elohim/perot-ruach/tovah.md) - доброта
+- [ahavah.md](researches/elohim/perot-ruach/ahavah.md) - любовь
+- [anavah.md](researches/elohim/perot-ruach/anavah.md) - смирение
+- [emunah.md](researches/elohim/perot-ruach/emunah.md) - вера
+- [erech-apayim.md](researches/elohim/perot-ruach/erech-apayim.md) - долготерпение
+- [rivyon.md](researches/elohim/perot-ruach/rivyon.md) - радость
+- [shalom.md](researches/elohim/perot-ruach/shalom.md) - мир
+- [simchah.md](researches/elohim/perot-ruach/simchah.md) - веселие
+- [tovah.md](researches/elohim/perot-ruach/tovah.md) - доброта
 
 #### shemot-el/ - Имена Бога
-- [adonai.md](tzel/elohim/shemot-el/adonai.md) - Адонай
-- [el-shaddai.md](tzel/elohim/shemot-el/el-shaddai.md) - Эль Шаддай
-- [elohim.md](tzel/elohim/shemot-el/elohim.md) - Элохим
-- [kyrios.md](tzel/elohim/shemot-el/kyrios.md) - Кюриос
-- [yhwh-nissi.md](tzel/elohim/shemot-el/yhwh-nissi.md) - Яхве Нисси
-- [yhwh-rafa.md](tzel/elohim/shemot-el/yhwh-rafa.md) - Яхве Рафа
-- [yhwh-shalom.md](tzel/elohim/shemot-el/yhwh-shalom.md) - Яхве Шалом
-- [yhwh-tzidkenu.md](tzel/elohim/shemot-el/yhwh-tzidkenu.md) - Яхве Цидкену
-- [yhwh.md](tzel/elohim/shemot-el/yhwh.md) - Яхве
+- [adonai.md](researches/elohim/shemot-el/adonai.md) - Адонай
+- [el-shaddai.md](researches/elohim/shemot-el/el-shaddai.md) - Эль Шаддай
+- [elohim.md](researches/elohim/shemot-el/elohim.md) - Элохим
+- [kyrios.md](researches/elohim/shemot-el/kyrios.md) - Кюриос
+- [yhwh-nissi.md](researches/elohim/shemot-el/yhwh-nissi.md) - Яхве Нисси
+- [yhwh-rafa.md](researches/elohim/shemot-el/yhwh-rafa.md) - Яхве Рафа
+- [yhwh-shalom.md](researches/elohim/shemot-el/yhwh-shalom.md) - Яхве Шалом
+- [yhwh-tzidkenu.md](researches/elohim/shemot-el/yhwh-tzidkenu.md) - Яхве Цидкену
+- [yhwh.md](researches/elohim/shemot-el/yhwh.md) - Яхве
 
 ### hitgalut/ - Откровение
 #### chotamot/ - Печати
-- [seal-1-white-horse.md](tzel/hitgalut/chotamot/seal-1-white-horse.md) - печать 1 - белый конь
-- [seal-2-red-horse.md](tzel/hitgalut/chotamot/seal-2-red-horse.md) - печать 2 - красный конь
-- [seal-3-black-horse.md](tzel/hitgalut/chotamot/seal-3-black-horse.md) - печать 3 - чёрный конь
-- [seal-4-pale-horse.md](tzel/hitgalut/chotamot/seal-4-pale-horse.md) - печать 4 - бледный конь
-- [seal-5-martyrs.md](tzel/hitgalut/chotamot/seal-5-martyrs.md) - печать 5 - мученики
-- [seal-6-cosmic.md](tzel/hitgalut/chotamot/seal-6-cosmic.md) - печать 6 - космические события
-- [seal-7-silence.md](tzel/hitgalut/chotamot/seal-7-silence.md) - печать 7 - молчание
+- [seal-1-white-horse.md](bashah/hitgalut/chotamot/seal-1-white-horse.md) - печать 1 - белый конь
+- [seal-2-red-horse.md](bashah/hitgalut/chotamot/seal-2-red-horse.md) - печать 2 - красный конь
+- [seal-3-black-horse.md](bashah/hitgalut/chotamot/seal-3-black-horse.md) - печать 3 - чёрный конь
+- [seal-4-pale-horse.md](bashah/hitgalut/chotamot/seal-4-pale-horse.md) - печать 4 - бледный конь
+- [seal-5-martyrs.md](bashah/hitgalut/chotamot/seal-5-martyrs.md) - печать 5 - мученики
+- [seal-6-cosmic.md](bashah/hitgalut/chotamot/seal-6-cosmic.md) - печать 6 - космические события
+- [seal-7-silence.md](bashah/hitgalut/chotamot/seal-7-silence.md) - печать 7 - молчание
 
 #### kos-chemah/ - Чаши гнева
-- [bowl-1.md](tzel/hitgalut/kos-chemah/bowl-1.md) - чаша 1
-- [bowl-2.md](tzel/hitgalut/kos-chemah/bowl-2.md) - чаша 2
-- [bowl-3.md](tzel/hitgalut/kos-chemah/bowl-3.md) - чаша 3
-- [bowl-4.md](tzel/hitgalut/kos-chemah/bowl-4.md) - чаша 4
-- [bowl-5.md](tzel/hitgalut/kos-chemah/bowl-5.md) - чаша 5
-- [bowl-6.md](tzel/hitgalut/kos-chemah/bowl-6.md) - чаша 6
-- [bowl-7.md](tzel/hitgalut/kos-chemah/bowl-7.md) - чаша 7
+- [bowl-1.md](bashah/hitgalut/kos-chemah/bowl-1.md) - чаша 1
+- [bowl-2.md](bashah/hitgalut/kos-chemah/bowl-2.md) - чаша 2
+- [bowl-3.md](bashah/hitgalut/kos-chemah/bowl-3.md) - чаша 3
+- [bowl-4.md](bashah/hitgalut/kos-chemah/bowl-4.md) - чаша 4
+- [bowl-5.md](bashah/hitgalut/kos-chemah/bowl-5.md) - чаша 5
+- [bowl-6.md](bashah/hitgalut/kos-chemah/bowl-6.md) - чаша 6
+- [bowl-7.md](bashah/hitgalut/kos-chemah/bowl-7.md) - чаша 7
 
 #### kosot/ - Чаши
-- [kos-bavel.md](tzel/hitgalut/kosot/kos-bavel.md) - чаша Вавилона
-- [kos-bracha.md](tzel/hitgalut/kosot/kos-bracha.md) - чаша благословения
-- [kos-brit.md](tzel/hitgalut/kosot/kos-brit.md) - чаша завета
-- [kos-chemah.md](tzel/hitgalut/kosot/kos-chemah.md) - чаша гнева
-- [kos-yisurim.md](tzel/hitgalut/kosot/kos-yisurim.md) - чаша страданий
+- [kos-bavel.md](bashah/hitgalut/kosot/kos-bavel.md) - чаша Вавилона
+- [kos-bracha.md](bashah/hitgalut/kosot/kos-bracha.md) - чаша благословения
+- [kos-brit.md](bashah/hitgalut/kosot/kos-brit.md) - чаша завета
+- [kos-chemah.md](bashah/hitgalut/kosot/kos-chemah.md) - чаша гнева
+- [kos-yisurim.md](bashah/hitgalut/kosot/kos-yisurim.md) - чаша страданий
 
 #### mishpat/ - Суды
-- [avnei-mishpat.md](tzel/hitgalut/mishpat/avnei-mishpat.md) - камни суда
-- [moznei-mishpat.md](tzel/hitgalut/mishpat/moznei-mishpat.md) - весы суда
+- [avnei-mishpat.md](bashah/hitgalut/mishpat/avnei-mishpat.md) - камни суда
+- [moznei-mishpat.md](bashah/hitgalut/mishpat/moznei-mishpat.md) - весы суда
 
 #### rochvim/ - Всадники
-- [rochev-adom.md](tzel/hitgalut/rochvim/rochev-adom.md) - всадник красный
-- [rochev-lavan.md](tzel/hitgalut/rochvim/rochev-lavan.md) - всадник белый
-- [rochev-shachor.md](tzel/hitgalut/rochvim/rochev-shachor.md) - всадник чёрный
-- [rochev-yarok.md](tzel/hitgalut/rochvim/rochev-yarok.md) - всадник зелёный
+- [rochev-adom.md](bashah/hitgalut/rochvim/rochev-adom.md) - всадник красный
+- [rochev-lavan.md](bashah/hitgalut/rochvim/rochev-lavan.md) - всадник белый
+- [rochev-shachor.md](bashah/hitgalut/rochvim/rochev-shachor.md) - всадник чёрный
+- [rochev-yarok.md](bashah/hitgalut/rochvim/rochev-yarok.md) - всадник зелёный
 
 #### shofarot/ - Трубы
-- [shofar-1.md](tzel/hitgalut/shofarot/shofar-1.md) - труба 1
-- [shofar-2.md](tzel/hitgalut/shofarot/shofar-2.md) - труба 2
-- [shofar-3.md](tzel/hitgalut/shofarot/shofar-3.md) - труба 3
-- [shofar-4.md](tzel/hitgalut/shofarot/shofar-4.md) - труба 4
-- [shofar-5.md](tzel/hitgalut/shofarot/shofar-5.md) - труба 5
-- [shofar-6.md](tzel/hitgalut/shofarot/shofar-6.md) - труба 6
-- [shofar-7.md](tzel/hitgalut/shofarot/shofar-7.md) - труба 7
+- [shofar-1.md](bashah/hitgalut/shofarot/shofar-1.md) - труба 1
+- [shofar-2.md](bashah/hitgalut/shofarot/shofar-2.md) - труба 2
+- [shofar-3.md](bashah/hitgalut/shofarot/shofar-3.md) - труба 3
+- [shofar-4.md](bashah/hitgalut/shofarot/shofar-4.md) - труба 4
+- [shofar-5.md](bashah/hitgalut/shofarot/shofar-5.md) - труба 5
+- [shofar-6.md](bashah/hitgalut/shofarot/shofar-6.md) - труба 6
+- [shofar-7.md](bashah/hitgalut/shofarot/shofar-7.md) - труба 7
 
 #### zemanim/ - Времена
-- [etz-yeshua.md](tzel/hitgalut/zemanim/etz-yeshua.md) - дерево Йеошуа
-- [kos-yeshua.md](tzel/hitgalut/zemanim/kos-yeshua.md) - чаша Йеошуа
-- [masa-ishit.md](tzel/hitgalut/zemanim/masa-ishit.md) - путь человеческий
-- [masa-klali.md](tzel/hitgalut/zemanim/masa-klali.md) - путь общий
-- [ol-yeshua.md](tzel/hitgalut/zemanim/ol-yeshua.md) - ярмо Йеошуа
+- [etz-yeshua.md](bashah/hitgalut/zemanim/etz-yeshua.md) - дерево Йеошуа
+- [kos-yeshua.md](bashah/hitgalut/zemanim/kos-yeshua.md) - чаша Йеошуа
+- [masa-ishit.md](bashah/hitgalut/zemanim/masa-ishit.md) - путь человеческий
+- [masa-klali.md](bashah/hitgalut/zemanim/masa-klali.md) - путь общий
+- [ol-yeshua.md](bashah/hitgalut/zemanim/ol-yeshua.md) - ярмо Йеошуа
 
 ### kehillah/ - Община
 #### avodah/ - Служение
-- [besorah.md](tzel/kehillah/avodah/besorah.md) - благая весть
-- [binyan-mikdash.md](tzel/kehillah/avodah/binyan-mikdash.md) - строительство Храма
-- [dam-brit.md](tzel/kehillah/avodah/dam-brit.md) - кровь завета
-- [korban.md](tzel/kehillah/avodah/korban.md) - жертва
-- [milah-basar.md](tzel/kehillah/avodah/milah-basar.md) - обрезание плоти
-- [rechitzat-mayim.md](tzel/kehillah/avodah/rechitzat-mayim.md) - омовение водой
-- [rechitzat-regel.md](tzel/kehillah/avodah/rechitzat-regel.md) - омовение ног
-- [shutafut.md](tzel/kehillah/avodah/shutafut.md) - партнёрство
-- [smichah.md](tzel/kehillah/avodah/smichah.md) - возложение рук
-- [tvilah.md](tzel/kehillah/avodah/tvilah.md) - погружение
+- [besorah.md](researches/kehillah/avodah/besorah.md) - благая весть
+- [binyan-mikdash.md](researches/kehillah/avodah/binyan-mikdash.md) - строительство Храма
+- [dam-brit.md](researches/kehillah/avodah/dam-brit.md) - кровь завета
+- [korban.md](researches/kehillah/avodah/korban.md) - жертва
+- [milah-basar.md](researches/kehillah/avodah/milah-basar.md) - обрезание плоти
+- [rechitzat-mayim.md](researches/kehillah/avodah/rechitzat-mayim.md) - омовение водой
+- [rechitzat-regel.md](researches/kehillah/avodah/rechitzat-regel.md) - омовение ног
+- [shutafut.md](researches/kehillah/avodah/shutafut.md) - партнёрство
+- [smichah.md](researches/kehillah/avodah/smichah.md) - возложение рук
+- [tvilah.md](researches/kehillah/avodah/tvilah.md) - погружение
 
 #### kehillot/ - Общины
-- [beit-elohim.md](tzel/kehillah/kehillot/beit-elohim.md) - дом Бога
-- [chava-adam.md](tzel/kehillah/kehillot/chava-adam.md) - Хава-Адам
-- [eder-roeh.md](tzel/kehillah/kehillot/eder-roeh.md) - паства
-- [guf-mashiach.md](tzel/kehillah/kehillot/guf-mashiach.md) - тело Мессии
-- [ir-har.md](tzel/kehillah/kehillot/ir-har.md) - город на горе
-- [kalah-mashiach.md](tzel/kehillah/kehillot/kalah-mashiach.md) - невеста Мессии
-- [mishkan-moshe.md](tzel/kehillah/kehillot/mishkan-moshe.md) - скиния Моше
-- [sadeh-katzir.md](tzel/kehillah/kehillot/sadeh-katzir.md) - поле жатвы
-- [tevat-noach.md](tzel/kehillah/kehillot/tevat-noach.md) - ковчег Ноаха
-- [yisrael.md](tzel/kehillah/kehillot/yisrael.md) - Израиль
+- [beit-elohim.md](researches/kehillah/kehillot/beit-elohim.md) - дом Бога
+- [chava-adam.md](researches/kehillah/kehillot/chava-adam.md) - Хава-Адам
+- [eder-roeh.md](researches/kehillah/kehillot/eder-roeh.md) - паства
+- [guf-mashiach.md](researches/kehillah/kehillot/guf-mashiach.md) - тело Мессии
+- [ir-har.md](researches/kehillah/kehillot/ir-har.md) - город на горе
+- [kalah-mashiach.md](researches/kehillah/kehillot/kalah-mashiach.md) - невеста Мессии
+- [mishkan-moshe.md](researches/kehillah/kehillot/mishkan-moshe.md) - скиния Моше
+- [sadeh-katzir.md](researches/kehillah/kehillot/sadeh-katzir.md) - поле жатвы
+- [tevat-noach.md](researches/kehillah/kehillot/tevat-noach.md) - ковчег Ноаха
+- [yisrael.md](researches/kehillah/kehillot/yisrael.md) - Израиль
 
 #### malachim/ - Ангелы
-- [efes.md](tzel/kehillah/malachim/efes.md) - Эфес
-- [laodicea.md](tzel/kehillah/malachim/laodicea.md) - Лаодикия
-- [pergamum.md](tzel/kehillah/malachim/pergamum.md) - Пергам
-- [sardis.md](tzel/kehillah/malachim/sardis.md) - Сардис
-- [smyrna.md](tzel/kehillah/malachim/smyrna.md) - Смирна
-- [thyatira.md](tzel/kehillah/malachim/thyatira.md) - Фиатира
+- [efes.md](researches/kehillah/malachim/efes.md) - Эфес
+- [laodicea.md](researches/kehillah/malachim/laodicea.md) - Лаодикия
+- [pergamum.md](researches/kehillah/malachim/pergamum.md) - Пергам
+- [sardis.md](researches/kehillah/malachim/sardis.md) - Сардис
+- [smyrna.md](researches/kehillah/malachim/smyrna.md) - Смирна
+- [thyatira.md](researches/kehillah/malachim/thyatira.md) - Фиатира
 
 #### mesharetim/ - Служители
-- [mesharet.md](tzel/kehillah/mesharetim/mesharet.md) - служитель
-- [mesharetet.md](tzel/kehillah/mesharetim/mesharetet.md) - служительница
-- [moreh.md](tzel/kehillah/mesharetim/moreh.md) - учитель
-- [navi.md](tzel/kehillah/mesharetim/navi.md) - пророк
-- [pakid.md](tzel/kehillah/mesharetim/pakid.md) - управитель
-- [roeh.md](tzel/kehillah/mesharetim/roeh.md) - пастор
-- [shaliach.md](tzel/kehillah/mesharetim/shaliach.md) - посланник
-- [zaken.md](tzel/kehillah/mesharetim/zaken.md) - старейшина
+- [mesharet.md](researches/kehillah/mesharetim/mesharet.md) - служитель
+- [mesharetet.md](researches/kehillah/mesharetim/mesharetet.md) - служительница
+- [moreh.md](researches/kehillah/mesharetim/moreh.md) - учитель
+- [navi.md](researches/kehillah/mesharetim/navi.md) - пророк
+- [pakid.md](researches/kehillah/mesharetim/pakid.md) - управитель
+- [roeh.md](researches/kehillah/mesharetim/roeh.md) - пастор
+- [shaliach.md](researches/kehillah/mesharetim/shaliach.md) - посланник
+- [zaken.md](researches/kehillah/mesharetim/zaken.md) - старейшина
 
 #### mishkan/ - Скиния
-- [aron-brit.md](tzel/kehillah/mishkan/aron-brit.md) - ковчег завета
-- [kiyor.md](tzel/kehillah/mishkan/kiyor.md) - умывальник
-- [menorah.md](tzel/kehillah/mishkan/menorah.md) - менора
-- [mizbeach-ketoret.md](tzel/kehillah/mishkan/mizbeach-ketoret.md) - жертвенник курения
-- [mizbeach-olah.md](tzel/kehillah/mishkan/mizbeach-olah.md) - жертвенник всесожжения
-- [parochet.md](tzel/kehillah/mishkan/parochet.md) - завеса
-- [shulchan-lechem-panim.md](tzel/kehillah/mishkan/shulchan-lechem-panim.md) - стол хлебов предложения
+- [aron-brit.md](researches/kehillah/mishkan/aron-brit.md) - ковчег завета
+- [kiyor.md](researches/kehillah/mishkan/kiyor.md) - умывальник
+- [menorah.md](researches/kehillah/mishkan/menorah.md) - менора
+- [mizbeach-ketoret.md](researches/kehillah/mishkan/mizbeach-ketoret.md) - жертвенник курения
+- [mizbeach-olah.md](researches/kehillah/mishkan/mizbeach-olah.md) - жертвенник всесожжения
+- [parochet.md](researches/kehillah/mishkan/parochet.md) - завеса
+- [shulchan-lechem-panim.md](researches/kehillah/mishkan/shulchan-lechem-panim.md) - стол хлебов предложения
 
 #### rechitzah/ - Омовение
-- [rechitzat-lev.md](tzel/kehillah/rechitzah/rechitzat-lev.md) - омовение сердца
-- [rechitzat-panim.md](tzel/kehillah/rechitzah/rechitzat-panim.md) - омовение лица
-- [rechitzat-raglayim.md](tzel/kehillah/rechitzah/rechitzat-raglayim.md) - омовение ног
-- [rechitzat-yadayim.md](tzel/kehillah/rechitzah/rechitzat-yadayim.md) - омовение рук
+- [rechitzat-lev.md](researches/kehillah/rechitzah/rechitzat-lev.md) - омовение сердца
+- [rechitzat-panim.md](researches/kehillah/rechitzah/rechitzat-panim.md) - омовение лица
+- [rechitzat-raglayim.md](researches/kehillah/rechitzah/rechitzat-raglayim.md) - омовение ног
+- [rechitzat-yadayim.md](researches/kehillah/rechitzah/rechitzat-yadayim.md) - омовение рук
 
 #### shlichim/ - Посланники
-- [andrew.md](tzel/kehillah/shlichim/andrew.md) - Андрей
-- [bartalmay-natanel.md](tzel/kehillah/shlichim/bartalmay-natanel.md) - Варфоломей-Нафанаэль
-- [mattityahu-levi.md](tzel/kehillah/shlichim/mattityahu-levi.md) - Маттитьягу Леви
-- [mattityahu.md](tzel/kehillah/shlichim/mattityahu.md) - Маттитьягу
-- [philip.md](tzel/kehillah/shlichim/philip.md) - Филипп
-- [shaul-paulus.md](tzel/kehillah/shlichim/shaul-paulus.md) - Шауль-Павел
-- [shimon-hakanani.md](tzel/kehillah/shlichim/shimon-hakanani.md) - Шимон Кананит
-- [shimon-kefa.md](tzel/kehillah/shlichim/shimon-kefa.md) - Шимон Кайфа
-- [toma.md](tzel/kehillah/shlichim/toma.md) - Фома
-- [yaakov-bar-alfei.md](tzel/kehillah/shlichim/yaakov-bar-alfei.md) - Яаков бар Алфей
-- [yaakov-bar-zavdai.md](tzel/kehillah/shlichim/yaakov-bar-zavdai.md) - Яаков бар Завдай
-- [yehudah-ish-kariot.md](tzel/kehillah/shlichim/yehudah-ish-kariot.md) - Йегуда Искариот
-- [yehudah-taddai.md](tzel/kehillah/shlichim/yehudah-taddai.md) - Йегуда Фаддей
-- [yochanan.md](tzel/kehillah/shlichim/yochanan.md) - Йоханан
+- [andrew.md](researches/kehillah/shlichim/andrew.md) - Андрей
+- [bartalmay-natanel.md](researches/kehillah/shlichim/bartalmay-natanel.md) - Варфоломей-Нафанаэль
+- [mattityahu-levi.md](researches/kehillah/shlichim/mattityahu-levi.md) - Маттитьягу Леви
+- [mattityahu.md](researches/kehillah/shlichim/mattityahu.md) - Маттитьягу
+- [philip.md](researches/kehillah/shlichim/philip.md) - Филипп
+- [shaul-paulus.md](researches/kehillah/shlichim/shaul-paulus.md) - Шауль-Павел
+- [shimon-hakanani.md](researches/kehillah/shlichim/shimon-hakanani.md) - Шимон Кананит
+- [shimon-kefa.md](researches/kehillah/shlichim/shimon-kefa.md) - Шимон Кайфа
+- [toma.md](researches/kehillah/shlichim/toma.md) - Фома
+- [yaakov-bar-alfei.md](researches/kehillah/shlichim/yaakov-bar-alfei.md) - Яаков бар Алфей
+- [yaakov-bar-zavdai.md](researches/kehillah/shlichim/yaakov-bar-zavdai.md) - Яаков бар Завдай
+- [yehudah-ish-kariot.md](researches/kehillah/shlichim/yehudah-ish-kariot.md) - Йегуда Искариот
+- [yehudah-taddai.md](researches/kehillah/shlichim/yehudah-taddai.md) - Йегуда Фаддей
+- [yochanan.md](researches/kehillah/shlichim/yochanan.md) - Йоханан
 
 #### shutafut/ - Партнёрство
-- [lechem.md](tzel/kehillah/shutafut/lechem.md) - хлеб
-- [seudah.md](tzel/kehillah/shutafut/seudah.md) - трапеза
-- [yayin.md](tzel/kehillah/shutafut/yayin.md) - вино
+- [lechem.md](researches/kehillah/shutafut/lechem.md) - хлеб
+- [seudah.md](researches/kehillah/shutafut/seudah.md) - трапеза
+- [yayin.md](researches/kehillah/shutafut/yayin.md) - вино
 
 #### tvilah/ - Погружение
-- [tvilat-esh.md](tzel/kehillah/tvilah/tvilat-esh.md) - погружение огнём
-- [tvilat-mayim.md](tzel/kehillah/tvilah/tvilat-mayim.md) - погружение водой
-- [tvilat-ruach.md](tzel/kehillah/tvilah/tvilat-ruach.md) - погружение духом
+- [tvilat-esh.md](researches/kehillah/tvilah/tvilat-esh.md) - погружение огнём
+- [tvilat-mayim.md](researches/kehillah/tvilah/tvilat-mayim.md) - погружение водой
+- [tvilat-ruach.md](researches/kehillah/tvilah/tvilat-ruach.md) - погружение духом
 
 ### kelim/ - Сосуды
 #### avanim/ - Камни
-- [akate.md](tzel/kelim/avanim/akate.md) - агат
-- [bareket.md](tzel/kelim/avanim/bareket.md) - хризопраз
-- [beryl.md](tzel/kelim/avanim/beryl.md) - хризолит
-- [chalcedony.md](tzel/kelim/avanim/chalcedony.md) - халцедон
-- [leshem.md](tzel/kelim/avanim/leshem.md) - ляпис-лазурь
-- [odem.md](tzel/kelim/avanim/odem.md) - оникс
-- [onyx.md](tzel/kelim/avanim/onyx.md) - оникс
-- [pitdah.md](tzel/kelim/avanim/pitdah.md) - топаз
-- [sappir.md](tzel/kelim/avanim/sappir.md) - сапфир
-- [tarshish.md](tzel/kelim/avanim/tarshish.md) - таршиш
+- [akate.md](foundations/kelim/avanim/akate.md) - агат
+- [bareket.md](foundations/kelim/avanim/bareket.md) - хризопраз
+- [beryl.md](foundations/kelim/avanim/beryl.md) - хризолит
+- [chalcedony.md](foundations/kelim/avanim/chalcedony.md) - халцедон
+- [leshem.md](foundations/kelim/avanim/leshem.md) - ляпис-лазурь
+- [odem.md](foundations/kelim/avanim/odem.md) - оникс
+- [onyx.md](foundations/kelim/avanim/onyx.md) - оникс
+- [pitdah.md](foundations/kelim/avanim/pitdah.md) - топаз
+- [sappir.md](foundations/kelim/avanim/sappir.md) - сапфир
+- [tarshish.md](foundations/kelim/avanim/tarshish.md) - таршиш
 
 #### begadim/ - Одежды
-- [atar-kotzim.md](tzel/kelim/begadim/atar-kotzim.md) - пояс
-- [binyan.md](tzel/kelim/begadim/binyan.md) - строение
-- [cherev-esh.md](tzel/kelim/begadim/cherev-esh.md) - огненный меч
-- [chevel-mosrot.md](tzel/kelim/begadim/chevel-mosrot.md) - верёвка накидная
-- [even.md](tzel/kelim/begadim/even.md) - камень
-- [kli-kovsh.md](tzel/kelim/begadim/kli-kovsh.md) - сосуд закрытый
-- [lechem.md](tzel/kelim/begadim/lechem.md) - хлеб
-- [maakelet.md](tzel/kelim/begadim/maakelet.md) - молоток
-- [mateh.md](tzel/kelim/begadim/mateh.md) - посох
-- [mazleg.md](tzel/kelim/begadim/mazleg.md) - вилка
-- [ner-lampada.md](tzel/kelim/begadim/ner-lampada.md) - светильник
-- [patish.md](tzel/kelim/begadim/patish.md) - молот
-- [sharvit.md](tzel/kelim/begadim/sharvit.md) - копьё
-- [shevet.md](tzel/kelim/begadim/shevet.md) - жезл
-- [tofet.md](tzel/kelim/begadim/tofet.md) - Тофет
-- [yayin-mayim.md](tzel/kelim/begadim/yayin-mayim.md) - вино-вода
-- [yayin.md](tzel/kelim/begadim/yayin.md) - вино
-- [zera.md](tzel/kelim/begadim/zera.md) - семя
+- [atar-kotzim.md](foundations/kelim/begadim/atar-kotzim.md) - пояс
+- [binyan.md](foundations/kelim/begadim/binyan.md) - строение
+- [cherev-esh.md](foundations/kelim/begadim/cherev-esh.md) - огненный меч
+- [chevel-mosrot.md](foundations/kelim/begadim/chevel-mosrot.md) - верёвка накидная
+- [even.md](foundations/kelim/begadim/even.md) - камень
+- [kli-kovsh.md](foundations/kelim/begadim/kli-kovsh.md) - сосуд закрытый
+- [lechem.md](foundations/kelim/begadim/lechem.md) - хлеб
+- [maakelet.md](foundations/kelim/begadim/maakelet.md) - молоток
+- [mateh.md](foundations/kelim/begadim/mateh.md) - посох
+- [mazleg.md](foundations/kelim/begadim/mazleg.md) - вилка
+- [ner-lampada.md](foundations/kelim/begadim/ner-lampada.md) - светильник
+- [patish.md](foundations/kelim/begadim/patish.md) - молот
+- [sharvit.md](foundations/kelim/begadim/sharvit.md) - копьё
+- [shevet.md](foundations/kelim/begadim/shevet.md) - жезл
+- [tofet.md](foundations/kelim/begadim/tofet.md) - Тофет
+- [yayin-mayim.md](foundations/kelim/begadim/yayin-mayim.md) - вино-вода
+- [yayin.md](foundations/kelim/begadim/yayin.md) - вино
+- [zera.md](foundations/kelim/begadim/zera.md) - семя
 
 #### birka'im/ - Колена
-- [asher.md](tzel/kelim/birka'im/asher.md) - Ашер
-- [benyamin.md](tzel/kelim/birka'im/benyamin.md) - Беньямин
-- [dan.md](tzel/kelim/birka'im/dan.md) - Дан
-- [gad.md](tzel/kelim/birka'im/gad.md) - Гад
-- [levi.md](tzel/kelim/birka'im/levi.md) - Леви
-- [naphthali.md](tzel/kelim/birka'im/naphthali.md) - Нафтали
-- [reuben.md](tzel/kelim/birka'im/reuben.md) - Рувим
-- [shimon.md](tzel/kelim/birka'im/shimon.md) - Шимон
-- [yehudah.md](tzel/kelim/birka'im/yehudah.md) - Йегуда
-- [yissachar.md](tzel/kelim/birka'im/yissachar.md) - Иссахар
-- [yosef.md](tzel/kelim/birka'im/yosef.md) - Йосеф
-- [zebulun.md](tzel/kelim/birka'im/zebulun.md) - Завулон
+- [asher.md](foundations/kelim/birka'im/asher.md) - Ашер
+- [benyamin.md](foundations/kelim/birka'im/benyamin.md) - Беньямин
+- [dan.md](foundations/kelim/birka'im/dan.md) - Дан
+- [gad.md](foundations/kelim/birka'im/gad.md) - Гад
+- [levi.md](foundations/kelim/birka'im/levi.md) - Леви
+- [naphthali.md](foundations/kelim/birka'im/naphthali.md) - Нафтали
+- [reuben.md](foundations/kelim/birka'im/reuben.md) - Рувим
+- [shimon.md](foundations/kelim/birka'im/shimon.md) - Шимон
+- [yehudah.md](foundations/kelim/birka'im/yehudah.md) - Йегуда
+- [yissachar.md](foundations/kelim/birka'im/yissachar.md) - Иссахар
+- [yosef.md](foundations/kelim/birka'im/yosef.md) - Йосеф
+- [zebulun.md](foundations/kelim/birka'im/zebulun.md) - Завулон
 
 #### chukim/ - Уставы
-- [chukat-chet.md](tzel/kelim/chukim/chukat-chet.md) - устав греха
-- [chukat-elohim.md](tzel/kelim/chukim/chukat-elohim.md) - устав Бога
-- [chukat-kehuna.md](tzel/kelim/chukim/chukat-kehuna.md) - устав священства
-- [chukat-milah.md](tzel/kelim/chukim/chukat-milah.md) - устав обрезания
-- [chukat-mishpat.md](tzel/kelim/chukim/chukat-mishpat.md) - устав суда
-- [chukat-nissuin.md](tzel/kelim/chukim/chukat-nissuin.md) - устав брака
-- [chukat-taharah.md](tzel/kelim/chukim/chukat-taharah.md) - устав чистоты
-- [chukat-tzel.md](tzel/kelim/chukim/chukat-tzel.md) - устав тзель
+- [chukat-chet.md](foundations/kelim/chukim/chukat-chet.md) - устав греха
+- [chukat-elohim.md](foundations/kelim/chukim/chukat-elohim.md) - устав Бога
+- [chukat-kehuna.md](foundations/kelim/chukim/chukat-kehuna.md) - устав священства
+- [chukat-milah.md](foundations/kelim/chukim/chukat-milah.md) - устав обрезания
+- [chukat-mishpat.md](foundations/kelim/chukim/chukat-mishpat.md) - устав суда
+- [chukat-nissuin.md](foundations/kelim/chukim/chukat-nissuin.md) - устав брака
+- [chukat-taharah.md](foundations/kelim/chukim/chukat-taharah.md) - устав чистоты
+- [chukat-tzel.md](foundations/kelim/chukim/chukat-tzel.md) - устав тзель
 
 #### chushim/ - Чувства
-- [ahavah.md](tzel/kelim/chushim/ahavah.md) - любовь
-- [asham.md](tzel/kelim/chushim/asham.md) - вина
-- [boshet.md](tzel/kelim/chushim/boshet.md) - стыд
-- [chemah.md](tzel/kelim/chushim/chemah.md) - гнев
-- [pachad.md](tzel/kelim/chushim/pachad.md) - страх
-- [simchah.md](tzel/kelim/chushim/simchah.md) - радость
-- [sinah.md](tzel/kelim/chushim/sinah.md) - ненависть
+- [ahavah.md](foundations/kelim/chushim/ahavah.md) - любовь
+- [asham.md](foundations/kelim/chushim/asham.md) - вина
+- [boshet.md](foundations/kelim/chushim/boshet.md) - стыд
+- [chemah.md](foundations/kelim/chushim/chemah.md) - гнев
+- [pachad.md](foundations/kelim/chushim/pachad.md) - страх
+- [simchah.md](foundations/kelim/chushim/simchah.md) - радость
+- [sinah.md](foundations/kelim/chushim/sinah.md) - ненависть
 
 #### maftehot/ - Ключи
-- [mafteach-beit-david.md](tzel/kelim/maftehot/mafteach-beit-david.md) - ключ дома Давида
-- [mafteach-daat.md](tzel/kelim/maftehot/mafteach-daat.md) - ключ познания
-- [mafteach-malchut.md](tzel/kelim/maftehot/mafteach-malchut.md) - ключ царства
-- [mafteach-sheol-mavet.md](tzel/kelim/maftehot/mafteach-sheol-mavet.md) - ключ шеол-смерти
-- [mafteach-tehom.md](tzel/kelim/maftehot/mafteach-tehom.md) - ключ бездны
+- [mafteach-beit-david.md](foundations/kelim/maftehot/mafteach-beit-david.md) - ключ дома Давида
+- [mafteach-daat.md](foundations/kelim/maftehot/mafteach-daat.md) - ключ познания
+- [mafteach-malchut.md](foundations/kelim/maftehot/mafteach-malchut.md) - ключ царства
+- [mafteach-sheol-mavet.md](foundations/kelim/maftehot/mafteach-sheol-mavet.md) - ключ шеол-смерти
+- [mafteach-tehom.md](foundations/kelim/maftehot/mafteach-tehom.md) - ключ бездны
 
 #### malchei/ - Цари
-- [david.md](tzel/kelim/malchei/david.md) - Давид
-- [shaul.md](tzel/kelim/malchei/shaul.md) - Шауль
-- [shlomo.md](tzel/kelim/malchei/shlomo.md) - Шломо
-- [techiat-yeshua.md](tzel/kelim/malchei/techiat-yeshua.md) - воскресение Йеошуа
+- [david.md](foundations/kelim/malchei/david.md) - Давид
+- [shaul.md](foundations/kelim/malchei/shaul.md) - Шауль
+- [shlomo.md](foundations/kelim/malchei/shlomo.md) - Шломо
+- [techiat-yeshua.md](foundations/kelim/malchei/techiat-yeshua.md) - воскресение Йеошуа
 
 #### mishchah/ - Помазание
-- [mishchat-kehuna.md](tzel/kelim/mishchah/mishchat-kehuna.md) - помазание священства
-- [mishchat-mashiach.md](tzel/kelim/mishchah/mishchat-mashiach.md) - помазание Мессии
-- [mishchat-meluchah.md](tzel/kelim/mishchah/mishchat-meluchah.md) - помазание царства
-- [mishchat-mikdash.md](tzel/kelim/mishchah/mishchat-mikdash.md) - помазание Храма
-- [mishchat-nevuah.md](tzel/kelim/mishchah/mishchat-nevuah.md) - помазание пророчества
+- [mishchat-kehuna.md](foundations/kelim/mishchah/mishchat-kehuna.md) - помазание священства
+- [mishchat-mashiach.md](foundations/kelim/mishchah/mishchat-mashiach.md) - помазание Мессии
+- [mishchat-meluchah.md](foundations/kelim/mishchah/mishchat-meluchah.md) - помазание царства
+- [mishchat-mikdash.md](foundations/kelim/mishchah/mishchat-mikdash.md) - помазание Храма
+- [mishchat-nevuah.md](foundations/kelim/mishchah/mishchat-nevuah.md) - помазание пророчества
 
 #### otot-brit/ - Знаки завета
-- [dam-korban.md](tzel/kelim/otot-brit/dam-korban.md) - кровь жертвы
-- [keshet.md](tzel/kelim/otot-brit/keshet.md) - радуга
-- [kos-ve-lechem.md](tzel/kelim/otot-brit/kos-ve-lechem.md) - чаша и хлеб
-- [milah.md](tzel/kelim/otot-brit/milah.md) - обрезание
-- [shabbat.md](tzel/kelim/otot-brit/shabbat.md) - шаббат
+- [dam-korban.md](foundations/kelim/otot-brit/dam-korban.md) - кровь жертвы
+- [keshet.md](foundations/kelim/otot-brit/keshet.md) - радуга
+- [kos-ve-lechem.md](foundations/kelim/otot-brit/kos-ve-lechem.md) - чаша и хлеб
+- [milah.md](foundations/kelim/otot-brit/milah.md) - обрезание
+- [shabbat.md](foundations/kelim/otot-brit/shabbat.md) - шаббат
 
 #### sefarim/ - Книги
-- [besorah.md](tzel/kelim/sefarim/besorah.md) - благая весть
-- [sefer-hitgalut.md](tzel/kelim/sefarim/sefer-hitgalut.md) - книга Откровения
-- [torah.md](tzel/kelim/sefarim/torah.md) - Тора
+- [besorah.md](foundations/kelim/sefarim/besorah.md) - благая весть
+- [sefer-hitgalut.md](foundations/kelim/sefarim/sefer-hitgalut.md) - книга Откровения
+- [torah.md](foundations/kelim/sefarim/torah.md) - Тора
 
 #### tefilah/ - Молитва
-- [ashan.md](tzel/kelim/tefilah/ashan.md) - дым
-- [esh.md](tzel/kelim/tefilah/esh.md) - огонь
-- [ketoret.md](tzel/kelim/tefilah/ketoret.md) - курение
-- [mikteret.md](tzel/kelim/tefilah/mikteret.md) - кадило
+- [ashan.md](foundations/kelim/tefilah/ashan.md) - дым
+- [esh.md](foundations/kelim/tefilah/esh.md) - огонь
+- [ketoret.md](foundations/kelim/tefilah/ketoret.md) - курение
+- [mikteret.md](foundations/kelim/tefilah/mikteret.md) - кадило
 
 ### makom/ - Место
 #### arim/ - Города
-- [beit-lechem.md](tzel/makom/arim/beit-lechem.md) - Вифлеем
-- [galil.md](tzel/makom/arim/galil.md) - Галилея
-- [kfar-nachum.md](tzel/makom/arim/kfar-nachum.md) - Кафарнахум
-- [natzrat.md](tzel/makom/arim/natzrat.md) - Назарет
-- [nineveh.md](tzel/makom/arim/nineveh.md) - Ниневия
-- [sedom-amorah.md](tzel/makom/arim/sedom-amorah.md) - Содом-Амора
-- [tsiyon.md](tzel/makom/arim/tsiyon.md) - Сион
-- [tzor.md](tzel/makom/arim/tzor.md) - Цор
-- [yerecho.md](tzel/makom/arim/yerecho.md) - Иерихон
-- [yerushalayim.md](tzel/makom/arim/yerushalayim.md) - Йерушалаим
-- [yevus.md](tzel/makom/arim/yevus.md) - Евус
+- [beit-lechem.md](foundations/makom/arim/beit-lechem.md) - Вифлеем
+- [galil.md](foundations/makom/arim/galil.md) - Галилея
+- [kfar-nachum.md](foundations/makom/arim/kfar-nachum.md) - Кафарнахум
+- [natzrat.md](foundations/makom/arim/natzrat.md) - Назарет
+- [nineveh.md](foundations/makom/arim/nineveh.md) - Ниневия
+- [sedom-amorah.md](foundations/makom/arim/sedom-amorah.md) - Содом-Амора
+- [tsiyon.md](foundations/makom/arim/tsiyon.md) - Сион
+- [tzor.md](foundations/makom/arim/tzor.md) - Цор
+- [yerecho.md](foundations/makom/arim/yerecho.md) - Иерихон
+- [yerushalayim.md](foundations/makom/arim/yerushalayim.md) - Йерушалаим
+- [yevus.md](foundations/makom/arim/yevus.md) - Евус
 
 #### artzot/ - Земли
-- [aram.md](tzel/makom/artzot/aram.md) - Арам
-- [bavel.md](tzel/makom/artzot/bavel.md) - Вавилон
-- [mitzrayim.md](tzel/makom/artzot/mitzrayim.md) - Мицраим
-- [moav-amon.md](tzel/makom/artzot/moav-amon.md) - Моав-Амон
-- [peleshet.md](tzel/makom/artzot/peleshet.md) - Пелешет
-- [yarden.md](tzel/makom/artzot/yarden.md) - Йордан
-- [yisrael.md](tzel/makom/artzot/yisrael.md) - Израиль
+- [aram.md](foundations/makom/artzot/aram.md) - Арам
+- [bavel.md](foundations/makom/artzot/bavel.md) - Вавилон
+- [mitzrayim.md](foundations/makom/artzot/mitzrayim.md) - Мицраим
+- [moav-amon.md](foundations/makom/artzot/moav-amon.md) - Моав-Амон
+- [peleshet.md](foundations/makom/artzot/peleshet.md) - Пелешет
+- [yarden.md](foundations/makom/artzot/yarden.md) - Йордан
+- [yisrael.md](foundations/makom/artzot/yisrael.md) - Израиль
 
 #### mekomot/ - Места
-- [beit-chasda.md](tzel/makom/mekomot/beit-chasda.md) - дом Хасды
-- [efata.md](tzel/makom/mekomot/efata.md) - Ефафа
-- [gan-eden.md](tzel/makom/mekomot/gan-eden.md) - Эденский сад
-- [gat-shmanim.md](tzel/makom/mekomot/gat-shmanim.md) - Гефсимания
-- [gei-hinnom.md](tzel/makom/mekomot/gei-hinnom.md) - Геенна
-- [gilgal.md](tzel/makom/mekomot/gilgal.md) - Галгал
-- [gulgoleth.md](tzel/makom/mekomot/gulgoleth.md) - Голгофа
-- [har-sinai.md](tzel/makom/mekomot/har-sinai.md) - гора Синай
-- [har-tsiyon.md](tzel/makom/mekomot/har-tsiyon.md) - гора Сион
-- [ikonion.md](tzel/makom/mekomot/ikonion.md) - Иконий
-- [knaan.md](tzel/makom/mekomot/knaan.md) - Ханаан
-- [luz-beit-el.md](tzel/makom/mekomot/luz-beit-el.md) - Луз-Бейт-Эль
-- [mamre.md](tzel/makom/mekomot/mamre.md) - Мамре
-- [midbar.md](tzel/makom/mekomot/midbar.md) - пустыня
-- [moriyah.md](tzel/makom/mekomot/moriyah.md) - Мория
-- [penuel.md](tzel/makom/mekomot/penuel.md) - Пенуэл
-- [yam-suf.md](tzel/makom/mekomot/yam-suf.md) - Красное море
-- [yerushalayim-chadasha.md](tzel/makom/mekomot/yerushalayim-chadasha.md) - новый Йерушалаим
+- [beit-chasda.md](foundations/makom/mekomot/beit-chasda.md) - дом Хасды
+- [efata.md](foundations/makom/mekomot/efata.md) - Ефафа
+- [gan-eden.md](foundations/makom/mekomot/gan-eden.md) - Эденский сад
+- [gat-shmanim.md](foundations/makom/mekomot/gat-shmanim.md) - Гефсимания
+- [gei-hinnom.md](foundations/makom/mekomot/gei-hinnom.md) - Геенна
+- [gilgal.md](foundations/makom/mekomot/gilgal.md) - Галгал
+- [gulgoleth.md](foundations/makom/mekomot/gulgoleth.md) - Голгофа
+- [har-sinai.md](foundations/makom/mekomot/har-sinai.md) - гора Синай
+- [har-tsiyon.md](foundations/makom/mekomot/har-tsiyon.md) - гора Сион
+- [ikonion.md](foundations/makom/mekomot/ikonion.md) - Иконий
+- [knaan.md](foundations/makom/mekomot/knaan.md) - Ханаан
+- [luz-beit-el.md](foundations/makom/mekomot/luz-beit-el.md) - Луз-Бейт-Эль
+- [mamre.md](foundations/makom/mekomot/mamre.md) - Мамре
+- [midbar.md](foundations/makom/mekomot/midbar.md) - пустыня
+- [moriyah.md](foundations/makom/mekomot/moriyah.md) - Мория
+- [penuel.md](foundations/makom/mekomot/penuel.md) - Пенуэл
+- [yam-suf.md](foundations/makom/mekomot/yam-suf.md) - Красное море
+- [yerushalayim-chadasha.md](foundations/makom/mekomot/yerushalayim-chadasha.md) - новый Йерушалаим
 
 ### mikra/ - Писание
 #### chodashim/ - Месяцы
-- [adar.md](tzel/mikra/chodashim/adar.md) - Адар
-- [av.md](tzel/mikra/chodashim/av.md) - Ав
-- [elul.md](tzel/mikra/chodashim/elul.md) - Элул
-- [iyar.md](tzel/mikra/chodashim/iyar.md) - Ияр
-- [kislev.md](tzel/mikra/chodashim/kislev.md) - Кислев
-- [marcheshvan.md](tzel/mikra/chodashim/marcheshvan.md) - Мархешван
-- [nisan.md](tzel/mikra/chodashim/nisan.md) - Нисан
-- [shevat.md](tzel/mikra/chodashim/shevat.md) - Шеват
-- [sivan.md](tzel/mikra/chodashim/sivan.md) - Сиван
-- [tammuz.md](tzel/mikra/chodashim/tammuz.md) - Таммуз
-- [tevet.md](tzel/mikra/chodashim/tevet.md) - Тевет
-- [tishri.md](tzel/mikra/chodashim/tishri.md) - Тишри
+- [adar.md](researches/mikra/chodashim/adar.md) - Адар
+- [av.md](researches/mikra/chodashim/av.md) - Ав
+- [elul.md](researches/mikra/chodashim/elul.md) - Элул
+- [iyar.md](researches/mikra/chodashim/iyar.md) - Ияр
+- [kislev.md](researches/mikra/chodashim/kislev.md) - Кислев
+- [marcheshvan.md](researches/mikra/chodashim/marcheshvan.md) - Мархешван
+- [nisan.md](researches/mikra/chodashim/nisan.md) - Нисан
+- [shevat.md](researches/mikra/chodashim/shevat.md) - Шеват
+- [sivan.md](researches/mikra/chodashim/sivan.md) - Сиван
+- [tammuz.md](researches/mikra/chodashim/tammuz.md) - Таммуз
+- [tevet.md](researches/mikra/chodashim/tevet.md) - Тевет
+- [tishri.md](researches/mikra/chodashim/tishri.md) - Тишри
 
 #### mikraot/ - Чтения
-- [kriat-yam-suf.md](tzel/mikra/mikraot/kriat-yam-suf.md) - расступление моря
-- [nechash-hanechoshet-mashiach.md](tzel/mikra/mikraot/nechash-hanechoshet-mashiach.md) - медный змей-Мессия
-- [pesach-korban-mashiach.md](tzel/mikra/mikraot/pesach-korban-mashiach.md) - Песах-жертва-Мессия
-- [shavuot.md](tzel/mikra/mikraot/shavuot.md) - Шавуот
-- [tevat-noach-mashiach.md](tzel/mikra/mikraot/tevat-noach-mashiach.md) - Ноах-Мессия
-- [yetziyat-mitzrayim-yeshua.md](tzel/mikra/mikraot/yetziyat-mitzrayim-yeshua.md) - исход-Йеошуа
-- [yom-kippur-korban-mashiach.md](tzel/mikra/mikraot/yom-kippur-korban-mashiach.md) - Йом Кипур-жертва-Мессия
+- [kriat-yam-suf.md](researches/mikra/mikraot/kriat-yam-suf.md) - расступление моря
+- [nechash-hanechoshet-mashiach.md](researches/mikra/mikraot/nechash-hanechoshet-mashiach.md) - медный змей-Мессия
+- [pesach-korban-mashiach.md](researches/mikra/mikraot/pesach-korban-mashiach.md) - Песах-жертва-Мессия
+- [shavuot.md](researches/mikra/mikraot/shavuot.md) - Шавуот
+- [tevat-noach-mashiach.md](researches/mikra/mikraot/tevat-noach-mashiach.md) - Ноах-Мессия
+- [yetziyat-mitzrayim-yeshua.md](researches/mikra/mikraot/yetziyat-mitzrayim-yeshua.md) - исход-Йеошуа
+- [yom-kippur-korban-mashiach.md](researches/mikra/mikraot/yom-kippur-korban-mashiach.md) - Йом Кипур-жертва-Мессия
 
 #### moadim/ - Праздники
-- [bikkurim.md](tzel/mikra/moadim/bikkurim.md) - первые плоды
-- [chag-hamatzot.md](tzel/mikra/moadim/chag-hamatzot.md) - праздник опресноков
-- [chanukah.md](tzel/mikra/moadim/chanukah.md) - Ханука
-- [pesach.md](tzel/mikra/moadim/pesach.md) - Песах
-- [rosh-hashanah.md](tzel/mikra/moadim/rosh-hashanah.md) - Рош Хашана
-- [shabbat.md](tzel/mikra/moadim/shabbat.md) - Шаббат
-- [shavuot.md](tzel/mikra/moadim/shavuot.md) - Шавуот
-- [sukkot.md](tzel/mikra/moadim/sukkot.md) - Суккот
-- [yom-kippur.md](tzel/mikra/moadim/yom-kippur.md) - Йом Кипур
+- [bikkurim.md](researches/mikra/moadim/bikkurim.md) - первые плоды
+- [chag-hamatzot.md](researches/mikra/moadim/chag-hamatzot.md) - праздник опресноков
+- [chanukah.md](researches/mikra/moadim/chanukah.md) - Ханука
+- [pesach.md](researches/mikra/moadim/pesach.md) - Песах
+- [rosh-hashanah.md](researches/mikra/moadim/rosh-hashanah.md) - Рош Хашана
+- [shabbat.md](researches/mikra/moadim/shabbat.md) - Шаббат
+- [shavuot.md](researches/mikra/moadim/shavuot.md) - Шавуот
+- [sukkot.md](researches/mikra/moadim/sukkot.md) - Суккот
+- [yom-kippur.md](researches/mikra/moadim/yom-kippur.md) - Йом Кипур
 
 #### shomerim/ - Стражи
-- [ashmurat-revii.md](tzel/mikra/shomerim/ashmurat-revii.md) - стража четвёртая
-- [ashmurat-rishonah.md](tzel/mikra/shomerim/ashmurat-rishonah.md) - стража первая
-- [ashmurat-shlishit.md](tzel/mikra/shomerim/ashmurat-shlishit.md) - стража третья
-- [ashmurat-shnit.md](tzel/mikra/shomerim/ashmurat-shnit.md) - стража вторая
+- [ashmurat-revii.md](researches/mikra/shomerim/ashmurat-revii.md) - стража четвёртая
+- [ashmurat-rishonah.md](researches/mikra/shomerim/ashmurat-rishonah.md) - стража первая
+- [ashmurat-shlishit.md](researches/mikra/shomerim/ashmurat-shlishit.md) - стража третья
+- [ashmurat-shnit.md](researches/mikra/shomerim/ashmurat-shnit.md) - стража вторая
 
 ### moadim/ - Праздники
-- [moadim-topics.md](tzel/moadim/moadim-topics.md) - темы праздников
+- [moadim-topics.md](researches/moadim/moadim-topics.md) - темы праздников
 
 ### ruach/ - Дух
 #### behemot/ - Животные
-- [ayal-nachash.md](tzel/ruach/behemot/ayal-nachash.md) - олень-змей
-- [dvora-dov.md](tzel/ruach/behemot/dvora-dov.md) - пчела-лев
-- [nachash-seh.md](tzel/ruach/behemot/nachash-seh.md) - змей-овца
-- [nesher-yonah.md](tzel/ruach/behemot/nesher-yonah.md) - орел-голубь
-- [sus-chamor.md](tzel/ruach/behemot/sus-chamor.md) - конь-осёл
-- [tson-izim.md](tzel/ruach/behemot/tson-izim.md) - овца-коза
-- [yanshuf-aryeh.md](tzel/ruach/behemot/yanshuf-aryeh.md) - филин-лев
+- [ayal-nachash.md](terminology/ruach/behemot/ayal-nachash.md) - олень-змей
+- [dvora-dov.md](terminology/ruach/behemot/dvora-dov.md) - пчела-лев
+- [nachash-seh.md](terminology/ruach/behemot/nachash-seh.md) - змей-овца
+- [nesher-yonah.md](terminology/ruach/behemot/nesher-yonah.md) - орел-голубь
+- [sus-chamor.md](terminology/ruach/behemot/sus-chamor.md) - конь-осёл
+- [tson-izim.md](terminology/ruach/behemot/tson-izim.md) - овца-коза
+- [yanshuf-aryeh.md](terminology/ruach/behemot/yanshuf-aryeh.md) - филин-лев
 
 #### chayot/ - Существа
-- [akrav.md](tzel/ruach/chayot/akrav.md) - скорпион
-- [arbeh.md](tzel/ruach/chayot/arbeh.md) - саранча
-- [aryeh.md](tzel/ruach/chayot/aryeh.md) - лев
-- [chamor.md](tzel/ruach/chayot/chamor.md) - осёл
-- [chatul.md](tzel/ruach/chayot/chatul.md) - кот
-- [livyatan.md](tzel/ruach/chayot/livyatan.md) - левиафан
-- [nachash.md](tzel/ruach/chayot/nachash.md) - змей
-- [nesher.md](tzel/ruach/chayot/nesher.md) - орёл
-- [peten.md](tzel/ruach/chayot/peten.md) - аспид
-- [sair.md](tzel/ruach/chayot/sair.md) - козёл
-- [seh.md](tzel/ruach/chayot/seh.md) - овца
-- [shor.md](tzel/ruach/chayot/shor.md) - вол
-- [shual.md](tzel/ruach/chayot/shual.md) - шакал
-- [shualei-shimshon.md](tzel/ruach/chayot/shualei-shimshon.md) - лисицы Самсона
-- [tannin.md](tzel/ruach/chayot/tannin.md) - дракон
-- [tzefa.md](tzel/ruach/chayot/tzefa.md) - змея
-- [zeev.md](tzel/ruach/chayot/zeev.md) - волк
+- [akrav.md](terminology/ruach/chayot/akrav.md) - скорпион
+- [arbeh.md](terminology/ruach/chayot/arbeh.md) - саранча
+- [aryeh.md](terminology/ruach/chayot/aryeh.md) - лев
+- [chamor.md](terminology/ruach/chayot/chamor.md) - осёл
+- [chatul.md](terminology/ruach/chayot/chatul.md) - кот
+- [livyatan.md](terminology/ruach/chayot/livyatan.md) - левиафан
+- [nachash.md](terminology/ruach/chayot/nachash.md) - змей
+- [nesher.md](terminology/ruach/chayot/nesher.md) - орёл
+- [peten.md](terminology/ruach/chayot/peten.md) - аспид
+- [sair.md](terminology/ruach/chayot/sair.md) - козёл
+- [seh.md](terminology/ruach/chayot/seh.md) - овца
+- [shor.md](terminology/ruach/chayot/shor.md) - вол
+- [shual.md](terminology/ruach/chayot/shual.md) - шакал
+- [shualei-shimshon.md](terminology/ruach/chayot/shualei-shimshon.md) - лисицы Самсона
+- [tannin.md](terminology/ruach/chayot/tannin.md) - дракон
+- [tzefa.md](terminology/ruach/chayot/tzefa.md) - змея
+- [zeev.md](terminology/ruach/chayot/zeev.md) - волк
 
 #### cholim/ - Болезни
-- [cheresh.md](tzel/ruach/cholim/cheresh.md) - глухой
-- [ilem.md](tzel/ruach/cholim/ilem.md) - немой
-- [iver.md](tzel/ruach/cholim/iver.md) - слепой
-- [met.md](tzel/ruach/cholim/met.md) - мёртвый
-- [nivkeh.md](tzel/ruach/cholim/nivkeh.md) - плачущий
-- [piseach.md](tzel/ruach/cholim/piseach.md) - хромой
-- [zav.md](tzel/ruach/cholim/zav.md) - истекающий
+- [cheresh.md](terminology/ruach/cholim/cheresh.md) - глухой
+- [ilem.md](terminology/ruach/cholim/ilem.md) - немой
+- [iver.md](terminology/ruach/cholim/iver.md) - слепой
+- [met.md](terminology/ruach/cholim/met.md) - мёртвый
+- [nivkeh.md](terminology/ruach/cholim/nivkeh.md) - плачущий
+- [piseach.md](terminology/ruach/cholim/piseach.md) - хромой
+- [zav.md](terminology/ruach/cholim/zav.md) - истекающий
 
 #### guf/ - Тело
-- [aryeh.md](tzel/ruach/guf/aryeh.md) - лев
-- [einayim.md](tzel/ruach/guf/einayim.md) - глаза
-- [guf.md](tzel/ruach/guf/guf.md) - тело
-- [peh.md](tzel/ruach/guf/peh.md) - уста
-- [raglayim.md](tzel/ruach/guf/raglayim.md) - ноги
-- [rosh.md](tzel/ruach/guf/rosh.md) - голова
-- [yadayim.md](tzel/ruach/guf/yadayim.md) - руки
+- [aryeh.md](terminology/ruach/guf/aryeh.md) - лев
+- [einayim.md](terminology/ruach/guf/einayim.md) - глаза
+- [guf.md](terminology/ruach/guf/guf.md) - тело
+- [peh.md](terminology/ruach/guf/peh.md) - уста
+- [raglayim.md](terminology/ruach/guf/raglayim.md) - ноги
+- [rosh.md](terminology/ruach/guf/rosh.md) - голова
+- [yadayim.md](terminology/ruach/guf/yadayim.md) - руки
 
 #### kelim/ - Сосуды
-- [kli-chelev.md](tzel/ruach/kelim/kli-chelev.md) - сосуд жира
-- [kli-dam.md](tzel/ruach/kelim/kli-dam.md) - сосуд крови
-- [kli-ketoret.md](tzel/ruach/kelim/kli-ketoret.md) - сосуд курения
-- [kli-man.md](tzel/ruach/kelim/kli-man.md) - сосуд манны
-- [kli-mayim-kedoshim.md](tzel/ruach/kelim/kli-mayim-kedoshim.md) - сосуд святой воды
-- [kli-mayim-marim.md](tzel/ruach/kelim/kli-mayim-marim.md) - сосуд горькой воды
-- [kli-minchah.md](tzel/ruach/kelim/kli-minchah.md) - сосуд дара
-- [kli-rek.md](tzel/ruach/kelim/kli-rek.md) - сосуд грязи
-- [kli-shemen-kodesh.md](tzel/ruach/kelim/kli-shemen-kodesh.md) - сосуд святого масла
-- [kli-shemen-mishchah.md](tzel/ruach/kelim/kli-shemen-mishchah.md) - сосуд масла помазания
-- [kli-yayin.md](tzel/ruach/kelim/kli-yayin.md) - сосуд вина
-- [yam-hanechoshet.md](tzel/ruach/kelim/yam-hanechoshet.md) - медное море
+- [kli-chelev.md](terminology/ruach/kelim/kli-chelev.md) - сосуд жира
+- [kli-dam.md](terminology/ruach/kelim/kli-dam.md) - сосуд крови
+- [kli-ketoret.md](terminology/ruach/kelim/kli-ketoret.md) - сосуд курения
+- [kli-man.md](terminology/ruach/kelim/kli-man.md) - сосуд манны
+- [kli-mayim-kedoshim.md](terminology/ruach/kelim/kli-mayim-kedoshim.md) - сосуд святой воды
+- [kli-mayim-marim.md](terminology/ruach/kelim/kli-mayim-marim.md) - сосуд горькой воды
+- [kli-minchah.md](terminology/ruach/kelim/kli-minchah.md) - сосуд дара
+- [kli-rek.md](terminology/ruach/kelim/kli-rek.md) - сосуд грязи
+- [kli-shemen-kodesh.md](terminology/ruach/kelim/kli-shemen-kodesh.md) - сосуд святого масла
+- [kli-shemen-mishchah.md](terminology/ruach/kelim/kli-shemen-mishchah.md) - сосуд масла помазания
+- [kli-yayin.md](terminology/ruach/kelim/kli-yayin.md) - сосуд вина
+- [yam-hanechoshet.md](terminology/ruach/kelim/yam-hanechoshet.md) - медное море
 
 #### leshonot/ - Языки
-- [aramaic.md](tzel/ruach/leshonot/aramaic.md) - арамейский
-- [greek.md](tzel/ruach/leshonot/greek.md) - греческий
-- [hebrew.md](tzel/ruach/leshonot/hebrew.md) - иврит
+- [aramaic.md](terminology/ruach/leshonot/aramaic.md) - арамейский
+- [greek.md](terminology/ruach/leshonot/greek.md) - греческий
+- [hebrew.md](terminology/ruach/leshonot/hebrew.md) - иврит
 
 #### levushim/ - Одежды
-- [bigdei-amidah.md](tzel/ruach/levushim/bigdei-amidah.md) - одежды служения
-- [bigdei-anavah.md](tzel/ruach/levushim/bigdei-anavah.md) - одежды смирения
-- [bigdei-chatunah.md](tzel/ruach/levushim/bigdei-chatunah.md) - одежды свадьбы
-- [bigdei-hod.md](tzel/ruach/levushim/bigdei-hod.md) - одежды славы
-- [bigdei-kefel.md](tzel/ruach/levushim/bigdei-kefel.md) - одежды священника
-- [bigdei-kodesh.md](tzel/ruach/levushim/bigdei-kodesh.md) - священные одежды
-- [bigdei-nigdalim.md](tzel/ruach/levushim/bigdei-nigdalim.md) - одежды поражения
-- [bigdei-nochri.md](tzel/ruach/levushim/bigdei-nochri.md) - одежды иноземца
-- [bigdei-shesh.md](tzel/ruach/levushim/bigdei-shesh.md) - одежды из виссона
-- [bigdei-tiferet.md](tzel/ruach/levushim/bigdei-tiferet.md) - одежды красоты
-- [bigdei-tzemer.md](tzel/ruach/levushim/bigdei-tzemer.md) - одежды шерсти
-- [bigdei-tzivoniyim.md](tzel/ruach/levushim/bigdei-tzivoniyim.md) - одежды цвета
-- [bigdei-yeshua.md](tzel/ruach/levushim/bigdei-yeshua.md) - одежды Йеошуа
+- [bigdei-amidah.md](terminology/ruach/levushim/bigdei-amidah.md) - одежды служения
+- [bigdei-anavah.md](terminology/ruach/levushim/bigdei-anavah.md) - одежды смирения
+- [bigdei-chatunah.md](terminology/ruach/levushim/bigdei-chatunah.md) - одежды свадьбы
+- [bigdei-hod.md](terminology/ruach/levushim/bigdei-hod.md) - одежды славы
+- [bigdei-kefel.md](terminology/ruach/levushim/bigdei-kefel.md) - одежды священника
+- [bigdei-kodesh.md](terminology/ruach/levushim/bigdei-kodesh.md) - священные одежды
+- [bigdei-nigdalim.md](terminology/ruach/levushim/bigdei-nigdalim.md) - одежды поражения
+- [bigdei-nochri.md](terminology/ruach/levushim/bigdei-nochri.md) - одежды иноземца
+- [bigdei-shesh.md](terminology/ruach/levushim/bigdei-shesh.md) - одежды из виссона
+- [bigdei-tiferet.md](terminology/ruach/levushim/bigdei-tiferet.md) - одежды красоты
+- [bigdei-tzemer.md](terminology/ruach/levushim/bigdei-tzemer.md) - одежды шерсти
+- [bigdei-tzivoniyim.md](terminology/ruach/levushim/bigdei-tzivoniyim.md) - одежды цвета
+- [bigdei-yeshua.md](terminology/ruach/levushim/bigdei-yeshua.md) - одежды Йеошуа
 
 #### makot/ - Удары
-- [arbeh.md](tzel/ruach/makot/arbeh.md) - саранча
-- [arov.md](tzel/ruach/makot/arov.md) - псы
-- [barad.md](tzel/ruach/makot/barad.md) - град
-- [choshech.md](tzel/ruach/makot/choshech.md) - тьма
-- [dam.md](tzel/ruach/makot/dam.md) - кровь
-- [dever.md](tzel/ruach/makot/dever.md) - мор
-- [kinim.md](tzel/ruach/makot/kinim.md) - вши
-- [makat-bechorot.md](tzel/ruach/makot/makat-bechorot.md) - поражение первенцев
-- [shchin.md](tzel/ruach/makot/shchin.md) - язва
-- [tzfardeim.md](tzel/ruach/makot/tzfardeim.md) - лягушки
+- [arbeh.md](terminology/ruach/makot/arbeh.md) - саранча
+- [arov.md](terminology/ruach/makot/arov.md) - псы
+- [barad.md](terminology/ruach/makot/barad.md) - град
+- [choshech.md](terminology/ruach/makot/choshech.md) - тьма
+- [dam.md](terminology/ruach/makot/dam.md) - кровь
+- [dever.md](terminology/ruach/makot/dever.md) - мор
+- [kinim.md](terminology/ruach/makot/kinim.md) - вши
+- [makat-bechorot.md](terminology/ruach/makot/makat-bechorot.md) - поражение первенцев
+- [shchin.md](terminology/ruach/makot/shchin.md) - язва
+- [tzfardeim.md](terminology/ruach/makot/tzfardeim.md) - лягушки
 
 #### matachot/ - Металлы
-- [barzel.md](tzel/ruach/matachot/barzel.md) - железо
-- [bedil.md](tzel/ruach/matachot/bedil.md) - олово
-- [kesef.md](tzel/ruach/matachot/kesef.md) - серебро
-- [nechoshet.md](tzel/ruach/matachot/nechoshet.md) - медь
-- [oferet.md](tzel/ruach/matachot/oferet.md) - золото
-- [zahav.md](tzel/ruach/matachot/zahav.md) - золото
+- [barzel.md](terminology/ruach/matachot/barzel.md) - железо
+- [bedil.md](terminology/ruach/matachot/bedil.md) - олово
+- [kesef.md](terminology/ruach/matachot/kesef.md) - серебро
+- [nechoshet.md](terminology/ruach/matachot/nechoshet.md) - медь
+- [oferet.md](terminology/ruach/matachot/oferet.md) - золото
+- [zahav.md](terminology/ruach/matachot/zahav.md) - золото
 
 #### mavet/ - Смерть
-- [chenek-yehudah.md](tzel/ruach/mavet/chenek-yehudah.md) - удавление Йегуды
-- [hereg-paulus.md](tzel/ruach/mavet/hereg-paulus.md) - убийство Павла
-- [hereg-yaakov.md](tzel/ruach/mavet/hereg-yaakov.md) - убийство Яакова
-- [mavet-bartalmay.md](tzel/ruach/mavet/mavet-bartalmay.md) - смерть Варфоломея
-- [mavet-filippos.md](tzel/ruach/mavet/mavet-filippos.md) - смерть Филиппа
-- [mavet-mattityahu.md](tzel/ruach/mavet/mavet-mattityahu.md) - смерть Маттитьягу
-- [mavet-toma.md](tzel/ruach/mavet/mavet-toma.md) - смерть Фомы
-- [mavet-yehudah.md](tzel/ruach/mavet/mavet-yehudah.md) - смерть Йегуды
-- [mavet-yochanan.md](tzel/ruach/mavet/mavet-yochanan.md) - смерть Йоханана
-- [tzlivat-kefa.md](tzel/ruach/mavet/tzlivat-kefa.md) - распятие Кайфы
-- [tzlivat-shimon-kefa.md](tzel/ruach/mavet/tzlivat-shimon-kefa.md) - распятие Шимон Кайфы
-- [tzlivat-shimon.md](tzel/ruach/mavet/tzlivat-shimon.md) - распятие Шимон
+- [chenek-yehudah.md](terminology/ruach/mavet/chenek-yehudah.md) - удавление Йегуды
+- [hereg-paulus.md](terminology/ruach/mavet/hereg-paulus.md) - убийство Павла
+- [hereg-yaakov.md](terminology/ruach/mavet/hereg-yaakov.md) - убийство Яакова
+- [mavet-bartalmay.md](terminology/ruach/mavet/mavet-bartalmay.md) - смерть Варфоломея
+- [mavet-filippos.md](terminology/ruach/mavet/mavet-filippos.md) - смерть Филиппа
+- [mavet-mattityahu.md](terminology/ruach/mavet/mavet-mattityahu.md) - смерть Маттитьягу
+- [mavet-toma.md](terminology/ruach/mavet/mavet-toma.md) - смерть Фомы
+- [mavet-yehudah.md](terminology/ruach/mavet/mavet-yehudah.md) - смерть Йегуды
+- [mavet-yochanan.md](terminology/ruach/mavet/mavet-yochanan.md) - смерть Йоханана
+- [tzlivat-kefa.md](terminology/ruach/mavet/tzlivat-kefa.md) - распятие Кайфы
+- [tzlivat-shimon-kefa.md](terminology/ruach/mavet/tzlivat-shimon-kefa.md) - распятие Шимон Кайфы
+- [tzlivat-shimon.md](terminology/ruach/mavet/tzlivat-shimon.md) - распятие Шимон
 
 #### meshalim/ - Притчи
-- [ashir-elazar.md](tzel/ruach/meshalim/ashir-elazar.md) - богатый Элазар
-- [ashir-ksil.md](tzel/ruach/meshalim/ashir-ksil.md) - богатый глупец
-- [bayit-sela.md](tzel/ruach/meshalim/bayit-sela.md) - дом на песке
-- [ben-shovav.md](tzel/ruach/meshalim/ben-shovav.md) - сын блудный
-- [eser-almot.md](tzel/ruach/meshalim/eser-almot.md) - десять дев
-- [gar-chardal.md](tzel/ruach/meshalim/gar-chardal.md) - закваска
-- [kormim-raim.md](tzel/ruach/meshalim/kormim-raim.md) - кормящие львы
-- [mevakesh-lechem.md](tzel/ruach/meshalim/mevakesh-lechem.md) - ищущий хлеб
-- [mishteh-chatunah.md](tzel/ruach/meshalim/mishteh-chatunah.md) - свадебный пир
-- [parush-mochess.md](tzel/ruach/meshalim/parush-mochess.md) - фарисей мытарь
-- [seh-oved.md](tzel/ruach/meshalim/seh-oved.md) - овца потерянная
-- [shnei-chayavim.md](tzel/ruach/meshalim/shnei-chayavim.md) - два должника
-- [shomroni-tov.md](tzel/ruach/meshalim/shomroni-tov.md) - добрый самаритянин
-- [zorea.md](tzel/ruach/meshalim/zorea.md) - сеятель
+- [ashir-elazar.md](terminology/ruach/meshalim/ashir-elazar.md) - богатый Элазар
+- [ashir-ksil.md](terminology/ruach/meshalim/ashir-ksil.md) - богатый глупец
+- [bayit-sela.md](terminology/ruach/meshalim/bayit-sela.md) - дом на песке
+- [ben-shovav.md](terminology/ruach/meshalim/ben-shovav.md) - сын блудный
+- [eser-almot.md](terminology/ruach/meshalim/eser-almot.md) - десять дев
+- [gar-chardal.md](terminology/ruach/meshalim/gar-chardal.md) - закваска
+- [kormim-raim.md](terminology/ruach/meshalim/kormim-raim.md) - кормящие львы
+- [mevakesh-lechem.md](terminology/ruach/meshalim/mevakesh-lechem.md) - ищущий хлеб
+- [mishteh-chatunah.md](terminology/ruach/meshalim/mishteh-chatunah.md) - свадебный пир
+- [parush-mochess.md](terminology/ruach/meshalim/parush-mochess.md) - фарисей мытарь
+- [seh-oved.md](terminology/ruach/meshalim/seh-oved.md) - овца потерянная
+- [shnei-chayavim.md](terminology/ruach/meshalim/shnei-chayavim.md) - два должника
+- [shomroni-tov.md](terminology/ruach/meshalim/shomroni-tov.md) - добрый самаритянин
+- [zorea.md](terminology/ruach/meshalim/zorea.md) - сеятель
 
 #### misparim/ - Числа
-- [mispar-1.md](tzel/ruach/misparim/mispar-1.md) - число 1
-- [mispar-1000.md](tzel/ruach/misparim/mispar-1000.md) - число 1000
-- [mispar-12.md](tzel/ruach/misparim/mispar-12.md) - число 12
-- [mispar-144000.md](tzel/ruach/misparim/mispar-144000.md) - число 144000
-- [mispar-2.md](tzel/ruach/misparim/mispar-2.md) - число 2
-- [mispar-3.md](tzel/ruach/misparim/mispar-3.md) - число 3
-- [mispar-4.md](tzel/ruach/misparim/mispar-4.md) - число 4
-- [mispar-40.md](tzel/ruach/misparim/mispar-40.md) - число 40
-- [mispar-5.md](tzel/ruach/misparim/mispar-5.md) - число 5
-- [mispar-6.md](tzel/ruach/misparim/mispar-6.md) - число 6
-- [mispar-666.md](tzel/ruach/misparim/mispar-666.md) - число 666
-- [mispar-7.md](tzel/ruach/misparim/mispar-7.md) - число 7
-- [mispar-70.md](tzel/ruach/misparim/mispar-70.md) - число 70
-- [mispar-8.md](tzel/ruach/misparim/mispar-8.md) - число 8
-- [mispar-9.md](tzel/ruach/misparim/mispar-9.md) - число 9
+- [mispar-1.md](terminology/ruach/misparim/mispar-1.md) - число 1
+- [mispar-1000.md](terminology/ruach/misparim/mispar-1000.md) - число 1000
+- [mispar-12.md](terminology/ruach/misparim/mispar-12.md) - число 12
+- [mispar-144000.md](terminology/ruach/misparim/mispar-144000.md) - число 144000
+- [mispar-2.md](terminology/ruach/misparim/mispar-2.md) - число 2
+- [mispar-3.md](terminology/ruach/misparim/mispar-3.md) - число 3
+- [mispar-4.md](terminology/ruach/misparim/mispar-4.md) - число 4
+- [mispar-40.md](terminology/ruach/misparim/mispar-40.md) - число 40
+- [mispar-5.md](terminology/ruach/misparim/mispar-5.md) - число 5
+- [mispar-6.md](terminology/ruach/misparim/mispar-6.md) - число 6
+- [mispar-666.md](terminology/ruach/misparim/mispar-666.md) - число 666
+- [mispar-7.md](terminology/ruach/misparim/mispar-7.md) - число 7
+- [mispar-70.md](terminology/ruach/misparim/mispar-70.md) - число 70
+- [mispar-8.md](terminology/ruach/misparim/mispar-8.md) - число 8
+- [mispar-9.md](terminology/ruach/misparim/mispar-9.md) - число 9
 
 #### seor/ - Закваска
-- [seor-parushim.md](tzel/ruach/seor/seor-parushim.md) - закваска фарисеев
-- [seor-tzedukim.md](tzel/ruach/seor/seor-tzedukim.md) - закваска саддукеев
+- [seor-parushim.md](terminology/ruach/seor/seor-parushim.md) - закваска фарисеев
+- [seor-tzedukim.md](terminology/ruach/seor/seor-tzedukim.md) - закваска саддукеев
 
 #### taharah/ - Чистота
-- [dud.md](tzel/ruach/taharah/dud.md) - котёл
-- [esh.md](tzel/ruach/taharah/esh.md) - огонь
-- [kli.md](tzel/ruach/taharah/kli.md) - сосуд
-- [kur.md](tzel/ruach/taharah/kur.md) - печь
-- [tanur.md](tzel/ruach/taharah/tanur.md) - печь
+- [dud.md](terminology/ruach/taharah/dud.md) - котёл
+- [esh.md](terminology/ruach/taharah/esh.md) - огонь
+- [kli.md](terminology/ruach/taharah/kli.md) - сосуд
+- [kur.md](terminology/ruach/taharah/kur.md) - печь
+- [tanur.md](terminology/ruach/taharah/tanur.md) - печь
 
 #### techiah/ - Воскресение
-- [bat-yair.md](tzel/ruach/techiah/bat-yair.md) - дочь Иаира
-- [ben-almanat-nain.md](tzel/ruach/techiah/ben-almanat-nain.md) - сын вдовы из Наина
-- [ben-isha-shunemit.md](tzel/ruach/techiah/ben-isha-shunemit.md) - сын сунаамитянки
-- [elazar.md](tzel/ruach/techiah/elazar.md) - Элазар
-- [naar-eutychus.md](tzel/ruach/techiah/naar-eutychus.md) - юноша Эвтих
-- [techiat-yeshua.md](tzel/ruach/techiah/techiat-yeshua.md) - воскресение Йеошуа
+- [bat-yair.md](terminology/ruach/techiah/bat-yair.md) - дочь Иаира
+- [ben-almanat-nain.md](terminology/ruach/techiah/ben-almanat-nain.md) - сын вдовы из Наина
+- [ben-isha-shunemit.md](terminology/ruach/techiah/ben-isha-shunemit.md) - сын сунаамитянки
+- [elazar.md](terminology/ruach/techiah/elazar.md) - Элазар
+- [naar-eutychus.md](terminology/ruach/techiah/naar-eutychus.md) - юноша Эвтих
+- [techiat-yeshua.md](terminology/ruach/techiah/techiat-yeshua.md) - воскресение Йеошуа
 
 #### yesodot/ - Основы
-- [amud-esh.md](tzel/ruach/yesodot/amud-esh.md) - столп огня
-- [avir.md](tzel/ruach/yesodot/avir.md) - воздух
-- [barad.md](tzel/ruach/yesodot/barad.md) - град
-- [barak.md](tzel/ruach/yesodot/barak.md) - молния
-- [eretz.md](tzel/ruach/yesodot/eretz.md) - земля
-- [esh.md](tzel/ruach/yesodot/esh.md) - огонь
-- [mayim.md](tzel/ruach/yesodot/mayim.md) - вода
-- [raam.md](tzel/ruach/yesodot/raam.md) - гром
-- [ruach.md](tzel/ruach/yesodot/ruach.md) - дух
-- [searah.md](tzel/ruach/yesodot/searah.md) - ветер
+- [amud-esh.md](terminology/ruach/yesodot/amud-esh.md) - столп огня
+- [avir.md](terminology/ruach/yesodot/avir.md) - воздух
+- [barad.md](terminology/ruach/yesodot/barad.md) - град
+- [barak.md](terminology/ruach/yesodot/barak.md) - молния
+- [eretz.md](terminology/ruach/yesodot/eretz.md) - земля
+- [esh.md](terminology/ruach/yesodot/esh.md) - огонь
+- [mayim.md](terminology/ruach/yesodot/mayim.md) - вода
+- [raam.md](terminology/ruach/yesodot/raam.md) - гром
+- [ruach.md](terminology/ruach/yesodot/ruach.md) - дух
+- [searah.md](terminology/ruach/yesodot/searah.md) - ветер
 
 ### shedim/ - Демоны
 #### avonot/ - Грехи
-- [atzlut.md](tzel/shedim/avonot/atzlut.md) - упрямство
-- [batzah.md](tzel/shedim/avonot/batzah.md) - презрение
-- [chemah.md](tzel/shedim/avonot/chemah.md) - гнев
-- [gaavah.md](tzel/shedim/avonot/gaavah.md) - гордость
-- [kinah.md](tzel/shedim/avonot/kinah.md) - ревность
-- [sheker.md](tzel/shedim/avonot/sheker.md) - ложь
-- [shichrut.md](tzel/shedim/avonot/shichrut.md) - пьянство
-- [tavah.md](tzel/shedim/avonot/tavah.md) - похотль
-- [zolelut.md](tzel/shedim/avonot/zolelut.md) - скверна
+- [atzlut.md](terminology/shedim/avonot/atzlut.md) - упрямство
+- [batzah.md](terminology/shedim/avonot/batzah.md) - презрение
+- [chemah.md](terminology/shedim/avonot/chemah.md) - гнев
+- [gaavah.md](terminology/shedim/avonot/gaavah.md) - гордость
+- [kinah.md](terminology/shedim/avonot/kinah.md) - ревность
+- [sheker.md](terminology/shedim/avonot/sheker.md) - ложь
+- [shichrut.md](terminology/shedim/avonot/shichrut.md) - пьянство
+- [tavah.md](terminology/shedim/avonot/tavah.md) - похотль
+- [zolelut.md](terminology/shedim/avonot/zolelut.md) - скверна
 
 #### chayot/ - Существа
-- [akrav-oretz.md](tzel/shedim/chayot/akrav-oretz.md) - земной скорпион
-- [aryeh-shochet.md](tzel/shedim/chayot/aryeh-shochet.md) - рыкающий лев
-- [egel-zahav.md](tzel/shedim/chayot/egel-zahav.md) - золотой телец
-- [nachash-ramah.md](tzel/shedim/chayot/nachash-ramah.md) - поднятый змей
-- [peten-eretz.md](tzel/shedim/chayot/peten-eretz.md) - земная аспид
-- [tzefa-eretz.md](tzel/shedim/chayot/tzefa-eretz.md) - земная змея
+- [akrav-oretz.md](terminology/shedim/chayot/akrav-oretz.md) - земной скорпион
+- [aryeh-shochet.md](terminology/shedim/chayot/aryeh-shochet.md) - рыкающий лев
+- [egel-zahav.md](terminology/shedim/chayot/egel-zahav.md) - золотой телец
+- [nachash-ramah.md](terminology/shedim/chayot/nachash-ramah.md) - поднятый змей
+- [peten-eretz.md](terminology/shedim/chayot/peten-eretz.md) - земная аспид
+- [tzefa-eretz.md](terminology/shedim/chayot/tzefa-eretz.md) - земная змея
 
 #### choshech/ - Тьма
-- [bavel.md](tzel/shedim/choshech/bavel.md) - Вавилон
-- [choshech-tohu.md](tzel/shedim/choshech/choshech-tohu.md) - тьма пустоты
-- [gehenna.md](tzel/shedim/choshech/gehenna.md) - Геенна
-- [gog-umagog.md](tzel/shedim/choshech/gog-umagog.md) - Гог и Магог
-- [keruv-nofel.md](tzel/shedim/choshech/keruv-nofel.md) - павший херувим
-- [kochot-choshech.md](tzel/shedim/choshech/kochot-choshech.md) - силы тьмы
-- [nachash-tannin.md](tzel/shedim/choshech/nachash-tannin.md) - змей-дракон
-- [neron-anti-mashiach.md](tzel/shedim/choshech/neron-anti-mashiach.md) - Нерон-антихрист
-- [tehom.md](tzel/shedim/choshech/tehom.md) - бездна
+- [bavel.md](terminology/shedim/choshech/bavel.md) - Вавилон
+- [choshech-tohu.md](terminology/shedim/choshech/choshech-tohu.md) - тьма пустоты
+- [gehenna.md](terminology/shedim/choshech/gehenna.md) - Геенна
+- [gog-umagog.md](terminology/shedim/choshech/gog-umagog.md) - Гог и Магог
+- [keruv-nofel.md](terminology/shedim/choshech/keruv-nofel.md) - павший херувим
+- [kochot-choshech.md](terminology/shedim/choshech/kochot-choshech.md) - силы тьмы
+- [nachash-tannin.md](terminology/shedim/choshech/nachash-tannin.md) - змей-дракон
+- [neron-anti-mashiach.md](terminology/shedim/choshech/neron-anti-mashiach.md) - Нерон-антихрист
+- [tehom.md](terminology/shedim/choshech/tehom.md) - бездна
 
 #### kerav/ - Нападение
-- [hitalut.md](tzel/shedim/kerav/hitalut.md) - нападение
-- [kerav-ruchani.md](tzel/shedim/kerav/kerav-ruchani.md) - духовное нападение
-- [michshol.md](tzel/shedim/kerav/michshol.md) - преткновение
-- [nisayon.md](tzel/shedim/kerav/nisayon.md) - искушение
+- [hitalut.md](terminology/shedim/kerav/hitalut.md) - нападение
+- [kerav-ruchani.md](terminology/shedim/kerav/kerav-ruchani.md) - духовное нападение
+- [michshol.md](terminology/shedim/kerav/michshol.md) - преткновение
+- [nisayon.md](terminology/shedim/kerav/nisayon.md) - искушение
 
 #### nefilah/ - Падение
-- [afar-chol.md](tzel/shedim/nefilah/afar-chol.md) - прах земной
-- [dam-korbanot.md](tzel/shedim/nefilah/dam-korbanot.md) - кровь жертв
-- [nachash.md](tzel/shedim/nefilah/nachash.md) - змей
-- [pri-asur.md](tzel/shedim/nefilah/pri-asur.md) - плод запрещённый
+- [afar-chol.md](terminology/shedim/nefilah/afar-chol.md) - прах земной
+- [dam-korbanot.md](terminology/shedim/nefilah/dam-korbanot.md) - кровь жертв
+- [nachash.md](terminology/shedim/nefilah/nachash.md) - змей
+- [pri-asur.md](terminology/shedim/nefilah/pri-asur.md) - плод запрещённый
 
 #### rodefim/ - Гонители
-- [aurelian.md](tzel/shedim/rodefim/aurelian.md) - Аврелиан
-- [decius.md](tzel/shedim/rodefim/decius.md) - Деций
-- [diocletian.md](tzel/shedim/rodefim/diocletian.md) - Диоклетиан
-- [domitian.md](tzel/shedim/rodefim/domitian.md) - Домициан
-- [marcus-aurelius.md](tzel/shedim/rodefim/marcus-aurelius.md) - Марк Аврелий
-- [maximinus-thrax.md](tzel/shedim/rodefim/maximinus-thrax.md) - Максимин Фракиец
-- [nero.md](tzel/shedim/rodefim/nero.md) - Нерон
-- [septimius-severus.md](tzel/shedim/rodefim/septimius-severus.md) - Септимий Север
-- [trajan.md](tzel/shedim/rodefim/trajan.md) - Траян
-- [valerian.md](tzel/shedim/rodefim/valerian.md) - Валериан
+- [aurelian.md](terminology/shedim/rodefim/aurelian.md) - Аврелиан
+- [decius.md](terminology/shedim/rodefim/decius.md) - Деций
+- [diocletian.md](terminology/shedim/rodefim/diocletian.md) - Диоклетиан
+- [domitian.md](terminology/shedim/rodefim/domitian.md) - Домициан
+- [marcus-aurelius.md](terminology/shedim/rodefim/marcus-aurelius.md) - Марк Аврелий
+- [maximinus-thrax.md](terminology/shedim/rodefim/maximinus-thrax.md) - Максимин Фракиец
+- [nero.md](terminology/shedim/rodefim/nero.md) - Нерон
+- [septimius-severus.md](terminology/shedim/rodefim/septimius-severus.md) - Септимий Север
+- [trajan.md](terminology/shedim/rodefim/trajan.md) - Траян
+- [valerian.md](terminology/shedim/rodefim/valerian.md) - Валериан
 
 #### ruchot-raot/ - Злые духи
-- [ruach-choli.md](tzel/shedim/ruchot-raot/ruach-choli.md) - дух болезни
-- [ruach-gaavah.md](tzel/shedim/ruchot-raot/ruach-gaavah.md) - дух гордости
-- [ruach-kinah-sinah.md](tzel/shedim/ruchot-raot/ruach-kinah-sinah.md) - дух ревности-ненависти
-- [ruach-kishuf.md](tzel/shedim/ruchot-raot/ruach-kishuf.md) - дух колдовства
-- [ruach-mavet.md](tzel/shedim/ruchot-raot/ruach-mavet.md) - дух смерти
-- [ruach-pachad.md](tzel/shedim/ruchot-raot/ruach-pachad.md) - дух страха
-- [ruach-sheker.md](tzel/shedim/ruchot-raot/ruach-sheker.md) - дух лжи
-- [ruach-tumah.md](tzel/shedim/ruchot-raot/ruach-tumah.md) - дух нечистоты
-- [ruach-yiush.md](tzel/shedim/ruchot-raot/ruach-yiush.md) - дух отчаяния
-- [ruach-zenut.md](tzel/shedim/ruchot-raot/ruach-zenut.md) - дух блуда
+- [ruach-choli.md](terminology/shedim/ruchot-raot/ruach-choli.md) - дух болезни
+- [ruach-gaavah.md](terminology/shedim/ruchot-raot/ruach-gaavah.md) - дух гордости
+- [ruach-kinah-sinah.md](terminology/shedim/ruchot-raot/ruach-kinah-sinah.md) - дух ревности-ненависти
+- [ruach-kishuf.md](terminology/shedim/ruchot-raot/ruach-kishuf.md) - дух колдовства
+- [ruach-mavet.md](terminology/shedim/ruchot-raot/ruach-mavet.md) - дух смерти
+- [ruach-pachad.md](terminology/shedim/ruchot-raot/ruach-pachad.md) - дух страха
+- [ruach-sheker.md](terminology/shedim/ruchot-raot/ruach-sheker.md) - дух лжи
+- [ruach-tumah.md](terminology/shedim/ruchot-raot/ruach-tumah.md) - дух нечистоты
+- [ruach-yiush.md](terminology/shedim/ruchot-raot/ruach-yiush.md) - дух отчаяния
+- [ruach-zenut.md](terminology/shedim/ruchot-raot/ruach-zenut.md) - дух блуда
 
 #### shemot-shedim/ - Имена демонов
-- [azazel-1.md](tzel/shedim/shemot-shedim/azazel-1.md) - Азазель 1
-- [azazel.md](tzel/shedim/shemot-shedim/azazel.md) - Азазель
-- [belial.md](tzel/shedim/shemot-shedim/belial.md) - Велиаль
-- [livyatan.md](tzel/shedim/shemot-shedim/livyatan.md) - Левиафан
-- [ruach-raah.md](tzel/shedim/shemot-shedim/ruach-raah.md) - дух злой
-- [satan.md](tzel/shedim/shemot-shedim/satan.md) - сатана
-- [shed.md](tzel/shedim/shemot-shedim/shed.md) - демон
+- [azazel-1.md](terminology/shedim/shemot-shedim/azazel-1.md) - Азазель 1
+- [azazel.md](terminology/shedim/shemot-shedim/azazel.md) - Азазель
+- [belial.md](terminology/shedim/shemot-shedim/belial.md) - Велиаль
+- [livyatan.md](terminology/shedim/shemot-shedim/livyatan.md) - Левиафан
+- [ruach-raah.md](terminology/shedim/shemot-shedim/ruach-raah.md) - дух злой
+- [satan.md](terminology/shedim/shemot-shedim/satan.md) - сатана
+- [shed.md](terminology/shedim/shemot-shedim/shed.md) - демон
 
 #### sheol/ - Шеол
-- [gehenna.md](tzel/shedim/sheol/gehenna.md) - Геенна
-- [hades.md](tzel/shedim/sheol/hades.md) - Аид
-- [sheol.md](tzel/shedim/sheol/sheol.md) - Шеол
-- [tartarus.md](tzel/shedim/sheol/tartarus.md) - Тартар
+- [gehenna.md](terminology/shedim/sheol/gehenna.md) - Геенна
+- [hades.md](terminology/shedim/sheol/hades.md) - Аид
+- [sheol.md](terminology/shedim/sheol/sheol.md) - Шеол
+- [tartarus.md](terminology/shedim/sheol/tartarus.md) - Тартар
 
 ### tamid/ - Постоянно
-- [tavnit.md](tzel/tamid/tavnit.md) - образец
-- [tzelem.md](tzel/tamid/tzelem.md) - образ
+- [tavnit.md](researches/tamid/tavnit.md) - образец
+- [tzelem.md](researches/tamid/tzelem.md) - образ
 
 ---
 

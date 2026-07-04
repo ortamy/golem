@@ -1,7 +1,7 @@
 #  אֲרוֹן הַבְּרִית — АРОН hА-БРИТ: КОВЧЕГ СОЮЗА
 
 **Метаданные файла**
-- **Файл:** `content/tzel/kehillah/mishkan/aron-brit.md`
+- **Файл:** `content/researches/kehillah/mishkan/aron-brit.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-17
 - **Последнее обновление:** 2026-06-17
@@ -10,11 +10,10 @@
 - **Тема:** Образ «אֲרוֹן הַבְּרִית» — Ковчег Союза. Присутствие Яхве среди народа. Дерево, обложенное золотом. Внутри — скрижали, манна, жезл.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/IMAGE-MAP.md`, `instructions/IMAGES-CATALOGUE.md`, `content/tzel/kehillah/mishkan/mizbeach-ketoret.md`
+- **Связанные файлы:** `instructions/IMAGE-MAP.md`, `instructions/IMAGES-CATALOGUE.md`, `content/researches/kehillah/mishkan/mizbeach-ketoret.md`
 - **Хеш:** ожидает
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-17
-- **Уровень:**  Средний
 
 ---
 
@@ -119,8 +118,7 @@
 
 ## СВЯЗАННЫЕ ФАЙЛЫ
 
-- `content/tzel/kehillah/mishkan/mizbeach-ketoret.md` — жертвенник курений
-- `content/tzel/kehillah/mishkan/menorah.md` — светильник
-- `content/tzel/kehillah/mishkan/shulchan-lechem-panim.md` — стол хлебов
+- `content/researches/kehillah/mishkan/mizbeach-ketoret.md` — жертвенник курений
+- `content/researches/kehillah/mishkan/menorah.md` — светильник
+- `content/researches/kehillah/mishkan/shulchan-lechem-panim.md` — стол хлебов
 - `instructions/IMAGE-MAP.md` — карта образов
-- `instructions/IMAGES-CATALOGUE.md` — каталог образов
