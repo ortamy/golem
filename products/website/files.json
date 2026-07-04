@@ -6955,6 +6955,798 @@
     "icon": "book.png"
   },
   {
+    "path": "content/researches/anatomy/guf/aryeh.md",
+    "title": "aryeh",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/guf/einayim.md",
+    "title": "einayim",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/guf/guf.md",
+    "title": "guf",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/guf/peh.md",
+    "title": "peh",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/guf/raglayim.md",
+    "title": "raglayim",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/guf/rosh.md",
+    "title": "rosh",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/guf/yadayim.md",
+    "title": "yadayim",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/avanim/akate.md",
+    "title": "akate",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/avanim/bareket.md",
+    "title": "bareket",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/avanim/beryl.md",
+    "title": "beryl",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/avanim/chalcedony.md",
+    "title": "chalcedony",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/avanim/leshem.md",
+    "title": "leshem",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/avanim/odem.md",
+    "title": "odem",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/avanim/onyx.md",
+    "title": "onyx",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/avanim/pitdah.md",
+    "title": "pitdah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/avanim/sappir.md",
+    "title": "sappir",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/avanim/tarshish.md",
+    "title": "tarshish",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/atar-kotzim.md",
+    "title": "atar kotzim",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/binyan.md",
+    "title": "binyan",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/cherev-esh.md",
+    "title": "cherev esh",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/chevel-mosrot.md",
+    "title": "chevel mosrot",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/even.md",
+    "title": "even",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/kli-kovsh.md",
+    "title": "kli kovsh",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/lechem.md",
+    "title": "lechem",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/maakelet.md",
+    "title": "maakelet",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/mateh.md",
+    "title": "mateh",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/mazleg.md",
+    "title": "mazleg",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/ner-lampada.md",
+    "title": "ner lampada",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/patish.md",
+    "title": "patish",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/sharvit.md",
+    "title": "sharvit",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/shevet.md",
+    "title": "shevet",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/tofet.md",
+    "title": "tofet",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/yayin-mayim.md",
+    "title": "yayin mayim",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/yayin.md",
+    "title": "yayin",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/begadim/zera.md",
+    "title": "zera",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/asher.md",
+    "title": "asher",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/benyamin.md",
+    "title": "benyamin",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/dan.md",
+    "title": "dan",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/gad.md",
+    "title": "gad",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/levi.md",
+    "title": "levi",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/naphthali.md",
+    "title": "naphthali",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/reuben.md",
+    "title": "reuben",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/shimon.md",
+    "title": "shimon",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/yehudah.md",
+    "title": "yehudah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/yissachar.md",
+    "title": "yissachar",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/yosef.md",
+    "title": "yosef",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/birka'im/zebulun.md",
+    "title": "zebulun",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chukim/chukat-chet.md",
+    "title": "chukat chet",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chukim/chukat-elohim.md",
+    "title": "chukat elohim",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chukim/chukat-kehuna.md",
+    "title": "chukat kehuna",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chukim/chukat-milah.md",
+    "title": "chukat milah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chukim/chukat-mishpat.md",
+    "title": "chukat mishpat",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chukim/chukat-nissuin.md",
+    "title": "chukat nissuin",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chukim/chukat-taharah.md",
+    "title": "chukat taharah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chukim/chukat-tzel.md",
+    "title": "chukat tzel",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chushim/ahavah.md",
+    "title": "ahavah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chushim/asham.md",
+    "title": "asham",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chushim/boshet.md",
+    "title": "boshet",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chushim/chemah.md",
+    "title": "chemah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chushim/pachad.md",
+    "title": "pachad",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chushim/simchah.md",
+    "title": "simchah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/chushim/sinah.md",
+    "title": "sinah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/maftehot/mafteach-beit-david.md",
+    "title": "mafteach beit david",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/maftehot/mafteach-daat.md",
+    "title": "mafteach daat",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/maftehot/mafteach-malchut.md",
+    "title": "mafteach malchut",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/maftehot/mafteach-sheol-mavet.md",
+    "title": "mafteach sheol mavet",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/maftehot/mafteach-tehom.md",
+    "title": "mafteach tehom",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/malchei/david.md",
+    "title": "david",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/malchei/shaul.md",
+    "title": "shaul",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/malchei/shlomo.md",
+    "title": "shlomo",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/malchei/techiat-yeshua.md",
+    "title": "techiat yeshua",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/mishchah/mishchat-kehuna.md",
+    "title": "mishchat kehuna",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/mishchah/mishchat-mashiach.md",
+    "title": "mishchat mashiach",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/mishchah/mishchat-meluchah.md",
+    "title": "mishchat meluchah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/mishchah/mishchat-mikdash.md",
+    "title": "mishchat mikdash",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/mishchah/mishchat-nevuah.md",
+    "title": "mishchat nevuah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/otot-brit/dam-korban.md",
+    "title": "dam korban",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/otot-brit/keshet.md",
+    "title": "keshet",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/otot-brit/kos-ve-lechem.md",
+    "title": "kos ve lechem",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/otot-brit/milah.md",
+    "title": "milah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/otot-brit/shabbat.md",
+    "title": "shabbat",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/sefarim/besorah.md",
+    "title": "besorah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/sefarim/sefer-hitgalut.md",
+    "title": "sefer hitgalut",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/sefarim/torah.md",
+    "title": "torah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/tefilah/ashan.md",
+    "title": "ashan",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/tefilah/esh.md",
+    "title": "esh",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/tefilah/ketoret.md",
+    "title": "ketoret",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/anatomy/kelim/tefilah/mikteret.md",
+    "title": "mikteret",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "anatomy",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
     "path": "content/researches/archive/adrenokhrom.md",
     "title": "Адренохром",
     "topic": "Адренохром",
@@ -7525,6 +8317,96 @@
     "icon": "book.png"
   },
   {
+    "path": "content/researches/creation/yesodot/amud-esh.md",
+    "title": "amud esh",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "creation",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/creation/yesodot/avir.md",
+    "title": "avir",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "creation",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/creation/yesodot/barad.md",
+    "title": "barad",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "creation",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/creation/yesodot/barak.md",
+    "title": "barak",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "creation",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/creation/yesodot/eretz.md",
+    "title": "eretz",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "creation",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/creation/yesodot/esh.md",
+    "title": "esh",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "creation",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/creation/yesodot/mayim.md",
+    "title": "mayim",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "creation",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/creation/yesodot/raam.md",
+    "title": "raam",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "creation",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/creation/yesodot/ruach.md",
+    "title": "ruach",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "creation",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/creation/yesodot/searah.md",
+    "title": "searah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "creation",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
     "path": "content/researches/economy/gambling-vs-life.md",
     "title": "קוּבְּיָה אוֹ חַיִּים — ИГРАТЬ ИЛИ ЖИТЬ?",
     "topic": "Разоблачение азартных игр как системы, разрушающей жизнь. Библейский взгляд на амаль, случай и верно",
@@ -8079,6 +8961,330 @@
     "topic": "",
     "category": "Исследования",
     "subcategory": "Элоhим",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/arim/beit-lechem.md",
+    "title": "beit lechem",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/arim/galil.md",
+    "title": "galil",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/arim/kfar-nachum.md",
+    "title": "kfar nachum",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/arim/natzrat.md",
+    "title": "natzrat",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/arim/nineveh.md",
+    "title": "nineveh",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/arim/sedom-amorah.md",
+    "title": "sedom amorah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/arim/tsiyon.md",
+    "title": "tsiyon",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/arim/tzor.md",
+    "title": "tzor",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/arim/yerecho.md",
+    "title": "yerecho",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/arim/yerushalayim.md",
+    "title": "yerushalayim",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/arim/yevus.md",
+    "title": "yevus",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/artzot/aram.md",
+    "title": "aram",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/artzot/bavel.md",
+    "title": "bavel",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/artzot/mitzrayim.md",
+    "title": "mitzrayim",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/artzot/moav-amon.md",
+    "title": "moav amon",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/artzot/peleshet.md",
+    "title": "peleshet",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/artzot/yarden.md",
+    "title": "yarden",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/artzot/yisrael.md",
+    "title": "yisrael",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/beit-chasda.md",
+    "title": "beit chasda",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/efata.md",
+    "title": "efata",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/gan-eden.md",
+    "title": "gan eden",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/gat-shmanim.md",
+    "title": "gat shmanim",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/gei-hinnom.md",
+    "title": "gei hinnom",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/gilgal.md",
+    "title": "gilgal",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/gulgoleth.md",
+    "title": "gulgoleth",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/har-sinai.md",
+    "title": "har sinai",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/har-tsiyon.md",
+    "title": "har tsiyon",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/ikonion.md",
+    "title": "ikonion",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/knaan.md",
+    "title": "knaan",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/luz-beit-el.md",
+    "title": "luz beit el",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/mamre.md",
+    "title": "mamre",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/midbar.md",
+    "title": "midbar",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/moriyah.md",
+    "title": "moriyah",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/penuel.md",
+    "title": "penuel",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/yam-suf.md",
+    "title": "yam suf",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/geography/makom/mekomot/yerushalayim-chadasha.md",
+    "title": "yerushalayim chadasha",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "geography",
     "related": [],
     "icon": "book.png"
   },
