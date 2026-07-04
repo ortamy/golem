@@ -2358,6 +2358,19 @@
     "icon": "scrolls.png"
   },
   {
+    "path": "content/tanakh/brit-rishona-brit-hadasha.md",
+    "title": "ПЕРВЫЙ СОЮЗ И ВОССТАНОВЛЕННЫЙ СОЮЗ",
+    "topic": "Разоблачение греко-римской подмены «Ветхий Завет» vs «Новый Завет» через возвращение к ивритским пон",
+    "category": "ТаНаХ",
+    "subcategory": "",
+    "related": [
+      "content/terminology/brit.md",
+      "content/terminology/torah.md",
+      "content/researches/tanakh/yirmeyahu-31.md"
+    ],
+    "icon": "default.png"
+  },
+  {
     "path": "content/tanakh/chayei-olam.md",
     "title": "חַיֵּי עוֹלָם — ЖИЗНЬ СКРЫТОГО ГОРИЗОНТА",
     "topic": "עוֹלָם (олам) — скрытое время, а не «вечность». חַיֵּי עוֹלָם — жизнь скрытого горизонта",
@@ -14257,53 +14270,6 @@
     "icon": "lamp.png"
   },
   {
-    "path": "content/hebrew/paleo-alphabet-deep.md",
-    "title": "𐤁 22 БУКВЫ ПАЛЕО-ИВРИТА ПОДРОБНО",
-    "topic": "22 буквы палео-иврита: форма, значение, звук",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [],
-    "icon": "lamp.png"
-  },
-  {
-    "path": "content/hebrew/paleo-creation.md",
-    "title": "𐤁 БЕРЕШИТ 1 ЧЕРЕЗ ПАЛЕО-ИВРИТ",
-    "topic": "Берешит 1 через палео-иврит. Каждое слово в свете древнего письма",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [],
-    "icon": "lamp.png"
-  },
-  {
-    "path": "content/hebrew/paleo-hebrew.md",
-    "title": "ПАЛЕО-ИВРИТ — ПИСЬМО ОБРАЗОВ: УРОК ИВРИТА",
-    "topic": "Урок иврита — палео-иврит: древнее письмо, где каждая буква — образ",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [
-      "content/learn-hebrew/verbs.md"
-    ],
-    "icon": "lamp.png"
-  },
-  {
-    "path": "content/hebrew/paleo-names.md",
-    "title": "𐤀 ИМЕНА В ПАЛЕО-ИВРИТЕ",
-    "topic": "Имена ТаНаХа, записанные палео-еврейскими буквами",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [],
-    "icon": "lamp.png"
-  },
-  {
-    "path": "content/hebrew/paleo-torah.md",
-    "title": "𐤄 ДЕСЯТЬ РЕЧЕНИЙ В ПАЛЕО-ИВРИТЕ",
-    "topic": "Десять речений (Шмот 20) в палео-иврите. Буквальный разбор",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [],
-    "icon": "lamp.png"
-  },
-  {
     "path": "content/hebrew/parallelism.md",
     "title": "תַּקְבִּילָה — ПАРАЛЛЕЛИЗМ: КАК РАБОТАЕТ СТИХ В ТАНАХЕ",
     "topic": "Параллелизм в поэзии ТаНаХа. Как работает стих. Типы параллелизма. Как понимать, а не просто читать.",
@@ -14331,15 +14297,6 @@
     "icon": "lamp.png"
   },
   {
-    "path": "content/hebrew/psalm-23-deep.md",
-    "title": "ПОЛНЫЙ РАЗБОР ТЕhИЛИМ 23",
-    "topic": "Полный разбор Теhилим 23 — псалом Давида",
-    "category": "Изучение иврита",
-    "subcategory": "",
-    "related": [],
-    "icon": "lamp.png"
-  },
-  {
     "path": "content/hebrew/questions-in-tanakh.md",
     "title": "ВОПРОСЫ В ТаНаХе — ЯХВЕ СПРАШИВАЕТ ЧЕЛОВЕКА",
     "topic": "Вопросы Яхве к человеку в ТаНаХе. Природа божественного вопроса",
@@ -14361,8 +14318,8 @@
   },
   {
     "path": "content/hebrew/root-dictionary.md",
-    "title": "СЛОВАРЬ 50 ГЛАВНЫХ КОРНЕЙ ТаНаХа",
-    "topic": "50 важнейших корней ТаНаХа с примерами",
+    "title": "КОРНИ ИВРИТА",
+    "topic": "150 базовых корней ТаНаХа с палео-образами, произношением и разбором как последовательности инструкц",
     "category": "Изучение иврита",
     "subcategory": "",
     "related": [],
@@ -14404,6 +14361,15 @@
     "related": [
       "content/learn-hebrew/reading-practice.md"
     ],
+    "icon": "lamp.png"
+  },
+  {
+    "path": "content/hebrew/tehilim-23-deep.md",
+    "title": "ПОЛНЫЙ РАЗБОР ТЕhИЛИМ 23",
+    "topic": "Полный разбор Теhилим 23 — псалом Давида",
+    "category": "Изучение иврита",
+    "subcategory": "",
+    "related": [],
     "icon": "lamp.png"
   },
   {
