@@ -2895,78 +2895,87 @@
   {
     "path": "content/bashah/books/besorah-luka.md",
     "title": "besorah luka",
-    "topic": "",
+    "topic": "Разбор книги Луки (Бесора Луки) — автор, структура, ключевые темы, связь с Машиахом и ТаНаХом",
     "category": "БаШаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/[книга].md",
-      "content/bashah/books/[книга].md",
-      "content/terminology/[термин].md"
+      "content/bashah/books/maasei-shlichim.md",
+      "content/bashah/persons/luka.md",
+      "content/bashah/terminology/bsora.md"
     ],
     "icon": "scrolls.png"
   },
   {
     "path": "content/bashah/books/besorah-markus.md",
     "title": "besorah markus",
-    "topic": "",
+    "topic": "Разбор книги Марка (Бесора Маркуса) — автор, структура, ключевые темы, связь с Машиахом и ТаНаХом",
     "category": "БаШаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/[книга].md",
-      "content/bashah/books/[книга].md",
-      "content/terminology/[термин].md"
+      "content/bashah/books/besorah-luka.md",
+      "content/bashah/books/besorah-mattityahu.md",
+      "content/bashah/books/besorah-yohanan.md",
+      "content/bashah/persons/markus.md",
+      "content/bashah/terminology/bsora.md"
     ],
     "icon": "scrolls.png"
   },
   {
     "path": "content/bashah/books/besorah-mattityahu.md",
     "title": "besorah mattityahu",
-    "topic": "",
+    "topic": "Разбор книги Матитьягу (Бесора Матитьягу) — автор, структура, ключевые темы, связь с Машиахом и ТаНа",
     "category": "БаШаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/[книга].md",
-      "content/bashah/books/[книга].md",
-      "content/terminology/[термин].md"
+      "content/bashah/books/besorah-luka.md",
+      "content/bashah/books/besorah-markus.md",
+      "content/bashah/books/besorah-yohanan.md",
+      "content/bashah/persons/mattityahu.md",
+      "content/bashah/terminology/bsora.md"
     ],
     "icon": "scrolls.png"
   },
   {
     "path": "content/bashah/books/besorah-yohanan.md",
     "title": "besorah yohanan",
-    "topic": "",
+    "topic": "Разбор книги Йоханана (Бесора Йоханана) — автор, структура, ключевые темы, связь с Машиахом и ТаНаХо",
     "category": "БаШаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/[книга].md",
-      "content/bashah/books/[книга].md",
-      "content/terminology/[термин].md"
+      "content/bashah/books/besorah-luka.md",
+      "content/bashah/books/besorah-markus.md",
+      "content/bashah/books/besorah-mattityahu.md",
+      "content/bashah/persons/yohanan-talmid.md",
+      "content/bashah/terminology/bsora.md"
     ],
     "icon": "scrolls.png"
   },
   {
     "path": "content/bashah/books/hitgalut.md",
     "title": "hitgalut",
-    "topic": "",
+    "topic": "Разбор книги Откровения (Хитгалут) — автор, структура, ключевые темы, связь с Машиахом и ТаНаХом",
     "category": "БаШаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/[книга].md",
-      "content/bashah/books/[книга].md",
-      "content/terminology/[термин].md"
+      "content/bashah/books/besorah-yohanan.md",
+      "content/bashah/nevua/hitgalut-yohanan.md",
+      "content/bashah/terminology/bsora.md"
     ],
     "icon": "scrolls.png"
   },
   {
     "path": "content/bashah/books/maasei-shlichim.md",
     "title": "maasei shlichim",
-    "topic": "",
+    "topic": "Разбор книги Деяния посланников (Маасеи шлихим) — автор, структура, ключевые темы, связь с Машиахом ",
     "category": "БаШаХ",
     "subcategory": "Книги",
     "related": [
-      "content/tanakh/books/[книга].md",
-      "content/bashah/books/[книга].md",
-      "content/terminology/[термин].md"
+      "content/bashah/books/besorah-luka.md",
+      "content/bashah/persons/luka.md",
+      "content/bashah/persons/shaul.md",
+      "content/bashah/persons/keifa.md",
+      "content/bashah/terminology/bsora.md",
+      "content/bashah/terminology/kehillah.md"
     ],
     "icon": "scrolls.png"
   },
@@ -3069,52 +3078,56 @@
   {
     "path": "content/bashah/events/beit-chananyah.md",
     "title": "beit chananyah",
-    "topic": "",
+    "topic": "Событие «Дом Ханании» (Бейт Ханания) — место исцеления, молитва, связь с Машиахом",
     "category": "БаШаХ",
     "subcategory": "События",
     "related": [
-      "content/tanakh/events/[событие].md",
-      "content/tanakh/persons/[личность].md",
-      "content/tanakh/books/[книга].md"
+      "content/bashah/persons/chananyah.md",
+      "content/bashah/persons/shaul.md",
+      "content/bashah/events/shavuot-ruach.md",
+      "content/bashah/events/petach-kefas.md"
     ],
     "icon": "default.png"
   },
   {
     "path": "content/bashah/events/petach-kefas.md",
     "title": "petach kefas",
-    "topic": "",
+    "topic": "Событие «Открытие Кефы» (Петах Кефа) — первая проповедь после Шавуота, рождение кехиллы",
     "category": "БаШаХ",
     "subcategory": "События",
     "related": [
-      "content/tanakh/events/[событие].md",
-      "content/tanakh/persons/[личность].md",
-      "content/tanakh/books/[книга].md"
+      "content/bashah/persons/keifa.md",
+      "content/bashah/events/shavuot-ruach.md",
+      "content/bashah/events/beit-chananyah.md",
+      "content/bashah/terminology/kehillah.md"
     ],
     "icon": "default.png"
   },
   {
     "path": "content/bashah/events/seudat-aharon.md",
     "title": "seudat aharon",
-    "topic": "",
+    "topic": "Событие «Трапеза Агарона» (Сеудат Агарон) — Тайная вечеря, учреждение нового завета",
     "category": "БаШаХ",
     "subcategory": "События",
     "related": [
-      "content/tanakh/events/[событие].md",
-      "content/tanakh/persons/[личность].md",
-      "content/tanakh/books/[книга].md"
+      "content/bashah/books/besorah-luka.md",
+      "content/bashah/books/besorah-mattityahu.md",
+      "content/bashah/practices/seuda-adon.md",
+      "content/bashah/terminology/bsora.md"
     ],
     "icon": "default.png"
   },
   {
     "path": "content/bashah/events/shavuot-ruach.md",
     "title": "shavuot ruach",
-    "topic": "",
+    "topic": "Событие «Шавуот с Руахом» (Шавуот Руах) — излитие Руах ХаКодеша, рождение кехиллы",
     "category": "БаШаХ",
     "subcategory": "События",
     "related": [
-      "content/tanakh/events/[событие].md",
-      "content/tanakh/persons/[личность].md",
-      "content/tanakh/books/[книга].md"
+      "content/bashah/events/petach-kefas.md",
+      "content/bashah/events/beit-chananyah.md",
+      "content/bashah/practices/shavuot.md",
+      "content/bashah/terminology/ruach-hakodesh.md"
     ],
     "icon": "default.png"
   },
@@ -3424,6 +3437,19 @@
     "icon": "torch.png"
   },
   {
+    "path": "content/bashah/persons/andrew.md",
+    "title": "andrew",
+    "topic": "Личность Андрея (Шимона) — апостол, первый призванный, брат Кефы",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/keifa.md",
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/events/shavuot-ruach.md"
+    ],
+    "icon": "default.png"
+  },
+  {
     "path": "content/bashah/persons/andrey.md",
     "title": "andrey",
     "topic": "",
@@ -3450,15 +3476,27 @@
     "icon": "default.png"
   },
   {
-    "path": "content/bashah/persons/chananyah.md",
-    "title": "chananyah",
-    "topic": "",
+    "path": "content/bashah/persons/barnabas.md",
+    "title": "barnabas",
+    "topic": "Личность Варнавы — апостол, «сын утешения», спутник Шауля",
     "category": "БаШаХ",
     "subcategory": "Личности",
     "related": [
-      "content/tanakh/persons/[личность].md",
-      "content/tanakh/books/[книга].md",
-      "content/terminology/[термин].md"
+      "content/bashah/persons/shaul.md",
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/events/shavuot-ruach.md"
+    ],
+    "icon": "default.png"
+  },
+  {
+    "path": "content/bashah/persons/chananyah.md",
+    "title": "chananyah",
+    "topic": "Личность Анании (Ханании) — верный ученик в Дамаске, исцеливший Шауля",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/events/beit-chananyah.md",
+      "content/bashah/persons/shaul.md"
     ],
     "icon": "default.png"
   },
@@ -3478,26 +3516,26 @@
   {
     "path": "content/bashah/persons/keifa.md",
     "title": "keifa",
-    "topic": "",
+    "topic": "Личность Кефы (Шимона, Петра) — апостол, «камень», первый пастор кехиллы",
     "category": "БаШаХ",
     "subcategory": "Личности",
     "related": [
-      "content/tanakh/persons/[личность].md",
-      "content/tanakh/books/[книга].md",
-      "content/terminology/[термин].md"
+      "content/bashah/persons/andrew.md",
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/events/shavuot-ruach.md"
     ],
     "icon": "default.png"
   },
   {
     "path": "content/bashah/persons/luka.md",
     "title": "luka",
-    "topic": "",
+    "topic": "Личность Луки (Лукаса) — автор Евангелия и Деяний, врач, спутник Шаула",
     "category": "БаШаХ",
     "subcategory": "Личности",
     "related": [
-      "content/tanakh/persons/[личность].md",
-      "content/tanakh/books/[книга].md",
-      "content/terminology/[термин].md"
+      "content/bashah/books/besorah-luka.md",
+      "content/bashah/books/maasei-shlichim.md",
+      "content/bashah/persons/shaul.md"
     ],
     "icon": "default.png"
   },
@@ -3528,6 +3566,21 @@
     "icon": "default.png"
   },
   {
+    "path": "content/bashah/persons/matityahu.md",
+    "title": "matityahu",
+    "topic": "Личность Матитьягу (Матфея) — апостол, мытарь, автор первой Бесоры",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/books/besorah-mattityahu.md",
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/persons/keifa.md",
+      "content/bashah/persons/yaakov.md",
+      "content/bashah/events/shavuot-ruach.md"
+    ],
+    "icon": "default.png"
+  },
+  {
     "path": "content/bashah/persons/mattityahu-levi.md",
     "title": "mattityahu levi",
     "topic": "",
@@ -3550,6 +3603,21 @@
       "content/tanakh/persons/[личность].md",
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
+    ],
+    "icon": "default.png"
+  },
+  {
+    "path": "content/bashah/persons/miriam.md",
+    "title": "miriam",
+    "topic": "Личность Мирьям (Марии) — мать Йешуа, верная ученица, пример послушания",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/persons/yochanan.md",
+      "content/bashah/persons/yaakov.md",
+      "content/bashah/events/yeshua-birth.md",
+      "content/bashah/events/yeshua-crucifixion.md"
     ],
     "icon": "default.png"
   },
@@ -3593,6 +3661,33 @@
     "icon": "default.png"
   },
   {
+    "path": "content/bashah/persons/natanel.md",
+    "title": "natanel",
+    "topic": "Личность Нафанаила (Варфоломея) — апостол, из Каны Галилейской, искренний искатель",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/philip.md",
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/events/shavuot-ruach.md"
+    ],
+    "icon": "default.png"
+  },
+  {
+    "path": "content/bashah/persons/philip.md",
+    "title": "philip",
+    "topic": "Личность Филиппа — апостол, из Вифсаиды, привёдший Нафанаила к Йешуа",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/persons/andrew.md",
+      "content/bashah/persons/natanel.md",
+      "content/bashah/events/shavuot-ruach.md"
+    ],
+    "icon": "default.png"
+  },
+  {
     "path": "content/bashah/persons/philipus.md",
     "title": "philipus",
     "topic": "",
@@ -3608,13 +3703,13 @@
   {
     "path": "content/bashah/persons/shaul.md",
     "title": "shaul",
-    "topic": "",
+    "topic": "Личность Шауля (Павла) — апостол к народам, автор 13 посланий, бывший гонитель кехиллы",
     "category": "БаШаХ",
     "subcategory": "Личности",
     "related": [
-      "content/tanakh/persons/[личность].md",
-      "content/tanakh/books/[книга].md",
-      "content/terminology/[термин].md"
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/persons/keifa.md",
+      "content/bashah/events/shavuot-ruach.md"
     ],
     "icon": "default.png"
   },
@@ -3632,6 +3727,19 @@
     "icon": "default.png"
   },
   {
+    "path": "content/bashah/persons/shimon-zealot.md",
+    "title": "shimon zealot",
+    "topic": "Личность Шимона Зилота — апостол, «ревнитель», из Каны Галилейской",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/persons/natanel.md",
+      "content/bashah/events/shavuot-ruach.md"
+    ],
+    "icon": "default.png"
+  },
+  {
     "path": "content/bashah/persons/shoshannah.md",
     "title": "shoshannah",
     "topic": "",
@@ -3645,15 +3753,28 @@
     "icon": "default.png"
   },
   {
-    "path": "content/bashah/persons/toma.md",
-    "title": "toma",
-    "topic": "",
+    "path": "content/bashah/persons/thaddaeus.md",
+    "title": "thaddaeus",
+    "topic": "Личность Фаддея (Иуды, сына Якова) — апостол, «смелое сердце»",
     "category": "БаШаХ",
     "subcategory": "Личности",
     "related": [
-      "content/tanakh/persons/[личность].md",
-      "content/tanakh/books/[книга].md",
-      "content/terminology/[термин].md"
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/persons/yaakov-alphaeus.md",
+      "content/bashah/events/shavuot-ruach.md"
+    ],
+    "icon": "default.png"
+  },
+  {
+    "path": "content/bashah/persons/toma.md",
+    "title": "toma",
+    "topic": "Личность Томы (Фомы) — апостол, «близнец», сомневавшийся, исповедовавший Йешуа как Адонай",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/persons/keifa.md",
+      "content/bashah/events/yeshua-resurrection.md"
     ],
     "icon": "default.png"
   },
@@ -3671,6 +3792,32 @@
     "icon": "default.png"
   },
   {
+    "path": "content/bashah/persons/yaakov-alphaeus.md",
+    "title": "yaakov alphaeus",
+    "topic": "Личность Якова Алфеева — апостол, сын Алфея, брат Матитьягу",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/matityahu.md",
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/events/shavuot-ruach.md"
+    ],
+    "icon": "default.png"
+  },
+  {
+    "path": "content/bashah/persons/yaakov-brother-of-yeshua.md",
+    "title": "yaakov brother of yeshua",
+    "topic": "Личность Якова, брата Йешуа — лидер кехиллы в Йерушалаиме, автор послания",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/persons/miriam.md",
+      "content/bashah/events/shavuot-ruach.md"
+    ],
+    "icon": "default.png"
+  },
+  {
     "path": "content/bashah/persons/yaakov-shlichim.md",
     "title": "yaakov shlichim",
     "topic": "",
@@ -3680,6 +3827,33 @@
       "content/tanakh/persons/[личность].md",
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
+    ],
+    "icon": "default.png"
+  },
+  {
+    "path": "content/bashah/persons/yaakov-zebedee.md",
+    "title": "yaakov zebedee",
+    "topic": "Личность Якова Зеведеева — апостол, сын Зеведея, брат Йоханана, «сын грозы»",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/yochanan.md",
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/events/shavuot-ruach.md"
+    ],
+    "icon": "default.png"
+  },
+  {
+    "path": "content/bashah/persons/yaakov.md",
+    "title": "yaakov",
+    "topic": "Личность Якова (Якова Зеведеева) — апостол, первый мученик, сын Зеведея, брат Йоханана",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/yochanan.md",
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/persons/keifa.md",
+      "content/bashah/events/shavuot-ruach.md"
     ],
     "icon": "default.png"
   },
@@ -3697,6 +3871,38 @@
     "icon": "default.png"
   },
   {
+    "path": "content/bashah/persons/yeshua.md",
+    "title": "yeshua",
+    "topic": "Личность Йешуа (Йешуа Машиаха) — Сын Божий, Машиах, Спаситель, основатель кехиллы",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/books/besorah-mattityahu.md",
+      "content/bashah/books/besorah-markus.md",
+      "content/bashah/books/besorah-luka.md",
+      "content/bashah/books/besorah-yohanan.md",
+      "content/bashah/events/shavuot-ruach.md",
+      "content/bashah/terminology/bsora.md",
+      "content/bashah/terminology/kehillah.md",
+      "content/bashah/terminology/ruach.md",
+      "content/terminology/mashiach.md"
+    ],
+    "icon": "default.png"
+  },
+  {
+    "path": "content/bashah/persons/yhuda-iskariot.md",
+    "title": "yhuda iskariot",
+    "topic": "Линость Иуды Искариота — апостол, предатель, «сын погибели»",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/events/yeshua-crucifixion.md",
+      "content/bashah/events/yeshua-arrest.md"
+    ],
+    "icon": "default.png"
+  },
+  {
     "path": "content/bashah/persons/yochanan-kohen.md",
     "title": "yochanan kohen",
     "topic": "",
@@ -3706,6 +3912,20 @@
       "content/tanakh/persons/[личность].md",
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
+    ],
+    "icon": "default.png"
+  },
+  {
+    "path": "content/bashah/persons/yochanan.md",
+    "title": "yochanan",
+    "topic": "Личность Йоханана (Иоанна) — апостол, сын Зеведея, брат Якова, «ученик, которого любил Йешуа»",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/yaakov-zebedee.md",
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/books/besorah-yochanan.md",
+      "content/bashah/events/shavuot-ruach.md"
     ],
     "icon": "default.png"
   },
@@ -3732,6 +3952,19 @@
       "content/tanakh/persons/[личность].md",
       "content/tanakh/books/[книга].md",
       "content/terminology/[термин].md"
+    ],
+    "icon": "default.png"
+  },
+  {
+    "path": "content/bashah/persons/yosef.md",
+    "title": "yosef",
+    "topic": "Личность Йосефа — муж Мирьям, плотник, опекун Йешуа, из дома Давида",
+    "category": "БаШаХ",
+    "subcategory": "Личности",
+    "related": [
+      "content/bashah/persons/miriam.md",
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/events/yeshua-birth.md"
     ],
     "icon": "default.png"
   },
@@ -3851,26 +4084,44 @@
   {
     "path": "content/bashah/terminology/bsora.md",
     "title": "bsora",
-    "topic": "",
+    "topic": "Термин «бсора» (благая весть) — этимология, использование в ТаНаХе и БаШaХе, связь с Машиахом",
     "category": "БаШаХ",
     "subcategory": "terminology",
     "related": [
-      "content/terminology/[термин-1].md",
-      "content/terminology/[термин-2].md",
-      "content/terminology/[термин-3].md"
+      "content/bashah/books/besorah-luka.md",
+      "content/bashah/books/besorah-mattityahu.md",
+      "content/bashah/books/besorah-markus.md",
+      "content/bashah/books/besorah-yohanan.md",
+      "content/bashah/terminology/mashiach.md"
     ],
     "icon": "scroll.png"
   },
   {
     "path": "content/bashah/terminology/kehillah.md",
     "title": "kehillah",
-    "topic": "",
+    "topic": "Термин «кехилла» (собрание) — этимология, использование в ТаНаХе и БаШaХе, связь с Машиахом",
     "category": "БаШаХ",
     "subcategory": "terminology",
     "related": [
-      "content/terminology/[термин-1].md",
-      "content/terminology/[термин-2].md",
-      "content/terminology/[термин-3].md"
+      "content/bashah/events/petach-kefas.md",
+      "content/bashah/events/shavuot-ruach.md",
+      "content/bashah/terminology/mashiach.md",
+      "content/bashah/terminology/bsora.md"
+    ],
+    "icon": "scroll.png"
+  },
+  {
+    "path": "content/bashah/terminology/mashiach.md",
+    "title": "mashiach",
+    "topic": "Термин «Машиах» (помазанный) — этимология, использование в ТаНаХе и БаШaХе, связь с Йешуа",
+    "category": "БаШаХ",
+    "subcategory": "terminology",
+    "related": [
+      "content/bashah/persons/yeshua.md",
+      "content/bashah/terminology/bsora.md",
+      "content/bashah/terminology/kehillah.md",
+      "content/bashah/terminology/ruach.md",
+      "content/terminology/mashiach.md"
     ],
     "icon": "scroll.png"
   },
@@ -3884,6 +4135,20 @@
       "content/terminology/[термин-1].md",
       "content/terminology/[термин-2].md",
       "content/terminology/[термин-3].md"
+    ],
+    "icon": "scroll.png"
+  },
+  {
+    "path": "content/bashah/terminology/ruach.md",
+    "title": "ruach",
+    "topic": "Термин «руах» (дух) — этимология, использование в ТаНаХе и БаШaХе, связь с Машиахом",
+    "category": "БаШаХ",
+    "subcategory": "terminology",
+    "related": [
+      "content/bashah/events/shavuot-ruach.md",
+      "content/bashah/terminology/bsora.md",
+      "content/bashah/terminology/kehillah.md",
+      "content/terminology/mashiach.md"
     ],
     "icon": "scroll.png"
   },
@@ -9351,6 +9616,15 @@
     "icon": "book.png"
   },
   {
+    "path": "content/researches/archive/antichrist-exposed.md",
+    "title": "ἀντίχριστος — АНТИХРИСТ: КАТОЛИЧЕСКАЯ ВЫДУМКА ИЛИ АНТИМАШИАХ?",
+    "topic": "Разоблачение концепции «антихриста» — католическая выдумка или библейский антимашиах?",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
     "path": "content/researches/archive/bavel-layer.md",
     "title": "ВАВИЛОНСКИЙ СЛОЙ В ТАНАХЕ: ЧТО ПРИШЛО ИЗ ПЛЕНА",
     "topic": "Исследование вавилонского культурного слоя, проникшего в иудаизм во время плена и после него. Что в ",
@@ -9378,6 +9652,15 @@
     "path": "content/researches/archive/ded-moroz-karachun.md",
     "title": "Дед Мороз = Карачун",
     "topic": "Дед Мороз = Карачун",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/archive/demons-exposed.md",
+    "title": "שֵׁדִים — ДЕМОНЫ: МИСТИФИКАЦИЯ УПОРЯДОЧЕННОЕ ЦЕЛОЕ → סֵדֶר — ПОРЯДОК. ПОДМЕНА: П",
+    "topic": "Разоблачение демонологии — в ТаНаХе нет демонов. Полный разбор шедим, сеирим, лилит, руах раа, руах ",
     "category": "Исследования",
     "subcategory": "Архив",
     "related": [],
@@ -9467,6 +9750,15 @@
       "instructions/exposure/exposure-bavel.md",
       "content/tanakh/persons/dvorah.md"
     ],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/archive/masoretic-sons-elohim.md",
+    "title": "ДВАРИМ 32:8 — МАСОРЕТСКАЯ ПОДМЕНА: СЫНЫ ЭЛОhИМ vs СЫНЫ ИЗРАИЛЯ",
+    "topic": "Разоблачение масоретской правки в Дварим 32:8. Замена «сынов Элоhим» на «сынов Израиля» как инструме",
+    "category": "Исследования",
+    "subcategory": "Архив",
+    "related": [],
     "icon": "book.png"
   },
   {
@@ -10436,6 +10728,34 @@
     "icon": "book.png"
   },
   {
+    "path": "content/researches/practices/aliyah-laregel.md",
+    "title": "Алия ла-Регель — עֲלִיָּה לָרֶגֶל",
+    "topic": "Практика «Алия ла-Регель» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/korban-pesach.md",
+      "content/practices/shavuot-practice.md",
+      "content/practices/sukkot.md",
+      "content/terminology/моадим.md"
+    ],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/brit-milah.md",
+    "title": "Брит Мила — בְּרִית מִילָה",
+    "topic": "Практика «Брит Мила» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/tvilah.md",
+      "content/practices/korban-pesach.md",
+      "content/terminology/союз.md",
+      "content/tanakh/persons/avraham.md"
+    ],
+    "icon": "book.png"
+  },
+  {
     "path": "content/researches/practices/dibur-tahor.md",
     "title": "דִּבּוּר טָהוֹר — ЧИСТАЯ РЕЧЬ",
     "topic": "Как очистить речь от религионимов — практическое руководство",
@@ -10463,6 +10783,33 @@
     "icon": "book.png"
   },
   {
+    "path": "content/researches/practices/kashrut.md",
+    "title": "Кашрут — כַּשְׁרוּת",
+    "topic": "Практика «Кашрут» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/korban-pesach.md",
+      "content/practices/tsom.md",
+      "content/terminology/кашер.md",
+      "content/terminology/тахор.md"
+    ],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/korban-pesach.md",
+    "title": "Корбан Песах — קָרְבַּן פֶּסַח",
+    "topic": "Практика «Корбан Песах» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/brit-milah.md",
+      "content/practices/shavuot-practice.md",
+      "content/practices/sukkot.md"
+    ],
+    "icon": "book.png"
+  },
+  {
     "path": "content/researches/practices/moadei-yhwh.md",
     "title": "מוֹעֲדֵי יְהוָה — МОАДИМ ЯХВЕ",
     "topic": "Моадим Яхве — назначенные времена, их смысл и отличие от языческих торжеств",
@@ -10484,6 +10831,125 @@
     "path": "content/researches/practices/shabbat-hayom.md",
     "title": "שַׁבָּת הַיּוֹם — ... СЕГОДНЯ",
     "topic": "Шаббат сегодня — как соблюдать вне Израиля, без синагоги, в изгнании",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/shabbat.md",
+    "title": "Йом Труа",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/shavuot-practice.md",
+    "title": "Шавуот — שָׁבוּעוֹת",
+    "topic": "Практика «Шавуот» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/korban-pesach.md",
+      "content/practices/aliyah-laregel.md",
+      "content/practices/sukkot.md"
+    ],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/shemittah.md",
+    "title": "Шмитта — שְׁמִטָּה",
+    "topic": "Практика «Шмитта» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/yovel.md",
+      "content/practices/shabbat.md",
+      "content/practices/tsedakah.md"
+    ],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/sukkot.md",
+    "title": "Суккот — סֻכּוֹת",
+    "topic": "Практика «Суккот» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/aliyah-laregel.md",
+      "content/practices/shavuot-practice.md",
+      "content/practices/korban-pesach.md"
+    ],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/tfilah.md",
+    "title": "Тфила — תְּפִלָּה",
+    "topic": "Практика «Тфила» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/tsom.md",
+      "content/practices/shabbat.md",
+      "content/terminology/тфила.md"
+    ],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/tsedakah.md",
+    "title": "Цдака — צְדָקָה",
+    "topic": "Практика «Цдака» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [
+      "content/practices/shemittah.md",
+      "content/practices/yovel.md",
+      "content/terminology/цдака.md"
+    ],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/tsom.md",
+    "title": "Цом — צוֹם",
+    "topic": "Практика «Цом» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/tvilah.md",
+    "title": "Твила — טְבִילָה",
+    "topic": "Практика «Твила» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/yom-kippur.md",
+    "title": "Йом Кипур — יוֹם כִּפּוּר",
+    "topic": "Практика «Йом Кипур» — как было в ТаНаХе, как исказилось, как восстановить",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/yom-truah.md",
+    "title": "test",
+    "topic": "",
+    "category": "Исследования",
+    "subcategory": "Практики",
+    "related": [],
+    "icon": "book.png"
+  },
+  {
+    "path": "content/researches/practices/yovel.md",
+    "title": "Йовель — יוֹבֵל",
+    "topic": "Практика «Йовель» — как было в ТаНаХе, как исказилось, как восстановить",
     "category": "Исследования",
     "subcategory": "Практики",
     "related": [],
@@ -14456,206 +14922,5 @@
     "subcategory": "",
     "related": [],
     "icon": "lamp.png"
-  },
-  {
-    "path": "content/practices/aliyah-laregel.md",
-    "title": "Алия ла-Регель — עֲלִיָּה לָרֶגֶל",
-    "topic": "Практика «Алия ла-Регель» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [
-      "content/practices/korban-pesach.md",
-      "content/practices/shavuot-practice.md",
-      "content/practices/sukkot.md",
-      "content/terminology/моадим.md"
-    ],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/brit-milah.md",
-    "title": "Брит Мила — בְּרִית מִילָה",
-    "topic": "Практика «Брит Мила» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [
-      "content/practices/tvilah.md",
-      "content/practices/korban-pesach.md",
-      "content/terminology/союз.md",
-      "content/tanakh/persons/avraham.md"
-    ],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/kashrut.md",
-    "title": "Кашрут — כַּשְׁרוּת",
-    "topic": "Практика «Кашрут» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [
-      "content/practices/korban-pesach.md",
-      "content/practices/tsom.md",
-      "content/terminology/кашер.md",
-      "content/terminology/тахор.md"
-    ],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/korban-pesach.md",
-    "title": "Корбан Песах — קָרְבַּן פֶּסַח",
-    "topic": "Практика «Корбан Песах» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [
-      "content/practices/brit-milah.md",
-      "content/practices/shavuot-practice.md",
-      "content/practices/sukkot.md"
-    ],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/shabbat.md",
-    "title": "Йом Труа",
-    "topic": "",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/shavuot-practice.md",
-    "title": "Шавуот — שָׁבוּעוֹת",
-    "topic": "Практика «Шавуот» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [
-      "content/practices/korban-pesach.md",
-      "content/practices/aliyah-laregel.md",
-      "content/practices/sukkot.md"
-    ],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/shemittah.md",
-    "title": "Шмитта — שְׁמִטָּה",
-    "topic": "Практика «Шмитта» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [
-      "content/practices/yovel.md",
-      "content/practices/shabbat.md",
-      "content/practices/tsedakah.md"
-    ],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/sukkot.md",
-    "title": "Суккот — סֻכּוֹת",
-    "topic": "Практика «Суккот» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [
-      "content/practices/aliyah-laregel.md",
-      "content/practices/shavuot-practice.md",
-      "content/practices/korban-pesach.md"
-    ],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/tfilah.md",
-    "title": "Тфила — תְּפִלָּה",
-    "topic": "Практика «Тфила» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [
-      "content/practices/tsom.md",
-      "content/practices/shabbat.md",
-      "content/terminology/тфила.md"
-    ],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/tsedakah.md",
-    "title": "Цдака — צְדָקָה",
-    "topic": "Практика «Цдака» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [
-      "content/practices/shemittah.md",
-      "content/practices/yovel.md",
-      "content/terminology/цдака.md"
-    ],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/tsom.md",
-    "title": "Цом — צוֹם",
-    "topic": "Практика «Цом» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/tvilah.md",
-    "title": "Твила — טְבִילָה",
-    "topic": "Практика «Твила» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/yom-kippur.md",
-    "title": "Йом Кипур — יוֹם כִּפּוּר",
-    "topic": "Практика «Йом Кипур» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/yom-truah.md",
-    "title": "test",
-    "topic": "",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/practices/yovel.md",
-    "title": "Йовель — יוֹבֵל",
-    "topic": "Практика «Йовель» — как было в ТаНаХе, как исказилось, как восстановить",
-    "category": "Практики",
-    "subcategory": "",
-    "related": [],
-    "icon": "shield.png"
-  },
-  {
-    "path": "content/exposed/antichrist-exposed.md",
-    "title": "ἀντίχριστος — АНТИХРИСТ: КАТОЛИЧЕСКАЯ ВЫДУМКА ИЛИ АНТИМАШИАХ?",
-    "topic": "Разоблачение концепции «антихриста» — католическая выдумка или библейский антимашиах?",
-    "category": "Раскрытое",
-    "subcategory": "",
-    "related": [],
-    "icon": "sword.png"
-  },
-  {
-    "path": "content/exposed/demons-exposed.md",
-    "title": "שֵׁדִים — ДЕМОНЫ: МИСТИФИКАЦИЯ УПОРЯДОЧЕННОЕ ЦЕЛОЕ → סֵדֶר — ПОРЯДОК. ПОДМЕНА: П",
-    "topic": "Разоблачение демонологии — в ТаНаХе нет демонов. Полный разбор шедим, сеирим, лилит, руах раа, руах ",
-    "category": "Раскрытое",
-    "subcategory": "",
-    "related": [],
-    "icon": "sword.png"
-  },
-  {
-    "path": "content/exposed/masoretic-sons-elohim.md",
-    "title": "ДВАРИМ 32:8 — МАСОРЕТСКАЯ ПОДМЕНА: СЫНЫ ЭЛОhИМ vs СЫНЫ ИЗРАИЛЯ",
-    "topic": "Разоблачение масоретской правки в Дварим 32:8. Замена «сынов Элоhим» на «сынов Израиля» как инструме",
-    "category": "Раскрытое",
-    "subcategory": "",
-    "related": [],
-    "icon": "sword.png"
   }
 ]
