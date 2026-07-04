@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Генератор исследовательских досок — Golem</title>
+<meta name="description" content="Создавайте визуальные исследовательские доски для анализа улик и выводов">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="generator.css">
+<!-- Handwritten font -->
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<!-- html2canvas for PNG export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<!-- Header -->
+<header style="background: #2c1810; border-bottom: 1px solid #4a3020; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;">
+  <div>
+    <a href="../index.html" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; font-weight: 700; color: #b8860b; text-decoration: none; letter-spacing: 2px;">ГОЛЕМ</a>
+    <span style="color: #8a7a6a; font-size: 14px; margin-left: 12px; font-family: 'EB Garamond', Georgia, serif;">/ Генератор досок</span>
+  </div>
+  <button class="hamburger-btn" onclick="toggleSidePanel()" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Main Content -->
+<div style="display: flex; min-height: calc(100vh - 60px);">
+  
+  <!-- Left: Form -->
+  <div id="content" style="flex: 1; padding: 30px; max-width: 50%; overflow-y: auto;">
+    <h1 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; font-weight: 700; font-style: italic; color: #b8860b; margin-bottom: 8px; padding-bottom: 12px; border-bottom: 2px solid #d4c4a8;">
+      Генератор исследовательских досок
+    </h1>
+    <p style="color: #5c4a3a; margin-bottom: 24px; font-size: 16px;">
+      Создавайте визуальные доски для анализа улик, выводов и вложений. Экспортируйте в PNG, PDF или TXT.
+    </p>
+
+    <form id="board-form">
+      <!-- Board Title -->
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; font-weight: 600; margin-bottom: 6px; color: #2c1810; font-size: 16px;">
+          Заголовок доски <span style="color: #c0392b;">*</span>
+        </label>
+        <input type="text" id="board-title" required placeholder="Например: Анализ перевода Берешит 1:1"
+          style="width: 100%; padding: 10px 12px; font-family: 'EB Garamond', Georgia, serif; font-size: 16px; border: 1px solid #d4c4a8; border-radius: 4px; background: #faf3e0; color: #2c1810; outline: none; transition: border-color 0.3s;"
+          onfocus="this.style.borderColor='#b8860b'" onblur="this.style.borderColor='#d4c4a8'">
+      </div>
+
+      <!-- Main Conclusion -->
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; font-weight: 600; margin-bottom: 6px; color: #2c1810; font-size: 16px;">
+          Вывод / главная улика <span style="color: #c0392b;">*</span>
+        </label>
+        <textarea id="main-conclusion" required rows="3" placeholder="Краткий вывод или основная улика..."
+          style="width: 100%; padding: 10px 12px; font-family: 'EB Garamond', Georgia, serif; font-size: 16px; border: 1px solid #d4c4a8; border-radius: 4px; background: #faf3e0; color: #2c1810; outline: none; resize: vertical; transition: border-color 0.3s;"
+          onfocus="this.style.borderColor='#b8860b'" onblur="this.style.borderColor='#d4c4a8'"></textarea>
+      </div>
+
+      <!-- Evidence Block -->
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #2c1810; font-size: 16px;">
+          Улики
+        </label>
+        <div id="evidence-list"></div>
+        <button type="button" onclick="addEvidence()" 
+          style="margin-top: 8px; padding: 8px 16px; background: #b8860b; color: #faf3e0; border: none; border-radius: 4px; cursor: pointer; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; font-weight: 600; transition: background 0.3s;"
+          onmouseover="this.style.background='#8b6508'" onmouseout="this.style.background='#b8860b'">
+          + Добавить улику
+        </button>
+      </div>
+
+      <!-- Attachments Block -->
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #2c1810; font-size: 16px;">
+          Вложения
+        </label>
+        <div id="attachments-list"></div>
+        <button type="button" onclick="addAttachment()"
+          style="margin-top: 8px; padding: 8px 16px; background: #b8860b; color: #faf3e0; border: none; border-radius: 4px; cursor: pointer; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; font-weight: 600; transition: background 0.3s;"
+          onmouseover="this.style.background='#8b6508'" onmouseout="this.style.background='#b8860b'">
+          + Добавить вложение
+        </button>
+      </div>
+
+      <!-- Neural Network Settings -->
+      <div style="margin-bottom: 20px; padding: 16px; background: #faf3e0; border: 1px solid #d4c4a8; border-radius: 4px;">
+        <h3 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 600; color: #2c1810; margin-bottom: 12px;">
+          Настройки визуализации
+        </h3>
+        
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-weight: 600; margin-bottom: 6px; color: #2c1810; font-size: 14px;">
+            Модель нейросети
+          </label>
+          <select id="nn-model" onchange="updateNNSettings()"
+            style="width: 100%; padding: 8px 10px; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; border: 1px solid #d4c4a8; border-radius: 4px; background: #faf3e0; color: #2c1810; outline: none;">
+            <option value="none">Без генерации (только доска)</option>
+            <option value="local">Локальная модель (ComfyUI / SD WebUI)</option>
+            <option value="dalle">DALL-E (OpenAI API)</option>
+            <option value="midjourney">Midjourney (через API)</option>
+            <option value="openrouter">OpenRouter (разные модели)</option>
+          </select>
+        </div>
+
+        <div id="nn-settings" style="display: none;">
+          <div style="margin-bottom: 10px;">
+            <label style="display: block; font-weight: 600; margin-bottom: 4px; color: #2c1810; font-size: 14px;">
+              API ключ
+            </label>
+            <input type="password" id="nn-api-key" placeholder="Введите API ключ..."
+              style="width: 100%; padding: 8px 10px; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; border: 1px solid #d4c4a8; border-radius: 4px; background: #faf3e0; color: #2c1810; outline: none;">
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label style="display: block; font-weight: 600; margin-bottom: 4px; color: #2c1810; font-size: 14px;">
+              URL эндпоинта
+            </label>
+            <input type="text" id="nn-endpoint" placeholder="http://localhost:8188 (для локальной)"
+              style="width: 100%; padding: 8px 10px; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; border: 1px solid #d4c4a8; border-radius: 4px; background: #faf3e0; color: #2c1810; outline: none;">
+          </div>
+          <div style="display: flex; gap: 12px; margin-bottom: 10px;">
+            <div style="flex: 1;">
+              <label style="display: block; font-weight: 600; margin-bottom: 4px; color: #2c1810; font-size: 14px;">
+                Разрешение
+              </label>
+              <select id="nn-resolution"
+                style="width: 100%; padding: 8px 10px; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; border: 1px solid #d4c4a8; border-radius: 4px; background: #faf3e0; color: #2c1810; outline: none;">
+                <option value="1024x1024">1024x1024</option>
+                <option value="1024x768">1024x768</option>
+                <option value="768x1024">768x1024</option>
+                <option value="512x512">512x512</option>
+              </select>
+            </div>
+            <div style="flex: 1;">
+              <label style="display: block; font-weight: 600; margin-bottom: 4px; color: #2c1810; font-size: 14px;">
+                Стиль
+              </label>
+              <select id="nn-style"
+                style="width: 100%; padding: 8px 10px; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; border: 1px solid #d4c4a8; border-radius: 4px; background: #faf3e0; color: #2c1810; outline: none;">
+                <option value="ancient">Древний манускрипт</option>
+                <option value="parchment">Пергамент</option>
+                <option value="dark">Тёмный скрипторий</option>
+                <option value="modern">Современный</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;">
+        <button type="button" onclick="generateBoard()"
+          style="flex: 1; min-width: 200px; padding: 12px 24px; background: #c0392b; color: #faf3e0; border: none; border-radius: 4px; cursor: pointer; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; font-weight: 700; transition: background 0.3s;"
+          onmouseover="this.style.background='#a93226'" onmouseout="this.style.background='#c0392b'">
+          Сгенерировать доску
+        </button>
+        <button type="button" onclick="generateWithAI()" id="btn-generate-ai" style="display: none;"
+          style="flex: 1; min-width: 200px; padding: 12px 24px; background: #b8860b; color: #faf3e0; border: none; border-radius: 4px; cursor: pointer; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; font-weight: 700; transition: background 0.3s;"
+          onmouseover="this.style.background='#8b6508'" onmouseout="this.style.background='#b8860b'">
+          Сгенерировать изображение
+        </button>
+      </div>
+
+      <!-- Export Buttons -->
+      <div id="export-section" style="display: none; padding: 16px; background: #faf3e0; border: 1px solid #d4c4a8; border-radius: 4px;">
+        <h3 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 600; color: #2c1810; margin-bottom: 12px;">
+          Экспорт
+        </h3>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button type="button" onclick="exportPNG()"
+            style="padding: 10px 18px; background: #2c1810; color: #ede0c8; border: 1px solid #4a3020; border-radius: 4px; cursor: pointer; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; font-weight: 600; transition: all 0.3s;"
+            onmouseover="this.style.background='#b8860b'" onmouseout="this.style.background='#2c1810'">
+            📷 PNG
+          </button>
+          <button type="button" onclick="exportPDF()"
+            style="padding: 10px 18px; background: #2c1810; color: #ede0c8; border: 1px solid #4a3020; border-radius: 4px; cursor: pointer; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; font-weight: 600; transition: all 0.3s;"
+            onmouseover="this.style.background='#b8860b'" onmouseout="this.style.background='#2c1810'">
+            📄 PDF
+          </button>
+          <button type="button" onclick="exportTXT()"
+            style="padding: 10px 18px; background: #2c1810; color: #ede0c8; border: 1px solid #4a3020; border-radius: 4px; cursor: pointer; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; font-weight: 600; transition: all 0.3s;"
+            onmouseover="this.style.background='#b8860b'" onmouseout="this.style.background='#2c1810'">
+            📝 TXT
+          </button>
+          <button type="button" onclick="copyPrompt()"
+            style="padding: 10px 18px; background: #2c1810; color: #ede0c8; border: 1px solid #4a3020; border-radius: 4px; cursor: pointer; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; font-weight: 600; transition: all 0.3s;"
+            onmouseover="this.style.background='#b8860b'" onmouseout="this.style.background='#2c1810'">
+            📋 Копировать промпт
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Right: Visual Board Preview -->
+  <div style="flex: 1; padding: 30px; background: #d4c4a8; overflow-y: auto; border-left: 1px solid #b8a080;">
+    <h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; font-weight: 600; color: #2c1810; margin-bottom: 16px; text-align: center;">
+      Предпросмотр доски
+    </h2>
+    <div id="board-preview" style="display: none;">
+      <!-- Board will be rendered here -->
+    </div>
+    <div id="board-placeholder" style="text-align: center; padding: 60px 20px; color: #8a7a6a; font-style: italic; font-size: 16px;">
+      Заполните форму и нажмите «Сгенерировать доску», чтобы увидеть результат.
+    </div>
+    
+    <!-- Generated Prompt -->
+    <div id="prompt-section" style="display: none; margin-top: 24px; padding: 16px; background: #faf3e0; border: 1px solid #d4c4a8; border-radius: 4px;">
+      <h3 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; font-weight: 600; color: #2c1810; margin-bottom: 8px;">
+        Промпт для нейросети
+      </h3>
+      <pre id="generated-prompt" style="background: #2c1810; color: #ede0c8; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.6; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;"></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div id="copy-toast" style="position: fixed; top: 24px; left: 50%; transform: translateX(-50%); background: #2c1810; color: #ede0c8; padding: 10px 24px; font-size: 14px; font-family: 'EB Garamond', Georgia, serif; opacity: 0; pointer-events: none; z-index: 999; border-radius: 4px; border: 1px solid #b8860b; transition: opacity 0.4s ease;">
+  Скопировано!
+</div>
+
+<script src="../js/burger-menu.js"></script>
+<script src="generator.js"></script>
+</body>
+</html>

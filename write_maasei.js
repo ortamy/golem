@@ -1,0 +1,1 @@
+const fs=require("fs");const s=fs.readFileSync("content/bashah/books/besorah-markus.md","utf8");fs.writeFileSync("content/bashah/books/maasei-shlichim.md",s,"utf8");console.log("OK");

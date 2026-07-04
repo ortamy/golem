@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var isRTL = document.documentElement.dir === 'rtl';
     
     var menuTexts = {
-        ru: { home: 'Главная', tanakh: 'Чтение ТаНаХа', research: 'Исследования', methods: 'Методы разоблачения', dictionaries: 'Словари', methodology: 'Методология', about: 'О проекте', logo: 'ГОЛЕМ' },
-        en: { home: 'Home', tanakh: 'Tanakh Reading', research: 'Research', methods: 'Exposure Methods', dictionaries: 'Dictionaries', methodology: 'Methodology', about: 'About', logo: 'GOLEM' },
-        he: { home: 'ראשי', tanakh: 'קריאת תנ״ך', research: 'מחקר', methods: 'שיטות חשיפה', dictionaries: 'מילונים', methodology: 'מתודולוגיה', about: 'אודות', logo: 'גולם' }
+        ru: { home: 'Главная', tanakh: 'Чтение ТаНаХа', research: 'Исследования', methods: 'Методы разоблачения', dictionaries: 'Словари', methodology: 'Методология', tools: 'Инструменты', about: 'О проекте', logo: 'ГОЛЕМ' },
+        en: { home: 'Home', tanakh: 'Tanakh Reading', research: 'Research', methods: 'Exposure Methods', dictionaries: 'Dictionaries', methodology: 'Methodology', tools: 'Tools', about: 'About', logo: 'GOLEM' },
+        he: { home: 'ראשי', tanakh: 'קריאת תנ״ך', research: 'מחקר', methods: 'שיטות חשיפה', dictionaries: 'מילונים', methodology: 'מתודולוגיה', tools: 'כלים', about: 'אודות', logo: 'גולם' }
     };
     
     var texts = menuTexts[htmlLang] || menuTexts.ru;
@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '    <a href="' + prefix + 'research/methods.html">' + texts.methods + '</a>' +
         '    <a href="' + prefix + 'research/dictionaries.html">' + texts.dictionaries + '</a>' +
         '    <a href="' + prefix + 'research/methodology.html">' + texts.methodology + '</a>' +
+        '    <a href="' + prefix + 'tools/index.html">' + (texts.tools || 'Инструменты') + '</a>' +
         '    <a href="' + prefix + 'about/index.html">' + texts.about + '</a>' +
         '  </div>' +
         '  <div class="side-panel-lang-switcher">' + selectHTML + '</div>' +

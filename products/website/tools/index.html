@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Инструменты — Голем</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../style.css">
+<style>
+  /* ===== LANDING PAGE OVERRIDES ===== */
+  html { height: 100%; }
+  body { display: block !important; margin: 0; padding: 0; min-height: 100%; height: auto !important; }
+  
+  /* Top bar */
+  .top-bar {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: #2c1810; color: #ede0c8;
+    padding: 0 24px; height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 1000;
+    border-bottom: 1px solid #4a3020;
+  }
+  .top-bar .logo {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px; font-weight: 700; font-style: italic;
+    color: #b8860b; letter-spacing: 4px;
+  }
+  .top-bar .logo a { color: #b8860b; text-decoration: none; }
+  .hamburger-btn {
+    cursor: pointer; display: flex; flex-direction: column; gap: 5px; padding: 6px;
+    border: 1px solid #5c3a2a; border-radius: 4px; transition: border-color 0.3s;
+  }
+  .hamburger-btn:hover { border-color: #b8860b; }
+  .hamburger-btn span {
+    display: block; width: 20px; height: 2px; background: #ede0c8; border-radius: 1px;
+    transition: background 0.3s;
+  }
+  .hamburger-btn:hover span { background: #b8860b; }
+  
+  /* Main content */
+  .main-content {
+    padding: 80px 24px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Page header */
+  .page-header {
+    text-align: center;
+    padding: 60px 24px 40px;
+    background: #2c1810;
+    border-bottom: 1px solid #4a3020;
+    margin-bottom: 40px;
+  }
+  .page-header h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 42px; font-weight: 700; font-style: italic;
+    color: #b8860b; margin-bottom: 16px;
+    letter-spacing: 2px;
+  }
+  .page-header p {
+    font-size: 18px; line-height: 1.7;
+    color: #d4c4a8; max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  /* Tools grid */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  
+  /* Tool card */
+  .tool-card {
+    background: #faf3e0;
+    border: 1px solid #d4c4a8;
+    border-radius: 6px;
+    padding: 28px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 8px rgba(44, 24, 16, 0.08);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .tool-card:hover {
+    box-shadow: 3px 3px 14px rgba(44, 24, 16, 0.15);
+    transform: translateY(-3px);
+    border-color: #b8860b;
+  }
+  
+  .tool-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tool-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .tool-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 24px; font-weight: 700;
+    color: #2c1810; margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  
+  .tool-description {
+    font-size: 16px; line-height: 1.7;
+    color: #5c4a3a; margin-bottom: 20px;
+    flex: 1;
+  }
+  
+  .tool-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #b8860b;
+    color: #faf3e0;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 14px; font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid #b8860b;
+  }
+  .tool-link:hover {
+    background: #8b6508;
+    border-color: #8b6508;
+    transform: translateY(-1px);
+  }
+  
+  /* Coming soon badge */
+  .coming-soon {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  .coming-soon .tool-link {
+    background: #8a7a6a;
+    border-color: #8a7a6a;
+    cursor: not-allowed;
+  }
+  
+  /* Footer */
+  .site-footer {
+    background: #2c1810; color: #8a7a6a;
+    padding: 40px 24px 24px;
+    text-align: center;
+    border-top: 1px solid #4a3020;
+    margin-top: 60px;
+  }
+  .footer-links {
+    display: flex; justify-content: center;
+    gap: 20px; flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .footer-links a {
+    color: #b8860b; text-decoration: none;
+    font-size: 14px; letter-spacing: 1px;
+    font-family: 'EB Garamond', Georgia, serif;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .footer-links a:hover { border-bottom-color: #b8860b; }
+  .footer-copy {
+    font-size: 12px; letter-spacing: 2px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: #5c4a3a;
+  }
+  
+  /* Mobile adaptation */
+  @media (max-width: 768px) {
+    .page-header { padding: 40px 16px 30px; }
+    .page-header h1 { font-size: 28px; }
+    .page-header p { font-size: 16px; }
+    .main-content { padding: 60px 16px 30px; }
+    .tools-grid { grid-template-columns: 1fr; gap: 16px; }
+    .tool-card { padding: 20px; }
+    .tool-title { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<header class="top-bar">
+  <div class="logo"><a href="../index.html">ГОЛЕМ</a></div>
+  <div class="hamburger-btn" onclick="toggleSidePanel()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- Page header -->
+<div class="page-header">
+  <h1>◈ Инструменты проекта «Голем»</h1>
+  <p>
+    В этом разделе собраны инструменты для исследования ТаНаХа, 
+    анализа текстов и создания визуальных материалов. 
+    Каждый инструмент разработан для восстановления истины на основе ивритского оригинала.
+  </p>
+</div>
+
+<!-- Main content -->
+<div class="main-content">
+
+  <!-- Tools grid -->
+  <div class="tools-grid">
+    
+    <!-- Tool 1: Research Board Generator -->
+    <div class="tool-card">
+      <div class="tool-icon">
+        <img src="../assets/icons/research-board.svg" alt="Генератор исследовательских досок">
+      </div>
+      <div class="tool-title">Генератор исследовательских досок</div>
+      <div class="tool-description">
+        Создавайте визуальные исследовательские доски для анализа улик, выводов и вложений. 
+        Экспортируйте в PNG, PDF или TXT. Генерируйте промпты для нейросетей.
+      </div>
+      <a href="../research-board/generator.html" class="tool-link">Открыть инструмент →</a>
+    </div>
+    
+    <!-- Tool 2: Coming Soon -->
+    <div class="tool-card coming-soon">
+      <div class="tool-icon">
+        <img src="../assets/icons/tools.svg" alt="Чекер терминов">
+      </div>
+      <div class="tool-title">Чекер религионимов <span style="font-size: 12px; color: #c0392b;">(скоро)</span></div>
+      <div class="tool-description">
+        Автоматическая проверка текстов на подмены, искажения и переводческие ошибки. 
+        Сравнение оригиналов с переводами.
+      </div>
+      <a href="#" class="tool-link" onclick="alert('Инструмент в разработке'); return false;">Скоро →</a>
+    </div>
+    
+    <!-- Tool 3: Coming Soon -->
+    <div class="tool-card coming-soon">
+      <div class="tool-icon">
+        <img src="../assets/icons/tools.svg" alt="Конструктор подстрочника">
+      </div>
+      <div class="tool-title">Конструктор подстрочника <span style="font-size: 12px; color: #c0392b;">(скоро)</span></div>
+      <div class="tool-description">
+        Создавайте собственные подстрочники ТаНаХа с палео-ивритом, масоретским текстом, 
+        транслитерацией и переводом.
+      </div>
+      <a href="#" class="tool-link" onclick="alert('Инструмент в разработке'); return false;">Скоро →</a>
+    </div>
+    
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../index.html">Главная</a>
+    <a href="../research/index.html">Исследования</a>
+    <a href="../about/index.html">О проекте</a>
+    <a href="https://github.com/ortamy/golem">GitHub</a>
+  </div>
+  <div class="footer-copy">Проект «Голем» · Восстановление истины · Яхве один</div>
+</footer>
+
+<!-- Scripts -->
+<script src="../js/burger-menu.js"></script>
+<script src="../js/parser.js"></script>
+<script src="../js/state.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/ui.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>
