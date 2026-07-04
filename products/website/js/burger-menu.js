@@ -16,24 +16,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     var langOptions = {
         ru: [
-            { value: prefix + 'ru/index.html', label: 'RU', selected: htmlLang === 'ru' },
-            { value: prefix + 'en/index.html', label: 'EN', selected: htmlLang === 'en' },
-            { value: prefix + 'he/index.html', label: 'HE', selected: htmlLang === 'he' }
+            { value: '?lang=ru', label: 'RU', selected: htmlLang === 'ru' },
+            { value: '?lang=en', label: 'EN', selected: htmlLang === 'en' },
+            { value: '?lang=he', label: 'HE', selected: htmlLang === 'he' }
         ],
         en: [
-            { value: prefix + 'en/index.html', label: 'EN', selected: htmlLang === 'en' },
-            { value: prefix + 'ru/index.html', label: 'RU', selected: htmlLang === 'ru' },
-            { value: prefix + 'he/index.html', label: 'HE', selected: htmlLang === 'he' }
+            { value: '?lang=en', label: 'EN', selected: htmlLang === 'en' },
+            { value: '?lang=ru', label: 'RU', selected: htmlLang === 'ru' },
+            { value: '?lang=he', label: 'HE', selected: htmlLang === 'he' }
         ],
         he: [
-            { value: prefix + 'he/index.html', label: 'HE', selected: htmlLang === 'he' },
-            { value: prefix + 'ru/index.html', label: 'RU', selected: htmlLang === 'ru' },
-            { value: prefix + 'en/index.html', label: 'EN', selected: htmlLang === 'en' }
+            { value: '?lang=he', label: 'HE', selected: htmlLang === 'he' },
+            { value: '?lang=ru', label: 'RU', selected: htmlLang === 'ru' },
+            { value: '?lang=en', label: 'EN', selected: htmlLang === 'en' }
         ]
     };
     
     var options = langOptions[htmlLang] || langOptions.ru;
-    var selectHTML = '<select onchange="if(this.value) window.location.href=this.value;">';
+    var selectHTML = '<select onchange="if(this.value) GolemI18n.switchLanguage(this.value.split(\'=\')[1])">';
     options.forEach(function(opt) {
         selectHTML += '<option value="' + opt.value + '"' + (opt.selected ? ' selected' : '') + '>' + opt.label + '</option>';
     });

@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Голем — Свидетель Истины</title>
+<title data-i18n="pages.index.title">Голем — Свидетель Истины</title>
 <meta name="description" content="Проект «Голем» восстанавливает ТаНаХ на иврите и разоблачает подмены в переводах. Истина в оригинале.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="stylesheet" href="../style.css">
@@ -327,7 +327,7 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
 
 <!-- ===== ВЕРХНЯЯ ПАНЕЛЬ ===== -->
 <header class="top-bar">
-  <div class="logo"><a href="index.html">ГОЛЕМ</a></div>
+<div class="logo"><a href="index.html" data-i18n="site.name">ГОЛЕМ</a></div>
   <div class="hamburger-btn" onclick="toggleSidePanel()">
     <span></span><span></span><span></span>
   </div>
@@ -336,18 +336,18 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
 <!-- ===== СЕКЦИЯ 1 — ГЕРОЙ ===== -->
 <section class="hero">
   <div class="hero-content">
-    <h1>Истина — в оригинале.<br>Всё остальное — тени на стене пещеры.</h1>
-    <p>Проект «Голем» восстанавливает ТаНаХ на иврите и разоблачает подмены, внесённые греческим, латинским и синодальным переводами.</p>
+<h1 data-i18n="pages.index.hero_title">Истина — в оригинале.</h1>
+<p data-i18n="pages.index.hero_subtitle">Проект «Голем» восстанавливает ТаНаХ на иврите и разоблачает подмены, внесённые греческим, латинским и синодальным переводами.</p>
     <div class="hero-actions">
-      <a href="research/index.html" class="btn btn-primary">Начать исследование</a>
-      <a href="about/index.html" class="btn btn-secondary">О проекте</a>
+<a href="research/index.html" class="btn btn-primary" data-i18n="pages.index.cta_research">Начать исследование</a>
+<a href="about/index.html" class="btn btn-secondary" data-i18n="pages.index.cta_about">О проекте</a>
     </div>
   </div>
 </section>
 
 <!-- ===== СЕКЦИЯ 2 — ЧТО ТАКОЕ ПРОЕКТ ===== -->
 <section class="section">
-  <h2 class="section-title">Что такое проект «Голем»?</h2>
+<h2 class="section-title" data-i18n="pages.index.section1_title">Что такое проект «Голем»?</h2>
   <p>ТаНаХ — не Библия. Библия — это перевод, переписанный, отредактированный и приспособленный под нужды империй. Проект «Голем» возвращается к ивритскому оригиналу, чтобы увидеть текст таким, каким он был задуман.</p>
   <p>Система подменила Имя Яхве на «Господь», стёрла различие между «эль» (сила, мощь) и «элоhим» (судьи, властители), превратила «машиах» (помазанник) в титул, а «тору» — в «закон». Мы восстанавливаем каждое слово.</p>
   <p>Это не религия. Это возвращение к Источнику. К Истине, которая говорит сама за себя — на языке, на котором она была дана.</p>
@@ -356,7 +356,7 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
 <!-- ===== СЕКЦИЯ 3 — ЧТО ВЫ НАЙДЁТЕ ===== -->
 <section class="section section-dark">
   <div class="section-inner">
-    <h2 class="section-title" style="color:#b8860b; border-bottom-color:#5c3a2a;">Что вы найдёте на сайте?</h2>
+<h2 class="section-title" style="color:#b8860b; border-bottom-color:#5c3a2a;" data-i18n="pages.index.section2_title">Что вы найдёте на сайте?</h2>
     <div class="card-grid">
       <div class="card">
         <span class="card-icon">𐤎</span>
@@ -382,7 +382,7 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
 
 <!-- ===== СЕКЦИЯ 4 — КЛЮЧЕВЫЕ ИСТИНЫ ===== -->
 <section class="section">
-  <h2 class="section-title">Ключевые истины</h2>
+<h2 class="section-title" data-i18n="pages.index.section3_title">Ключевые истины</h2>
   <div class="theses">
     <div class="thesis">
       <span class="thesis-icon">𐤉</span>
@@ -410,7 +410,7 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
 <!-- ===== СЕКЦИЯ 5 — ДЛЯ КОГО ЭТО ===== -->
 <section class="section section-dark">
   <div class="section-inner">
-    <h2 class="section-title" style="color:#b8860b; border-bottom-color:#5c3a2a;">Для кого это?</h2>
+<h2 class="section-title" style="color:#b8860b; border-bottom-color:#5c3a2a;" data-i18n="pages.index.section4_title">Для кого это?</h2>
     <div class="card-grid">
       <div class="card">
         <span class="card-icon">𐤓</span>
@@ -479,6 +479,7 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
 <script src="../js/state.js"></script>
 <script src="../js/api.js"></script>
 <script src="../js/ui.js"></script>
+<script src="../js/i18n.js"></script>
 <script src="../app.js"></script>
 </body>
 </html>
