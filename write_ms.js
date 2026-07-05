@@ -1,1 +1,0 @@
-const fs=require("fs");const c=JSON.parse(fs.readFileSync("content.json","utf8"));
