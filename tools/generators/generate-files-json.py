@@ -12,12 +12,10 @@ SCAN_DIRS = [
     ("content/terminology", "Терминология"),
     ("content/tanakh", "ТаНаХ"),
     ("content/bashah", "БаШаХ"),
-    ("content/tzel", "Цель"),
     ("content/researches", "Исследования"),
     ("content/teachings", "Учения"),
     ("content/hebrew", "Изучение иврита"),
-    ("content/practices", "Практики"),
-    ("content/exposed", "Раскрытое")
+    ("content/paleo-hebrew", "Палео-иврит")
 ]
 
 IGNORE_FILES = {"README.md", "STRUCTURE.md", "GLOSSARY.md", "CHANGELOG.md"}
@@ -51,8 +49,11 @@ SUBCATEGORY_LABELS = {
     'systems': 'Системы',
     'tanakh': 'ТаНаХ',
     'adam': 'Адам',
+    'anatomy': 'Анатомия',
     'brit-nissuin': 'Брит-нисуин',
+    'creation': 'Творение',
     'elohim': 'Элоhим',
+    'geography': 'География',
     'hitgalut': 'Хитгалут',
     'kehillah': 'Кеhилла',
     'kelim': 'Келим',
@@ -62,6 +63,29 @@ SUBCATEGORY_LABELS = {
     'ruach': 'Руах',
     'shedim': 'Шедим',
     'tamid': 'Тамид',
+    # Подкатегории ruach
+    'behemot': 'Беhемот',
+    'chayot': 'Хайот',
+    'cholim': 'Холим',
+    'leshonot': 'Лешонот',
+    'levushim': 'Левушим',
+    'makot': 'Мако́т',
+    'matachot': 'Матахот',
+    'mavet': 'Мавет',
+    'meshalim': 'Мешалим',
+    'misparim': 'Миспарим',
+    'seor': 'Сеор',
+    'taharah': 'Таhара',
+    'techiah': 'Техия',
+    # Подкатегории shedim
+    'avonot': 'Авонóт',
+    'choshech': 'Хошех',
+    'kerav': 'Керав',
+    'nefilah': 'Нефила',
+    'rodefim': 'Родефим',
+    'ruchot-raot': 'Рухот раот',
+    'shemot-shedim': 'Шемот шедим',
+    'sheol': 'Шеол',
 }
 
 ICON_RULES = {

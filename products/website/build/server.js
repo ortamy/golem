@@ -15,6 +15,7 @@ const SCAN_DIRS = [
     { folder: 'content/researches', label: 'Исследования' },
     { folder: 'content/teachings', label: 'Учения' },
     { folder: 'content/hebrew', label: 'Изучение иврита' },
+    { folder: 'content/paleo-hebrew', label: 'Палео-иврит' },
 ];
 
 const IGNORE_FILES = ['README.md', 'STRUCTURE.md', 'GLOSSARY.md', 'CHANGELOG.md'];
@@ -51,6 +52,44 @@ const SUBCATEGORY_LABELS = {
     'systems': 'Системы',
     'tanakh': 'ТаНаХ',
     'teachings': 'Учения',
+    'adam': 'Адам',
+    'anatomy': 'Анатомия',
+    'brit-nissuin': 'Брит-нисуин',
+    'creation': 'Творение',
+    'elohim': 'Элоhим',
+    'geography': 'География',
+    'hitgalut': 'Хитгалут',
+    'kehillah': 'Кеhилла',
+    'kelim': 'Келим',
+    'makom': 'Маком',
+    'mikra': 'Микра',
+    'moadim': 'Моадим',
+    'ruach': 'Руах',
+    'shedim': 'Шедим',
+    'tamid': 'Тамид',
+    // Подкатегории ruach
+    'behemot': 'Беhемот',
+    'chayot': 'Хайот',
+    'cholim': 'Холим',
+    'leshonot': 'Лешонот',
+    'levushim': 'Левушим',
+    'makot': 'Мако́т',
+    'matachot': 'Матахот',
+    'mavet': 'Мавет',
+    'meshalim': 'Мешалим',
+    'misparim': 'Миспарим',
+    'seor': 'Сеор',
+    'taharah': 'Таhара',
+    'techiah': 'Техия',
+    // Подкатегории shedim
+    'avonot': 'Авонóт',
+    'choshech': 'Хошех',
+    'kerav': 'Керав',
+    'nefilah': 'Нефила',
+    'rodefim': 'Родефим',
+    'ruchot-raot': 'Рухот раот',
+    'shemot-shedim': 'Шемот шедим',
+    'sheol': 'Шеол',
 };
 
 const ICON_RULES = {
