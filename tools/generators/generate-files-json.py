@@ -128,7 +128,6 @@ ICON_RULES = {
     "content/tzel/tamid": "default.png",
 }
 
-
 def resolve_icon(rel_path):
     sorted_rules = sorted(ICON_RULES.items(), key=lambda x: -len(x[0]))
     for prefix, icon in sorted_rules:
@@ -136,22 +135,21 @@ def resolve_icon(rel_path):
             return icon
     return "default.png"
 
-
 def extract_title(content):
+    """Извлекает заголовок из первой строки #."""
     match = re.search(r'^#\s+(.+?)$', content, re.MULTILINE)
     if match:
         title = match.group(1)
+        # Очистить эмодзи и лишние символы
         title = re.sub(r'[\U0001F000-\U0001FFFF\u2600-\u27BF\uFE00-\uFEFF\u200D\uFE0F]', '', title)
         return title.strip()[:80]
     return ''
-
 
 def extract_topic(content):
     for line in content.split("\n"):
         if "**Тема:**" in line:
             return line.split("**Тема:**")[1].strip()[:100]
     return ""
-
 
 def extract_related(content):
     related = []
@@ -170,7 +168,6 @@ def extract_related(content):
                     related.append(match)
     return related
 
-
 def walk_dir(dir_path, base_folder, label):
     files = []
     for entry in sorted(dir_path.rglob("*.md")):
@@ -182,9 +179,20 @@ def walk_dir(dir_path, base_folder, label):
         subcategory = ""
         if len(parts) > 3:
             subcategory = SUBCATEGORY_LABELS.get(parts[2], parts[2])
+        
+        # Читаем заголовок
+        title = extract_title(content)
+        if not title:
+            # Если заголовка нет, используем имя файла, но улучшаем его читаемость
+            name = entry.stem.replace("-", " ").replace("_", " ")
+            # Убираем даты/цифры в начале, если есть
+            name = re.sub(r'^\d+[-_]', '', name)
+            # Делаем первую букву заглавной
+            title = name.capitalize()
+        
         files.append({
             "path": rel,
-            "title": extract_title(content) or entry.stem.replace("-", " "),
+            "title": title,
             "topic": extract_topic(content),
             "category": label,
             "subcategory": subcategory,
@@ -193,7 +201,6 @@ def walk_dir(dir_path, base_folder, label):
         })
     return files
 
-
 def safe_print(text: str):
     try:
         print(text)
@@ -201,18 +208,30 @@ def safe_print(text: str):
         cleaned = text.encode("ascii", errors="replace").decode("ascii")
         print(cleaned)
 
-
-def generate():
+def generate(fix_mode=False, verbose=False):
     all_files = []
     for folder, label in SCAN_DIRS:
         dir_path = REPO_ROOT / folder
         if dir_path.exists():
             all_files.extend(walk_dir(dir_path, folder, label))
 
+    # Отладочный режим: показываем заголовки без записи
+    if fix_mode:
+        safe_print("\n--- РЕЖИМ ПРОВЕРКИ (без записи) ---")
+        for f in all_files[:10]:
+            safe_print(f"{f['path']} → {f['title']}")
+        safe_print(f"\nПоказано 10 из {len(all_files)} файлов.")
+        return
+
     WEB_DIR.mkdir(parents=True, exist_ok=True)
     out_path = WEB_DIR / "files.json"
     out_path.write_text(json.dumps(all_files, ensure_ascii=False, indent=2), encoding="utf-8")
     safe_print(f"[OK] {out_path} — {len(all_files)} файлов")
+
+    if verbose:
+        safe_print("\n[VERBOSE] Примеры заголовков:")
+        for f in all_files[:15]:
+            safe_print(f"  {f['path']} → {f['title']}")
 
     icon_count = {}
     for f in all_files:
@@ -225,6 +244,10 @@ def generate():
     safe_print(f"\n[OK] Файлов с иконками: {len(all_files) - default_count}")
     safe_print(f"[OK] default.png: {default_count}")
 
-
 if __name__ == "__main__":
-    generate()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--fix-mode", action="store_true", help="Показать, что будет записано, без записи")
+    parser.add_argument("--verbose", action="store_true", help="Показать примеры заголовков")
+    args = parser.parse_args()
+    generate(fix_mode=args.fix_mode, verbose=args.verbose)

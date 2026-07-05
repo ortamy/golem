@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     var currentPath = window.location.pathname;
-    var depth = (currentPath.match(/\//g) || []).length - 1;
-    var prefix = depth > 0 ? '../'.repeat(depth) : '';
+    // Убираем базовый путь (для GitHub Pages поддомена)
+    var basePath = currentPath.replace(/\/[^\/]*$/, '');
+    var depth = (basePath.match(/\//g) || []).length;
+    // Страницы теперь в /pages/ — добавляем один дополнительный уровень
+    var prefix = depth > 0 ? '../'.repeat(depth + 1) : '../';
     
     var htmlLang = document.documentElement.lang || 'ru';
     var isRTL = document.documentElement.dir === 'rtl';
@@ -49,13 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
         '  </div>' +
         '  <div class="side-panel-links">' +
         '    <a href="' + prefix + 'index.html">' + texts.home + '</a>' +
-        '    <a href="' + prefix + 'tanakh/index.html">' + texts.tanakh + '</a>' +
-        '    <a href="' + prefix + 'research/index.html">' + texts.research + '</a>' +
-        '    <a href="' + prefix + 'research/methods.html">' + texts.methods + '</a>' +
-        '    <a href="' + prefix + 'research/dictionaries.html">' + texts.dictionaries + '</a>' +
-        '    <a href="' + prefix + 'research/methodology.html">' + texts.methodology + '</a>' +
-        '    <a href="' + prefix + 'tools/index.html">' + (texts.tools || 'Инструменты') + '</a>' +
-        '    <a href="' + prefix + 'about/index.html">' + texts.about + '</a>' +
+        '    <a href="' + prefix + 'pages/tanakh/index.html">' + texts.tanakh + '</a>' +
+        '    <a href="' + prefix + 'pages/research/index.html">' + texts.research + '</a>' +
+        '    <a href="' + prefix + 'pages/research/methods.html">' + texts.methods + '</a>' +
+        '    <a href="' + prefix + 'pages/research/dictionaries.html">' + texts.dictionaries + '</a>' +
+        '    <a href="' + prefix + 'pages/research/methodology.html">' + texts.methodology + '</a>' +
+        '    <a href="' + prefix + 'pages/tools/index.html">' + (texts.tools || 'Инструменты') + '</a>' +
+        '    <a href="' + prefix + 'pages/about/index.html">' + texts.about + '</a>' +
         '  </div>' +
         '  <div class="side-panel-lang-switcher">' + selectHTML + '</div>' +
         '</div>';
