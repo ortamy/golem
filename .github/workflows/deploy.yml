@@ -28,23 +28,18 @@ jobs:
           node-version: '20'
 
       - name: Install Python dependencies
-        run: pip install rich
+        run: pip install markdown rich
 
-      - name: Install Node dependencies
-        working-directory: products/website
-        run: npm install
-
-      - name: Copy content folders
+      - name: Copy content and instructions
         run: |
           cp -r content products/website/
           cp -r instructions products/website/
 
-      - name: Generate files.json
-        run: python3 tools/generators/generate-files-json.py
-
-      - name: Production build (minify JS, purge CSS, copy assets)
-        working-directory: products/website
-        run: npm run build
+      - name: Install Node dependencies and build
+        working-directory: products/website/build
+        run: |
+          npm install
+          npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
