@@ -7,6 +7,10 @@ import os
 import sys
 from pathlib import Path
 
+# Принудительно устанавливаем UTF-8 для stdout (Windows cp1251 fix)
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 try:
     import markdown
 except ImportError:
@@ -57,10 +61,19 @@ def convert_md_to_html(md_path: Path) -> str:
     return get_html_template(title, html_content)
 
 
+def safe_print(text: str):
+    """Печать с защитой от UnicodeEncodeError в Windows."""
+    try:
+        print(text)
+    except UnicodeEncodeError:
+        cleaned = text.encode("ascii", errors="replace").decode("ascii")
+        print(cleaned)
+
+
 def main():
     """Основная функция генерации сайта."""
     if not CONTENT_DIR.exists():
-        print(f"Папка {CONTENT_DIR} не найдена", file=sys.stderr)
+        safe_print(f"Папка {CONTENT_DIR} не найдена")
         sys.exit(1)
     
     # Создаём выходную папку если её нет
@@ -86,13 +99,13 @@ def main():
             with open(html_path, 'w', encoding='utf-8') as f:
                 f.write(html_content)
             
-            print(f"✓ {rel_path} → {html_path.relative_to(OUTPUT_DIR)}")
+            safe_print(f"+ {rel_path}")
             converted += 1
         except Exception as e:
-            print(f"✗ Ошибка при обработке {md_path}: {e}", file=sys.stderr)
+            safe_print(f"! Ошибка: {md_path}: {e}")
             errors += 1
     
-    print(f"\nГотово: {converted} файлов сконвертировано, {errors} ошибок")
+    safe_print(f"\nГотово: {converted} файлов сконвертировано, {errors} ошибок")
 
 
 if __name__ == "__main__":

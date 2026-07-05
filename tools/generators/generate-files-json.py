@@ -6,6 +6,10 @@ import sys
 import re
 from pathlib import Path
 
+# Принудительно устанавливаем UTF-8 для stdout (Windows cp1251 fix)
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 REPO_ROOT = Path(__file__).parent.parent.parent
 WEB_DIR = REPO_ROOT / "products" / "website"
 SCAN_DIRS = [
@@ -190,6 +194,14 @@ def walk_dir(dir_path, base_folder, label):
     return files
 
 
+def safe_print(text: str):
+    try:
+        print(text)
+    except UnicodeEncodeError:
+        cleaned = text.encode("ascii", errors="replace").decode("ascii")
+        print(cleaned)
+
+
 def generate():
     all_files = []
     for folder, label in SCAN_DIRS:
@@ -200,18 +212,18 @@ def generate():
     WEB_DIR.mkdir(parents=True, exist_ok=True)
     out_path = WEB_DIR / "files.json"
     out_path.write_text(json.dumps(all_files, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"✅ {out_path} — {len(all_files)} файлов")
+    safe_print(f"[OK] {out_path} — {len(all_files)} файлов")
 
     icon_count = {}
     for f in all_files:
         icon = f.get("icon", "default.png")
         icon_count[icon] = icon_count.get(icon, 0) + 1
-    print(f"\n📊 Статистика иконок:")
+    safe_print(f"\n[STATS] Статистика иконок:")
     for icon, count in sorted(icon_count.items(), key=lambda x: -x[1]):
-        print(f"  {icon}: {count}")
+        safe_print(f"  {icon}: {count}")
     default_count = icon_count.get("default.png", 0)
-    print(f"\n✅ Файлов с иконками: {len(all_files) - default_count}")
-    print(f"✅ default.png: {default_count}")
+    safe_print(f"\n[OK] Файлов с иконками: {len(all_files) - default_count}")
+    safe_print(f"[OK] default.png: {default_count}")
 
 
 if __name__ == "__main__":
