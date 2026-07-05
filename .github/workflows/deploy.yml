@@ -32,7 +32,7 @@ jobs:
 
       - name: Install Node dependencies
         working-directory: products/website
-        run: npm ci
+        run: npm install
 
       - name: Copy content folders
         run: |
