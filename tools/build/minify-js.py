@@ -17,9 +17,10 @@ import re
 import sys
 import hashlib
 
-JS_DIR = 'products/website/js'
-APP_JS = 'products/website/app.js'
-OUTPUT_DIR = 'products/website'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+JS_DIR = os.path.join(BASE_DIR, 'products', 'website', 'js')
+APP_JS = os.path.join(BASE_DIR, 'products', 'website', 'app.js')
+OUTPUT_DIR = os.path.join(BASE_DIR, 'products', 'website')
 
 def simple_minify(content):
     """Базовый минификатор JS: убирает комментарии, лишние пробелы, переносы строк."""
