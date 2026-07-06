@@ -30,8 +30,8 @@
 - **Cline (VS Code)** — исполнение: пишет файлы, правит код, запускает скрипты
 - **golem.py** — главное меню для запуска всех инструментов
 - **Скрипты (tools/)** — массовые операции, проверки, генерация
-- **Нейросеть (ed/neuro/)** — отвечает на вопросы, анализирует exposure
-- **Агент (ed/agent/)** — автономное выполнение цепочек задач
+- **Нейросеть (products/neuro/)** — отвечает на вопросы, анализирует exposure
+- **Агент (products/agent/)** — автономное выполнение цепочек задач
 
 ---
 
@@ -98,9 +98,9 @@
 - Генерация кэша словарей: `python tools/generators/generate-tahor-cache.py`
 
 ### Веб
-- Локальный сервер: `cd web && node server.js`
+- Локальный сервер: `cd products/website && node server.js`
 - Продакшн: GitHub Pages (авто-деплой)
-- Документация интерфейса: `docs/WEB-INTERFACE.md`
+- Документация интерфейса: `products/website/`
 
 ### Руководства
 - Все руководства: `guides/`
@@ -167,4 +167,4 @@ python tools/utils/search.py "запрос"
 python tools/utils/clear-cache.py
 
 # Веб-сервер
-cd web && node server.js
+cd products/website && node server.js

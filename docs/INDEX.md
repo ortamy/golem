@@ -30,19 +30,13 @@
 - [CHANGELOG.md](CHANGELOG.md) - история изменений
 - [CONTRIBUTORS.md](CONTRIBUTORS.md) - контрибьюторы
 - [GLOSSARY.md](GLOSSARY.md) - глоссарий терминов
-- [GLOSSARY-DEV.md](GLOSSARY-DEV.md) - глоссарий разработки
+- [GLOSSARY-DEVELOPMENT.md](GLOSSARY-DEVELOPMENT.md) - глоссарий разработки
 
 ### Специальные документы
-- [CHAT-PROMPT.md](CHAT-PROMPT.md) - чат-промпт
-- [ED-AGENT.md](ED-AGENT.md) - документация агента
-- [ED-ASSISTANT.md](ED-ASSISTANT.md) - документация ассистента
-- [ED-DAVAR.md](ED-DAVAR.md) - документация Давар
-- [ED-NEURO.md](ED-NEURO.md) - документация Эд
 - [GRAPH.md](GRAPH.md) - граф проекта
 - [IDEAS.md](IDEAS.md) - идеи проекта
 - [STATS.md](STATS.md) - статистика
 - [STRATEGY.md](STRATEGY.md) - стратегия
-- [WEB-INTERFACE.md](WEB-INTERFACE.md) - веб-интерфейс
 - [CONTROL.md](CONTROL.md) - контроль проекта
 
 ---
@@ -65,11 +59,7 @@
 - GRAPH.md - граф
 
 ### Продуктовая документация
-- ED-AGENT.md - агент
-- ED-ASSISTANT.md - ассистент
-- ED-DAVAR.md - Давар
-- ED-NEURO.md - Эд
-- WEB-INTERFACE.md - веб-интерфейс
+> Документация продуктов находится в `products/` и `instructions/products/`.
 
 ### Методологическая документация
 - STRATEGY.md - стратегия
@@ -158,13 +148,7 @@
 - [STATS.md](STATS.md) - статистика
 - [GRAPH.md](GRAPH.md) - граф
 - [CONTROL.md](CONTROL.md) - контроль
-- [CHAT-PROMPT.md](CHAT-PROMPT.md) - чат-промпт
-- [ED-AGENT.md](ED-AGENT.md) - агент
-- [ED-ASSISTANT.md](ED-ASSISTANT.md) - ассистент
-- [ED-DAVAR.md](ED-DAVAR.md) - Давар
-- [ED-NEURO.md](ED-NEURO.md) - Эд
-- [WEB-INTERFACE.md](WEB-INTERFACE.md) - веб-интерфейс
-- [GLOSSARY-DEV.md](GLOSSARY-DEV.md) - глоссарий разработки
+- [GLOSSARY-DEVELOPMENT.md](GLOSSARY-DEVELOPMENT.md) - глоссарий разработки
 
 ---
 

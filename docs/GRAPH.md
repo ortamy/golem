@@ -121,7 +121,7 @@ graph TD
 ## instructions/
 
 ### CHAT-PROMPT — ШАБЛОН ДЛЯ НОВОГО ЧАТА
-`instructions/chat-prompt.md`
+`instructions/agent/CHAT-PROMPT.md`
 
 ### בְּדִיקָה — BDIKAH-CHECKER: ПРОВЕРКА ТЕКСТА НА РЕЛИГИОНИЗМЫ
 `instructions/checkers/bdikah-checker.md`
@@ -211,22 +211,22 @@ graph TD
 `instructions/security-policy.md`
 
 ### ГРЕЦИЗМЫ
-`instructions/tahor/grecisms.md`
+`instructions/dictionaries/dictionaries-grecisms.md`
 
 ### ЛАТИНИЗМЫ
-`instructions/tahor/latinisms.md`
+`instructions/dictionaries/dictionaries-latinisms.md`
 
-### שֵׁמוֹת — ИМЕНА И НАЗВАНИЯ: КАРТА ОЧИЩЕНИЯ
-`instructions/tahor/names.md`
+### ИМЕНА И НАЗВАНИЯ: КАРТА ОЧИЩЕНИЯ
+`instructions/dictionaries/dictionaries-names.md`
 
-### בִּטּוּיִים — ФРАЗЫ И ВЫРАЖЕНИЯ: КАРТА ОЧИЩЕНИЯ
-`instructions/tahor/phrases.md`
+### ФРАЗЫ И ВЫРАЖЕНИЯ: КАРТА ОЧИЩЕНИЯ
+`instructions/dictionaries/dictionaries-phrases.md`
 
 ### РЕЛИГИОНИЗМЫ
-`instructions/tahor/religionims.md`
+`instructions/dictionaries/dictionaries-religionims.md`
 
-### סְלָבִיִּים — ЦЕРКОВНОСЛАВЯНИЗМЫ: КАРТА ОЧИЩЕНИЯ
-`instructions/tahor/slavicisms.md`
+### СЛАВЯНИЗМЫ: КАРТА ОЧИЩЕНИЯ
+`instructions/dictionaries/dictionaries-slavicisms.md`
 
 ### תַּבְנִית נִתּוּחַ מֻשָּׂג — ШАБЛОН АНАЛИЗА ПОНЯТИЯ
 `instructions/templates/concept-analysis-template.md`
