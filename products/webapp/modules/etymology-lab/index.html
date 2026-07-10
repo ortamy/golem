@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Этимологическая лаборатория — Golem Лаборатория</title>
+<meta name="description" content="Глубокий разбор слова на иврите: корень, палео-образы букв, цепочка подмен в переводах">
+<link rel="icon" type="image/svg+xml" href="../../../website/favicon.svg">
+<link rel="stylesheet" href="../../css/lab.css">
+<style>
+  .el-wrap { max-width: 880px; margin: 0 auto; }
+  .el-wrap .back-link { display: inline-flex; align-items: center; gap: 4px; color: var(--accent-gold); text-decoration: none; font-size: 15px; margin-bottom: 16px; }
+  .el-wrap .back-link:hover { text-decoration: underline; }
+
+  .el-input-section { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 24px; margin-bottom: 24px; }
+  .el-input-section .el-hint { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+  .el-input-section .el-examples { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .el-input-section .el-examples .example-chip { padding: 4px 12px; border: 1px solid var(--border-light); border-radius: 12px; font-size: 14px; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; background: var(--bg-primary); }
+  .el-input-section .el-examples .example-chip:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+  .el-result { display: none; }
+  .el-result.show { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .el-word-header { background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 6px; padding: 24px; margin-bottom: 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .el-word-header .el-word-heb { font-size: 48px; font-family: 'Times New Roman', serif; line-height: 1; color: var(--accent-gold); }
+  .el-word-header .el-word-info { flex: 1; }
+  .el-word-header .el-word-info .el-word-translit { font-family: monospace; font-size: 16px; color: var(--text-muted); }
+  .el-word-header .el-word-info .el-word-meaning { font-size: 18px; color: var(--text-primary); margin-top: 4px; }
+  .el-word-header .el-word-paleo { font-size: 32px; letter-spacing: 6px; color: var(--accent-gold); }
+
+  .el-section { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 20px; margin-bottom: 16px; }
+  .el-section-title { font-family: var(--font-heading); font-size: 18px; font-weight: 600; font-style: italic; color: var(--accent-gold); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border-light); }
+
+  .el-letter-breakdown { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .el-letter-box { text-align: center; background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: 6px; padding: 14px 10px; min-width: 90px; transition: all 0.2s; }
+  .el-letter-box:hover { border-color: var(--accent-gold); }
+  .el-letter-box .ell-paleo { font-size: 36px; font-family: 'Times New Roman', serif; line-height: 1.2; color: var(--accent-gold); }
+  .el-letter-box .ell-heb { font-size: 24px; font-family: 'Times New Roman', serif; }
+  .el-letter-box .ell-name { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .el-letter-box .ell-image { font-size: 24px; display: block; margin-top: 4px; }
+  .el-letter-box .ell-meaning { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+  .el-substitution-table { width: 100%; border-collapse: collapse; }
+  .el-substitution-table th, .el-substitution-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border-light); font-size: 15px; }
+  .el-substitution-table th { background: var(--bg-primary); font-family: var(--font-heading); font-weight: 600; }
+  .el-substitution-table .sub-red { color: var(--accent-red); }
+  .el-substitution-table .sub-green { color: #2a6a2a; font-weight: 600; }
+
+  .el-root-card { background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: 4px; padding: 16px; margin-top: 12px; }
+  .el-root-card .el-root-heb { font-size: 28px; font-family: 'Times New Roman', serif; color: var(--accent-gold); }
+  .el-root-card .el-root-meaning { font-size: 16px; color: var(--text-secondary); margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="el-wrap">
+
+  <a href="../../index.html" class="back-link">← Назад в лабораторию</a>
+
+  <h1>🧪 Этимологическая лаборатория</h1>
+  <p class="subtitle">Глубокий разбор слова на иврите: корень, палео-образы букв, цепочка подмен.</p>
+
+  <div class="el-input-section">
+    <div class="el-hint">Введите слово на иврите для разбора:</div>
+    <div class="search-wrap">
+      <input type="text" id="el-input" class="lab-input" placeholder="Например: אמת, תורה, משיח, יהוה, שלום..." onkeydown="if(event.key==='Enter')EtyLab.analyze()" />
+      <button class="lab-btn lab-btn-primary" onclick="EtyLab.analyze()">🔍 Разобрать</button>
+    </div>
+    <div class="el-examples">
+      <span class="example-chip" onclick="EtyLab.example('אמת')">אמת — истина</span>
+      <span class="example-chip" onclick="EtyLab.example('תורה')">תורה — Тора</span>
+      <span class="example-chip" onclick="EtyLab.example('משיח')">משיח — Машиах</span>
+      <span class="example-chip" onclick="EtyLab.example('יהוה')">יהוה — Яхве</span>
+      <span class="example-chip" onclick="EtyLab.example('שלום')">שלום — мир</span>
+      <span class="example-chip" onclick="EtyLab.example('צדק')">צדק — правда</span>
+    </div>
+  </div>
+
+  <div id="el-spinner" class="lab-spinner">
+    <div class="loader"></div>
+    <div class="spinner-text">Анализируем слово…</div>
+  </div>
+
+  <div class="el-result" id="el-result"></div>
+
+  <div id="el-placeholder" class="lab-alert lab-alert-info">
+    Введите слово на иврите. Например: <strong>אמת</strong> (истина), <strong>תורה</strong> (Тора), <strong>משיח</strong> (Машиах).
+  </div>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // Палео-алфавит
+  const PALEO = {
+    'א': { paleo: '𐤀', name: 'Алеф', image: '🐂', meaning: 'сила, бык, начало' },
+    'ב': { paleo: '𐤁', name: 'Бет', image: '🏠', meaning: 'дом, семья' },
+    'ג': { paleo: '𐤂', name: 'Гимель', image: '🐪', meaning: 'движение, верблюд' },
+    'ד': { paleo: '𐤃', name: 'Далет', image: '🚪', meaning: 'дверь, выбор' },
+    'ה': { paleo: '𐤄', name: 'Хе', image: '🪟', meaning: 'откровение, окно' },
+    'ו': { paleo: '𐤅', name: 'Вав', image: '🔗', meaning: 'соединение, крюк' },
+    'ז': { paleo: '𐤆', name: 'Заин', image: '⚔️', meaning: 'оружие, защита' },
+    'ח': { paleo: '𐤇', name: 'Хет', image: '🏡', meaning: 'ограда, жизнь' },
+    'ט': { paleo: '𐤈', name: 'Тет', image: '🐍', meaning: 'скрытое благо' },
+    'י': { paleo: '𐤉', name: 'Йод', image: '✋', meaning: 'рука, действие' },
+    'כ': { paleo: '𐤊', name: 'Каф', image: '🖐', meaning: 'ладонь, власть' },
+    'ך': { paleo: '𐤊', name: 'Каф (софит)', image: '🖐', meaning: 'ладонь, власть' },
+    'ל': { paleo: '𐤋', name: 'Ламед', image: '🏏', meaning: 'посох, учение' },
+    'מ': { paleo: '𐤌', name: 'Мем', image: '🌊', meaning: 'вода, народ' },
+    'ם': { paleo: '𐤌', name: 'Мем (софит)', image: '🌊', meaning: 'вода, народ' },
+    'נ': { paleo: '𐤍', name: 'Нун', image: '🐟', meaning: 'рыба, потомство' },
+    'ן': { paleo: '𐤍', name: 'Нун (софит)', image: '🐟', meaning: 'рыба, потомство' },
+    'ס': { paleo: '𐤎', name: 'Самех', image: '🦴', meaning: 'поддержка, основа' },
+    'ע': { paleo: '𐤏', name: 'Аин', image: '👁', meaning: 'глаз, источник' },
+    'פ': { paleo: '𐤐', name: 'Пе', image: '👄', meaning: 'рот, речь' },
+    'ף': { paleo: '𐤐', name: 'Пе (софит)', image: '👄', meaning: 'рот, речь' },
+    'צ': { paleo: '𐤑', name: 'Цаде', image: '🎣', meaning: 'праведность, цель' },
+    'ץ': { paleo: '𐤑', name: 'Цаде (софит)', image: '🎣', meaning: 'праведность, цель' },
+    'ק': { paleo: '𐤒', name: 'Коф', image: '🙈', meaning: 'святость, окружение' },
+    'ר': { paleo: '𐤓', name: 'Реш', image: '🗣', meaning: 'голова, начало' },
+    'ש': { paleo: '𐤔', name: 'Шин', image: '🦷', meaning: 'мир, разрушение' },
+    'ת': { paleo: '𐤕', name: 'Тав', image: '✝️', meaning: 'знак, завет, истина' }
+  };
+
+  // База слов для разбора
+  const WORD_DATA = {
+    'אמת': { translit: 'эмет', meaning: 'истина, верность, правда', root: 'אמן', rootMeaning: 'верить, быть верным', subs: [['истина', 'эмет (אמת)', 'Греч. αλήθεια (алетейа) — истина. В иврите אמת состоит из первой, средней и последней букв алфавита — начало, середина, конец.']] },
+    'תורה': { translit: 'тора', meaning: 'учение, наставление, закон', root: 'ירה', rootMeaning: 'направлять, стрелять, учить', subs: [['закон', 'тора (תורה)', 'Греч. νόμος (номос) — закон. В иврите תורה от корня ירה — направлять, указывать путь. Тора — это наставление, а не закон.']] },
+    'משיח': { translit: 'машиах', meaning: 'помазанник (посвящённый на служение)', root: 'משח', rootMeaning: 'мазать, помазывать', subs: [['Христос', 'Машиах (משיח)', 'Греч. Χριστός (Христос) — перевод משיח. Машиах — это функция (помазанный на служение), а не имя. Царь, коэн или пророк могли быть машиах.']] },
+    'יהוה': { translit: 'Яхве', meaning: 'Сущий, Тот, Кто есть (личное имя)', root: 'היה', rootMeaning: 'быть, существовать', subs: [['Господь', 'Яхве (יהוה)', 'Греч. κύριος (кюриос) — господин. Замена личного имени на титул. В Септуагинте יהוה перевели как κύριος.']] },
+    'שלום': { translit: 'шалом', meaning: 'мир, целостность, полнота, благополучие', root: 'שלם', rootMeaning: 'быть целым, завершённым, воздавать', subs: [['мир', 'шалом (שלום)', 'Греч. ειρήνη (эйрене) — мир. Шалом — не просто отсутствие войны, а полнота, целостность, завершённость.']] },
+    'צדק': { translit: 'цедек', meaning: 'правда, справедливость, праведность', root: 'צדק', rootMeaning: 'быть праведным, справедливым', subs: [['правда', 'цедек (צדק)', 'Цедек — не абстрактная правда, а конкретное действие справедливости. Цдака (צדקה) — не «милостыня», а справедливое распределение.']] },
+    'בראשית': { translit: 'берешит', meaning: 'в начале (первое слово Торы)', root: 'ראש', rootMeaning: 'голова, начало', subs: [['в начале', 'берешит (בראשית)', 'От корня ראש (рош) — голова. Берешит — «в голове», «в начале», «в первом».']] },
+    'נביא': { translit: 'нави', meaning: 'пророк, провозвестник', root: 'נבא', rootMeaning: 'провозвещать, изрекать', subs: [['пророк', 'нави (נביא)', 'Греч. προφήτης (профетес). Нави — от корня נוב — изрекать, провозвещать. Видящий то, что скрыто.']] },
+    'כהן': { translit: 'коhен', meaning: 'священник, служитель', root: 'כה', rootMeaning: 'так, вот, стоять перед', subs: [['священник', 'коhен (כהן)', 'От корня כון — стоять, быть установленным. Коhен — тот, кто стоит перед Яхве. Греч. ἱερεύς (хиереус).']] },
+    'קדוש': { translit: 'кадош', meaning: 'святой, отделённый', root: 'קדש', rootMeaning: 'отделять, посвящать', subs: [['святой', 'кадош (קדוש)', 'Кадош — не моральное качество, а статус отделённости. От корня קדש — отделять, вырезать.']] },
+    'חסד': { translit: 'хесед', meaning: 'милость, верность, любовь, преданность', root: 'חסד', rootMeaning: 'быть верным, любить', subs: [['милость', 'хесед (חסד)', 'Хесед — не эмоция, а действие верности и преданности завету. Греч. ἔλεος (элеос).']] },
+    'תשובה': { translit: 'тшува', meaning: 'возвращение, ответ, покаяние', root: 'שוב', rootMeaning: 'возвращаться, обращаться', subs: [['покаяние', 'тшува (תשובה)', 'От корня שוב (шув) — возвращаться. Тшува — не чувство вины, а возвращение к источнику.']] },
+    'ברית': { translit: 'брит', meaning: 'завет, союз, очищение', root: 'בר', rootMeaning: 'чистый, ясный', subs: [['завет', 'брит (ברית)', 'От בר (бар) — чистый. Брит — это союз, основанный на очищении. Греч. διαθήκη (диатеке).']] }
+  };
+
+  // Глобальный поиск корня
+  let rootsData = [];
+
+  function init() {
+    fetch('../../data/roots.json')
+      .then(r => r.json())
+      .then(data => { rootsData = data; })
+      .catch(() => {});
+  }
+
+  function example(word) {
+    document.getElementById('el-input').value = word;
+    analyze();
+  }
+
+  function analyze() {
+    const input = document.getElementById('el-input').value.trim();
+    const result = document.getElementById('el-result');
+    const placeholder = document.getElementById('el-placeholder');
+    const spinner = document.getElementById('el-spinner');
+
+    if (!input) {
+      result.classList.remove('show');
+      placeholder.style.display = 'block';
+      return;
+    }
+
+    // Убираем огласовки (никкуд) для поиска
+    const clean = input.replace(/[\u0591-\u05C7]/g, '');
+    
+    // Ищем в базе
+    const wordData = WORD_DATA[clean];
+    
+    if (!wordData) {
+      placeholder.style.display = 'block';
+      placeholder.innerHTML = '<div class="lab-alert lab-alert-warn">Слово «' + input + '» пока нет в базе. Попробуйте: <strong>אמת</strong>, <strong>תורה</strong>, <strong>משיח</strong>, <strong>יהוה</strong>, <strong>שלום</strong>.</div>';
+      result.classList.remove('show');
+      return;
+    }
+
+    placeholder.style.display = 'none';
+
+    // Разбор по буквам
+    let lettersHTML = '';
+    let paleoStr = '';
+    for (let ch of clean) {
+      const p = PALEO[ch];
+      if (p) {
+        lettersHTML += '<div class="el-letter-box">' +
+          '<div class="ell-paleo">' + p.paleo + '</div>' +
+          '<div class="ell-heb">' + ch + '</div>' +
+          '<div class="ell-name">' + p.name + '</div>' +
+          '<div class="ell-image">' + p.image + '</div>' +
+          '<div class="ell-meaning">' + p.meaning + '</div></div>';
+        paleoStr += p.paleo + ' ';
+      } else {
+        lettersHTML += '<div class="el-letter-box"><div class="ell-heb">' + ch + '</div><div class="ell-name">?</div></div>';
+      }
+    }
+
+    // Подмены
+    let subsHTML = '';
+    if (wordData.subs && wordData.subs.length > 0) {
+      subsHTML = '<table class="el-substitution-table">' +
+        '<thead><tr><th>Подмена</th><th>Оригинал</th><th>Пояснение</th></tr></thead><tbody>';
+      wordData.subs.forEach(s => {
+        subsHTML += '<tr><td class="sub-red">' + s[0] + '</td><td class="sub-green">' + s[1] + '</td><td class="text-small">' + s[2] + '</td></tr>';
+      });
+      subsHTML += '</tbody></table>';
+    }
+
+    // Поиск корня в JSON
+    let rootHTML = '';
+    const rootMatches = rootsData.filter(r => r.root === wordData.root || r.translit === wordData.root);
+    if (rootMatches.length > 0) {
+      rootHTML = '<div class="el-root-card"><div class="el-root-heb">' + rootMatches[0].root + '</div>' +
+        '<div class="text-small text-muted">' + rootMatches[0].translit + '</div>' +
+        '<div class="el-root-meaning">' + rootMatches[0].meaning + '</div></div>';
+    } else {
+      rootHTML = '<div class="el-root-card"><div class="el-root-heb">' + wordData.root + '</div>' +
+        '<div class="el-root-meaning">' + wordData.rootMeaning + '</div></div>';
+    }
+
+    // Собираем результат
+    const fullHTML = 
+      '<div class="el-word-header">' +
+        '<div class="el-word-heb">' + clean + '</div>' +
+        '<div class="el-word-info">' +
+          '<div class="el-word-translit">' + wordData.translit + ' (' + clean + ')</div>' +
+          '<div class="el-word-meaning">' + wordData.meaning + '</div>' +
+        '</div>' +
+        '<div class="el-word-paleo">' + paleoStr.trim() + '</div>' +
+      '</div>' +
+
+      '<div class="el-section">' +
+        '<div class="el-section-title">📜 Палео-разбор по буквам</div>' +
+        '<p class="text-small text-muted mb-16">Каждая буква — это образ. Вместе они создают смысл слова.</p>' +
+        '<div class="el-letter-breakdown">' + lettersHTML + '</div>' +
+      '</div>' +
+
+      '<div class="el-section">' +
+        '<div class="el-section-title">🌳 Корень слова</div>' +
+        '<p class="text-small text-muted mb-8">Корень, от которого образовано слово:</p>' +
+        rootHTML +
+      '</div>' +
+
+      (subsHTML ? '<div class="el-section"><div class="el-section-title">🔄 Цепочка подмен</div>' +
+        '<p class="text-small text-muted mb-8">Как это слово было заменено в переводах:</p>' +
+        subsHTML + '</div>' : '');
+
+    result.innerHTML = fullHTML;
+    result.classList.add('show');
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  window.EtyLab = { init, analyze, example };
+  document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
+</body>
+</html>

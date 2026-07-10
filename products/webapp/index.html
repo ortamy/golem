@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Исследовательская лаборатория — Golem</title>
+<meta name="description" content="Полноценная исследовательская лаборатория проекта Голем">
+<link rel="icon" type="image/svg+xml" href="../website/favicon.svg">
+<link rel="stylesheet" href="css/lab.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="lab-header">
+  <a href="#dashboard" class="logo">ГОЛЕМ</a>
+  <span class="header-subtitle">/ Исследовательская лаборатория</span>
+  
+  <!-- Global Search -->
+  <div class="header-search" id="globalSearch">
+    <span class="search-icon">🔎</span>
+    <input type="text" id="gs-input" placeholder="Поиск по лаборатории..." oninput="LabSearch.search(this.value)" onkeydown="if(event.key==='Escape')LabSearch.hide()" />
+    <div class="search-results" id="gs-results"></div>
+  </div>
+  
+  <nav>
+    <button class="theme-toggle" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn">🌙</button>
+    <a href="../website/pages/index.html">🌐 Сайт</a>
+    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<!-- LAYOUT -->
+<div class="lab-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="lab-sidebar">
+    <div class="sidebar-title">🔬 Инструменты</div>
+    <div class="sidebar-items">
+      <a href="#dashboard" class="sidebar-item active" data-module="dashboard"><span class="icon">🏠</span> Дашборд</a>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Анализ текста</div>
+        <a href="#religionism-checker" class="sidebar-item" data-module="religionism-checker"><span class="icon">🔍</span> Чекер религионимов</a>
+        <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><span class="icon">📑</span> Сравнение переводов</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Корни и образы</div>
+        <a href="modules/roots/index.html" class="sidebar-item"><span class="icon">📖</span> Корневой словарь</a>
+        <a href="modules/paleo-images/index.html" class="sidebar-item"><span class="icon">⌨️</span> Палео-образы</a>
+        <a href="modules/etymology-lab/index.html" class="sidebar-item"><span class="icon">🧪</span> Этимология</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Визуальные</div>
+        <a href="#board-generator" class="sidebar-item" data-module="board-generator"><span class="icon">📋</span> Генератор досок</a>
+        <a href="#board-library" class="sidebar-item" data-module="board-library"><span class="icon">🗂</span> Библиотека досок</a>
+        <a href="#vision" class="sidebar-item" data-module="vision"><span class="icon">👁</span> Визуальный анализ</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">AI / Инструменты</div>
+        <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><span class="icon">🧠</span> Чат с Эдом</a>
+        <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><span class="icon">⌨️</span> Палео-клавиатура</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="lab-content" id="labContent"></main>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="lab-footer">
+  <a href="../website/pages/index.html">Проект «Голем»</a> — восстановление истины.
+  <span class="sep">|</span>
+  <a href="https://github.com/ortamy/golem">GitHub</a>
+  <span class="sep">|</span>
+  <span id="lab-version">v0.2.0</span>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="labModal" onclick="if(event.target===this)LabModal.close()">
+  <div class="modal-window">
+    <div class="modal-header">
+      <h3 id="modalTitle">Просмотр</h3>
+      <button class="modal-close" onclick="LabModal.close()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+<!-- HOTKEY HINT -->
+<div class="hotkey-hint" onclick="LabHotkeys.showHelp()" title="Горячие клавиши">
+  <kbd>⌨</kbd> ?
+</div>
+
+<script src="js/router.js"></script>
+<script>
+// ===== LAB THEME (Dark Mode) =====
+const LabTheme = {
+  init: function() {
+    var saved = localStorage.getItem('golem_theme') || 'light';
+    this.set(saved);
+  },
+  set: function(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('golem_theme', theme);
+    var btn = document.getElementById('themeBtn');
+    if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+  },
+  toggle: function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'light';
+    this.set(current === 'dark' ? 'light' : 'dark');
+  }
+};
+
+// ===== LAB MODAL =====
+const LabModal = {
+  show: function(title, body, footerHTML) {
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalBody').innerHTML = body;
+    var footer = document.getElementById('modalFooter');
+    footer.innerHTML = footerHTML || '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabModal.close()">Закрыть</button>';
+    document.getElementById('labModal').classList.add('show');
+  },
+  close: function() {
+    document.getElementById('labModal').classList.remove('show');
+  }
+};
+
+// ===== LAB EXPORT =====
+const LabExport = {
+  exportTXT: function(filename, content) {
+    var blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename + '.txt';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  },
+  exportMarkdown: function(filename, content) {
+    var blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename + '.md';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  },
+  copyText: function(text) {
+    navigator.clipboard.writeText(text).then(function() {
+      LabToast.show('Скопировано в буфер');
+    }).catch(function() {
+      // fallback
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      LabToast.show('Скопировано в буфер');
+    });
+  }
+};
+
+// ===== LAB TOAST =====
+const LabToast = {
+  show: function(msg) {
+    var t = document.getElementById('lab-toast');
+    if (!t) {
+      t = document.createElement('div');
+      t.id = 'lab-toast';
+      t.style.cssText = 'position:fixed;top:24px;left:50%;transform:translateX(-50%);background:#2c1810;color:#ede0c8;padding:10px 24px;font-size:14px;font-family:"EB Garamond",serif;opacity:0;pointer-events:none;z-index:9999;border-radius:4px;border:1px solid #b8860b;transition:opacity 0.4s;';
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.style.opacity = '1';
+    setTimeout(function() { t.style.opacity = '0'; }, 2000);
+  }
+};
+
+// ===== LAB SEARCH (Global) =====
+const LabSearch = {
+  search: function(query) {
+    var results = document.getElementById('gs-results');
+    query = query.trim().toLowerCase();
+    if (!query || query.length < 2) {
+      results.classList.remove('show');
+      return;
+    }
+    
+    var items = [];
+    
+    // Search roots
+    if (window.RootDict && window._roots) {
+      window._roots.forEach(function(r) {
+        if (r.root.indexOf(query) !== -1 || r.translit.toLowerCase().indexOf(query) !== -1 || r.meaning.toLowerCase().indexOf(query) !== -1) {
+          items.push({ icon: '📖', text: r.root + ' — ' + r.meaning.substring(0, 60), module: 'root-dictionary', moduleName: 'Корневой словарь' });
+        }
+      });
+    }
+    
+    // Search checker dict
+    if (window.RelChecker && window._relDict) {
+      window._relDict.forEach(function(d) {
+        if (d[0].toLowerCase().indexOf(query) !== -1 || d[1].toLowerCase().indexOf(query) !== -1) {
+          items.push({ icon: '🔍', text: d[0] + ' → ' + d[1], module: 'religionism-checker', moduleName: 'Чекер религионимов' });
+        }
+      });
+    }
+    
+    // Search translation data
+    if (window.TransComp && window._tcData) {
+      Object.keys(window._tcData).forEach(function(key) {
+        if (key.toLowerCase().indexOf(query) !== -1) {
+          items.push({ icon: '📑', text: key, module: 'translation-comparator', moduleName: 'Сравнение переводов' });
+        }
+      });
+    }
+    
+    // Limit
+    if (items.length > 20) items = items.slice(0, 20);
+    
+    if (items.length === 0) {
+      results.innerHTML = '<div class="search-result-item" style="color:var(--text-muted);cursor:default;">Ничего не найдено</div>';
+      results.classList.add('show');
+      return;
+    }
+    
+    var html = '';
+    items.forEach(function(item) {
+      html += '<div class="search-result-item" onclick="LabSearch.goTo(\'' + item.module + '\')">' +
+        '<span class="sr-icon">' + item.icon + '</span>' +
+        '<span class="sr-text">' + escapeHtml(item.text) + '</span>' +
+        '<span class="sr-module">' + item.moduleName + '</span></div>';
+    });
+    results.innerHTML = html;
+    results.classList.add('show');
+  },
+  goTo: function(module) {
+    this.hide();
+    LabRouter.navigate(module);
+  },
+  hide: function() {
+    document.getElementById('gs-results').classList.remove('show');
+    document.getElementById('gs-input').value = '';
+  }
+};
+
+// ===== LAB HOTKEYS =====
+const LabHotkeys = {
+  modules: ['dashboard', 'root-dictionary', 'religionism-checker', 'translation-comparator', 'board-generator', 'board-library', 'vision', 'ed-chat', 'paleo-keyboard'],
+  
+  init: function() {
+    document.addEventListener('keydown', function(e) {
+      // Ctrl+1..9 — переход по модулям
+      if (e.ctrlKey && e.key >= '1' && e.key <= '9') {
+        e.preventDefault();
+        var idx = parseInt(e.key) - 1;
+        if (idx < LabHotkeys.modules.length) {
+          LabRouter.navigate(LabHotkeys.modules[idx]);
+        }
+      }
+      // Ctrl+F — фокус на поиск
+      if (e.ctrlKey && e.key === 'f') {
+        e.preventDefault();
+        document.getElementById('gs-input').focus();
+      }
+      // Escape — закрыть поиск/модалку
+      if (e.key === 'Escape') {
+        LabSearch.hide();
+        LabModal.close();
+      }
+      // ? — показать помощь
+      if (e.key === '?' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+        var active = document.activeElement;
+        if (!active || active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA' && !active.isContentEditable) {
+          LabHotkeys.showHelp();
+        }
+      }
+    });
+  },
+  
+  showHelp: function() {
+    var html = '<table class="lab-table">' +
+      '<tr><th>Клавиши</th><th>Действие</th></tr>' +
+      '<tr><td><kbd>Ctrl+1</kbd>..<kbd>9</kbd></td><td>Переход к модулю</td></tr>' +
+      '<tr><td><kbd>Ctrl+F</kbd></td><td>Поиск по лаборатории</td></tr>' +
+      '<tr><td><kbd>Esc</kbd></td><td>Закрыть поиск / модалку</td></tr>' +
+      '<tr><td><kbd>?</kbd></td><td>Показать эту справку</td></tr>' +
+      '</table>' +
+      '<div class="text-small text-muted mt-8">Модули: 1-Дашборд, 2-Словарь, 3-Чекер, 4-Переводы, 5-Доски, 6-Библиотека, 7-Анализ, 8-Эд, 9-Клавиатура</div>';
+    LabModal.show('⌨️ Горячие клавиши', html);
+  }
+};
+
+function escapeHtml(text) {
+  var d = document.createElement('div');
+  d.textContent = text;
+  return d.innerHTML;
+}
+
+// ===== LAB RENDERER =====
+const LabRenderer = {
+  modules: {},
+  rendered: false,
+  
+  render: function() {
+    if (this.rendered) return;
+    this.rendered = true;
+    
+    const container = document.getElementById('labContent');
+    if (!container) return;
+    
+    const modules = [
+      this.dashboard(),
+      this.rootDictionary(),
+      this.religionismChecker(),
+      this.translationComparator(),
+      this.boardGenerator(),
+      this.boardLibrary(),
+      this.vision(),
+      this.edChat(),
+      this.paleoKeyboard()
+    ];
+    
+    container.innerHTML = modules.join('\n');
+    this.loadScripts();
+  },
+  
+  loadScripts: function() {
+    const scripts = [
+      'data/roots.json',
+      'js/root-dictionary.js',
+      'js/religionism-checker.js',
+      'js/translation-comparator.js',
+      'js/board-generator.js',
+      'js/board-library.js',
+      'js/vision-ui.js',
+      'js/ed-chat.js',
+      'js/paleo-keyboard.js'
+    ];
+    
+    let loaded = 0;
+    scripts.forEach(function(src) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.onload = function() {
+        loaded++;
+        if (loaded === scripts.length) {
+          LabRenderer.initModules();
+        }
+      };
+      document.body.appendChild(s);
+    });
+  },
+  
+  initModules: function() {
+    LabTheme.init();
+    LabHotkeys.init();
+    LabRouter.init();
+    if (window.RootDict) RootDict.init();
+    if (window.RelChecker) RelChecker.init();
+    if (window.TransComp) TransComp.init();
+    if (window.BoardGen) BoardGen.init();
+    if (window.BoardLib) BoardLib.init();
+    if (window.VisionUI) VisionUI.init();
+    if (window.EdChat) EdChat.init();
+    if (window.PaleoKey) PaleoKey.init();
+  },
+  
+  dashboard: function() {
+    return '<div id="dashboard" class="module active dashboard">' +
+      '<h1>🔬 Исследовательская лаборатория</h1>' +
+      '<p class="subtitle">Инструменты для анализа артефактов, символов, текстов, улик и скрытых подмен.</p>' +
+      '<div class="tool-grid">' +
+        '<a href="modules/roots/index.html" class="tool-card"><span class="tool-icon">📖</span><div class="tool-name">Корневой словарь</div><div class="tool-desc">Поиск по 150 корням иврита. Значение, транслитерация, палео-образы.</div><span class="tool-badge new">Новый</span></a>' +
+        '<a href="modules/paleo-images/index.html" class="tool-card"><span class="tool-icon">⌨️</span><div class="tool-name">Палео-образы</div><div class="tool-desc">22 буквы палео-иврита с образами, смыслами и примерами.</div><span class="tool-badge new">Новый</span></a>' +
+        '<a href="modules/etymology-lab/index.html" class="tool-card"><span class="tool-icon">🧪</span><div class="tool-name">Этимология</div><div class="tool-desc">Глубокий разбор слова: корень, палео-буквы, цепочка подмен.</div><span class="tool-badge new">Новый</span></a>' +
+        '<a href="#religionism-checker" class="tool-card"><span class="tool-icon">🔍</span><div class="tool-name">Чекер религионимов</div><div class="tool-desc">Проверка текста на подмены: Господь → Яхве, Бог → Элоhим.</div><span class="tool-badge new">Новый</span></a>' +
+        '<a href="#translation-comparator" class="tool-card"><span class="tool-icon">📑</span><div class="tool-name">Сравнение переводов</div><div class="tool-desc">Параллельный просмотр ТМ, Септуагинты и Синодального перевода.</div><span class="tool-badge beta">Beta</span></a>' +
+        '<a href="#board-generator" class="tool-card"><span class="tool-icon">📋</span><div class="tool-name">Генератор досок</div><div class="tool-desc">Создание визуальных детективных досок для анализа улик.</div><span class="tool-badge beta">Beta</span></a>' +
+        '<a href="#board-library" class="tool-card"><span class="tool-icon">🗂</span><div class="tool-name">Библиотека досок</div><div class="tool-desc">Архив созданных досок — просмотр, экспорт, управление.</div><span class="tool-badge new">Новый</span></a>' +
+        '<a href="#vision" class="tool-card"><span class="tool-icon">👁</span><div class="tool-name">Визуальный анализ</div><div class="tool-desc">Анализ изображений через SmolVLM-256M. Поиск скрытых символов.</div><span class="tool-badge new">Новый</span></a>' +
+        '<a href="#ed-chat" class="tool-card"><span class="tool-icon">🧠</span><div class="tool-name">Чат с Эдом</div><div class="tool-desc">Общение с нейросетью Эд для исследований и анализа.</div><span class="tool-badge beta">Beta</span></a>' +
+        '<a href="#paleo-keyboard" class="tool-card"><span class="tool-icon">⌨️</span><div class="tool-name">Палео-клавиатура</div><div class="tool-desc">Виртуальная клавиатура с палео-ивритскими буквами и образами.</div><span class="tool-badge new">Новый</span></a>' +
+      '</div></div>';
+  },
+  
+  rootDictionary: function() {
+    return '<div id="root-dictionary" class="module">' +
+      '<h1>📖 Корневой словарь</h1>' +
+      '<p class="subtitle">Поиск по корням иврита. Введите корень (на иврите, транслитерации или русском).</p>' +
+      '<div class="search-wrap"><input type="text" id="rd-search" class="lab-input" placeholder="Поиск: אמן, AMN, верить..." oninput="RootDict.search(this.value)" /></div>' +
+      '<div id="rd-spinner" class="lab-spinner"><div class="loader"></div><div class="spinner-text">Загрузка словаря…</div></div>' +
+      '<div id="rd-results"></div>' +
+      '<div id="rd-empty" class="lab-alert lab-alert-info">Введите запрос для поиска. Например: <strong>אמן</strong>, <strong>вера</strong>.</div>' +
+      '<div id="rd-count" class="text-muted text-small mt-8"></div></div>';
+  },
+  
+  religionismChecker: function() {
+    return '<div id="religionism-checker" class="module">' +
+      '<h1>🔍 Чекер религионимов</h1>' +
+      '<p class="subtitle">Проверка текста на подмены. Вставьте текст на русском — мы подсветим религионизмы.</p>' +
+      '<textarea id="rc-input" class="lab-textarea" rows="6" placeholder="Вставьте текст, например: Господь Бог сказал Моисею..."></textarea>' +
+      '<div class="flex gap-8 items-center mb-16">' +
+        '<button class="lab-btn lab-btn-primary" onclick="RelChecker.check()">🔍 Проверить текст</button>' +
+        '<button class="lab-btn lab-btn-secondary" onclick="RelChecker.clear()">✕ Очистить</button></div>' +
+      '<div id="rc-result" class="lab-card" style="display:none;"><div class="lab-card-header">📋 Результат проверки</div><div class="lab-card-body" id="rc-body"></div></div>' +
+      '<div class="lab-card"><div class="lab-card-header">📖 Словарь подмен</div><div class="lab-card-body" id="rc-dict"></div></div></div>';
+  },
+  
+  translationComparator: function() {
+    return '<div id="translation-comparator" class="module">' +
+      '<h1>📑 Сравнение переводов</h1>' +
+      '<p class="subtitle">Параллельный просмотр текста ТаНаХа в трёх переводах: ТМ, LXX, Синодальный.</p>' +
+      '<div class="search-wrap">' +
+        '<input type="text" id="tc-search" class="lab-input" placeholder="Берешит 1:1, Исайя 53, Псалом 23" />' +
+        '<button class="lab-btn lab-btn-primary" onclick="TransComp.search()">📖 Показать</button></div>' +
+      '<div id="tc-results" style="display:none;"><div class="flex gap-16" style="flex-wrap:wrap;">' +
+        '<div class="lab-card flex-1" style="min-width:250px;"><div class="lab-card-header">📜 ТМ (иврит)</div><div class="lab-card-body" id="tc-tm" style="font-size:20px;direction:rtl;"></div></div>' +
+        '<div class="lab-card flex-1" style="min-width:250px;"><div class="lab-card-header">📜 LXX (греч.)</div><div class="lab-card-body" id="tc-lxx"></div></div>' +
+        '<div class="lab-card flex-1" style="min-width:250px;"><div class="lab-card-header">📜 Синодальный</div><div class="lab-card-body" id="tc-synodal"></div></div>' +
+      '</div></div>' +
+      '<div id="tc-placeholder" class="lab-alert lab-alert-info">Введите ссылку на стих. Пример: <strong>Берешит 1:1</strong>.</div></div>';
+  },
+  
+  boardGenerator: function() {
+    return '<div id="board-generator" class="module">' +
+      '<h1>📋 Генератор детективных досок</h1>' +
+      '<p class="subtitle">Создавайте визуальные исследовательские доски для анализа улик, выводов и связей.</p>' +
+      '<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-primary" onclick="BoardGen.openFull()">🖥 Открыть генератор</button></div>' +
+      '<div class="lab-alert lab-alert-info">Полноценный генератор находится в <strong>products/website/research-board/</strong>.</div></div>';
+  },
+  
+  boardLibrary: function() {
+    return '<div id="board-library" class="module">' +
+      '<h1>🗂 Библиотека досок</h1>' +
+      '<p class="subtitle">Архив сохранённых исследовательских досок. Просмотр, экспорт и управление.</p>' +
+      '<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-secondary" onclick="BoardLib.clearAll()">🗑 Очистить всё</button></div>' +
+      '<div id="bl-list"></div>' +
+      '<div id="bl-empty" class="lab-alert lab-alert-info">Пока нет сохранённых досок.</div></div>';
+  },
+  
+  vision: function() {
+    return '<div id="vision" class="module">' +
+      '<h1>👁 Визуальный анализатор</h1>' +
+      '<p class="subtitle">Загрузите изображение для анализа. Модель опишет содержимое: текст, символы, объекты.</p>' +
+      '<div class="flex gap-8 mb-16">' +
+        '<button class="lab-btn lab-btn-primary" data-mode="huggingface" onclick="VisionUI.setMode(\'huggingface\')">🤗 Hugging Face API</button>' +
+        '<button class="lab-btn lab-btn-secondary" data-mode="local" onclick="VisionUI.setMode(\'local\')">💻 Локальный сервер</button></div>' +
+      '<div class="lab-card"><div class="lab-card-header">🔑 Настройки</div><div class="lab-card-body">' +
+        '<label class="mb-8" style="display:block;font-weight:600;">API ключ Hugging Face</label>' +
+        '<div class="text-small text-muted mb-8"><a href="https://huggingface.co/settings/tokens" target="_blank" style="color:#b8860b;">Получить бесплатный ключ</a></div>' +
+        '<div class="flex gap-8"><input type="password" id="vi-apikey" class="lab-input" placeholder="hf_xxxxxxxxxxxx" style="max-width:400px;" />' +
+        '<button class="lab-btn lab-btn-secondary" onclick="VisionUI.saveKey()">💾 Сохранить</button></div></div></div>' +
+      '<div class="lab-card" style="text-align:center;cursor:pointer;" onclick="document.getElementById(\'vi-file\').click()">' +
+        '<div id="vi-preview" style="display:none;margin-bottom:12px;">' +
+          '<img id="vi-img" src="" alt="preview" style="max-width:100%;max-height:300px;border-radius:4px;border:1px solid #d4c4a8;" />' +
+          '<button class="lab-btn lab-btn-danger mt-8" onclick="event.stopPropagation();VisionUI.remove()">✕ Удалить</button></div>' +
+        '<div id="vi-placeholder"><span style="font-size:40px;">🖼</span><div style="font-size:18px;color:#2c1810;margin-top:8px;">Нажмите, чтобы загрузить</div>' +
+        '<div class="text-muted text-small mt-8">PNG, JPG, WEBP — до 10 МБ</div></div>' +
+        '<input type="file" id="vi-file" accept="image/png,image/jpeg,image/jpg,image/webp" style="display:none;" onchange="VisionUI.load(event)" /></div>' +
+      '<button class="lab-btn lab-btn-primary" id="vi-analyze-btn" onclick="VisionUI.analyze()" disabled style="width:100%;justify-content:center;padding:14px;font-size:18px;margin-bottom:16px;">🔍 Анализировать</button>' +
+      '<div id="vi-spinner" class="lab-spinner"><div class="loader"></div><div class="spinner-text">Анализ…</div></div>' +
+      '<div id="vi-result" class="lab-card" style="display:none;"><div class="lab-card-header">📋 Результат</div><div class="lab-card-body" id="vi-result-body" style="white-space:pre-wrap;"></div>' +
+      '<div class="text-muted text-small mt-8 flex justify-between"><span id="vi-model-badge">SmolVLM-256M</span><span id="vi-timestamp"></span></div></div>' +
+      '<div id="vi-error" class="lab-alert lab-alert-error" style="display:none;"></div></div>';
+  },
+  
+  edChat: function() {
+    return '<div id="ed-chat" class="module">' +
+      '<h1>🧠 Чат с Эдом</h1>' +
+      '<p class="subtitle">Общение с нейросетью Эд для исследований, анализа и разоблачений.</p>' +
+      '<div class="lab-card" id="ec-messages" style="max-height:400px;overflow-y:auto;min-height:200px;">' +
+        '<div class="text-muted" style="text-align:center;padding:40px;" id="ec-welcome">Начните диалог с Эдом.</div></div>' +
+      '<div class="flex gap-8">' +
+        '<input type="text" id="ec-input" class="lab-input" placeholder="Ваш вопрос Эду..." onkeydown="if(event.key===\'Enter\')EdChat.send()" />' +
+        '<button class="lab-btn lab-btn-primary" onclick="EdChat.send()">➤ Отправить</button>' +
+        '<button class="lab-btn lab-btn-secondary" onclick="EdChat.clear()">✕ Очистить</button></div>' +
+      '<div class="text-small text-muted mt-8">Эд — экспериментальная функция.</div></div>';
+  },
+  
+  paleoKeyboard: function() {
+    return '<div id="paleo-keyboard" class="module">' +
+      '<h1>⌨️ Палео-ивритская клавиатура</h1>' +
+      '<p class="subtitle">Нажимайте на буквы, чтобы вставить их. Каждая буква — с образом и значением.</p>' +
+      '<div id="pk-output" class="lab-card" style="min-height:80px;font-size:28px;direction:rtl;text-align:right;font-family:\'Times New Roman\',serif;line-height:1.6;" contenteditable="true"></div>' +
+      '<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-secondary" onclick="PaleoKey.copy()">📋 Копировать</button><button class="lab-btn lab-btn-danger" onclick="PaleoKey.clear()">✕ Очистить</button></div>' +
+      '<div id="pk-keys" class="flex flex-wrap gap-8" style="justify-content:center;"></div>' +
+      '<div id="pk-info" class="lab-card mt-16" style="display:none;"><div class="lab-card-header" id="pk-info-title"></div><div class="lab-card-body" id="pk-info-body"></div></div></div>';
+  }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+  LabRenderer.render();
+});
+</script>
+</body>
+</html>
