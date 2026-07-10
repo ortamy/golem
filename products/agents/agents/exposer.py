@@ -24,11 +24,11 @@ def lookup_exposure_dictionary(term: str) -> str:
     if not DICTIONARY_TEXT:
         return "Файл exposure-dictionary.md не найден."
     term_low = term.strip().lower()
-    blocks = DICTIONARY_TEXT.split("\n## ")
+    blocks = DICTIONARY_TEXT.split("\n### ")
     hits = [b for b in blocks if term_low in b.lower()[:200]]
     if not hits:
         return f"Слово '{term}' не найдено в exposure-dictionary.md."
-    return "\n## ".join(hits[:2])[:4000]
+    return "\n### ".join(hits[:2])[:4000]
 
 
 @tool("Найти известные подмены в data/exposures.json")
@@ -70,4 +70,28 @@ def build_exposer_agent() -> Agent:
         tools=[lookup_exposure_dictionary, lookup_known_exposures],
         llm=EXPOSER_MODEL,
         verbose=True,
+    )
+
+
+def build_exposer_task(agent: Agent, verse_ref: str) -> Task:
+    return Task(
+        description=(
+            f"Стих: «{verse_ref}».\n\n"
+            "Найди подмены в переводах этого стиха:\n"
+            "1. Приведи масоретский текст (ТМ) на иврите, если знаешь его точно.\n"
+            "2. Сравни с Септуагинтой (LXX) и Синодальным переводом — какие слова "
+            "заменены, какой тип искажения применён (из 9).\n"
+            "3. Используй инструмент lookup_exposure_dictionary для каждого "
+            "подозрительного слова, чтобы найти восстановленный ивритский термин.\n"
+            "4. Используй lookup_known_exposures, чтобы проверить, есть ли уже "
+            "зафиксированная подмена по этой теме.\n"
+            "5. Для каждой найденной подмены укажи: слово в Синодальном → "
+            "ивритский оригинал → правильное значение → тип искажения."
+        ),
+        expected_output=(
+            "Список подмен в формате: 'Синодальное слово → иврит (транслит) → "
+            "восстановленное значение → тип искажения (из 9)'. Минимум 1 подмена, "
+            "если стих короткий — может быть меньше."
+        ),
+        agent=agent,
     )

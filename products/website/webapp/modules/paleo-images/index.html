@@ -11,11 +11,9 @@
   .pi-wrap { max-width: 960px; margin: 0 auto; }
   .pi-wrap .back-link { display: inline-flex; align-items: center; gap: 4px; color: var(--accent-gold); text-decoration: none; font-size: 15px; margin-bottom: 16px; }
   .pi-wrap .back-link:hover { text-decoration: underline; }
-
   .pi-intro { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 20px; margin-bottom: 24px; }
   .pi-intro p { font-size: 16px; line-height: 1.7; color: var(--text-secondary); }
   .pi-intro strong { color: var(--accent-gold); }
-
   .pi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
   .pi-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 20px 16px; text-align: center; cursor: pointer; transition: all 0.25s; box-shadow: 2px 2px 8px var(--shadow-card); }
   .pi-card:hover { transform: translateY(-3px); box-shadow: 4px 4px 16px var(--shadow-card-hover); border-color: var(--accent-gold); }
@@ -25,7 +23,6 @@
   .pi-card .pi-image { font-size: 32px; display: block; margin-top: 4px; }
   .pi-card .pi-translit { font-size: 13px; color: var(--text-muted); margin-top: 2px; font-family: monospace; }
   .pi-card .pi-meaning { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
-
   .pi-detail { display: none; background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 6px; padding: 24px; margin-bottom: 24px; box-shadow: 2px 2px 12px var(--shadow-card-hover); }
   .pi-detail.show { display: block; animation: fadeIn 0.2s ease; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
@@ -50,17 +47,16 @@
 
   <a href="../../index.html" class="back-link">← Назад в лабораторию</a>
 
-  <h1><img src="../../../assets/icons/32/track.png" width="32" height="32" alt="Палео-образы" style="vertical-align: middle; margin-right: 6px;"> Палео-образы</h1>
+  <h1> Палео-образы</h1>
   <p class="subtitle">22 буквы палео-ивритского алфавита. Нажмите на букву, чтобы увидеть её полное описание.</p>
 
   <div class="pi-intro">
-    <p>Палео-иврит (<strong>כתב עברי קדום</strong>) — древнее письмо, которым был записан ТаНаХ до вавилонского плена. Каждая буква — это <strong>рисунок</strong> (пиктограмма), несущий смысл: 𐤀 — бык (сила), 𐤁 — дом (семья), 𐤂 — верблюд (движение). Понимание образов букв раскрывает глубинный смысл слов.</p>
+    <p>Палео-иврит (<strong>כתב עברי קדום</strong>) — древнее письмо, которым был записан ТаНаХ до вавилонского плена. Каждая буква — это <strong>рисунок</strong> (пиктограмма), несущий смысл. Понимание образов букв раскрывает глубинный смысл слов.</p>
   </div>
 
   <div class="pi-detail" id="pi-detail">
     <div class="pi-detail-header">
       <div class="pi-dpaleo" id="pi-dpaleo"></div>
-      <div class="pi-dimage" id="pi-dimage"></div>
       <div class="pi-dinfo">
         <div class="pi-dname" id="pi-dname"></div>
         <div class="pi-dtranslit" id="pi-dtranslit"></div>
@@ -73,16 +69,36 @@
   </div>
 
   <div class="pi-grid" id="pi-grid"></div>
-    { paleo: '𐤏', name: 'Аин', image: '👁', translit: 'A (горл.)', meaning: 'Глаз, видение, понимание, источник', desc: 'Аин — это глаз. Символ видения, понимания, прозрения. Также — источник (עין — колодец). Аин — гортанная, глубокая буква, идущая изнутри.', example: 'עין — аин (глаз, источник). נביא — нави (пророк, видящий).' },
-    { paleo: '𐤐', name: 'Пе', image: '👄', translit: 'P', meaning: 'Рот, речь, слово, выражение', desc: 'Пе — это рот. Символ речи, слова, выражения. Отсюда: пе (פה) — рот, пи (פי) — уста. Речь — это творческая сила, слово созидает.', example: 'פה — пе (рот). פרי — при (плод). נביא — нави (провозвестник).' },
-    { paleo: '𐤑', name: 'Цаде', image: '🎣', translit: 'Ts', meaning: 'Крюк для рыбы, праведность, охота, цель', desc: 'Цаде изображает крюк для ловли рыбы или охотничий лук. Символ цели, стремления, праведности (цедек — צדק). Идти к цели праведным путём.', example: 'צדק — цедек (правда, праведность). ציד — цайид (охота).' },
-    { paleo: '𐤒', name: 'Коф', image: '🙈', translit: 'Q', meaning: 'Игла/обезьяна, святость, окружение, цикл', desc: 'Коф изображает иглу (ушко) или обезьяну. Символ окружения, цикла, святости (кадош — קדוש — отделённый, замкнутый круг).', example: 'קדוש — кадош (святой, отделённый). קהל — каhаль (собрание).' },
-    { paleo: '𐤓', name: 'Реш', image: '🗣', translit: 'R', meaning: 'Голова, начало, мудрость, первый', desc: 'Реш — это голова человека. Символ начала, мудрости, первого. Отсюда: рош (ראש) — голова, ришон (ראשון) — первый. Реш — 200-я буква, число полноты.', example: 'ראש — рош (голова, начало). רב — рав (великий, много).' },
-    { paleo: '𐤔', name: 'Шин', image: '🦷', translit: 'Sh/S', meaning: 'Зуб, разрушение, мир, огонь', desc: 'Шин изображает зуб. Зуб — символ разрушения (жрёт, дробит) и мира (шалом — שלום). Три линии шин — три столпа: мир, истина, справедливость.', example: 'שלום — шалом (мир). שן — шен (зуб). שדי — Шадай (Всесильный).' },
-    { paleo: '𐤕', name: 'Тав', image: '✝️', translit: 'T', meaning: 'Знак, завет, истина, завершение', desc: 'Тав — это знак, крест, отметка. Символ завета, истины (эмет — אמת), завершения. Тав — последняя буква алфавита, завершение пути. В слове «эмет» — алеф (начало), мем (середина), тав (конец).', example: 'תורה — тора (учение). אמת — эмет (истина). ברית — брит (завет).' }
+
+</div>
+
+<script>
+(function() {
+  const LETTERS = [
+    { paleo: '𐤀', name: 'Алеф', image: '', translit: 'ʼ', meaning: 'Бык, сила, мощь, первое', desc: 'Алеф — это бык. Символ силы, первенства, мощи. Бык тянет плуг — алеф тянет смысл всего алфавита.', example: 'אל — Эль (Всесильный). אמן — амен (верно, надёжно).' },
+    { paleo: '𐤁', name: 'Бет', image: '', translit: 'B', meaning: 'Дом, семья, вместилище, внутри', desc: 'Бет — это дом. Символ семьи, внутреннего пространства, вместилища. Дом — место, куда возвращаются.', example: 'בית — байт (дом). בן — бен (сын). ברית — брит (союз).' },
+    { paleo: '𐤂', name: 'Гимель', image: '', translit: 'G', meaning: 'Верблюд, движение, перенос, воздаяние', desc: 'Гимель — это верблюд. Символ движения, путешествия, переноса. Верблюд идёт через пустыню.', example: 'גדל — гадаль (великий). גל — галь (волна).' },
+    { paleo: '𐤃', name: 'Далет', image: '', translit: 'D', meaning: 'Дверь, вход, возможность, выбор', desc: 'Далет — это дверь. Символ входа, выбора, возможности. Дверь открывается или закрывается.', example: 'דבר — давар (слово-дело). דע — да (знай).' },
+    { paleo: '𐤄', name: 'Хе', image: '', translit: 'H', meaning: 'Дыхание, откровение, присутствие', desc: 'Хе — это дыхание. Символ откровения, присутствия, духа. Дыхание — жизнь от Яхве.', example: 'הוא — hу (он). הלך — hалах (ходил).' },
+    { paleo: '𐤅', name: 'Вав', image: '', translit: 'W', meaning: 'Крюк, соединение, связь', desc: 'Вав — это крюк. Символ соединения, связи между небом и землёй.', example: 'ו — ве (и). ויהי — ва-йеhи (и стало).' },
+    { paleo: '𐤆', name: 'Заин', image: '', translit: 'Z', meaning: 'Оружие, инструмент, обеспечение', desc: 'Заин — это оружие. Символ инструмента, средства, обеспечения.', example: 'זבח — зевах (трапеза). זכר — захар (помнил).' },
+    { paleo: '𐤇', name: 'Хет', image: '', translit: 'Ḥ', meaning: 'Ограда, отделение, граница', desc: 'Хет — это ограда. Символ отделения, границы, внутреннего пространства.', example: 'חטא — хата (промахнулся). חסד — хесед (преданная любовь).' },
+    { paleo: '𐤈', name: 'Тет', image: '', translit: 'Ṭ', meaning: 'Змея, оборачивание, добро', desc: 'Тет — это змея. Символ оборачивания, охвата, добра (тов — טוב).', example: 'טוב — тов (пригодное). טהור — таhор (чистое).' },
+    { paleo: '𐤉', name: 'Йод', image: '', translit: 'Y', meaning: 'Рука, действие, власть', desc: 'Йод — это рука. Символ действия, власти, творения. Рука делает.', example: 'יד — яд (рука). יהוה — Яхве. ישראל — Исраэль.' },
+    { paleo: '𐤊', name: 'Каф', image: '', translit: 'K', meaning: 'Ладонь, удержание, охват', desc: 'Каф — это ладонь. Символ удержания, охвата, сосуда.', example: 'כה — ко (так). כל — коль (весь).' },
+    { paleo: '𐤋', name: 'Ламед', image: '', translit: 'L', meaning: 'Посох, направление, обучение', desc: 'Ламед — это посох пастуха. Символ направления, обучения.', example: 'לב — лев (сердце). למד — ламад (учился).' },
+    { paleo: '𐤌', name: 'Мем', image: '', translit: 'M', meaning: 'Вода, течение, жизнь', desc: 'Мем — это вода. Символ течения, жизни, хаоса и порядка.', example: 'מים — маим (вода). מלך — мелех (царь).' },
+    { paleo: '𐤍', name: 'Нун', image: '', translit: 'N', meaning: 'Рыба, жизнь, продолжение', desc: 'Нун — это рыба. Символ жизни, продолжения, потомства.', example: 'נביא — нави (вестник). נפש — нэфеш (дышащее существо).' },
+    { paleo: '𐤎', name: 'Самех', image: '', translit: 'S', meaning: 'Опора, поддержка, круг', desc: 'Самех — это опора. Символ поддержки, круга, защиты.', example: 'סדר — седер (порядок). סלה — сэла (навсегда).' },
+    { paleo: '𐤏', name: 'Аин', image: '', translit: 'ʻ', meaning: 'Глаз, видение, понимание, источник', desc: 'Аин — это глаз. Символ видения, понимания, прозрения. Также — источник (עין — колодец).', example: 'עין — аин (глаз, источник). נביא — нави (пророк, видящий).' },
+    { paleo: '𐤐', name: 'Пе', image: '', translit: 'P', meaning: 'Рот, речь, слово, выражение', desc: 'Пе — это рот. Символ речи, слова, выражения. Речь — творческая сила.', example: 'פה — пе (рот). פרי — при (плод).' },
+    { paleo: '𐤑', name: 'Цаде', image: '', translit: 'Ṣ', meaning: 'Крюк, праведность, цель', desc: 'Цаде — крюк для рыбы или охотничий лук. Символ цели, праведности (цедек — צדק).', example: 'צדק — цедек (правда). ציד — цайид (охота).' },
+    { paleo: '𐤒', name: 'Коф', image: '', translit: 'Q', meaning: 'Игла, святость, окружение, цикл', desc: 'Коф — игла (ушко). Символ окружения, цикла, святости (кадош — קדוש).', example: 'קדוש — кадош (святой). קהל — каhаль (собрание).' },
+    { paleo: '𐤓', name: 'Реш', image: '', translit: 'R', meaning: 'Голова, начало, мудрость', desc: 'Реш — это голова. Символ начала, мудрости, первого.', example: 'ראש — рош (голова). רב — рав (великий).' },
+    { paleo: '𐤔', name: 'Шин', image: '', translit: 'Š', meaning: 'Зуб, разрушение, мир, огонь', desc: 'Шин — зуб. Символ разрушения и мира (шалом — שלום). Три линии — три столпа.', example: 'שלום — шалом (мир). שן — шен (зуб).' },
+    { paleo: '𐤕', name: 'Тав', image: '', translit: 'T', meaning: 'Знак, завет, истина, завершение', desc: 'Тав — это знак, отметка. Символ завета, истины (эмет — אמת), завершения.', example: 'תורה — Тора. אמת — эмет (истина). ברית — брит (союз).' }
   ];
 
-  // Связь букв с корнями
   const ROOT_MAP = {
     'Алеф': ['אל', 'אדם', 'אמן', 'אמר', 'אש', 'את'],
     'Бет': ['בן', 'בנה', 'בר', 'ברך', 'בשר'],
@@ -108,56 +124,45 @@
     'Тав': ['תהל', 'תוך', 'תור', 'תורה', 'תכן', 'תלמיד', 'תם', 'תעה', 'תפל', 'תקוה', 'תשע']
   };
 
-  function init() {
-    renderGrid();
-  }
+  function init() { renderGrid(); }
 
   function renderGrid() {
-    const grid = document.getElementById('pi-grid');
-    let html = '';
-    LETTERS.forEach((l, idx) => {
+    var grid = document.getElementById('pi-grid');
+    var html = '';
+    LETTERS.forEach(function(l, idx) {
       html += '<div class="pi-card" onclick="PaleoImages.show(' + idx + ')">';
-      html += '  <div class="pi-paleo">' + l.paleo + '</div>';
-      html += '  <div class="pi-name">' + l.name + '</div>';
-      html += '  <div class="pi-image">' + l.image + '</div>';
-      html += '  <div class="pi-translit">' + l.translit + '</div>';
-      html += '  <div class="pi-meaning">' + l.meaning.split(',')[0] + '</div>';
+      html += '<div class="pi-paleo">' + l.paleo + '</div>';
+      html += '<div class="pi-name">' + l.name + '</div>';
+      html += '<div class="pi-translit">' + l.translit + '</div>';
+      html += '<div class="pi-meaning">' + l.meaning.split(',')[0] + '</div>';
       html += '</div>';
     });
     grid.innerHTML = html;
   }
 
   function show(idx) {
-    const l = LETTERS[idx];
+    var l = LETTERS[idx];
     if (!l) return;
-
-    // Highlight selected
-    document.querySelectorAll('.pi-card').forEach((c, i) => c.classList.toggle('selected', i === idx));
-
+    document.querySelectorAll('.pi-card').forEach(function(c, i) { c.classList.toggle('selected', i === idx); });
     document.getElementById('pi-dpaleo').textContent = l.paleo;
-    document.getElementById('pi-dimage').textContent = l.image;
     document.getElementById('pi-dname').textContent = l.name;
     document.getElementById('pi-dtranslit').textContent = 'Транслит: ' + l.translit;
     document.getElementById('pi-dmeaning').textContent = l.meaning;
     document.getElementById('pi-ddesc').textContent = l.desc;
     document.getElementById('pi-dexample').innerHTML = '<strong>Пример:</strong> ' + l.example;
-
-    // Roots
-    const roots = ROOT_MAP[l.name] || [];
-    const rootsEl = document.getElementById('pi-droots');
+    var roots = ROOT_MAP[l.name] || [];
+    var rootsEl = document.getElementById('pi-droots');
     if (roots.length > 0) {
-      rootsEl.innerHTML = '<span style="font-size:14px;color:var(--text-muted);">Корни с этой буквой:</span> ' +
-        roots.map(r => '<span class="root-chip" onclick="window.open(\'../../index.html#root-dictionary\',\'_parent\')">' + r + '</span>').join(' ');
+      rootsEl.innerHTML = roots.map(function(r) { return '<span class="root-chip">' + r + '</span>'; }).join(' ');
       rootsEl.style.display = 'flex';
     } else {
       rootsEl.style.display = 'none';
     }
-
     document.getElementById('pi-detail').classList.add('show');
     document.getElementById('pi-detail').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  window.PaleoImages = { show };
+  window.PaleoImages = { show: show };
   document.addEventListener('DOMContentLoaded', init);
 })();
 </script>
