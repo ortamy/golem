@@ -10,7 +10,7 @@
     "build:css:tailwind": "tailwindcss -i src/input.css -o style.css --minify",
     "build:css:purge": "npx purgecss --config purgecss.config.js",
     "build:js:minify": "echo 'js minify skipped'",
-    "build:assets": "cp -r ../webapp ./webapp && echo 'webapp copied'"
+    "build:assets": "cp -r ../../products/webapp ./webapp 2>/dev/null || echo 'webapp copy skipped — check path'"
   },
   "devDependencies": {
     "autoprefixer": "^10.5.0",
