@@ -7,6 +7,10 @@
 <meta name="description" content="Полноценная исследовательская лаборатория проекта Голем">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="stylesheet" href="css/lab.css">
+<link rel="stylesheet" href="css/root-dictionary.css">
+<link rel="stylesheet" href="css/paleo-images.css">
+<link rel="stylesheet" href="css/etymology-lab.css">
+<link rel="stylesheet" href="css/board-generator.css">
 </head>
 <body>
 
@@ -364,6 +368,9 @@ const LabRenderer = {
     const scripts = [
       'data/roots.json',
       'js/root-dictionary.js',
+      'js/paleo-images.js',
+      'js/etymology-lab.js',
+      'js/board-generator.js',
       'js/religionism-checker.js',
       'js/translation-comparator.js',
       'js/board-library.js',
@@ -387,35 +394,59 @@ const LabRenderer = {
   },
   
   initModules: function() {
-    LabTheme.init();
-    LabHotkeys.init();
-    LabRouter.init();
-    if (window.RootDict) RootDict.init();
-    if (window.RelChecker) RelChecker.init();
-    if (window.TransComp) TransComp.init();
-    if (window.BoardLib) BoardLib.init();
-    if (window.VisionUI) VisionUI.init();
-    if (window.EdChat) EdChat.init();
-    if (window.PaleoKey) PaleoKey.init();
+  LabTheme.init();
+  LabHotkeys.init();
+  LabRouter.init();
+  if (window.RootDict) RootDict.init();
+  if (window.EtyLab) EtyLab.init();
+  if (window.RelChecker) RelChecker.init();
+  if (window.TransComp) TransComp.init();
+  if (window.BoardLib) BoardLib.init();
+  if (window.VisionUI) VisionUI.init();
+  if (window.EdChat) EdChat.init();
+  if (window.PaleoKey) PaleoKey.init();
+
+  // Init board generator form
+  if (document.getElementById('board-form')) {
+    document.getElementById('board-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (typeof generateBoard === 'function') generateBoard();
+    });
+  }
+
+  // Render paleo-images grid
+  if (document.getElementById('pi-grid') && typeof LETTERS !== 'undefined') {
+    var grid = document.getElementById('pi-grid');
+    var html = '';
+    LETTERS.forEach(function(l, idx) {
+      html += '<div class="pi-card" onclick="PaleoImages.show(' + idx + ')">';
+      html += '<div class="pi-paleo">' + l.paleo + '</div>';
+      html += '<div class="pi-name">' + l.name + '</div>';
+      html += '<div class="pi-translit">' + l.translit + '</div>';
+      html += '<div class="pi-meaning">' + l.meaning.split(',')[0] + '</div>';
+      html += '</div>';
+    });
+    grid.innerHTML = html;
+  }
   },
   
   dashboard: function() {
-    return '<div id="dashboard" class="module active dashboard">' +
-      '<h1><img src="../assets/icons/32/testtube.png" width="32" height="32" alt="Лаборатория" style="vertical-align: middle; margin-right: 6px;"> Исследовательская лаборатория</h1>' +
-      '<p class="subtitle">Инструменты для анализа артефактов, символов, текстов, улик и скрытых подмен.</p>' +
-      '<div class="tool-grid">' +
-        '<a href="modules/roots/index.html" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/book.png" width="32" height="32" alt="Корневой словарь"></span><div class="tool-name">Корневой словарь</div><div class="tool-desc">Поиск по 150 корням иврита. Значение, транслитерация, палео-образы.</div><span class="tool-badge new">Новый</span></a>' +
-        '<a href="modules/paleo-images/index.html" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/track.png" width="32" height="32" alt="Палео-образы"></span><div class="tool-name">Палео-образы</div><div class="tool-desc">22 буквы палео-иврита с образами, смыслами и примерами.</div><span class="tool-badge new">Новый</span></a>' +
-        '<a href="modules/etymology-lab/index.html" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/testtube.png" width="32" height="32" alt="Этимология"></span><div class="tool-name">Этимология</div><div class="tool-desc">Глубокий разбор слова: корень, палео-буквы, цепочка подмен.</div><span class="tool-badge new">Новый</span></a>' +
-        '<a href="#religionism-checker" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/question.png" width="32" height="32" alt="Чекер религионимов"></span><div class="tool-name">Чекер религионимов</div><div class="tool-desc">Проверка текста на подмены: Господь → Яхве, Бог → Элоhим.</div><span class="tool-badge new">Новый</span></a>' +
-        '<a href="#translation-comparator" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scroll.png" width="32" height="32" alt="Сравнение переводов"></span><div class="tool-name">Сравнение переводов</div><div class="tool-desc">Параллельный просмотр ТМ, Септуагинты и Синодального перевода.</div><span class="tool-badge beta">Beta</span></a>' +
-        '<a href="modules/board-generator/index.html" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scroll.png" width="32" height="32" alt="Генератор досок"></span><div class="tool-name">Генератор досок</div><div class="tool-desc">Создание визуальных детективных досок для анализа улик, выводов и вложений. Экспорт в PNG, PDF, TXT.</div><span class="tool-badge new">Новый</span></a>' +
-        '<a href="#board-library" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scrolls.png" width="32" height="32" alt="Библиотека досок"></span><div class="tool-name">Библиотека досок</div><div class="tool-desc">Архив созданных досок — просмотр, экспорт, управление.</div><span class="tool-badge new">Новый</span></a>' +
-        '<a href="#vision" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/lamp.png" width="32" height="32" alt="Визуальный анализ"></span><div class="tool-name">Визуальный анализ</div><div class="tool-desc">Анализ изображений через SmolVLM-256M. Поиск скрытых символов.</div><span class="tool-badge new">Новый</span></a>' +
-        '<a href="#ed-chat" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/hammer-and-chisel.png" width="32" height="32" alt="Чат с Эдом"></span><div class="tool-name">Чат с Эдом</div><div class="tool-desc">Общение с нейросетью Эд для исследований и анализа.</div><span class="tool-badge beta">Beta</span></a>' +
-        '<a href="#paleo-keyboard" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/track.png" width="32" height="32" alt="Палео-клавиатура"></span><div class="tool-name">Палео-клавиатура</div><div class="tool-desc">Виртуальная клавиатура с палео-ивритскими буквами и образами.</div><span class="tool-badge new">Новый</span></a>' +
-      '</div></div>';
-  },
+  return '<div id="dashboard" class="module active dashboard">' +
+    '<h1><img src="../assets/icons/32/testtube.png" width="32" height="32" alt="Лаборатория" style="vertical-align: middle; margin-right: 6px;"> Исследовательская лаборатория</h1>' +
+    '<p class="subtitle">Инструменты для анализа артефактов, символов, текстов, улик и скрытых подмен.</p>' +
+    '<div class="tool-grid">' +
+      '<a href="#root-dictionary" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/book.png" width="32" height="32" alt="Корневой словарь"></span><div class="tool-name">Корневой словарь</div><div class="tool-desc">Поиск по 150 корням иврита. Значение, транслитерация, палео-образы.</div><span class="tool-badge new">Новый</span></a>' +
+      '<a href="#paleo-images" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/track.png" width="32" height="32" alt="Палео-образы"></span><div class="tool-name">Палео-образы</div><div class="tool-desc">22 буквы палео-иврита с образами, смыслами и примерами.</div><span class="tool-badge new">Новый</span></a>' +
+      '<a href="#etymology-lab" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/testtube.png" width="32" height="32" alt="Этимология"></span><div class="tool-name">Этимология</div><div class="tool-desc">Глубокий разбор слова: корень, палео-буквы, цепочка подмен.</div><span class="tool-badge new">Новый</span></a>' +
+      '<a href="#religionism-checker" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/question.png" width="32" height="32" alt="Чекер религионимов"></span><div class="tool-name">Чекер религионимов</div><div class="tool-desc">Проверка текста на подмены: Господь → Яхве, Бог → Элоhим.</div><span class="tool-badge new">Новый</span></a>' +
+      '<a href="#translation-comparator" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scroll.png" width="32" height="32" alt="Сравнение переводов"></span><div class="tool-name">Сравнение переводов</div><div class="tool-desc">Параллельный просмотр ТМ, Септуагинты и Синодального перевода.</div><span class="tool-badge beta">Beta</span></a>' +
+      '<a href="#board-generator" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scroll.png" width="32" height="32" alt="Генератор досок"></span><div class="tool-name">Генератор досок</div><div class="tool-desc">Создание визуальных детективных досок для анализа улик, выводов и вложений. Экспорт в PNG, PDF, TXT.</div><span class="tool-badge new">Новый</span></a>' +
+      '<a href="#board-library" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scrolls.png" width="32" height="32" alt="Библиотека досок"></span><div class="tool-name">Библиотека досок</div><div class="tool-desc">Архив созданных досок — просмотр, экспорт, управление.</div><span class="tool-badge new">Новый</span></a>' +
+      '<a href="#vision" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/lamp.png" width="32" height="32" alt="Визуальный анализ"></span><div class="tool-name">Визуальный анализ</div><div class="tool-desc">Анализ изображений через SmolVLM-256M. Поиск скрытых символов.</div><span class="tool-badge new">Новый</span></a>' +
+      '<a href="#ed-chat" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/hammer-and-chisel.png" width="32" height="32" alt="Чат с Эдом"></span><div class="tool-name">Чат с Эдом</div><div class="tool-desc">Общение с нейросетью Эд для исследований и анализа.</div><span class="tool-badge beta">Beta</span></a>' +
+      '<a href="#paleo-keyboard" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/track.png" width="32" height="32" alt="Палео-клавиатура"></span><div class="tool-name">Палео-клавиатура</div><div class="tool-desc">Виртуальная клавиатура с палео-ивритскими буквами и образами.</div><span class="tool-badge new">Новый</span></a>' +
+    '</div></div>';
+},
   
   rootDictionary: function() {
     return '<div id="root-dictionary" class="module">' +
@@ -429,15 +460,51 @@ const LabRenderer = {
   },
 
   paleoImages: function() {
-    return '<div id="paleo-images" class="module"><iframe src="modules/paleo-images/index.html" style="width:100%;height:100vh;border:none;"></iframe></div>';
+  return '<div id="paleo-images" class="module">' +
+    '<h1><img src="../assets/icons/32/track.png" class="lab-icon" alt="">Палео-образы</h1>' +
+    '<p class="subtitle">22 буквы палео-ивритского алфавита. Нажмите на букву, чтобы увидеть описание.</p>' +
+    '<div class="pi-grid" id="pi-grid"></div>' +
+    '<div class="pi-detail" id="pi-detail">' +
+      '<div class="pi-detail-header"><div class="pi-dpaleo" id="pi-dpaleo"></div><div class="pi-dinfo"><div class="pi-dname" id="pi-dname"></div><div class="pi-dtranslit" id="pi-dtranslit"></div></div></div>' +
+      '<div class="pi-dmeaning" id="pi-dmeaning"></div><div class="pi-ddesc" id="pi-ddesc"></div><div class="pi-dexample" id="pi-dexample"></div><div class="pi-droots" id="pi-droots"></div>' +
+    '</div></div>';
   },
-
   etymologyLab: function() {
-    return '<div id="etymology-lab" class="module"><iframe src="modules/etymology-lab/index.html" style="width:100%;height:100vh;border:none;"></iframe></div>';
+    return '<div id="etymology-lab" class="module">' +
+      '<h1><img src="../assets/icons/32/testtube.png" class="lab-icon" alt="">Этимологическая лаборатория</h1>' +
+      '<p class="subtitle">Глубокий разбор слова: корень, палео-буквы, цепочка подмен.</p>' +
+      '<div class="search-wrap"><input type="text" id="el-input" class="lab-input" placeholder="Введите слово..."><button class="lab-btn lab-btn-primary" onclick="EtymologyLab.analyze()">Разобрать</button></div>' +
+      '<div id="el-results"></div></div>';
   },
-
+  
   boardGenerator: function() {
-    return '<div id="board-generator" class="module"><iframe src="modules/board-generator/index.html" style="width:100%;height:100vh;border:none;"></iframe></div>';
+  return '<div id="board-generator" class="module">' +
+    '<h1><img src="../assets/icons/32/scroll.png" class="lab-icon" alt="">Генератор исследовательских досок</h1>' +
+    '<p class="subtitle">Создавайте визуальные доски для анализа улик, выводов и вложений. Экспортируйте в PNG, PDF или TXT.</p>' +
+    '<form id="board-form">' +
+      '<div style="margin-bottom:20px"><label style="display:block;font-weight:600;margin-bottom:6px">Заголовок доски <span style="color:var(--accent-red)">*</span></label>' +
+      '<input type="text" id="board-title" required placeholder="Например: Анализ перевода Берешит 1:1" style="width:100%;padding:10px 12px;font-family:\'EB Garamond\',Georgia,serif;font-size:16px;border:1px solid var(--border-light);border-radius:4px;background:var(--bg-primary);color:var(--text-primary);outline:none"></div>' +
+      '<div style="margin-bottom:20px"><label style="display:block;font-weight:600;margin-bottom:6px">Вывод / главная улика <span style="color:var(--accent-red)">*</span></label>' +
+      '<textarea id="main-conclusion" required rows="3" placeholder="Краткий вывод или основная улика..." style="width:100%;padding:10px 12px;font-family:\'EB Garamond\',Georgia,serif;font-size:16px;border:1px solid var(--border-light);border-radius:4px;background:var(--bg-primary);color:var(--text-primary);outline:none;resize:vertical"></textarea></div>' +
+      '<div style="margin-bottom:20px"><label style="display:block;font-weight:600;margin-bottom:8px">Улики</label><div id="evidence-list"></div>' +
+      '<button type="button" onclick="addEvidence()" style="margin-top:8px;padding:8px 16px;background:var(--accent-gold);color:#faf3e0;border:none;border-radius:4px;cursor:pointer;font-family:\'EB Garamond\',Georgia,serif;font-size:14px;font-weight:600">+ Добавить улику</button></div>' +
+      '<div style="margin-bottom:20px"><label style="display:block;font-weight:600;margin-bottom:8px">Вложения</label><div id="attachments-list"></div>' +
+      '<button type="button" onclick="addAttachment()" style="margin-top:8px;padding:8px 16px;background:var(--accent-gold);color:#faf3e0;border:none;border-radius:4px;cursor:pointer;font-family:\'EB Garamond\',Georgia,serif;font-size:14px;font-weight:600">+ Добавить вложение</button></div>' +
+      '<div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px">' +
+      '<button type="button" onclick="generateBoard()" style="flex:1;min-width:200px;padding:12px 24px;background:var(--accent-red);color:#faf3e0;border:none;border-radius:4px;cursor:pointer;font-family:\'Cormorant Garamond\',Georgia,serif;font-size:18px;font-weight:700">Сгенерировать доску</button></div>' +
+      '<div id="export-section" style="display:none;padding:16px;background:var(--bg-primary);border:1px solid var(--border-light);border-radius:4px">' +
+      '<h3 style="font-family:\'Cormorant Garamond\',Georgia,serif;font-size:20px;font-weight:600;margin-bottom:12px">Экспорт</h3>' +
+      '<div style="display:flex;gap:10px;flex-wrap:wrap">' +
+      '<button type="button" onclick="exportPNG()" style="padding:10px 18px;background:var(--bg-dark);color:var(--text-light);border:1px solid var(--border-dark);border-radius:4px;cursor:pointer;font-family:\'EB Garamond\',Georgia,serif;font-size:14px;font-weight:600">PNG</button>' +
+      '<button type="button" onclick="exportPDF()" style="padding:10px 18px;background:var(--bg-dark);color:var(--text-light);border:1px solid var(--border-dark);border-radius:4px;cursor:pointer;font-family:\'EB Garamond\',Georgia,serif;font-size:14px;font-weight:600">PDF</button>' +
+      '<button type="button" onclick="exportTXT()" style="padding:10px 18px;background:var(--bg-dark);color:var(--text-light);border:1px solid var(--border-dark);border-radius:4px;cursor:pointer;font-family:\'EB Garamond\',Georgia,serif;font-size:14px;font-weight:600">TXT</button>' +
+      '<button type="button" onclick="copyPrompt()" style="padding:10px 18px;background:var(--bg-dark);color:var(--text-light);border:1px solid var(--border-dark);border-radius:4px;cursor:pointer;font-family:\'EB Garamond\',Georgia,serif;font-size:14px;font-weight:600">Копировать промпт</button></div></div>' +
+    '</form>' +
+    '<div style="margin-top:24px"><h2 style="font-family:\'Cormorant Garamond\',Georgia,serif;font-size:24px;font-weight:600;text-align:center;margin-bottom:16px">Предпросмотр доски</h2>' +
+    '<div id="board-preview" style="display:none"></div>' +
+    '<div id="board-placeholder" style="text-align:center;padding:60px 20px;color:var(--text-muted);font-style:italic;font-size:16px">Заполните форму и нажмите «Сгенерировать доску».</div></div>' +
+    '<div id="copy-toast" style="position:fixed;top:24px;left:50%;transform:translateX(-50%);background:var(--bg-dark);color:var(--text-light);padding:10px 24px;font-size:14px;font-family:\'EB Garamond\',Georgia,serif;opacity:0;pointer-events:none;z-index:999;border-radius:4px;border:1px solid var(--accent-gold);transition:opacity 0.4s">Скопировано!</div>' +
+    '</div>';
   },
   
   religionismChecker: function() {
@@ -537,6 +604,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth > 768) LabSidebar.close();
   });
 });
+
 </script>
 </body>
 </html>
