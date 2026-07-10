@@ -9,8 +9,8 @@
     "build": "npm run build:css:purge && npm run build:js:minify && npm run build:assets",
     "build:css:tailwind": "tailwindcss -i src/input.css -o style.css --minify",
     "build:css:purge": "npx purgecss --config purgecss.config.js",
-    "build:js:minify": "echo 'js minify skipped — add tools/build/minify-js.py to enable'",
-    "build:assets": "echo 'assets skipped — add generate-files-json.py to enable'"
+    "build:js:minify": "echo 'js minify skipped'",
+    "build:assets": "cp -r ../webapp ./webapp && echo 'webapp copied'"
   },
   "devDependencies": {
     "autoprefixer": "^10.5.0",
