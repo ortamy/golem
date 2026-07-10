@@ -759,6 +759,11 @@ body::before {
     white-space: nowrap;
   }
 
+  .lab-icon { width: 32px; height: 32px; vertical-align: middle; margin-right: 6px; flex-shrink: 0; }
+  .lab-icon-sm { width: 18px; height: 18px; vertical-align: middle; margin-right: 4px; flex-shrink: 0; }
+
+  .sidebar-item .lab-icon { width: 20px; height: 20px; margin-right: 10px; }
+
   .modal-overlay {
     padding: 0;
     align-items: stretch;
