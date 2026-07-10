@@ -50,7 +50,7 @@
       </div>
       <div class="sidebar-section">
         <div class="sidebar-section-title">Визуальные</div>
-        <a href="#board-generator" class="sidebar-item" data-module="board-generator"><span class="icon">📋</span> Генератор досок</a>
+        <a href="modules/board-generator/index.html" class="sidebar-item"><span class="icon">📋</span> Генератор досок</a>
         <a href="#board-library" class="sidebar-item" data-module="board-library"><span class="icon">🗂</span> Библиотека досок</a>
         <a href="#vision" class="sidebar-item" data-module="vision"><span class="icon">👁</span> Визуальный анализ</a>
       </div>
@@ -247,7 +247,7 @@ const LabSearch = {
 
 // ===== LAB HOTKEYS =====
 const LabHotkeys = {
-  modules: ['dashboard', 'root-dictionary', 'religionism-checker', 'translation-comparator', 'board-generator', 'board-library', 'vision', 'ed-chat', 'paleo-keyboard'],
+  modules: ['dashboard', 'root-dictionary', 'religionism-checker', 'translation-comparator', 'board-library', 'vision', 'ed-chat', 'paleo-keyboard'],
   
   init: function() {
     document.addEventListener('keydown', function(e) {
@@ -287,7 +287,7 @@ const LabHotkeys = {
       '<tr><td><kbd>Esc</kbd></td><td>Закрыть поиск / модалку</td></tr>' +
       '<tr><td><kbd>?</kbd></td><td>Показать эту справку</td></tr>' +
       '</table>' +
-      '<div class="text-small text-muted mt-8">Модули: 1-Дашборд, 2-Словарь, 3-Чекер, 4-Переводы, 5-Доски, 6-Библиотека, 7-Анализ, 8-Эд, 9-Клавиатура</div>';
+      '<div class="text-small text-muted mt-8">Модули: 1-Дашборд, 2-Словарь, 3-Чекер, 4-Переводы, 5-Библиотека досок, 6-Анализ, 7-Эд, 8-Клавиатура</div>';
     LabModal.show('⌨️ Горячие клавиши', html);
   }
 };
@@ -315,7 +315,6 @@ const LabRenderer = {
       this.rootDictionary(),
       this.religionismChecker(),
       this.translationComparator(),
-      this.boardGenerator(),
       this.boardLibrary(),
       this.vision(),
       this.edChat(),
@@ -332,7 +331,6 @@ const LabRenderer = {
       'js/root-dictionary.js',
       'js/religionism-checker.js',
       'js/translation-comparator.js',
-      'js/board-generator.js',
       'js/board-library.js',
       'js/vision-ui.js',
       'js/ed-chat.js',
@@ -360,7 +358,6 @@ const LabRenderer = {
     if (window.RootDict) RootDict.init();
     if (window.RelChecker) RelChecker.init();
     if (window.TransComp) TransComp.init();
-    if (window.BoardGen) BoardGen.init();
     if (window.BoardLib) BoardLib.init();
     if (window.VisionUI) VisionUI.init();
     if (window.EdChat) EdChat.init();
@@ -421,14 +418,6 @@ const LabRenderer = {
         '<div class="lab-card flex-1" style="min-width:250px;"><div class="lab-card-header">📜 Синодальный</div><div class="lab-card-body" id="tc-synodal"></div></div>' +
       '</div></div>' +
       '<div id="tc-placeholder" class="lab-alert lab-alert-info">Введите ссылку на стих. Пример: <strong>Берешит 1:1</strong>.</div></div>';
-  },
-  
-  boardGenerator: function() {
-    return '<div id="board-generator" class="module">' +
-      '<h1>📋 Генератор детективных досок</h1>' +
-      '<p class="subtitle">Создавайте визуальные исследовательские доски для анализа улик, выводов и связей.</p>' +
-      '<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-primary" onclick="BoardGen.openFull()">🖥 Открыть генератор</button></div>' +
-      '<div class="lab-alert lab-alert-info">Полноценный генератор находится в <strong>products/website/research-board/</strong>.</div></div>';
   },
   
   boardLibrary: function() {

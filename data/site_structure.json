@@ -1,0 +1,21 @@
+{
+  "website": {
+    "pages": [
+      {"route": "/", "title": "Главная", "file": "index.html"},
+      {"route": "/about", "title": "О проекте", "file": "about.html"},
+      {"route": "/dictionary", "title": "Словарь корней", "file": "dictionary.html"},
+      {"route": "/terminology", "title": "Термины", "file": "terminology.html"},
+      {"route": "/exposures", "title": "Разоблачения", "file": "exposures.html"}
+    ]
+  },
+  "webapp": {
+    "modules": [
+      {"id": "checker", "name": "Чекер религионимов", "file": "checker.html", "status": "done"},
+      {"id": "dictionary", "name": "Корневой словарь", "file": "dictionary.html", "status": "in_progress"},
+      {"id": "compare", "name": "Сравнение переводов", "file": "compare.html", "status": "done"},
+      {"id": "generator", "name": "Генератор досок", "file": "generator.html", "status": "done"},
+      {"id": "paleo-keyboard", "name": "Палео-клавиатура", "file": "keyboard.html", "status": "done"},
+      {"id": "ed-chat", "name": "Нейросеть 'Эд'", "file": "ed.html", "status": "planned"}
+    ]
+  }
+}
