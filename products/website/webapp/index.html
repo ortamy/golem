@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/paleo-images.css">
 <link rel="stylesheet" href="css/etymology-lab.css">
 <link rel="stylesheet" href="css/board-generator.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 
@@ -67,6 +68,68 @@
         <div class="sidebar-section-title">AI / Инструменты</div>
         <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><span class="icon"><img src="../assets/icons/32/hammer-and-chisel.png" width="32" height="32" alt="Чат с Эдом" style="vertical-align: middle; margin-right: 6px;"></span> Чат с Эдом</a>
         <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><span class="icon"><img src="../assets/icons/32/track.png" width="32" height="32" alt="Палео-клавиатура" style="vertical-align: middle; margin-right: 6px;"></span> Палео-клавиатура</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title" onclick="toggleSection('dictionaries')" style="cursor:pointer">
+          <img src="../assets/icons/32/book.png" class="lab-icon" alt="">Словари
+        </div>
+        <div id="dictionaries" class="sidebar-subitems" style="display:none">
+          <a href="#dict-religionims" class="sidebar-item" data-module="dict-religionims"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Религионимы</a>
+          <a href="#dict-grecisms" class="sidebar-item" data-module="dict-grecisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Грецизмы</a>
+          <a href="#dict-latinisms" class="sidebar-item" data-module="dict-latinisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Латинизмы</a>
+          <a href="#dict-slavicisms" class="sidebar-item" data-module="dict-slavicisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Славянизмы</a>
+          <a href="#dict-names" class="sidebar-item" data-module="dict-names"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Имена</a>
+          <a href="#dict-phrases" class="sidebar-item" data-module="dict-phrases"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Фразы</a>
+          <a href="#dict-economisms" class="sidebar-item" data-module="dict-economisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Экономизмы</a>
+          <a href="#dict-estethisms" class="sidebar-item" data-module="dict-estethisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Эстетизмы</a>
+          <a href="#dict-gastronomisms" class="sidebar-item" data-module="dict-gastronomisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Гастрономизмы</a>
+          <a href="#dict-juridisms" class="sidebar-item" data-module="dict-juridisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Юридизмы</a>
+          <a href="#dict-marketisms" class="sidebar-item" data-module="dict-marketisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Маркетизмы</a>
+          <a href="#dict-mediasms" class="sidebar-item" data-module="dict-mediasms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Медиасмы</a>
+          <a href="#dict-medicinisms" class="sidebar-item" data-module="dict-medicinisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Медицинизмы</a>
+          <a href="#dict-militarisms" class="sidebar-item" data-module="dict-militarisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Милитаризмы</a>
+          <a href="#dict-modernisms" class="sidebar-item" data-module="dict-modernisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Модернизмы</a>
+          <a href="#dict-newageisms" class="sidebar-item" data-module="dict-newageisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Ньюэйджизмы</a>
+          <a href="#dict-politisms" class="sidebar-item" data-module="dict-politisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Политизмы</a>
+          <a href="#dict-psychologisms" class="sidebar-item" data-module="dict-psychologisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Психологизмы</a>
+          <a href="#dict-scientisms" class="sidebar-item" data-module="dict-scientisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Саентизмы</a>
+          <a href="#dict-sportisms" class="sidebar-item" data-module="dict-sportisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Спортизмы</a>
+          <a href="#dict-technologisms" class="sidebar-item" data-module="dict-technologisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Технологизмы</a>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title" onclick="toggleSection('exposure')" style="cursor:pointer">
+          <img src="../assets/icons/32/lamp.png" class="lab-icon" alt="">Принципы разоблачения
+        </div>
+        <div id="exposure" class="sidebar-subitems" style="display:none">
+          <a href="#exposure-dictionary" class="sidebar-item" data-module="exposure-dictionary"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Словарь прорыва</a>
+          <a href="#exposure-principles" class="sidebar-item" data-module="exposure-principles"><img src="../assets/icons/32/lamp.png" class="lab-icon" alt="">Принципы разоблачения</a>
+          <a href="#exposure-distortions" class="sidebar-item" data-module="exposure-distortions"><img src="../assets/icons/32/scales.png" class="lab-icon" alt="">Типы искажений</a>
+          <a href="#exposure-mechanisms" class="sidebar-item" data-module="exposure-mechanisms"><img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Механизмы подмены</a>
+          <a href="#exposure-linguistic-methods" class="sidebar-item" data-module="exposure-linguistic-methods"><img src="../assets/icons/32/testtube.png" class="lab-icon" alt="">Лингвистические методы</a>
+          <a href="#exposure-methods" class="sidebar-item" data-module="exposure-methods"><img src="../assets/icons/32/sword.png" class="lab-icon" alt="">Методы разоблачения</a>
+          <a href="#exposure-language" class="sidebar-item" data-module="exposure-language"><img src="../assets/icons/32/scroll.png" class="lab-icon" alt="">Языковые подмены</a>
+          <a href="#exposure-language-shifts" class="sidebar-item" data-module="exposure-language-shifts"><img src="../assets/icons/32/track.png" class="lab-icon" alt="">Сдвиги языка</a>
+          <a href="#exposure-bavelisms" class="sidebar-item" data-module="exposure-bavelisms"><img src="../assets/icons/32/vase.png" class="lab-icon" alt="">Вавилонизмы</a>
+          <a href="#exposure-masoretic" class="sidebar-item" data-module="exposure-masoretic"><img src="../assets/icons/32/scroll.png" class="lab-icon" alt="">Масоретская подмена</a>
+          <a href="#exposure-philosophemes" class="sidebar-item" data-module="exposure-philosophemes"><img src="../assets/icons/32/shield.png" class="lab-icon" alt="">Греческие философемы</a>
+          <a href="#exposure-system-architecture" class="sidebar-item" data-module="exposure-system-architecture"><img src="../assets/icons/32/door.png" class="lab-icon" alt="">Архитектура системы</a>
+          <a href="#exposure-religionism-theory" class="sidebar-item" data-module="exposure-religionism-theory"><img src="../assets/icons/32/heart.png" class="lab-icon" alt="">Теория религионизмов</a>
+          <a href="#exposure-techniques" class="sidebar-item" data-module="exposure-techniques"><img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Приёмы подмены</a>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title" onclick="toggleSection('methodology')" style="cursor:pointer">
+          <img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Методология
+        </div>
+        <div id="methodology" class="sidebar-subitems" style="display:none">
+          <a href="#method-archeology" class="sidebar-item" data-module="method-archeology"><img src="../assets/icons/32/vase.png" class="lab-icon" alt="">Археология</a>
+          <a href="#method-hebrew-reconstruction" class="sidebar-item" data-module="method-hebrew-reconstruction"><img src="../assets/icons/32/scroll.png" class="lab-icon" alt="">Реконструкция иврита</a>
+          <a href="#method-layers" class="sidebar-item" data-module="method-layers"><img src="../assets/icons/32/scales.png" class="lab-icon" alt="">Слои</a>
+          <a href="#method-translation" class="sidebar-item" data-module="method-translation"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Перевод</a>
+          <a href="#method-transliteration" class="sidebar-item" data-module="method-transliteration"><img src="../assets/icons/32/track.png" class="lab-icon" alt="">Транслитерация</a>
+          <a href="#method-tree" class="sidebar-item" data-module="method-tree"><img src="../assets/icons/32/door.png" class="lab-icon" alt="">Дерево</a>
+        </div>
       </div>
     </div>
   </aside>
@@ -335,10 +398,92 @@ function escapeHtml(text) {
   return d.innerHTML;
 }
 
+function toggleSection(id) {
+  var el = document.getElementById(id);
+  if (el) {
+    if (el.style.display === 'none' || el.style.display === '') {
+      el.style.display = 'block';
+    } else {
+      el.style.display = 'none';
+    }
+  }
+}
+
 // ===== LAB RENDERER =====
 const LabRenderer = {
   modules: {},
   rendered: false,
+  
+  // Map module IDs to their markdown file paths (relative to site root)
+  markdownPaths: {
+    'dict-religionims': '../../../analysis/dictionaries/dictionaries-religionims.md',
+    'dict-grecisms': '../../../analysis/dictionaries/dictionaries-grecisms.md',
+    'dict-latinisms': '../../../analysis/dictionaries/dictionaries-latinisms.md',
+    'dict-slavicisms': '../../../analysis/dictionaries/dictionaries-slavicisms.md',
+    'dict-names': '../../../analysis/dictionaries/dictionaries-names.md',
+    'dict-phrases': '../../../analysis/dictionaries/dictionaries-phrases.md',
+    'dict-economisms': '../../../analysis/dictionaries/dictionaries-economisms.md',
+    'dict-estethisms': '../../../analysis/dictionaries/dictionaries-estethisms.md',
+    'dict-gastronomisms': '../../../analysis/dictionaries/dictionaries-gastronomisms.md',
+    'dict-juridisms': '../../../analysis/dictionaries/dictionaries-juridisms.md',
+    'dict-marketisms': '../../../analysis/dictionaries/dictionaries-marketisms.md',
+    'dict-mediasms': '../../../analysis/dictionaries/dictionaries-mediasms.md',
+    'dict-medicinisms': '../../../analysis/dictionaries/dictionaries-medicinisms.md',
+    'dict-militarisms': '../../../analysis/dictionaries/dictionaries-militarisms.md',
+    'dict-modernisms': '../../../analysis/dictionaries/dictionaries-modernisms.md',
+    'dict-newageisms': '../../../analysis/dictionaries/dictionaries-newageisms.md',
+    'dict-politisms': '../../../analysis/dictionaries/dictionaries-politisms.md',
+    'dict-psychologisms': '../../../analysis/dictionaries/dictionaries-psychologisms.md',
+    'dict-scientisms': '../../../analysis/dictionaries/dictionaries-scientisms.md',
+    'dict-sportisms': '../../../analysis/dictionaries/dictionaries-sportisms.md',
+    'dict-technologisms': '../../../analysis/dictionaries/dictionaries-technologisms.md',
+    'exposure-dictionary': '../../../analysis/exposure/exposure-dictionary.md',
+    'exposure-principles': '../../../analysis/exposure/exposure-principles.md',
+    'exposure-distortions': '../../../analysis/exposure/exposure-distortions.md',
+    'exposure-mechanisms': '../../../analysis/exposure/exposure-mechanisms.md',
+    'exposure-linguistic-methods': '../../../analysis/exposure/exposure-linguistic-methods.md',
+    'exposure-methods': '../../../analysis/exposure/exposure-methods.md',
+    'exposure-language': '../../../analysis/exposure/exposure-language.md',
+    'exposure-language-shifts': '../../../analysis/exposure/exposure-language-shifts.md',
+    'exposure-bavelisms': '../../../analysis/exposure/exposure-bavelisms.md',
+    'exposure-masoretic': '../../../analysis/exposure/exposure-masoretic.md',
+    'exposure-philosophemes': '../../../analysis/exposure/exposure-philosophemes.md',
+    'exposure-system-architecture': '../../../analysis/exposure/exposure-system-architecture.md',
+    'exposure-religionism-theory': '../../../analysis/exposure/exposure-religionism-theory.md',
+    'exposure-techniques': '../../../analysis/exposure/exposure-techniques.md',
+    'method-archeology': '../../../analysis/methodology/methodology-archeology.md',
+    'method-hebrew-reconstruction': '../../../analysis/methodology/methodology-hebrew-reconstruction.md',
+    'method-layers': '../../../analysis/methodology/methodology-layers.md',
+    'method-translation': '../../../analysis/methodology/methodology-translation.md',
+    'method-transliteration': '../../../analysis/methodology/methodology-transliteration.md',
+    'method-tree': '../../../analysis/methodology/methodology-tree.md'
+  },
+  
+  // Load markdown content for a module on first activation
+  loadModule: function(moduleId) {
+    var container = document.getElementById(moduleId);
+    if (!container || container.dataset.loaded) return;
+    container.dataset.loaded = '1';
+    
+    var path = this.markdownPaths[moduleId];
+    if (!path) return;
+    
+    fetch(path)
+      .then(function(r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + path);
+        return r.text();
+      })
+      .then(function(md) {
+        if (typeof marked !== 'undefined' && marked.parse) {
+          container.innerHTML = marked.parse(md);
+        } else {
+          container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка: marked.js не загружен</div>';
+        }
+      })
+      .catch(function(err) {
+        container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки: ' + err.message + '</div>';
+      });
+  },
   
   render: function() {
     if (this.rendered) return;
@@ -358,7 +503,48 @@ const LabRenderer = {
       this.boardLibrary(),
       this.vision(),
       this.edChat(),
-      this.paleoKeyboard()
+      this.paleoKeyboard(),
+      this.dictReligionims(),
+      this.dictGrecisms(),
+      this.dictLatinisms(),
+      this.dictSlavicisms(),
+      this.dictNames(),
+      this.dictPhrases(),
+      this.dictEconomisms(),
+      this.dictEstethisms(),
+      this.dictGastronomisms(),
+      this.dictJuridisms(),
+      this.dictMarketisms(),
+      this.dictMediasms(),
+      this.dictMedicinisms(),
+      this.dictMilitarisms(),
+      this.dictModernisms(),
+      this.dictNewageisms(),
+      this.dictPolitisms(),
+      this.dictPsychologisms(),
+      this.dictScientisms(),
+      this.dictSportisms(),
+      this.dictTechnologisms(),
+      this.exposureDictionary(),
+      this.exposurePrinciples(),
+      this.exposureDistortions(),
+      this.exposureMechanisms(),
+      this.exposureLinguisticMethods(),
+      this.exposureMethods(),
+      this.exposureLanguage(),
+      this.exposureLanguageShifts(),
+      this.exposureBavelisms(),
+      this.exposureMasoretic(),
+      this.exposurePhilosophemes(),
+      this.exposureSystemArchitecture(),
+      this.exposureReligionismTheory(),
+      this.exposureTechniques(),
+      this.methodArcheology(),
+      this.methodHebrewReconstruction(),
+      this.methodLayers(),
+      this.methodTranslation(),
+      this.methodTransliteration(),
+      this.methodTree()
     ];
     
     container.innerHTML = modules.join('\n');
@@ -396,6 +582,14 @@ const LabRenderer = {
   LabTheme.init();
   LabHotkeys.init();
   LabRouter.init();
+  LabRouter.onChange(function(moduleId) {
+    LabRenderer.loadModule(moduleId);
+  });
+  // Load active module on init
+  var activeModule = window.location.hash.replace('#', '') || 'dashboard';
+  if (activeModule !== 'dashboard') {
+    setTimeout(function() { LabRenderer.loadModule(activeModule); }, 200);
+  }
   setTimeout(function() {
   if (window.RootDict) RootDict.init();
 }, 500);
@@ -592,6 +786,130 @@ const LabRenderer = {
       '<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-secondary" onclick="PaleoKey.copy()"><img src="../assets/icons/32/scroll.png" width="32" height="32" alt="Копировать" style="vertical-align: middle; margin-right: 6px;"> Копировать</button><button class="lab-btn lab-btn-danger" onclick="PaleoKey.clear()"><img src="../assets/icons/32/alert.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button></div>' +
       '<div id="pk-keys" class="flex flex-wrap gap-8" style="justify-content:center;"></div>' +
       '<div id="pk-info" class="lab-card mt-16" style="display:none;"><div class="lab-card-header" id="pk-info-title"></div><div class="lab-card-body" id="pk-info-body"></div></div></div>';
+  },
+
+  dictReligionims: function() {
+    return '<div id="dict-religionims" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictGrecisms: function() {
+    return '<div id="dict-grecisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictLatinisms: function() {
+    return '<div id="dict-latinisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictSlavicisms: function() {
+    return '<div id="dict-slavicisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictNames: function() {
+    return '<div id="dict-names" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictPhrases: function() {
+    return '<div id="dict-phrases" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictEconomisms: function() {
+    return '<div id="dict-economisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictEstethisms: function() {
+    return '<div id="dict-estethisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictGastronomisms: function() {
+    return '<div id="dict-gastronomisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictJuridisms: function() {
+    return '<div id="dict-juridisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictMarketisms: function() {
+    return '<div id="dict-marketisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictMediasms: function() {
+    return '<div id="dict-mediasms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictMedicinisms: function() {
+    return '<div id="dict-medicinisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictMilitarisms: function() {
+    return '<div id="dict-militarisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictModernisms: function() {
+    return '<div id="dict-modernisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictNewageisms: function() {
+    return '<div id="dict-newageisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictPolitisms: function() {
+    return '<div id="dict-politisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictPsychologisms: function() {
+    return '<div id="dict-psychologisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictScientisms: function() {
+    return '<div id="dict-scientisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictSportisms: function() {
+    return '<div id="dict-sportisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  dictTechnologisms: function() {
+    return '<div id="dict-technologisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureDictionary: function() {
+    return '<div id="exposure-dictionary" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposurePrinciples: function() {
+    return '<div id="exposure-principles" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureDistortions: function() {
+    return '<div id="exposure-distortions" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureMechanisms: function() {
+    return '<div id="exposure-mechanisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureLinguisticMethods: function() {
+    return '<div id="exposure-linguistic-methods" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureMethods: function() {
+    return '<div id="exposure-methods" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureLanguage: function() {
+    return '<div id="exposure-language" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureLanguageShifts: function() {
+    return '<div id="exposure-language-shifts" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureBavelisms: function() {
+    return '<div id="exposure-bavelisms" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureMasoretic: function() {
+    return '<div id="exposure-masoretic" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposurePhilosophemes: function() {
+    return '<div id="exposure-philosophemes" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureSystemArchitecture: function() {
+    return '<div id="exposure-system-architecture" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureReligionismTheory: function() {
+    return '<div id="exposure-religionism-theory" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  exposureTechniques: function() {
+    return '<div id="exposure-techniques" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  methodArcheology: function() {
+    return '<div id="method-archeology" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  methodHebrewReconstruction: function() {
+    return '<div id="method-hebrew-reconstruction" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  methodLayers: function() {
+    return '<div id="method-layers" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  methodTranslation: function() {
+    return '<div id="method-translation" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  methodTransliteration: function() {
+    return '<div id="method-transliteration" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
+  },
+  methodTree: function() {
+    return '<div id="method-tree" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
   }
 };
 

@@ -1,0 +1,2528 @@
+[
+  {
+    "root": "אב",
+    "translit": "AV",
+    "meaning": "отец, родоначальник, источник",
+    "examples": [
+      "אברהם — отец множества",
+      "אבי — мой отец"
+    ]
+  },
+  {
+    "root": "אבן",
+    "translit": "EBEN",
+    "meaning": "????????: ???????? ?? ??????",
+    "examples": [
+      "Genesis 2:12"
+    ]
+  },
+  {
+    "root": "אד",
+    "translit": "ED",
+    "meaning": "????????: But springs",
+    "examples": [
+      "Genesis 2:6"
+    ]
+  },
+  {
+    "root": "אדם",
+    "translit": "ADM",
+    "meaning": "человек, человечество, земной (от אדמה — земля)",
+    "examples": [
+      "אדם — первый человек",
+      "אדמה — земля, почва"
+    ]
+  },
+  {
+    "root": "אדמה",
+    "translit": "ADAMAH",
+    "meaning": "????????: upon the earth",
+    "examples": [
+      "Genesis 1:25"
+    ]
+  },
+  {
+    "root": "אוכלה",
+    "translit": "OKLAH",
+    "meaning": "????????: for food",
+    "examples": [
+      "Genesis 1:29"
+    ]
+  },
+  {
+    "root": "אור",
+    "translit": "OWR",
+    "meaning": "????????: light ”",
+    "examples": [
+      "Genesis 1:3"
+    ]
+  },
+  {
+    "root": "אות",
+    "translit": "OWTH",
+    "meaning": "????????: signs to mark",
+    "examples": [
+      "Genesis 1:14"
+    ]
+  },
+  {
+    "root": "אח",
+    "translit": "ACH",
+    "meaning": "????????: to [Cain’s] brother",
+    "examples": [
+      "Genesis 4:2"
+    ]
+  },
+  {
+    "root": "אחד",
+    "translit": "ECHAD",
+    "meaning": "????????: the first",
+    "examples": [
+      "Genesis 1:5"
+    ]
+  },
+  {
+    "root": "אי",
+    "translit": "AY",
+    "meaning": "????????: “ Where [are] you ? ”",
+    "examples": [
+      "Genesis 3:9"
+    ]
+  },
+  {
+    "root": "איבה",
+    "translit": "EYBAH",
+    "meaning": "????????: enmity",
+    "examples": [
+      "Genesis 3:15"
+    ]
+  },
+  {
+    "root": "אין",
+    "translit": "AYIN",
+    "meaning": "????????: and [there was] no",
+    "examples": [
+      "Genesis 2:5"
+    ]
+  },
+  {
+    "root": "איש",
+    "translit": "IYSH",
+    "meaning": "????????: out of man",
+    "examples": [
+      "Genesis 2:23"
+    ]
+  },
+  {
+    "root": "אכל",
+    "translit": "AKAL",
+    "meaning": "????????: “ You may eat freely",
+    "examples": [
+      "Genesis 2:16"
+    ]
+  },
+  {
+    "root": "אל",
+    "translit": "EL",
+    "meaning": "сила, мощь, божество",
+    "examples": [
+      "אל — Бог, сила",
+      "אלהים — судьи, властители"
+    ]
+  },
+  {
+    "root": "אלה",
+    "translit": "EL-LEH",
+    "meaning": "????????: This",
+    "examples": [
+      "Genesis 2:4"
+    ]
+  },
+  {
+    "root": "אלוהים",
+    "translit": "ELOHIYM",
+    "meaning": "????????: God",
+    "examples": [
+      "Genesis 1:1"
+    ]
+  },
+  {
+    "root": "אם",
+    "translit": "EM",
+    "meaning": "????????: mother",
+    "examples": [
+      "Genesis 2:24"
+    ]
+  },
+  {
+    "root": "אמן",
+    "translit": "AMN",
+    "meaning": "верить, доверять, быть верным, истина",
+    "examples": [
+      "אמן — истинно, да будет так",
+      "אמונה — вера, верность"
+    ]
+  },
+  {
+    "root": "אמר",
+    "translit": "AMR",
+    "meaning": "говорить, сказать, велеть",
+    "examples": [
+      "אמר — сказал",
+      "אמירה — высказывание"
+    ]
+  },
+  {
+    "root": "אנוכי",
+    "translit": "ANOKIY",
+    "meaning": "????????: I",
+    "examples": [
+      "Genesis 3:10"
+    ]
+  },
+  {
+    "root": "אף",
+    "translit": "APH",
+    "meaning": "????????: into his nostrils",
+    "examples": [
+      "Genesis 2:7"
+    ]
+  },
+  {
+    "root": "ארץ",
+    "translit": "ERETS",
+    "meaning": "????????: the earth",
+    "examples": [
+      "Genesis 1:1"
+    ]
+  },
+  {
+    "root": "ארר",
+    "translit": "ARAR",
+    "meaning": "????????: cursed",
+    "examples": [
+      "Genesis 3:14"
+    ]
+  },
+  {
+    "root": "אש",
+    "translit": "ASH",
+    "meaning": "огонь, пламя",
+    "examples": [
+      "אש — огонь",
+      "אשה — жена (от огня?)"
+    ]
+  },
+  {
+    "root": "אשר",
+    "translit": "AHER",
+    "meaning": "????????: -",
+    "examples": [
+      "Genesis 1:7"
+    ]
+  },
+  {
+    "root": "את",
+    "translit": "AT",
+    "meaning": "знак, указание, с (предлог)",
+    "examples": [
+      "את — знак, буква",
+      "אות — знамение"
+    ]
+  },
+  {
+    "root": "בד",
+    "translit": "BAD",
+    "meaning": "????????: alone",
+    "examples": [
+      "Genesis 2:18"
+    ]
+  },
+  {
+    "root": "בדולח",
+    "translit": "BDOLACH",
+    "meaning": "????????: [and] bdellium",
+    "examples": [
+      "Genesis 2:12"
+    ]
+  },
+  {
+    "root": "בדל",
+    "translit": "BADAL",
+    "meaning": "????????: separated",
+    "examples": [
+      "Genesis 1:4"
+    ]
+  },
+  {
+    "root": "בהמה",
+    "translit": "BHEMAH",
+    "meaning": "????????: livestock",
+    "examples": [
+      "Genesis 1:24"
+    ]
+  },
+  {
+    "root": "בו",
+    "translit": "VO",
+    "meaning": "????????: -",
+    "examples": [
+      "Genesis 1:11"
+    ]
+  },
+  {
+    "root": "בוא",
+    "translit": "BOW'",
+    "meaning": "????????: and He brought [them]",
+    "examples": [
+      "Genesis 2:19"
+    ]
+  },
+  {
+    "root": "בוהו",
+    "translit": "BOHUW",
+    "meaning": "????????: and void",
+    "examples": [
+      "Genesis 1:2"
+    ]
+  },
+  {
+    "root": "בוקר",
+    "translit": "BOQER",
+    "meaning": "????????: morning —",
+    "examples": [
+      "Genesis 1:5"
+    ]
+  },
+  {
+    "root": "בוש",
+    "translit": "BUWSH",
+    "meaning": "????????: ashamed",
+    "examples": [
+      "Genesis 2:25"
+    ]
+  },
+  {
+    "root": "בין",
+    "translit": "BEYN",
+    "meaning": "????????: ???????? ?? ??????",
+    "examples": [
+      "Genesis 1:4"
+    ]
+  },
+  {
+    "root": "בךס",
+    "translit": "BAKH",
+    "meaning": "????????: over you ”",
+    "examples": [
+      "Genesis 3:16"
+    ]
+  },
+  {
+    "root": "בכור",
+    "translit": "BKOWR",
+    "meaning": "????????: of the firstborn",
+    "examples": [
+      "Genesis 4:4"
+    ]
+  },
+  {
+    "root": "בלתי",
+    "translit": "BILTIY",
+    "meaning": "????????: not to",
+    "examples": [
+      "Genesis 3:11"
+    ]
+  },
+  {
+    "root": "בן",
+    "translit": "BN",
+    "meaning": "сын, потомок, строитель (от בנה — строить)",
+    "examples": [
+      "בן — сын",
+      "בנה — строить"
+    ]
+  },
+  {
+    "root": "בנה",
+    "translit": "BNH",
+    "meaning": "строить, созидать",
+    "examples": [
+      "בנה — строить",
+      "בניין — здание"
+    ]
+  },
+  {
+    "root": "בר",
+    "translit": "BR",
+    "meaning": "чистый, ясный, сын (арам.)",
+    "examples": [
+      "בר — чистый",
+      "ברית — завет (очищение)"
+    ]
+  },
+  {
+    "root": "ברא",
+    "translit": "BARA'",
+    "meaning": "????????: created",
+    "examples": [
+      "Genesis 1:1"
+    ]
+  },
+  {
+    "root": "ברך",
+    "translit": "BRK",
+    "meaning": "благословлять, преклонять колено",
+    "examples": [
+      "ברך — благословил",
+      "ברכה — благословение"
+    ]
+  },
+  {
+    "root": "בשר",
+    "translit": "BSR",
+    "meaning": "плоть, тело, весть",
+    "examples": [
+      "בשר — плоть",
+      "בשורה — весть, евангелие"
+    ]
+  },
+  {
+    "root": "גדל",
+    "translit": "GDL",
+    "meaning": "быть великим, расти, возвеличивать",
+    "examples": [
+      "גדול — великий",
+      "הגדיל — возвеличил"
+    ]
+  },
+  {
+    "root": "גחון",
+    "translit": "GACHOWN",
+    "meaning": "????????: your belly",
+    "examples": [
+      "Genesis 3:14"
+    ]
+  },
+  {
+    "root": "גל",
+    "translit": "GL",
+    "meaning": "открывать, раскрывать, круг, волна",
+    "examples": [
+      "גלה — открыл, пошёл в изгнание",
+      "גלוי — открытый"
+    ]
+  },
+  {
+    "root": "גם",
+    "translit": "GAM",
+    "meaning": "????????: ???????? ?? ??????",
+    "examples": [
+      "Genesis 3:6"
+    ]
+  },
+  {
+    "root": "גן",
+    "translit": "GAN",
+    "meaning": "????????: a garden",
+    "examples": [
+      "Genesis 2:8"
+    ]
+  },
+  {
+    "root": "גרש",
+    "translit": "GARASH",
+    "meaning": "????????: So He drove out",
+    "examples": [
+      "Genesis 3:24"
+    ]
+  },
+  {
+    "root": "דבק",
+    "translit": "DABAQ",
+    "meaning": "????????: and be united",
+    "examples": [
+      "Genesis 2:24"
+    ]
+  },
+  {
+    "root": "דבר",
+    "translit": "DBR",
+    "meaning": "слово, дело, говорить, вещь",
+    "examples": [
+      "דבר — слово, дело",
+      "דברה — речь"
+    ]
+  },
+  {
+    "root": "דגה",
+    "translit": "DAGAH",
+    "meaning": "????????: over the fish",
+    "examples": [
+      "Genesis 1:26"
+    ]
+  },
+  {
+    "root": "דין",
+    "translit": "DIN",
+    "meaning": "суд, судить, управлять",
+    "examples": [
+      "דין — суд",
+      "דיין — судья"
+    ]
+  },
+  {
+    "root": "דם",
+    "translit": "DM",
+    "meaning": "кровь, быть подобным",
+    "examples": [
+      "דם — кровь",
+      "דמה — быть подобным"
+    ]
+  },
+  {
+    "root": "דמות",
+    "translit": "DMUWTH",
+    "meaning": "????????: after Our likeness",
+    "examples": [
+      "Genesis 1:26"
+    ]
+  },
+  {
+    "root": "דע",
+    "translit": "DA",
+    "meaning": "знать, ведать",
+    "examples": [
+      "ידע — знал",
+      "דעת — знание"
+    ]
+  },
+  {
+    "root": "דעת",
+    "translit": "DA`ATH",
+    "meaning": "????????: of the knowledge",
+    "examples": [
+      "Genesis 2:9"
+    ]
+  },
+  {
+    "root": "דרדר",
+    "translit": "DARDAR",
+    "meaning": "????????: and thistles",
+    "examples": [
+      "Genesis 3:18"
+    ]
+  },
+  {
+    "root": "דרך",
+    "translit": "DEREK",
+    "meaning": "????????: the way",
+    "examples": [
+      "Genesis 3:24"
+    ]
+  },
+  {
+    "root": "דשא",
+    "translit": "DASHA",
+    "meaning": "????????: bring forth",
+    "examples": [
+      "Genesis 1:11"
+    ]
+  },
+  {
+    "root": "הבל",
+    "translit": "HEBEL",
+    "meaning": "????????: Abel",
+    "examples": [
+      "Genesis 4:2"
+    ]
+  },
+  {
+    "root": "היה",
+    "translit": "HAYAH",
+    "meaning": "????????: was",
+    "examples": [
+      "Genesis 1:2"
+    ]
+  },
+  {
+    "root": "הלך",
+    "translit": "HLK",
+    "meaning": "ходить, идти, поступать",
+    "examples": [
+      "הלך — пошёл",
+      "הליכה — хождение"
+    ]
+  },
+  {
+    "root": "הן",
+    "translit": "HEN",
+    "meaning": "????????: “ Behold",
+    "examples": [
+      "Genesis 3:22"
+    ]
+  },
+  {
+    "root": "הנה",
+    "translit": "HINNEH",
+    "meaning": "????????: “ Behold",
+    "examples": [
+      "Genesis 1:29"
+    ]
+  },
+  {
+    "root": "הפך",
+    "translit": "HAPHAK",
+    "meaning": "????????: a whirling",
+    "examples": [
+      "Genesis 3:24"
+    ]
+  },
+  {
+    "root": "הרה",
+    "translit": "HARAH",
+    "meaning": "????????: and she conceived",
+    "examples": [
+      "Genesis 4:1"
+    ]
+  },
+  {
+    "root": "זבח",
+    "translit": "ZBH",
+    "meaning": "жертва, заклание",
+    "examples": [
+      "זבח — жертва",
+      "מזבח — жертвенник"
+    ]
+  },
+  {
+    "root": "זהב",
+    "translit": "ZAHAB",
+    "meaning": "????????: gold",
+    "examples": [
+      "Genesis 2:11"
+    ]
+  },
+  {
+    "root": "זואת",
+    "translit": "ZO'TH",
+    "meaning": "????????: “ This",
+    "examples": [
+      "Genesis 2:23"
+    ]
+  },
+  {
+    "root": "זכר",
+    "translit": "ZKR",
+    "meaning": "помнить, мужчина, память",
+    "examples": [
+      "זכר — помнил, мужчина",
+      "זיכרון — память"
+    ]
+  },
+  {
+    "root": "זעה",
+    "translit": "ZE`AH",
+    "meaning": "????????: By the sweat",
+    "examples": [
+      "Genesis 3:19"
+    ]
+  },
+  {
+    "root": "זרע",
+    "translit": "ZRA",
+    "meaning": "семя, потомство, сеять",
+    "examples": [
+      "זרע — семя",
+      "זריעה — сеяние"
+    ]
+  },
+  {
+    "root": "חבא",
+    "translit": "CHABA'",
+    "meaning": "????????: and they hid themselves",
+    "examples": [
+      "Genesis 3:8"
+    ]
+  },
+  {
+    "root": "חדקל",
+    "translit": "CHIDDEQEL",
+    "meaning": "????????: [is] Hiddekel",
+    "examples": [
+      "Genesis 2:14"
+    ]
+  },
+  {
+    "root": "חוה",
+    "translit": "CHAVVAH",
+    "meaning": "????????: Eve",
+    "examples": [
+      "Genesis 3:20"
+    ]
+  },
+  {
+    "root": "חוילה",
+    "translit": "CHAVIYLAH",
+    "meaning": "????????: of Havilah",
+    "examples": [
+      "Genesis 2:11"
+    ]
+  },
+  {
+    "root": "חושך",
+    "translit": "CHOSHEK",
+    "meaning": "????????: and darkness",
+    "examples": [
+      "Genesis 1:2"
+    ]
+  },
+  {
+    "root": "חטא",
+    "translit": "HTA",
+    "meaning": "грех, промах, ошибка, недостаток",
+    "examples": [
+      "חטא — грех, промахнулся",
+      "חטאה — ошибка"
+    ]
+  },
+  {
+    "root": "חי",
+    "translit": "CHAY",
+    "meaning": "????????: ???????? ?? ??????",
+    "examples": [
+      "Genesis 1:20"
+    ]
+  },
+  {
+    "root": "חיה",
+    "translit": "HYH",
+    "meaning": "жизнь, жить, быть живым",
+    "examples": [
+      "חי — живой",
+      "חיים — жизнь"
+    ]
+  },
+  {
+    "root": "חכם",
+    "translit": "HKM",
+    "meaning": "мудрый, мудрость",
+    "examples": [
+      "חכם — мудрый",
+      "חכמה — мудрость"
+    ]
+  },
+  {
+    "root": "חמד",
+    "translit": "CHAMAD",
+    "meaning": "????????: that is pleasing",
+    "examples": [
+      "Genesis 2:9"
+    ]
+  },
+  {
+    "root": "חן",
+    "translit": "HN",
+    "meaning": "благодать, милость, красота",
+    "examples": [
+      "חן — благодать, красота",
+      "חנה — стал на стоянку"
+    ]
+  },
+  {
+    "root": "חסד",
+    "translit": "HSD",
+    "meaning": "милость, верность, любовь, стыд",
+    "examples": [
+      "חסד — милость, верность",
+      "חסיד — верный"
+    ]
+  },
+  {
+    "root": "חרב",
+    "translit": "CHEREB",
+    "meaning": "????????: sword",
+    "examples": [
+      "Genesis 3:24"
+    ]
+  },
+  {
+    "root": "חרה",
+    "translit": "CHARAH",
+    "meaning": "????????: angry",
+    "examples": [
+      "Genesis 4:5"
+    ]
+  },
+  {
+    "root": "טהור",
+    "translit": "THR",
+    "meaning": "чистый, очищать",
+    "examples": [
+      "טהור — чистый",
+      "טהרה — чистота"
+    ]
+  },
+  {
+    "root": "טוב",
+    "translit": "TVB",
+    "meaning": "хороший, добрый, благо",
+    "examples": [
+      "טוב — хорошо",
+      "טובה — добро"
+    ]
+  },
+  {
+    "root": "טרם",
+    "translit": "TEREM",
+    "meaning": "????????: had yet",
+    "examples": [
+      "Genesis 2:5"
+    ]
+  },
+  {
+    "root": "יבשה",
+    "translit": "YABBASHAH",
+    "meaning": "????????: so that the dry [land]",
+    "examples": [
+      "Genesis 1:9"
+    ]
+  },
+  {
+    "root": "יד",
+    "translit": "YD",
+    "meaning": "рука, сила, власть",
+    "examples": [
+      "יד — рука",
+      "יָד — памятник"
+    ]
+  },
+  {
+    "root": "ידע",
+    "translit": "YDA",
+    "meaning": "знать, познавать, ведать",
+    "examples": [
+      "ידע — знал",
+      "דעת — знание"
+    ]
+  },
+  {
+    "root": "יהוה",
+    "translit": "YHWH",
+    "meaning": "Яхве — Сущий, личное имя Всевышнего",
+    "examples": [
+      "יהוה — Яхве",
+      "הללויה — хвалите Ях"
+    ]
+  },
+  {
+    "root": "יהווה",
+    "translit": "YHOVAH",
+    "meaning": "????????: that the LORD",
+    "examples": [
+      "Genesis 2:4"
+    ]
+  },
+  {
+    "root": "יום",
+    "translit": "YVM",
+    "meaning": "день, время",
+    "examples": [
+      "יום — день",
+      "יומי — ежедневный"
+    ]
+  },
+  {
+    "root": "יטב",
+    "translit": "YATAB",
+    "meaning": "????????: you do what is right",
+    "examples": [
+      "Genesis 4:7"
+    ]
+  },
+  {
+    "root": "ילד",
+    "translit": "YALAD",
+    "meaning": "????????: you will bring forth",
+    "examples": [
+      "Genesis 3:16"
+    ]
+  },
+  {
+    "root": "ים",
+    "translit": "YAM",
+    "meaning": "????????: “ seas ”",
+    "examples": [
+      "Genesis 1:10"
+    ]
+  },
+  {
+    "root": "יסף",
+    "translit": "YACAPH",
+    "meaning": "????????: Later",
+    "examples": [
+      "Genesis 4:2"
+    ]
+  },
+  {
+    "root": "יצא",
+    "translit": "YATSA'",
+    "meaning": "????????: produced",
+    "examples": [
+      "Genesis 1:12"
+    ]
+  },
+  {
+    "root": "יצר",
+    "translit": "YATSAR",
+    "meaning": "????????: formed",
+    "examples": [
+      "Genesis 2:7"
+    ]
+  },
+  {
+    "root": "ירא",
+    "translit": "YARE'",
+    "meaning": "????????: “ and I was afraid",
+    "examples": [
+      "Genesis 3:10"
+    ]
+  },
+  {
+    "root": "ירק",
+    "translit": "YEREQ",
+    "meaning": "????????: green",
+    "examples": [
+      "Genesis 1:30"
+    ]
+  },
+  {
+    "root": "ישב",
+    "translit": "YShV",
+    "meaning": "сидеть, обитать, жить",
+    "examples": [
+      "ישב — сидел, жил",
+      "מושב — поселение"
+    ]
+  },
+  {
+    "root": "ישן",
+    "translit": "YASHEN",
+    "meaning": "????????: and while he slept",
+    "examples": [
+      "Genesis 2:21"
+    ]
+  },
+  {
+    "root": "ישר",
+    "translit": "YShR",
+    "meaning": "прямой, праведный, честный",
+    "examples": [
+      "ישר — прямой",
+      "ישרה — праведность"
+    ]
+  },
+  {
+    "root": "כבוד",
+    "translit": "KVD",
+    "meaning": "тяжёлый, весомый, слава, честь",
+    "examples": [
+      "כבוד — слава, честь",
+      "כבד — тяжёлый"
+    ]
+  },
+  {
+    "root": "כבש",
+    "translit": "KABASH",
+    "meaning": "????????: and subdue it",
+    "examples": [
+      "Genesis 1:28"
+    ]
+  },
+  {
+    "root": "כה",
+    "translit": "KH",
+    "meaning": "так, вот, подобно",
+    "examples": [
+      "כה — так",
+      "כהן — священник (стоящий перед)"
+    ]
+  },
+  {
+    "root": "כוכב",
+    "translit": "KOWKAB",
+    "meaning": "????????: the stars {as well}",
+    "examples": [
+      "Genesis 1:16"
+    ]
+  },
+  {
+    "root": "כוש",
+    "translit": "KUWSH",
+    "meaning": "????????: of Cush",
+    "examples": [
+      "Genesis 2:13"
+    ]
+  },
+  {
+    "root": "כי",
+    "translit": "KIY",
+    "meaning": "????????: that",
+    "examples": [
+      "Genesis 1:4"
+    ]
+  },
+  {
+    "root": "כל",
+    "translit": "KL",
+    "meaning": "весь, всё, целый, завершать",
+    "examples": [
+      "כל — весь",
+      "כלה — завершил, невеста"
+    ]
+  },
+  {
+    "root": "כלה",
+    "translit": "KALAH",
+    "meaning": "????????: were completed",
+    "examples": [
+      "Genesis 2:1"
+    ]
+  },
+  {
+    "root": "כן",
+    "translit": "KN",
+    "meaning": "так, верно, основание",
+    "examples": [
+      "כן — да, верно",
+      "כון — утверждать"
+    ]
+  },
+  {
+    "root": "כנף",
+    "translit": "KANAPH",
+    "meaning": "????????: of flight",
+    "examples": [
+      "Genesis 1:21"
+    ]
+  },
+  {
+    "root": "כפר",
+    "translit": "KPR",
+    "meaning": "покрывать, искупать, умилостивлять",
+    "examples": [
+      "כפר — искупил",
+      "כיפור — искупление"
+    ]
+  },
+  {
+    "root": "כרוב",
+    "translit": "KRUWB",
+    "meaning": "????????: cherubim",
+    "examples": [
+      "Genesis 3:24"
+    ]
+  },
+  {
+    "root": "כתב",
+    "translit": "KTV",
+    "meaning": "писать, записывать",
+    "examples": [
+      "כתב — писал",
+      "כתוב — написано"
+    ]
+  },
+  {
+    "root": "לב",
+    "translit": "LV",
+    "meaning": "сердце, разум, внутреннее",
+    "examples": [
+      "לב — сердце",
+      "לבב — сердце (усил.)"
+    ]
+  },
+  {
+    "root": "להט",
+    "translit": "LAHAT",
+    "meaning": "????????: of flame",
+    "examples": [
+      "Genesis 3:24"
+    ]
+  },
+  {
+    "root": "להם",
+    "translit": "LA·HEM",
+    "meaning": "????????: to them",
+    "examples": [
+      "Genesis 1:28"
+    ]
+  },
+  {
+    "root": "לו",
+    "translit": "LO",
+    "meaning": "????????: for him",
+    "examples": [
+      "Genesis 2:18"
+    ]
+  },
+  {
+    "root": "לחם",
+    "translit": "LECHEM",
+    "meaning": "????????: [your] bread",
+    "examples": [
+      "Genesis 3:19"
+    ]
+  },
+  {
+    "root": "לי",
+    "translit": "LEE",
+    "meaning": "????????: me",
+    "examples": [
+      "Genesis 3:12"
+    ]
+  },
+  {
+    "root": "לך",
+    "translit": "LE·KHA",
+    "meaning": "????????: -",
+    "examples": [
+      "Genesis 3:11"
+    ]
+  },
+  {
+    "root": "לכם",
+    "translit": "LA·KHEM",
+    "meaning": "????????: you",
+    "examples": [
+      "Genesis 1:29"
+    ]
+  },
+  {
+    "root": "למד",
+    "translit": "LMD",
+    "meaning": "учить, учиться, обучать",
+    "examples": [
+      "למד — учил",
+      "תלמיד — ученик"
+    ]
+  },
+  {
+    "root": "לקח",
+    "translit": "LQH",
+    "meaning": "брать, взять, принимать",
+    "examples": [
+      "לקח — взял",
+      "לקיחה — взятие"
+    ]
+  },
+  {
+    "root": "מאוד",
+    "translit": "M`OD",
+    "meaning": "????????: [it was] very",
+    "examples": [
+      "Genesis 1:31"
+    ]
+  },
+  {
+    "root": "מאכל",
+    "translit": "MA'AKAL",
+    "meaning": "????????: for food",
+    "examples": [
+      "Genesis 2:9"
+    ]
+  },
+  {
+    "root": "מות",
+    "translit": "MUWTH",
+    "meaning": "????????: you will surely",
+    "examples": [
+      "Genesis 2:17"
+    ]
+  },
+  {
+    "root": "מטר",
+    "translit": "MATAR",
+    "meaning": "????????: sent rain",
+    "examples": [
+      "Genesis 2:5"
+    ]
+  },
+  {
+    "root": "מי",
+    "translit": "MIY",
+    "meaning": "????????: “ Who",
+    "examples": [
+      "Genesis 3:11"
+    ]
+  },
+  {
+    "root": "מים",
+    "translit": "MAYIM",
+    "meaning": "????????: of the waters",
+    "examples": [
+      "Genesis 1:2"
+    ]
+  },
+  {
+    "root": "מין",
+    "translit": "MIYN",
+    "meaning": "????????: according to its kind",
+    "examples": [
+      "Genesis 1:11"
+    ]
+  },
+  {
+    "root": "מלאכה",
+    "translit": "MLA'KAH",
+    "meaning": "????????: the work",
+    "examples": [
+      "Genesis 2:2"
+    ]
+  },
+  {
+    "root": "מלה",
+    "translit": "MLH",
+    "meaning": "слово, речь",
+    "examples": [
+      "מלה — слово",
+      "מלים — слова"
+    ]
+  },
+  {
+    "root": "מלך",
+    "translit": "MLK",
+    "meaning": "царь, советник, править",
+    "examples": [
+      "מלך — царь",
+      "מלכה — царица"
+    ]
+  },
+  {
+    "root": "ממשלה",
+    "translit": "MEMSHALAH",
+    "meaning": "????????: to rule",
+    "examples": [
+      "Genesis 1:16"
+    ]
+  },
+  {
+    "root": "מנחה",
+    "translit": "MINCHAH",
+    "meaning": "????????: as an offering",
+    "examples": [
+      "Genesis 4:3"
+    ]
+  },
+  {
+    "root": "מעש",
+    "translit": "MASh",
+    "meaning": "дело, работа, деяние",
+    "examples": [
+      "מעשה — дело",
+      "מעש — деяние"
+    ]
+  },
+  {
+    "root": "מצא",
+    "translit": "MATSA'",
+    "meaning": "????????: was found",
+    "examples": [
+      "Genesis 2:20"
+    ]
+  },
+  {
+    "root": "מראה",
+    "translit": "MAR'EH",
+    "meaning": "????????: to the eye",
+    "examples": [
+      "Genesis 2:9"
+    ]
+  },
+  {
+    "root": "משח",
+    "translit": "MShH",
+    "meaning": "мазать, помазывать",
+    "examples": [
+      "משח — помазал",
+      "משיח — помазанник"
+    ]
+  },
+  {
+    "root": "משל",
+    "translit": "MASHAL",
+    "meaning": "????????: to preside over",
+    "examples": [
+      "Genesis 1:18"
+    ]
+  },
+  {
+    "root": "משפט",
+    "translit": "MShPT",
+    "meaning": "суд, правосудие, закон, порядок",
+    "examples": [
+      "משפט — суд",
+      "שופט — судья"
+    ]
+  },
+  {
+    "root": "נביא",
+    "translit": "NVIA",
+    "meaning": "пророк, провозвестник",
+    "examples": [
+      "נביא — пророк",
+      "נבואה — пророчество"
+    ]
+  },
+  {
+    "root": "נגד",
+    "translit": "NGD",
+    "meaning": "напротив, перед, рассказывать",
+    "examples": [
+      "נגד — напротив",
+      "הגיד — рассказал"
+    ]
+  },
+  {
+    "root": "נגע",
+    "translit": "NAGA`",
+    "meaning": "????????: touch",
+    "examples": [
+      "Genesis 3:3"
+    ]
+  },
+  {
+    "root": "נדר",
+    "translit": "NDR",
+    "meaning": "обет, обещание",
+    "examples": [
+      "נדר — обет",
+      "נדרה — дала обет"
+    ]
+  },
+  {
+    "root": "נהר",
+    "translit": "NAHAR",
+    "meaning": "????????: Now a river",
+    "examples": [
+      "Genesis 2:10"
+    ]
+  },
+  {
+    "root": "נוח",
+    "translit": "NUWACH",
+    "meaning": "????????: and placed him",
+    "examples": [
+      "Genesis 2:15"
+    ]
+  },
+  {
+    "root": "נחה",
+    "translit": "NHH",
+    "meaning": "вести, направлять, успокаивать",
+    "examples": [
+      "נחה — вёл",
+      "מנוחה — покой"
+    ]
+  },
+  {
+    "root": "נחש",
+    "translit": "NACHASH",
+    "meaning": "????????: Now the serpent",
+    "examples": [
+      "Genesis 3:1"
+    ]
+  },
+  {
+    "root": "נטע",
+    "translit": "NATA`",
+    "meaning": "????????: planted",
+    "examples": [
+      "Genesis 2:8"
+    ]
+  },
+  {
+    "root": "נס",
+    "translit": "NS",
+    "meaning": "чудо, знамя, испытание",
+    "examples": [
+      "נס — чудо, знамя",
+      "נסה — испытывал"
+    ]
+  },
+  {
+    "root": "נער",
+    "translit": "NAR",
+    "meaning": "юноша, отрок, слуга",
+    "examples": [
+      "נער — юноша",
+      "נערה — девушка"
+    ]
+  },
+  {
+    "root": "נפח",
+    "translit": "NAPHACH",
+    "meaning": "????????: and breathed",
+    "examples": [
+      "Genesis 2:7"
+    ]
+  },
+  {
+    "root": "נפל",
+    "translit": "NAPHAL",
+    "meaning": "????????: caused",
+    "examples": [
+      "Genesis 2:21"
+    ]
+  },
+  {
+    "root": "נפש",
+    "translit": "NPSh",
+    "meaning": "душа, дыхание, существо",
+    "examples": [
+      "נפש — душа",
+      "נשמה — дыхание"
+    ]
+  },
+  {
+    "root": "נקבה",
+    "translit": "NQEBAH",
+    "meaning": "????????: and female",
+    "examples": [
+      "Genesis 1:27"
+    ]
+  },
+  {
+    "root": "נשא",
+    "translit": "NASHA'",
+    "meaning": "????????: deceived me ”",
+    "examples": [
+      "Genesis 3:13"
+    ]
+  },
+  {
+    "root": "נשמה",
+    "translit": "NSHAMAH",
+    "meaning": "????????: the breath",
+    "examples": [
+      "Genesis 2:7"
+    ]
+  },
+  {
+    "root": "נתן",
+    "translit": "NTN",
+    "meaning": "давать, отдавать, ставить",
+    "examples": [
+      "נתן — дал",
+      "מתנה — подарок"
+    ]
+  },
+  {
+    "root": "סבב",
+    "translit": "CABAB",
+    "meaning": "????????: winds through",
+    "examples": [
+      "Genesis 2:11"
+    ]
+  },
+  {
+    "root": "סגר",
+    "translit": "CAGAR",
+    "meaning": "????????: and closed up",
+    "examples": [
+      "Genesis 2:21"
+    ]
+  },
+  {
+    "root": "סדר",
+    "translit": "SDR",
+    "meaning": "порядок, устраивать, ряд",
+    "examples": [
+      "סדר — порядок",
+      "סדרה — серия"
+    ]
+  },
+  {
+    "root": "סלה",
+    "translit": "SLH",
+    "meaning": "пауза, поднятие, акцент (муз.)",
+    "examples": [
+      "סלה — села (музыкальная пауза)"
+    ]
+  },
+  {
+    "root": "סתר",
+    "translit": "STR",
+    "meaning": "скрывать, тайна, укрытие",
+    "examples": [
+      "סתר — скрыл",
+      "סתר — тайна"
+    ]
+  },
+  {
+    "root": "עבד",
+    "translit": "`ABAD",
+    "meaning": "????????: to cultivate",
+    "examples": [
+      "Genesis 2:5"
+    ]
+  },
+  {
+    "root": "עבר",
+    "translit": "ABR",
+    "meaning": "переходить, проходить, за",
+    "examples": [
+      "עבר — перешёл",
+      "עברי — иврит (перешедший)"
+    ]
+  },
+  {
+    "root": "עד",
+    "translit": "AD",
+    "meaning": "свидетель, вечность, до",
+    "examples": [
+      "עד — свидетель",
+      "עדות — свидетельство"
+    ]
+  },
+  {
+    "root": "עדן",
+    "translit": "`EDEN",
+    "meaning": "????????: in Eden",
+    "examples": [
+      "Genesis 2:8"
+    ]
+  },
+  {
+    "root": "עוף",
+    "translit": "`OWPH",
+    "meaning": "????????: and let birds",
+    "examples": [
+      "Genesis 1:20"
+    ]
+  },
+  {
+    "root": "עור",
+    "translit": "`OWR",
+    "meaning": "????????: of skin",
+    "examples": [
+      "Genesis 3:21"
+    ]
+  },
+  {
+    "root": "עזב",
+    "translit": "AZV",
+    "meaning": "оставлять, покидать, помогать",
+    "examples": [
+      "עזב — оставил",
+      "עזיבה — оставление"
+    ]
+  },
+  {
+    "root": "עזר",
+    "translit": "AZR",
+    "meaning": "помощь, помогать",
+    "examples": [
+      "עזר — помог",
+      "עזרה — помощь"
+    ]
+  },
+  {
+    "root": "עין",
+    "translit": "AIN",
+    "meaning": "глаз, источник, колодец",
+    "examples": [
+      "עין — глаз, источник",
+      "מעין — источник"
+    ]
+  },
+  {
+    "root": "על",
+    "translit": "`AL",
+    "meaning": "????????: was over",
+    "examples": [
+      "Genesis 1:2"
+    ]
+  },
+  {
+    "root": "עלה",
+    "translit": "ALH",
+    "meaning": "восходить, подниматься, всесожжение",
+    "examples": [
+      "עלה — поднялся",
+      "עולה — всесожжение"
+    ]
+  },
+  {
+    "root": "עם",
+    "translit": "AM",
+    "meaning": "народ, с, вместе",
+    "examples": [
+      "עם — народ",
+      "עִם — с (предлог)"
+    ]
+  },
+  {
+    "root": "עמד",
+    "translit": "`IMMAD",
+    "meaning": "????????: me",
+    "examples": [
+      "Genesis 3:12"
+    ]
+  },
+  {
+    "root": "ענה",
+    "translit": "ANH",
+    "meaning": "отвечать, петь, угнетать",
+    "examples": [
+      "ענה — ответил",
+      "תשובה — ответ, возвращение"
+    ]
+  },
+  {
+    "root": "עפר",
+    "translit": "`APHAR",
+    "meaning": "????????: [from] the dust",
+    "examples": [
+      "Genesis 2:7"
+    ]
+  },
+  {
+    "root": "עץ",
+    "translit": "`ETS",
+    "meaning": "????????: trees",
+    "examples": [
+      "Genesis 1:11"
+    ]
+  },
+  {
+    "root": "עצב",
+    "translit": "`ETSEB",
+    "meaning": "????????: in pain",
+    "examples": [
+      "Genesis 3:16"
+    ]
+  },
+  {
+    "root": "עצבון",
+    "translit": "`ITSTSABOWN",
+    "meaning": "????????: your pain",
+    "examples": [
+      "Genesis 3:16"
+    ]
+  },
+  {
+    "root": "עצה",
+    "translit": "ATsH",
+    "meaning": "совет, советовать, дерево",
+    "examples": [
+      "עצה — совет",
+      "עץ — дерево"
+    ]
+  },
+  {
+    "root": "עצם",
+    "translit": "`ETSEM",
+    "meaning": "????????: bone",
+    "examples": [
+      "Genesis 2:23"
+    ]
+  },
+  {
+    "root": "ערב",
+    "translit": "`EREB",
+    "meaning": "????????: evening",
+    "examples": [
+      "Genesis 1:5"
+    ]
+  },
+  {
+    "root": "ערום",
+    "translit": "`ARUWM",
+    "meaning": "????????: more crafty",
+    "examples": [
+      "Genesis 3:1"
+    ]
+  },
+  {
+    "root": "עשׂר",
+    "translit": "AShR",
+    "meaning": "десять, богатство, счастливый",
+    "examples": [
+      "עשר — десять",
+      "עושר — богатство"
+    ]
+  },
+  {
+    "root": "עשב",
+    "translit": "`ESEB",
+    "meaning": "????????: plants",
+    "examples": [
+      "Genesis 1:11"
+    ]
+  },
+  {
+    "root": "עשה",
+    "translit": "ASH",
+    "meaning": "делать, создавать, совершать",
+    "examples": [
+      "עשה — сделал",
+      "מעשה — дело"
+    ]
+  },
+  {
+    "root": "עתתה",
+    "translit": "`ATTAH",
+    "meaning": "????????: And now",
+    "examples": [
+      "Genesis 3:22"
+    ]
+  },
+  {
+    "root": "פדה",
+    "translit": "PDH",
+    "meaning": "искупать, выкупать, освобождать",
+    "examples": [
+      "פדה — искупил",
+      "פדות — искупление"
+    ]
+  },
+  {
+    "root": "פחד",
+    "translit": "PHD",
+    "meaning": "страх, трепет, бояться",
+    "examples": [
+      "פחד — страх",
+      "פחדה — испугалась"
+    ]
+  },
+  {
+    "root": "פישון",
+    "translit": "PIYSHOWN",
+    "meaning": "????????: [is] Pishon",
+    "examples": [
+      "Genesis 2:11"
+    ]
+  },
+  {
+    "root": "פלא",
+    "translit": "PLA",
+    "meaning": "чудо, диво, удивительный",
+    "examples": [
+      "פלא — чудо",
+      "נפלאות — чудеса"
+    ]
+  },
+  {
+    "root": "פן",
+    "translit": "PEN",
+    "meaning": "????????: [or]",
+    "examples": [
+      "Genesis 3:3"
+    ]
+  },
+  {
+    "root": "פנים",
+    "translit": "PANIYM",
+    "meaning": "????????: the surface",
+    "examples": [
+      "Genesis 1:2"
+    ]
+  },
+  {
+    "root": "פקח",
+    "translit": "PAQACH",
+    "meaning": "????????: opened",
+    "examples": [
+      "Genesis 3:5"
+    ]
+  },
+  {
+    "root": "פרד",
+    "translit": "PARAD",
+    "meaning": "????????: it branched into",
+    "examples": [
+      "Genesis 2:10"
+    ]
+  },
+  {
+    "root": "פרה",
+    "translit": "PARAH",
+    "meaning": "????????: “ Be fruitful",
+    "examples": [
+      "Genesis 1:22"
+    ]
+  },
+  {
+    "root": "פרי",
+    "translit": "PRIY",
+    "meaning": "????????: and fruit",
+    "examples": [
+      "Genesis 1:11"
+    ]
+  },
+  {
+    "root": "פרת",
+    "translit": "PRATH",
+    "meaning": "????????: Euphrates",
+    "examples": [
+      "Genesis 2:14"
+    ]
+  },
+  {
+    "root": "פתח",
+    "translit": "PTH",
+    "meaning": "открывать, отверстие, начало",
+    "examples": [
+      "פתח — открыл",
+      "פתיחה — открытие"
+    ]
+  },
+  {
+    "root": "צדק",
+    "translit": "TsDQ",
+    "meaning": "праведность, справедливость, правда",
+    "examples": [
+      "צדק — правда",
+      "צדיק — праведник"
+    ]
+  },
+  {
+    "root": "צוה",
+    "translit": "TsVH",
+    "meaning": "заповедать, повелевать, приказывать",
+    "examples": [
+      "צוה — заповедал",
+      "מצוה — заповедь"
+    ]
+  },
+  {
+    "root": "צור",
+    "translit": "TsVR",
+    "meaning": "скала, крепость, образ, форма",
+    "examples": [
+      "צור — скала, крепость",
+      "צורה — форма, образ"
+    ]
+  },
+  {
+    "root": "צלם",
+    "translit": "TsLM",
+    "meaning": "образ, подобие, идол",
+    "examples": [
+      "צלם — образ",
+      "צלמים — идолы"
+    ]
+  },
+  {
+    "root": "צמח",
+    "translit": "TSAMACH",
+    "meaning": "????????: sprouted",
+    "examples": [
+      "Genesis 2:5"
+    ]
+  },
+  {
+    "root": "קדמה",
+    "translit": "QIDMAH",
+    "meaning": "????????: the east side",
+    "examples": [
+      "Genesis 2:14"
+    ]
+  },
+  {
+    "root": "קדש",
+    "translit": "QDSh",
+    "meaning": "святой, отделённый, посвящённый",
+    "examples": [
+      "קדש — святой",
+      "קדושה — святость"
+    ]
+  },
+  {
+    "root": "קוה",
+    "translit": "QAVAH",
+    "meaning": "????????: be gathered",
+    "examples": [
+      "Genesis 1:9"
+    ]
+  },
+  {
+    "root": "קול",
+    "translit": "QVL",
+    "meaning": "голос, звук, шум",
+    "examples": [
+      "קול — голос",
+      "קולות — голоса"
+    ]
+  },
+  {
+    "root": "קום",
+    "translit": "QVM",
+    "meaning": "вставать, стоять, утверждать",
+    "examples": [
+      "קום — встань",
+      "הקים — поставил"
+    ]
+  },
+  {
+    "root": "קטל",
+    "translit": "QTL",
+    "meaning": "убивать, умерщвлять",
+    "examples": [
+      "קטל — убил",
+      "קטילה — убийство"
+    ]
+  },
+  {
+    "root": "קין",
+    "translit": "QAYIN",
+    "meaning": "????????: Cain",
+    "examples": [
+      "Genesis 4:1"
+    ]
+  },
+  {
+    "root": "קנה",
+    "translit": "QNH",
+    "meaning": "приобретать, покупать, творить",
+    "examples": [
+      "קנה — купил, приобрёл",
+      "קניין — приобретение"
+    ]
+  },
+  {
+    "root": "קץ",
+    "translit": "QETS",
+    "meaning": "????????: So in the course",
+    "examples": [
+      "Genesis 4:3"
+    ]
+  },
+  {
+    "root": "קרא",
+    "translit": "QRA",
+    "meaning": "звать, читать, призывать, встречать",
+    "examples": [
+      "קרא — позвал, прочитал",
+      "מקרא — чтение, Писание"
+    ]
+  },
+  {
+    "root": "קרב",
+    "translit": "QRV",
+    "meaning": "приближаться, приносить, близкий",
+    "examples": [
+      "קרב — приблизился",
+      "קרבן — жертва (приближение)"
+    ]
+  },
+  {
+    "root": "ראה",
+    "translit": "RAH",
+    "meaning": "видеть, смотреть, воспринимать",
+    "examples": [
+      "ראה — увидел",
+      "מראה — видение"
+    ]
+  },
+  {
+    "root": "ראש",
+    "translit": "RASh",
+    "meaning": "голова, начало, глава, первый",
+    "examples": [
+      "ראש — голова",
+      "ראשון — первый"
+    ]
+  },
+  {
+    "root": "ראשית",
+    "translit": "RESHIYTH",
+    "meaning": "????????: In the beginning",
+    "examples": [
+      "Genesis 1:1"
+    ]
+  },
+  {
+    "root": "רב",
+    "translit": "RV",
+    "meaning": "много, великий, множество",
+    "examples": [
+      "רב — много, великий",
+      "רבה — умножил"
+    ]
+  },
+  {
+    "root": "רבה",
+    "translit": "RABAH",
+    "meaning": "????????: and multiply",
+    "examples": [
+      "Genesis 1:22"
+    ]
+  },
+  {
+    "root": "רבץ",
+    "translit": "RABATS",
+    "meaning": "????????: is crouching",
+    "examples": [
+      "Genesis 4:7"
+    ]
+  },
+  {
+    "root": "רדה",
+    "translit": "RADAH",
+    "meaning": "????????: to rule",
+    "examples": [
+      "Genesis 1:26"
+    ]
+  },
+  {
+    "root": "רואש",
+    "translit": "RO'SH",
+    "meaning": "????????: headwaters :",
+    "examples": [
+      "Genesis 2:10"
+    ]
+  },
+  {
+    "root": "רוח",
+    "translit": "RUWACH",
+    "meaning": "????????: And the Spirit",
+    "examples": [
+      "Genesis 1:2"
+    ]
+  },
+  {
+    "root": "רחף",
+    "translit": "RACHAPH",
+    "meaning": "????????: was hovering",
+    "examples": [
+      "Genesis 1:2"
+    ]
+  },
+  {
+    "root": "רמש",
+    "translit": "RAMAS",
+    "meaning": "????????: that moves",
+    "examples": [
+      "Genesis 1:21"
+    ]
+  },
+  {
+    "root": "רעה",
+    "translit": "RA`AH",
+    "meaning": "????????: a keeper",
+    "examples": [
+      "Genesis 4:2"
+    ]
+  },
+  {
+    "root": "רפא",
+    "translit": "RPA",
+    "meaning": "исцелять, врачевать, восстанавливать",
+    "examples": [
+      "רפא — исцелил",
+      "רפואה — исцеление"
+    ]
+  },
+  {
+    "root": "רקיע",
+    "translit": "RAQIYA`",
+    "meaning": "????????: an expanse",
+    "examples": [
+      "Genesis 1:6"
+    ]
+  },
+  {
+    "root": "שׂבע",
+    "translit": "SBA",
+    "meaning": "насыщаться, быть сытым, удовлетворять",
+    "examples": [
+      "שבע — насытился",
+      "שׂובע — сытость"
+    ]
+  },
+  {
+    "root": "שׂדה",
+    "translit": "SDH",
+    "meaning": "поле, участок",
+    "examples": [
+      "שׂדה — поле",
+      "שׂדות — поля"
+    ]
+  },
+  {
+    "root": "שׂמח",
+    "translit": "SMH",
+    "meaning": "радоваться, веселиться",
+    "examples": [
+      "שׂמח — радовался",
+      "שׂמחה — радость"
+    ]
+  },
+  {
+    "root": "שׂנא",
+    "translit": "SNA",
+    "meaning": "ненавидеть, враждовать",
+    "examples": [
+      "שׂנא — ненавидел",
+      "שׂנאה — ненависть"
+    ]
+  },
+  {
+    "root": "שׂר",
+    "translit": "SR",
+    "meaning": "князь, начальник, правитель",
+    "examples": [
+      "שׂר — князь",
+      "שׂרה — княгиня"
+    ]
+  },
+  {
+    "root": "שׂרף",
+    "translit": "SRP",
+    "meaning": "жечь, сжигать, серафим (горящий)",
+    "examples": [
+      "שׂרף — сжёг",
+      "שׂרפים — серафимы"
+    ]
+  },
+  {
+    "root": "שאת",
+    "translit": "S'ETH",
+    "meaning": "????????: be accepted ?",
+    "examples": [
+      "Genesis 4:7"
+    ]
+  },
+  {
+    "root": "שב",
+    "translit": "ShV",
+    "meaning": "возвращаться, обращаться, сидеть",
+    "examples": [
+      "שב — вернулся",
+      "תשובה — возвращение"
+    ]
+  },
+  {
+    "root": "שבת",
+    "translit": "ShBT",
+    "meaning": "покой, суббота, прекращать",
+    "examples": [
+      "שבת — суббота, покой",
+      "שבתון — покой"
+    ]
+  },
+  {
+    "root": "שגה",
+    "translit": "ShGH",
+    "meaning": "заблуждаться, ошибаться",
+    "examples": [
+      "שגה — ошибся",
+      "שגיאה — ошибка"
+    ]
+  },
+  {
+    "root": "שדד",
+    "translit": "ShDD",
+    "meaning": "грабить, опустошать, разрушать",
+    "examples": [
+      "שדד — разграбил",
+      "שדידה — грабёж"
+    ]
+  },
+  {
+    "root": "שוב",
+    "translit": "ShVB",
+    "meaning": "возвращаться, обращаться",
+    "examples": [
+      "שוב — вернулся",
+      "תשובה — возвращение"
+    ]
+  },
+  {
+    "root": "שוהם",
+    "translit": "SHOHAM",
+    "meaning": "????????: and onyx",
+    "examples": [
+      "Genesis 2:12"
+    ]
+  },
+  {
+    "root": "שום",
+    "translit": "ShVM",
+    "meaning": "ставить, класть, назначать",
+    "examples": [
+      "שום — поставил",
+      "שׂימה — поставление"
+    ]
+  },
+  {
+    "root": "שוף",
+    "translit": "SHUWPH",
+    "meaning": "????????: {will} crush",
+    "examples": [
+      "Genesis 3:15"
+    ]
+  },
+  {
+    "root": "שור",
+    "translit": "ShVR",
+    "meaning": "бык, взирать, стена",
+    "examples": [
+      "שור — бык",
+      "שורה — ряд, строка"
+    ]
+  },
+  {
+    "root": "שחט",
+    "translit": "ShHT",
+    "meaning": "резать, закалывать (жертву)",
+    "examples": [
+      "שחט — заколол",
+      "שחיטה — заклание"
+    ]
+  },
+  {
+    "root": "שיח",
+    "translit": "ShYH",
+    "meaning": "размышлять, беседовать, куст",
+    "examples": [
+      "שיח — размышление",
+      "שיחה — беседа"
+    ]
+  },
+  {
+    "root": "שיר",
+    "translit": "ShYR",
+    "meaning": "петь, песня",
+    "examples": [
+      "שיר — песня",
+      "שירה — пение"
+    ]
+  },
+  {
+    "root": "שית",
+    "translit": "RESHIYTH",
+    "meaning": "????????: I will put",
+    "examples": [
+      "Genesis 3:15"
+    ]
+  },
+  {
+    "root": "שכל",
+    "translit": "SAKAL",
+    "meaning": "????????: for obtaining wisdom",
+    "examples": [
+      "Genesis 3:6"
+    ]
+  },
+  {
+    "root": "שכן",
+    "translit": "SHAKAN",
+    "meaning": "????????: stationed",
+    "examples": [
+      "Genesis 3:24"
+    ]
+  },
+  {
+    "root": "שלח",
+    "translit": "SHALACH",
+    "meaning": "????????: he reach out",
+    "examples": [
+      "Genesis 3:22"
+    ]
+  },
+  {
+    "root": "שלישי",
+    "translit": "SHLIYSHIY",
+    "meaning": "????????: the third",
+    "examples": [
+      "Genesis 1:13"
+    ]
+  },
+  {
+    "root": "שלם",
+    "translit": "ShLM",
+    "meaning": "мир, целостность, завершённость, воздавать",
+    "examples": [
+      "שלם — целый, мир",
+      "שלום — мир"
+    ]
+  },
+  {
+    "root": "שם",
+    "translit": "ShM",
+    "meaning": "имя, слава, репутация, там",
+    "examples": [
+      "שם — имя",
+      "שמים — небеса (там вода)"
+    ]
+  },
+  {
+    "root": "שמע",
+    "translit": "SHAMA`",
+    "meaning": "????????: heard",
+    "examples": [
+      "Genesis 3:8"
+    ]
+  },
+  {
+    "root": "שמר",
+    "translit": "ShMR",
+    "meaning": "хранить, соблюдать, стеречь",
+    "examples": [
+      "שמר — хранил",
+      "שמירה — хранение"
+    ]
+  },
+  {
+    "root": "שנה",
+    "translit": "ShNH",
+    "meaning": "год, изменять, повторять",
+    "examples": [
+      "שנה — год",
+      "שני — второй"
+    ]
+  },
+  {
+    "root": "שני",
+    "translit": "SHENIY",
+    "meaning": "????????: the second",
+    "examples": [
+      "Genesis 1:8"
+    ]
+  },
+  {
+    "root": "שעה",
+    "translit": "SHA`AH",
+    "meaning": "????????: looked with favor",
+    "examples": [
+      "Genesis 4:4"
+    ]
+  },
+  {
+    "root": "שער",
+    "translit": "ShAR",
+    "meaning": "ворота, врата, волосы, буря",
+    "examples": [
+      "שער — ворота",
+      "שערה — волос"
+    ]
+  },
+  {
+    "root": "שפה",
+    "translit": "ShPH",
+    "meaning": "губа, язык, край, берег",
+    "examples": [
+      "שפה — губа, язык",
+      "שפתיים — губы"
+    ]
+  },
+  {
+    "root": "שפט",
+    "translit": "ShPT",
+    "meaning": "судить, управлять, восстанавливать",
+    "examples": [
+      "שפט — судил",
+      "משפט — суд"
+    ]
+  },
+  {
+    "root": "שקד",
+    "translit": "ShQD",
+    "meaning": "бодрствовать, усердствовать, миндаль",
+    "examples": [
+      "שקד — бодрствовал",
+      "שקידה — усердие"
+    ]
+  },
+  {
+    "root": "שקה",
+    "translit": "SHAQAH",
+    "meaning": "????????: and watered",
+    "examples": [
+      "Genesis 2:6"
+    ]
+  },
+  {
+    "root": "שקר",
+    "translit": "ShQR",
+    "meaning": "ложь, обман, лгать",
+    "examples": [
+      "שקר — ложь",
+      "שקרן — лжец"
+    ]
+  },
+  {
+    "root": "שרץ",
+    "translit": "SHARATS",
+    "meaning": "????????: teem",
+    "examples": [
+      "Genesis 1:20"
+    ]
+  },
+  {
+    "root": "ששי",
+    "translit": "SHISHSHIY",
+    "meaning": "????????: the sixth",
+    "examples": [
+      "Genesis 1:31"
+    ]
+  },
+  {
+    "root": "שתה",
+    "translit": "ShTH",
+    "meaning": "пить, основание, полагать",
+    "examples": [
+      "שתה — пил",
+      "שתייה — питьё"
+    ]
+  },
+  {
+    "root": "תאוה",
+    "translit": "TA'AVAH",
+    "meaning": "????????: pleasing",
+    "examples": [
+      "Genesis 3:6"
+    ]
+  },
+  {
+    "root": "תהל",
+    "translit": "THL",
+    "meaning": "хвалить, восхвалять",
+    "examples": [
+      "תהלה — хвала",
+      "תהילים — Псалмы (хваления)"
+    ]
+  },
+  {
+    "root": "תוהו",
+    "translit": "TOHUW",
+    "meaning": "????????: formless",
+    "examples": [
+      "Genesis 1:2"
+    ]
+  },
+  {
+    "root": "תוך",
+    "translit": "TVK",
+    "meaning": "середина, центр, внутри",
+    "examples": [
+      "תוך — внутри",
+      "תוכה — середина"
+    ]
+  },
+  {
+    "root": "תור",
+    "translit": "TVR",
+    "meaning": "исследовать, разведывать, тур (горлица)",
+    "examples": [
+      "תור — разведал",
+      "תורה — учение, наставление"
+    ]
+  },
+  {
+    "root": "תורה",
+    "translit": "TVRH",
+    "meaning": "учение, наставление, закон (от ירה — направлять)",
+    "examples": [
+      "תורה — Тора, учение",
+      "הורה — учил, направлял"
+    ]
+  },
+  {
+    "root": "תחת",
+    "translit": "TACHATH",
+    "meaning": "????????: beneath",
+    "examples": [
+      "Genesis 1:7"
+    ]
+  },
+  {
+    "root": "תכן",
+    "translit": "TKN",
+    "meaning": "устанавливать, назначать, мера",
+    "examples": [
+      "תכן — установил",
+      "תכונה — свойство"
+    ]
+  },
+  {
+    "root": "תלמיד",
+    "translit": "TLMID",
+    "meaning": "ученик (от למד — учить)",
+    "examples": [
+      "תלמיד — ученик",
+      "תלמידה — ученица"
+    ]
+  },
+  {
+    "root": "תם",
+    "translit": "TM",
+    "meaning": "цельный, непорочный, завершённый",
+    "examples": [
+      "תם — цельный",
+      "תמימות — непорочность"
+    ]
+  },
+  {
+    "root": "תעה",
+    "translit": "TAH",
+    "meaning": "блуждать, заблуждаться",
+    "examples": [
+      "תעה — заблудился",
+      "תעייה — заблуждение"
+    ]
+  },
+  {
+    "root": "תפל",
+    "translit": "TPL",
+    "meaning": "непригодный, безвкусный, клевета",
+    "examples": [
+      "תפל — безвкусный",
+      "תפלה — клевета"
+    ]
+  },
+  {
+    "root": "תפר",
+    "translit": "TAPHAR",
+    "meaning": "????????: so they sewed together",
+    "examples": [
+      "Genesis 3:7"
+    ]
+  },
+  {
+    "root": "תקוה",
+    "translit": "TQVH",
+    "meaning": "надежда, ожидание, верёвка",
+    "examples": [
+      "תקוה — надежда",
+      "קוה — надеялся"
+    ]
+  },
+  {
+    "root": "תרדמה",
+    "translit": "TARDEMAH",
+    "meaning": "????????: a deep sleep",
+    "examples": [
+      "Genesis 2:21"
+    ]
+  },
+  {
+    "root": "תשוקה",
+    "translit": "TSHUWQAH",
+    "meaning": "????????: Your desire",
+    "examples": [
+      "Genesis 3:16"
+    ]
+  },
+  {
+    "root": "תשע",
+    "translit": "TShA",
+    "meaning": "девять, быть в союзе",
+    "examples": [
+      "תשע — девять",
+      "תשיעי — девятый"
+    ]
+  }
+]
