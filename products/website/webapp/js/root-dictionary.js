@@ -88,5 +88,6 @@ const RootDict = (function() {
   }
 
   window.RootsSearch = { filter: filter, goTo: goTo };
-  return { init: init };
+  window.RootDict = { init: init };
+  return window.RootDict;
 })();
