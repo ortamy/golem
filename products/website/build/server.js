@@ -100,32 +100,32 @@ const ICON_RULES = {
     "content/hebrew": "lamp.png",
     "content/exposed": "sword.png",
     "content/tanakh/books": "scrolls.png",
-    "content/tanakh/persons": "default.png",
-    "content/tanakh/events": "default.png",
+    "content/tanakh/persons": "scrolls.png",
+    "content/tanakh/events": "scrolls.png",
     "content/bashah/books": "scrolls.png",
     "content/bashah/letters": "scales.png",
-    "content/bashah/persons": "default.png",
-    "content/bashah/events": "default.png",
+    "content/bashah/persons": "scrolls.png",
+    "content/bashah/events": "scrolls.png",
     "content/bashah/teachings": "heart.png",
     "content/bashah/terminology": "scroll.png",
     "content/bashah/concepts": "anchor.png",
     "content/bashah/practices": "shield.png",
     "content/bashah/chronology": "hourglass.png",
-    "content/bashah/manuscripts": "default.png",
-    "content/bashah/geography": "default.png",
+    "content/bashah/manuscripts": "scrolls.png",
+    "content/bashah/geography": "scrolls.png",
     "content/bashah/nevua": "torch.png",
     "content/tzel/adam": "vase.png",
     "content/tzel/brit-nissuin": "ring.png",
-    "content/tzel/elohim": "default.png",
+    "content/tzel/elohim": "scrolls.png",
     "content/tzel/hitgalut": "alert.png",
-    "content/tzel/kehillah": "default.png",
+    "content/tzel/kehillah": "scrolls.png",
     "content/tzel/kelim": "hammer-and-chisel.png",
-    "content/tzel/makom": "default.png",
-    "content/tzel/mikra": "default.png",
+    "content/tzel/makom": "scrolls.png",
+    "content/tzel/mikra": "scrolls.png",
     "content/tzel/moadim": "track.png",
-    "content/tzel/ruach": "default.png",
-    "content/tzel/shedim": "default.png",
-    "content/tzel/tamid": "default.png",
+    "content/tzel/ruach": "scrolls.png",
+    "content/tzel/shedim": "scrolls.png",
+    "content/tzel/tamid": "scrolls.png",
 };
 
 function resolveIcon(relPath) {
@@ -135,7 +135,7 @@ function resolveIcon(relPath) {
             return ICON_RULES[sorted[i]];
         }
     }
-    return "default.png";
+    return "scrolls.png";
 }
 
 const MIME = {

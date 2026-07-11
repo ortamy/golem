@@ -17,7 +17,7 @@
     function renderTitle(file) {
         let title = file.title || file.path;
         title = title.replace(EMOJI_REGEX, '').trim();
-        if (file.icon && file.icon !== 'default.png') {
+        if (file.icon && file.icon !== 'scrolls.png') {
             const iconPath = '../assets/icons/32/' + file.icon;
             return '<img src="' + iconPath + '" class="icon" alt="' + esc(file.category || 'Иконка') + '" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">' + esc(title);
         }
