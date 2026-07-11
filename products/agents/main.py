@@ -20,24 +20,39 @@ from agents.collector import assemble_markdown, save_output
 DEFAULT_OUTPUT_DIR = CONTENT_DIR / "researches" / "agent-drafts"
 
 
-def run_pipeline(query: str, output_dir: Path = DEFAULT_OUTPUT_DIR) -> Path:
-    """Запускает цепочку researcher → exposer → collector для заданного корня/стиха/термина."""
-    researcher = build_researcher_agent()
-    research_task = build_researcher_task(researcher, query)
+def run_pipeline(query: str, output_dir: Path = DEFAULT_OUTPUT_DIR, agent: str = "collector") -> Path:
+    """Запускает агентов Голема для заданного корня/стиха/термина.
 
-    exposer = build_exposer_agent()
-    exposure_task = build_exposer_task(exposer, query)
+    agent="researcher" — только разбор (researcher).
+    agent="exposer" — только поиск подмен (exposer).
+    agent="collector" (по умолчанию) — полная цепочка researcher → exposer → collector.
+    """
+    research_result = ""
+    exposure_result = ""
+    agents = []
+    tasks = []
 
-    crew = Crew(
-        agents=[researcher, exposer],
-        tasks=[research_task, exposure_task],
-        process=Process.sequential,
-        verbose=True,
-    )
+    if agent in ("researcher", "collector"):
+        researcher = build_researcher_agent()
+        research_task = build_researcher_task(researcher, query)
+        agents.append(researcher)
+        tasks.append(research_task)
+
+    if agent in ("exposer", "collector"):
+        exposer = build_exposer_agent()
+        exposure_task = build_exposer_task(exposer, query)
+        agents.append(exposer)
+        tasks.append(exposure_task)
+
+    crew = Crew(agents=agents, tasks=tasks, process=Process.sequential, verbose=True)
     crew.kickoff()
 
-    research_result = str(research_task.output) if research_task.output else ""
-    exposure_result = str(exposure_task.output) if exposure_task.output else ""
+    if agent in ("researcher", "collector"):
+        research_result = str(tasks[0].output) if tasks[0].output else ""
+    if agent == "exposer":
+        exposure_result = str(tasks[0].output) if tasks[0].output else ""
+    elif agent == "collector":
+        exposure_result = str(tasks[1].output) if tasks[1].output else ""
 
     markdown = assemble_markdown(query, research_result, exposure_result)
     slug = slugify(query)
@@ -56,10 +71,16 @@ def main():
         default=None,
         help="Папка для сохранения результата (по умолчанию content/researches/agent-drafts)",
     )
+    parser.add_argument(
+        "--agent",
+        default="collector",
+        choices=["researcher", "exposer", "collector"],
+        help="Какой агент запустить: researcher, exposer или collector (полная цепочка)",
+    )
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir) if args.output_dir else DEFAULT_OUTPUT_DIR
-    result_path = run_pipeline(args.task, output_dir)
+    result_path = run_pipeline(args.task, output_dir, agent=args.agent)
     print(f"\nГотово. Результат сохранён: {result_path}")
 
 
