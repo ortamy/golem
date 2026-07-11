@@ -33,7 +33,7 @@
   </div>
   
   <nav>
-    <button class="theme-toggle" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn"><img src="../assets/icons/32/torch.png" width="32" height="32" alt="Тема" style="vertical-align: middle; margin-right: 6px;"></button>
+    <button class="theme-toggle" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn"><img src="../assets/icons/32/moon.png" width="24" height="24" alt="Тёмная тема"></button>
     <a href="../"><img src="../assets/icons/32/door.png" width="32" height="32" alt="Сайт" style="vertical-align: middle; margin-right: 6px;"> Сайт</a>
     <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener">GitHub</a>
   </nav>
@@ -66,6 +66,7 @@
       </div>
       <div class="sidebar-section">
         <div class="sidebar-section-title">AI / Инструменты</div>
+        <a href="#research-generator" class="sidebar-item" data-module="research-generator"><img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Генератор исследований</a>
         <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><span class="icon"><img src="../assets/icons/32/hammer-and-chisel.png" width="32" height="32" alt="Чат с Эдом" style="vertical-align: middle; margin-right: 6px;"></span> Чат с Эдом</a>
         <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><span class="icon"><img src="../assets/icons/32/track.png" width="32" height="32" alt="Палео-клавиатура" style="vertical-align: middle; margin-right: 6px;"></span> Палео-клавиатура</a>
       </div>
@@ -99,11 +100,11 @@
       </div>
       <div class="sidebar-section">
         <div class="sidebar-section-title" onclick="toggleSection('exposure')" style="cursor:pointer">
-          <img src="../assets/icons/32/lamp.png" class="lab-icon" alt="">Принципы разоблачения
+          <img src="../assets/icons/32/lamp.png" class="lab-icon" alt="">Экспоз
         </div>
         <div id="exposure" class="sidebar-subitems" style="display:none">
           <a href="#exposure-dictionary" class="sidebar-item" data-module="exposure-dictionary"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Словарь прорыва</a>
-          <a href="#exposure-principles" class="sidebar-item" data-module="exposure-principles"><img src="../assets/icons/32/lamp.png" class="lab-icon" alt="">Принципы разоблачения</a>
+          <a href="#exposure-principles" class="sidebar-item" data-module="exposure-principles"><img src="../assets/icons/32/lamp.png" class="lab-icon" alt="">Экспоз</a>
           <a href="#exposure-distortions" class="sidebar-item" data-module="exposure-distortions"><img src="../assets/icons/32/scales.png" class="lab-icon" alt="">Типы искажений</a>
           <a href="#exposure-mechanisms" class="sidebar-item" data-module="exposure-mechanisms"><img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Механизмы подмены</a>
           <a href="#exposure-linguistic-methods" class="sidebar-item" data-module="exposure-linguistic-methods"><img src="../assets/icons/32/testtube.png" class="lab-icon" alt="">Лингвистические методы</a>
@@ -203,8 +204,11 @@ const LabTheme = {
     localStorage.setItem('golem_theme', theme);
     var btn = document.getElementById('themeBtn');
     if (btn) {
-      var img = btn.querySelector('img');
-      if (img) img.alt = theme === 'dark' ? 'Светлая тема' : 'Тёмная тема';
+      if (theme === 'dark') {
+        btn.innerHTML = '<img src="../assets/icons/32/sun.png" width="24" height="24" alt="Светлая тема">';
+      } else {
+        btn.innerHTML = '<img src="../assets/icons/32/moon.png" width="24" height="24" alt="Тёмная тема">';
+      }
     }
   },
   toggle: function() {
@@ -413,6 +417,15 @@ function toggleSection(id) {
 const LabRenderer = {
   modules: {},
   rendered: false,
+  researchMarkdown: '',
+  researchTopic: '',
+  researchTemplatePaths: {
+    root: '../../../instructions/templates/TEMPLATE-TERM.md',
+    term: '../../../instructions/templates/TEMPLATE-TERM.md',
+    verse: '../../../instructions/templates/TEMPLATE-TZEL.md',
+    substitution: '../../../instructions/templates/TEMPLATE-EXPOSURE.md',
+    free: '../../../instructions/templates/TEMPLATE-RESEARCH.md'
+  },
   
   // Map module IDs to their markdown file paths (relative to site root)
   markdownPaths: {
@@ -498,6 +511,7 @@ const LabRenderer = {
       this.paleoImages(),
       this.etymologyLab(),
       this.boardGenerator(),
+      this.researchGenerator(),
       this.religionismChecker(),
       this.translationComparator(),
       this.boardLibrary(),
@@ -671,6 +685,127 @@ const LabRenderer = {
       '<p class="subtitle">Глубокий разбор слова: корень, палео-буквы, цепочка подмен.</p>' +
       '<div class="search-wrap"><input type="text" id="el-input" class="lab-input" placeholder="Введите слово..."><button class="lab-btn lab-btn-primary" onclick="EtymologyLab.analyze()">Разобрать</button></div>' +
       '<div id="el-results"></div></div>';
+  },
+
+  researchGenerator: function() {
+    return '<div id="research-generator" class="module">' +
+      '<h1><img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Генератор исследований</h1>' +
+      '<p class="subtitle">Выберите тип исследования, укажите тему и получите основу в формате Markdown.</p>' +
+      '<form id="research-generator-form" class="research-generator-form" onsubmit="event.preventDefault(); LabRenderer.generateResearch();">' +
+        '<div class="research-generator-fields">' +
+          '<label for="rg-type">Тип исследования</label>' +
+          '<select id="rg-type" class="lab-select">' +
+            '<option value="root">Корень</option>' +
+            '<option value="term">Термин</option>' +
+            '<option value="verse">Стих</option>' +
+            '<option value="substitution">Подмена</option>' +
+            '<option value="free">Свободная тема</option>' +
+          '</select>' +
+          '<label for="rg-topic">Тема</label>' +
+          '<input type="text" id="rg-topic" class="lab-input" placeholder="Например: חֶסֶד или подмена смысла слова «закон»" required>' +
+          '<button type="submit" class="lab-btn lab-btn-primary" id="rg-generate">Сгенерировать</button>' +
+        '</div>' +
+      '</form>' +
+      '<div id="rg-status" class="lab-alert lab-alert-info" role="status">Заполните тему и выберите тип исследования.</div>' +
+      '<div id="rg-export" class="export-bar research-generator-export" style="display:none">' +
+        '<span class="export-title">Экспорт</span>' +
+        '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRenderer.downloadResearchTxt()">Скачать TXT</button>' +
+        '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRenderer.copyResearchMarkdown()">Копировать Markdown</button>' +
+      '</div>' +
+      '<section class="research-preview-wrap" aria-labelledby="rg-preview-title">' +
+        '<h2 id="rg-preview-title">Превью</h2>' +
+        '<div id="rg-preview" class="research-preview" aria-live="polite">' +
+          '<p class="research-preview-placeholder">Здесь появится оформленный шаблон исследования.</p>' +
+        '</div>' +
+      '</section>' +
+    '</div>';
+  },
+
+  generateResearch: function() {
+    var type = document.getElementById('rg-type');
+    var topicInput = document.getElementById('rg-topic');
+    var button = document.getElementById('rg-generate');
+    var status = document.getElementById('rg-status');
+    var preview = document.getElementById('rg-preview');
+    if (!type || !topicInput || !button || !status || !preview) return;
+
+    var topic = topicInput.value.trim();
+    if (!topic) {
+      status.className = 'lab-alert lab-alert-warn';
+      status.textContent = 'Введите тему исследования.';
+      topicInput.focus();
+      return;
+    }
+
+    var path = this.researchTemplatePaths[type.value] || this.researchTemplatePaths.free;
+    var renderer = this;
+    button.disabled = true;
+    status.className = 'lab-alert lab-alert-info';
+    status.textContent = 'Загрузка шаблона…';
+
+    fetch(path)
+      .then(function(response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.text();
+      })
+      .then(function(template) {
+        var markdown = renderer.fillResearchTemplate(template, topic, type.value);
+        renderer.researchMarkdown = markdown;
+        renderer.researchTopic = topic;
+        preview.innerHTML = typeof marked !== 'undefined' && marked.parse
+          ? marked.parse(markdown)
+          : '<pre>' + escapeHtml(markdown) + '</pre>';
+        document.getElementById('rg-export').style.display = 'flex';
+        status.className = 'lab-alert lab-alert-success';
+        status.textContent = 'Шаблон загружен. Можно редактировать Markdown после копирования или скачать TXT.';
+      })
+      .catch(function(error) {
+        status.className = 'lab-alert lab-alert-error';
+        status.textContent = 'Не удалось загрузить шаблон: ' + error.message;
+      })
+      .then(function() {
+        button.disabled = false;
+      });
+  },
+
+  fillResearchTemplate: function(template, topic, type) {
+    var titleByType = {
+      root: '# 📜 ' + topic + ' — разбор корня',
+      term: '# 📜 ' + topic + ' — полный разбор термина',
+      verse: '# 📜 ' + topic + ' — разбор стиха',
+      substitution: '# 🔍 ' + topic + ' — разоблачение подмены',
+      free: '# 📜 Исследование: ' + topic
+    };
+    var markdown = template.replace(/^```markdown\s*/i, '').replace(/\s*```\s*$/i, '');
+    markdown = markdown.replace(/^# .+$/m, titleByType[type] || titleByType.free);
+    markdown = markdown.replace(/^(\s*-\s*\*\*Тема:\*\*).*$/im, '$1 ' + topic);
+    markdown = markdown
+      .replace(/\[ТЕМА\]/gi, topic)
+      .replace(/\[ТЕМА УРОКА\]/gi, topic)
+      .replace(/\[НАЗВАНИЕ[^\]]*\]/gi, topic)
+      .replace(/\[ЯВЛЕНИЯ\/СИСТЕМЫ\/КОМПАНИИ\]/gi, topic)
+      .replace(/\[СЛОВО\]/gi, topic)
+      .replace(/\[ОБРАЗ[^\]]*\]/gi, topic)
+      .replace(/\[ПОНЯТИЕ\]/gi, topic)
+      .replace(/\[ИМЯ\]/gi, topic);
+    return markdown.trim() + '\n';
+  },
+
+  downloadResearchTxt: function() {
+    if (!this.researchMarkdown) return;
+    var filename = (this.researchTopic || 'исследование')
+      .toLowerCase().replace(/[^a-zа-яё0-9]+/gi, '-').replace(/^-|-$/g, '') || 'исследование';
+    var blob = new Blob([this.researchMarkdown], { type: 'text/plain;charset=utf-8' });
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename + '.txt';
+    link.click();
+    URL.revokeObjectURL(link.href);
+  },
+
+  copyResearchMarkdown: function() {
+    if (!this.researchMarkdown) return;
+    LabExport.copyText(this.researchMarkdown);
   },
   
   boardGenerator: function() {
