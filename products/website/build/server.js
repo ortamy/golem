@@ -7,6 +7,7 @@ const zlib = require('zlib');
 const PORT = 8080;
 const ROOT = path.resolve(__dirname, '../..');
 const WEB_DIR = __dirname;
+const MAX_RESPONSE_SIZE = 5 * 1024 * 1024;
 
 const SCAN_DIRS = [
     { folder: 'content/terminology', label: 'Терминология' },
@@ -16,6 +17,13 @@ const SCAN_DIRS = [
     { folder: 'content/teachings', label: 'Учения' },
     { folder: 'content/hebrew', label: 'Изучение иврита' },
     { folder: 'content/paleo-hebrew', label: 'Палео-иврит' },
+];
+
+// API files are limited to published content locations. Keep this list explicit
+// so a user-controlled path can never address arbitrary files below ROOT.
+const ALLOWED_FILE_FOLDERS = [
+    ...SCAN_DIRS.map(({ folder }) => folder),
+    'pages',
 ];
 
 const IGNORE_FILES = ['README.md', 'STRUCTURE.md', 'GLOSSARY.md', 'CHANGELOG.md'];
@@ -148,6 +156,43 @@ const MIME = {
     '.svg': 'image/svg+xml',
     '.ico': 'image/x-icon',
 };
+
+const ALLOWED_FILE_EXTENSIONS = new Set(['.md', '.html']);
+
+function resolveAllowedFile(requestedPath) {
+    const normalizedInput = String(requestedPath || '').replace(/\\/g, '/');
+    const candidate = path.resolve(ROOT, normalizedInput);
+    const rootPrefix = ROOT.endsWith(path.sep) ? ROOT : ROOT + path.sep;
+    const relative = path.relative(ROOT, candidate).replace(/\\/g, '/');
+    const extension = path.extname(candidate).toLowerCase();
+    const isInsideRoot = candidate === ROOT || candidate.startsWith(rootPrefix);
+    const isAllowedFolder = ALLOWED_FILE_FOLDERS.some(function(folder) {
+        return relative === folder || relative.startsWith(folder + '/');
+    });
+
+    if (!isInsideRoot || !isAllowedFolder || !ALLOWED_FILE_EXTENSIONS.has(extension)) {
+        const error = new Error('Forbidden path');
+        error.code = 'FORBIDDEN_PATH';
+        throw error;
+    }
+
+    return candidate;
+}
+
+async function readFileLimited(filePath, encoding) {
+    const stat = await fs.stat(filePath);
+    if (!stat.isFile()) {
+        const error = new Error('Not a file');
+        error.code = 'NOT_FILE';
+        throw error;
+    }
+    if (stat.size > MAX_RESPONSE_SIZE) {
+        const error = new Error('Response too large');
+        error.code = 'RESPONSE_TOO_LARGE';
+        throw error;
+    }
+    return fs.readFile(filePath, encoding);
+}
 
 async function scanFiles() {
     const now = Date.now();
@@ -353,65 +398,38 @@ const server = http.createServer(async (req, res) => {
             res.end('Missing path parameter');
             return;
         }
-        const normalized = path.normalize(filePath).replace(/\\/g, '/');
-        if (normalized.includes('..')) {
-            res.writeHead(403);
-            res.end('Forbidden');
-            return;
-        }
-        const fullPath = path.join(ROOT, normalized);
-        if (!normalized.endsWith('.md')) {
-            res.writeHead(400);
-            res.end('Only .md files allowed');
-            return;
-        }
         try {
-            const stat = await fs.stat(fullPath);
-            if (!stat.isFile()) {
-                res.writeHead(404);
-                res.end('Not found');
-                return;
-            }
-            const content = await fs.readFile(fullPath, 'utf-8');
+            const fullPath = resolveAllowedFile(filePath);
+            const content = await readFileLimited(fullPath, 'utf-8');
             res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
             res.end(content);
         } catch (e) {
-            res.writeHead(404);
-            res.end('Not found');
+            const status = e.code === 'FORBIDDEN_PATH' ? 403 : e.code === 'RESPONSE_TOO_LARGE' ? 413 : 404;
+            res.writeHead(status);
+            res.end(status === 413 ? 'Response too large' : status === 403 ? 'Forbidden' : 'Not found');
         }
         return;
     }
 
     if (pathname === '/view') {
         const filePath = url.searchParams.get('path');
-        if (!filePath || !filePath.endsWith('.md')) {
+        if (!filePath) {
             res.writeHead(400);
             res.end('Missing path parameter');
             return;
         }
-        const normalized = path.normalize(filePath).replace(/\\/g, '/');
-        if (normalized.includes('..')) {
-            res.writeHead(403);
-            res.end('Forbidden');
-            return;
-        }
-        const fullPath = path.join(ROOT, normalized);
         try {
-            const stat = await fs.stat(fullPath);
-            if (!stat.isFile()) {
-                res.writeHead(404);
-                res.end('Not found');
-                return;
-            }
-            const content = await fs.readFile(fullPath, 'utf-8');
+            const fullPath = resolveAllowedFile(filePath);
+            const content = await readFileLimited(fullPath, 'utf-8');
             const title = extractTitle(content) || filePath.replace('.md', '').replace(/-/g, ' ');
             const html = renderMdPage(title, content, filePath);
             const compressed = compress(html, 'text/html');
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', ...compressed.headers });
             res.end(compressed.body);
         } catch (e) {
-            res.writeHead(404);
-            res.end('Not found');
+            const status = e.code === 'FORBIDDEN_PATH' ? 403 : e.code === 'RESPONSE_TOO_LARGE' ? 413 : 404;
+            res.writeHead(status);
+            res.end(status === 413 ? 'Response too large' : status === 403 ? 'Forbidden' : 'Not found');
         }
         return;
     }

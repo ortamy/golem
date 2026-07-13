@@ -11,7 +11,7 @@ module.exports = {
     './js/*.js',
     './app.js',
     './export/*.html',
-    '../webapp/**/*.html',
+    '../researchlab/**/*.html',
   ],
 
   // Входной CSS файл

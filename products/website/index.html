@@ -1,16 +1,17 @@
-<!-- web/index.html — Головний файл, редирект по языку -->
+<!-- products/website/index.html — точка входа и выбор языка -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Golem — Свидетель Истины</title>
+<title>Golem — Свидетель правды</title>
 <meta name="description" content="Проект «Голем» восстанавливает ТаНаХ на иврите и разоблачает подмены в переводах. Истина в оригинале.">
+<link rel="canonical" href="https://golem-project.org/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="style.css">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Golem — Свидетель Истины">
+<meta property="og:title" content="Golem — Свидетель правды">
 <meta property="og:description" content="Проект «Голем» восстанавливает ТаНаХ на иврите и разоблачает подмены в переводах.">
 <meta property="og:image" content="https://golem-project.org/favicon.svg">
 <meta property="og:url" content="https://golem-project.org/">
@@ -19,7 +20,7 @@
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Golem — Свидетель Истины">
+<meta name="twitter:title" content="Golem — Свидетель правды">
 <meta name="twitter:description" content="Проект «Голем» восстанавливает ТаНаХ на иврите и разоблачает подмены в переводах.">
 <meta name="twitter:image" content="https://golem-project.org/favicon.svg">
 <style>
@@ -42,24 +43,11 @@
 <p>Определение языка…</p>
 <div class="lang-grid">
   <a href="pages/index.html" class="lang-link">Русский</a>
-  <a href="pages/index.html" class="lang-link">English</a>
+  <span class="lang-link" aria-disabled="true" style="opacity:0.4;cursor:default">English (скоро)</span>
   
   <span class="lang-link" style="opacity:0.4;cursor:default">Español (скоро)</span>
   <span class="lang-link" style="opacity:0.4;cursor:default">Deutsch (скоро)</span>
   <span class="lang-link" style="opacity:0.4;cursor:default">Français (скоро)</span>
 </div>
-<script>
-(function() {
-  var lang = navigator.language || navigator.userLanguage || 'ru';
-  var target = 'pages/index.html';
-  setTimeout(function() { window.location.href = target; }, 1200);
-})();
-</script>
-<script src="js/burger-menu.js"></script>
-<script src="js/parser.js"></script>
-<script src="js/state.js"></script>
-<script src="js/api.js"></script>
-<script src="js/ui.js"></script>
-<script src="app.js"></script>
 </body>
 </html>
