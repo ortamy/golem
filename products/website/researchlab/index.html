@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="css/board-generator.css">
 <link rel="stylesheet" href="css/word-analyzer.css">
 <link rel="stylesheet" href="css/investigation.css">
+<link rel="stylesheet" href="css/research-library.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
@@ -25,7 +26,6 @@
     <span></span>
   </button>
   <a href="#dashboard" class="logo">ГОЛЕМ</a>
-  <span class="header-subtitle">/ Исследовательская лаборатория</span>
   
   <!-- Global Search -->
   <div class="header-search" id="globalSearch">
@@ -53,6 +53,7 @@
         <a href="#paleo-images" class="sidebar-item" data-module="paleo-images"><img src="../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-образы</a>
         <a href="#etymology-lab" class="sidebar-item" data-module="etymology-lab"><img src="../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Этимология</a>
         <a href="#word-analyzer" class="sidebar-item" data-module="word-analyzer"><img src="../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Разбор слов</a>
+        <a href="#research-library" class="sidebar-item" data-module="research-library"><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Библиотека</a>
       </div>
       <div class="sidebar-section">
         <div class="sidebar-section-title">Тексты</div>
@@ -735,6 +736,12 @@ const LabRenderer = {
     if (!container || container.dataset.loaded) return;
     container.dataset.loaded = '1';
 
+    if (moduleId.indexOf('research-library-') === 0) {
+      var researchId = decodeURIComponent(moduleId.substring('research-library-'.length));
+      this.loadResearchDetail(researchId, container);
+      return;
+    }
+
     if (moduleId === 'dictionaries') {
       this.loadJsonPage('dictionaries', 'data/dictionaries.json', container);
       return;
@@ -745,6 +752,10 @@ const LabRenderer = {
     }
     if (moduleId === 'methodology') {
       this.loadJsonPage('methodology', 'data/methodology.json', container);
+      return;
+    }
+    if (moduleId === 'research-library') {
+      this.loadResearchLibrary(container);
       return;
     }
     
@@ -873,6 +884,167 @@ const LabRenderer = {
       self.renderDocumentPage(container, page, data);
     });
   },
+
+  loadResearchLibrary: function(container) {
+    var self = this;
+    var files = ['emuna.json', 'hesed.json', 'korban.json', 'teshuva.json', 'kadosh.json'];
+    container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка библиотеки исследований...</div></div>';
+    Promise.all(files.map(function(file) {
+      return fetch('data/research/' + file)
+        .then(function(response) {
+          if (!response.ok) throw new Error('HTTP ' + response.status + ' для ' + file);
+          return response.json();
+        });
+    })).then(function(items) {
+      self.jsonData.researchLibrary = items;
+      self.renderResearchLibrary(container, items);
+    }).catch(function(error) {
+      container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки библиотеки: ' + escapeHtml(error.message) + '</div>';
+    });
+  },
+
+  renderResearchLibrary: function(container, items) {
+    var typeLabels = {
+      root: 'Корень',
+      term: 'Термин',
+      verse: 'Стих',
+      substitution: 'Подмена'
+    };
+    var renderCards = function(list) {
+      if (!list.length) return '<div class="lab-alert lab-alert-info">Исследования не найдены.</div>';
+      return '<div class="tool-grid research-library-grid">' + list.map(function(item) {
+        var paleo = (item.paleo || []).join(' ');
+        var tags = (item.tags || []).map(function(tag) {
+          return '<span class="tool-badge">' + escapeHtml(tag) + '</span>';
+        }).join(' ');
+        return '<a class="tool-card research-library-card" href="#research-library-' + encodeURIComponent(item.id) + '" data-research-type="' + escapeHtml(item.type) + '" data-research-search="' + escapeHtml([item.title, item.summary, (item.tags || []).join(' ')].join(' ')) + '">' +
+          '<div class="research-library-paleo" dir="rtl" aria-hidden="true">' + escapeHtml(paleo) + '</div>' +
+          '<div class="tool-name">' + escapeHtml(item.title) + '</div>' +
+          '<span class="tool-badge new">' + escapeHtml(typeLabels[item.type] || item.type) + '</span>' +
+          '<div class="tool-desc">' + escapeHtml(item.summary || '') + '</div>' +
+          '<div class="research-library-tags">' + tags + '</div>' +
+        '</a>';
+      }).join('') + '</div>';
+    };
+    var typeOptions = Object.keys(typeLabels).map(function(type) {
+      return '<option value="' + type + '">' + typeLabels[type] + '</option>';
+    }).join('');
+    container.innerHTML = '<div class="research-page-head">' +
+      '<h1><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Библиотека исследований</h1>' +
+      '<p class="subtitle">Исследования корней, терминов, стихов и подмен — в одном архиве.</p>' +
+      '</div>' +
+      '<div class="research-controls">' +
+      '<label class="research-search-label">Поиск<input id="research-library-search" class="lab-input" type="search" placeholder="Название, тег или описание"></label>' +
+      '<label>Тип<select id="research-library-type" class="lab-input"><option value="all">Все типы</option>' + typeOptions + '</select></label>' +
+      '</div>' +
+      '<div class="research-meta"><strong>' + items.length + ' исследований</strong><span>Структурированный архив</span></div>' +
+      '<div id="research-library-results">' + renderCards(items) + '</div>';
+    var search = document.getElementById('research-library-search');
+    var type = document.getElementById('research-library-type');
+    var update = function() {
+      var query = (search.value || '').trim().toLowerCase();
+      var selectedType = type.value;
+      var filtered = items.filter(function(item) {
+        var content = (item.content || []).map(function(section) {
+          return [section.heading, section.body].join(' ');
+        }).join(' ');
+        var haystack = [item.title, item.summary, (item.tags || []).join(' '), content].join(' ').toLowerCase();
+        return (!query || haystack.indexOf(query) !== -1) && (selectedType === 'all' || item.type === selectedType);
+      });
+      document.getElementById('research-library-results').innerHTML = renderCards(filtered);
+    };
+    if (search) search.addEventListener('input', update);
+    if (type) type.addEventListener('change', update);
+  },
+
+  loadResearchDetail: function(researchId, container) {
+    var self = this;
+    var cached = (this.jsonData.researchLibrary || []).filter(function(item) {
+      return item.id === researchId;
+    })[0];
+    if (cached) {
+      this.renderResearchDetail(container, cached);
+      return;
+    }
+    fetch('data/research/' + encodeURIComponent(researchId) + '.json')
+      .then(function(response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+      })
+      .then(function(item) {
+        self.renderResearchDetail(container, item);
+      })
+      .catch(function(error) {
+        container.innerHTML = '<div class="lab-alert lab-alert-error">Исследование не найдено: ' + escapeHtml(error.message) + '</div>';
+      });
+  },
+
+  renderResearchDetail: function(container, research) {
+    var self = this;
+    var typeLabels = { root: 'Корень', term: 'Термин', verse: 'Стих', substitution: 'Подмена' };
+    var sectionId = function(index) { return 'research-section-' + index; };
+    var sections = (research.content || []).map(function(section, index) {
+      return '<article class="research-detail-section" id="' + sectionId(index) + '">' +
+        '<h2>' + escapeHtml(section.heading || '') + '</h2>' +
+        '<div class="research-detail-body">' + escapeHtml(section.body || '') + '</div>' +
+      '</article>';
+    }).join('');
+    var toc = (research.content || []).map(function(section, index) {
+      return '<a href="#' + sectionId(index) + '">' + escapeHtml(section.heading || ('Секция ' + (index + 1))) + '</a>';
+    }).join('');
+    var quotes = (research.quotes || []).map(function(quote) {
+      return '<blockquote class="tanakh-quote">' +
+        '<div class="tanakh-hebrew" dir="rtl" lang="he">' + escapeHtml(quote.hebrew || '') + '</div>' +
+        '<div class="tanakh-translit">' + escapeHtml(quote.translit || '') + '</div>' +
+        '<div class="tanakh-literal">' + escapeHtml(quote.literal || '') + '</div>' +
+        '<cite>' + escapeHtml(quote.ref || '') + '</cite>' +
+      '</blockquote>';
+    }).join('');
+    var chain = (research.substitutionChain || []).map(function(step, index) {
+      return '<div class="substitution-step"><span class="substitution-step-number">' + (index + 1) + '</span>' +
+        '<strong>' + escapeHtml(step.layer || '') + '</strong>' +
+        '<span class="substitution-word">' + escapeHtml(step.word || '') + '</span>' +
+        '<span class="substitution-meaning">' + escapeHtml(step.meaning || '') + '</span></div>';
+    }).join('');
+    var related = (research.related || []).map(function(id) {
+      return '<a href="#research-library-' + encodeURIComponent(id) + '">' + escapeHtml(id) + '</a>';
+    }).join('');
+    var tags = (research.tags || []).map(function(tag) {
+      return '<span class="tool-badge">' + escapeHtml(tag) + '</span>';
+    }).join('');
+    container.innerHTML = '<div class="research-detail-page">' +
+      '<div class="research-detail-topbar"><a class="research-back-link" href="#research-library">← Назад к библиотеке</a></div>' +
+      '<div class="research-detail-layout">' +
+        '<aside class="research-toc"><h2>Оглавление</h2>' + toc + '</aside>' +
+        '<main class="research-detail-content">' +
+          '<header class="research-detail-header">' +
+            '<div class="research-detail-paleo" dir="rtl">' + escapeHtml((research.paleo || []).join(' ')) + '</div>' +
+            '<h1>' + escapeHtml(research.title || '') + '</h1>' +
+            '<div class="research-detail-tags">' + tags + '</div>' +
+            '<p class="research-detail-summary">' + escapeHtml(research.summary || '') + '</p>' +
+          '</header>' + sections +
+          (quotes ? '<section class="research-detail-section"><h2>Цитаты ТаНаХа</h2>' + quotes + '</section>' : '') +
+          (chain ? '<section class="research-detail-section"><h2>Цепочка подмен</h2><div class="substitution-chain">' + chain + '</div></section>' : '') +
+        '</main>' +
+        '<aside class="research-infobox"><h2>Информация</h2>' +
+          '<dl><dt>Тип исследования</dt><dd>' + escapeHtml(typeLabels[research.type] || research.type || '') + '</dd>' +
+          '<dt>Дата</dt><dd>' + escapeHtml(research.date || '') + '</dd></dl>' +
+          (related ? '<h3>Связанные исследования</h3><div class="research-related">' + related + '</div>' : '') +
+          '<button type="button" class="lab-btn lab-btn-secondary" onclick="LabRenderer.shareResearch()">Поделиться</button>' +
+        '</aside>' +
+      '</div>' +
+    '</div>';
+  },
+
+  shareResearch: function() {
+    if (navigator.share) {
+      navigator.share({ title: document.title, url: window.location.href }).catch(function() {});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(function() { LabToast.show('Ссылка скопирована'); });
+    } else {
+      LabToast.show('Скопируйте ссылку из адресной строки');
+    }
+  },
   
   render: function() {
     if (this.rendered) return;
@@ -893,6 +1065,7 @@ const LabRenderer = {
       this.religionismChecker(),
       this.translationComparator(),
       this.boardLibrary(),
+      this.researchLibrary(),
       this.vision(),
       this.edChat(),
       this.paleoKeyboard(),
@@ -1252,6 +1425,12 @@ const LabRenderer = {
       '<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-secondary" onclick="BoardLib.clearAll()"><img src="../assets/icons/32/nav/close.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить всё</button></div>' +
       '<div id="bl-list"></div>' +
       '<div id="bl-empty" class="lab-alert lab-alert-info">Пока нет сохранённых досок.</div></div>';
+  },
+
+  researchLibrary: function() {
+    return '<div id="research-library" class="module research-library-module">' +
+      '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка библиотеки исследований...</div></div>' +
+      '</div>';
   },
   
   vision: function() {

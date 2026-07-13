@@ -47,8 +47,13 @@ const LabRouter = (function() {
   // ===== ОБРАБОТКА ХЕША =====
   function handleHash() {
     const hash = window.location.hash.replace('#', '') || 'dashboard';
-    
+    const detailPrefix = 'research-library-';
+
     if (modules[hash]) {
+      showModule(hash);
+    } else if (hash.indexOf(detailPrefix) === 0 && modules['research-library']) {
+      // Detail pages are rendered inside their own dynamic module container.
+      // The renderer creates/reuses the container before loading the JSON file.
       showModule(hash);
     } else if (hash === 'dashboard') {
       showModule('dashboard');
@@ -62,6 +67,14 @@ const LabRouter = (function() {
 
   // ===== ПОКАЗ МОДУЛЯ =====
   function showModule(moduleId) {
+    if (moduleId.indexOf('research-library-') === 0 && !modules[moduleId]) {
+      const detail = document.createElement('div');
+      detail.id = moduleId;
+      detail.className = 'module research-detail-module';
+      document.getElementById('labContent').appendChild(detail);
+      modules[moduleId] = detail;
+    }
+
     // Скрываем все
     Object.keys(modules).forEach(function(id) {
       modules[id].classList.remove('active');
@@ -87,6 +100,7 @@ const LabRouter = (function() {
     // Обновляем sidebar
     document.querySelectorAll('.sidebar-item').forEach(function(item) {
       const isActive = item.dataset.module === moduleId || 
+                       (moduleId.indexOf('research-library-') === 0 && item.dataset.module === 'research-library') ||
                        (!item.dataset.module && moduleId === 'dashboard');
       item.classList.toggle('active', isActive);
     });

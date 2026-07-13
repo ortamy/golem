@@ -149,18 +149,3 @@
     };
 
 })(window);
-
-</parameter>
-<parameter=task_progress>
-- [x] Step 1: Create pages/ and locales/ folders
-- [x] Step 2: Move pages from ru/ to pages/
-- [x] Step 3: Delete ru/, en/, he/
-- [x] Step 4: Create ru.json
-- [x] Step 5: Create en.json
-- [x] Step 6: Create he.json
-- [x] Step 7: Create js/i18n.js
-- [ ] Step 8: Update HTML pages with i18n keys
-- [ ] Step 9: Add language switcher
-- [ ] Step 10: Test all languages
-</parameter>
-</write_to_file>
