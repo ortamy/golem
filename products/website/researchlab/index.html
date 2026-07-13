@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="css/etymology-lab.css">
 <link rel="stylesheet" href="css/board-generator.css">
 <link rel="stylesheet" href="css/word-analyzer.css">
+<link rel="stylesheet" href="css/investigation.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
@@ -45,94 +46,38 @@
 
   <!-- SIDEBAR -->
   <aside class="lab-sidebar" id="labSidebar">
-    <div class="sidebar-title"><img src="../assets/icons/32/testtube.png" width="32" height="32" alt="Инструменты" style="vertical-align: middle; margin-right: 6px;"> Инструменты</div>
     <div class="sidebar-items">
-      <a href="#dashboard" class="sidebar-item active" data-module="dashboard"><span class="icon"><img src="../assets/icons/32/door.png" width="32" height="32" alt="Дашборд" style="vertical-align: middle; margin-right: 6px;"></span> Дашборд</a>
       <div class="sidebar-section">
-        <div class="sidebar-section-title">Анализ текста</div>
-        <a href="#religionism-checker" class="sidebar-item" data-module="religionism-checker"><span class="icon"><img src="../assets/icons/32/question.png" width="32" height="32" alt="Чекер религионимов" style="vertical-align: middle; margin-right: 6px;"></span> Чекер религионимов</a>
-        <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><span class="icon"><img src="../assets/icons/32/scroll.png" width="32" height="32" alt="Сравнение переводов" style="vertical-align: middle; margin-right: 6px;"></span> Сравнение переводов</a>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-section-title">Корни и образы</div>
+        <div class="sidebar-section-title">Слова</div>
         <a href="#root-dictionary" class="sidebar-item" data-module="root-dictionary"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Корневой словарь</a>
-        <a href="#word-analyzer" class="sidebar-item" data-module="word-analyzer"><img src="../assets/icons/32/testtube.png" class="lab-icon" alt="">Разбор слов</a>
         <a href="#paleo-images" class="sidebar-item" data-module="paleo-images"><img src="../assets/icons/32/track.png" class="lab-icon" alt="">Палео-образы</a>
         <a href="#etymology-lab" class="sidebar-item" data-module="etymology-lab"><img src="../assets/icons/32/testtube.png" class="lab-icon" alt="">Этимология</a>
+        <a href="#word-analyzer" class="sidebar-item" data-module="word-analyzer"><img src="../assets/icons/32/testtube.png" class="lab-icon" alt="">Разбор слов</a>
       </div>
       <div class="sidebar-section">
-        <div class="sidebar-section-title">Визуальные</div>
+        <div class="sidebar-section-title">Тексты</div>
+        <a href="#religionism-checker" class="sidebar-item" data-module="religionism-checker"><span class="icon"><img src="../assets/icons/32/question.png" width="32" height="32" alt="Чекер религионимов" style="vertical-align: middle; margin-right: 6px;"></span> Чекер религионимов</a>
+        <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><span class="icon"><img src="../assets/icons/32/scroll.png" width="32" height="32" alt="Сравнение переводов" style="vertical-align: middle; margin-right: 6px;"></span> Сравнение переводов</a>
+        <a href="#dictionaries" class="sidebar-item" data-module="dictionaries"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Словари</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Методология</div>
+        <a href="#exposure" class="sidebar-item" data-module="exposure"><img src="../assets/icons/32/lamp.png" class="lab-icon" alt="">Принципы</a>
+        <a href="#methodology" class="sidebar-item" data-module="methodology"><img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Методички</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Доски</div>
         <a href="#board-generator" class="sidebar-item" data-module="board-generator"><img src="../assets/icons/32/scroll.png" class="lab-icon" alt="">Генератор досок</a>
+        <a href="#research-generator" class="sidebar-item" data-module="research-generator"><img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Генератор исследований</a>
         <a href="#board-library" class="sidebar-item" data-module="board-library"><img src="../assets/icons/32/scrolls.png" class="lab-icon" alt="">Библиотека досок</a>
-        <a href="#vision" class="sidebar-item" data-module="vision"><img src="../assets/icons/32/lamp.png" class="lab-icon" alt="">Визуальный анализ</a>
       </div>
       <div class="sidebar-section">
-        <div class="sidebar-section-title">AI / Инструменты</div>
-        <a href="#research-generator" class="sidebar-item" data-module="research-generator"><img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Генератор исследований</a>
+        <div class="sidebar-section-title">AI</div>
+        <a href="#investigation" class="sidebar-item" data-module="investigation"><img src="../assets/icons/32/question.png" class="lab-icon" alt="">Расследование</a>
+        <a href="#ai-agents" class="sidebar-item" data-module="ai-agents"><img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Агенты</a>
         <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><span class="icon"><img src="../assets/icons/32/hammer-and-chisel.png" width="32" height="32" alt="Чат с Эдом" style="vertical-align: middle; margin-right: 6px;"></span> Чат с Эдом</a>
         <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><span class="icon"><img src="../assets/icons/32/track.png" width="32" height="32" alt="Палео-клавиатура" style="vertical-align: middle; margin-right: 6px;"></span> Палео-клавиатура</a>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-section-title" onclick="toggleSection('dictionaries')" style="cursor:pointer">
-          <img src="../assets/icons/32/book.png" class="lab-icon" alt="">Словари
-        </div>
-        <div id="dictionaries" class="sidebar-subitems" style="display:none">
-          <a href="#dict-religionims" class="sidebar-item" data-module="dict-religionims"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Религионимы</a>
-          <a href="#dict-grecisms" class="sidebar-item" data-module="dict-grecisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Грецизмы</a>
-          <a href="#dict-latinisms" class="sidebar-item" data-module="dict-latinisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Латинизмы</a>
-          <a href="#dict-slavicisms" class="sidebar-item" data-module="dict-slavicisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Славянизмы</a>
-          <a href="#dict-names" class="sidebar-item" data-module="dict-names"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Имена</a>
-          <a href="#dict-phrases" class="sidebar-item" data-module="dict-phrases"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Фразы</a>
-          <a href="#dict-economisms" class="sidebar-item" data-module="dict-economisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Экономизмы</a>
-          <a href="#dict-estethisms" class="sidebar-item" data-module="dict-estethisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Эстетизмы</a>
-          <a href="#dict-gastronomisms" class="sidebar-item" data-module="dict-gastronomisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Гастрономизмы</a>
-          <a href="#dict-juridisms" class="sidebar-item" data-module="dict-juridisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Юридизмы</a>
-          <a href="#dict-marketisms" class="sidebar-item" data-module="dict-marketisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Маркетизмы</a>
-          <a href="#dict-mediasms" class="sidebar-item" data-module="dict-mediasms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Медиасмы</a>
-          <a href="#dict-medicinisms" class="sidebar-item" data-module="dict-medicinisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Медицинизмы</a>
-          <a href="#dict-militarisms" class="sidebar-item" data-module="dict-militarisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Милитаризмы</a>
-          <a href="#dict-modernisms" class="sidebar-item" data-module="dict-modernisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Модернизмы</a>
-          <a href="#dict-newageisms" class="sidebar-item" data-module="dict-newageisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Ньюэйджизмы</a>
-          <a href="#dict-politisms" class="sidebar-item" data-module="dict-politisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Политизмы</a>
-          <a href="#dict-psychologisms" class="sidebar-item" data-module="dict-psychologisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Психологизмы</a>
-          <a href="#dict-scientisms" class="sidebar-item" data-module="dict-scientisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Саентизмы</a>
-          <a href="#dict-sportisms" class="sidebar-item" data-module="dict-sportisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Спортизмы</a>
-          <a href="#dict-technologisms" class="sidebar-item" data-module="dict-technologisms"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Технологизмы</a>
-        </div>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-section-title" onclick="toggleSection('exposure')" style="cursor:pointer">
-          <img src="../assets/icons/32/lamp.png" class="lab-icon" alt="">Экспоз
-        </div>
-        <div id="exposure" class="sidebar-subitems" style="display:none">
-          <a href="#exposure-dictionary" class="sidebar-item" data-module="exposure-dictionary"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Словарь прорыва</a>
-          <a href="#exposure-principles" class="sidebar-item" data-module="exposure-principles"><img src="../assets/icons/32/lamp.png" class="lab-icon" alt="">Экспоз</a>
-          <a href="#exposure-distortions" class="sidebar-item" data-module="exposure-distortions"><img src="../assets/icons/32/scales.png" class="lab-icon" alt="">Типы искажений</a>
-          <a href="#exposure-mechanisms" class="sidebar-item" data-module="exposure-mechanisms"><img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Механизмы подмены</a>
-          <a href="#exposure-linguistic-methods" class="sidebar-item" data-module="exposure-linguistic-methods"><img src="../assets/icons/32/testtube.png" class="lab-icon" alt="">Лингвистические методы</a>
-          <a href="#exposure-methods" class="sidebar-item" data-module="exposure-methods"><img src="../assets/icons/32/sword.png" class="lab-icon" alt="">Методы разоблачения</a>
-          <a href="#exposure-language" class="sidebar-item" data-module="exposure-language"><img src="../assets/icons/32/scroll.png" class="lab-icon" alt="">Языковые подмены</a>
-          <a href="#exposure-language-shifts" class="sidebar-item" data-module="exposure-language-shifts"><img src="../assets/icons/32/track.png" class="lab-icon" alt="">Сдвиги языка</a>
-          <a href="#exposure-bavelisms" class="sidebar-item" data-module="exposure-bavelisms"><img src="../assets/icons/32/vase.png" class="lab-icon" alt="">Вавилонизмы</a>
-          <a href="#exposure-masoretic" class="sidebar-item" data-module="exposure-masoretic"><img src="../assets/icons/32/scroll.png" class="lab-icon" alt="">Масоретская подмена</a>
-          <a href="#exposure-philosophemes" class="sidebar-item" data-module="exposure-philosophemes"><img src="../assets/icons/32/shield.png" class="lab-icon" alt="">Греческие философемы</a>
-          <a href="#exposure-system-architecture" class="sidebar-item" data-module="exposure-system-architecture"><img src="../assets/icons/32/door.png" class="lab-icon" alt="">Архитектура системы</a>
-          <a href="#exposure-religionism-theory" class="sidebar-item" data-module="exposure-religionism-theory"><img src="../assets/icons/32/heart.png" class="lab-icon" alt="">Теория религионизмов</a>
-          <a href="#exposure-techniques" class="sidebar-item" data-module="exposure-techniques"><img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Приёмы подмены</a>
-        </div>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-section-title" onclick="toggleSection('methodology')" style="cursor:pointer">
-          <img src="../assets/icons/32/hammer-and-chisel.png" class="lab-icon" alt="">Методология
-        </div>
-        <div id="methodology" class="sidebar-subitems" style="display:none">
-          <a href="#method-archeology" class="sidebar-item" data-module="method-archeology"><img src="../assets/icons/32/vase.png" class="lab-icon" alt="">Археология</a>
-          <a href="#method-hebrew-reconstruction" class="sidebar-item" data-module="method-hebrew-reconstruction"><img src="../assets/icons/32/scroll.png" class="lab-icon" alt="">Реконструкция иврита</a>
-          <a href="#method-layers" class="sidebar-item" data-module="method-layers"><img src="../assets/icons/32/scales.png" class="lab-icon" alt="">Слои</a>
-          <a href="#method-translation" class="sidebar-item" data-module="method-translation"><img src="../assets/icons/32/book.png" class="lab-icon" alt="">Перевод</a>
-          <a href="#method-transliteration" class="sidebar-item" data-module="method-transliteration"><img src="../assets/icons/32/track.png" class="lab-icon" alt="">Транслитерация</a>
-          <a href="#method-tree" class="sidebar-item" data-module="method-tree"><img src="../assets/icons/32/door.png" class="lab-icon" alt="">Дерево</a>
-        </div>
+        <a href="#vision" class="sidebar-item" data-module="vision"><img src="../assets/icons/32/lamp.png" class="lab-icon" alt="">Анализ изображений</a>
       </div>
     </div>
   </aside>
@@ -817,6 +762,7 @@ const LabRenderer = {
       this.wordAnalyzer(),
       this.paleoImages(),
       this.etymologyLab(),
+      this.investigation(),
       this.boardGenerator(),
       this.researchGenerator(),
       this.religionismChecker(),
@@ -875,6 +821,7 @@ const LabRenderer = {
   loadScripts: function() {
     const scripts = [
       'js/paleo-images.js',
+      'js/investigation.js',
       'js/etymology-lab.js',
       'js/board-generator.js',
       'js/religionism-checker.js',
@@ -921,6 +868,7 @@ const LabRenderer = {
   if (window.VisionUI) VisionUI.init();
   if (window.EdChat) EdChat.init();
   if (window.PaleoKey) PaleoKey.init();
+  if (window.Investigation) Investigation.init();
 
   // Init board generator form
   if (document.getElementById('board-form')) {
@@ -1162,6 +1110,24 @@ const LabRenderer = {
     '<div id="board-preview" style="display:none"></div>' +
     '<div id="board-placeholder" style="text-align:center;padding:60px 20px;color:var(--text-muted);font-style:italic;font-size:16px">Заполните форму и нажмите «Сгенерировать доску».</div></div>' +
     '<div id="copy-toast" style="position:fixed;top:24px;left:50%;transform:translateX(-50%);background:var(--bg-dark);color:var(--text-light);padding:10px 24px;font-size:14px;font-family:\'EB Garamond\',Georgia,serif;opacity:0;pointer-events:none;z-index:999;border-radius:4px;border:1px solid var(--accent-gold);transition:opacity 0.4s">Скопировано!</div>' +
+    '</div>';
+  },
+
+  investigation: function() {
+    return '<div id="investigation" class="module investigation-module">' +
+      '<div class="investigation-heading">' +
+        '<div><div class="investigation-kicker">AI / ДОСЬЕ</div>' +
+        '<h1><img src="../assets/icons/32/question.png" class="lab-icon" alt="">Расследование</h1>' +
+        '<p class="subtitle">Введите слово, корень или перевод. Сопоставьте происхождение, цепочку подмен и текстовые свидетельства.</p></div>' +
+        '<div class="investigation-stamp" aria-hidden="true">CASE<br><strong>01</strong></div>' +
+      '</div>' +
+      '<form id="investigation-form" class="investigation-search" onsubmit="event.preventDefault(); Investigation.investigate();">' +
+        '<label for="investigation-input">Объект расследования</label>' +
+        '<div class="investigation-search-row"><input type="search" id="investigation-input" class="lab-input" placeholder="חסד, милость, HSD..." autocomplete="off" required>' +
+        '<button type="submit" class="lab-btn lab-btn-primary" id="investigation-submit"><img src="../assets/icons/32/question.png" width="24" height="24" alt="">Расследовать</button></div>' +
+        '<div id="investigation-status" class="investigation-status" role="status" aria-live="polite">Данные загружаются из словаря корней и словарей подмен.</div>' +
+      '</form>' +
+      '<div id="investigation-result" class="investigation-result" aria-live="polite"></div>' +
     '</div>';
   },
   
