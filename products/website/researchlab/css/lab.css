@@ -773,6 +773,152 @@ code, pre, kbd, .translit, .mono {
 .sidebar-item .icon img { width: 20px; height: 20px; vertical-align: middle; margin-right: 10px; }
 
 /* ===== RESPONSIVE ===== */
+/* ===== JSON RESEARCH PAGES ===== */
+.research-json-module {
+  max-width: 1200px;
+}
+
+.research-page-head {
+  margin-bottom: 22px;
+}
+
+.research-controls {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(260px, 1.2fr);
+  gap: 14px;
+  padding: 16px;
+  margin: 18px 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+}
+
+.research-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.research-controls .lab-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.research-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  margin: 18px 0 8px;
+  color: var(--text-primary);
+}
+
+.research-meta span {
+  color: var(--text-muted);
+  font-size: 0.95em;
+}
+
+.research-description {
+  margin: 0 0 18px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  white-space: pre-line;
+}
+
+.research-term-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(150px, 1fr) minmax(140px, 0.8fr) minmax(180px, 1.2fr);
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px;
+  margin: 10px 0;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 5px;
+}
+
+.research-term-word {
+  font-weight: 700;
+}
+
+.research-term-hebrew {
+  font-size: 1.45rem;
+  font-family: "Times New Roman", serif;
+  text-align: right;
+}
+
+.research-term-paleo {
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.research-term-restored {
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.research-term-restored span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--accent-red);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.research-sections {
+  display: grid;
+  gap: 14px;
+}
+
+.research-section {
+  padding: 20px 22px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+}
+
+.research-section h2 {
+  margin: 0 0 12px;
+  color: var(--text-primary);
+}
+
+.research-section-content {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.research-section-content > :first-child {
+  margin-top: 0;
+}
+
+.research-section-content > :last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .research-controls,
+  .research-term-card {
+    grid-template-columns: 1fr;
+  }
+
+  .research-term-hebrew,
+  .research-term-paleo {
+    text-align: left;
+  }
+
+  .research-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 900px) {
   .lab-sidebar { width: 200px; min-width: 200px; }
   .lab-content { padding: 20px; }

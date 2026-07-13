@@ -194,9 +194,9 @@ const Investigation = (function() {
   function renderCreators(dossier) {
     var related = dossier.related;
     var people = [
-      { name: 'Носитель языка', role: 'исходный слой', icon: 'track.png', text: 'Сохраняет образ в живом слове и контексте.' },
-      { name: 'Переводчик', role: 'переход между системами', icon: 'scroll.png', text: 'Выбирает ближайший эквивалент и тем самым задаёт направление чтения.' },
-      { name: 'Редактор традиции', role: 'закрепление формулы', icon: 'hammer-and-chisel.png', text: 'Повторение в корпусе превращает выбор в привычную формулу.' }
+      { name: 'Носитель языка', role: 'исходный слой', icon: 'paleo/track.png', text: 'Сохраняет образ в живом слове и контексте.' },
+      { name: 'Переводчик', role: 'переход между системами', icon: 'scribe/scroll.png', text: 'Выбирает ближайший эквивалент и тем самым задаёт направление чтения.' },
+      { name: 'Редактор традиции', role: 'закрепление формулы', icon: 'crafts/hammer-and-chisel.png', text: 'Повторение в корпусе превращает выбор в привычную формулу.' }
     ];
     var cards = people.map(function(person, index) {
       return '<button class="investigation-creator" type="button" data-creator-index="' + index + '" aria-expanded="false"><span class="investigation-portrait"><img src="../assets/icons/32/' + person.icon + '" width="32" height="32" alt=""></span><span><strong>' + esc(person.name) + '</strong><small>' + esc(person.role) + '</small></span><span class="investigation-creator-chevron" aria-hidden="true">+</span><span class="investigation-creator-detail">' + esc(person.text) + '</span></button>';
