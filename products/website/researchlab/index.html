@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/word-analyzer.css">
 <link rel="stylesheet" href="css/investigation.css">
 <link rel="stylesheet" href="css/research-library.css">
+<link rel="stylesheet" href="css/scripture-reader.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
@@ -53,6 +54,7 @@
         <a href="#paleo-images" class="sidebar-item" data-module="paleo-images"><img src="../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-образы</a>
         <a href="#etymology-lab" class="sidebar-item" data-module="etymology-lab"><img src="../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Этимология</a>
         <a href="#word-analyzer" class="sidebar-item" data-module="word-analyzer"><img src="../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Разбор слов</a>
+        <a href="#scripture-reader" class="sidebar-item" data-module="scripture-reader"><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Книгочтение</a>
         <a href="#research-library" class="sidebar-item" data-module="research-library"><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Библиотека</a>
       </div>
       <div class="sidebar-section">
@@ -1057,6 +1059,7 @@ const LabRenderer = {
       this.dashboard(),
       this.rootDictionary(),
       this.wordAnalyzer(),
+      this.scriptureReader(),
       this.paleoImages(),
       this.etymologyLab(),
       this.investigation(),
@@ -1090,6 +1093,7 @@ const LabRenderer = {
       'js/vision-ui.js',
       'js/ed-chat.js',
       'js/paleo-keyboard.js'
+      , 'js/scripture-reader.js'
     ];
     
     let loaded = 0;
@@ -1129,6 +1133,7 @@ const LabRenderer = {
   if (window.EdChat) EdChat.init();
   if (window.PaleoKey) PaleoKey.init();
   if (window.Investigation) Investigation.init();
+  if (window.ScriptureReader) ScriptureReader.init();
 
   // Init board generator form
   if (document.getElementById('board-form')) {
@@ -1220,6 +1225,35 @@ const LabRenderer = {
       '<p class="subtitle">Глубокий разбор слова: корень, палео-буквы, цепочка подмен.</p>' +
       '<div class="search-wrap"><input type="text" id="el-input" class="lab-input" placeholder="Введите слово..."><button class="lab-btn lab-btn-primary" onclick="EtymologyLab.analyze()">Разобрать</button></div>' +
       '<div id="el-results"></div></div>';
+  },
+
+  scriptureReader: function() {
+    return '<div id="scripture-reader" class="module scripture-reader-module">' +
+      '<div class="research-page-head scripture-reader-head">' +
+        '<h1><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Берешит</h1>' +
+        '<p class="subtitle">Чтение текста на палео-иврите с последовательным просмотром стихов.</p>' +
+      '</div>' +
+      '<div class="research-controls scripture-reader-controls">' +
+        '<label for="scripture-book-select">Книга<select id="scripture-book-select" class="lab-input">' +
+          '<option value="bereshit-1">Берешит</option>' +
+        '</select></label>' +
+      '</div>' +
+      '<article class="scripture-verse" aria-labelledby="scripture-verse-title">' +
+        '<div class="scripture-verse-meta" id="scripture-verse-title">Берешит 1:1</div>' +
+        '<div id="scripture-paleo" class="scripture-paleo" dir="rtl" lang="hbo" aria-label="Палео-иврит"></div>' +
+        '<div id="scripture-hebrew" class="scripture-hebrew" dir="rtl" lang="he"></div>' +
+        '<div id="scripture-translit" class="scripture-translit"></div>' +
+        '<div id="scripture-literal" class="scripture-literal"></div>' +
+      '</article>' +
+      '<nav class="scripture-navigation" aria-label="Навигация по стихам">' +
+        '<button type="button" class="lab-btn lab-btn-secondary" id="scripture-prev">← Предыдущий стих</button>' +
+        '<button type="button" class="lab-btn lab-btn-primary" id="scripture-next">Следующий стих →</button>' +
+      '</nav>' +
+      '<section id="scripture-analysis" class="scripture-analysis" aria-live="polite">' +
+        '<h2>Панель анализа</h2>' +
+        '<p class="text-muted">Панель анализа будет доступна после выбора букв палео-текста.</p>' +
+      '</section>' +
+    '</div>';
   },
 
   researchGenerator: function() {

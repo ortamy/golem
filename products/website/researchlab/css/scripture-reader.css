@@ -1,0 +1,215 @@
+.scripture-reader-module {
+  max-width: 1000px;
+}
+
+.scripture-reader-head {
+  margin-bottom: 18px;
+}
+
+.scripture-reader-controls {
+  margin-bottom: 20px;
+}
+
+.scripture-reader-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.scripture-reader-controls select {
+  min-width: 180px;
+}
+
+.scripture-verse {
+  padding: 28px 24px;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.scripture-verse-meta {
+  margin-bottom: 16px;
+  color: var(--text-gold);
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.scripture-paleo {
+  overflow-wrap: anywhere;
+  color: var(--text-primary);
+  font-family: 'Noto Sans Phoenician', sans-serif;
+  font-size: 28px;
+  line-height: 1.8;
+  letter-spacing: 0;
+}
+
+.scripture-paleo-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.scripture-paleo-letter {
+  display: inline-block;
+  padding: 2px 3px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.scripture-paleo-letter:hover,
+.scripture-paleo-letter:focus-visible {
+  outline: none;
+  border-color: var(--accent-gold);
+  background: rgba(212, 160, 48, 0.12);
+}
+
+.scripture-paleo-letter.is-selected {
+  color: #d4a030;
+  border-color: #d4a030;
+  background: rgba(212, 160, 48, 0.16);
+}
+
+.scripture-hebrew {
+  margin-top: 18px;
+  font-family: var(--font-hebrew);
+  font-size: 24px;
+  line-height: 1.8;
+}
+
+.scripture-translit {
+  margin-top: 12px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.scripture-literal {
+  margin-top: 6px;
+  color: var(--text-primary);
+  font-size: 20px;
+}
+
+.scripture-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.scripture-navigation .lab-btn {
+  min-width: 190px;
+}
+
+.scripture-analysis {
+  min-height: 120px;
+  padding: 20px 24px;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  background: var(--bg-secondary);
+}
+
+.scripture-analysis h2 {
+  margin-bottom: 8px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+}
+
+.scripture-analysis-letters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.scripture-analysis-letter {
+  min-width: 100px;
+  padding: 10px;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  background: var(--bg-card);
+  text-align: center;
+}
+
+.scripture-analysis-paleo {
+  color: #d4a030;
+  font-family: 'Noto Sans Phoenician', sans-serif;
+  font-size: 30px;
+}
+
+.scripture-analysis-name {
+  font-weight: 700;
+}
+
+.scripture-analysis-image {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.scripture-composite,
+.scripture-selection {
+  margin-top: 12px;
+}
+
+.scripture-selection-paleo {
+  color: #d4a030;
+  font-family: 'Noto Sans Phoenician', sans-serif;
+  font-size: 24px;
+}
+
+.scripture-root-result,
+.scripture-hypothesis {
+  margin-top: 14px;
+  padding: 12px;
+  border-left: 3px solid var(--accent-gold);
+  background: var(--bg-card);
+}
+
+.scripture-root-result ul {
+  margin: 8px 0 0 20px;
+}
+
+.scripture-hypothesis small {
+  display: block;
+  margin-top: 6px;
+  color: var(--text-muted);
+}
+
+.scripture-reader-error {
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .scripture-verse {
+    padding: 20px 14px;
+  }
+
+  .scripture-paleo {
+    font-size: 28px;
+  }
+
+  .scripture-hebrew {
+    font-size: 21px;
+  }
+
+  .scripture-navigation {
+    flex-direction: column;
+  }
+
+  .scripture-navigation .lab-btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scripture-reader-module *,
+  .scripture-reader-module *::before,
+  .scripture-reader-module *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
