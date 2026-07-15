@@ -1012,15 +1012,11 @@ const LabRenderer = {
       if (!list.length) return '<div class="lab-alert lab-alert-info">Исследования не найдены.</div>';
       return '<div class="tool-grid research-library-grid">' + list.map(function(item) {
         var paleo = (item.paleo || []).join(' ');
-        var tags = (item.tags || []).map(function(tag) {
-          return '<span class="tool-badge">' + escapeHtml(tag) + '</span>';
-        }).join(' ');
         return '<a class="tool-card research-library-card" href="#research-library-' + encodeURIComponent(item.id) + '" data-research-type="' + escapeHtml(item.type) + '" data-research-search="' + escapeHtml([item.title, item.summary, (item.tags || []).join(' ')].join(' ')) + '">' +
           '<div class="research-library-paleo" dir="rtl" aria-hidden="true">' + escapeHtml(paleo) + '</div>' +
           '<div class="tool-name">' + escapeHtml(item.title) + '</div>' +
           '<span class="tool-badge new">' + escapeHtml(typeLabels[item.type] || item.type) + '</span>' +
           '<div class="tool-desc">' + escapeHtml(item.summary || '') + '</div>' +
-          '<div class="research-library-tags">' + tags + '</div>' +
         '</a>';
       }).join('') + '</div>';
     };

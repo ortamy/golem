@@ -391,6 +391,7 @@ code, pre, kbd, .translit, .mono {
 .tool-card .tool-badge.new { background: var(--accent-gold); color: #faf3e0; }
 .tool-card .tool-badge.beta { background: var(--bg-dark); color: var(--text-muted); }
 .tool-card .tool-badge.model { background: var(--accent-gold); color: #2c1810; }
+.research-library-card .tool-badge.new { margin-left: auto; margin-right: auto; display: block; width: fit-content; }
 
 /* ===== FORMS ===== */
 .lab-input, .lab-textarea, .lab-select {
