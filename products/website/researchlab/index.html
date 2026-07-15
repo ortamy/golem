@@ -36,8 +36,8 @@
     <div class="search-results" id="gs-results"></div>
   </div>
   
+  <button class="theme-toggle" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn"><img src="../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема"></button>
   <nav>
-    <button class="theme-toggle" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn"><img src="../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема"></button>
     <a href="../"><img src="../assets/icons/32/nav/door.png" width="32" height="32" alt="Сайт" style="vertical-align: middle; margin-right: 6px;"> Сайт</a>
     <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener">GitHub</a>
   </nav>
@@ -61,8 +61,8 @@
       </div>
       <div class="sidebar-section">
         <div class="sidebar-section-title">Тексты</div>
-        <a href="#religionism-checker" class="sidebar-item" data-module="religionism-checker"><span class="icon"><img src="../assets/icons/32/ui/question.png" width="32" height="32" alt="Чекер религионимов" style="vertical-align: middle; margin-right: 6px;"></span> Чекер религионимов</a>
-        <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><span class="icon"><img src="../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Сравнение переводов" style="vertical-align: middle; margin-right: 6px;"></span> Сравнение переводов</a>
+        <a href="#religionism-checker" class="sidebar-item" data-module="religionism-checker"><img src="../assets/icons/32/ui/question.png" class="lab-icon" alt="Чекер религионимов">Чекер религионимов</a>
+        <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><img src="../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="Сравнение переводов">Сравнение переводов</a>
         <a href="#dictionaries" class="sidebar-item" data-module="dictionaries"><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Словари</a>
       </div>
       <div class="sidebar-section">
@@ -80,8 +80,8 @@
         <div class="sidebar-section-title">AI</div>
         <a href="#investigation" class="sidebar-item" data-module="investigation"><img src="../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</a>
         <a href="#ai-agents" class="sidebar-item" data-module="ai-agents"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Агенты</a>
-        <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><span class="icon"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Чат с Эдом" style="vertical-align: middle; margin-right: 6px;"></span> Чат с Эдом</a>
-        <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><span class="icon"><img src="../assets/icons/32/paleo/track.png" width="32" height="32" alt="Палео-клавиатура" style="vertical-align: middle; margin-right: 6px;"></span> Палео-клавиатура</a>
+        <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="Чат с Эдом">Чат с Эдом</a>
+        <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><img src="../assets/icons/32/paleo/track.png" class="lab-icon" alt="Палео-клавиатура">Палео-клавиатура</a>
         <a href="#vision" class="sidebar-item" data-module="vision"><img src="../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Анализ изображений</a>
       </div>
       <div class="sidebar-section" id="sidebar-admin-section" style="display:none;">
@@ -1082,6 +1082,7 @@ const LabRenderer = {
       this.boardLibrary(),
       this.researchLibrary(),
       this.vision(),
+      this.aiAgents(),
       this.edChat(),
       this.paleoKeyboard(),
       this.dictionaries(),
@@ -1510,7 +1511,27 @@ const LabRenderer = {
       '<div class="text-muted text-small mt-8 flex justify-between"><span id="vi-model-badge">SmolVLM-256M</span><span id="vi-timestamp"></span></div></div>' +
       '<div id="vi-error" class="lab-alert lab-alert-error" style="display:none;"></div></div>';
   },
-  
+
+  aiAgents: function() {
+    return '<div id="ai-agents" class="module">' +
+      '<h1><img src="../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="AI-Агенты" style="vertical-align: middle; margin-right: 6px;"> AI-Агенты</h1>' +
+      '<p class="subtitle">Мульти-агентная система для автоматического разбора корней, терминов и стихов. Researcher, Exposer и Collector работают вместе, чтобы находить подмены и восстанавливать смысл.</p>' +
+      '<div class="tool-grid">' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Исследователь"></span><div class="tool-name">Исследователь</div><div class="tool-desc">Claude Sonnet — разбирает корни, стихи, термины.</div><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/question.png" width="32" height="32" alt="Разоблачитель"></span><div class="tool-name">Разоблачитель</div><div class="tool-desc">GPT-4o — ищет подмены в переводах, сравнивает LXX и Синодальный.</div><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Сборщик"></span><div class="tool-name">Сборщик</div><div class="tool-desc">Объединяет результаты в единый отчёт.</div><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/scales.png" width="32" height="32" alt="Критик"></span><div class="tool-name">Критик</div><div class="tool-desc">Проверяет разбор на соответствие методологии: конкретность палео-образов, отсутствие философем, целостность смихута.</div><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/seals/ring.png" width="32" height="32" alt="Семитолог"></span><div class="tool-name">Семитолог</div><div class="tool-desc">Ищет параллели в аккадском, угаритском и арамейском — прасемитский ключ к смыслу до масоретских подмен.</div><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Компаратор"></span><div class="tool-name">Компаратор</div><div class="tool-desc">Трёхстороннее сравнение масоретского текста, Септуагинты и кумранских свитков.</div><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/keyboard.png" width="32" height="32" alt="Редактор"></span><div class="tool-name">Редактор</div><div class="tool-desc">Приводит черновик к стилю проекта: убирает религионимы, канцелярит, возвращает глагольность.</div><span class="tool-badge beta">В разработке</span></div>' +
+      '</div>' +
+      '<div class="lab-card mt-24" style="text-align:center;">' +
+        '<button class="lab-btn lab-btn-primary" disabled>Запустить сервер агентов</button>' +
+        '<div class="text-small text-muted mt-8">Требуется локальный сервер (python server.py)</div>' +
+      '</div>' +
+    '</div>';
+  },
+
   edChat: function() {
     return '<div id="ed-chat" class="module">' +
       '<h1><img src="../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Чат с Эдом" style="vertical-align: middle; margin-right: 6px;"> Чат с Эдом</h1>' +

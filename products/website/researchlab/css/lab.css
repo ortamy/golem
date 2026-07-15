@@ -241,7 +241,7 @@ code, pre, kbd, .translit, .mono {
   padding: 4px 20px; letter-spacing: 2px; text-transform: uppercase;
 }
 .sidebar-item {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 10px;
   padding: 8px 20px 8px 24px;
   font-size: 15px; color: var(--text-primary); text-decoration: none;
   transition: all var(--transition);
@@ -267,7 +267,7 @@ code, pre, kbd, .translit, .mono {
   width: 20px;
   height: 20px;
 }
-.sidebar-item img { margin-right: 10px !important; }
+.sidebar-item img { margin-right: 0 !important; }
 
 .lab-content {
   flex: 1; padding: 30px 36px;
@@ -769,8 +769,8 @@ code, pre, kbd, .translit, .mono {
 
 .lab-icon { width: 20px; height: 20px; vertical-align: middle; margin-right: 10px; flex-shrink: 0; }
 .lab-icon-sm { width: 18px; height: 18px; vertical-align: middle; margin-right: 4px; flex-shrink: 0; }
-.sidebar-item .lab-icon { width: 20px; height: 20px; margin-right: 10px; }
-.sidebar-item .icon img { width: 20px; height: 20px; vertical-align: middle; margin-right: 10px; }
+.sidebar-item .lab-icon { width: 20px; height: 20px; margin-right: 0; }
+.sidebar-item .icon img { width: 20px; height: 20px; vertical-align: middle; margin-right: 0; }
 
 /* ===== RESPONSIVE ===== */
 /* ===== JSON RESEARCH PAGES ===== */
@@ -985,6 +985,22 @@ code, pre, kbd, .translit, .mono {
     display: none;
   }
 
+  .lab-header .theme-toggle {
+    display: inline-flex;
+    order: 2;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    border: 1px solid var(--border-dark);
+    border-radius: 6px;
+    background: var(--bg-dark-hover);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background var(--transition);
+  }
   .lab-header nav {
     display: none;
   }
