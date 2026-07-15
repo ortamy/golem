@@ -819,7 +819,42 @@ const LabRenderer = {
       container.innerHTML = '<div class="lab-alert lab-alert-info">Словари пока не заполнены.</div>';
       return;
     }
-    if (!data[state.key]) state.key = keys[0];
+    
+    // If no dictionary selected, show card grid
+    if (!state.key) {
+      var dictCards = keys.map(function(key, index) {
+        var dict = data[key];
+        var count = (dict.terms || []).length;
+        return '<a href="#" class="dict-card" data-key="' + escapeHtml(key) + '" style="animation-delay: ' + (index * 50) + 'ms">' +
+          '<img src="../assets/icons/32/ui/book.png" class="dict-icon" alt="">' +
+          '<div class="dict-name">' + escapeHtml(dict.title || key) + '</div>' +
+          '<div class="dict-count">' + count + ' терминов</div>' +
+          '<div class="dict-desc">' + escapeHtml((dict.description || '').split('---')[0].trim().substring(0, 100) + (dict.description && dict.description.length > 100 ? '...' : '')) + '</div>' +
+          '</a>';
+      }).join('');
+      container.innerHTML = '<div class="research-page-head">' +
+        '<h1><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Словари</h1>' +
+        '<p class="subtitle">Словарные карты подмен с ивритским соответствием и палео-формой.</p>' +
+        '</div>' +
+        '<div class="dict-grid" id="dict-grid">' + dictCards + '</div>';
+      
+      // Add click handlers to dict cards
+      var dictGrid = document.getElementById('dict-grid');
+      if (dictGrid) {
+        var cards = dictGrid.querySelectorAll('.dict-card');
+        cards.forEach(function(card) {
+          card.addEventListener('click', function(e) {
+            e.preventDefault();
+            state.key = this.getAttribute('data-key');
+            state.query = '';
+            self.renderDictionaries(container, data);
+          });
+        });
+      }
+      return;
+    }
+    
+    // Show terms for selected dictionary
     var dictionary = data[state.key];
     var query = state.query.trim().toLowerCase();
     var terms = (dictionary.terms || []).filter(function(term) {
@@ -828,19 +863,23 @@ const LabRenderer = {
         return String(value || '').toLowerCase().indexOf(query) !== -1;
       });
     });
+    
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRenderer.pageState.dictionaries.key=\'\';LabRenderer.renderDictionaries(document.getElementById(\'dictionaries\'), LabRenderer.jsonData.dictionaries)">← Назад к словарям</button>';
     var options = keys.map(function(key) {
       return '<option value="' + escapeHtml(key) + '"' + (key === state.key ? ' selected' : '') + '>' +
         escapeHtml(data[key].title || key) + '</option>';
     }).join('');
-    var cards = terms.map(function(term) {
+    
+    var termCards = terms.map(function(term, index) {
       var paleo = (term.paleo || []).join(' ');
-      return '<article class="research-term-card">' +
-        '<div class="research-term-word">' + escapeHtml(term.word) + '</div>' +
-        '<div class="research-term-hebrew" dir="rtl">' + escapeHtml(term.hebrew) + '</div>' +
-        '<div class="research-term-paleo" dir="rtl">' + escapeHtml(paleo) + '</div>' +
-        '<div class="research-term-restored"><span>Восстановление</span>' + escapeHtml(term.restored) + '</div>' +
+      return '<article class="term-card" style="animation-delay: ' + (index * 50) + 'ms">' +
+        '<div class="term-paleo" lang="hbo" dir="rtl">' + escapeHtml(paleo) + '</div>' +
+        '<div class="term-word">' + escapeHtml(term.word) + '</div>' +
+        '<div class="term-hebrew" lang="he" dir="rtl">' + escapeHtml(term.hebrew) + '</div>' +
+        '<div class="term-restored">' + escapeHtml(term.restored) + '</div>' +
         '</article>';
     }).join('');
+    
     container.innerHTML = '<div class="research-page-head">' +
       '<h1><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Словари</h1>' +
       '<p class="subtitle">Словарные карты подмен с ивритским соответствием и палео-формой.</p>' +
@@ -849,10 +888,19 @@ const LabRenderer = {
       '<label>Словарь<select id="research-dictionary-select" class="lab-input">' + options + '</select></label>' +
       '<label class="research-search-label">Поиск<input id="research-dictionary-search" class="lab-input" type="search" value="' + escapeHtml(state.query) + '" placeholder="Слово, иврит или восстановленный смысл"></label>' +
       '</div>' +
-      '<div class="research-meta"><strong>' + escapeHtml(dictionary.title || state.key) + '</strong><span>' + terms.length + ' из ' + (dictionary.terms || []).length + ' терминов</span></div>' +
+      '<div class="research-meta">' + backBtn + '<span>' + terms.length + ' из ' + (dictionary.terms || []).length + ' терминов</span></div>' +
       '<p class="research-description">' + escapeHtml(dictionary.description || '') + '</p>' +
-      (cards || '<div class="lab-alert lab-alert-info">По запросу ничего не найдено.</div>') +
-      '</div>';
+      '<div class="term-grid" id="term-grid">' + (termCards || '<div class="lab-alert lab-alert-info">По запросу ничего не найдено.</div>') + '</div>';
+    
+    // Apply staggered animation
+    var termGrid = document.getElementById('term-grid');
+    if (termGrid) {
+      var cards = termGrid.querySelectorAll('.term-card');
+      cards.forEach(function(card) {
+        card.classList.add('fade-in-stagger');
+      });
+    }
+    
     var select = document.getElementById('research-dictionary-select');
     var search = document.getElementById('research-dictionary-search');
     if (select) select.addEventListener('change', function() {
@@ -876,7 +924,41 @@ const LabRenderer = {
       container.innerHTML = '<div class="lab-alert lab-alert-info">Материалы пока не заполнены.</div>';
       return;
     }
-    if (!data[state.key]) state.key = keys[0];
+    
+    // If no document selected, show card grid
+    if (!state.key) {
+      var iconPath = page === 'exposure' ? '../assets/icons/32/archaeology/lamp.png' : '../assets/icons/32/crafts/hammer-and-chisel.png';
+      var docCards = keys.map(function(key, index) {
+        var doc = data[key];
+        return '<a href="#" class="doc-card" data-key="' + escapeHtml(key) + '" style="animation-delay: ' + (index * 50) + 'ms">' +
+          '<img src="' + iconPath + '" class="doc-icon" alt="">' +
+          '<div class="doc-name">' + escapeHtml(doc.title || key) + '</div>' +
+          '<div class="doc-desc">' + escapeHtml((doc.description || '').split('---')[0].trim().substring(0, 120) + (doc.description && doc.description.length > 120 ? '...' : '')) + '</div>' +
+          '</a>';
+      }).join('');
+      var heading = page === 'exposure' ? 'Принципы' : 'Методички';
+      container.innerHTML = '<div class="research-page-head">' +
+        '<h1><img src="' + iconPath + '" class="lab-icon" alt="">' + heading + '</h1>' +
+        '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p>' +
+        '</div>' +
+        '<div class="doc-grid" id="doc-grid">' + docCards + '</div>';
+      
+      // Add click handlers to doc cards
+      var docGrid = document.getElementById('doc-grid');
+      if (docGrid) {
+        var cards = docGrid.querySelectorAll('.doc-card');
+        cards.forEach(function(card) {
+          card.addEventListener('click', function(e) {
+            e.preventDefault();
+            state.key = this.getAttribute('data-key');
+            self.renderDocumentPage(container, page, data);
+          });
+        });
+      }
+      return;
+    }
+    
+    // Show document content
     var documentData = data[state.key];
     var options = keys.map(function(key) {
       return '<option value="' + escapeHtml(key) + '"' + (key === state.key ? ' selected' : '') + '>' +
@@ -887,9 +969,12 @@ const LabRenderer = {
       return '<article class="research-section"><h2>' + escapeHtml(section.title || '') + '</h2><div class="research-section-content">' + content + '</div></article>';
     }).join('');
     var heading = page === 'exposure' ? 'Принципы' : 'Методички';
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRenderer.pageState.' + page + '.key=\'\';LabRenderer.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', LabRenderer.jsonData.' + page + ')">← Назад к списку</button>';
+    
     container.innerHTML = '<div class="research-page-head"><h1>' + heading + '</h1>' +
       '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p></div>' +
       '<div class="research-controls"><label>Документ<select id="research-' + page + '-select" class="lab-input">' + options + '</select></label></div>' +
+      '<div class="research-meta">' + backBtn + '</div>' +
       '<div class="research-description">' + escapeHtml(documentData.description || '') + '</div>' +
       '<div class="research-sections">' + sections + '</div>';
     var select = document.getElementById('research-' + page + '-select');

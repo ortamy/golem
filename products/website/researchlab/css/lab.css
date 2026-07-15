@@ -33,6 +33,7 @@
   --font-heading: 'Cormorant Garamond', Georgia, serif;
   --font-hand: 'Caveat', cursive;
   --font-hebrew: 'Noto Serif Hebrew', 'Times New Roman', serif;
+  --font-paleo: 'Noto Sans Phoenician', 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif;
   --font-mono: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
   --transition: 0.2s ease;
   --transition-fast: 0.15s ease;
@@ -113,6 +114,9 @@ body::after {
 /* ===== ШРИФТЫ ДЛЯ ИВРИТА И МОНО ===== */
 .hebrew, [lang="he"] {
   font-family: var(--font-hebrew);
+}
+.paleo, [lang="hbo"] {
+  font-family: var(--font-paleo);
 }
 code, pre, kbd, .translit, .mono {
   font-family: var(--font-mono);
@@ -770,6 +774,157 @@ code, pre, kbd, .translit, .mono {
   background: var(--bg-dark-hover); padding: 1px 6px;
   border-radius: 3px; border: 1px solid var(--border-dark);
   font-family: var(--font-mono); font-size: 11px; color: var(--accent-gold);
+}
+
+/* ===== DICT/TERM/DOC GRIDS ===== */
+.dict-grid, .term-grid, .doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* ===== DICT CARD ===== */
+.dict-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-soft);
+}
+.dict-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px var(--shadow-card-hover);
+  border-color: var(--accent-gold);
+}
+.dict-card:active {
+  transform: translateY(-2px);
+}
+.dict-card .dict-icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+  margin-bottom: 4px;
+}
+.dict-card .dict-name {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.dict-card .dict-count {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.dict-card .dict-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ===== TERM CARD ===== */
+.term-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-soft);
+}
+.term-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--shadow-card-hover);
+}
+.term-card .term-paleo {
+  font-family: var(--font-paleo);
+  font-size: 1.4rem;
+  color: var(--accent-gold);
+  text-align: right;
+  direction: rtl;
+  transition: font-size var(--transition);
+}
+.term-card:hover .term-paleo {
+  font-size: 1.6rem;
+}
+.term-card .term-word {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.term-card .term-hebrew {
+  font-size: 1.1rem;
+  font-family: var(--font-hebrew);
+  text-align: right;
+  direction: rtl;
+}
+.term-card .term-restored {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ===== DOC CARD ===== */
+.doc-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-soft);
+}
+.doc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px var(--shadow-card-hover);
+  border-color: var(--accent-gold);
+}
+.doc-card:active {
+  transform: translateY(-2px);
+}
+.doc-card .doc-icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+  margin-bottom: 4px;
+}
+.doc-card .doc-name {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.doc-card .doc-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-6px); }
+}
+@keyframes fadeInStagger {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-out {
+  animation: fadeOut 0.2s ease forwards;
+}
+.fade-in-stagger {
+  opacity: 0;
+  animation: fadeInStagger 0.3s ease forwards;
 }
 
 /* ===== MISC ===== */
