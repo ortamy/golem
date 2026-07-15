@@ -1186,7 +1186,7 @@ const LabRenderer = {
     '<h1><img src="../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Лаборатория" style="vertical-align: middle; margin-right: 6px;"> Исследовательская лаборатория</h1>' +
     '<p class="subtitle">Инструменты для анализа артефактов, символов, текстов, улик и скрытых подмен.</p>' +
     '<div class="tool-grid">' +
-      '<a href="#root-dictionary" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/book.png" width="32" height="32" alt="Корневой словарь"></span><div class="tool-name">Корневой словарь</div><div class="tool-desc">Поиск по 150 корням иврита. Значение, транслитерация, палео-образы.</div><span class="tool-badge new">Новый</span></a>' +
+      '<a href="#root-dictionary" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/book.png" width="32" height="32" alt="Корневой словарь"></span><div class="tool-name">Корневой словарь</div><div class="tool-desc">Поиск по корням иврита. Значение, транслитерация, палео-образы.</div><span class="tool-badge new">Новый</span></a>' +
       '<a href="#word-analyzer" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Разбор слов"></span><div class="tool-name">Разбор слов</div><div class="tool-desc">Массовый разбор: корень, палео-образы, подмены, кеширование.</div><span class="tool-badge new">Новый</span></a>' +
       '<a href="#paleo-images" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/paleo/track.png" width="32" height="32" alt="Палео-образы"></span><div class="tool-name">Палео-образы</div><div class="tool-desc">22 буквы палео-иврита с образами, смыслами и примерами.</div><span class="tool-badge new">Новый</span></a>' +
       '<a href="#etymology-lab" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Этимология"></span><div class="tool-name">Этимология</div><div class="tool-desc">Глубокий разбор слова: корень, палео-буквы, цепочка подмен.</div><span class="tool-badge new">Новый</span></a>' +
@@ -1203,7 +1203,7 @@ const LabRenderer = {
   rootDictionary: function() {
   return '<div id="root-dictionary" class="module">' +
     '<h1><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Корневой словарь</h1>' +
-    '<p class="subtitle">Поиск по 150 корням иврита. Введите корень, слово или значение.</p>' +
+    '<p class="subtitle">Поиск по корням иврита. Введите корень, слово или значение.</p>' +
     '<div class="search-wrap"><input type="text" id="rd-search" class="lab-input" placeholder="אמן, AMN, верить..." oninput="if(window.RootsSearch)RootsSearch.filter(this.value)" autofocus></div>' +
     '<div class="rd-stats"><div class="rd-stat"><div class="num" id="rd-total">150</div><div class="label">Корней</div></div><div class="rd-stat"><div class="num" id="rd-found">0</div><div class="label">Найдено</div></div></div>' +
     '<div id="rd-spinner" class="rd-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка словаря…</div></div>' +
