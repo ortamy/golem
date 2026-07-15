@@ -1,5 +1,5 @@
 /**
- * ed-chat.js — Чат с нейросетью Эд v2
+ * ed-chat.js — Нейрочат v2
  * Bug #8 fix: saveMessages после первого send
  */
 
@@ -55,7 +55,7 @@ const EdChat = (function() {
       welcome.id = 'ec-welcome';
       welcome.style.textAlign = 'center';
       welcome.style.padding = '40px';
-      welcome.textContent = 'Начните диалог с Эдом. Задайте вопрос об иврите, подменах, истории.';
+      welcome.textContent = 'Начните диалог с Нейрочат. Задайте вопрос об иврите, подменах, истории.';
       container.appendChild(welcome);
       return;
     }

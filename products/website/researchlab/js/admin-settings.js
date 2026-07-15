@@ -22,9 +22,9 @@ const AdminSettings = (function() {
     { key: 'methodology', label: 'Методички' },
     { key: 'board-generator', label: 'Генератор досок' },
     { key: 'research-generator', label: 'Генератор исследований' },
-    { key: 'board-library', label: 'Библиотека досок' },
+    { key: 'board-library', label: 'Архив досок' },
     { key: 'investigation', label: 'Расследование' },
-    { key: 'ed-chat', label: 'Чат с Эдом' },
+    { key: 'ed-chat', label: 'Нейрочат' },
     { key: 'paleo-keyboard', label: 'Палео-клавиатура' },
     { key: 'vision', label: 'Анализ изображений' }
   ];

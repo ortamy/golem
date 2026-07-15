@@ -74,19 +74,18 @@
         <div class="sidebar-section-title">Доски</div>
         <a href="#board-generator" class="sidebar-item" data-module="board-generator"><img src="../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Генератор досок</a>
         <a href="#research-generator" class="sidebar-item" data-module="research-generator"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генератор исследований</a>
-        <a href="#board-library" class="sidebar-item" data-module="board-library"><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Библиотека досок</a>
+        <a href="#board-library" class="sidebar-item" data-module="board-library"><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Архив досок</a>
       </div>
       <div class="sidebar-section">
         <div class="sidebar-section-title">AI</div>
         <a href="#investigation" class="sidebar-item" data-module="investigation"><img src="../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</a>
         <a href="#ai-agents" class="sidebar-item" data-module="ai-agents"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Агенты</a>
-        <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="Чат с Эдом">Чат с Эдом</a>
+        <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="Нейрочат">Нейрочат</a>
         <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><img src="../assets/icons/32/paleo/track.png" class="lab-icon" alt="Палео-клавиатура">Палео-клавиатура</a>
         <a href="#vision" class="sidebar-item" data-module="vision"><img src="../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Анализ изображений</a>
       </div>
       <div class="sidebar-section" id="sidebar-admin-section" style="display:none;">
         <div class="sidebar-section-title">Админ</div>
-        <a href="#admin" class="sidebar-item" data-module="admin"><img src="../assets/icons/32/nav/door.png" class="lab-icon" alt="">Разоблачения (редактор)</a>
         <a href="#admin-settings" class="sidebar-item" data-module="admin-settings"><img src="../assets/icons/32/ui/settings.png" class="lab-icon" alt="">Настройки</a>
       </div>
     </div>
@@ -349,7 +348,7 @@ const LabHotkeys = {
       '<tr><td><kbd>Esc</kbd></td><td>Закрыть поиск / модалку</td></tr>' +
       '<tr><td><kbd>?</kbd></td><td>Показать эту справку</td></tr>' +
       '</table>' +
-      '<div class="text-small text-muted mt-8">Модули: 1-Дашборд, 2-Словарь, 3-Разбор слов, 4-Чекер, 5-Переводы, 6-Библиотека досок, 7-Анализ, 8-Эд, 9-Клавиатура</div>';
+      '<div class="text-small text-muted mt-8">Модули: 1-Дашборд, 2-Словарь, 3-Разбор слов, 4-Чекер, 5-Переводы, 6-Архив досок, 7-Анализ, 8-Нейрочат, 9-Клавиатура</div>';
     LabModal.show('<img src="../assets/icons/32/paleo/track.png" width="32" height="32" alt="Горячие клавиши" style="vertical-align: middle; margin-right: 6px;"> Горячие клавиши', html);
   }
 };
@@ -1173,7 +1172,6 @@ const LabRenderer = {
       this.dictionaries(),
       this.exposure(),
       this.methodology(),
-      this.admin(),
       this.adminSettings(),
       this.researches()
     ];
@@ -1196,7 +1194,6 @@ const LabRenderer = {
       'js/ed-chat.js',
       'js/paleo-keyboard.js'
       , 'js/scripture-reader.js'
-      , 'js/admin-editor.js'
       , 'js/load-researches.js'
       , 'js/admin-settings.js'
     ];
@@ -1239,7 +1236,6 @@ const LabRenderer = {
   if (window.PaleoKey) PaleoKey.init();
   if (window.Investigation) Investigation.init();
   if (window.ScriptureReader) ScriptureReader.init();
-  if (window.AdminEditor) AdminEditor.init();
   if (window.AdminSettings) AdminSettings.init();
 
   // Init board generator form
@@ -1278,9 +1274,9 @@ const LabRenderer = {
       '<a href="#religionism-checker" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/question.png" width="32" height="32" alt="Чекер религионимов"></span><div class="tool-name">Чекер религионимов</div><div class="tool-desc">Проверка текста на подмены: Господь → Яхве, Бог → Элоhим.</div><span class="tool-badge new">Новый</span></a>' +
       '<a href="#translation-comparator" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Сравнение переводов"></span><div class="tool-name">Сравнение переводов</div><div class="tool-desc">Параллельный просмотр ТМ, Септуагинты и Синодального перевода.</div><span class="tool-badge beta">Beta</span></a>' +
       '<a href="#board-generator" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Генератор досок"></span><div class="tool-name">Генератор досок</div><div class="tool-desc">Создание визуальных детективных досок для анализа улик, выводов и вложений. Экспорт в PNG, PDF, TXT.</div><span class="tool-badge new">Новый</span></a>' +
-      '<a href="#board-library" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Библиотека досок"></span><div class="tool-name">Библиотека досок</div><div class="tool-desc">Архив созданных досок — просмотр, экспорт, управление.</div><span class="tool-badge new">Новый</span></a>' +
+      '<a href="#board-library" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Архив досок"></span><div class="tool-name">Архив досок</div><div class="tool-desc">Архив созданных досок — просмотр, экспорт, управление.</div><span class="tool-badge new">Новый</span></a>' +
       '<a href="#vision" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/archaeology/lamp.png" width="32" height="32" alt="Визуальный анализ"></span><div class="tool-name">Визуальный анализ</div><div class="tool-desc">Анализ изображений через SmolVLM-256M. Поиск скрытых символов.</div><span class="tool-badge new">Новый</span></a>' +
-      '<a href="#ed-chat" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Чат с Эдом"></span><div class="tool-name">Чат с Эдом</div><div class="tool-desc">Общение с нейросетью Эд для исследований и анализа.</div><span class="tool-badge beta">Beta</span></a>' +
+      '<a href="#ed-chat" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Нейрочат"></span><div class="tool-name">Нейрочат</div><div class="tool-desc">Чат с исследовательской нейросетью для анализа, разбора слов и поиска подмен.</div><span class="tool-badge beta">Beta</span></a>' +
       '<a href="#paleo-keyboard" class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/paleo/track.png" width="32" height="32" alt="Палео-клавиатура"></span><div class="tool-name">Палео-клавиатура</div><div class="tool-desc">Виртуальная клавиатура с палео-ивритскими буквами и образами.</div><span class="tool-badge new">Новый</span></a>' +
     '</div></div>';
 },
@@ -1558,7 +1554,7 @@ const LabRenderer = {
   
   boardLibrary: function() {
     return '<div id="board-library" class="module">' +
-      '<h1><img src="../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Библиотека досок" style="vertical-align: middle; margin-right: 6px;"> Библиотека досок</h1>' +
+      '<h1><img src="../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Архив досок" style="vertical-align: middle; margin-right: 6px;"> Архив досок</h1>' +
       '<p class="subtitle">Архив сохранённых исследовательских досок. Просмотр, экспорт и управление.</p>' +
       '<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-secondary" onclick="BoardLib.clearAll()"><img src="../assets/icons/32/nav/close.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить всё</button></div>' +
       '<div id="bl-list"></div>' +
@@ -1602,13 +1598,13 @@ const LabRenderer = {
       '<h1><img src="../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="AI-Агенты" style="vertical-align: middle; margin-right: 6px;"> AI-Агенты</h1>' +
       '<p class="subtitle">Мульти-агентная система для автоматического разбора корней, терминов и стихов. Researcher, Exposer и Collector работают вместе, чтобы находить подмены и восстанавливать смысл.</p>' +
       '<div class="tool-grid">' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Исследователь"></span><div class="tool-name">Исследователь</div><div class="tool-desc">Claude Sonnet — разбирает корни, стихи, термины.</div><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/question.png" width="32" height="32" alt="Разоблачитель"></span><div class="tool-name">Разоблачитель</div><div class="tool-desc">GPT-4o — ищет подмены в переводах, сравнивает LXX и Синодальный.</div><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Сборщик"></span><div class="tool-name">Сборщик</div><div class="tool-desc">Объединяет результаты в единый отчёт.</div><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/scales.png" width="32" height="32" alt="Критик"></span><div class="tool-name">Критик</div><div class="tool-desc">Проверяет разбор на соответствие методологии: конкретность палео-образов, отсутствие философем, целостность смихута.</div><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/seals/ring.png" width="32" height="32" alt="Семитолог"></span><div class="tool-name">Семитолог</div><div class="tool-desc">Ищет параллели в аккадском, угаритском и арамейском — прасемитский ключ к смыслу до масоретских подмен.</div><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Компаратор"></span><div class="tool-name">Компаратор</div><div class="tool-desc">Трёхстороннее сравнение масоретского текста, Септуагинты и кумранских свитков.</div><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/keyboard.png" width="32" height="32" alt="Редактор"></span><div class="tool-name">Редактор</div><div class="tool-desc">Приводит черновик к стилю проекта: убирает религионимы, канцелярит, возвращает глагольность.</div><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Исследователь"></span><div class="tool-name">Исследователь</div><div class="tool-desc">Разбирает корни, стихи, термины.</div><span class="tool-badge model">Claude Sonnet 4</span><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/question.png" width="32" height="32" alt="Разоблачитель"></span><div class="tool-name">Разоблачатель</div><div class="tool-desc">Ищет подмены в переводах, сравнивает LXX и Синодальный.</div><span class="tool-badge model">GPT-4o</span><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Сборщик"></span><div class="tool-name">Сборщик</div><div class="tool-desc">Объединяет результаты в единый отчёт.</div><span class="tool-badge model">Claude Haiku 3.5</span><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/scales.png" width="32" height="32" alt="Критик"></span><div class="tool-name">Критик</div><div class="tool-desc">Проверяет разбор на соответствие методологии: конкретность палео-образов, отсутствие философем, целостность смихута.</div><span class="tool-badge model">Claude Sonnet 4</span><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/seals/ring.png" width="32" height="32" alt="Семитолог"></span><div class="tool-name">Семитолог</div><div class="tool-desc">Ищет параллели в аккадском, угаритском и арамейском — прасемитский ключ к смыслу до масоретских подмен.</div><span class="tool-badge model">GPT-4o</span><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Компаратор"></span><div class="tool-name">Компаратор</div><div class="tool-desc">Трёхстороннее сравнение масоретского текста, Септуагинты и кумранских свитков.</div><span class="tool-badge model">Claude Sonnet 4</span><span class="tool-badge beta">В разработке</span></div>' +
+        '<div class="tool-card"><span class="tool-icon"><img src="../assets/icons/32/ui/keyboard.png" width="32" height="32" alt="Редактор"></span><div class="tool-name">Редактор</div><div class="tool-desc">Приводит черновик к стилю проекта: убирает религионимы, канцелярит, возвращает глагольность.</div><span class="tool-badge model">Claude Haiku 3.5</span><span class="tool-badge beta">В разработке</span></div>' +
       '</div>' +
       '<div class="lab-card mt-24" style="text-align:center;">' +
         '<button class="lab-btn lab-btn-primary" disabled>Запустить сервер агентов</button>' +
@@ -1619,15 +1615,15 @@ const LabRenderer = {
 
   edChat: function() {
     return '<div id="ed-chat" class="module">' +
-      '<h1><img src="../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Чат с Эдом" style="vertical-align: middle; margin-right: 6px;"> Чат с Эдом</h1>' +
-      '<p class="subtitle">Общение с нейросетью Эд для исследований, анализа и разоблачений.</p>' +
+      '<h1><img src="../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Нейрочат" style="vertical-align: middle; margin-right: 6px;"> Нейрочат</h1>' +
+      '<p class="subtitle">Чат с исследовательской нейросетью для анализа, разбора слов и поиска подмен.</p>' +
       '<div class="lab-card" id="ec-messages" style="max-height:400px;overflow-y:auto;min-height:200px;">' +
-        '<div class="text-muted" style="text-align:center;padding:40px;" id="ec-welcome">Начните диалог с Эдом.</div></div>' +
+        '<div class="text-muted" style="text-align:center;padding:40px;" id="ec-welcome">Начните диалог.</div></div>' +
       '<div class="flex gap-8">' +
-        '<input type="text" id="ec-input" class="lab-input" placeholder="Ваш вопрос Эду..." onkeydown="if(event.key===\'Enter\')EdChat.send()" />' +
+        '<input type="text" id="ec-input" class="lab-input" placeholder="Введите запрос..." onkeydown="if(event.key===\'Enter\')EdChat.send()" />' +
         '<button class="lab-btn lab-btn-primary" onclick="EdChat.send()"><img src="../assets/icons/32/paleo/track.png" width="32" height="32" alt="Отправить" style="vertical-align: middle; margin-right: 6px;"> Отправить</button>' +
         '<button class="lab-btn lab-btn-secondary" onclick="EdChat.clear()"><img src="../assets/icons/32/nav/close.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button></div>' +
-      '<div class="text-small text-muted mt-8">Эд — экспериментальная функция.</div></div>';
+      '<div class="text-small text-muted mt-8">Экспериментальная функция.</div></div>';
   },
 
   paleoKeyboard: function() {
@@ -1780,10 +1776,6 @@ const LabRenderer = {
   },
   methodTree: function() {
     return '<div id="method-tree" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
-  },
-
-  admin: function() {
-    return '<div id="admin" class="module"></div>';
   },
 
   adminSettings: function() {

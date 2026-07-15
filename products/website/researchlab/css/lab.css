@@ -188,7 +188,8 @@ code, pre, kbd, .translit, .mono {
 /* Global search */
 .header-search {
   position: relative;
-  flex: 1; max-width: 300px; margin: 0 12px;
+  margin-left: auto;
+  margin-right: 12px;
 }
 .header-search input {
   width: 100%; padding: 6px 12px 6px 32px;
@@ -389,6 +390,7 @@ code, pre, kbd, .translit, .mono {
 }
 .tool-card .tool-badge.new { background: var(--accent-gold); color: #faf3e0; }
 .tool-card .tool-badge.beta { background: var(--bg-dark); color: var(--text-muted); }
+.tool-card .tool-badge.model { background: var(--accent-gold); color: #2c1810; }
 
 /* ===== FORMS ===== */
 .lab-input, .lab-textarea, .lab-select {

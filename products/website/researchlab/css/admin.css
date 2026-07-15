@@ -1,38 +1,4 @@
-/* admin.css — dark theme for the admin editor module */
-
-#admin {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-.admin-login-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-}
-
-.admin-login-card {
-  background: #1b1b1f;
-  border: 1px solid #2e2e35;
-  border-radius: 8px;
-  padding: 32px;
-  width: 100%;
-  max-width: 360px;
-  text-align: center;
-}
-
-.admin-title {
-  color: #f0f0f2;
-  font-size: 22px;
-  font-weight: 600;
-  margin: 0 0 8px;
-}
-
-.admin-subtitle {
-  color: #9a9aa2;
-  font-size: 14px;
-  margin: 0 0 20px;
-}
+/* admin.css — styles for admin-settings and access-gate modules */
 
 .admin-input,
 .admin-textarea {
@@ -59,12 +25,6 @@
   min-height: 260px;
   resize: vertical;
   line-height: 1.5;
-}
-
-.admin-error {
-  color: #ff6b6b;
-  font-size: 13px;
-  margin-top: 4px;
 }
 
 .admin-btn {
@@ -123,6 +83,12 @@
 .admin-btn-sm {
   padding: 6px 12px;
   font-size: 13px;
+}
+
+.admin-error {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 4px;
 }
 
 .admin-panel {

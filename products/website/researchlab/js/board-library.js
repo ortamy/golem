@@ -1,5 +1,5 @@
 /**
- * board-library.js — Библиотека досок v2
+ * board-library.js — Архив досок v2
  * Bug #5 fix: Array.find → filter, alert → LabModal
  */
 
