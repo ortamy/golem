@@ -1,18 +1,18 @@
-<!-- products/website/index.html — точка входа и выбор языка -->
+<!-- products/website/index.html — точка входа, портал в Исход -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Golem — Свидетель правды</title>
-<meta name="description" content="Проект «Голем» восстанавливает ТаНаХ на иврите и разоблачает подмены в переводах. Истина в оригинале.">
+<title>Голем — Путь из тесноты в открытое пространство</title>
+<meta name="description" content="Голем — инструмент для исследования палео-иврита, разбора корней и выхода из сжатых смыслов. Только механика, никакой веры.">
 <link rel="canonical" href="https://golem-project.org/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="style.css">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Golem — Свидетель правды">
-<meta property="og:description" content="Проект «Голем» восстанавливает ТаНаХ на иврите и разоблачает подмены в переводах.">
+<meta property="og:title" content="Голем — Путь из тесноты в открытое пространство">
+<meta property="og:description" content="Инструмент для исследования палео-иврита, разбора корней и выхода из сжатых смыслов.">
 <meta property="og:image" content="https://golem-project.org/favicon.svg">
 <meta property="og:url" content="https://golem-project.org/">
 <meta property="og:type" content="website">
@@ -20,31 +20,94 @@
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Golem — Свидетель правды">
-<meta name="twitter:description" content="Проект «Голем» восстанавливает ТаНаХ на иврите и разоблачает подмены в переводах.">
+<meta name="twitter:title" content="Голем — Путь из тесноты в открытое пространство">
+<meta name="twitter:description" content="Инструмент для исследования палео-иврита, разбора корней и выхода из сжатых смыслов.">
 <meta name="twitter:image" content="https://golem-project.org/favicon.svg">
+
 <style>
-  body { font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.8; background: #ede0c8; color: #2c1810; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; flex-direction: column; padding: 20px; text-align: center; }
-  .loader { border: 3px solid #d4c4a8; border-top: 3px solid #b8860b; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 20px; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    background: #ede0c8;
+    color: #2c1810;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+  .loader {
+    border: 3px solid #d4c4a8;
+    border-top: 3px solid #b8860b;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
   @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-  h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; font-weight: 700; font-style: italic; color: #b8860b; margin: 20px 0; }
-  p { color: #5c4a3a; font-size: 18px; }
-  a { color: #b8860b; text-decoration: none; border-bottom: 1px solid transparent; }
+  h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    font-style: italic;
+    color: #b8860b;
+    margin: 20px 0;
+  }
+  p {
+    color: #5c4a3a;
+    font-size: 18px;
+    max-width: 600px;
+  }
+  a {
+    color: #b8860b;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.2s;
+  }
   a:hover { border-bottom-color: #b8860b; }
-  .lang-grid { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin: 20px 0; }
-  .lang-link { padding: 8px 16px; background: #faf3e0; border: 1px solid #d4c4a8; border-radius: 4px; font-size: 14px; transition: background 0.3s; }
+  .lang-grid {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .lang-link {
+    padding: 8px 16px;
+    background: #faf3e0;
+    border: 1px solid #d4c4a8;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background 0.3s;
+  }
   .lang-link:hover { background: #f5edd5; }
-  .lang-link.active { border-color: #b8860b; background: #b8860b; color: #faf3e0; }
+  .lang-link.active {
+    border-color: #b8860b;
+    background: #b8860b;
+    color: #faf3e0;
+  }
+  .subtitle {
+    font-size: 20px;
+    font-style: italic;
+    color: #7a5a3a;
+    margin-top: -10px;
+  }
 </style>
 </head>
 <body>
 <div class="loader"></div>
-<h1>Golem</h1>
-<p>Определение языка…</p>
+<h1>Голем</h1>
+<p class="subtitle">Путь из тесноты в открытое пространство</p>
+<p>Инструмент для восстановления палео-механики языка.<br>
+Здесь нет веры. Есть только корни, образы и двери.</p>
 <div class="lang-grid">
-  <a href="pages/index.html" class="lang-link">Русский</a>
+  <a href="pages/index.html" class="lang-link active">Русский</a>
   <span class="lang-link" aria-disabled="true" style="opacity:0.4;cursor:default">English (скоро)</span>
-  
   <span class="lang-link" style="opacity:0.4;cursor:default">Español (скоро)</span>
   <span class="lang-link" style="opacity:0.4;cursor:default">Deutsch (скоро)</span>
   <span class="lang-link" style="opacity:0.4;cursor:default">Français (скоро)</span>
