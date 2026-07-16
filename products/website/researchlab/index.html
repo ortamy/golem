@@ -144,7 +144,7 @@
   <div class="modal-window">
     <div class="modal-header">
       <h3 id="modalTitle">Просмотр</h3>
-      <button class="modal-close" onclick="LabModal.close()"><img src="../assets/icons/32/nav/close.png" width="32" height="32" alt="Закрыть" style="vertical-align: middle; margin-right: 6px;"></button>
+<button class="modal-close" onclick="LabModal.close()"><img src="../assets/icons/32/nav/alert.png" width="32" height="32" alt="Закрыть" style="vertical-align: middle; margin-right: 6px;"></button>
     </div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-footer" id="modalFooter"></div>
@@ -1334,7 +1334,7 @@ const LabRenderer = {
       '<textarea id="wa-input" class="lab-textarea" rows="8" placeholder="אמת, תורה, שלום&#10;משיח&#10;צדק, חסד"></textarea>' +
       '<div class="flex gap-8 mb-16">' +
         '<button class="lab-btn lab-btn-primary" onclick="WordAnalyzer.analyze()"><img src="../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Разобрать" style="vertical-align: middle; margin-right: 6px;"> Разобрать</button>' +
-        '<button class="lab-btn lab-btn-secondary" onclick="document.getElementById(\'wa-input\').value=\'\';document.getElementById(\'wa-grid\').innerHTML=\'\';document.getElementById(\'wa-export\').style.display=\'none\';document.getElementById(\'wa-status\').className=\'lab-alert lab-alert-info\';document.getElementById(\'wa-status\').textContent=\'Введите слова для разбора.\'"><img src="../assets/icons/32/nav/close.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button>' +
+'<button class="lab-btn lab-btn-secondary" onclick="document.getElementById(\'wa-input\').value=\'\';document.getElementById(\'wa-grid\').innerHTML=\'\';document.getElementById(\'wa-export\').style.display=\'none\';document.getElementById(\'wa-status\').className=\'lab-alert lab-alert-info\';document.getElementById(\'wa-status\').textContent=\'Введите слова для разбора.\'"><img src="../assets/icons/32/nav/alert.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button>' +
       '</div>' +
       '<div id="wa-status" class="lab-alert lab-alert-info">Введите слова для разбора.</div>' +
       '<div id="wa-export" class="export-bar" style="display:none">' +
@@ -1575,7 +1575,7 @@ const LabRenderer = {
       '<textarea id="rc-input" class="lab-textarea" rows="6" placeholder="Вставьте текст, например: Господь Бог сказал Моисею..."></textarea>' +
       '<div class="flex gap-8 items-center mb-16">' +
         '<button class="lab-btn lab-btn-primary" onclick="RelChecker.check()"><img src="../assets/icons/32/ui/question.png" width="32" height="32" alt="Проверить" style="vertical-align: middle; margin-right: 6px;"> Проверить текст</button>' +
-        '<button class="lab-btn lab-btn-secondary" onclick="RelChecker.clear()"><img src="../assets/icons/32/nav/close.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button></div>' +
+'<button class="lab-btn lab-btn-secondary" onclick="RelChecker.clear()"><img src="../assets/icons/32/nav/alert.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button></div>' +
       '<div id="rc-result" class="lab-card" style="display:none;"><div class="lab-card-header"><img src="../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Результат" style="vertical-align: middle; margin-right: 6px;"> Результат проверки</div><div class="lab-card-body" id="rc-body"></div></div>' +
       '<div class="lab-card"><div class="lab-card-header"><img src="../assets/icons/32/ui/book.png" width="32" height="32" alt="Словарь" style="vertical-align: middle; margin-right: 6px;"> Словарь подмен</div><div class="lab-card-body" id="rc-dict"></div></div></div>';
   },
@@ -1611,7 +1611,7 @@ const LabRenderer = {
     return '<div id="board-library" class="module">' +
       '<h1><img src="../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Архив досок" style="vertical-align: middle; margin-right: 6px;"> Архив досок</h1>' +
       '<p class="subtitle">Архив сохранённых исследовательских досок. Просмотр, экспорт и управление.</p>' +
-      '<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-secondary" onclick="BoardLib.clearAll()"><img src="../assets/icons/32/nav/close.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить всё</button></div>' +
+'<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-secondary" onclick="BoardLib.clearAll()"><img src="../assets/icons/32/nav/alert.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить всё</button></div>' +
       '<div id="bl-list"></div>' +
       '<div id="bl-empty" class="lab-alert lab-alert-info">Пока нет сохранённых досок.</div></div>';
   },
@@ -1637,7 +1637,7 @@ const LabRenderer = {
       '<div class="lab-card" style="text-align:center;cursor:pointer;" onclick="document.getElementById(\'vi-file\').click()">' +
         '<div id="vi-preview" style="display:none;margin-bottom:12px;">' +
           '<img id="vi-img" src="" alt="preview" style="max-width:100%;max-height:300px;border-radius:4px;border:1px solid #d4c4a8;" />' +
-          '<button class="lab-btn lab-btn-secondary mt-8" onclick="event.stopPropagation();VisionUI.remove()"><img src="../assets/icons/32/nav/close.png" width="32" height="32" alt="Удалить" style="vertical-align: middle; margin-right: 6px;"> Удалить</button></div>' +
+'<button class="lab-btn lab-btn-secondary mt-8" onclick="event.stopPropagation();VisionUI.remove()"><img src="../assets/icons/32/nav/alert.png" width="32" height="32" alt="Удалить" style="vertical-align: middle; margin-right: 6px;"> Удалить</button></div>' +
         '<div id="vi-placeholder"><span><img src="../assets/icons/32/ui/placeholder.svg" width="32" height="32" alt="Изображение" style="vertical-align: middle; margin-right: 6px;"></span><div style="font-size:18px;color:#2c1810;margin-top:8px;">Нажмите, чтобы загрузить</div>' +
         '<div class="text-muted text-small mt-8">PNG, JPG, WEBP — до 10 МБ</div></div>' +
         '<input type="file" id="vi-file" accept="image/png,image/jpeg,image/jpg,image/webp" style="display:none;" onchange="VisionUI.load(event)" /></div>' +
@@ -1677,7 +1677,7 @@ const LabRenderer = {
       '<div class="flex gap-8">' +
         '<input type="text" id="ec-input" class="lab-input" placeholder="Введите запрос..." onkeydown="if(event.key===\'Enter\')EdChat.send()" />' +
         '<button class="lab-btn lab-btn-primary" onclick="EdChat.send()"><img src="../assets/icons/32/paleo/track.png" width="32" height="32" alt="Отправить" style="vertical-align: middle; margin-right: 6px;"> Отправить</button>' +
-        '<button class="lab-btn lab-btn-secondary" onclick="EdChat.clear()"><img src="../assets/icons/32/nav/close.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button></div>' +
+'<button class="lab-btn lab-btn-secondary" onclick="EdChat.clear()"><img src="../assets/icons/32/nav/alert.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button></div>' +
       '<div class="text-small text-muted mt-8">Экспериментальная функция.</div></div>';
   },
 
@@ -1686,7 +1686,7 @@ const LabRenderer = {
       '<h1><img src="../assets/icons/32/paleo/track.png" width="32" height="32" alt="Палео-клавиатура" style="vertical-align: middle; margin-right: 6px;"> Палео-ивритская клавиатура</h1>' +
       '<p class="subtitle">Нажимайте на буквы, чтобы вставить их. Каждая буква — с образом и значением.</p>' +
       '<div id="pk-output" class="lab-card" style="min-height:80px;font-size:28px;direction:rtl;text-align:right;font-family:\'Times New Roman\',serif;line-height:1.6;" contenteditable="true"></div>' +
-      '<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-secondary" onclick="PaleoKey.copy()"><img src="../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Копировать" style="vertical-align: middle; margin-right: 6px;"> Копировать</button><button class="lab-btn lab-btn-secondary" onclick="PaleoKey.clear()"><img src="../assets/icons/32/nav/close.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button></div>' +
+      '<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-secondary" onclick="PaleoKey.copy()"><img src="../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Копировать" style="vertical-align: middle; margin-right: 6px;"> Копировать</button><button class="lab-btn lab-btn-secondary" onclick="PaleoKey.clear()"><img src="../assets/icons/32/nav/alert.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button></div>' +
       '<div id="pk-keys" class="flex flex-wrap gap-8" style="justify-content:center;"></div>' +
       '<div id="pk-info" class="lab-card mt-16" style="display:none;"><div class="lab-card-header" id="pk-info-title"></div><div class="lab-card-body" id="pk-info-body"></div></div></div>';
   },

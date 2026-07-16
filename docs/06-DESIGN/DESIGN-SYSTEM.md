@@ -304,7 +304,7 @@ Focus: граница `--accent-gold` + `box-shadow: 0 0 0 2px rgba(184,134,11,0
 | `food/` | — (только `placeholder.svg`) |
 | `israel/` | `heart.png` |
 | `map/` | — (только `placeholder.svg`) |
-| `nav/` | `close.png`, `door.png`, `home.png` |
+| `nav/` | `alert.png`, `door.png`, `home.png` |
 | `paleo/` | `track.png` |
 | `scribe/` | `scroll.png`, `scrolls.png` |
 | `seals/` | `ring.png` |
