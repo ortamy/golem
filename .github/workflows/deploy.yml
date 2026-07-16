@@ -33,7 +33,7 @@ jobs:
       - name: Copy content and instructions
         run: |
           cp -r content products/website/
-          cp -r instructions products/website/
+          cp -r docs/10-INSTRUCTIONS products/website/instructions
 
       - name: Copy source files to build
         run: |
