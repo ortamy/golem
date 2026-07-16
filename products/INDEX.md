@@ -6,27 +6,27 @@
 
 ## 📊 СТАТИСТИКА
 
-- **Всего продуктов:** 9
-- **Активных:** 9
-- **Последнее обновление:** 2026-07-01
+- **Всего продуктов:** 8
+- **Активных:** 8
+- **Последнее обновление:** 2026-07-16
 
 ---
 
 ## 🚀 ПРОДУКТЫ
 
-### agent/ - 🤖 Автономный агент
+### agents/ - 🤖 Мульти-агентная система
 **Статус:** В разработке  
-**Назначение:** Автономный агент для выполнения задач
+**Назначение:** Автономные агенты для исследования и разоблачения
 
 **Компоненты:**
-- [agent/](agent/) - основной код агента
-- [docs/](agent/docs/) - документация
-- [tests/](agent/tests/) - тесты
+- [agents/](agents/) - основной код
+- [agents/agents/](agents/agents/) - модули агентов (researcher, exposer, collector)
+- [docs/](agents/docs/) - документация
 
 **Связи:**
 - [tools/](../tools/) - инструменты
 - [content/](../content/) - контент
-- [instructions/agent/](../instructions/agent/) - инструкции
+- [data/](../data/) - данные
 
 ---
 
@@ -162,17 +162,16 @@
 ## 📊 СТАТИСТИКА ПО ПРОДУКТАМ
 
 ### По статусу
-- **В разработке:** 9
-- **Активных:** 9
+- **В разработке:** 8
+- **Активных:** 8
 - **Завершённых:** 0
 
 ### По типу
-- **AI/ML:** 2 (agent, neuro)
+- **AI/ML:** 2 (agents, neuro)
 - **Веб:** 3 (tanakh, webapp, website)
 - **Языки:** 1 (davar)
 - **Боты:** 1 (telegram-bot)
 - **ОС:** 1 (golem-os)
-- **Утилиты:** 1 (assistant)
 
 ---
 
@@ -225,15 +224,13 @@ data/ → products/
 
 ---
 
-## 🚀 ДЕПЛОЙ
-
 ### Локальный запуск
 ```bash
-# Агент
-python products/agent/main.py
+# Мульти-агенты
+python products/agents/main.py
 
 # Ассистент
-python products/assistant/main.py
+python products/assistant/assistant.py
 
 # Веб-приложение
 cd products/webapp && npm start
@@ -256,7 +253,7 @@ python tools/deploy/deploy-all.py
 ## 📊 МОНИТОРИНГ
 
 ### Логи
-- [products/agent/logs/](agent/logs/) - логи агента
+- [products/agents/logs/](agents/logs/) - логи агентов
 - [products/assistant/logs/](assistant/logs/) - логи ассистента
 - [products/neuro/logs/](neuro/logs/) - логи нейросети
 
@@ -276,7 +273,7 @@ python tools/deploy/deploy-all.py
 - [data/](../data/) - данные
 
 ### По продуктам
-- [agent/](agent/) - автономный агент
+- [agents/](agents/) - мульти-агентная система
 - [assistant/](assistant/) - ассистент
 - [davar/](davar/) - язык Давар
 - [neuro/](neuro/) - нейросеть Эд
