@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="css/scripture-reader.css">
 <link rel="stylesheet" href="css/admin.css">
 <link rel="stylesheet" href="css/religionisms.css">
+<link rel="stylesheet" href="css/learn.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
@@ -57,6 +58,7 @@
         <span class="toggle-icon">▼</span>
       </div>
       <div class="sidebar-section-content" id="section-data">
+        <a href="#learn" class="sidebar-item" data-module="learn"><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Обучение</a>
         <a href="#dictionaries" class="sidebar-item" data-module="dictionaries"><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Словари</a>
         <a href="#research-library" class="sidebar-item" data-module="research-library"><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Библиотека</a>
         <a href="#researches" class="sidebar-item" data-module="researches"><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</a>
@@ -1179,6 +1181,7 @@ const LabRenderer = {
     
     const modules = [
       this.dashboard(),
+      this.learn(),
       this.rootDictionary(),
       this.wordAnalyzer(),
       this.scriptureReader(),
@@ -1224,6 +1227,7 @@ const LabRenderer = {
       , 'js/scripture-reader.js'
       , 'js/load-researches.js'
       , 'js/admin-settings.js'
+      , 'js/learn.js'
     ];
     
     let loaded = 0;
@@ -1266,6 +1270,7 @@ const LabRenderer = {
   if (window.Investigation) Investigation.init();
   if (window.ScriptureReader) ScriptureReader.init();
   if (window.AdminSettings) AdminSettings.init();
+  if (window.LearnLab) LearnLab.init();
 
   // Init board generator form
   if (document.getElementById('board-form')) {
@@ -1350,6 +1355,12 @@ const LabRenderer = {
       '<div class="pi-detail-header"><div class="pi-dpaleo" id="pi-dpaleo"></div><div class="pi-dinfo"><div class="pi-dname" id="pi-dname"></div><div class="pi-dtranslit" id="pi-dtranslit"></div></div></div>' +
       '<div class="pi-dmeaning" id="pi-dmeaning"></div><div class="pi-ddesc" id="pi-ddesc"></div><div class="pi-dexample" id="pi-dexample"></div><div class="pi-droots" id="pi-droots"></div>' +
     '</div></div>';
+  },
+
+  learn: function() {
+    return '<div id="learn" class="module learn-module">' +
+      '<div id="learn-app" aria-live="polite"></div>' +
+      '</div>';
   },
   etymologyLab: function() {
     return '<div id="etymology-lab" class="module">' +
