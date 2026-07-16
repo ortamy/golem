@@ -48,47 +48,74 @@
 
   <!-- SIDEBAR -->
   <aside class="lab-sidebar" id="labSidebar">
-    <div class="sidebar-items">
-      <div class="sidebar-section">
-        <div class="sidebar-section-title">Слова</div>
+  <div class="sidebar-items">
+    <div class="sidebar-section">
+      <div class="sidebar-section-header" data-section="data">
+        <img src="../assets/icons/32/ui/book.png" class="icon" alt="">
+        <span>Данные</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="sidebar-section-content" id="section-data">
+        <a href="#dictionaries" class="sidebar-item" data-module="dictionaries"><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Словари</a>
+        <a href="#research-library" class="sidebar-item" data-module="research-library"><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Библиотека</a>
+        <a href="#researches" class="sidebar-item" data-module="researches"><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</a>
+        <a href="#exposure" class="sidebar-item" data-module="exposure"><img src="../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Принципы</a>
+        <a href="#methodology" class="sidebar-item" data-module="methodology"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Методички</a>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-header" data-section="tools">
+        <img src="../assets/icons/32/archaeology/testtube.png" class="icon" alt="">
+        <span>Инструменты</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="sidebar-section-content" id="section-tools">
         <a href="#root-dictionary" class="sidebar-item" data-module="root-dictionary"><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Корневой словарь</a>
         <a href="#paleo-images" class="sidebar-item" data-module="paleo-images"><img src="../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-образы</a>
         <a href="#etymology-lab" class="sidebar-item" data-module="etymology-lab"><img src="../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Этимология</a>
         <a href="#word-analyzer" class="sidebar-item" data-module="word-analyzer"><img src="../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Разбор слов</a>
         <a href="#scripture-reader" class="sidebar-item" data-module="scripture-reader"><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Книгочтение</a>
-        <a href="#research-library" class="sidebar-item" data-module="research-library"><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Библиотека</a>
-        <a href="#researches" class="sidebar-item" data-module="researches"><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</a>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-section-title">Тексты</div>
         <a href="#religionism-checker" class="sidebar-item" data-module="religionism-checker"><img src="../assets/icons/32/ui/question.png" class="lab-icon" alt="Чекер религионимов">Чекер религионимов</a>
         <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><img src="../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="Сравнение переводов">Сравнение переводов</a>
-        <a href="#dictionaries" class="sidebar-item" data-module="dictionaries"><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Словари</a>
       </div>
-      <div class="sidebar-section">
-        <div class="sidebar-section-title">Методология</div>
-        <a href="#exposure" class="sidebar-item" data-module="exposure"><img src="../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Принципы</a>
-        <a href="#methodology" class="sidebar-item" data-module="methodology"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Методички</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-header" data-section="research">
+        <img src="../assets/icons/32/scribe/scroll.png" class="icon" alt="">
+        <span>Исследование</span>
+        <span class="toggle-icon">▼</span>
       </div>
-      <div class="sidebar-section">
-        <div class="sidebar-section-title">Доски</div>
+      <div class="sidebar-section-content" id="section-research">
         <a href="#board-generator" class="sidebar-item" data-module="board-generator"><img src="../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Генератор досок</a>
         <a href="#research-generator" class="sidebar-item" data-module="research-generator"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генератор исследований</a>
         <a href="#board-library" class="sidebar-item" data-module="board-library"><img src="../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Архив досок</a>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-section-title">AI</div>
         <a href="#investigation" class="sidebar-item" data-module="investigation"><img src="../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</a>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-header" data-section="ai">
+        <img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="icon" alt="">
+        <span>AI</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="sidebar-section-content" id="section-ai">
         <a href="#ai-agents" class="sidebar-item" data-module="ai-agents"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Агенты</a>
         <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><img src="../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="Нейрочат">Нейрочат</a>
-        <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><img src="../assets/icons/32/paleo/track.png" class="lab-icon" alt="Палео-клавиатура">Палео-клавиатура</a>
         <a href="#vision" class="sidebar-item" data-module="vision"><img src="../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Анализ изображений</a>
+        <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><img src="../assets/icons/32/paleo/track.png" class="lab-icon" alt="Палео-клавиатура">Палео-клавиатура</a>
       </div>
-      <div class="sidebar-section" id="sidebar-admin-section" style="display:none;">
-        <div class="sidebar-section-title">Админ</div>
+    </div>
+    <div class="sidebar-section" id="sidebar-admin-section" style="display:none;">
+      <div class="sidebar-section-header" data-section="system">
+        <img src="../assets/icons/32/ui/settings.png" class="icon" alt="">
+        <span>Система</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="sidebar-section-content" id="section-system">
         <a href="#admin-settings" class="sidebar-item" data-module="admin-settings"><img src="../assets/icons/32/ui/settings.png" class="lab-icon" alt="">Настройки</a>
       </div>
     </div>
+  </div>
   </aside>
 
   <!-- CONTENT -->
@@ -1787,6 +1814,19 @@ document.addEventListener('DOMContentLoaded', function() {
   AccessGate.init(function(role) {
     LabRenderer.render();
     applyLabConfig(role);
+    
+    // Accordion menu handlers
+    document.querySelectorAll('.sidebar-section-header').forEach(function(header) {
+      header.addEventListener('click', function() {
+        var section = this.getAttribute('data-section');
+        var content = document.getElementById('section-' + section);
+        if (content) {
+          this.classList.toggle('collapsed');
+          content.classList.toggle('collapsed');
+        }
+      });
+    });
+    
     document.querySelectorAll('.lab-sidebar .sidebar-item, .lab-sidebar a').forEach(function(link) {
       link.addEventListener('click', function() {
         if (window.innerWidth <= 768) LabSidebar.close();
