@@ -30,21 +30,10 @@ jobs:
       - name: Install Python dependencies
         run: pip install markdown rich
 
-      - name: Copy content and instructions
+      - name: Build website
+        working-directory: products/website
         run: |
-          cp -r content products/website/
-          cp -r docs/10-INSTRUCTIONS products/website/instructions
-
-      - name: Copy source files to build
-        run: |
-          mkdir -p products/website/build/src
-          cp -r products/website/src products/website/build/
-
-      - name: Install Node dependencies and build
-        working-directory: products/website/build
-        run: |
-          npm install
-          npm run build
+          bash tools/build.sh
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -52,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: products/website/
+          path: products/website/build/
 
   deploy:
     needs: build

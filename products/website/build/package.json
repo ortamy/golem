@@ -4,11 +4,11 @@
   "description": "Golem dynamic web server",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node ../config/server.js",
     "prebuild": "npm run build:css:tailwind",
     "build": "npm run build:css:purge && npm run build:js:minify",
-    "build:css:tailwind": "tailwindcss -i src/input.css -o style.css --minify",
-    "build:css:purge": "npx purgecss --config purgecss.config.js",
+    "build:css:tailwind": "tailwindcss -c ../config/tailwind.config.js -i ../src/styles/input.css -o style.css --minify",
+    "build:css:purge": "npx purgecss --config ../config/purgecss.config.js",
     "build:js:minify": "echo 'js minify skipped'",
     "build:assets": "echo 'webapp is now part of website — no copy needed'"
   },

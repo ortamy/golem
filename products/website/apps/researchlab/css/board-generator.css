@@ -1,0 +1,318 @@
+/* Research Board Generator Styles */
+
+/* ===== BOARD CONTAINER ===== */
+#board-preview {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ===== RESEARCH BOARD ===== */
+.research-board {
+  background: #ede0c8;
+  background-image: 
+    radial-gradient(ellipse at 20% 30%, rgba(210, 180, 140, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(200, 170, 120, 0.25) 0%, transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(180, 150, 100, 0.04) 3px,
+      rgba(180, 150, 100, 0.04) 6px
+    );
+  border: 2px solid #b8860b;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(44, 24, 16, 0.3);
+  position: relative;
+  min-height: 600px;
+}
+
+/* Board Title */
+.board-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  font-style: italic;
+  color: #2c1810;
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 3px solid #c0392b;
+  text-shadow: 1px 1px 2px rgba(184, 134, 11, 0.2);
+}
+
+/* Main Conclusion */
+.board-conclusion {
+  background: #faf3e0;
+  border-left: 4px solid #c0392b;
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(44, 24, 16, 0.15);
+}
+
+.board-conclusion-label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #c0392b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.board-conclusion-text {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  color: #2c1810;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+/* Evidence Section */
+.evidence-section {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #b8860b;
+  margin-bottom: 16px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+/* Evidence Card */
+.evidence-card {
+  background: #faf3e0;
+  border: 1px solid #d4c4a8;
+  border-radius: 6px;
+  padding: 16px;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(44, 24, 16, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.evidence-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 24, 16, 0.2);
+}
+
+/* Red thread effect */
+.evidence-card::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 8px;
+  background: #c0392b;
+  box-shadow: 0 0 4px rgba(192, 57, 43, 0.6);
+}
+
+.evidence-card::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 8px;
+  background: #c0392b;
+  box-shadow: 0 0 4px rgba(192, 57, 43, 0.6);
+}
+
+.evidence-number {
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  background: #c0392b;
+  color: #faf3e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(192, 57, 43, 0.4);
+}
+
+.evidence-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2c1810;
+  margin-bottom: 8px;
+  padding-right: 30px;
+}
+
+.evidence-description {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 15px;
+  color: #5c4a3a;
+  line-height: 1.6;
+}
+
+/* Attachments Section */
+.attachments-section {
+  margin-bottom: 24px;
+}
+
+.attachments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.attachment-card {
+  background: #faf3e0;
+  border: 1px solid #d4c4a8;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(44, 24, 16, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.attachment-card:hover {
+  transform: translateY(-2px);
+}
+
+.attachment-thumbnail {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #d4c4a8;
+  margin-bottom: 8px;
+  background: #ede0c8;
+}
+
+.attachment-placeholder {
+  width: 100%;
+  height: 120px;
+  background: #d4c4a8;
+  border-radius: 4px;
+  border: 1px dashed #b8860b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a7a6a;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.attachment-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c1810;
+  margin-bottom: 4px;
+  word-wrap: break-word;
+}
+
+.attachment-desc {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 12px;
+  color: #5c4a3a;
+  line-height: 1.5;
+}
+
+/* Decorative elements */
+.board-decoration {
+  position: absolute;
+  font-size: 24px;
+  color: #b8860b;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.board-decoration.top-left {
+  top: 12px;
+  left: 12px;
+}
+
+.board-decoration.top-right {
+  top: 12px;
+  right: 12px;
+}
+
+.board-decoration.bottom-left {
+  bottom: 12px;
+  left: 12px;
+}
+
+.board-decoration.bottom-right {
+  bottom: 12px;
+  right: 12px;
+}
+
+/* Thread lines connecting cards */
+.thread-line {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, #c0392b, transparent);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Handwritten style for certain elements */
+.handwritten {
+  font-family: 'Caveat', cursive;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .research-board {
+    padding: 20px;
+  }
+  
+  .board-title {
+    font-size: 24px;
+  }
+  
+  .evidence-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .attachments-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* Print styles for PDF export */
+@media print {
+  .research-board {
+    box-shadow: none;
+    border: 2px solid #000;
+    page-break-inside: avoid;
+  }
+  
+  body * {
+    visibility: hidden;
+  }
+  
+  #board-preview, #board-preview * {
+    visibility: visible;
+  }
+  
+  #board-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
