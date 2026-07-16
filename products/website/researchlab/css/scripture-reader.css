@@ -71,6 +71,49 @@
   font-weight: 700;
 }
 
+.scripture-copy-verse,
+.scripture-copy-selection {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.scripture-copy-verse:hover:not(:disabled),
+.scripture-copy-selection:hover:not(:disabled) {
+  background: rgba(184, 134, 11, 0.12);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.scripture-copy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  margin: 0 0 12px;
+}
+
+.scripture-copy-selection {
+  margin: 12px 0 0;
+}
+
+.scripture-copy-button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.scripture-copy-icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
 .scripture-paleo {
   overflow-wrap: anywhere;
   color: var(--text-primary);
@@ -83,6 +126,29 @@
 .scripture-paleo-word {
   display: inline-block;
   white-space: nowrap;
+}
+
+.scripture-word {
+  border-radius: 3px;
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scripture-paleo-word,
+.scripture-hebrew-word,
+.scripture-translit-word,
+.scripture-literal-word {
+  display: inline-block;
+  padding: 0 3px;
+}
+
+.scripture-word.is-word-hovered {
+  color: var(--scripture-orange, #e87524);
+  background: rgba(232, 117, 36, 0.14);
+  box-shadow: 0 0 0 1px rgba(232, 117, 36, 0.28);
+}
+
+.scripture-paleo-word.is-word-hovered {
+  box-shadow: 0 0 0 1px var(--scripture-orange, #e87524);
 }
 
 .scripture-paleo-letter {

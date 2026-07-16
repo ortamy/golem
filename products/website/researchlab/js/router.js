@@ -46,8 +46,14 @@ const LabRouter = (function() {
 
   // ===== ОБРАБОТКА ХЕША =====
   function handleHash() {
-    const hash = window.location.hash.replace('#', '') || 'dashboard';
+    var hash = window.location.hash.replace('#', '') || 'dashboard';
     const detailPrefix = 'research-library-';
+
+    // #settings is an alias for #admin-settings
+    if (hash === 'settings') {
+      navigate('admin-settings');
+      return;
+    }
 
     if (modules[hash]) {
       showModule(hash);

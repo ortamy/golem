@@ -23,23 +23,119 @@ const ScriptureReader = (function() {
     if (paleo) paleo.textContent = message;
   }
 
+  function copyText(text, successMessage) {
+    var value = String(text || '').trim();
+    if (!value) return Promise.reject(new Error('Нечего копировать'));
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(value).then(function() {
+        if (typeof LabToast !== 'undefined') LabToast.show(successMessage || 'Скопировано в буфер обмена.');
+      });
+    }
+
+    return new Promise(function(resolve, reject) {
+      var textarea = document.createElement('textarea');
+      textarea.value = value;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        if (!document.execCommand('copy')) throw new Error('Копирование недоступно');
+        document.body.removeChild(textarea);
+        if (typeof LabToast !== 'undefined') LabToast.show(successMessage || 'Скопировано в буфер обмена.');
+        resolve();
+      } catch (error) {
+        document.body.removeChild(textarea);
+        reject(error);
+      }
+    }).catch(function(error) {
+      if (typeof LabToast !== 'undefined') LabToast.show('Не удалось скопировать текст.');
+      throw error;
+    });
+  }
+
+  function currentVerseText() {
+    var verse = state.verses[state.currentVerse];
+    if (!verse || !state.currentBook) return '';
+    return [
+      state.currentBook.ru + ' 1:' + verse.verse,
+      verse.paleo,
+      verse.hebrew,
+      verse.translit,
+      verse.literal
+    ].filter(Boolean).join('\n');
+  }
+
+  function copyCurrentVerse() {
+    copyText(currentVerseText(), 'Стих скопирован в буфер обмена.');
+  }
+
+  function copySelection() {
+    var letters = selectedLetters();
+    if (!letters.length) return;
+    var paleo = letters.map(function(letter) { return letter.paleo; }).join('');
+    var hebrew = letters.map(function(letter) { return letter.hebrew; }).join('');
+    copyText('Палео-иврит: ' + paleo + '\nИврит: ' + hebrew, 'Выбранный фрагмент скопирован.');
+  }
+
+  function copyButtonMarkup(disabled) {
+    return '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm scripture-copy-button scripture-copy-selection"' +
+      (disabled ? ' disabled' : '') +
+      ' aria-label="Копировать выбранное" title="Копировать выбранное">' +
+      '<svg class="scripture-copy-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+      '<rect x="8" y="8" width="11" height="11" rx="1.5"></rect>' +
+      '<path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"></path>' +
+      '</svg>' +
+      '</button>';
+  }
+
+  function cleanHebrewWord(word) {
+    return String(word || '').replace(/[\u0591-\u05C7]/g, '');
+  }
+
+  function paleoWordsFor(hebrew, paleo) {
+    var hebrewWords = String(hebrew || '').trim().split(/\s+/).filter(Boolean);
+    var paleoWords = String(paleo || '').trim().split(/\s+/).filter(Boolean);
+
+    return hebrewWords.map(function(word, wordIndex) {
+      var source = paleoWords[wordIndex] || '';
+      var cleanWord = cleanHebrewWord(word);
+      // Неполные данные достраиваются из полного иврита.
+      if (!source || Array.from(source).length !== Array.from(cleanWord).length) {
+        return PALEO.toPaleo(cleanWord);
+      }
+      return source;
+    });
+  }
+
+  function renderWordLayer(text, className, wordClass, extraAttributes) {
+    var words = String(text || '').trim().split(/\s+/).filter(Boolean);
+    var attributes = extraAttributes || function() { return ''; };
+    return words.map(function(word, wordIndex) {
+      return '<span class="' + className + ' ' + wordClass + '" data-word-index="' + wordIndex + '"' +
+        attributes(word, wordIndex) + '>' + escapeHtml(word) + '</span>';
+    }).join(' ');
+  }
+
   function renderPaleo(text, hebrew) {
-    var paleoWords = String(text || '').split(' ');
-    var hebrewWords = String(hebrew || '').split(' ');
+    var paleoWords = paleoWordsFor(hebrew, text);
+    var hebrewWords = String(hebrew || '').split(/\s+/).filter(Boolean);
     var index = 0;
 
-    return paleoWords.map(function(word, wordIndex) {
+    return hebrewWords.map(function(hebrewWord, wordIndex) {
+      var word = paleoWords[wordIndex] || PALEO.toPaleo(cleanHebrewWord(hebrewWord));
       if (!word) return '';
-      var hebrewWord = hebrewWords[wordIndex] || '';
       var letters = Array.from(word).map(function(symbol, letterIndex) {
-        var hebrewLetter = Array.from(hebrewWord)[letterIndex] || '';
+        var hebrewLetter = Array.from(cleanHebrewWord(hebrewWord))[letterIndex] || '';
         var html = '<span class="scripture-paleo-letter" data-index="' + index +
           '" data-paleo="' + escapeHtml(symbol) + '" data-hebrew="' + escapeHtml(hebrewLetter) + '">' +
           escapeHtml(symbol) + '</span>';
         index++;
         return html;
       }).join('');
-      return '<span class="scripture-paleo-word">' + letters + '</span>';
+      return '<span class="scripture-word scripture-paleo-word" data-word-index="' + wordIndex + '">' + letters + '</span>';
     }).join(' ');
   }
 
@@ -136,14 +232,15 @@ const ScriptureReader = (function() {
 
     if (title) title.textContent = state.currentBook.ru + ' 1:' + verse.verse;
     if (paleo) paleo.innerHTML = renderPaleo(verse.paleo, verse.hebrew);
-    if (hebrew) hebrew.textContent = verse.hebrew;
-    if (translit) translit.textContent = verse.translit;
-    if (literal) literal.textContent = verse.literal;
+    if (hebrew) hebrew.innerHTML = renderWordLayer(verse.hebrew, 'scripture-word', 'scripture-hebrew-word');
+    if (translit) translit.innerHTML = renderWordLayer(verse.translit, 'scripture-word', 'scripture-translit-word');
+    if (literal) literal.innerHTML = renderWordLayer(verse.literal, 'scripture-word', 'scripture-literal-word');
     if (previous) previous.disabled = state.currentVerse === 0;
     if (next) next.disabled = state.currentVerse === state.verses.length - 1;
     if (analysis) {
       analysis.innerHTML = '<h2>Панель анализа</h2>' +
-        '<p class="text-muted">Выберите буквы палео-текста для анализа.</p>';
+        '<p class="text-muted">Выберите буквы палео-текста для анализа.</p>' +
+        copyButtonMarkup(true);
     }
   }
 
@@ -188,7 +285,8 @@ const ScriptureReader = (function() {
 
     if (letters.length < 2) {
       analysis.innerHTML = '<h2>Панель анализа</h2>' +
-        '<p class="text-muted">Выберите ещё одну последовательную букву.</p>';
+        '<p class="text-muted">Выберите ещё одну последовательную букву.</p>' +
+        copyButtonMarkup(true);
       return;
     }
 
@@ -224,6 +322,7 @@ const ScriptureReader = (function() {
       '<div class="scripture-analysis-letters">' + letterCards + '</div>' +
       '<p class="scripture-composite"><strong>Составной образ:</strong> ' + escapeHtml(image) + '</p>' +
       '<p class="scripture-selection"><span class="scripture-selection-paleo">' + escapeHtml(selectedPaleo) + '</span> → <span class="hebrew">' + escapeHtml(selectedHebrew) + '</span></p>' +
+      copyButtonMarkup(false) +
       rootHTML;
   }
 
@@ -254,6 +353,28 @@ const ScriptureReader = (function() {
     renderAnalysis();
   }
 
+  function setHoveredWord(wordIndex) {
+    var reader = get('scripture-reader');
+    if (!reader) return;
+    reader.querySelectorAll('.scripture-word').forEach(function(word) {
+      word.classList.toggle('is-word-hovered', word.getAttribute('data-word-index') === String(wordIndex));
+    });
+  }
+
+  function clearHoveredWord() {
+    var reader = get('scripture-reader');
+    if (!reader) return;
+    reader.querySelectorAll('.scripture-word.is-word-hovered').forEach(function(word) {
+      word.classList.remove('is-word-hovered');
+    });
+  }
+
+  function handleWordHover(event) {
+    var word = event.target.closest('.scripture-word');
+    if (!word) return;
+    setHoveredWord(word.getAttribute('data-word-index'));
+  }
+
   function moveVerse(step) {
     var nextIndex = state.currentVerse + step;
     if (nextIndex < 0 || nextIndex >= state.verses.length) return;
@@ -265,12 +386,29 @@ const ScriptureReader = (function() {
     var previous = get('scripture-prev');
     var next = get('scripture-next');
     var paleo = get('scripture-paleo');
+    var reader = get('scripture-reader');
     var grid = get('scripture-book-grid');
     var back = get('scripture-back-btn');
 
     if (previous) previous.addEventListener('click', function() { moveVerse(-1); });
     if (next) next.addEventListener('click', function() { moveVerse(1); });
     if (paleo) paleo.addEventListener('click', handleLetterClick);
+    var copyVerse = get('scripture-copy-verse');
+    if (copyVerse) copyVerse.addEventListener('click', copyCurrentVerse);
+    var analysis = get('scripture-analysis');
+    if (analysis) analysis.addEventListener('click', function(event) {
+      if (event.target.closest('.scripture-copy-selection')) copySelection();
+    });
+    if (reader) {
+      reader.addEventListener('mouseover', handleWordHover);
+      reader.addEventListener('mouseout', function(event) {
+        if (!event.relatedTarget || !event.relatedTarget.closest || !event.relatedTarget.closest('.scripture-word')) {
+          clearHoveredWord();
+        }
+      });
+      reader.addEventListener('focusin', handleWordHover);
+      reader.addEventListener('focusout', clearHoveredWord);
+    }
     if (grid) grid.addEventListener('click', function(event) {
       var card = event.target.closest('.scripture-book-card');
       if (!card) return;

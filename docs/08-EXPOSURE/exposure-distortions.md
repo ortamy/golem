@@ -1,4 +1,4 @@
-# 📜 סוּגֵי עִיוּת — ТИПЫ ИСКАЖЕНИЙ
+# 📜 ТИПЫ ИСКАЖЕНИЙ
 
 **Метаданные файла**
 - **Файл:** `instructions/exposure/exposure-distortions.md`

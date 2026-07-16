@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/research-library.css">
 <link rel="stylesheet" href="css/scripture-reader.css">
 <link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="css/religionisms.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
@@ -76,6 +77,7 @@
         <a href="#word-analyzer" class="sidebar-item" data-module="word-analyzer"><img src="../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Разбор слов</a>
         <a href="#scripture-reader" class="sidebar-item" data-module="scripture-reader"><img src="../assets/icons/32/ui/book.png" class="lab-icon" alt="">Книгочтение</a>
         <a href="#religionism-checker" class="sidebar-item" data-module="religionism-checker"><img src="../assets/icons/32/ui/question.png" class="lab-icon" alt="Чекер религионимов">Чекер религионимов</a>
+        <a href="#religionisms" class="sidebar-item" data-module="religionisms"><img src="../assets/icons/32/ui/question.png" class="lab-icon" alt="Религионизмы">Религионизмы</a>
         <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><img src="../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="Сравнение переводов">Сравнение переводов</a>
       </div>
     </div>
@@ -105,7 +107,7 @@
         <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><img src="../assets/icons/32/paleo/track.png" class="lab-icon" alt="Палео-клавиатура">Палео-клавиатура</a>
       </div>
     </div>
-    <div class="sidebar-section" id="sidebar-admin-section" style="display:none;">
+    <div class="sidebar-section" id="sidebar-admin-section">
       <div class="sidebar-section-header" data-section="system">
         <img src="../assets/icons/32/ui/settings.png" class="icon" alt="">
         <span>Система</span>
@@ -113,6 +115,7 @@
       </div>
       <div class="sidebar-section-content" id="section-system">
         <a href="#admin-settings" class="sidebar-item" data-module="admin-settings"><img src="../assets/icons/32/ui/settings.png" class="lab-icon" alt="">Настройки</a>
+        <a href="#settings" class="sidebar-item" data-module="settings" style="display:none;"><img src="../assets/icons/32/ui/settings.png" class="lab-icon" alt="">Настройки (alias)</a>
       </div>
     </div>
   </div>
@@ -335,7 +338,7 @@ const LabSearch = {
 
 // ===== LAB HOTKEYS =====
 const LabHotkeys = {
-  modules: ['dashboard', 'root-dictionary', 'word-analyzer', 'religionism-checker', 'translation-comparator', 'board-library', 'vision', 'ed-chat', 'paleo-keyboard'],
+  modules: ['dashboard', 'root-dictionary', 'word-analyzer', 'religionism-checker', 'translation-comparator', 'board-library', 'vision', 'ed-chat', 'paleo-keyboard', 'admin-settings'],
   
   init: function() {
     document.addEventListener('keydown', function(e) {
@@ -1185,6 +1188,7 @@ const LabRenderer = {
       this.boardGenerator(),
       this.researchGenerator(),
       this.religionismChecker(),
+      this.religionisms(),
       this.translationComparator(),
       this.boardLibrary(),
       this.researchLibrary(),
@@ -1211,6 +1215,7 @@ const LabRenderer = {
       'js/etymology-lab.js',
       'js/board-generator.js',
       'js/religionism-checker.js',
+      'js/modules/religionisms.js',
       'js/translation-comparator.js',
       'js/board-library.js',
       'js/vision-ui.js',
@@ -1252,6 +1257,7 @@ const LabRenderer = {
 }, 500);
   if (window.EtyLab) EtyLab.init();
   if (window.RelChecker) RelChecker.init();
+  if (window.Religionisms) Religionisms.init();
   if (window.TransComp) TransComp.init();
   if (window.BoardLib) BoardLib.init();
   if (window.VisionUI) VisionUI.init();
@@ -1363,6 +1369,9 @@ const LabRenderer = {
       '<article class="scripture-verse" id="scripture-verse-article" style="display:none;" aria-labelledby="scripture-verse-title">' +
         '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm scripture-back-btn" id="scripture-back-btn">← К списку книг</button>' +
         '<div class="scripture-verse-meta" id="scripture-verse-title">Берешит 1:1</div>' +
+        '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm scripture-copy-button scripture-copy-verse" id="scripture-copy-verse" aria-label="Копировать стих" title="Копировать стих">' +
+          '<svg class="scripture-copy-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="11" height="11" rx="1.5"></rect><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"></path></svg>' +
+        '</button>' +
         '<div id="scripture-paleo" class="scripture-paleo" dir="rtl" lang="hbo" aria-label="Палео-иврит"></div>' +
         '<div id="scripture-hebrew" class="scripture-hebrew" dir="rtl" lang="he"></div>' +
         '<div id="scripture-translit" class="scripture-translit"></div>' +
@@ -1560,6 +1569,18 @@ const LabRenderer = {
       '<div class="lab-card"><div class="lab-card-header"><img src="../assets/icons/32/ui/book.png" width="32" height="32" alt="Словарь" style="vertical-align: middle; margin-right: 6px;"> Словарь подмен</div><div class="lab-card-body" id="rc-dict"></div></div></div>';
   },
   
+  religionisms: function() {
+    return '<div id="religionisms" class="module">' +
+      '<h1><img src="../assets/icons/32/ui/question.png" width="32" height="32" alt="Религионизмы" style="vertical-align: middle; margin-right: 6px;"> Религионизмы</h1>' +
+      '<p class="subtitle">Каждая сфера, учреждённая человеком вне откровения Яхве — структурированный шекер со своим алтарём, жрецами и жертвами. 9 компонентов на каждую сферу.</p>' +
+      '<div class="search-wrap"><input type="text" id="rel-search" class="lab-input" placeholder="Медицина, алтарь, жрец..." oninput="if(window.Religionisms)Religionisms.filter(this.value)"></div>' +
+      '<div class="rd-stats"><div class="rd-stat"><div class="num" id="rel-found">0</div><div class="label">Сфер найдено</div></div></div>' +
+      '<div id="rel-grid" class="rel-grid"></div>' +
+      '<div id="rel-detail" class="rel-detail" style="display:none;"></div>' +
+      '<div id="rel-empty" class="lab-alert lab-alert-info" style="display:none">Ничего не найдено.</div>' +
+      '</div>';
+  },
+
   translationComparator: function() {
     return '<div id="translation-comparator" class="module">' +
       '<h1><img src="../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Сравнение переводов" style="vertical-align: middle; margin-right: 6px;"> Сравнение переводов</h1>' +
