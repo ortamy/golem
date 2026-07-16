@@ -24,7 +24,7 @@ golem/
 │       └── agents/       # researcher.py, exposer.py, collector.py
 ├── tools/                # Python-утилиты, чекеры, генераторы
 ├── tasks/                # current.md, backlog.md, prompts.md
-└── docs/                 # ARCHITECTURE.md, ROADMAP.md, CHANGELOG.md
+└── docs/                 # 00-START/, 01-ARCHITECTURE/, 02-MANAGEMENT/, 03-CONTENT/, 04-REFERENCE/
 
 ## Компоненты
 

@@ -1,169 +1,72 @@
-# 📑 ИНДЕКС DOCS
+# 📑 ИНДЕКС ДОКУМЕНТАЦИИ
 
-**Описание:** Индекс всей документации проекта «ГОЛЕМ»
-
----
-
-## 📊 СТАТИСТИКА
-
-- **Всего файлов:** 20+
-- **Папок:** 1
-- **Последнее обновление:** 2026-07-01
+**Описание:** Автоматически сгенерированный индекс документации проекта «ГОЛЕМ»
 
 ---
 
-## 📚 ОСНОВНАЯ ДОКУМЕНТАЦИЯ
+## 📂 СТРУКТУРА ПАПОК
 
-### Архитектура и структура
-- [ARCHITECTURE.md](ARCHITECTURE.md) - архитектура проекта
-- [STRUCTURE.md](STRUCTURE.md) - полная структура репозитория
+### 00-START (Вводный материал)
+- [README.md](00-START/README.md) - главная страница документации
 - [INDEX.md](INDEX.md) - этот файл
 
-### Управление проектом
-- [BACKLOG.md](BACKLOG.md) - текущие задачи
-- [ROADMAP.md](ROADMAP.md) - дорожная карта
-- [TECHNICAL-DEBT.md](TECHNICAL-DEBT.md) - технический долг
-- [DECISIONS.md](DECISIONS.md) - журнал решений
-- [RETROSPECTIVE.md](RETROSPECTIVE.md) - ретроспектива
+### 01-ARCHITECTURE (Архитектура)
+- [ARCHITECTURE.md](01-ARCHITECTURE/ARCHITECTURE.md) - архитектура проекта
 
-### Контент и изменения
-- [CHANGELOG.md](CHANGELOG.md) - история изменений
-- [CONTRIBUTORS.md](CONTRIBUTORS.md) - контрибьюторы
-- [GLOSSARY.md](GLOSSARY.md) - глоссарий терминов
-- [GLOSSARY-DEVELOPMENT.md](GLOSSARY-DEVELOPMENT.md) - глоссарий разработки
+### 02-MANAGEMENT (Управление проектом)
+- [BACKLOG.md](02-MANAGEMENT/BACKLOG.md) - текущие задачи
+- [ROADMAP.md](02-MANAGEMENT/ROADMAP.md) - дорожная карта
+- [TECHNICAL-DEBT.md](02-MANAGEMENT/TECHNICAL-DEBT.md) - технический долг
+- [DECISIONS.md](02-MANAGEMENT/DECISIONS.md) - журнал решений
+- [RETROSPECTIVE.md](02-MANAGEMENT/RETROSPECTIVE.md) - ретроспектива
+- [CHANGELOG.md](02-MANAGEMENT/CHANGELOG.md) - история изменений
+- [CONTRIBUTORS.md](02-MANAGEMENT/CONTRIBUTORS.md) - контрибьюторы
+- [CONTROL.md](02-MANAGEMENT/CONTROL.md) - контроль проекта
 
-### Специальные документы
-- [GRAPH.md](GRAPH.md) - граф проекта
-- [IDEAS.md](IDEAS.md) - идеи проекта
-- [STATS.md](STATS.md) - статистика
-- [STRATEGY.md](STRATEGY.md) - стратегия
-- [CONTROL.md](CONTROL.md) - контроль проекта
+### 03-CONTENT (Контент и справка)
+- [GLOSSARY.md](03-CONTENT/GLOSSARY.md) - глоссарий терминов
+- [GLOSSARY-DEVELOPMENT.md](03-CONTENT/GLOSSARY-DEVELOPMENT.md) - глоссарий разработки
+- [GRAPH.md](03-CONTENT/GRAPH.md) - граф проекта
+- [IDEAS.md](03-CONTENT/IDEAS.md) - идеи проекта
+- [STATS.md](03-CONTENT/STATS.md) - статистика
+- [STRATEGY.md](03-CONTENT/STRATEGY.md) - стратегия
+- [ML-COURSE.md](03-CONTENT/ML-COURSE.md) - курс по ML
+- [MANIFEST.md](03-CONTENT/MANIFEST.md) - манифест проекта
+- [AI-MODELS.md](03-CONTENT/AI-MODELS.md) - AI-модели для проекта
 
----
+### 05-AUDITS (Аудиты)
+- [05-AUDITS/](05-AUDITS/) - аудиты
 
-## 📂 КАТЕГОРИИ
+### 06-DESIGN (Дизайн)
+- [06-DESIGN/](06-DESIGN/) - дизайн
 
-### Проектная документация
-- ARCHITECTURE.md - архитектура
-- STRUCTURE.md - структура
-- ROADMAP.md - дорожная карта
-- BACKLOG.md - задачи
-- DECISIONS.md - решения
-- RETROSPECTIVE.md - ретроспектива
+### 07-DICTIONARIES (Словари)
+- [07-DICTIONARIES/](07-DICTIONARIES/) - словари
 
-### Техническая документация
-- TECHNICAL-DEBT.md - технический долг
-- CHANGELOG.md - изменения
-- CONTRIBUTORS.md - контрибьюторы
-- GLOSSARY.md - глоссарий
-- GRAPH.md - граф
+### 08-EXPOSURE (Разоблачения)
+- [08-EXPOSURE/](08-EXPOSURE/) - разоблачения
 
-### Продуктовая документация
-> Документация продуктов находится в `products/` и `instructions/products/`.
+### 09-GUIDES (Руководства)
+- [09-GUIDES/](09-GUIDES/) - руководства
 
-### Методологическая документация
-- STRATEGY.md - стратегия
-- IDEAS.md - идеи
-- STATS.md - статистика
-- CONTROL.md - контроль
+### 10-INSTRUCTIONS (Инструкции)
+- [10-INSTRUCTIONS/](10-INSTRUCTIONS/) - инструкции
 
----
+### 11-JOB (Задачи)
+- [11-JOB/](11-JOB/) - задачи
 
-## 🔗 СВЯЗИ
+### 12-LIBRARY (Библиотека)
+- [12-LIBRARY/](12-LIBRARY/) - библиотека
 
-### Внешние связи
-- [README.md](../README.md) - главная страница
-- [content/](../content/) - контент
-- [products/](../products/) - продукты
-- [tools/](../tools/) - инструменты
-- [instructions/](../instructions/) - методология
-- [guides/](../guides/) - руководства
+### 13-METHODOLOGY (Методология)
+- [13-METHODOLOGY/](13-METHODOLOGY/) - методология
+
+### 14-REPORTS (Отчёты)
+- [14-REPORTS/](14-REPORTS/) - отчёты
+
+### 15-TEMPLATES (Шаблоны)
+- [15-TEMPLATES/](15-TEMPLATES/) - шаблоны
 
 ---
 
-## 📝 ПРАВИЛА
-
-1. **Метаданные:** каждый файл должен иметь метаданные
-2. **Версионирование:** изменения фиксировать в CHANGELOG.md
-3. **Ссылки:** использовать относительные пути
-4. **Согласованность:** документация должна соответствовать ARCHITECTURE.md
-
----
-
-## 🛠 ИСПОЛЬЗОВАНИЕ
-
-### Для разработчиков
-```bash
-# Начать с ARCHITECTURE.md
-# Затем STRUCTURE.md
-# Затем ROADMAP.md
-```
-
-### Для контрибьюторов
-```bash
-# Прочитать CONTRIBUTORS.md
-# Изучить DECISIONS.md
-# Проверить BACKLOG.md
-```
-
-### Для пользователей
-```bash
-# Начать с README.md
-# Затем GLOSSARY.md
-# Затем guides/
-```
-
----
-
-## 📊 СТАТИСТИКА
-
-- **Всего документов:** 20+
-- **Архитектура:** 3 файла
-- **Управление:** 5 файлов
-- **Контент:** 4 файла
-- **Продукты:** 5 файлов
-- **Методология:** 3 файла
-
----
-
-## 🔗 НАВИГАЦИЯ
-
-- [README.md](../README.md) - главная страница
-- [ARCHITECTURE.md](ARCHITECTURE.md) - архитектура проекта
-- [STRUCTURE.md](STRUCTURE.md) - полная структура
-
-### По категориям
-- [ARCHITECTURE.md](ARCHITECTURE.md) - архитектура
-- [STRUCTURE.md](STRUCTURE.md) - структура
-- [CHANGELOG.md](CHANGELOG.md) - изменения
-- [BACKLOG.md](BACKLOG.md) - задачи
-- [ROADMAP.md](ROADMAP.md) - дорожная карта
-- [TECHNICAL-DEBT.md](TECHNICAL-DEBT.md) - технический долг
-- [DECISIONS.md](DECISIONS.md) - решения
-- [RETROSPECTIVE.md](RETROSPECTIVE.md) - ретроспектива
-- [GLOSSARY.md](GLOSSARY.md) - глоссарий
-- [CONTRIBUTORS.md](CONTRIBUTORS.md) - контрибьюторы
-- [STRATEGY.md](STRATEGY.md) - стратегия
-- [IDEAS.md](IDEAS.md) - идеи
-- [STATS.md](STATS.md) - статистика
-- [GRAPH.md](GRAPH.md) - граф
-- [CONTROL.md](CONTROL.md) - контроль
-- [GLOSSARY-DEVELOPMENT.md](GLOSSARY-DEVELOPMENT.md) - глоссарий разработки
-
----
-
-## 📝 ПРИМЕЧАНИЯ
-
-1. **Полнота:** индекс содержит все документы docs/
-2. **Актуальность:** обновляется при добавлении новых документов
-3. **Структура:** organised по категориям
-4. **Ссылки:** все ссылки рабочие
-5. **Поиск:** использовать Ctrl+F для быстрого поиска
-
----
-
-## 🛠 ОБНОВЛЕНИЕ ИНДЕКСА
-
-```bash
-# Автоматическое обновление индекса
-python tools/generators/generate-index.py --docs
+> **Примечание:** Индекс автоматически генерируется. Для обновления запустите: `python tools/generators/generate-index.py --docs`
