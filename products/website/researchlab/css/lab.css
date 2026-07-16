@@ -436,6 +436,12 @@ code, pre, kbd, .translit, .mono {
 }
 .lab-btn-primary:hover { background: var(--accent-gold-hover); }
 .lab-btn-primary:disabled { background: var(--border-light); cursor: not-allowed; color: var(--text-muted); box-shadow: none; transform: none; }
+.lab-btn-primary-orange {
+  background: var(--accent-red);
+  color: #faf3e0;
+}
+.lab-btn-primary-orange:hover { background: var(--accent-red-hover); }
+.lab-btn-primary-orange:disabled { background: var(--border-light); cursor: not-allowed; color: var(--text-muted); box-shadow: none; transform: none; }
 .lab-btn-secondary {
   background: transparent;
   color: var(--accent-gold);
@@ -451,10 +457,26 @@ code, pre, kbd, .translit, .mono {
 .lab-btn-secondary:active {
   background: rgba(184,134,11,0.12);
 }
+.lab-btn-secondary-orange {
+  background: transparent;
+  color: var(--accent-red);
+  border: 1px solid var(--accent-red);
+  box-shadow: none;
+}
+.lab-btn-secondary-orange:hover {
+  background: rgba(192, 57, 43, 0.06);
+  border-color: var(--accent-red-hover);
+  color: var(--accent-red-hover);
+  box-shadow: 0 2px 8px rgba(192, 57, 43, 0.12);
+}
+.lab-btn-secondary-orange:active {
+  background: rgba(192, 57, 43, 0.12);
+}
 .lab-btn-danger { background: var(--accent-red); color: #faf3e0; }
 .lab-btn-danger:hover { background: var(--accent-red-hover); }
 .lab-btn-danger:active { background: #8a2a1e; }
 .lab-btn-sm { padding: 6px 14px; font-size: 13px; }
+.lab-btn-compact { padding: 8px 16px; font-size: 14px; font-weight: 600; }
 
 /* ===== CARDS ===== */
 .lab-card {
