@@ -46,12 +46,12 @@ echo "[6/8] Copying docs/..."
 mkdir -p "$BUILD_DIR/docs"
 cp -r "$ROOT_DIR/docs/STRUCTURE.md" "$BUILD_DIR/docs/" 2>/dev/null || true
 
-# 8. Копирование src/ (контент, страницы, данные, ассеты, стили)
+# 8. Копирование src/ и корневых ассетов (контент, страницы, данные, ассеты, стили)
 echo "[7/8] Copying src/..."
 cp -r "$ROOT_DIR/src/content" "$BUILD_DIR/content"
 cp -r "$ROOT_DIR/src/pages" "$BUILD_DIR/pages"
 cp -r "$ROOT_DIR/src/data" "$BUILD_DIR/data"
-cp -r "$ROOT_DIR/src/assets" "$BUILD_DIR/assets"
+cp -r "$ROOT_DIR/assets" "$BUILD_DIR/assets"
 mkdir -p "$BUILD_DIR/src"
 cp "$ROOT_DIR/src/styles/input.css" "$BUILD_DIR/src/input.css"
 
