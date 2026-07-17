@@ -1,6 +1,8 @@
 {
   "devDependencies": {
-    "playwright": "^1.61.1"
+    "@tailwindcss/cli": "^4.3.3",
+    "playwright": "^1.61.1",
+    "tailwindcss": "^4.3.3"
   },
   "scripts": {
     "build": "tailwindcss -i src/styles/input.css -o style.css --minify"
