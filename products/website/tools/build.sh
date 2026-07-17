@@ -52,8 +52,8 @@ cp -r "$ROOT_DIR/src/content" "$BUILD_DIR/content"
 cp -r "$ROOT_DIR/src/pages" "$BUILD_DIR/pages"
 cp -r "$ROOT_DIR/src/data" "$BUILD_DIR/data"
 cp -r "$ROOT_DIR/assets" "$BUILD_DIR/assets"
-mkdir -p "$BUILD_DIR/src"
-cp "$ROOT_DIR/src/styles/input.css" "$BUILD_DIR/src/input.css"
+mkdir -p "$BUILD_DIR/src/styles"
+cp "$ROOT_DIR/src/styles/input.css" "$BUILD_DIR/src/styles/input.css"
 
 # 9. Копирование config/ в build/ для сборки
 echo "[8/8] Copying config and building CSS..."
