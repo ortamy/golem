@@ -1203,6 +1203,7 @@ code, pre, kbd, .translit, .mono {
     width: 44px;
     height: 44px;
     padding: 10px;
+    margin-left: auto;
     border: 1px solid var(--border-dark);
     border-radius: 6px;
     background: var(--bg-dark-hover);
@@ -1281,16 +1282,16 @@ code, pre, kbd, .translit, .mono {
   .lab-sidebar {
     position: fixed;
     top: 56px;
-    left: 0;
+    right: 0;
     bottom: 0;
     width: min(82vw, 320px);
     min-width: 0;
     height: calc(100vh - 56px);
     padding: 12px 0 20px;
-    border-right: 1px solid var(--border-light);
+    border-left: 1px solid var(--border-light);
     border-bottom: none;
-    box-shadow: 8px 0 24px rgba(0,0,0,0.24);
-    transform: translateX(-105%);
+    box-shadow: -8px 0 24px rgba(0,0,0,0.24);
+    transform: translateX(105%);
     transition: transform var(--transition);
     z-index: 9996;
     overflow-y: auto;

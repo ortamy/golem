@@ -19,17 +19,13 @@
 <link rel="stylesheet" href="css/religionisms.css">
 <link rel="stylesheet" href="css/learn.css">
 <link rel="stylesheet" href="css/exposure-editor.css">
+<link rel="stylesheet" href="css/heraldry.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 
 <!-- HEADER -->
 <header class="lab-header">
-  <button class="lab-hamburger hamburger-btn" id="labSidebarToggle" aria-label="Открыть меню" aria-controls="labSidebar" aria-expanded="false" onclick="LabSidebar.toggle()" style="display:none;">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
   <a href="#dashboard" class="logo"><img src="../../assets/images/golem-logo-2.png" alt="ГОЛЕМ" style="height: 40px; width: auto;"></a>
   
   <!-- Global Search -->
@@ -44,6 +40,11 @@
     <a href="../"><img src="../../assets/icons/32/nav/door.png" width="32" height="32" alt="Сайт" style="vertical-align: middle; margin-right: 6px;"> Сайт</a>
     <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener">GitHub</a>
   </nav>
+  <button class="lab-hamburger hamburger-btn" id="labSidebarToggle" aria-label="Открыть меню" aria-controls="labSidebar" aria-expanded="false" onclick="LabSidebar.toggle()" style="display:none;">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
 
 <!-- LAYOUT -->
@@ -65,6 +66,7 @@
         <a href="#researches" class="sidebar-item" data-module="researches"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</a>
         <a href="#exposure" class="sidebar-item" data-module="exposure"><img src="../../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Принципы</a>
         <a href="#methodology" class="sidebar-item" data-module="methodology"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Методички</a>
+        <a href="#paleo-mechanics" class="sidebar-item" data-module="paleo-mechanics"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-механика</a>
       </div>
     </div>
     <div class="sidebar-section">
@@ -96,6 +98,7 @@
         <a href="#board-library" class="sidebar-item" data-module="board-library"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Архив досок</a>
         <a href="#investigation" class="sidebar-item" data-module="investigation"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</a>
         <a href="#exposure-editor" class="sidebar-item" data-module="exposure-editor"><img src="../../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Рабочий стол исследователя</a>
+        <a href="#heraldry" class="sidebar-item" data-module="heraldry"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Гербовник</a>
       </div>
     </div>
     <div class="sidebar-section">
@@ -717,7 +720,8 @@ const LabRenderer = {
   pageState: {
     dictionaries: { key: '', query: '' },
     exposure: { key: '' },
-    methodology: { key: '' }
+    methodology: { key: '' },
+    'paleo-mechanics': { key: '' }
   },
   researchMarkdown: '',
   researchTopic: '',
@@ -778,7 +782,6 @@ const LabRenderer = {
   loadModule: function(moduleId) {
     var container = document.getElementById(moduleId);
     if (!container || container.dataset.loaded) return;
-    container.dataset.loaded = '1';
 
     if (moduleId.indexOf('research-library-') === 0) {
       var researchId = decodeURIComponent(moduleId.substring('research-library-'.length));
@@ -798,6 +801,10 @@ const LabRenderer = {
       this.loadJsonPage('methodology', 'data/methodology.json', container);
       return;
     }
+    if (moduleId === 'paleo-mechanics') {
+      this.loadJsonPage('paleo-mechanics', 'data/paleo-mechanics.json', container);
+      return;
+    }
     if (moduleId === 'research-library') {
       this.loadResearchLibrary(container);
       return;
@@ -806,6 +813,18 @@ const LabRenderer = {
       if (window.LoadResearches) window.LoadResearches.render(container);
       return;
     }
+
+    if (moduleId === 'heraldry') {
+      if (!window.Heraldry) {
+        container.innerHTML = '<div class="lab-alert lab-alert-error">Модуль «Гербовник» не загрузился. Обновите страницу и проверьте путь js/heraldry.js.</div>';
+        return;
+      }
+      container.dataset.loaded = '1';
+      window.Heraldry.init();
+      return;
+    }
+
+    container.dataset.loaded = '1';
     
     var path = this.markdownPaths[moduleId];
     if (!path) return;
@@ -961,7 +980,7 @@ const LabRenderer = {
     
     // If no document selected, show card grid
     if (!state.key) {
-      var iconPath = page === 'exposure' ? '../../assets/icons/32/archaeology/lamp.png' : '../../assets/icons/32/crafts/hammer-and-chisel.png';
+      var iconPath = page === 'exposure' ? '../../assets/icons/32/archaeology/lamp.png' : (page === 'paleo-mechanics' ? '../../assets/icons/32/paleo/track.png' : '../../assets/icons/32/crafts/hammer-and-chisel.png');
       var docCards = keys.map(function(key, index) {
         var doc = data[key];
         return '<a href="#" class="doc-card" data-key="' + escapeHtml(key) + '" style="animation-delay: ' + (index * 50) + 'ms">' +
@@ -970,7 +989,7 @@ const LabRenderer = {
           '<div class="doc-desc">' + escapeHtml((doc.description || '').split('---')[0].trim().substring(0, 120) + (doc.description && doc.description.length > 120 ? '...' : '')) + '</div>' +
           '</a>';
       }).join('');
-      var heading = page === 'exposure' ? 'Принципы' : 'Методички';
+      var heading = page === 'exposure' ? 'Принципы' : (page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички');
       container.innerHTML = '<div class="research-page-head">' +
         '<h1><img src="' + iconPath + '" class="lab-icon" alt="">' + heading + '</h1>' +
         '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p>' +
@@ -1002,8 +1021,8 @@ const LabRenderer = {
       var content = typeof marked !== 'undefined' && marked.parse ? marked.parse(section.content || '') : escapeHtml(section.content || '');
       return '<article class="research-section"><h2>' + escapeHtml(section.title || '') + '</h2><div class="research-section-content">' + content + '</div></article>';
     }).join('');
-    var heading = page === 'exposure' ? 'Принципы' : 'Методички';
-    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRenderer.pageState.' + page + '.key=\'\';LabRenderer.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', LabRenderer.jsonData.' + page + ')">← Назад к списку</button>';
+    var heading = page === 'exposure' ? 'Принципы' : (page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички');
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRenderer.pageState[\'' + page + '\'].key=\'\';LabRenderer.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', LabRenderer.jsonData[\'' + page + '\'])">← Назад к списку</button>';
     
     container.innerHTML = '<div class="research-page-head"><h1>' + heading + '</h1>' +
       '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p></div>' +
@@ -1205,7 +1224,9 @@ const LabRenderer = {
       this.dictionaries(),
       this.exposure(),
       this.methodology(),
+      this.paleoMechanics(),
       this.adminSettings(),
+      this.heraldry(),
       this.researches()
     ];
     
@@ -1231,17 +1252,23 @@ const LabRenderer = {
       , 'js/load-researches.js'
       , 'js/admin-settings.js'
       , 'js/learn.js'
+      , 'js/heraldry.js'
     ];
     
     let loaded = 0;
     scripts.forEach(function(src) {
       var s = document.createElement('script');
       s.src = src;
-      s.onload = function() {
+      function finishScript() {
         loaded++;
         if (loaded === scripts.length) {
           LabRenderer.initModules();
         }
+      }
+      s.onload = finishScript;
+      s.onerror = function() {
+        console.warn('[ResearchLab] Не удалось загрузить скрипт:', src);
+        finishScript();
       };
       document.body.appendChild(s);
     });
@@ -1274,7 +1301,6 @@ const LabRenderer = {
   if (window.ScriptureReader) ScriptureReader.init();
   if (window.AdminSettings) AdminSettings.init();
   if (window.LearnLab) LearnLab.init();
-
   // Init board generator form
   if (document.getElementById('board-form')) {
     document.getElementById('board-form').addEventListener('submit', function(e) {
@@ -1713,6 +1739,12 @@ const LabRenderer = {
       '</div>';
   },
 
+  paleoMechanics: function() {
+    return '<div id="paleo-mechanics" class="module research-json-module">' +
+      '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка палео-механики...</div></div>' +
+      '</div>';
+  },
+
   dictReligionims: function() {
     return '<div id="dict-religionims" class="module"><div class="lab-spinner show"><div class="loader"></div></div></div>';
   },
@@ -1839,6 +1871,10 @@ const LabRenderer = {
 
   adminSettings: function() {
     return '<div id="admin-settings" class="module"></div>';
+  },
+
+  heraldry: function() {
+    return '<div id="heraldry" class="module"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка гербовника...</div></div></div>';
   },
 
   researches: function() {
