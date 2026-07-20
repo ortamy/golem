@@ -1,0 +1,40 @@
+/* Etymology Lab Styles */
+
+.el-input-section { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 24px; margin-bottom: 24px; }
+.el-input-section .el-hint { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+.el-input-section .el-examples { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.el-input-section .el-examples .example-chip { padding: 4px 12px; border: 1px solid var(--border-light); border-radius: 12px; font-size: 14px; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; background: var(--bg-primary); }
+.el-input-section .el-examples .example-chip:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+.el-result { display: none; }
+.el-result.show { display: block; animation: elFadeIn 0.3s ease; }
+@keyframes elFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.el-word-header { background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 6px; padding: 24px; margin-bottom: 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.el-word-header .el-word-heb { font-size: 48px; font-family: 'Times New Roman', serif; line-height: 1; color: var(--accent-gold); }
+.el-word-header .el-word-info { flex: 1; }
+.el-word-header .el-word-info .el-word-translit { font-family: monospace; font-size: 16px; color: var(--text-muted); }
+.el-word-header .el-word-info .el-word-meaning { font-size: 18px; color: var(--text-primary); margin-top: 4px; }
+.el-word-header .el-word-paleo { font-size: 32px; letter-spacing: 6px; color: var(--accent-gold); }
+
+.el-section { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 20px; margin-bottom: 16px; }
+.el-section-title { font-family: var(--font-heading); font-size: 18px; font-weight: 600; font-style: italic; color: var(--accent-gold); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border-light); }
+
+.el-letter-breakdown { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.el-letter-box { text-align: center; background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: 6px; padding: 14px 10px; min-width: 90px; transition: all 0.2s; }
+.el-letter-box:hover { border-color: var(--accent-gold); }
+.el-letter-box .ell-paleo { font-size: 36px; font-family: 'Times New Roman', serif; line-height: 1.2; color: var(--accent-gold); }
+.el-letter-box .ell-heb { font-size: 24px; font-family: 'Times New Roman', serif; }
+.el-letter-box .ell-name { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.el-letter-box .ell-image { font-size: 24px; display: block; margin-top: 4px; }
+.el-letter-box .ell-meaning { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+.el-substitution-table { width: 100%; border-collapse: collapse; }
+.el-substitution-table th, .el-substitution-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border-light); font-size: 15px; }
+.el-substitution-table th { background: var(--bg-primary); font-family: var(--font-heading); font-weight: 600; }
+.el-substitution-table .sub-red { color: var(--accent-red); }
+.el-substitution-table .sub-green { color: #2a6a2a; font-weight: 600; }
+
+.el-root-card { background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: 4px; padding: 16px; margin-top: 12px; }
+.el-root-card .el-root-heb { font-size: 28px; font-family: 'Times New Roman', serif; color: var(--accent-gold); }
+.el-root-card .el-root-meaning { font-size: 16px; color: var(--text-secondary); margin-top: 4px; }

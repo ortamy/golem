@@ -1,0 +1,429 @@
+/**
+ * heraldry.css — Стили для модуля «Гербовник»
+ * Палео-стиль, пергаментная эстетика
+ */
+
+/* ===== СТРАНИЦА ===== */
+.heraldry-page {
+  padding: 24px clamp(16px, 3vw, 40px);
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.heraldry-head {
+  margin-bottom: 22px;
+}
+
+.heraldry-head h1 {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+  margin-bottom: 8px;
+}
+
+.heraldry-head .subtitle {
+  font-family: var(--font-body, 'EB Garamond', Georgia, serif);
+  font-size: 16px;
+  color: var(--text-muted, #6b5b4e);
+  line-height: 1.5;
+}
+
+/* ===== СЕТКА КАРТОЧЕК ===== */
+.heraldry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* ===== КАРТОЧКА ===== */
+.heraldry-card {
+  background: var(--bg-card, #faf6ef);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 7px;
+  padding: 13px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  animation: heraldryFadeIn 0.4s ease both;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.heraldry-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: var(--accent-gold, #b8860b);
+}
+
+@keyframes heraldryFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Флаг и герб */
+.heraldry-card-flags {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  margin: -2px 0 1px;
+}
+
+.heraldry-flag,
+.heraldry-coat {
+  width: 72px;
+  height: auto;
+  max-height: 44px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid var(--border-light, #d4c4a8);
+  background: #fff;
+}
+
+.heraldry-coat {
+  width: 42px;
+  max-height: 48px;
+}
+
+/* Заголовок карточки */
+.heraldry-card-header {
+  text-align: center;
+  min-width: 0;
+}
+
+.heraldry-card-title {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+  margin: 0;
+}
+
+.heraldry-card-hebrew {
+  font-family: 'Times New Roman', serif;
+  font-size: 18px;
+  color: var(--text-secondary, #4a3728);
+  margin-top: 4px;
+  direction: rtl;
+}
+
+.heraldry-card-paleo {
+  font-family: 'Times New Roman', serif;
+  font-size: 17px;
+  color: var(--accent-gold, #9d7210);
+  margin-top: 3px;
+  direction: rtl;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Короткая строка образа */
+.heraldry-card-description {
+  background: var(--bg-subtle, #f5f0e8);
+  border-radius: 4px;
+  padding: 8px 9px;
+  margin: 1px 0;
+  min-height: 52px;
+  font-size: 13px;
+  color: var(--text-secondary, #4a3728);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Вывод */
+.heraldry-card-conclusion {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 5px 8px;
+  border-radius: 4px;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+.heraldry-conclusion-channel {
+  background: rgba(180, 60, 60, 0.1);
+  color: #b43c3c;
+  border: 1px solid rgba(180, 60, 60, 0.2);
+}
+
+.heraldry-conclusion-flow {
+  background: rgba(60, 130, 60, 0.1);
+  color: #3a823a;
+  border: 1px solid rgba(60, 130, 60, 0.2);
+}
+
+/* Кнопка деталей */
+.heraldry-detail-btn {
+  align-self: stretch;
+  text-align: center;
+  margin-top: auto;
+}
+
+.heraldry-detail-btn:focus-visible,
+.heraldry-card:focus-visible {
+  outline: 2px solid var(--accent-gold, #b8860b);
+  outline-offset: 2px;
+}
+
+/* ===== ДЕТАЛЬНЫЙ ПРОСМОТР (МОДАЛКА) ===== */
+.heraldry-detail {
+  max-width: 700px;
+}
+
+.heraldry-detail-flags {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.heraldry-flag-lg {
+  width: 160px;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--border-light, #d4c4a8);
+  background: #fff;
+}
+
+.heraldry-coat-lg {
+  width: 100px;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--border-light, #d4c4a8);
+  background: #fff;
+}
+
+/* Имена */
+.heraldry-detail-names {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.heraldry-detail-name {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+}
+
+.heraldry-detail-hebrew {
+  font-family: 'Times New Roman', serif;
+  font-size: 22px;
+  color: var(--text-secondary, #4a3728);
+  margin-top: 6px;
+  direction: rtl;
+}
+
+.heraldry-detail-paleo {
+  font-family: 'Times New Roman', serif;
+  font-size: 18px;
+  color: var(--text-muted, #6b5b4e);
+  margin-top: 4px;
+  direction: rtl;
+}
+
+/* Секции */
+.heraldry-detail-section {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-light, #d4c4a8);
+}
+
+.heraldry-detail-section:last-child {
+  border-bottom: none;
+}
+
+.heraldry-detail-section h3 {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+  margin-bottom: 10px;
+}
+
+.heraldry-detail-section p {
+  font-family: var(--font-body, 'EB Garamond', Georgia, serif);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary, #4a3728);
+}
+
+.heraldry-detail-section ul {
+  padding-left: 20px;
+}
+
+.heraldry-detail-section li {
+  font-family: var(--font-body, 'EB Garamond', Georgia, serif);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary, #4a3728);
+  margin-bottom: 4px;
+}
+
+/* Палео-текст */
+.heraldry-paleo-text {
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+  color: var(--accent-gold, #b8860b);
+}
+
+/* Вывод большой */
+.heraldry-conclusion-big {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Карта утрат */
+.heraldry-loss-map {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.heraldry-loss-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 12px;
+  background: var(--bg-subtle, #f5f0e8);
+  border-radius: 4px;
+  border-left: 3px solid var(--accent-gold, #b8860b);
+}
+
+.heraldry-loss-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted, #6b5b4e);
+}
+
+.heraldry-loss-text {
+  font-size: 14px;
+  color: var(--text-secondary, #4a3728);
+  line-height: 1.5;
+}
+
+/* Детали символов */
+.heraldry-symbol-detail {
+  padding: 12px;
+  background: var(--bg-subtle, #f5f0e8);
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.heraldry-symbol-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.heraldry-symbol-detail-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+}
+
+.heraldry-symbol-detail-paleo {
+  font-family: 'Times New Roman', serif;
+  font-size: 16px;
+  color: var(--accent-gold, #b8860b);
+  direction: rtl;
+}
+
+.heraldry-symbol-detail-hebrew {
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+  color: var(--text-muted, #6b5b4e);
+  direction: rtl;
+}
+
+.heraldry-symbol-detail-meaning {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary, #4a3728);
+  margin-bottom: 6px;
+}
+
+.heraldry-symbol-detail-function {
+  font-size: 13px;
+  color: var(--text-secondary, #4a3728);
+}
+
+/* Связанные */
+.heraldry-related {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.heraldry-related-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--bg-subtle, #f5f0e8);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--text-secondary, #4a3728);
+}
+
+/* ===== АДАПТАЦИЯ ===== */
+@media (max-width: 768px) {
+  .heraldry-page {
+    padding: 16px;
+  }
+
+  .heraldry-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .heraldry-flag-lg {
+    width: 120px;
+  }
+
+  .heraldry-coat-lg {
+    width: 80px;
+  }
+
+  .heraldry-detail-flags {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 769px) {
+  .heraldry-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .heraldry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .heraldry-card-flags {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heraldry-card {
+    animation: none;
+    transition: none;
+  }
+}
