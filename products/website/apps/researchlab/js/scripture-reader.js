@@ -147,7 +147,7 @@ const ScriptureReader = (function() {
         ? ''
         : '<span class="tool-badge">Скоро</span>';
       return '<a href="#" class="tool-card scripture-book-card" data-book-id="' + escapeHtml(book.id) + '">' +
-        '<span class="tool-icon"><img src="../../../..../../assets/icons/32/ui/book.png" width="32" height="32" alt=""></span>' +
+'<span class="tool-icon"><img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt=""></span>' +
         '<div class="tool-name">' + escapeHtml(book.ru) + '</div>' +
         '<div class="tool-desc">' + escapeHtml(book.en) + '</div>' +
         badge +

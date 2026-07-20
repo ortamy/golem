@@ -20,7 +20,10 @@
 <link rel="stylesheet" href="css/learn.css">
 <link rel="stylesheet" href="css/exposure-editor.css">
 <link rel="stylesheet" href="css/heraldry.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/cartography.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 </head>
 <body>
 
@@ -37,9 +40,13 @@
   
   <nav>
     <button class="theme-toggle" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn"><img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема"></button>
-    <a href="../"><img src="../../assets/icons/32/nav/door.png" width="32" height="32" alt="Сайт" style="vertical-align: middle; margin-right: 6px;"> Сайт</a>
-    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener">GitHub</a>
+    <a href="../"><img src="../../assets/icons/32/ui/web.png" width="24" height="24" alt="Сайт" style="vertical-align: middle; margin-right: 6px;"> Сайт</a>
+    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener"><img src="../../assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub" style="vertical-align: middle; margin-right: 6px;"> GitHub</a>
   </nav>
+  <div class="lab-header-mobile-links">
+    <a href="../" class="mobile-icon-link" title="Сайт"><img src="../../assets/icons/32/ui/web.png" width="24" height="24" alt="Сайт"></a>
+    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub"><img src="../../assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub"></a>
+  </div>
   <button class="lab-hamburger hamburger-btn" id="labSidebarToggle" aria-label="Открыть меню" aria-controls="labSidebar" aria-expanded="false" onclick="LabSidebar.toggle()" style="display:none;">
     <span></span>
     <span></span>
@@ -53,6 +60,7 @@
   <!-- SIDEBAR -->
   <aside class="lab-sidebar" id="labSidebar">
   <div class="sidebar-items">
+    <a href="#dashboard" class="sidebar-item sidebar-item-top" data-module="dashboard"><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Рабочий стол</a>
     <div class="sidebar-section">
       <div class="sidebar-section-header" data-section="data">
         <img src="../../assets/icons/32/ui/book.png" class="icon" alt="">
@@ -62,7 +70,6 @@
       <div class="sidebar-section-content" id="section-data">
         <a href="#learn" class="sidebar-item" data-module="learn"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Обучение</a>
         <a href="#dictionaries" class="sidebar-item" data-module="dictionaries"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Словари</a>
-        <a href="#research-library" class="sidebar-item" data-module="research-library"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Библиотека</a>
         <a href="#researches" class="sidebar-item" data-module="researches"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</a>
         <a href="#exposure" class="sidebar-item" data-module="exposure"><img src="../../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Принципы</a>
         <a href="#methodology" class="sidebar-item" data-module="methodology"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Методички</a>
@@ -97,8 +104,8 @@
         <a href="#research-generator" class="sidebar-item" data-module="research-generator"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генератор исследований</a>
         <a href="#board-library" class="sidebar-item" data-module="board-library"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Архив досок</a>
         <a href="#investigation" class="sidebar-item" data-module="investigation"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</a>
-        <a href="#exposure-editor" class="sidebar-item" data-module="exposure-editor"><img src="../../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Рабочий стол исследователя</a>
         <a href="#heraldry" class="sidebar-item" data-module="heraldry"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Гербовник</a>
+        <a href="#cartography" class="sidebar-item" data-module="cartography"><img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt="">Картография</a>
       </div>
     </div>
     <div class="sidebar-section">
@@ -386,7 +393,7 @@ const LabHotkeys = {
       '<tr><td><kbd>Esc</kbd></td><td>Закрыть поиск / модалку</td></tr>' +
       '<tr><td><kbd>?</kbd></td><td>Показать эту справку</td></tr>' +
       '</table>' +
-      '<div class="text-small text-muted mt-8">Модули: 1-Дашборд, 2-Словарь, 3-Разбор слов, 4-Чекер, 5-Переводы, 6-Архив досок, 7-Анализ, 8-Нейрочат, 9-Клавиатура</div>';
+      '<div class="text-small text-muted mt-8">Модули: 1-Рабочий стол, 2-Словарь, 3-Разбор слов, 4-Чекер, 5-Переводы, 6-Архив досок, 7-Анализ, 8-Нейрочат, 9-Клавиатура</div>';
     LabModal.show('<img src="../../assets/icons/32/paleo/track.png" width="32" height="32" alt="Горячие клавиши" style="vertical-align: middle; margin-right: 6px;"> Горячие клавиши', html);
   }
 };
@@ -779,15 +786,9 @@ const LabRenderer = {
   },
   
   // Load markdown content for a module on first activation
-  loadModule: function(moduleId) {
+  loadModule: function(moduleId, parsed) {
     var container = document.getElementById(moduleId);
-    if (!container || container.dataset.loaded) return;
-
-    if (moduleId.indexOf('research-library-') === 0) {
-      var researchId = decodeURIComponent(moduleId.substring('research-library-'.length));
-      this.loadResearchDetail(researchId, container);
-      return;
-    }
+    if (!container || (container.dataset.loaded && moduleId !== 'researches')) return;
 
     if (moduleId === 'dictionaries') {
       this.loadJsonPage('dictionaries', 'data/dictionaries.json', container);
@@ -805,12 +806,8 @@ const LabRenderer = {
       this.loadJsonPage('paleo-mechanics', 'data/paleo-mechanics.json', container);
       return;
     }
-    if (moduleId === 'research-library') {
-      this.loadResearchLibrary(container);
-      return;
-    }
     if (moduleId === 'researches') {
-      if (window.LoadResearches) window.LoadResearches.render(container);
+      if (window.LoadResearches) window.LoadResearches.render(container, parsed);
       return;
     }
 
@@ -821,6 +818,16 @@ const LabRenderer = {
       }
       container.dataset.loaded = '1';
       window.Heraldry.init();
+      return;
+    }
+
+    if (moduleId === 'cartography') {
+      if (!window.Cartography) {
+        container.innerHTML = '<div class="lab-alert lab-alert-error">Модуль «Картография» не загрузился. Обновите страницу и проверьте путь js/cartography.js.</div>';
+        return;
+      }
+      container.dataset.loaded = '1';
+      window.Cartography.init();
       return;
     }
 
@@ -1037,163 +1044,6 @@ const LabRenderer = {
     });
   },
 
-  loadResearchLibrary: function(container) {
-    var self = this;
-    var files = ['emuna.json', 'hesed.json', 'korban.json', 'teshuva.json', 'kadosh.json'];
-    container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка библиотеки исследований...</div></div>';
-    Promise.all(files.map(function(file) {
-      return fetch('data/research/' + file)
-        .then(function(response) {
-          if (!response.ok) throw new Error('HTTP ' + response.status + ' для ' + file);
-          return response.json();
-        });
-    })).then(function(items) {
-      self.jsonData.researchLibrary = items;
-      self.renderResearchLibrary(container, items);
-    }).catch(function(error) {
-      container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки библиотеки: ' + escapeHtml(error.message) + '</div>';
-    });
-  },
-
-  renderResearchLibrary: function(container, items) {
-    var typeLabels = {
-      root: 'Корень',
-      term: 'Термин',
-      verse: 'Стих',
-      substitution: 'Подмена'
-    };
-    var renderCards = function(list) {
-      if (!list.length) return '<div class="lab-alert lab-alert-info">Исследования не найдены.</div>';
-      return '<div class="tool-grid research-library-grid">' + list.map(function(item) {
-        var paleo = (item.paleo || []).join(' ');
-        return '<a class="tool-card research-library-card" href="#research-library-' + encodeURIComponent(item.id) + '" data-research-type="' + escapeHtml(item.type) + '" data-research-search="' + escapeHtml([item.title, item.summary, (item.tags || []).join(' ')].join(' ')) + '">' +
-          '<div class="research-library-paleo" dir="rtl" aria-hidden="true">' + escapeHtml(paleo) + '</div>' +
-          '<div class="tool-name">' + escapeHtml(item.title) + '</div>' +
-          '<span class="tool-badge new">' + escapeHtml(typeLabels[item.type] || item.type) + '</span>' +
-          '<div class="tool-desc">' + escapeHtml(item.summary || '') + '</div>' +
-        '</a>';
-      }).join('') + '</div>';
-    };
-    var typeOptions = Object.keys(typeLabels).map(function(type) {
-      return '<option value="' + type + '">' + typeLabels[type] + '</option>';
-    }).join('');
-    container.innerHTML = '<div class="research-page-head">' +
-      '<h1><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Библиотека исследований</h1>' +
-      '<p class="subtitle">Исследования корней, терминов, стихов и подмен — в одном архиве.</p>' +
-      '</div>' +
-      '<div class="research-controls">' +
-      '<label class="research-search-label">Поиск<input id="research-library-search" class="lab-input" type="search" placeholder="Название, тег или описание"></label>' +
-      '<label>Тип<select id="research-library-type" class="lab-input"><option value="all">Все типы</option>' + typeOptions + '</select></label>' +
-      '</div>' +
-      '<div class="research-meta"><strong>' + items.length + ' исследований</strong><span>Структурированный архив</span></div>' +
-      '<div id="research-library-results">' + renderCards(items) + '</div>';
-    var search = document.getElementById('research-library-search');
-    var type = document.getElementById('research-library-type');
-    var update = function() {
-      var query = (search.value || '').trim().toLowerCase();
-      var selectedType = type.value;
-      var filtered = items.filter(function(item) {
-        var content = (item.content || []).map(function(section) {
-          return [section.heading, section.body].join(' ');
-        }).join(' ');
-        var haystack = [item.title, item.summary, (item.tags || []).join(' '), content].join(' ').toLowerCase();
-        return (!query || haystack.indexOf(query) !== -1) && (selectedType === 'all' || item.type === selectedType);
-      });
-      document.getElementById('research-library-results').innerHTML = renderCards(filtered);
-    };
-    if (search) search.addEventListener('input', update);
-    if (type) type.addEventListener('change', update);
-  },
-
-  loadResearchDetail: function(researchId, container) {
-    var self = this;
-    var cached = (this.jsonData.researchLibrary || []).filter(function(item) {
-      return item.id === researchId;
-    })[0];
-    if (cached) {
-      this.renderResearchDetail(container, cached);
-      return;
-    }
-    fetch('data/research/' + encodeURIComponent(researchId) + '.json')
-      .then(function(response) {
-        if (!response.ok) throw new Error('HTTP ' + response.status);
-        return response.json();
-      })
-      .then(function(item) {
-        self.renderResearchDetail(container, item);
-      })
-      .catch(function(error) {
-        container.innerHTML = '<div class="lab-alert lab-alert-error">Исследование не найдено: ' + escapeHtml(error.message) + '</div>';
-      });
-  },
-
-  renderResearchDetail: function(container, research) {
-    var self = this;
-    var typeLabels = { root: 'Корень', term: 'Термин', verse: 'Стих', substitution: 'Подмена' };
-    var sectionId = function(index) { return 'research-section-' + index; };
-    var sections = (research.content || []).map(function(section, index) {
-      return '<article class="research-detail-section" id="' + sectionId(index) + '">' +
-        '<h2>' + escapeHtml(section.heading || '') + '</h2>' +
-        '<div class="research-detail-body">' + escapeHtml(section.body || '') + '</div>' +
-      '</article>';
-    }).join('');
-    var toc = (research.content || []).map(function(section, index) {
-      return '<a href="#' + sectionId(index) + '">' + escapeHtml(section.heading || ('Секция ' + (index + 1))) + '</a>';
-    }).join('');
-    var quotes = (research.quotes || []).map(function(quote) {
-      return '<blockquote class="tanakh-quote">' +
-        '<div class="tanakh-hebrew" dir="rtl" lang="he">' + escapeHtml(quote.hebrew || '') + '</div>' +
-        '<div class="tanakh-translit">' + escapeHtml(quote.translit || '') + '</div>' +
-        '<div class="tanakh-literal">' + escapeHtml(quote.literal || '') + '</div>' +
-        '<cite>' + escapeHtml(quote.ref || '') + '</cite>' +
-      '</blockquote>';
-    }).join('');
-    var chain = (research.substitutionChain || []).map(function(step, index) {
-      return '<div class="substitution-step"><span class="substitution-step-number">' + (index + 1) + '</span>' +
-        '<strong>' + escapeHtml(step.layer || '') + '</strong>' +
-        '<span class="substitution-word">' + escapeHtml(step.word || '') + '</span>' +
-        '<span class="substitution-meaning">' + escapeHtml(step.meaning || '') + '</span></div>';
-    }).join('');
-    var related = (research.related || []).map(function(id) {
-      return '<a href="#research-library-' + encodeURIComponent(id) + '">' + escapeHtml(id) + '</a>';
-    }).join('');
-    var tags = (research.tags || []).map(function(tag) {
-      return '<span class="tool-badge">' + escapeHtml(tag) + '</span>';
-    }).join('');
-    container.innerHTML = '<div class="research-detail-page">' +
-      '<div class="research-detail-topbar"><a class="research-back-link" href="#research-library">← Назад к библиотеке</a></div>' +
-      '<div class="research-detail-layout">' +
-        '<aside class="research-toc"><h2>Оглавление</h2>' + toc + '</aside>' +
-        '<main class="research-detail-content">' +
-          '<header class="research-detail-header">' +
-            '<div class="research-detail-paleo" dir="rtl">' + escapeHtml((research.paleo || []).join(' ')) + '</div>' +
-            '<h1>' + escapeHtml(research.title || '') + '</h1>' +
-            '<div class="research-detail-tags">' + tags + '</div>' +
-            '<p class="research-detail-summary">' + escapeHtml(research.summary || '') + '</p>' +
-          '</header>' + sections +
-          (quotes ? '<section class="research-detail-section"><h2>Цитаты ТаНаХа</h2>' + quotes + '</section>' : '') +
-          (chain ? '<section class="research-detail-section"><h2>Цепочка подмен</h2><div class="substitution-chain">' + chain + '</div></section>' : '') +
-        '</main>' +
-        '<aside class="research-infobox"><h2>Информация</h2>' +
-          '<dl><dt>Тип исследования</dt><dd>' + escapeHtml(typeLabels[research.type] || research.type || '') + '</dd>' +
-          '<dt>Дата</dt><dd>' + escapeHtml(research.date || '') + '</dd></dl>' +
-          (related ? '<h3>Связанные исследования</h3><div class="research-related">' + related + '</div>' : '') +
-          '<button type="button" class="lab-btn lab-btn-secondary" onclick="LabRenderer.shareResearch()">Поделиться</button>' +
-        '</aside>' +
-      '</div>' +
-    '</div>';
-  },
-
-  shareResearch: function() {
-    if (navigator.share) {
-      navigator.share({ title: document.title, url: window.location.href }).catch(function() {});
-    } else if (navigator.clipboard) {
-      navigator.clipboard.writeText(window.location.href).then(function() { LabToast.show('Ссылка скопирована'); });
-    } else {
-      LabToast.show('Скопируйте ссылку из адресной строки');
-    }
-  },
-  
   render: function() {
     if (this.rendered) return;
     this.rendered = true;
@@ -1216,7 +1066,6 @@ const LabRenderer = {
       this.religionisms(),
       this.translationComparator(),
       this.boardLibrary(),
-      this.researchLibrary(),
       this.vision(),
       this.aiAgents(),
       this.edChat(),
@@ -1227,6 +1076,7 @@ const LabRenderer = {
       this.paleoMechanics(),
       this.adminSettings(),
       this.heraldry(),
+      this.cartography(),
       this.researches()
     ];
     
@@ -1249,10 +1099,13 @@ const LabRenderer = {
       'js/ed-chat.js',
       'js/paleo-keyboard.js'
       , 'js/scripture-reader.js'
+      , 'js/modules/exposure-case.js'
       , 'js/load-researches.js'
       , 'js/admin-settings.js'
       , 'js/learn.js'
       , 'js/heraldry.js'
+      , 'js/cartography.js'
+      , 'js/dashboard.js'
     ];
     
     let loaded = 0;
@@ -1278,13 +1131,13 @@ const LabRenderer = {
   LabTheme.init();
   LabHotkeys.init();
   LabRouter.init();
-  LabRouter.onChange(function(moduleId) {
-    LabRenderer.loadModule(moduleId);
+  LabRouter.onChange(function(moduleId, parsed) {
+    LabRenderer.loadModule(moduleId, parsed);
   });
   // Load active module on init
-  var activeModule = window.location.hash.replace('#', '') || 'dashboard';
-  if (activeModule !== 'dashboard') {
-    setTimeout(function() { LabRenderer.loadModule(activeModule); }, 200);
+  var initialParsed = LabRouter.parseHash();
+  if (initialParsed.module !== 'dashboard') {
+    setTimeout(function() { LabRenderer.loadModule(initialParsed.module, initialParsed); }, 200);
   }
   setTimeout(function() {
   if (window.RootDict) RootDict.init();
@@ -1301,6 +1154,7 @@ const LabRenderer = {
   if (window.ScriptureReader) ScriptureReader.init();
   if (window.AdminSettings) AdminSettings.init();
   if (window.LearnLab) LearnLab.init();
+  if (window.Dashboard) Dashboard.init();
   // Init board generator form
   if (document.getElementById('board-form')) {
     document.getElementById('board-form').addEventListener('submit', function(e) {
@@ -1327,8 +1181,9 @@ const LabRenderer = {
   
   dashboard: function() {
   return '<div id="dashboard" class="module active dashboard">' +
-    '<h1><img src="../../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Лаборатория" style="vertical-align: middle; margin-right: 6px;"> Исследовательская лаборатория</h1>' +
-    '<p class="subtitle">Инструменты для анализа артефактов, символов, текстов, улик и скрытых подмен.</p>' +
+    '<h1><img src="../../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Лаборатория" style="vertical-align: middle; margin-right: 6px;"> Рабочий стол исследователя</h1>' +
+    '<p class="subtitle">Статистика проекта и инструменты для анализа артефактов, символов, текстов, улик и скрытых подмен.</p>' +
+    '<div id="dashboard-widgets" class="dashboard-widgets"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка статистики…</div></div></div>' +
     '<div class="tool-grid">' +
       '<a href="#root-dictionary" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Корневой словарь"></span><div class="tool-name">Корневой словарь</div><div class="tool-desc">Поиск по корням иврита. Значение, транслитерация, палео-образы.</div><span class="tool-badge new">Новый</span></a>' +
       '<a href="#word-analyzer" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Разбор слов"></span><div class="tool-name">Разбор слов</div><div class="tool-desc">Массовый разбор: корень, палео-образы, подмены, кеширование.</div><span class="tool-badge new">Новый</span></a>' +
@@ -1396,7 +1251,7 @@ const LabRenderer = {
     return '<div id="etymology-lab" class="module">' +
       '<h1><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Этимологическая лаборатория</h1>' +
       '<p class="subtitle">Глубокий разбор слова: корень, палео-буквы, цепочка подмен.</p>' +
-      '<div class="search-wrap"><input type="text" id="el-input" class="lab-input" placeholder="Введите слово..."><button class="lab-btn lab-btn-primary" onclick="EtymologyLab.analyze()">Разобрать</button></div>' +
+      '<div class="search-wrap"><input type="text" id="el-input" class="lab-input" placeholder="Введите слово на иврите..." onkeydown="if(event.key===\'Enter\')EtymologyLab.analyze()"><button class="lab-btn lab-btn-primary" onclick="EtymologyLab.analyze()">Разобрать</button></div>' +
       '<div id="el-results"></div></div>';
   },
 
@@ -1646,12 +1501,6 @@ const LabRenderer = {
       '<div id="bl-empty" class="lab-alert lab-alert-info">Пока нет сохранённых досок.</div></div>';
   },
 
-  researchLibrary: function() {
-    return '<div id="research-library" class="module research-library-module">' +
-      '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка библиотеки исследований...</div></div>' +
-      '</div>';
-  },
-  
   vision: function() {
     return '<div id="vision" class="module">' +
       '<h1><img src="../../assets/icons/32/archaeology/lamp.png" width="32" height="32" alt="Визуальный анализатор" style="vertical-align: middle; margin-right: 6px;"> Визуальный анализатор</h1>' +
@@ -1679,18 +1528,35 @@ const LabRenderer = {
   },
 
   aiAgents: function() {
+    var agents = [
+      { icon: 'archaeology/testtube', name: 'Исследователь', desc: 'Разбирает корни, стихи, термины.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
+      { icon: 'ui/question', name: 'Разоблачитель', desc: 'Ищет подмены в переводах, сравнивает LXX и Синодальный.', model: 'GPT-4o', cat: 'Исследователь' },
+      { icon: 'scribe/scrolls', name: 'Сборщик', desc: 'Объединяет результаты в единый отчёт.', model: 'Claude Haiku 3.5', cat: 'Оркестрация' },
+      { icon: 'ui/scales', name: 'Критик', desc: 'Проверяет разбор на соответствие методологии: конкретность палео-образов, отсутствие философем, целостность смихута.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
+      { icon: 'seals/ring', name: 'Семитолог', desc: 'Ищет параллели в аккадском, угаритском и арамейском — прасемитский ключ к смыслу до масоретских подмен.', model: 'GPT-4o', cat: 'Исследователь' },
+      { icon: 'scribe/scroll', name: 'Компаратор', desc: 'Трёхстороннее сравнение масоретского текста, Септуагинты и кумранских свитков.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
+      { icon: 'ui/keyboard', name: 'Редактор', desc: 'Приводит черновик к стилю проекта: убирает религионимы, канцелярит, возвращает глагольность.', model: 'Claude Haiku 3.5', cat: 'Документация' },
+      { icon: 'scribe/scroll', name: 'Переводчик палео-иврита', desc: 'Переводит букву через палео-образ к физическому смыслу, без цепочки подмен.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
+      { icon: 'crafts/hammer-and-chisel', name: 'Фронтенд-разработчик', desc: 'Создаёт интерфейсы Лаборатории на Vanilla JS, CSS и SVG.', model: 'Claude Sonnet 4', cat: 'Разработчик' },
+      { icon: 'ui/settings', name: 'AI-инженер', desc: 'Разрабатывает нейросетевые модули на PyTorch и Flask API.', model: 'Claude Sonnet 4', cat: 'Разработчик' },
+      { icon: 'ui/scales', name: 'Проверяющий', desc: 'Валидирует код, данные и исследовательские гипотезы.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
+      { icon: 'scribe/scroll', name: 'Технический писатель', desc: 'Оформляет документацию в Markdown и поддерживает ссылки на docs.', model: 'Claude Haiku 3.5', cat: 'Документация' },
+      { icon: 'ui/scales', name: 'Ревьюер кода', desc: 'Проверяет код на соответствие MANIFEST.md и архитектуре проекта.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
+      { icon: 'paleo/track', name: 'Архитектор потока', desc: 'Проектирует порядок вызова агентов и поток данных без циклических зависимостей.', model: 'Claude Sonnet 4', cat: 'Оркестрация' },
+      { icon: 'ui/link', name: 'Связной', desc: 'Связывает разрозненные исследования в единую сеть только на основе реальных данных.', model: 'Claude Sonnet 4', cat: 'Оркестрация' }
+    ];
+    var cards = agents.map(function(a) {
+      return '<div class="tool-card agent-card"><span class="tool-icon"><img src="../../assets/icons/32/' + a.icon + '.png" width="32" height="32" alt="' + a.name + '"></span>' +
+        '<div class="tool-name">' + a.name + '</div>' +
+        '<div class="tool-desc">' + a.desc + '</div>' +
+        '<span class="tool-badge model">' + a.model + '</span>' +
+        '<span class="badge-category">' + a.cat + '</span>' +
+        '<span class="badge-dev">В разработке</span></div>';
+    }).join('');
     return '<div id="ai-agents" class="module">' +
       '<h1><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="AI-Агенты" style="vertical-align: middle; margin-right: 6px;"> AI-Агенты</h1>' +
       '<p class="subtitle">Мульти-агентная система для автоматического разбора корней, терминов и стихов. Researcher, Exposer и Collector работают вместе, чтобы находить подмены и восстанавливать смысл.</p>' +
-      '<div class="tool-grid">' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Исследователь"></span><div class="tool-name">Исследователь</div><div class="tool-desc">Разбирает корни, стихи, термины.</div><span class="tool-badge model">Claude Sonnet 4</span><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Разоблачитель"></span><div class="tool-name">Разоблачатель</div><div class="tool-desc">Ищет подмены в переводах, сравнивает LXX и Синодальный.</div><span class="tool-badge model">GPT-4o</span><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Сборщик"></span><div class="tool-name">Сборщик</div><div class="tool-desc">Объединяет результаты в единый отчёт.</div><span class="tool-badge model">Claude Haiku 3.5</span><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/ui/scales.png" width="32" height="32" alt="Критик"></span><div class="tool-name">Критик</div><div class="tool-desc">Проверяет разбор на соответствие методологии: конкретность палео-образов, отсутствие философем, целостность смихута.</div><span class="tool-badge model">Claude Sonnet 4</span><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/seals/ring.png" width="32" height="32" alt="Семитолог"></span><div class="tool-name">Семитолог</div><div class="tool-desc">Ищет параллели в аккадском, угаритском и арамейском — прасемитский ключ к смыслу до масоретских подмен.</div><span class="tool-badge model">GPT-4o</span><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Компаратор"></span><div class="tool-name">Компаратор</div><div class="tool-desc">Трёхстороннее сравнение масоретского текста, Септуагинты и кумранских свитков.</div><span class="tool-badge model">Claude Sonnet 4</span><span class="tool-badge beta">В разработке</span></div>' +
-        '<div class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/ui/keyboard.png" width="32" height="32" alt="Редактор"></span><div class="tool-name">Редактор</div><div class="tool-desc">Приводит черновик к стилю проекта: убирает религионимы, канцелярит, возвращает глагольность.</div><span class="tool-badge model">Claude Haiku 3.5</span><span class="tool-badge beta">В разработке</span></div>' +
-      '</div>' +
+      '<div class="agent-grid">' + cards + '</div>' +
       '<div class="lab-card mt-24" style="text-align:center;">' +
         '<button class="lab-btn lab-btn-primary" disabled>Запустить сервер агентов</button>' +
         '<div class="text-small text-muted mt-8">Требуется локальный сервер (python server.py)</div>' +
@@ -1875,6 +1741,10 @@ const LabRenderer = {
 
   heraldry: function() {
     return '<div id="heraldry" class="module"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка гербовника...</div></div></div>';
+  },
+
+  cartography: function() {
+    return '<div id="cartography" class="module"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка картографии...</div></div></div>';
   },
 
   researches: function() {

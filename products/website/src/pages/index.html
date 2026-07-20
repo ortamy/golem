@@ -501,7 +501,7 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
   <span>GitHub</span>
 </a>
 <button id="theme-toggle" class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Переключить тему" aria-pressed="false" title="Переключить тему">
-  <img id="theme-icon" src="../../../..../../assets/icons/32/ui/sun.png" alt="">
+  <img id="theme-icon" src="../../assets/icons/32/ui/sun.png" alt="">
 </button>
 </div>
 </header>
@@ -659,7 +659,7 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
     var icon = document.getElementById('theme-icon');
     if (!button || !icon) return;
     var isDark = theme === 'dark';
-    icon.src = isDark ? '../../../..../../assets/icons/32/ui/moon.png' : '../../../..../../assets/icons/32/ui/sun.png';
+    icon.src = isDark ? '../../assets/icons/32/ui/moon.png' : '../../assets/icons/32/ui/sun.png';
     button.setAttribute('aria-pressed', String(isDark));
     button.setAttribute('aria-label', isDark ? 'Включить светлую тему' : 'Включить тёмную тему');
     button.setAttribute('title', isDark ? 'Включить светлую тему' : 'Включить тёмную тему');

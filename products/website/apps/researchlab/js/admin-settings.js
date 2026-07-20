@@ -17,7 +17,6 @@ const AdminSettings = (function() {
     { key: 'etymology-lab', label: 'Этимология' },
     { key: 'word-analyzer', label: 'Разбор слов' },
     { key: 'scripture-reader', label: 'Книгочтение' },
-    { key: 'research-library', label: 'Библиотека' },
     { key: 'researches', label: 'Разоблачения' },
     { key: 'religionism-checker', label: 'Чекер религионимов' },
     { key: 'translation-comparator', label: 'Сравнение переводов' },
@@ -936,7 +935,7 @@ const AdminSettings = (function() {
 
   // ─── LEGACY HELPERS ──────────────────────────────────────────────
   function moduleOptions() {
-    var html = '<option value="dashboard"' + (draft.defaultModule === 'dashboard' ? ' selected' : '') + '>Дашборд</option>';
+    var html = '<option value="dashboard"' + (draft.defaultModule === 'dashboard' ? ' selected' : '') + '>Рабочий стол</option>';
     SECTIONS.forEach(function(s) {
       html += '<option value="' + s.key + '"' + (draft.defaultModule === s.key ? ' selected' : '') + '>' + escapeHtml(s.label) + '</option>';
     });

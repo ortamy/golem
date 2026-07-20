@@ -1,12 +1,13 @@
 /**
- * load-researches.js — fetches data/researches.json (built from content/researches/*.md
- * by tools/generators/generate-researches-json.py) and renders a searchable card grid
- * plus a per-item detail view on the #researches page.
+ * load-researches.js — каталог и детальный просмотр «Разоблачений» (#researches).
+ * Данные: data/exposures/index.json (единая схема дела, см. tools/migrate-exposures.py).
+ * Рендер карточек, досье и превью — через ExposureCase (js/modules/exposure-case.js),
+ * так что каталог, страница дела и форма создания используют один и тот же шаблон.
  */
 const LoadResearches = (function() {
   'use strict';
 
-  var state = { query: '', category: 'all', activeId: '' };
+  var state = { query: '', category: 'all', confidence: 'all', activeSlug: '' };
   var items = [];
 
   function escapeHtml(text) {
@@ -15,13 +16,20 @@ const LoadResearches = (function() {
     return d.innerHTML;
   }
 
-  function render(container) {
+  function render(container, parsed) {
+    state.activeSlug = (parsed && parsed.segments && parsed.segments[1] === 'case') ? decodeURIComponent(parsed.segments[2] || '') : '';
+    if (parsed && parsed.params) {
+      if (parsed.params.q != null) state.query = parsed.params.q;
+      if (parsed.params.category) state.category = parsed.params.category;
+      if (parsed.params.confidence) state.confidence = parsed.params.confidence;
+    }
+
     if (items.length) {
       renderPage(container);
       return;
     }
-    container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка исследований...</div></div>';
-    fetch('data/researches.json')
+    container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка разоблачений...</div></div>';
+    fetch('data/exposures/index.json')
       .then(function(r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
@@ -31,16 +39,16 @@ const LoadResearches = (function() {
         renderPage(container);
       })
       .catch(function(err) {
-        container.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить исследования: ' + escapeHtml(err.message) + '</div>';
+        container.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить разоблачения: ' + escapeHtml(err.message) + '</div>';
       });
   }
 
   function renderPage(container) {
     if (!items.length) {
-      container.innerHTML = '<div class="lab-alert lab-alert-info">Исследований пока нет.</div>';
+      container.innerHTML = '<div class="lab-alert lab-alert-info">Разоблачений пока нет.</div>';
       return;
     }
-    if (state.activeId) {
+    if (state.activeSlug) {
       renderDetail(container);
     } else {
       renderList(container);
@@ -57,20 +65,38 @@ const LoadResearches = (function() {
     var query = state.query.trim().toLowerCase();
     return items.filter(function(item) {
       if (state.category !== 'all' && item.category !== state.category) return false;
+      if (state.confidence !== 'all' && item.confidence !== state.confidence) return false;
       if (!query) return true;
-      var haystack = [item.title, item.summary, item.category].join(' ').toLowerCase();
+      var sectionText = ((item.sections && item.sections.content) || []).map(function(s) {
+        return [s.heading, s.body].join(' ');
+      }).join(' ');
+      var haystack = [item.title, item.summary, item.category, (item.tags || []).join(' '), sectionText].join(' ').toLowerCase();
       return haystack.indexOf(query) !== -1;
     });
   }
 
+  // history.replaceState вместо LabRouter.navigate — иначе hashchange запускает
+  // полный ре-рендер контейнера на каждое нажатие клавиши и сбивает фокус поиска.
+  function updateHash() {
+    var params = [];
+    if (state.query) params.push('q=' + encodeURIComponent(state.query));
+    if (state.category !== 'all') params.push('category=' + encodeURIComponent(state.category));
+    if (state.confidence !== 'all') params.push('confidence=' + encodeURIComponent(state.confidence));
+    var hash = '#researches' + (params.length ? '?' + params.join('&') : '');
+    history.replaceState(null, '', hash);
+  }
+
   function renderCards(list) {
     if (!list.length) return '<div class="lab-alert lab-alert-info">Ничего не найдено.</div>';
-    return '<div class="tool-grid research-library-grid">' + list.map(function(item) {
-      return '<a class="tool-card research-library-card" href="#" data-id="' + escapeHtml(item.id) + '">' +
-        '<div class="tool-name">' + escapeHtml(item.title) + '</div>' +
-        '<span class="tool-badge new">' + escapeHtml(item.category || '') + '</span>' +
-        '<div class="tool-desc">' + escapeHtml(item.summary || '') + '</div>' +
-      '</a>';
+    return '<div class="exposure-grid">' + list.map(function(item) { return ExposureCase.renderCard(item); }).join('') + '</div>';
+  }
+
+  function renderConfidenceChips() {
+    var order = ['all', 'verified', 'needs-review', 'hypothesis', 'disputed'];
+    var labels = { all: 'Все' };
+    order.slice(1).forEach(function(key) { labels[key] = ExposureCase.confidenceMeta(key).label; });
+    return '<div class="exposure-chips" id="researches-confidence-chips">' + order.map(function(key) {
+      return '<button type="button" class="exposure-chip' + (state.confidence === key ? ' active' : '') + '" data-confidence="' + key + '">' + escapeHtml(labels[key]) + '</button>';
     }).join('') + '</div>';
   }
 
@@ -81,21 +107,31 @@ const LoadResearches = (function() {
     }).join('');
     var filtered = getFiltered();
 
-    container.innerHTML = '<div class="research-page-head">' +
-      '<h1><img src="../../../..../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</h1>' +
-      '<p class="subtitle">Разбор подмен смысла в языке, истории, экономике, спорте и других сферах — через восстановление ивритских корней ТаНаХа.</p>' +
+    container.innerHTML = '<div class="exposure-hero">' +
+        '<div class="exposure-hero-text">' +
+          '<h1><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</h1>' +
+          '<p class="subtitle">Разбор подмен смысла в языке, истории, экономике, спорте и других сферах — через восстановление ивритских корней ТаНаХа.</p>' +
+        '</div>' +
+        '<button type="button" class="lab-btn lab-btn-primary exposure-new-btn" id="researches-new-btn">+ Новое дело</button>' +
       '</div>' +
-      '<div class="research-controls">' +
-      '<label class="research-search-label">Поиск<input id="researches-search" class="lab-input" type="search" placeholder="Название, тема или категория" value="' + escapeHtml(state.query) + '"></label>' +
+      '<div class="research-controls exposure-filters">' +
+      '<label class="research-search-label">Поиск<input id="researches-search" class="lab-input" type="search" placeholder="Название, тема, тег или категория" value="' + escapeHtml(state.query) + '"></label>' +
       '<label>Категория<select id="researches-category" class="lab-input"><option value="all">Все категории</option>' + options + '</select></label>' +
       '</div>' +
-      '<div class="research-meta"><strong>' + filtered.length + ' из ' + items.length + '</strong><span>Опубликованные исследования проекта «Голем»</span></div>' +
+      renderConfidenceChips() +
+      '<div class="research-meta"><strong>' + filtered.length + ' из ' + items.length + '</strong><span>Опубликованные разоблачения проекта «Голем»</span></div>' +
       '<div id="researches-results">' + renderCards(filtered) + '</div>';
 
+    bindListEvents(container);
+  }
+
+  function bindListEvents(container) {
     var search = document.getElementById('researches-search');
     var category = document.getElementById('researches-category');
     var results = document.getElementById('researches-results');
     var meta = container.querySelector('.research-meta strong');
+    var newBtn = document.getElementById('researches-new-btn');
+    var chipsWrap = document.getElementById('researches-confidence-chips');
 
     function update() {
       state.query = search.value || '';
@@ -103,46 +139,38 @@ const LoadResearches = (function() {
       var list = getFiltered();
       if (meta) meta.textContent = list.length + ' из ' + items.length;
       results.innerHTML = renderCards(list);
-      bindCardClicks(results, container);
+      updateHash();
     }
 
     if (search) search.addEventListener('input', update);
     if (category) category.addEventListener('change', update);
-    bindCardClicks(results, container);
-  }
-
-  function bindCardClicks(scope, container) {
-    scope.querySelectorAll('[data-id]').forEach(function(card) {
-      card.addEventListener('click', function(e) {
-        e.preventDefault();
-        state.activeId = card.getAttribute('data-id');
-        renderDetail(container);
-      });
+    if (newBtn) newBtn.addEventListener('click', function() { LabRouter.navigate('exposure-editor'); });
+    if (chipsWrap) chipsWrap.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-confidence]');
+      if (!btn) return;
+      state.confidence = btn.getAttribute('data-confidence');
+      chipsWrap.querySelectorAll('.exposure-chip').forEach(function(c) { c.classList.remove('active'); });
+      btn.classList.add('active');
+      update();
     });
   }
 
   function renderDetail(container) {
-    var item = items.filter(function(i) { return i.id === state.activeId; })[0];
+    var item = items.filter(function(i) { return i.slug === state.activeSlug; })[0];
     if (!item) {
-      state.activeId = '';
-      renderList(container);
+      container.innerHTML = '<div class="lab-alert lab-alert-error">Дело «' + escapeHtml(state.activeSlug) + '» не найдено.</div>' +
+        '<a class="research-back-link" href="#researches">← Назад к архиву</a>';
       return;
     }
-    var body = typeof marked !== 'undefined' && marked.parse ? marked.parse(item.body || '') : escapeHtml(item.body || '');
-    container.innerHTML = '<div class="research-detail-page">' +
-      '<div class="research-detail-topbar"><a class="research-back-link" href="#" id="researches-back">← Назад к списку</a></div>' +
-      '<header class="research-detail-header">' +
-        '<h1>' + escapeHtml(item.title) + '</h1>' +
-        '<div class="research-detail-tags"><span class="tool-badge">' + escapeHtml(item.category || '') + '</span></div>' +
-        '<p class="research-detail-summary">' + escapeHtml(item.summary || '') + '</p>' +
-      '</header>' +
-      '<article class="research-detail-section"><div class="research-section-content">' + body + '</div></article>' +
-    '</div>';
+    history.replaceState(null, '', '#researches/case/' + encodeURIComponent(item.slug));
+    container.innerHTML = ExposureCase.renderCase(item);
+    ExposureCase.bindCase(container, item);
 
-    var back = document.getElementById('researches-back');
+    var back = container.querySelector('[data-exposure-back]');
     if (back) back.addEventListener('click', function(e) {
       e.preventDefault();
-      state.activeId = '';
+      state.activeSlug = '';
+      history.replaceState(null, '', '#researches');
       renderList(container);
     });
   }

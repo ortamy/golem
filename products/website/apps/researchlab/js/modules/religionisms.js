@@ -88,7 +88,7 @@ const Religionisms = (function() {
     if (empty) empty.style.display = 'none';
 
     grid.innerHTML = list.map(function(s, idx) {
-      var iconPath = '../../../..../../assets/icons/32/' + (s.icon || 'ui/question.png');
+var iconPath = '../../assets/icons/32/' + (s.icon || 'ui/question.png');
       var rootBadge = s.keyRoot
         ? '<div class="rel-root-badge" dir="rtl">' + escapeHtml(s.keyRoot.root) + '</div>'
         : '';
@@ -138,7 +138,7 @@ const Religionisms = (function() {
       return;
     }
 
-    var iconPath = '../../../..../../assets/icons/32/' + (sphere.icon || 'ui/question.png');
+var iconPath = '../../assets/icons/32/' + (sphere.icon || 'ui/question.png');
     var componentsHtml = COMPONENTS.map(function(c) {
       return '<div class="rel-comp-block">' +
         '<div class="rel-comp-title">' + c[1] + '</div>' +

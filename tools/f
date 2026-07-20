@@ -1,0 +1,69 @@
+import re
+
+path = r'products/website/apps/researchlab/index.html'
+with open(path, 'r', encoding='utf-8') as f:
+    content = f.read()
+
+# 1. Remove all agent-badge spans that are inside tool-name divs
+# Pattern: <div class="tool-name">TEXT<span class="agent-badge">CAT</span></div>
+content = re.sub(
+    r'(<div class="tool-name">[^<]+)<span class="agent-badge">[^<]+</span>(</div>)',
+    r'\1\2',
+    content
+)
+
+# 2. Remove duplicate agent-badge at the end of Исследователь card (line 1517)
+# It has badge inside tool-name AND at the end - after step 1 only the end one remains
+# But we need to remove it too and re-add properly
+content = re.sub(
+    r'(<span class="tool-badge beta">В разработке</span>)<span class="agent-badge">[^<]+</span>',
+    r'\1',
+    content
+)
+
+# 3. Add badges in correct position: before </div>' + at end of each card
+categories = {
+    'Исследователь': 'Исследователь',
+    'Разоблачитель': 'Исследователь',
+    'Сборщик': 'Исследователь',
+    'Семитолог': 'Исследователь',
+    'Компаратор': 'Исследователь',
+    'Переводчик палео-иврита': 'Исследователь',
+    'Фронтенд-разработчик': 'Разработчик',
+    'AI-инженер': 'Разработчик',
+    'Критик': 'Контроль',
+    'Проверяющий': 'Контроль',
+    'Ревьюер кода': 'Контроль',
+    'Редактор': 'Документация',
+    'Технический писатель': 'Документация',
+    'Архитектор потока': 'Оркестрация',
+    'Связной': 'Оркестрация',
+}
+
+start_marker = "aiAgents: function()"
+end_marker = "edChat: function()"
+start_idx = content.find(start_marker)
+end_idx = content.find(end_marker, start_idx)
+section = content[start_idx:end_idx]
+
+for agent_name, category in categories.items():
+    card_start = section.find(f'alt="{agent_name}"')
+    if card_start == -1:
+        print(f'WARNING: "{agent_name}" not found')
+        continue
+    # Find the card's closing </div>' + 
+    card_end = section.find("</div>' +", card_start)
+    if card_end == -1:
+        print(f'WARNING: card end for "{agent_name}" not found')
+        continue
+    badge_html = f'<span class="agent-badge">{category}</span>'
+    section = section[:card_end] + badge_html + section[card_end:]
+    print(f'ADDED badge "{category}" to "{agent_name}"')
+
+badge_count = section.count('agent-badge')
+print(f'Total badges in aiAgents section: {badge_count}')
+
+content = content[:start_idx] + section + content[end_idx:]
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(content)
+print('Saved successfully')

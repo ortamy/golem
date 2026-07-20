@@ -44,10 +44,29 @@ const LabRouter = (function() {
     console.log('[Router] Инициализирован. Модулей:', Object.keys(modules).length);
   }
 
+  // ===== РАЗБОР ХЕША С ПАРАМЕТРАМИ =====
+  // Формат: #<module>[/<sub1>/<sub2>...][?key=value&...]
+  function parseHash() {
+    var raw = window.location.hash.replace('#', '') || 'dashboard';
+    var queryIndex = raw.indexOf('?');
+    var path = queryIndex === -1 ? raw : raw.substring(0, queryIndex);
+    var queryString = queryIndex === -1 ? '' : raw.substring(queryIndex + 1);
+    var segments = path.split('/').filter(function(s) { return s.length > 0; });
+    var params = {};
+    queryString.split('&').forEach(function(pair) {
+      if (!pair) return;
+      var eq = pair.indexOf('=');
+      var key = eq === -1 ? pair : pair.substring(0, eq);
+      var value = eq === -1 ? '' : pair.substring(eq + 1);
+      if (key) params[decodeURIComponent(key)] = decodeURIComponent(value || '');
+    });
+    return { module: segments[0] || 'dashboard', segments: segments, params: params, raw: raw };
+  }
+
   // ===== ОБРАБОТКА ХЕША =====
   function handleHash() {
-    var hash = window.location.hash.replace('#', '') || 'dashboard';
-    const detailPrefix = 'research-library-';
+    var parsed = parseHash();
+    var hash = parsed.module;
 
     // #settings is an alias for #admin-settings
     if (hash === 'settings') {
@@ -55,33 +74,38 @@ const LabRouter = (function() {
       return;
     }
 
+    // #research-library — устаревший маршрут, объединён с #researches
+    if (hash === 'research-library') {
+      navigate('researches');
+      return;
+    }
+
     if (modules[hash]) {
-      showModule(hash);
-    } else if (hash.indexOf(detailPrefix) === 0 && modules['research-library']) {
-      showModule(hash);
+      showModule(hash, parsed);
     } else if (hash === 'exposure-editor') {
       // Dynamic module — будет создан в showModule
-      showModule(hash);
+      showModule(hash, parsed);
     } else if (hash === 'dashboard') {
-      showModule('dashboard');
+      showModule('dashboard', parsed);
     }
   }
 
   // ===== НАВИГАЦИЯ =====
-  function navigate(moduleId) {
-    window.location.hash = moduleId;
+  function navigate(moduleId, segments, params) {
+    var hash = moduleId;
+    if (segments && segments.length) hash += '/' + segments.join('/');
+    if (params) {
+      var query = Object.keys(params)
+        .filter(function(k) { return params[k] !== '' && params[k] != null; })
+        .map(function(k) { return encodeURIComponent(k) + '=' + encodeURIComponent(params[k]); })
+        .join('&');
+      if (query) hash += '?' + query;
+    }
+    window.location.hash = hash;
   }
 
   // ===== ПОКАЗ МОДУЛЯ =====
-  function showModule(moduleId) {
-    if (moduleId.indexOf('research-library-') === 0 && !modules[moduleId]) {
-      const detail = document.createElement('div');
-      detail.id = moduleId;
-      detail.className = 'module research-detail-module';
-      document.getElementById('labContent').appendChild(detail);
-      modules[moduleId] = detail;
-    }
-
+  function showModule(moduleId, parsed) {
     // Создаём контейнер для exposure-editor если его ещё нет
     if (moduleId === 'exposure-editor' && !modules['exposure-editor']) {
       const editor = document.createElement('div');
@@ -115,8 +139,7 @@ const LabRouter = (function() {
 
     // Обновляем sidebar
     document.querySelectorAll('.sidebar-item').forEach(function(item) {
-      const isActive = item.dataset.module === moduleId || 
-                       (moduleId.indexOf('research-library-') === 0 && item.dataset.module === 'research-library') ||
+      const isActive = item.dataset.module === moduleId ||
                        (!item.dataset.module && moduleId === 'dashboard');
       item.classList.toggle('active', isActive);
     });
@@ -133,7 +156,7 @@ const LabRouter = (function() {
 
     // Колбэк
     if (onModuleChange) {
-      onModuleChange(moduleId);
+      onModuleChange(moduleId, parsed);
     }
 
     // Прокрутка вверх
@@ -150,6 +173,7 @@ const LabRouter = (function() {
     init: init,
     navigate: navigate,
     show: showModule,
+    parseHash: parseHash,
     current: function() { return currentModule; },
     onChange: onChange
   };

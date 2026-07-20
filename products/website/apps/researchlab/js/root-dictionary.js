@@ -15,6 +15,8 @@ const RootDict = (function() {
         var totalEl = document.getElementById('rd-total');
         var spinnerEl = document.getElementById('rd-spinner');
         if (totalEl) totalEl.textContent = roots.length;
+        var foundEl = document.getElementById('rd-found');
+        if (foundEl) foundEl.textContent = roots.length;
         if (spinnerEl) spinnerEl.classList.remove('show');
         render();
       })
@@ -58,8 +60,8 @@ const RootDict = (function() {
       // Paleo symbols рядом с корнем
       if (r.paleo && r.paleo.length > 0) {
         html += '<span class="root-paleo">';
-        r.paleo.forEach(function(p) {
-          html += '<span class="rd-paleo-char" title="' + (r.paleoMeanings && r.paleoMeanings[r.paleo.indexOf(p)] ? r.paleoMeanings[r.paleo.indexOf(p)] : '') + '">' + p + '</span>';
+        r.paleo.forEach(function(p, idx) {
+          html += '<span class="rd-paleo-char" title="' + (r.paleoMeanings && r.paleoMeanings[idx] ? r.paleoMeanings[idx] : '') + '">' + p + '</span>';
         });
         html += '</span>';
       }

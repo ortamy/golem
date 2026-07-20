@@ -33,10 +33,10 @@ const EtyLab = (function() {
   };
 
   const WORD_DATA = {
-    'אמת': { translit: 'эмет', meaning: 'истина, верность, правда', root: 'אמן', rootMeaning: 'верить, быть верным', subs: [['истина', 'эмет (אמת)', 'Греч. αλήθεια. В иврите אמת состоит из первой, средней и последней букв алфавита.']] },
+    'אמת': { translit: 'эмет', meaning: 'истина, верность, правда', root: 'אמן', rootMeaning: 'верить, быть верным', subs: [['истина', 'эмет (אמת)', 'Греч. αλήθεια. אמת — первая, средняя и последняя буква алфавита.']] },
     'תורה': { translit: 'тора', meaning: 'учение, наставление', root: 'ירה', rootMeaning: 'направлять, учить', subs: [['закон', 'тора (תורה)', 'Греч. νόμος. Тора от корня ירה — направлять, а не закон.']] },
     'משיח': { translit: 'машиах', meaning: 'помазанник', root: 'משח', rootMeaning: 'мазать, помазывать', subs: [['Христос', 'Машиах (משיח)', 'Греч. Χριστός. Машиах — функция, не имя.']] },
-    'יהוה': { translit: 'Яхве', meaning: 'Сущий (личное имя)', root: 'היה', rootMeaning: 'быть, существовать', subs: [['Господь', 'Яхве (יהוה)', 'Греч. κύριος. Замена имени на титул.']] },
+    'יהוה': { translit: 'Яхве', meaning: 'Сущий (личное имя)', root: 'היה', rootMeaning: 'быть, существовать', subs: [['Господь', 'Яхве (יהוה)', 'Замена личного имени на безличный титул.']] },
     'שלום': { translit: 'шалом', meaning: 'мир, целостность', root: 'שלם', rootMeaning: 'быть целым', subs: [['мир', 'шалом (שלום)', 'Греч. ειρήνη. Шалом — полнота, не просто отсутствие войны.']] },
     'צדק': { translit: 'цедек', meaning: 'правда, справедливость', root: 'צדק', rootMeaning: 'быть праведным', subs: [['правда', 'цедек (צדק)', 'Цедек — действие справедливости. Цдака — не милостыня.']] },
     'בראשית': { translit: 'берешит', meaning: 'в начале', root: 'ראש', rootMeaning: 'голова, начало', subs: [['в начале', 'берешит (בראשית)', 'От корня ראש — голова. Берешит — в голове, в начале.']] },
@@ -48,56 +48,99 @@ const EtyLab = (function() {
     'ברית': { translit: 'брит', meaning: 'союз', root: 'בר', rootMeaning: 'чистый', subs: [['завет', 'брит (ברית)', 'От בר — чистый. Брит — союз, основанный на очищении.']] }
   };
 
-  let rootsData = [];
+  var EXAMPLE_WORDS = ['אמת', 'תורה', 'שלום', 'קדוש', 'חסד', 'יהוה', 'תשובה', 'ברית'];
+
+  var rootsData = [];
 
   function init() {
     fetch('data/roots.json')
-      .then(r => r.json())
-      .then(data => { rootsData = data; })
-      .catch(() => {});
+      .then(function(r) { return r.json(); })
+      .then(function(data) { rootsData = data; })
+      .catch(function() {});
+    showChips();
+  }
+
+  function showChips() {
+    var el = document.getElementById('el-results');
+    if (!el) return;
+    el.innerHTML = '<div class="el-examples">' +
+      '<p class="el-examples-hint">Введите слово на иврите или транслите. Примеры:</p>' +
+      '<div class="el-chips">' +
+      EXAMPLE_WORDS.map(function(w) {
+        return '<button class="el-chip" onclick="EtymologyLab.example(\'' + w + '\')">' + w + '</button>';
+      }).join('') +
+      '</div></div>';
   }
 
   function example(word) {
     var input = document.getElementById('el-input');
-    if (input) input.value = word;
+    if (input) { input.value = word; }
     analyze();
   }
 
   function analyze() {
+    var resultsEl = document.getElementById('el-results');
     var input = document.getElementById('el-input');
-    var result = document.getElementById('el-result');
-    var placeholder = document.getElementById('el-placeholder');
-
-    if (!input) return;
+    if (!resultsEl || !input) return;
     var val = input.value.trim();
 
-    if (!val) {
-      if (result) result.classList.remove('show');
-      if (placeholder) placeholder.style.display = 'block';
-      return;
-    }
+    if (!val) { showChips(); return; }
 
-    var clean = val.replace(/[\u0591-\u05C7]/g, '');
+    var clean = val.replace(/[֑-ׇ]/g, '');
     var wordData = WORD_DATA[clean];
 
-    if (!wordData) {
-      if (placeholder) {
-        placeholder.style.display = 'block';
-        placeholder.innerHTML = '<div class="lab-alert lab-alert-warn">Слово «' + val + '» пока нет в базе.</div>';
+    if (!wordData && rootsData.length > 0) {
+      var q = clean.toLowerCase();
+      var match = rootsData.find(function(r) {
+        return r.root === clean ||
+          r.translit.toLowerCase() === q ||
+          r.meaning.toLowerCase().indexOf(q) !== -1;
+      });
+      if (match) {
+        wordData = {
+          translit: match.translit,
+          meaning: match.meaning,
+          root: match.root,
+          rootMeaning: match.meaning,
+          subs: (match.substitutions || []).map(function(s) {
+            return [s, match.root + ' (' + match.translit + ')', ''];
+          }),
+          _rootEntry: match
+        };
       }
-      if (result) result.classList.remove('show');
+    }
+
+    if (!wordData) {
+      resultsEl.innerHTML = '<div class="lab-alert lab-alert-warn">Слово «' + val + '» пока нет в базе. Попробуй: ' +
+        EXAMPLE_WORDS.slice(0, 4).map(function(w) {
+          return '<button class="el-chip el-chip-sm" onclick="EtymologyLab.example(\'' + w + '\')">' + w + '</button>';
+        }).join(' ') + '</div>';
       return;
     }
 
-    if (placeholder) placeholder.style.display = 'none';
-
     var lettersHTML = '', paleoStr = '';
-    for (var i = 0; i < clean.length; i++) {
-      var ch = clean[i];
-      var p = PALEO[ch];
-      if (p) {
-        lettersHTML += '<div class="el-letter-box"><div class="ell-paleo">' + p.paleo + '</div><div class="ell-heb">' + ch + '</div><div class="ell-name">' + p.name + '</div><div class="ell-meaning">' + p.meaning + '</div></div>';
-        paleoStr += p.paleo + ' ';
+    var entry = wordData._rootEntry;
+    if (entry && entry.paleo && entry.paleo.length > 0) {
+      entry.paleo.forEach(function(pChar, i) {
+        var hChar = entry.root[i] || '';
+        var pInfo = PALEO[hChar] || {};
+        var pMean = (entry.paleoMeanings && entry.paleoMeanings[i]) ? entry.paleoMeanings[i] : (pInfo.meaning || '');
+        lettersHTML += '<div class="el-letter-box">' +
+          '<div class="ell-paleo">' + pChar + '</div>' +
+          '<div class="ell-heb">' + hChar + '</div>' +
+          '<div class="ell-name">' + (pInfo.name || '') + '</div>' +
+          '<div class="ell-meaning">' + pMean + '</div></div>';
+        paleoStr += pChar + ' ';
+      });
+    } else {
+      for (var i = 0; i < clean.length; i++) {
+        var ch = clean[i], p = PALEO[ch];
+        if (p) {
+          lettersHTML += '<div class="el-letter-box"><div class="ell-paleo">' + p.paleo + '</div>' +
+            '<div class="ell-heb">' + ch + '</div><div class="ell-name">' + p.name + '</div>' +
+            '<div class="ell-meaning">' + p.meaning + '</div></div>';
+          paleoStr += p.paleo + ' ';
+        }
       }
     }
 
@@ -105,7 +148,7 @@ const EtyLab = (function() {
     if (wordData.subs && wordData.subs.length > 0) {
       subsHTML = '<table class="el-substitution-table"><thead><tr><th>Подмена</th><th>Оригинал</th><th>Пояснение</th></tr></thead><tbody>';
       wordData.subs.forEach(function(s) {
-        subsHTML += '<tr><td class="sub-red">' + s[0] + '</td><td class="sub-green">' + s[1] + '</td><td class="text-small">' + s[2] + '</td></tr>';
+        subsHTML += '<tr><td class="sub-red">' + (s[0]||'') + '</td><td class="sub-green">' + (s[1]||'') + '</td><td class="text-small">' + (s[2]||'') + '</td></tr>';
       });
       subsHTML += '</tbody></table>';
     }
@@ -115,22 +158,23 @@ const EtyLab = (function() {
       ? '<div class="el-root-card"><div class="el-root-heb">' + rootMatches[0].root + '</div><div class="text-small text-muted">' + rootMatches[0].translit + '</div><div class="el-root-meaning">' + rootMatches[0].meaning + '</div></div>'
       : '<div class="el-root-card"><div class="el-root-heb">' + wordData.root + '</div><div class="el-root-meaning">' + wordData.rootMeaning + '</div></div>';
 
-    var fullHTML =
+    resultsEl.innerHTML =
       '<div class="el-word-header">' +
         '<div class="el-word-heb">' + clean + '</div>' +
-        '<div class="el-word-info"><div class="el-word-translit">' + wordData.translit + '</div><div class="el-word-meaning">' + wordData.meaning + '</div></div>' +
+        '<div class="el-word-info"><div class="el-word-translit">' + wordData.translit + '</div>' +
+        '<div class="el-word-meaning">' + wordData.meaning + '</div></div>' +
         '<div class="el-word-paleo">' + paleoStr.trim() + '</div>' +
       '</div>' +
-      '<div class="el-section"><div class="el-section-title">Палео-разбор по буквам</div><p class="text-small text-muted mb-16">Каждая буква — это образ.</p><div class="el-letter-breakdown">' + lettersHTML + '</div></div>' +
+      '<div class="el-section"><div class="el-section-title">Палео-разбор по буквам</div>' +
+        '<p class="text-small text-muted mb-16">Каждая буква — это образ.</p>' +
+        '<div class="el-letter-breakdown">' + lettersHTML + '</div></div>' +
       '<div class="el-section"><div class="el-section-title">Корень слова</div>' + rootHTML + '</div>' +
       (subsHTML ? '<div class="el-section"><div class="el-section-title">Цепочка подмен</div>' + subsHTML + '</div>' : '');
 
-    if (result) {
-      result.innerHTML = fullHTML;
-      result.classList.add('show');
-      result.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   return { init: init, analyze: analyze, example: example };
 })();
+
+window.EtymologyLab = EtyLab;
