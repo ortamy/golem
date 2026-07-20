@@ -36,6 +36,10 @@ cp -r "$ROOT_DIR/src/locales" "$BUILD_DIR/locales"
 
 # 5. Копирование apps/researchlab/
 echo "[4/8] Copying researchlab/..."
+mkdir -p "$BUILD_DIR/apps"
+cp -r "$ROOT_DIR/apps/researchlab" "$BUILD_DIR/apps/researchlab"
+
+# Совместимость со старыми ссылками
 cp -r "$ROOT_DIR/apps/researchlab" "$BUILD_DIR/researchlab"
 
 # 6. Копирование tools/
