@@ -1,11 +1,13 @@
+// currentScript валиден только во время синхронного выполнения — захватываем сразу.
+var burgerMenuScriptEl = document.currentScript || document.querySelector('script[src*="burger-menu.js"]');
+
 document.addEventListener('DOMContentLoaded', function() {
-    var currentPath = window.location.pathname;
-    // Убираем базовый путь (для GitHub Pages поддомена)
-    var basePath = currentPath.replace(/\/[^\/]*$/, '');
-    var depth = (basePath.match(/\//g) || []).length;
-    // Страницы теперь в /pages/ — добавляем один дополнительный уровень
-    var prefix = depth > 0 ? '../'.repeat(depth + 1) : '../';
-    
+    // Путь к самому скрипту (../../js/burger-menu.js) уже верно резолвится
+    // браузером с учётом любого суб-пути хостинга (например /golem/ на GitHub Pages).
+    // Строим ссылки от корня сайта (js/ на уровень выше), а не от глубины URL,
+    // которая не знает о суб-пути хостинга.
+    var prefix = new URL('../', burgerMenuScriptEl.src).href;
+
     var htmlLang = document.documentElement.lang || 'ru';
     var isRTL = document.documentElement.dir === 'rtl';
     
