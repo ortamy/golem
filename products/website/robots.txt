@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://golem-project.org/sitemap.xml
+Sitemap: https://ortamy.github.io/golem/sitemap.xml

@@ -1,0 +1,433 @@
+/* =============================================
+   exposure-editor.css — Форма «Рабочий стол исследователя»
+   Стиль: пергаментный, лабораторный
+   ============================================= */
+
+/* ===== КОНТЕЙНЕР ФОРМЫ ===== */
+.exposure-editor-wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  animation: fadeSlideIn 0.4s ease;
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.exposure-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border-gold);
+}
+.exposure-editor-header h1 {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text-gold);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.exposure-editor-header h1 img {
+  width: 32px;
+  height: 32px;
+}
+
+/* ===== ТРЁХКОЛОНЧНЫЙ МАКЕТ ===== */
+.exposure-editor-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr 320px;
+  gap: 20px;
+  min-height: 60vh;
+}
+@media (max-width: 1100px) {
+  .exposure-editor-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+}
+
+/* ===== ЛЕВАЯ КОЛОНКА — МИНИ-ОГЛАВЛЕНИЕ ===== */
+.exposure-editor-toc {
+  position: sticky;
+  top: 76px;
+  align-self: start;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 16px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+@media (max-width: 1100px) {
+  .exposure-editor-toc {
+    position: static;
+    max-height: none;
+    order: -1;
+  }
+}
+.exposure-toc-title {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-gold);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-light);
+}
+.exposure-toc-item {
+  display: block;
+  padding: 6px 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-serif);
+}
+.exposure-toc-item:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+.exposure-toc-item.active {
+  background: var(--accent-gold);
+  color: #faf3e0;
+}
+
+/* ===== ЦЕНТРАЛЬНАЯ КОЛОНКА — ФОРМА ===== */
+.exposure-editor-main {
+  min-width: 0;
+}
+
+/* Блоки формы */
+.exposure-form-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: box-shadow var(--transition);
+}
+.exposure-form-block:hover {
+  box-shadow: var(--shadow-soft);
+}
+.exposure-form-block-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-gold);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Поля */
+.exposure-field {
+  margin-bottom: 16px;
+}
+.exposure-field:last-child {
+  margin-bottom: 0;
+}
+.exposure-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.exposure-field .lab-input,
+.exposure-field .lab-textarea,
+.exposure-field .lab-select {
+  width: 100%;
+}
+.exposure-field .lab-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Секции */
+.exposure-sections-list {
+  margin-top: 8px;
+}
+.exposure-section-item {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 8px;
+  cursor: grab;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.exposure-section-item:active {
+  cursor: grabbing;
+  box-shadow: var(--shadow-soft);
+}
+.exposure-section-item.dragging {
+  opacity: 0.5;
+}
+.exposure-section-item.drag-over {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 2px rgba(184,134,11,0.3);
+}
+.exposure-section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.exposure-section-header .drag-handle {
+  cursor: grab;
+  color: var(--text-muted);
+  font-size: 16px;
+  user-select: none;
+}
+.exposure-section-title-input {
+  flex: 1;
+  min-width: 0;
+}
+.exposure-section-remove {
+  background: none;
+  border: none;
+  color: var(--accent-red);
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 16px;
+  border-radius: 3px;
+  transition: background var(--transition);
+}
+.exposure-section-remove:hover {
+  background: rgba(192,57,43,0.1);
+}
+.exposure-section-content-input .lab-textarea {
+  min-height: 60px;
+}
+
+/* ===== ПРАВАЯ КОЛОНКА — ПРЕВЬЮ ===== */
+.exposure-editor-preview {
+  position: sticky;
+  top: 76px;
+  align-self: start;
+}
+@media (max-width: 1100px) {
+  .exposure-editor-preview {
+    position: static;
+    order: -1;
+  }
+}
+.exposure-preview-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 20px;
+  min-height: 200px;
+}
+.exposure-preview-title {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-gold);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-light);
+}
+.exposure-preview-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px 0;
+}
+.exposure-preview-content h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.exposure-preview-content .exposure-preview-category {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-gold);
+  border: 1px solid var(--border-gold);
+  border-radius: 3px;
+  padding: 2px 8px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.exposure-preview-content .exposure-preview-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.exposure-preview-content .exposure-preview-root {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.exposure-preview-content .exposure-preview-source {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.exposure-preview-content .exposure-preview-confidence {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.exposure-preview-content .exposure-preview-sections {
+  margin-top: 16px;
+}
+.exposure-preview-content .exposure-preview-section-item {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.exposure-preview-content .exposure-preview-section-item:last-child {
+  border-bottom: none;
+}
+.exposure-preview-content .exposure-preview-section-item strong {
+  color: var(--text-gold);
+}
+
+/* ===== КНОПКИ ДЕЙСТВИЙ ===== */
+.exposure-editor-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ===== ДОСКА ОБЪЯВЛЕНИЙ (сохранённые черновики) ===== */
+.exposure-drafts-board {
+  margin-top: 32px;
+}
+.exposure-drafts-board h2 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.exposure-drafts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.exposure-draft-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 16px;
+  cursor: pointer;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.exposure-draft-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+.exposure-draft-card .draft-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.exposure-draft-card .draft-status {
+  font-size: 12px;
+  color: var(--text-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.exposure-draft-card .draft-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+.exposure-draft-card .draft-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.exposure-draft-card .draft-actions button {
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+/* ===== TOAST УВЕДОМЛЕНИЯ ===== */
+.exposure-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 12px 24px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid var(--border-gold);
+  font-family: var(--font-serif);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.exposure-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ ===== */
+@media (max-width: 768px) {
+  .exposure-editor-wrap {
+    padding: 12px;
+  }
+  .exposure-editor-header h1 {
+    font-size: 22px;
+  }
+  .exposure-form-block {
+    padding: 14px;
+  }
+  .exposure-editor-layout {
+    grid-template-columns: 1fr;
+  }
+  .exposure-editor-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .exposure-editor-actions .lab-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .exposure-drafts-grid {
+    grid-template-columns: 1fr;
+  }
+}

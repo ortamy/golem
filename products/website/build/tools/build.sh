@@ -24,7 +24,6 @@ cp "$ROOT_DIR/favicon.svg" "$BUILD_DIR/"
 cp "$ROOT_DIR/robots.txt" "$BUILD_DIR/"
 cp "$ROOT_DIR/sitemap.xml" "$BUILD_DIR/"
 cp "$ROOT_DIR/files.json" "$BUILD_DIR/" 2>/dev/null || true
-cp "$ROOT_DIR/CNAME" "$BUILD_DIR/" 2>/dev/null || true
 
 # 3. Копирование src/js/
 echo "[2/8] Copying js/..."
@@ -36,6 +35,10 @@ cp -r "$ROOT_DIR/src/locales" "$BUILD_DIR/locales"
 
 # 5. Копирование apps/researchlab/
 echo "[4/8] Copying researchlab/..."
+mkdir -p "$BUILD_DIR/apps"
+cp -r "$ROOT_DIR/apps/researchlab" "$BUILD_DIR/apps/researchlab"
+
+# Совместимость со старыми ссылками
 cp -r "$ROOT_DIR/apps/researchlab" "$BUILD_DIR/researchlab"
 
 # 6. Копирование tools/
@@ -65,5 +68,8 @@ cp "$ROOT_DIR/package-lock.json" "$BUILD_DIR/" 2>/dev/null || true
 cd "$BUILD_DIR"
 npm install
 npm run build
+
+# GitHub Pages needs a root entrypoint in the artifact.
+cp "$ROOT_DIR/index.html" "$BUILD_DIR/index.html"
 
 echo "=== Build complete: $BUILD_DIR ==="
