@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '    <a href="' + prefix + 'pages/research/dictionaries.html">' + texts.dictionaries + '</a>' +
         '    <a href="' + prefix + 'pages/research/methodology.html">' + texts.methodology + '</a>' +
         '    <a href="' + prefix + 'pages/tools/index.html">' + (texts.tools || 'Инструменты') + '</a>' +
-        '    <a href="' + prefix + 'researchlab/index.html">🔬 Лаборатория</a>' +
+        '    <a href="' + prefix + 'apps/researchlab/index.html">🔬 Лаборатория</a>' +
         '    <a href="' + prefix + 'pages/about/index.html">' + texts.about + '</a>' +
         '  </div>' +
         '  <div class="side-panel-lang-switcher">' + selectHTML + '</div>' +

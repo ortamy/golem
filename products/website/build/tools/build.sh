@@ -38,9 +38,6 @@ echo "[4/8] Copying researchlab/..."
 mkdir -p "$BUILD_DIR/apps"
 cp -r "$ROOT_DIR/apps/researchlab" "$BUILD_DIR/apps/researchlab"
 
-# Совместимость со старыми ссылками
-cp -r "$ROOT_DIR/apps/researchlab" "$BUILD_DIR/researchlab"
-
 # 6. Копирование tools/
 echo "[5/8] Copying tools/..."
 cp -r "$ROOT_DIR/tools" "$BUILD_DIR/tools"
