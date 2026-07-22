@@ -6,7 +6,7 @@ const RootDict = (function() {
   let currentPage = 1;
 
   function init() {
-    fetch('data/roots.json')
+    fetch('data/roots/roots.json')
       .then(r => r.json())
       .then(data => {
         roots = data;

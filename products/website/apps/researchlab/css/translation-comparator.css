@@ -1,0 +1,58 @@
+/* translation-comparator.css — Сравнение переводов + Свидетели */
+
+.tc-tab-panel { }
+
+.tc-verse-btn {
+  background: none; border: none; padding: 0; cursor: pointer;
+  color: var(--accent-gold); font-family: var(--font-serif);
+  font-size: 15px; font-weight: 600; text-decoration: underline;
+  text-decoration-color: transparent; transition: text-decoration-color var(--transition);
+}
+.tc-verse-btn:hover { text-decoration-color: var(--accent-gold); color: var(--accent-gold-hover); }
+
+.tc-witness-row.active td { background: rgba(184,134,11,0.08); }
+
+/* Карта расхождений: радиальный граф стих → источники */
+.tc-map { display: flex; justify-content: center; margin: 10px 0 20px; }
+.tc-map svg { width: 100%; height: auto; max-width: 480px; }
+.tc-map-node { cursor: pointer; }
+.tc-map-node circle {
+  fill: var(--bg-tertiary); stroke-width: 1.5;
+  transition: fill var(--transition);
+}
+.tc-map-node:hover circle { fill: var(--accent-gold); }
+.tc-map-node text {
+  font-family: var(--font-serif); font-size: 11px; fill: var(--text-primary);
+  text-anchor: middle; pointer-events: none;
+}
+.tc-map-center circle { fill: var(--bg-dark); stroke: var(--accent-gold); stroke-width: 2; }
+.tc-map-center text { fill: var(--text-light); font-weight: 700; font-size: 12px; }
+
+.tc-map-line-match { stroke: var(--accent-green); stroke-width: 2; opacity: 0.7; }
+.tc-map-line-diverge { stroke: var(--accent-red); stroke-width: 2; opacity: 0.8; }
+.tc-map-line-partial { stroke: var(--accent-gold); stroke-width: 2; opacity: 0.8; }
+
+.tc-node-match circle { stroke: var(--accent-green); }
+.tc-node-diverge circle { stroke: var(--accent-red); }
+.tc-node-partial circle { stroke: var(--accent-gold); }
+
+.tc-map-legend {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  font-size: 13px; color: var(--text-muted); margin-bottom: 16px;
+}
+.tc-map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.tc-map-legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.tc-map-legend .dot-match { background: var(--accent-green); }
+.tc-map-legend .dot-diverge { background: var(--accent-red); }
+.tc-map-legend .dot-partial { background: var(--accent-gold); }
+
+.tc-detail-section { margin-bottom: 14px; }
+.tc-detail-section h3 {
+  font-family: var(--font-heading); font-size: 15px; font-weight: 600;
+  color: var(--accent-gold); margin-bottom: 6px;
+}
+.tc-detail-hebrew { direction: rtl; font-size: 18px; margin-bottom: 4px; }
+
+@media (max-width: 720px) {
+  .tc-map svg { max-width: 100%; }
+}

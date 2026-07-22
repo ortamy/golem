@@ -19,14 +19,14 @@ RESEARCHER_MODEL = os.environ.get("RESEARCHER_MODEL", "anthropic/claude-3-5-sonn
 METHODS_TEXT = load_instruction("exposure/exposure-linguistic-methods.md")
 
 
-@tool("Найти корень в data/roots.json")
+@tool("Найти корень в data/roots/roots.json")
 def lookup_root(query: str) -> str:
-    """Ищет трёхбуквенный корень в data/roots.json по корню, буквам или значению.
+    """Ищет трёхбуквенный корень в data/roots/roots.json по корню, буквам или значению.
     Возвращает найденную запись (корень, буквы, палео-образы, значение, термины,
     пример стиха, примечание) или сообщение, что корень не найден."""
     entry = find_root(query)
     if not entry:
-        return f"Корень '{query}' не найден в data/roots.json."
+        return f"Корень '{query}' не найден в data/roots/roots.json."
     return (
         f"root={entry.get('root')} letters={entry.get('letters')} "
         f"paleo={entry.get('paleo')} meaning={entry.get('meaning')} "
@@ -86,7 +86,7 @@ def build_researcher_task(agent: Agent, query: str) -> Task:
         description=(
             f"Задание: «{query}» (корень, стих или термин ТаНаХа).\n\n"
             "Проведи разбор по методологии Голема:\n"
-            "1. Найди корень в data/roots.json (инструмент lookup_root) или, если "
+            "1. Найди корень в data/roots/roots.json (инструмент lookup_root) или, если "
             "дан стих/термин — соответствующие файлы (lookup_terminology, "
             "lookup_verse_context).\n"
             "2. Разбери палео-образы букв корня (буква = образ, не звук).\n"

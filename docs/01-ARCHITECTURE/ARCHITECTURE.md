@@ -3,25 +3,25 @@
 ## Общая схема
 
 golem/
-├── researchlab/          # Исследовательская лаборатория (SPA)
-│   ├── index.html        # 53+ модуля, хеш-роутинг
-│   ├── css/              # lab.css + модульные стили
-│   ├── js/               # Скрипты модулей + router.js
-│   └── data/             # roots.json (127+ корней)
+├── products/
+│   ├── website/
+│   │   ├── apps/researchlab/ # canonical source Research Lab (SPA)
+│   │   │   ├── index.html    # 53+ модуля, хеш-роутинг
+│   │   │   ├── css/          # lab.css + модульные стили
+│   │   │   ├── js/           # Скрипты модулей + router.js
+│   │   │   └── data/         # источники, разделённые по типам
+│   │   └── build/            # генерируемый deploy output GitHub Pages
+│   └── agents/               # Python-агенты (CrewAI)
+│       ├── server.py         # Flask API
+│       ├── knowledge_base.py # RAG
+│       ├── main.py           # CLI для агентов
+│       └── agents/           # researcher.py, exposer.py, collector.py
 ├── analysis/             # Методички (41 .md файл)
 │   ├── dictionaries/     # 21 словарь подмен
 │   ├── exposure/         # 14 принципов разоблачения
 │   └── methodology/      # 6 методологий
 ├── content/              # Исследования, терминология, БаШаХ
 ├── methodology/          # MANIFEST.md, RESEARCH-PRINCIPLES.md
-├── products/
-│   ├── website/          # Публичный сайт + researchlab
-│   │   └── researchlab/  # Лаборатория (деплой)
-│   └── agents/           # Python-агенты (CrewAI)
-│       ├── server.py     # Flask API
-│       ├── knowledge_base.py  # RAG
-│       ├── main.py       # CLI для агентов
-│       └── agents/       # researcher.py, exposer.py, collector.py
 ├── tools/                # Python-утилиты, чекеры, генераторы
 ├── tasks/                # current.md, backlog.md, prompts.md
 └── docs/                 # 00-START/, 01-ARCHITECTURE/, 02-MANAGEMENT/, 03-CONTENT/, 04-REFERENCE/
@@ -48,7 +48,12 @@ golem/
 - CrewAI для сложных цепочек
 
 ### Данные
-- roots.json — корни с палео-образами
+- data/roots/roots.json — корни с палео-образами
+- data/exposures/index.json — каталог разоблачений
+- data/exposures/documents.json — длинные документы разоблачений
+- data/heraldry/heraldry.json — гербовник
+- data/states.json — состояния и диагностические переходы
+- data/cartography.json — географические записи, связанные с состояниями
 - analysis/ — методички (.md)
 - content/ — исследования
 
@@ -56,7 +61,7 @@ golem/
 
 - 9Router: localhost:20128 (экономия токенов для Claude Code/Cline)
 - Kiro AI: бесплатный Claude через 9Router
-- GitHub Pages: деплой researchlab
+- GitHub Pages: деплой из products/website/build/
 - GitHub Actions: CI/CD
 
 ## Потоки данных

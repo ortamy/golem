@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ANALYSIS = ROOT / "analysis"
-OUTPUT = ROOT / "products" / "website" / "researchlab" / "data"
+OUTPUT = ROOT / "products" / "website" / "apps" / "researchlab" / "data"
 
 PALEO = {
     "א": "𐤀",
@@ -195,8 +195,9 @@ def build_documents(directory: str, prefix: str) -> dict[str, dict[str, object]]
 
 
 def write_json(filename: str, value: object) -> None:
-    OUTPUT.mkdir(parents=True, exist_ok=True)
-    (OUTPUT / filename).write_text(
+    output_path = OUTPUT / filename
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
         json.dumps(value, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
@@ -204,7 +205,7 @@ def write_json(filename: str, value: object) -> None:
 
 if __name__ == "__main__":
     write_json("dictionaries.json", build_dictionaries())
-    write_json("exposure.json", build_documents("exposure", "exposure-"))
+    write_json("exposures/documents.json", build_documents("exposure", "exposure-"))
     write_json("methodology.json", build_documents("methodology", "methodology-"))
     dictionaries = build_dictionaries()
     print("dictionaries:", len(dictionaries), "files,", sum(len(item["terms"]) for item in dictionaries.values()), "terms")

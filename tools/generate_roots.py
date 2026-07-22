@@ -282,7 +282,7 @@ for r in new_roots:
 print(f"Unique new roots: {len(unique_new_roots)}")
 
 # Load existing roots
-with open('products/website/researchlab/data/roots.json', 'r', encoding='utf-8') as f:
+with open('products/website/apps/researchlab/data/roots/roots.json', 'r', encoding='utf-8') as f:
     existing_data = json.load(f)
 
 # Merge and sort
@@ -292,7 +292,7 @@ all_roots.sort(key=lambda x: x["root"])
 print(f"Total roots after merge: {len(all_roots)}")
 
 # Save to file
-with open('products/website/researchlab/data/roots.json', 'w', encoding='utf-8') as f:
+with open('products/website/apps/researchlab/data/roots/roots.json', 'w', encoding='utf-8') as f:
     json.dump(all_roots, f, ensure_ascii=False, indent=2)
 
 print("roots.json updated successfully!")

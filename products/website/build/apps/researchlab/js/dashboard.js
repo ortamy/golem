@@ -1,7 +1,7 @@
 /**
  * dashboard.js — «Рабочий стол исследователя» (#dashboard)
- * Виджеты со статистикой, собранной из data/roots.json, data/dictionaries.json,
- * data/researches.json, data/heraldry.json, data/qumran-books.json.
+ * Виджеты со статистикой, собранной из data/roots/roots.json, data/dictionaries.json,
+ * data/exposures/index.json, data/heraldry/heraldry.json, data/qumran-books.json.
  */
 const Dashboard = (function() {
   'use strict';
@@ -27,10 +27,10 @@ const Dashboard = (function() {
     if (loaded) return;
 
     Promise.all([
-      fetchJson('data/roots.json'),
+      fetchJson('data/roots/roots.json'),
       fetchJson('data/dictionaries.json'),
-      fetchJson('data/researches.json'),
-      fetchJson('data/heraldry.json'),
+      fetchJson('data/exposures/index.json'),
+      fetchJson('data/heraldry/heraldry.json'),
       fetchJson('data/qumran-books.json'),
       fetchJson('data/scripture/bereshit-1.json').catch(function() { return []; })
     ]).then(function(results) {

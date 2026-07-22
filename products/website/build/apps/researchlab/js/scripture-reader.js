@@ -426,8 +426,8 @@ const ScriptureReader = (function() {
         if (!response.ok) throw new Error('qumran-books.json HTTP ' + response.status);
         return response.json();
       }),
-      fetch('data/roots.json').then(function(response) {
-        if (!response.ok) throw new Error('roots.json HTTP ' + response.status);
+    fetch('data/roots/roots.json').then(function(response) {
+      if (!response.ok) throw new Error('roots/roots.json HTTP ' + response.status);
         return response.json();
       })
     ]).then(function(results) {

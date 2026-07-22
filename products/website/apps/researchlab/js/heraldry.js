@@ -11,7 +11,7 @@
 const Heraldry = (function() {
   'use strict';
 
-  const DATA_PATH = 'data/heraldry.json';
+const DATA_PATH = 'data/heraldry/heraldry.json';
   let countries = [];
   let currentCountry = null;
   let dataPromise = null;

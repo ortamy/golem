@@ -75,8 +75,8 @@ const Investigation = (function() {
     if (!form || form.dataset.bound) return;
     form.dataset.bound = '1';
     state.loading = Promise.all([
-      fetch('data/roots.json').then(function(response) {
-        if (!response.ok) throw new Error('roots.json: HTTP ' + response.status);
+    fetch('data/roots/roots.json').then(function(response) {
+      if (!response.ok) throw new Error('roots/roots.json: HTTP ' + response.status);
         return response.json();
       }),
       fetch('data/dictionaries.json').then(function(response) {

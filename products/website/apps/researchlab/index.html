@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="css/heraldry.css">
 <link rel="stylesheet" href="css/dashboard.css">
 <link rel="stylesheet" href="css/cartography.css">
+<link rel="stylesheet" href="css/states.css">
+<link rel="stylesheet" href="css/translation-comparator.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 </head>
@@ -106,6 +108,7 @@
         <a href="#investigation" class="sidebar-item" data-module="investigation"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</a>
         <a href="#heraldry" class="sidebar-item" data-module="heraldry"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Гербовник</a>
         <a href="#cartography" class="sidebar-item" data-module="cartography"><img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt="">Картография</a>
+        <a href="#states" class="sidebar-item" data-module="states"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Карта состояний</a>
       </div>
     </div>
     <div class="sidebar-section">
@@ -788,14 +791,14 @@ const LabRenderer = {
   // Load markdown content for a module on first activation
   loadModule: function(moduleId, parsed) {
     var container = document.getElementById(moduleId);
-    if (!container || (container.dataset.loaded && moduleId !== 'researches')) return;
+    if (!container || (container.dataset.loaded && moduleId !== 'researches' && moduleId !== 'states')) return;
 
     if (moduleId === 'dictionaries') {
       this.loadJsonPage('dictionaries', 'data/dictionaries.json', container);
       return;
     }
     if (moduleId === 'exposure') {
-      this.loadJsonPage('exposure', 'data/exposure.json', container);
+      this.loadJsonPage('exposure', 'data/exposures/documents.json', container);
       return;
     }
     if (moduleId === 'methodology') {
@@ -828,6 +831,16 @@ const LabRenderer = {
       }
       container.dataset.loaded = '1';
       window.Cartography.init();
+      return;
+    }
+
+    if (moduleId === 'states') {
+      if (!window.GolemStates) {
+        container.innerHTML = '<div class="lab-alert lab-alert-error">Модуль «Карта состояний» не загрузился. Обновите страницу и проверьте путь js/states.js.</div>';
+        return;
+      }
+      container.dataset.loaded = '1';
+      window.GolemStates.init(parsed);
       return;
     }
 
@@ -1077,6 +1090,7 @@ const LabRenderer = {
       this.adminSettings(),
       this.heraldry(),
       this.cartography(),
+      this.states(),
       this.researches()
     ];
     
@@ -1105,6 +1119,7 @@ const LabRenderer = {
       , 'js/learn.js'
       , 'js/heraldry.js'
       , 'js/cartography.js'
+      , 'js/states.js'
       , 'js/dashboard.js'
     ];
     
@@ -1155,6 +1170,7 @@ const LabRenderer = {
   if (window.AdminSettings) AdminSettings.init();
   if (window.LearnLab) LearnLab.init();
   if (window.Dashboard) Dashboard.init();
+  if (window.GolemStates) GolemStates.init();
   // Init board generator form
   if (document.getElementById('board-form')) {
     document.getElementById('board-form').addEventListener('submit', function(e) {
@@ -1480,16 +1496,28 @@ const LabRenderer = {
   translationComparator: function() {
     return '<div id="translation-comparator" class="module">' +
       '<h1><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Сравнение переводов" style="vertical-align: middle; margin-right: 6px;"> Сравнение переводов</h1>' +
-      '<p class="subtitle">Параллельный просмотр текста ТаНаХа в трёх переводах: ТМ, LXX, Синодальный.</p>' +
-      '<div class="search-wrap">' +
-        '<input type="text" id="tc-search" class="lab-input" placeholder="Берешит 1:1, Исайя 53, Псалом 23" />' +
-        '<button class="lab-btn lab-btn-primary" onclick="TransComp.search()"><img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Показать" style="vertical-align: middle; margin-right: 6px;"> Показать</button></div>' +
-      '<div id="tc-results" style="display:none;"><div class="flex gap-16" style="flex-wrap:wrap;">' +
-        '<div class="lab-card flex-1" style="min-width:250px;"><div class="lab-card-header"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="ТМ" style="vertical-align: middle; margin-right: 6px;"> ТМ (иврит)</div><div class="lab-card-body" id="tc-tm" style="font-size:20px;direction:rtl;"></div></div>' +
-        '<div class="lab-card flex-1" style="min-width:250px;"><div class="lab-card-header"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="LXX" style="vertical-align: middle; margin-right: 6px;"> LXX (греч.)</div><div class="lab-card-body" id="tc-lxx"></div></div>' +
-        '<div class="lab-card flex-1" style="min-width:250px;"><div class="lab-card-header"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Синодальный" style="vertical-align: middle; margin-right: 6px;"> Синодальный</div><div class="lab-card-body" id="tc-synodal"></div></div>' +
-      '</div></div>' +
-      '<div id="tc-placeholder" class="lab-alert lab-alert-info">Введите ссылку на стих. Пример: <strong>Берешит 1:1</strong>.</div></div>';
+      '<p class="subtitle">Параллельный просмотр текста ТаНаХа в разных переводах и текстуальные свидетели расхождений.</p>' +
+      '<div class="lab-tabs">' +
+        '<button type="button" class="lab-tab active" data-tab="tc-tab-compare">Сравнение</button>' +
+        '<button type="button" class="lab-tab" data-tab="tc-tab-witnesses">Свидетели</button>' +
+      '</div>' +
+      '<div id="tc-tab-compare" class="tc-tab-panel">' +
+        '<div class="search-wrap">' +
+          '<input type="text" id="tc-search" class="lab-input" placeholder="Берешит 1:1, Исайя 53, Псалом 23" />' +
+          '<button class="lab-btn lab-btn-primary" onclick="TransComp.search()"><img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Показать" style="vertical-align: middle; margin-right: 6px;"> Показать</button></div>' +
+        '<div id="tc-results" style="display:none;"><div class="flex gap-16" style="flex-wrap:wrap;">' +
+          '<div class="lab-card flex-1" style="min-width:250px;"><div class="lab-card-header"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="ТМ" style="vertical-align: middle; margin-right: 6px;"> ТМ (иврит)</div><div class="lab-card-body" id="tc-tm" style="font-size:20px;direction:rtl;"></div></div>' +
+          '<div class="lab-card flex-1" style="min-width:250px;"><div class="lab-card-header"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="LXX" style="vertical-align: middle; margin-right: 6px;"> LXX (греч.)</div><div class="lab-card-body" id="tc-lxx"></div></div>' +
+          '<div class="lab-card flex-1" style="min-width:250px;"><div class="lab-card-header"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Синодальный" style="vertical-align: middle; margin-right: 6px;"> Синодальный</div><div class="lab-card-body" id="tc-synodal"></div></div>' +
+        '</div></div>' +
+        '<div id="tc-placeholder" class="lab-alert lab-alert-info">Введите ссылку на стих. Пример: <strong>Берешит 1:1</strong>.</div>' +
+      '</div>' +
+      '<div id="tc-tab-witnesses" class="tc-tab-panel" style="display:none;">' +
+        '<p class="subtitle">Таблица текстуальных расхождений между ТМ, LXX, кумранскими свитками и Пешиттой. Нажмите на стих для подробного разбора.</p>' +
+        '<div id="tc-divergence-map"></div>' +
+        '<div id="tc-witnesses-table"><div class="lab-spinner show"><div class="loader"></div></div></div>' +
+      '</div>' +
+    '</div>';
   },
   
   boardLibrary: function() {
@@ -1745,6 +1773,10 @@ const LabRenderer = {
 
   cartography: function() {
     return '<div id="cartography" class="module"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка картографии...</div></div></div>';
+  },
+
+  states: function() {
+    return '<div id="states" class="module states-module"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка карты состояний...</div></div></div>';
   },
 
   researches: function() {

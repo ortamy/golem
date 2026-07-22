@@ -3,7 +3,7 @@
 migrate-exposures.py — TASK-060, шаг 0.
 
 Сливает два несовместимых источника «Разоблачений»:
-  - products/website/apps/researchlab/data/researches.json (плоский markdown body)
+  - products/website/apps/researchlab/data/exposures/legacy-researches.json (плоский markdown body)
   - products/website/apps/researchlab/data/research/*.json (структурированные дела)
 в единую схему products/website/apps/researchlab/data/exposures/index.json.
 
@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LAB = ROOT / "products" / "website" / "apps" / "researchlab"
-RESEARCHES_JSON = LAB / "data" / "researches.json"
+RESEARCHES_JSON = LAB / "data" / "exposures" / "legacy-researches.json"
 RESEARCH_DIR = LAB / "data" / "research"
 OUT_DIR = LAB / "data" / "exposures"
 OUT_FILE = OUT_DIR / "index.json"

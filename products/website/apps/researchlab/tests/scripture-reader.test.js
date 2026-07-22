@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const PaleoLetters = require('../js/paleo-letters.js');
 
-const rootsPath = path.join(__dirname, '..', 'data', 'roots.json');
+const rootsPath = path.join(__dirname, '..', 'data', 'roots', 'roots.json');
 const roots = JSON.parse(fs.readFileSync(rootsPath, 'utf8'));
 
 function findRoot(value) {

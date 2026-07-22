@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# tools/generators/generate-researches-json.py — генерация data/researches.json
+# tools/generators/generate-researches-json.py — подготовка legacy-входа миграции разоблачений
 # для страницы «Разоблачения» в researchlab из готовых md-эссе content/researches/.
 
 import json
@@ -12,7 +12,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SOURCE_DIR = REPO_ROOT / "content" / "researches"
-OUTPUT_PATH = REPO_ROOT / "products" / "website" / "researchlab" / "data" / "researches.json"
+OUTPUT_PATH = REPO_ROOT / "products" / "website" / "apps" / "researchlab" / "data" / "exposures" / "legacy-researches.json"
 
 # Файлы-заготовки по общему шаблону "образ" (adam/, anatomy/, elohim/, kehillah/, mikra/, geography/,
 # creation/ и т.п.) содержат этот текст, пока раздел не написан руками.

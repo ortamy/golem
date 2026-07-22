@@ -53,7 +53,7 @@ const EtyLab = (function() {
   var rootsData = [];
 
   function init() {
-    fetch('data/roots.json')
+    fetch('data/roots/roots.json')
       .then(function(r) { return r.json(); })
       .then(function(data) { rootsData = data; })
       .catch(function() {});

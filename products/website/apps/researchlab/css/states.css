@@ -1,0 +1,822 @@
+/**
+ * states.css — Стили для модуля «Карта состояний»
+ * 7 пространств палео-механики: Тоху → Хошех → Мицраим → Мидбар → Шамаим → Эрец → Эден
+ * Стиль «Голема»: тёмный фон, янтарные акценты, палео-типографика
+ */
+
+/* ===== ГЛАВНАЯ СТРАНИЦА ===== */
+.states-page {
+  padding: 24px clamp(16px, 3vw, 40px);
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.states-head {
+  margin-bottom: 24px;
+}
+
+.states-head h1 {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+  margin-bottom: 8px;
+}
+
+.states-head .subtitle {
+  font-family: var(--font-body, 'EB Garamond', Georgia, serif);
+  font-size: 16px;
+  color: var(--text-muted, #6b5b4e);
+  line-height: 1.6;
+}
+
+/* ===== СХЕМА-КАРТА СОСТОЯНИЙ ===== */
+.states-map {
+  position: relative;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+/* SVG-линии переходов */
+.state-links-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.state-link-line {
+  stroke: var(--border-light, #d4c4a8);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+  fill: none;
+  opacity: 0.5;
+  transition: opacity 0.3s, stroke 0.3s;
+}
+
+.state-link-line:hover {
+  opacity: 0.8;
+  stroke: var(--accent-gold, #b8860b);
+}
+
+.state-link-label {
+  fill: var(--text-muted, #6b5b4e);
+  font-family: var(--font-body, 'EB Garamond', Georgia, serif);
+  font-size: 10px;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+/* ===== СЕТКА КАРТОЧЕК ===== */
+.states-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Центрируем последнюю карточку (Эден) если 7 элементов */
+.states-grid > .state-card:last-child:nth-child(7) {
+  grid-column: 2 / 3;
+}
+
+.state-card {
+  background: var(--bg-card, #faf3e0);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  animation: stateCardFadeIn 0.5s ease both;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.state-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--state-color, var(--accent-gold, #b8860b));
+  opacity: 0.6;
+  transition: opacity 0.3s, height 0.3s;
+}
+
+.state-card:hover::before {
+  opacity: 1;
+  height: 4px;
+}
+
+.state-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  border-color: var(--accent-gold, #b8860b);
+}
+
+@keyframes stateCardFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.state-card-paleo {
+  font-size: 36px;
+  line-height: 1;
+  color: var(--accent-gold, #b8860b);
+  font-family: 'Times New Roman', serif;
+  transition: transform 0.3s;
+}
+
+.state-card:hover .state-card-paleo {
+  transform: scale(1.1);
+}
+
+.state-card-name {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+  margin: 0;
+}
+
+.state-card-hebrew {
+  font-family: 'Times New Roman', serif;
+  font-size: 16px;
+  direction: rtl;
+  color: var(--text-secondary, #4a3728);
+}
+
+.state-card-physics {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted, #6b5b4e);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.state-card-intensity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted, #6b5b4e);
+}
+
+.state-intensity-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--bg-subtle, #f5f0e8);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.state-intensity-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--state-color, var(--accent-gold, #b8860b));
+  transition: width 0.5s ease;
+}
+
+/* ===== СТРАНИЦА СОСТОЯНИЯ ===== */
+.state-detail {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.state-detail-hero {
+  text-align: center;
+  padding: 40px 24px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border-light, #d4c4a8);
+  position: relative;
+}
+
+.state-detail-hero-paleo {
+  font-size: 64px;
+  line-height: 1;
+  color: var(--accent-gold, #b8860b);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.state-detail-hero h2 {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+  margin-bottom: 8px;
+}
+
+.state-detail-hero .hebrew {
+  font-family: 'Times New Roman', serif;
+  font-size: 22px;
+  direction: rtl;
+  color: var(--text-secondary, #4a3728);
+  margin-bottom: 12px;
+}
+
+.state-detail-hero .physics {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-muted, #6b5b4e);
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.state-detail-section {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border-light, #d4c4a8);
+}
+
+.state-detail-section:last-child {
+  border-bottom: none;
+}
+
+.state-detail-section h3 {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.state-detail-section h3 .section-icon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+}
+
+.state-detail-section p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary, #4a3728);
+}
+
+/* Палео-разбор */
+.paleo-breakdown {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.paleo-breakdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: var(--bg-subtle, #f5f0e8);
+  border-radius: 6px;
+  min-width: 60px;
+}
+
+.paleo-breakdown-item .paleo-char {
+  font-size: 28px;
+  color: var(--accent-gold, #b8860b);
+  font-family: 'Times New Roman', serif;
+}
+
+.paleo-breakdown-item .paleo-name {
+  font-size: 11px;
+  color: var(--text-muted, #6b5b4e);
+}
+
+.paleo-breakdown-item .paleo-func {
+  font-size: 10px;
+  color: var(--text-muted, #6b5b4e);
+  text-align: center;
+  max-width: 80px;
+}
+
+/* Примеры */
+.examples-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.example-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--bg-subtle, #f5f0e8);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 14px;
+  font-size: 13px;
+  color: var(--text-secondary, #4a3728);
+}
+
+/* Переходы */
+.transitions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transition-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--bg-subtle, #f5f0e8);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.transition-item:hover {
+  border-color: var(--accent-gold, #b8860b);
+  background: var(--bg-card, #faf3e0);
+}
+
+.transition-arrow {
+  font-size: 20px;
+  color: var(--accent-gold, #b8860b);
+  flex-shrink: 0;
+}
+
+.transition-info {
+  flex: 1;
+}
+
+.transition-label {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary, #2c1810);
+}
+
+.transition-action {
+  font-size: 13px;
+  color: var(--text-muted, #6b5b4e);
+  margin-top: 2px;
+}
+
+/* Города на странице состояния */
+.state-cities {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.state-city-card {
+  padding: 14px;
+  background: var(--bg-subtle, #f5f0e8);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 6px;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.state-city-card:hover {
+  border-color: var(--accent-gold, #b8860b);
+}
+
+.state-city-card .city-name {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary, #2c1810);
+}
+
+.state-city-card .city-hebrew {
+  font-size: 14px;
+  direction: rtl;
+  color: var(--text-secondary, #4a3728);
+  margin-top: 2px;
+}
+
+.state-city-card .city-summary {
+  font-size: 13px;
+  color: var(--text-muted, #6b5b4e);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ===== ДИАГНОСТИКА ===== */
+.diagnostic-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.diagnostic-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.diagnostic-header h2 {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+  margin-bottom: 8px;
+}
+
+.diagnostic-header p {
+  font-size: 15px;
+  color: var(--text-muted, #6b5b4e);
+}
+
+/* Прогресс-бар */
+.diagnostic-progress {
+  margin-bottom: 28px;
+}
+
+.diagnostic-progress-bar {
+  height: 4px;
+  background: var(--bg-subtle, #f5f0e8);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.diagnostic-progress-fill {
+  height: 100%;
+  background: var(--accent-gold, #b8860b);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.diagnostic-progress-text {
+  font-size: 13px;
+  color: var(--text-muted, #6b5b4e);
+  text-align: right;
+}
+
+/* Карточка вопроса */
+.question-card {
+  background: var(--bg-card, #faf3e0);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 8px;
+  padding: 24px;
+  animation: questionSlideIn 0.35s ease both;
+}
+
+@keyframes questionSlideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.question-text {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary, #2c1810);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.question-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.question-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--bg-subtle, #f5f0e8);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.question-option:hover {
+  border-color: var(--accent-gold, #b8860b);
+  background: var(--bg-card, #faf3e0);
+}
+
+.question-option.selected {
+  border-color: var(--accent-gold, #b8860b);
+  background: rgba(184, 134, 11, 0.08);
+}
+
+.question-option input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-light, #d4c4a8);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.question-option input[type="radio"]:checked {
+  border-color: var(--accent-gold, #b8860b);
+}
+
+.question-option input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-gold, #b8860b);
+  border-radius: 50%;
+}
+
+.question-option .option-label {
+  font-size: 15px;
+  color: var(--text-secondary, #4a3728);
+}
+
+.question-options-scale {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.scale-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 6px;
+  background: var(--bg-subtle, #f5f0e8);
+  transition: border-color 0.2s, background 0.2s;
+  min-width: 60px;
+}
+
+.scale-option:hover {
+  border-color: var(--accent-gold, #b8860b);
+}
+
+.scale-option.selected {
+  border-color: var(--accent-gold, #b8860b);
+  background: rgba(184, 134, 11, 0.08);
+}
+
+.scale-option .scale-label {
+  font-size: 11px;
+  color: var(--text-muted, #6b5b4e);
+  text-align: center;
+}
+
+.scale-option .scale-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+}
+
+/* Кнопки диагностики */
+.diagnostic-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.diagnostic-actions button {
+  padding: 10px 24px;
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.5px;
+}
+
+.btn-diagnostic-next {
+  background: var(--accent-gold, #b8860b);
+  color: #faf3e0;
+  border: 1px solid var(--accent-gold, #b8860b);
+}
+
+.btn-diagnostic-next:hover {
+  background: #8b6508;
+  border-color: #8b6508;
+}
+
+.btn-diagnostic-next:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-diagnostic-prev {
+  background: transparent;
+  color: var(--text-secondary, #4a3728);
+  border: 1px solid var(--border-light, #d4c4a8);
+}
+
+.btn-diagnostic-prev:hover {
+  border-color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold, #b8860b);
+}
+
+/* Результат диагностики */
+.diagnostic-result {
+  text-align: center;
+  animation: resultFadeIn 0.6s ease both;
+}
+
+@keyframes resultFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.diagnostic-result-paleo {
+  font-size: 72px;
+  color: var(--accent-gold, #b8860b);
+  display: block;
+  margin-bottom: 16px;
+  font-family: 'Times New Roman', serif;
+  animation: resultPaleoPulse 2s ease-in-out infinite;
+}
+
+@keyframes resultPaleoPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.diagnostic-result h3 {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary, #2c1810);
+  margin-bottom: 8px;
+}
+
+.diagnostic-result .result-physics {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-muted, #6b5b4e);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.diagnostic-result .result-transition {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: var(--bg-subtle, #f5f0e8);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+
+.result-transition .arrow {
+  font-size: 24px;
+  color: var(--accent-gold, #b8860b);
+}
+
+.result-transition .to-state {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary, #2c1810);
+}
+
+.result-transition .action {
+  font-size: 13px;
+  color: var(--text-muted, #6b5b4e);
+  display: block;
+  margin-top: 2px;
+}
+
+.result-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.result-actions button {
+  padding: 10px 20px;
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-result-state {
+  background: var(--accent-gold, #b8860b);
+  color: #faf3e0;
+  border: 1px solid var(--accent-gold, #b8860b);
+}
+
+.btn-result-state:hover {
+  background: #8b6508;
+}
+
+.btn-result-restart {
+  background: transparent;
+  color: var(--text-secondary, #4a3728);
+  border: 1px solid var(--border-light, #d4c4a8);
+}
+
+.btn-result-restart:hover {
+  border-color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold, #b8860b);
+}
+
+.btn-result-share {
+  background: transparent;
+  color: var(--text-secondary, #4a3728);
+  border: 1px solid var(--border-light, #d4c4a8);
+}
+
+.btn-result-share:hover {
+  border-color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold, #b8860b);
+}
+
+/* ===== ПАНЕЛЬ УПРАВЛЕНИЯ СОСТОЯНИЯМИ ===== */
+.states-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.states-controls .states-nav-btn {
+  padding: 8px 16px;
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-light, #d4c4a8);
+  background: var(--bg-card, #faf3e0);
+  color: var(--text-primary, #2c1810);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.states-controls .states-nav-btn:hover {
+  border-color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold, #b8860b);
+}
+
+.states-controls .states-nav-btn.active {
+  background: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold, #b8860b);
+  color: #faf3e0;
+}
+
+.states-controls .states-nav-back {
+  margin-right: auto;
+}
+
+/* ===== АДАПТАЦИЯ ===== */
+@media (max-width: 768px) {
+  .states-page { padding: 16px; }
+  .states-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .states-grid > .state-card:last-child:nth-child(7) { grid-column: auto; }
+  .state-detail-hero { padding: 24px 16px; }
+  .state-detail-hero-paleo { font-size: 48px; }
+  .diagnostic-page { padding: 16px; }
+  .question-options-scale { flex-wrap: wrap; }
+  .state-cities { grid-template-columns: 1fr; }
+  .states-controls { flex-wrap: wrap; }
+  .states-controls .states-nav-back { margin-right: 0; }
+}
+
+@media (max-width: 480px) {
+  .states-grid { grid-template-columns: 1fr; }
+  .diagnostic-result-paleo { font-size: 56px; }
+  .result-actions { flex-direction: column; align-items: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .state-card { animation: none; transition: none; }
+  .question-card { animation: none; }
+  .diagnostic-result { animation: none; }
+  .diagnostic-result-paleo { animation: none; }
+}

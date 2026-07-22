@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent.parent
-DATA_DIR = REPO_ROOT / "data"
+DATA_DIR = REPO_ROOT / "products" / "website" / "apps" / "researchlab" / "data"
 CONTENT_DIR = REPO_ROOT / "content"
 INSTRUCTIONS_DIR = REPO_ROOT / "instructions"
 
@@ -24,7 +24,7 @@ def _load_json(path: Path) -> dict:
 
 
 def load_roots() -> list:
-    return _load_json(DATA_DIR / "roots.json").get("roots", [])
+    return _load_json(DATA_DIR / "roots" / "roots.json").get("roots", [])
 
 
 def find_root(query: str):
