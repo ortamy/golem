@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="css/paleo-linguistics.css">
 <link rel="stylesheet" href="css/language-map.css">
 <link rel="stylesheet" href="css/methodology.css">
+<link rel="stylesheet" href="css/lab-hero.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 </head>
@@ -186,6 +187,7 @@
 
 <script src="js/router.js"></script>
 <script src="js/access-gate.js"></script>
+<script src="js/lab-hero.js"></script>
 <script src="js/root-dictionary.js"></script>
 <script src="js/exposure-editor.js"></script>
 <script>
@@ -1171,6 +1173,7 @@ const LabRenderer = {
     ];
     
     container.innerHTML = modules.join('\n');
+    if (window.LabHero) LabHero.observe();
     this.loadScripts();
   },
   
@@ -1685,6 +1688,7 @@ const LabRenderer = {
 
   aiAgents: function() {
     var agents = [
+      { icon: 'ui/arrows', name: 'Оркестратор', desc: 'Оркестратор — получает запрос, разбивает его на подзадачи и распределяет их между агентами.', model: 'GOLEM', cat: 'Оркестрация', featured: true },
       { icon: 'archaeology/testtube', name: 'Исследователь', desc: 'Разбирает корни, стихи, термины.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
       { icon: 'ui/question', name: 'Разоблачитель', desc: 'Ищет подмены в переводах, сравнивает LXX и Синодальный.', model: 'GPT-4o', cat: 'Исследователь' },
       { icon: 'scribe/scrolls', name: 'Сборщик', desc: 'Объединяет результаты в единый отчёт.', model: 'Claude Haiku 3.5', cat: 'Оркестрация' },
@@ -1702,7 +1706,7 @@ const LabRenderer = {
       { icon: 'ui/link', name: 'Связной', desc: 'Связывает разрозненные исследования в единую сеть только на основе реальных данных.', model: 'Claude Sonnet 4', cat: 'Оркестрация' }
     ];
     var cards = agents.map(function(a) {
-      return '<div class="tool-card agent-card"><span class="tool-icon"><img src="../../assets/icons/32/' + a.icon + '.png" width="32" height="32" alt="' + a.name + '"></span>' +
+      return '<div class="tool-card agent-card' + (a.featured ? ' agent-card-orchestrator' : '') + '"><span class="tool-icon"><img src="../../assets/icons/32/' + a.icon + '.png" width="32" height="32" alt="' + a.name + '"></span>' +
         '<div class="tool-name">' + a.name + '</div>' +
         '<div class="tool-desc">' + a.desc + '</div>' +
         '<span class="tool-badge model">' + a.model + '</span>' +

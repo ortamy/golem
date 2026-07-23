@@ -466,6 +466,15 @@ code, pre, kbd, .translit, .mono {
   border-color: var(--accent-gold);
   background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
 }
+.agent-grid .agent-card-orchestrator {
+  background: linear-gradient(180deg, rgba(184, 134, 11, 0.32) 0%, rgba(92, 62, 8, 0.22) 100%);
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 0 0 1px rgba(212, 160, 48, 0.28), var(--shadow-soft);
+}
+.agent-grid .agent-card-orchestrator:hover {
+  background: linear-gradient(180deg, rgba(212, 160, 48, 0.42) 0%, rgba(108, 72, 8, 0.30) 100%);
+  border-color: var(--accent-gold);
+}
 .agent-grid .tool-icon {
   order: 1;
 }
