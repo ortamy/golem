@@ -40,16 +40,21 @@
     padding: 20px;
     text-align: center;
   }
-  .loader {
-    border: 3px solid #d4c4a8;
-    border-top: 3px solid #b8860b;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin-bottom: 20px;
+  .site-header {
+    width: min(100%, 760px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
   }
-  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  .site-logo {
+    height: 58px;
+    width: auto;
+  }
+  .site-header h1 {
+    margin: 0;
+  }
   h1 {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 36px;
@@ -70,26 +75,51 @@
     transition: border-bottom 0.2s;
   }
   a:hover { border-bottom-color: #b8860b; }
-  .lang-grid {
+  .language-panel {
     display: flex;
-    gap: 12px;
+    gap: 6px;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 20px 0;
+    margin: 0;
   }
   .lang-link {
-    padding: 8px 16px;
-    background: #faf3e0;
+    padding: 4px 9px;
+    background: rgba(250, 243, 224, 0.55);
     border: 1px solid #d4c4a8;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 12px;
     transition: background 0.3s;
   }
   .lang-link:hover { background: #f5edd5; }
   .lang-link.active {
-    border-color: #b8860b;
+    border-color: #8f6908;
     background: #b8860b;
     color: #faf3e0;
+  }
+  .lab-cta {
+    display: inline-block;
+    margin: 26px 0 10px;
+    padding: 14px 28px;
+    border: 2px solid #8f6908;
+    border-radius: 4px;
+    background: #b8860b;
+    color: #faf3e0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 3px 0 #8f6908;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .lab-cta:hover {
+    border-bottom-color: #8f6908;
+    background: #9f7508;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 #8f6908;
+  }
+  .lab-cta:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #8f6908;
   }
   .subtitle {
     font-size: 20px;
@@ -97,23 +127,28 @@
     color: #7a5a3a;
     margin-top: -10px;
   }
+  @media (max-width: 560px) {
+    .site-header {
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+  }
 </style>
 </head>
 <body>
-<div class="loader"></div>
-<h1><img src="assets/images/golem-logo-2.png" alt="Голем" style="height: 80px; width: auto;"></h1>
+<header class="site-header">
+  <h1><img class="site-logo" src="assets/images/golem-logo-2.png" alt="Голем"></h1>
+  <nav class="language-panel" aria-label="Выбор языка">
+    <span class="lang-link active" aria-current="true">Русский</span>
+    <span class="lang-link" aria-disabled="true" style="opacity:0.4;cursor:default">English (скоро)</span>
+    <span class="lang-link" aria-disabled="true" style="opacity:0.4;cursor:default">Español (скоро)</span>
+    <span class="lang-link" aria-disabled="true" style="opacity:0.4;cursor:default">Deutsch (скоро)</span>
+    <span class="lang-link" aria-disabled="true" style="opacity:0.4;cursor:default">Français (скоро)</span>
+  </nav>
+</header>
 <p class="subtitle">Путь из тесноты в открытое пространство</p>
 <p>Инструмент для восстановления палео-механики языка.<br>
 Здесь нет веры. Есть только корни, образы и двери.</p>
-<div class="lang-grid">
-  <!-- Ссылка на SPA-лабораторию (Research Lab) -->
-  <a href="apps/researchlab/index.html" class="lang-link active">Исследовательская лаборатория</a>
-  
-  <!-- Остальные ссылки, если нужны, можно оставить или убрать -->
-  <span class="lang-link" aria-disabled="true" style="opacity:0.4;cursor:default">English (скоро)</span>
-  <span class="lang-link" style="opacity:0.4;cursor:default">Español (скоро)</span>
-  <span class="lang-link" style="opacity:0.4;cursor:default">Deutsch (скоро)</span>
-  <span class="lang-link" style="opacity:0.4;cursor:default">Français (скоро)</span>
-</div>
+<a href="apps/researchlab/index.html" class="lab-cta">Исследовательская лаборатория</a>
 </body>
 </html>
