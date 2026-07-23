@@ -1,0 +1,18 @@
+<section class="davar-checker-shell" aria-labelledby="davar-checker-title">
+  <div class="davar-checker-intro">
+    <p class="davar-checker-kicker">ДАВАР / ПРОВЕРКА СБОРКИ</p>
+    <h1 id="davar-checker-title">Чекер воплощения</h1>
+    <p class="subtitle">Проверьте, обозначает ли слово конструкцию, которая имеет физический эквивалент, или остаётся пустым звуком.</p>
+  </div>
+
+  <form id="davar-checker-form" class="davar-checker-form">
+    <label for="davar-checker-input">Слово</label>
+    <div class="davar-checker-form-row">
+      <input id="davar-checker-input" class="lab-input" type="text" autocomplete="off" placeholder="Например: вода" aria-describedby="davar-checker-hint">
+      <button class="lab-btn lab-btn-primary" type="submit">Проверить</button>
+    </div>
+    <p id="davar-checker-hint" class="davar-checker-hint">Введите одно слово из проверяемого набора.</p>
+  </form>
+
+  <div id="davar-checker-result" class="davar-checker-result" role="status" aria-live="polite" hidden></div>
+</section>

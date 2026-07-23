@@ -1,11 +1,12 @@
 /**
- * prompt-generator.js — сборка исследовательских промптов
+ * prompt-generator.js — гибкая сборка промптов из блоков.
  */
 (function(window, document) {
   'use strict';
 
   var PAGE_PATH = 'pages/prompt-generator.html';
-  var DATA_PATH = 'data/prompts/index.json';
+  var DATA_PATH = 'data/prompts/blocks.json';
+  var CUSTOM_STORAGE_KEY = 'golem_prompt_custom_blocks';
 
   function escapeHtml(value) {
     return String(value == null ? '' : value)
@@ -16,31 +17,32 @@
       .replace(/'/g, '&#039;');
   }
 
-  function renderPrompt(template, values) {
-    var result = template || '';
-
-    result = result.replace(/{{#if\s+([\w-]+)}}([\s\S]*?){{\/if}}/g, function(_, name, body) {
-      return values[name] ? body : '';
-    });
-
-    result = result.replace(/{{\s*([\w-]+)\s*}}/g, function(_, name) {
-      return values[name] == null ? '' : String(values[name]);
-    });
-
-    return result.replace(/\n{3,}/g, '\n\n').trim();
+  function readCustomBlocks() {
+    try {
+      var stored = JSON.parse(window.localStorage.getItem(CUSTOM_STORAGE_KEY) || '[]');
+      return Array.isArray(stored) ? stored.filter(isValidBlock) : [];
+    } catch (error) {
+      return [];
+    }
   }
 
-  function getValues(container) {
-    var values = {};
-    container.querySelectorAll('[data-prompt-field]').forEach(function(field) {
-      values[field.name] = field.type === 'checkbox' ? field.checked : field.value.trim();
-    });
-    return values;
+  function saveCustomBlocks(blocks) {
+    try {
+      window.localStorage.setItem(CUSTOM_STORAGE_KEY, JSON.stringify(blocks));
+    } catch (error) {
+      return false;
+    }
+    return true;
   }
 
-  function updateCounter(container, text) {
-    var counter = container.querySelector('#prompt-generator-counter');
-    if (counter) counter.textContent = text.length + ' знаков';
+  function isValidBlock(block) {
+    return block && typeof block.id === 'string' && block.id &&
+      typeof block.title === 'string' && block.title.trim() &&
+      typeof block.text === 'string' && block.text.trim();
+  }
+
+  function pluralize(count) {
+    return count === 1 ? 'блок' : 'блоков';
   }
 
   function setStatus(container, message, type) {
@@ -50,68 +52,18 @@
     status.className = 'prompt-generator-status' + (type ? ' is-' + type : '');
   }
 
-  function renderFields(container, template, previousValues) {
-    var fields = container.querySelector('#prompt-generator-fields');
-    if (!fields) return;
-    fields.innerHTML = '';
-
-    (template.fields || []).forEach(function(field) {
-      var wrapper = document.createElement('div');
-      wrapper.className = 'prompt-generator-field';
-
-      if (field.type === 'checkbox') {
-        var label = document.createElement('label');
-        label.className = 'prompt-generator-check';
-        var checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.name = field.name;
-        checkbox.setAttribute('data-prompt-field', '');
-        checkbox.checked = previousValues[field.name] === true;
-        label.appendChild(checkbox);
-        var checkText = document.createElement('span');
-        checkText.textContent = field.label || field.name;
-        label.appendChild(checkText);
-        wrapper.appendChild(label);
-      } else {
-        var textLabel = document.createElement('label');
-        textLabel.className = 'prompt-generator-label';
-        textLabel.setAttribute('for', 'prompt-field-' + field.name);
-        textLabel.textContent = (field.label || field.name) + (field.required ? ' *' : '');
-        var input = document.createElement('input');
-        input.type = 'text';
-        input.id = 'prompt-field-' + field.name;
-        input.name = field.name;
-        input.className = 'lab-input';
-        input.setAttribute('data-prompt-field', '');
-        input.placeholder = field.placeholder || '';
-        input.required = Boolean(field.required);
-        input.value = previousValues[field.name] || '';
-        wrapper.appendChild(textLabel);
-        wrapper.appendChild(input);
-      }
-      fields.appendChild(wrapper);
-    });
-  }
-
-  function renderTemplateCards(container, templates, selectedId, selectTemplate) {
-    var list = container.querySelector('#prompt-template-list');
-    if (!list) return;
-    list.innerHTML = '';
-    templates.forEach(function(template) {
-      var card = document.createElement('button');
-      card.type = 'button';
-      card.className = 'prompt-generator-template' + (template.id === selectedId ? ' is-selected' : '');
-      card.setAttribute('data-template-id', template.id);
-      card.setAttribute('role', 'listitem');
-      var title = document.createElement('strong');
-      title.textContent = template.title || template.id;
-      var description = document.createElement('span');
-      description.textContent = template.description || '';
-      card.appendChild(title);
-      card.appendChild(description);
-      card.addEventListener('click', function() { selectTemplate(template.id); });
-      list.appendChild(card);
-    });
+  function updateOutput(container, assembly) {
+    var text = assembly.map(function(block) { return block.text.trim(); })
+      .filter(Boolean).join('\n\n');
+    var output = container.querySelector('#prompt-generator-output');
+    var copyButton = container.querySelector('#prompt-generator-copy');
+    var counter = container.querySelector('#prompt-generator-counter');
+    var blockCounter = container.querySelector('#prompt-generator-block-count');
+    if (output) output.value = text;
+    if (copyButton) copyButton.disabled = !text;
+    if (counter) counter.textContent = text.length + ' знаков';
+    if (blockCounter) blockCounter.textContent = assembly.length + ' ' + pluralize(assembly.length);
+    return text;
   }
 
   function copyText(container) {
@@ -119,33 +71,168 @@
     var status = container.querySelector('#prompt-generator-copy-status');
     if (!output || !output.value) return Promise.resolve(false);
 
-    var copied = function() {
-      if (status) status.textContent = 'Скопировано';
+    function copied() {
+      if (status) status.textContent = 'Скопировано в буфер';
       return true;
-    };
+    }
+
+    function fallbackCopy() {
+      output.focus();
+      output.select();
+      try {
+        return document.execCommand('copy');
+      } catch (error) {
+        return false;
+      }
+    }
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      return navigator.clipboard.writeText(output.value).then(copied).catch(function() {
-        return fallbackCopy(output) ? copied() : false;
-      });
+      try {
+        return Promise.resolve(navigator.clipboard.writeText(output.value)).then(copied).catch(function() {
+          return fallbackCopy() ? copied() : false;
+        });
+      } catch (error) {
+        return Promise.resolve(fallbackCopy() ? copied() : false);
+      }
     }
-    return Promise.resolve(fallbackCopy(output) ? copied() : false);
+    return Promise.resolve(fallbackCopy() ? copied() : false);
   }
 
-  function fallbackCopy(output) {
-    output.focus();
-    output.select();
-    try {
-      return document.execCommand('copy');
-    } catch (error) {
-      return false;
+  function renderLibrary(container, blocks, addBlock) {
+    var list = container.querySelector('#prompt-generator-library-list');
+    var count = container.querySelector('#prompt-generator-library-count');
+    if (!list) return;
+    list.innerHTML = '';
+    if (count) count.textContent = blocks.length + ' ' + pluralize(blocks.length);
+
+    blocks.forEach(function(block) {
+      var item = document.createElement('article');
+      item.className = 'prompt-generator-library-item';
+      item.setAttribute('role', 'listitem');
+
+      var meta = document.createElement('div');
+      meta.className = 'prompt-generator-block-meta';
+      var title = document.createElement('h3');
+      title.textContent = block.title;
+      var type = document.createElement('span');
+      type.className = 'prompt-generator-block-type';
+      type.textContent = block.custom ? 'Кастомный' : 'Готовый';
+      meta.appendChild(title);
+      meta.appendChild(type);
+
+      var preview = document.createElement('p');
+      preview.textContent = block.text;
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'lab-btn lab-btn-secondary lab-btn-sm prompt-generator-add';
+      button.textContent = 'Добавить в промпт';
+      button.addEventListener('click', function() { addBlock(block); });
+
+      item.appendChild(meta);
+      item.appendChild(preview);
+      item.appendChild(button);
+      list.appendChild(item);
+    });
+  }
+
+  function renderAssembly(container, assembly, onChange) {
+    var list = container.querySelector('#prompt-generator-assembly');
+    if (!list) return;
+    list.innerHTML = '';
+    if (!assembly.length) {
+      list.innerHTML = '<p class="prompt-generator-empty">Добавьте блоки из панели слева.</p>';
+      updateOutput(container, assembly);
+      return;
     }
+
+    assembly.forEach(function(block, index) {
+      var item = document.createElement('article');
+      item.className = 'prompt-generator-assembly-item';
+      item.setAttribute('role', 'listitem');
+
+      var head = document.createElement('div');
+      head.className = 'prompt-generator-assembly-head';
+      var number = document.createElement('span');
+      number.className = 'prompt-generator-assembly-number';
+      number.textContent = String(index + 1).padStart(2, '0');
+      var title = document.createElement('strong');
+      title.textContent = block.title;
+      var remove = document.createElement('button');
+      remove.type = 'button';
+      remove.className = 'prompt-generator-icon-button';
+      remove.setAttribute('aria-label', 'Убрать блок «' + block.title + '»');
+      remove.title = 'Убрать блок';
+      remove.textContent = '×';
+      remove.addEventListener('click', function() {
+        assembly.splice(index, 1);
+        onChange();
+      });
+      head.appendChild(number);
+      head.appendChild(title);
+      head.appendChild(remove);
+
+      var textarea = document.createElement('textarea');
+      textarea.className = 'prompt-generator-block-text';
+      textarea.value = block.text;
+      textarea.rows = Math.min(10, Math.max(3, block.text.split('\n').length + 1));
+      textarea.setAttribute('aria-label', 'Текст блока «' + block.title + '»');
+      textarea.addEventListener('input', function() {
+        block.text = textarea.value;
+        updateOutput(container, assembly);
+      });
+
+      var controls = document.createElement('div');
+      controls.className = 'prompt-generator-move-controls';
+      var up = document.createElement('button');
+      up.type = 'button';
+      up.className = 'lab-btn lab-btn-secondary lab-btn-sm';
+      up.textContent = '↑ Вверх';
+      up.disabled = index === 0;
+      up.addEventListener('click', function() {
+        var previous = assembly[index - 1];
+        assembly[index - 1] = assembly[index];
+        assembly[index] = previous;
+        onChange();
+      });
+      var down = document.createElement('button');
+      down.type = 'button';
+      down.className = 'lab-btn lab-btn-secondary lab-btn-sm';
+      down.textContent = '↓ Вниз';
+      down.disabled = index === assembly.length - 1;
+      down.addEventListener('click', function() {
+        var next = assembly[index + 1];
+        assembly[index + 1] = assembly[index];
+        assembly[index] = next;
+        onChange();
+      });
+      controls.appendChild(up);
+      controls.appendChild(down);
+
+      item.appendChild(head);
+      item.appendChild(textarea);
+      item.appendChild(controls);
+      list.appendChild(item);
+    });
+    updateOutput(container, assembly);
+  }
+
+  function openDialog(dialog) {
+    if (!dialog) return;
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', '');
+  }
+
+  function closeDialog(dialog, form) {
+    if (!dialog) return;
+    if (typeof dialog.close === 'function') dialog.close();
+    else dialog.removeAttribute('open');
+    if (form) form.reset();
   }
 
   function init(container) {
     if (!container || container.dataset.promptGeneratorReady === '1') return;
     container.dataset.promptGeneratorReady = '1';
-    container.innerHTML = '<div class="prompt-generator-loading">Загрузка генератора…</div>';
+    container.innerHTML = '<div class="prompt-generator-loading">Загрузка конструктора…</div>';
 
     Promise.all([
       fetch(PAGE_PATH).then(function(response) {
@@ -157,72 +244,91 @@
         return response.json();
       })
     ]).then(function(result) {
-      var templates = result[1].templates || [];
-      if (!templates.length) throw new Error('Шаблоны не найдены');
+      var data = result[1] || {};
+      var readyBlocks = Array.isArray(data.blocks) ? data.blocks.filter(isValidBlock) : [];
+      if (!readyBlocks.length) throw new Error('Готовые блоки не найдены');
+      var customBlocks = readCustomBlocks();
+      var allBlocks = readyBlocks.concat(customBlocks);
+      var assembly = [];
       container.innerHTML = result[0];
 
-      var select = container.querySelector('#prompt-template-select');
-       var modelSelect = container.querySelector('#prompt-generator-model');
-      var description = container.querySelector('#prompt-template-description');
-      var form = container.querySelector('#prompt-generator-form');
-      var output = container.querySelector('#prompt-generator-output');
-      var copyButton = container.querySelector('#prompt-generator-copy');
-      var valuesByTemplate = {};
-      var currentTemplate = null;
-
-      function selectTemplate(id) {
-        currentTemplate = templates.filter(function(template) { return template.id === id; })[0] || templates[0];
-        valuesByTemplate[currentTemplate.id] = valuesByTemplate[currentTemplate.id] || {};
-        if (select) select.value = currentTemplate.id;
-        if (description) description.textContent = currentTemplate.description || '';
-        renderFields(container, currentTemplate, valuesByTemplate[currentTemplate.id]);
-        renderTemplateCards(container, templates, currentTemplate.id, selectTemplate);
-        setStatus(container, '', '');
+      function refresh() {
+        renderAssembly(container, assembly, refresh);
       }
 
-      function generate() {
-        if (!currentTemplate) return;
-        var values = getValues(container);
-        var missing = (currentTemplate.fields || []).filter(function(field) {
-          return field.required && field.type !== 'checkbox' && !values[field.name];
+      function addBlock(block) {
+        assembly.push({
+          instanceId: block.id + '-' + Date.now() + '-' + assembly.length,
+          sourceId: block.id,
+          title: block.title,
+          text: block.text
         });
-        if (missing.length) {
-          setStatus(container, 'Заполните поле: ' + (missing[0].label || missing[0].name), 'error');
-          var missingInput = container.querySelector('[name="' + missing[0].name + '"]');
-          if (missingInput) missingInput.focus();
-          return;
-        }
-        valuesByTemplate[currentTemplate.id] = values;
-         var model = modelSelect ? modelSelect.value : 'Claude';
-         var prompt = 'Целевая нейросеть: ' + model + '\n\n' + renderPrompt(currentTemplate.prompt_template, values);
-        if (output) output.value = prompt;
-        if (copyButton) copyButton.disabled = !prompt;
-        updateCounter(container, prompt);
-        setStatus(container, 'Промпт собран. Проверьте формулировки перед отправкой.', 'success');
+        refresh();
+        setStatus(container, 'Блок добавлен в сборку.', 'success');
       }
 
-      if (select) select.addEventListener('change', function() { selectTemplate(this.value); });
-      if (form) form.addEventListener('submit', function(event) { event.preventDefault(); generate(); });
+      renderLibrary(container, allBlocks, addBlock);
+      refresh();
+
+      var clearButton = container.querySelector('#prompt-generator-clear');
+      var copyButton = container.querySelector('#prompt-generator-copy');
+      var createButton = container.querySelector('#prompt-generator-create');
+      var dialog = container.querySelector('#prompt-generator-dialog');
+      var form = container.querySelector('#prompt-generator-custom-form');
+      var dialogClose = container.querySelector('#prompt-generator-dialog-close');
+      var dialogCancel = container.querySelector('#prompt-generator-dialog-cancel');
+      var customStatus = container.querySelector('#prompt-generator-custom-status');
+
+      if (clearButton) clearButton.addEventListener('click', function() {
+        assembly.length = 0;
+        refresh();
+        setStatus(container, 'Сборка очищена.', 'success');
+      });
       if (copyButton) copyButton.addEventListener('click', function() {
         copyButton.disabled = true;
         copyText(container).then(function(success) {
-          copyButton.disabled = !output || !output.value;
-          if (!success) {
-            var copyStatus = container.querySelector('#prompt-generator-copy-status');
-            if (copyStatus) copyStatus.textContent = 'Не удалось скопировать';
-          }
+          copyButton.disabled = !container.querySelector('#prompt-generator-output').value;
+          if (!success) setStatus(container, 'Не удалось скопировать текст.', 'error');
         });
       });
-
-      selectTemplate(templates[0].id);
+      if (createButton) createButton.addEventListener('click', function() { openDialog(dialog); });
+      if (dialogClose) dialogClose.addEventListener('click', function() { closeDialog(dialog, form); });
+      if (dialogCancel) dialogCancel.addEventListener('click', function() { closeDialog(dialog, form); });
+      if (dialog) dialog.addEventListener('click', function(event) {
+        if (event.target === dialog) closeDialog(dialog, form);
+      });
+      if (form) form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var titleField = form.querySelector('[name="title"]');
+        var textField = form.querySelector('[name="text"]');
+        var title = titleField ? titleField.value.trim() : '';
+        var text = textField ? textField.value.trim() : '';
+        if (!title || !text) {
+          if (customStatus) customStatus.textContent = 'Заполните название и текст блока.';
+          return;
+        }
+        var customBlock = {
+          id: 'custom_' + Date.now(),
+          title: title,
+          text: text,
+          custom: true
+        };
+        customBlocks.push(customBlock);
+        if (!saveCustomBlocks(customBlocks)) {
+          if (customStatus) customStatus.textContent = 'Не удалось сохранить блок в браузере.';
+          customBlocks.pop();
+          return;
+        }
+        allBlocks.push(customBlock);
+        renderLibrary(container, allBlocks, addBlock);
+        closeDialog(dialog, form);
+        setStatus(container, 'Кастомный блок сохранён и добавлен в панель.', 'success');
+      });
     }).catch(function(error) {
-      container.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить генератор: ' + escapeHtml(error.message) + '</div>';
+      container.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить конструктор: ' + escapeHtml(error.message) + '</div>';
       container.dataset.promptGeneratorReady = '0';
     });
   }
 
-  window.PromptGenerator = {
-    init: init,
-    renderPrompt: renderPrompt
-  };
+  window.PromptGenerator = { init: init };
 })(window, document);

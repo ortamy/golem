@@ -86,6 +86,18 @@ const LabRouter = (function() {
       return;
     }
 
+    // #davar-checker — проверка воплощаемости слова
+    if (hash === 'davar-checker') {
+      showModule('davar-checker', parsed);
+      return;
+    }
+
+    // #language-map — диагностика живых языков и их переходов
+    if (hash === 'language-map') {
+      showModule('language-map', parsed);
+      return;
+    }
+
     if (modules[hash]) {
       showModule(hash, parsed);
     } else if (hash === 'exposure-editor') {

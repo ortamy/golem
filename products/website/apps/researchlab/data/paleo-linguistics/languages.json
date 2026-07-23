@@ -1,0 +1,10 @@
+[
+  { "id": "proto-canaanite", "file": "proto-canaanite.json", "icon": "archaeology/vase" },
+  { "id": "paleo-hebrew", "file": "paleo-hebrew.json", "icon": "paleo/track" },
+  { "id": "phoenician", "file": "phoenician.json", "icon": "scribe/scroll" },
+  { "id": "aramaic", "file": "aramaic.json", "icon": "seals/ring" },
+  { "id": "akkadian", "file": "akkadian.json", "icon": "crafts/hammer-and-chisel" },
+  { "id": "eblaite", "file": "eblaite.json", "icon": "archaeology/testtube" },
+  { "id": "arabic", "file": "arabic.json", "icon": "desert/tent" },
+  { "id": "ugaritic", "file": "ugaritic.json", "icon": "temple/torch" }
+]

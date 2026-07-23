@@ -187,6 +187,7 @@ const GolemStates = (function() {
         '<h2 class="state-card-name">' + escapeHtml(s.name) + '</h2>' +
         '<div class="state-card-hebrew" dir="rtl">' + escapeHtml(s.hebrew || '') + '</div>' +
         '<div class="state-card-physics">' + escapeHtml(s.physics || '') + '</div>' +
+        '<div class="state-card-olam"><span>Олам:</span> ' + escapeHtml(s.olam || '') + '</div>' +
         '<div class="state-card-intensity">' +
           '<span>' + escapeHtml(s.intensity_label || '') + '</span>' +
           '<div class="state-intensity-bar">' +
@@ -310,6 +311,7 @@ const GolemStates = (function() {
           '<h2>' + escapeHtml(s.name) + '</h2>' +
           '<div class="hebrew" dir="rtl">' + escapeHtml(s.hebrew || '') + '</div>' +
           '<div class="physics">' + escapeHtml(s.physics || '') + '</div>' +
+          '<div class="state-detail-olam"><span>Олам:</span> ' + escapeHtml(s.olam || '') + '</div>' +
         '</div>' +
         intensityHtml +
         paleoHtml +

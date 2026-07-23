@@ -290,6 +290,11 @@ html[data-theme="dark"] .substitution-step {
 .exposure-badge-hypothesis { background: #e6eefc; color: #2455a4; }
 .exposure-badge-disputed { background: #fde3e1; color: #a3392c; }
 
+html[data-theme="dark"] .exposure-badge-verified { background: rgba(58, 130, 58, 0.22); color: #7bc47b; }
+html[data-theme="dark"] .exposure-badge-review { background: rgba(184, 134, 11, 0.22); color: #d4a030; }
+html[data-theme="dark"] .exposure-badge-hypothesis { background: rgba(52, 100, 180, 0.22); color: #8fb4ea; }
+html[data-theme="dark"] .exposure-badge-disputed { background: rgba(180, 60, 60, 0.22); color: #e08a8a; }
+
 html[data-theme="dark"] .exposure-card {
   background: var(--bg-secondary, #211b17);
   border-color: var(--border-light, #514234);

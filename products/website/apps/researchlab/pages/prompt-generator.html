@@ -1,53 +1,48 @@
 <section class="prompt-generator-shell" aria-labelledby="prompt-generator-title">
-  <div class="prompt-generator-heading">
+  <header class="prompt-generator-heading">
     <div>
-      <p class="prompt-generator-kicker">ИНСТРУМЕНТ ИССЛЕДОВАТЕЛЯ · СБОРКА</p>
-      <h1 id="prompt-generator-title">Генератор промптов</h1>
-      <p class="subtitle">Соберите точное задание для нейросети: выберите тему и откройте нужные слои анализа.</p>
+      <p class="prompt-generator-kicker">ИНСТРУМЕНТ ИССЛЕДОВАТЕЛЯ · КОНСТРУКТОР</p>
+      <h1 id="prompt-generator-title">Конструктор промптов</h1>
+      <p class="subtitle">Соберите промпт из готовых фрагментов, настройте порядок и доведите каждую формулировку до нужной точности.</p>
     </div>
-    <span class="prompt-generator-mark" aria-hidden="true">↗</span>
-  </div>
+    <span class="prompt-generator-mark" aria-hidden="true">⌘</span>
+  </header>
 
   <div class="prompt-generator-layout">
-    <section class="prompt-generator-card prompt-generator-topic" aria-labelledby="prompt-topic-title">
+    <section class="prompt-generator-card prompt-generator-library" aria-labelledby="prompt-library-title">
       <div class="prompt-generator-card-head">
         <span class="prompt-generator-step">01</span>
         <div>
-          <h2 id="prompt-topic-title">Тема исследования</h2>
-          <p>Выберите шаблон для сборки.</p>
+          <h2 id="prompt-library-title">Доступные блоки</h2>
+          <p>Добавляйте фрагменты в сборку. Оригинал останется в панели.</p>
         </div>
       </div>
-      <label class="prompt-generator-label" for="prompt-template-select">Шаблон</label>
-      <select id="prompt-template-select" class="lab-input" aria-describedby="prompt-template-description">
-        <option value="">Загрузка шаблонов…</option>
-      </select>
-      <p id="prompt-template-description" class="prompt-generator-description" aria-live="polite"></p>
-      <div id="prompt-template-list" class="prompt-generator-template-list" role="list"></div>
+      <div class="prompt-generator-library-toolbar">
+        <span id="prompt-generator-library-count" class="prompt-generator-counter">0 блоков</span>
+        <button type="button" id="prompt-generator-create" class="lab-btn lab-btn-secondary lab-btn-sm">＋ Создать кастомный блок</button>
+      </div>
+      <div id="prompt-generator-library-list" class="prompt-generator-block-list" role="list" aria-live="polite">
+        <p class="prompt-generator-empty">Загрузка блоков…</p>
+      </div>
     </section>
 
-    <section class="prompt-generator-card" aria-labelledby="prompt-layers-title">
+    <section class="prompt-generator-card prompt-generator-builder" aria-labelledby="prompt-builder-title">
       <div class="prompt-generator-card-head">
         <span class="prompt-generator-step">02</span>
         <div>
-          <h2 id="prompt-layers-title">Слои анализа</h2>
-          <p>Настройте глубину будущего разбора.</p>
+          <h2 id="prompt-builder-title">Сборка промпта</h2>
+          <p>Порядок сверху вниз. Текст каждого экземпляра можно менять.</p>
         </div>
+        <span id="prompt-generator-block-count" class="prompt-generator-counter">0 блоков</span>
       </div>
-      <label class="prompt-generator-label" for="prompt-generator-model">Целевая нейросеть</label>
-      <select id="prompt-generator-model" class="lab-input" aria-describedby="prompt-generator-model-help">
-        <option value="Claude">Claude</option>
-        <option value="ChatGPT">ChatGPT</option>
-        <option value="DeepSeek">DeepSeek</option>
-        <option value="Cline">Cline</option>
-      </select>
-      <p id="prompt-generator-model-help" class="prompt-generator-description prompt-generator-model-help">Выберите среду, для которой будет подготовлен промпт.</p>
-      <form id="prompt-generator-form" novalidate>
-        <div id="prompt-generator-fields" class="prompt-generator-fields">
-          <p class="prompt-generator-empty">Выберите тему, чтобы увидеть поля.</p>
-        </div>
-        <button type="submit" class="lab-btn lab-btn-primary prompt-generator-submit">Сгенерировать промпт <span aria-hidden="true">→</span></button>
-        <p id="prompt-generator-status" class="prompt-generator-status" role="status" aria-live="polite"></p>
-      </form>
+      <div id="prompt-generator-assembly" class="prompt-generator-assembly" role="list" aria-live="polite">
+        <p class="prompt-generator-empty">Добавьте блоки из панели слева.</p>
+      </div>
+      <div class="prompt-generator-builder-actions">
+        <button type="button" id="prompt-generator-clear" class="lab-btn lab-btn-secondary">Очистить промпт</button>
+        <button type="button" id="prompt-generator-copy" class="lab-btn lab-btn-primary" disabled>Скопировать промпт</button>
+      </div>
+      <p id="prompt-generator-status" class="prompt-generator-status" role="status" aria-live="polite"></p>
     </section>
   </div>
 
@@ -55,15 +50,35 @@
     <div class="prompt-generator-card-head">
       <span class="prompt-generator-step">03</span>
       <div>
-        <h2 id="prompt-output-title">Готовый промпт</h2>
-        <p>Скопируйте текст и продолжите исследование в любой нейросети.</p>
+        <h2 id="prompt-output-title">Итоговый текст</h2>
+        <p>В буфер попадёт единый текст блоков в текущем порядке.</p>
       </div>
       <span id="prompt-generator-counter" class="prompt-generator-counter">0 знаков</span>
     </div>
-    <textarea id="prompt-generator-output" class="prompt-generator-textarea" rows="14" readonly placeholder="Здесь появится собранный промпт…" aria-label="Готовый промпт"></textarea>
+    <textarea id="prompt-generator-output" class="prompt-generator-textarea" rows="10" readonly placeholder="Здесь появится собранный промпт…" aria-label="Итоговый текст промпта"></textarea>
     <div class="prompt-generator-output-actions">
       <span id="prompt-generator-copy-status" class="prompt-generator-copy-status" role="status" aria-live="polite"></span>
-      <button type="button" id="prompt-generator-copy" class="lab-btn lab-btn-secondary" disabled>Скопировать</button>
     </div>
   </section>
+
+  <dialog id="prompt-generator-dialog" class="prompt-generator-dialog" aria-labelledby="prompt-generator-dialog-title">
+    <form id="prompt-generator-custom-form" class="prompt-generator-custom-form" method="dialog" novalidate>
+      <div class="prompt-generator-dialog-head">
+        <div>
+          <p class="prompt-generator-kicker">НОВЫЙ ФРАГМЕНТ</p>
+          <h2 id="prompt-generator-dialog-title">Создать кастомный блок</h2>
+        </div>
+        <button type="button" id="prompt-generator-dialog-close" class="prompt-generator-icon-button" aria-label="Закрыть форму" title="Закрыть">×</button>
+      </div>
+      <label class="prompt-generator-label" for="prompt-generator-custom-title">Название</label>
+      <input id="prompt-generator-custom-title" class="lab-input" name="title" type="text" maxlength="120" required placeholder="Например: Проверка источников">
+      <label class="prompt-generator-label" for="prompt-generator-custom-text">Текст блока</label>
+      <textarea id="prompt-generator-custom-text" class="prompt-generator-textarea" name="text" rows="7" maxlength="10000" required placeholder="Опишите инструкцию для нейросети…"></textarea>
+      <p id="prompt-generator-custom-status" class="prompt-generator-status" role="status" aria-live="polite"></p>
+      <div class="prompt-generator-dialog-actions">
+        <button type="button" id="prompt-generator-dialog-cancel" class="lab-btn lab-btn-secondary">Отмена</button>
+        <button type="submit" class="lab-btn lab-btn-primary">Добавить блок</button>
+      </div>
+    </form>
+  </dialog>
 </section>

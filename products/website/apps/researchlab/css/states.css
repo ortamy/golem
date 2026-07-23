@@ -164,6 +164,19 @@
   overflow: hidden;
 }
 
+.state-card-olam {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--accent-gold, #8b6508);
+  font-style: italic;
+}
+
+.state-card-olam span,
+.state-detail-olam span {
+  font-weight: 700;
+  font-style: normal;
+}
+
 .state-card-intensity {
   display: flex;
   align-items: center;
@@ -672,6 +685,15 @@
   color: var(--text-muted, #6b5b4e);
   margin-bottom: 20px;
   line-height: 1.6;
+}
+
+.state-detail-olam {
+  margin-top: 14px;
+  font-family: var(--font-body, 'EB Garamond', Georgia, serif);
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--accent-gold, #8b6508);
+  font-style: italic;
 }
 
 .diagnostic-result .result-transition {

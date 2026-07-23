@@ -25,6 +25,9 @@
 <link rel="stylesheet" href="css/states.css">
 <link rel="stylesheet" href="css/translation-comparator.css">
 <link rel="stylesheet" href="css/prompt-generator.css">
+<link rel="stylesheet" href="css/davar-checker.css">
+<link rel="stylesheet" href="css/paleo-linguistics.css">
+<link rel="stylesheet" href="css/language-map.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 </head>
@@ -47,6 +50,7 @@
     <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener"><img src="../../assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub" style="vertical-align: middle; margin-right: 6px;"> GitHub</a>
   </nav>
   <div class="lab-header-mobile-links">
+    <button class="mobile-icon-link" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtnMobile"><img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема"></button>
     <a href="../../" class="mobile-icon-link" title="Сайт"><img src="../../assets/icons/32/ui/web.png" width="24" height="24" alt="Сайт"></a>
     <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub"><img src="../../assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub"></a>
   </div>
@@ -77,6 +81,8 @@
         <a href="#exposure" class="sidebar-item" data-module="exposure"><img src="../../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Принципы</a>
         <a href="#methodology" class="sidebar-item" data-module="methodology"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Методички</a>
         <a href="#paleo-mechanics" class="sidebar-item" data-module="paleo-mechanics"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-механика</a>
+        <a href="#paleo-linguistics" class="sidebar-item" data-module="paleo-linguistics"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Палео-лингвистика</a>
+        <a href="#language-map" class="sidebar-item" data-module="language-map"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Карта языков</a>
       </div>
     </div>
     <div class="sidebar-section">
@@ -92,6 +98,7 @@
         <a href="#word-analyzer" class="sidebar-item" data-module="word-analyzer"><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Разбор слов</a>
         <a href="#scripture-reader" class="sidebar-item" data-module="scripture-reader"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Книгочтение</a>
         <a href="#religionism-checker" class="sidebar-item" data-module="religionism-checker"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="Чекер религионимов">Чекер религионимов</a>
+        <a href="#davar-checker" class="sidebar-item" data-module="davar-checker"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="Чекер воплощения">Давар-чекер</a>
         <a href="#religionisms" class="sidebar-item" data-module="religionisms"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="Религионизмы">Религионизмы</a>
         <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="Сравнение переводов">Сравнение переводов</a>
       </div>
@@ -209,14 +216,13 @@ const LabTheme = {
   set: function(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('golem_theme', theme);
+    var icon = theme === 'dark'
+      ? '<img src="../../assets/icons/32/ui/sun.png" width="24" height="24" alt="Светлая тема">'
+      : '<img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема">';
     var btn = document.getElementById('themeBtn');
-    if (btn) {
-      if (theme === 'dark') {
-        btn.innerHTML = '<img src="../../assets/icons/32/ui/sun.png" width="24" height="24" alt="Светлая тема">';
-      } else {
-        btn.innerHTML = '<img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема">';
-      }
-    }
+    if (btn) btn.innerHTML = icon;
+    var btnMobile = document.getElementById('themeBtnMobile');
+    if (btnMobile) btnMobile.innerHTML = icon;
   },
   toggle: function() {
     var current = document.documentElement.getAttribute('data-theme') || 'light';
@@ -793,7 +799,29 @@ const LabRenderer = {
   // Load markdown content for a module on first activation
   loadModule: function(moduleId, parsed) {
     var container = document.getElementById(moduleId);
-    if (!container || (container.dataset.loaded && moduleId !== 'researches' && moduleId !== 'states')) return;
+    var alwaysRun = ['researches', 'states', 'root-dictionary', 'word-analyzer', 'paleo-linguistics', 'language-map'];
+    if (!container || (container.dataset.loaded && alwaysRun.indexOf(moduleId) === -1)) return;
+
+    if (moduleId === 'root-dictionary') {
+      this.applyQueryParam(parsed, 'rd-search',
+        function() { return !!window._roots; },
+        function(query) { RootsSearch.filter(query); });
+      return;
+    }
+    if (moduleId === 'word-analyzer') {
+      this.applyQueryParam(parsed, 'wa-input',
+        function() { return typeof WordAnalyzer !== 'undefined'; },
+        function() { WordAnalyzer.analyze(); });
+      return;
+    }
+    if (moduleId === 'paleo-linguistics') {
+      if (window.PaleoLinguistics) window.PaleoLinguistics.init(parsed);
+      return;
+    }
+    if (moduleId === 'language-map') {
+      if (window.LanguageMap) window.LanguageMap.init(container, parsed);
+      return;
+    }
 
     if (moduleId === 'dictionaries') {
       this.loadJsonPage('dictionaries', 'data/dictionaries.json', container);
@@ -846,6 +874,24 @@ const LabRenderer = {
       return;
     }
 
+    if (moduleId === 'prompt-generator') {
+      if (!window.PromptGenerator) {
+        container.innerHTML = '<div class="lab-alert lab-alert-error">Модуль «Генератор промптов» не загрузился. Обновите страницу и проверьте путь js/prompt-generator.js.</div>';
+        return;
+      }
+      window.PromptGenerator.init(container);
+      return;
+    }
+
+    if (moduleId === 'davar-checker') {
+      if (!window.DavarChecker) {
+        container.innerHTML = '<div class="lab-alert lab-alert-error">Модуль «Давар-чекер» не загрузился. Обновите страницу и проверьте путь js/davar-checker.js.</div>';
+        return;
+      }
+      window.DavarChecker.init(container);
+      return;
+    }
+
     container.dataset.loaded = '1';
     
     var path = this.markdownPaths[moduleId];
@@ -866,6 +912,21 @@ const LabRenderer = {
       .catch(function(err) {
         container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки: ' + err.message + '</div>';
       });
+  },
+
+  // Заполняет поле ввода из query-параметра ?q= и запускает переданное действие.
+  // Используется для переходов вида #root-dictionary?q=... и #word-analyzer?q=...
+  applyQueryParam: function(parsed, inputId, isReady, run, attempt) {
+    var query = parsed && parsed.params && parsed.params.q;
+    if (!query) return;
+    var input = document.getElementById(inputId);
+    if (input) input.value = query;
+    attempt = attempt || 0;
+    if (!isReady() && attempt < 20) {
+      setTimeout(function() { LabRenderer.applyQueryParam(parsed, inputId, isReady, run, attempt + 1); }, 150);
+      return;
+    }
+    run(query);
   },
 
   loadJsonPage: function(page, path, container) {
@@ -1078,6 +1139,7 @@ const LabRenderer = {
       this.boardGenerator(),
       this.researchGenerator(),
       this.promptGenerator(),
+      this.davarChecker(),
       this.religionismChecker(),
       this.religionisms(),
       this.translationComparator(),
@@ -1094,7 +1156,9 @@ const LabRenderer = {
       this.heraldry(),
       this.cartography(),
       this.states(),
-      this.researches()
+      this.researches(),
+      this.paleoLinguistics(),
+      this.languageMap()
     ];
     
     container.innerHTML = modules.join('\n');
@@ -1109,6 +1173,7 @@ const LabRenderer = {
       'js/etymology-lab.js',
       'js/board-generator.js',
       'js/prompt-generator.js',
+      'js/davar-checker.js',
       'js/religionism-checker.js',
       'js/modules/religionisms.js',
       'js/translation-comparator.js',
@@ -1125,6 +1190,8 @@ const LabRenderer = {
       , 'js/cartography.js'
       , 'js/states.js'
       , 'js/dashboard.js'
+      , 'js/paleo-linguistics.js'
+      , 'js/language-map.js'
     ];
     
     let loaded = 0;
@@ -1501,6 +1568,10 @@ const LabRenderer = {
     return '<div id="prompt-generator" class="module"></div>';
   },
 
+  davarChecker: function() {
+    return '<div id="davar-checker" class="module"></div>';
+  },
+
   translationComparator: function() {
     return '<div id="translation-comparator" class="module">' +
       '<h1><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Сравнение переводов" style="vertical-align: middle; margin-right: 6px;"> Сравнение переводов</h1>' +
@@ -1781,6 +1852,14 @@ const LabRenderer = {
 
   cartography: function() {
     return '<div id="cartography" class="module"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка картографии...</div></div></div>';
+  },
+
+  paleoLinguistics: function() {
+    return '<div id="paleo-linguistics" class="module"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка палео-лингвистики...</div></div></div>';
+  },
+
+  languageMap: function() {
+    return '<div id="language-map" class="module"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка карты языков...</div></div></div>';
   },
 
   states: function() {

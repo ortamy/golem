@@ -1,0 +1,103 @@
+/* Стили диагностики живых языков в палитре ResearchLab. */
+.language-map-shell,
+.language-map-detail {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  border: 1px solid var(--border-dark);
+  border-radius: 8px;
+  padding: clamp(20px, 4vw, 36px);
+  box-shadow: var(--shadow-soft);
+}
+
+.language-map-head { max-width: 800px; margin-bottom: 28px; }
+.language-map-kicker {
+  color: var(--accent-gold);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.language-map-head h1,
+.language-map-detail h1 { color: var(--accent-gold); line-height: 1.15; margin-bottom: 10px; }
+.language-map-shell .subtitle,
+.language-map-context,
+.language-map-detail-type,
+.language-map-future { color: #bfae96; }
+.language-map-context { font-size: 15px; margin-top: 8px; line-height: 1.55; }
+
+.language-map-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 16px;
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+  padding: 18px 0;
+  margin-bottom: 18px;
+}
+.language-map-filter { display: flex; flex-direction: column; gap: 6px; }
+.language-map-filter label { color: var(--text-light); font-size: 15px; }
+.language-map-filter select {
+  min-height: 44px;
+  background: var(--bg-dark-hover);
+  color: var(--text-light);
+  border: 1px solid var(--border-dark);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+.language-map-filter select:focus-visible,
+.language-map-card:focus-visible,
+.language-map-back:focus-visible { outline: 3px solid var(--accent-gold); outline-offset: 3px; }
+
+.language-map-count { color: #bfae96; font-size: 14px; margin-bottom: 14px; }
+.language-map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+.language-map-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  background: var(--bg-dark-hover);
+  color: var(--text-light);
+  border: 1px solid var(--border-dark);
+  border-radius: 6px;
+  padding: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.language-map-card:hover { transform: translateY(-2px); border-color: var(--accent-gold); box-shadow: var(--shadow-card-hover); }
+.language-map-card-head { margin-bottom: 16px; }
+.language-map-card h2 { color: var(--accent-gold); font-size: 25px; line-height: 1.2; margin-bottom: 4px; }
+.language-map-type { color: #bfae96; font-size: 13px; }
+.language-map-metrics { display: grid; gap: 8px; margin: 0; }
+.language-map-metric { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(191,174,150,0.2); padding-top: 7px; }
+.language-map-metric dt { color: #bfae96; font-size: 14px; }
+.language-map-metric dd { margin: 0; font-size: 13px; font-weight: 600; }
+.language-map-level-high { color: #e0b34f; }
+.language-map-level-medium { color: #d7c28f; }
+.language-map-level-low { color: #bfae96; }
+.language-map-notes { color: var(--text-light); font-size: 15px; line-height: 1.5; margin: 18px 0 14px; }
+.language-map-card-action { color: var(--accent-gold); font-size: 13px; margin-top: auto; }
+.language-map-empty { color: #bfae96; padding: 24px 0; }
+
+.language-map-detail { max-width: 760px; }
+.language-map-back { margin-bottom: 28px; min-height: 44px; }
+.language-map-detail h1 { font-size: clamp(30px, 5vw, 46px); }
+.language-map-detail-metrics { max-width: 520px; margin: 26px 0; }
+.language-map-detail-notes { max-width: 680px; font-size: 18px; line-height: 1.6; margin-bottom: 22px; }
+
+@media (max-width: 640px) {
+  .language-map-filters { grid-template-columns: 1fr; }
+  .language-map-grid { grid-template-columns: 1fr; }
+  .language-map-card { min-height: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .language-map-card { transition: none; }
+  .language-map-card:hover { transform: none; }
+}

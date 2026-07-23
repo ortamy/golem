@@ -1,0 +1,96 @@
+/**
+ * paleo-linguistics.css — Стили для модуля «Палео-лингвистика»
+ * Наследует .lab-card, .lab-tab, .modal-*, --accent-gold из lab.css
+ */
+
+.pl-lang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.pl-lang-card { cursor: pointer; text-align: center; }
+.pl-lang-card .lab-card-header { justify-content: center; display: flex; align-items: center; gap: 8px; }
+.pl-lang-card .pl-lang-period { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+.pl-lang-card .pl-lang-role { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+
+.pl-back-btn { margin-bottom: 16px; }
+
+.pl-lang-head h1 { display: flex; align-items: center; gap: 8px; }
+.pl-lang-head .subtitle { margin-bottom: 4px; }
+.pl-lang-head .pl-lang-meta { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+
+.pl-alphabet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.pl-letter-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 12px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.pl-letter-card:hover { transform: translateY(-2px); border-color: var(--accent-gold); }
+.pl-letter-card .pl-letter-glyph { font-family: 'Times New Roman', serif; font-size: 32px; color: var(--accent-gold); line-height: 1; }
+.pl-letter-card .pl-letter-name { font-size: 13px; color: var(--text-primary); margin-top: 4px; }
+.pl-letter-card .pl-letter-sound { font-size: 12px; color: var(--text-muted); font-family: monospace; }
+
+/* ===== ЭВОЛЮЦИЯ БУКВЫ (модалка) ===== */
+.pl-evolution-row { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.pl-evolution-stage { flex: 1; min-width: 140px; text-align: center; padding: 12px; background: var(--bg-subtle); border-radius: 6px; }
+.pl-evolution-stage .pl-stage-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; color: var(--text-muted); margin-bottom: 8px; }
+.pl-evolution-stage .pl-stage-glyph { font-family: 'Times New Roman', serif; font-size: 40px; color: var(--accent-gold); line-height: 1; margin-bottom: 6px; }
+.pl-evolution-stage .pl-stage-glyph img { width: 40px; height: 40px; opacity: 0.7; }
+.pl-evolution-stage .pl-stage-period { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.pl-evolution-stage .pl-stage-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+.pl-evolution-arrow { font-size: 20px; color: var(--accent-gold); }
+
+/* ===== КОРНИ / ТЕКСТЫ / ГРАММАТИКА ===== */
+.pl-root-row td { cursor: pointer; }
+.pl-root-row:hover td { color: var(--accent-gold); }
+.pl-text-card { margin-bottom: 16px; }
+.pl-text-original { font-family: 'Times New Roman', serif; font-size: 20px; direction: rtl; margin-bottom: 8px; color: var(--text-primary); }
+.pl-text-word { cursor: pointer; }
+.pl-text-word:hover { color: var(--accent-gold); text-decoration: underline; }
+.pl-text-translit { font-family: monospace; font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+.pl-text-translation { font-size: 15px; color: var(--text-secondary); }
+.pl-grammar-item { margin-bottom: 12px; }
+.pl-grammar-item strong { color: var(--accent-gold); }
+
+/* ===== ЗНАКИ STANDALONE-АЛФАВИТОВ (клинопись, арабский, угаритский) ===== */
+.pl-sign-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 12px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.pl-sign-card:hover { transform: translateY(-2px); border-color: var(--accent-gold); }
+.pl-sign-card .pl-sign-glyph { font-size: 32px; color: var(--accent-gold); line-height: 1; }
+.pl-sign-card .pl-sign-reading { font-size: 13px; color: var(--text-primary); margin-top: 4px; font-family: monospace; }
+.pl-sign-card .pl-sign-type { font-size: 11px; color: var(--text-muted); }
+
+.pl-sign-detail { text-align: center; }
+.pl-sign-detail-glyph { font-size: 64px; color: var(--accent-gold); line-height: 1; margin-bottom: 12px; }
+.pl-sign-detail-reading { font-family: monospace; font-size: 18px; color: var(--text-primary); margin-bottom: 12px; }
+.pl-sign-detail-meaning { font-size: 15px; color: var(--text-secondary); margin-top: 8px; }
+
+/* Шрифты письменностей без Times New Roman-фолбэка */
+.pl-script-akkadian, .pl-script-eblaite,
+.lang-akkadian, .lang-eblaite { font-family: 'Noto Sans Cuneiform', 'Segoe UI Historic', sans-serif; }
+.pl-script-arabic, .lang-arabic { font-family: 'Noto Sans Arabic', 'Segoe UI', sans-serif; direction: rtl; }
+.pl-script-ugaritic, .lang-ugaritic { font-family: 'Noto Sans Ugaritic', 'Segoe UI Historic', sans-serif; }
+.pl-script-aramaic, .lang-aramaic { font-family: 'Noto Sans Imperial Aramaic', 'Times New Roman', serif; }
+
+@media (max-width: 480px) {
+  .pl-alphabet-grid { grid-template-columns: repeat(4, 1fr); }
+  .pl-evolution-arrow { transform: rotate(90deg); }
+}
