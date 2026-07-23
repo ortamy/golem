@@ -7,6 +7,8 @@
   var PAGE_PATH = 'pages/prompt-generator.html';
   var DATA_PATH = 'data/prompts/blocks.json';
   var CUSTOM_STORAGE_KEY = 'golem_prompt_custom_blocks';
+  var pendingExternalBlocks = [];
+  var activeAddBlock = null;
 
   function escapeHtml(value) {
     return String(value == null ? '' : value)
@@ -267,6 +269,12 @@
         setStatus(container, 'Блок добавлен в сборку.', 'success');
       }
 
+      activeAddBlock = addBlock;
+      if (pendingExternalBlocks.length) {
+        pendingExternalBlocks.forEach(addBlock);
+        pendingExternalBlocks = [];
+      }
+
       renderLibrary(container, allBlocks, addBlock);
       refresh();
 
@@ -330,5 +338,14 @@
     });
   }
 
-  window.PromptGenerator = { init: init };
+  function addExternalBlock(title, text) {
+    var block = { id: 'ext_' + Date.now(), title: title, text: text };
+    if (activeAddBlock) {
+      activeAddBlock(block);
+    } else {
+      pendingExternalBlocks.push(block);
+    }
+  }
+
+  window.PromptGenerator = { init: init, addExternalBlock: addExternalBlock };
 })(window, document);

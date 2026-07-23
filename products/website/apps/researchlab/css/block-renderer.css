@@ -1,0 +1,98 @@
+/* Визуальные блоки Markdown: пергаментная поверхность, короткий радиус. */
+.block-renderer {
+  --br-accent: var(--accent-gold, #b18a45);
+  color: var(--text-primary, #2c241c);
+}
+
+.br-accent-red { --br-accent: var(--accent-red, #9b4035); }
+.br-accent-blue { --br-accent: #55798a; }
+.br-paragraph { margin: 0 0 1rem; line-height: 1.75; }
+.br-note { color: var(--text-secondary, #766b5d); }
+.br-subheading { margin: 1.5rem 0 .7rem; color: var(--br-accent); font-family: var(--font-heading, Georgia, serif); }
+
+.br-text-card {
+  margin: 1.25rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--br-accent);
+  background: var(--bg-secondary, rgba(177, 138, 69, .08));
+  box-shadow: 0 1px 0 var(--border-light, rgba(70, 55, 35, .2));
+}
+.br-text-card .br-subheading { margin-top: 0; }
+.br-text-card-body > :last-child { margin-bottom: 0; }
+
+.br-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: .75rem;
+  margin: 1rem 0 1.25rem;
+}
+.br-card {
+  display: flex;
+  gap: .75rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid var(--border-light, rgba(70, 55, 35, .2));
+  border-top: 2px solid var(--br-accent);
+  background: var(--bg-card, rgba(255, 252, 244, .65));
+  line-height: 1.55;
+}
+.br-card-icon, .br-timeline-number, .br-accordion-marker {
+  color: var(--br-accent);
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.br-accordion { margin: 1rem 0 1.25rem; border-top: 1px solid var(--border-light, rgba(70, 55, 35, .2)); }
+.br-accordion-item { border-bottom: 1px solid var(--border-light, rgba(70, 55, 35, .2)); }
+.br-accordion-heading { margin: 0; }
+.br-accordion-trigger {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  width: 100%;
+  padding: .9rem .25rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+.br-accordion-trigger:hover { color: var(--br-accent); }
+.br-accordion-trigger:focus-visible { outline: 2px solid var(--br-accent); outline-offset: 3px; }
+.br-accordion-chevron { margin-left: auto; color: var(--br-accent); font-size: 1.25rem; }
+.br-accordion-trigger[aria-expanded="true"] .br-accordion-chevron { transform: rotate(45deg); }
+.br-accordion-panel { padding: 0 1rem 1rem 2rem; line-height: 1.65; }
+
+.br-timeline { position: relative; margin: 1rem 0 1.25rem; padding-left: 2.2rem; }
+.br-timeline::before { content: ''; position: absolute; left: .72rem; top: .6rem; bottom: .6rem; width: 1px; background: var(--br-accent); opacity: .55; }
+.br-timeline-step { position: relative; display: flex; gap: .75rem; padding: .65rem 0 1rem; }
+.br-timeline-number { position: absolute; left: -2.2rem; z-index: 1; display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border: 1px solid var(--br-accent); border-radius: 50%; background: var(--bg-primary, #f4eedf); font-size: .8rem; }
+.br-timeline-content { line-height: 1.65; }
+
+.br-callout {
+  display: flex;
+  gap: .8rem;
+  margin: 1.15rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid var(--br-accent);
+  background: var(--bg-secondary, rgba(177, 138, 69, .1));
+  font-style: italic;
+  line-height: 1.7;
+}
+.br-callout-mark { color: var(--br-accent); font: 2rem/1 Georgia, serif; }
+.br-figure { margin: 1.25rem 0; text-align: center; }
+.br-figure img { display: block; max-width: 100%; height: auto; margin: 0 auto; border: 1px solid var(--border-light, rgba(70, 55, 35, .2)); }
+.br-figure-cover img { width: 100%; max-height: 360px; object-fit: cover; }
+.br-figure figcaption { margin-top: .5rem; color: var(--text-secondary, #766b5d); font-size: .9rem; }
+
+html[data-theme="dark"] .br-card,
+html[data-theme="dark"] .br-timeline-number { background: var(--bg-card, #28231e); }
+html[data-theme="dark"] .br-text-card,
+html[data-theme="dark"] .br-callout { background: rgba(177, 138, 69, .12); }
+@media (prefers-reduced-motion: reduce) { .br-accordion-chevron { transition: none; } }
+@media (max-width: 640px) {
+  .br-cards { grid-template-columns: 1fr; }
+  .br-text-card { padding: .85rem; }
+  .br-accordion-panel { padding-left: 1.75rem; }
+}

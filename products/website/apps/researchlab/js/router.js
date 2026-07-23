@@ -98,6 +98,12 @@ const LabRouter = (function() {
       return;
     }
 
+    // #board — интерактивная доска сборки кейса
+    if (hash === 'board') {
+      showModule('board', parsed);
+      return;
+    }
+
     if (modules[hash]) {
       showModule(hash, parsed);
     } else if (hash === 'exposure-editor') {

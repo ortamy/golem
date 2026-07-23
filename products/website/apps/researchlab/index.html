@@ -11,9 +11,11 @@
 <link rel="stylesheet" href="css/paleo-images.css">
 <link rel="stylesheet" href="css/etymology-lab.css">
 <link rel="stylesheet" href="css/board-generator.css">
+<link rel="stylesheet" href="css/board.css">
 <link rel="stylesheet" href="css/word-analyzer.css">
 <link rel="stylesheet" href="css/investigation.css">
 <link rel="stylesheet" href="css/research-library.css">
+<link rel="stylesheet" href="css/block-renderer.css">
 <link rel="stylesheet" href="css/scripture-reader.css">
 <link rel="stylesheet" href="css/admin.css">
 <link rel="stylesheet" href="css/religionisms.css">
@@ -28,6 +30,7 @@
 <link rel="stylesheet" href="css/davar-checker.css">
 <link rel="stylesheet" href="css/paleo-linguistics.css">
 <link rel="stylesheet" href="css/language-map.css">
+<link rel="stylesheet" href="css/methodology.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 </head>
@@ -79,7 +82,7 @@
         <a href="#dictionaries" class="sidebar-item" data-module="dictionaries"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Словари</a>
         <a href="#researches" class="sidebar-item" data-module="researches"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</a>
         <a href="#exposure" class="sidebar-item" data-module="exposure"><img src="../../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Принципы</a>
-        <a href="#methodology" class="sidebar-item" data-module="methodology"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Методички</a>
+        <a href="#methodology" class="sidebar-item" data-module="methodology"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Методология</a>
         <a href="#paleo-mechanics" class="sidebar-item" data-module="paleo-mechanics"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-механика</a>
         <a href="#paleo-linguistics" class="sidebar-item" data-module="paleo-linguistics"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Палео-лингвистика</a>
         <a href="#language-map" class="sidebar-item" data-module="language-map"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Карта языков</a>
@@ -110,6 +113,7 @@
         <span class="toggle-icon">▼</span>
       </div>
       <div class="sidebar-section-content" id="section-research">
+        <a href="#board" class="sidebar-item" data-module="board"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Исследовательская доска</a>
         <a href="#board-generator" class="sidebar-item" data-module="board-generator"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Генератор досок</a>
         <a href="#research-generator" class="sidebar-item" data-module="research-generator"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генератор исследований</a>
         <a href="#prompt-generator" class="sidebar-item" data-module="prompt-generator"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генератор промптов</a>
@@ -822,6 +826,10 @@ const LabRenderer = {
       if (window.LanguageMap) window.LanguageMap.init(container, parsed);
       return;
     }
+    if (moduleId === 'board') {
+      if (window.ResearchBoard) window.ResearchBoard.init(container);
+      return;
+    }
 
     if (moduleId === 'dictionaries') {
       this.loadJsonPage('dictionaries', 'data/dictionaries.json', container);
@@ -832,7 +840,7 @@ const LabRenderer = {
       return;
     }
     if (moduleId === 'methodology') {
-      this.loadJsonPage('methodology', 'data/methodology.json', container);
+      if (window.MethodologyLab) window.MethodologyLab.init(container);
       return;
     }
     if (moduleId === 'paleo-mechanics') {
@@ -1136,6 +1144,7 @@ const LabRenderer = {
       this.paleoImages(),
       this.etymologyLab(),
       this.investigation(),
+      this.board(),
       this.boardGenerator(),
       this.researchGenerator(),
       this.promptGenerator(),
@@ -1171,6 +1180,7 @@ const LabRenderer = {
       'js/paleo-images.js',
       'js/investigation.js',
       'js/etymology-lab.js',
+      'js/board.js',
       'js/board-generator.js',
       'js/prompt-generator.js',
       'js/davar-checker.js',
@@ -1182,6 +1192,7 @@ const LabRenderer = {
       'js/ed-chat.js',
       'js/paleo-keyboard.js'
       , 'js/scripture-reader.js'
+      , 'js/modules/block-renderer.js'
       , 'js/modules/exposure-case.js'
       , 'js/load-researches.js'
       , 'js/admin-settings.js'
@@ -1192,6 +1203,7 @@ const LabRenderer = {
       , 'js/dashboard.js'
       , 'js/paleo-linguistics.js'
       , 'js/language-map.js'
+      , 'js/methodology.js'
     ];
     
     let loaded = 0;
@@ -1491,6 +1503,43 @@ const LabRenderer = {
     if (!this.researchMarkdown) return;
     LabExport.copyText(this.researchMarkdown);
   },
+
+  board: function() {
+    return '<div id="board" class="module board-module">' +
+      '<div class="board-shell" id="research-board-app">' +
+        '<div class="board-toolbar" role="toolbar" aria-label="Инструменты исследовательской доски">' +
+          '<div class="board-toolbar-heading"><span class="board-kicker">ХУК / СВИВА</span><h1>Исследовательская доска</h1></div>' +
+          '<div class="board-actions">' +
+            '<button type="button" class="lab-btn lab-btn-primary" data-board-action="add">+ Карточка</button>' +
+            '<button type="button" class="lab-btn lab-btn-secondary" data-board-action="connect">Связать</button>' +
+            '<button type="button" class="lab-btn lab-btn-secondary" data-board-action="group">Собрать группу</button>' +
+            '<button type="button" class="lab-btn lab-btn-secondary" data-board-action="export">Экспорт</button>' +
+            '<button type="button" class="lab-btn lab-btn-secondary" data-board-action="import">Импорт</button>' +
+            '<button type="button" class="lab-btn lab-btn-danger" data-board-action="reset">Очистить</button>' +
+            '<input type="file" accept="application/json" data-board-import-input hidden>' +
+          '</div>' +
+        '</div>' +
+        '<div class="board-help" data-board-status>Карточки — факты и слои разбора. Перетаскивайте их; клик открывает полный Давар. Для группы отметьте карточки флажками.</div>' +
+        '<div class="board-workspace" data-board-workspace tabindex="0" aria-label="Поле исследовательской доски">' +
+          '<svg class="board-connections" data-board-svg aria-hidden="true"></svg>' +
+          '<div class="board-groups" data-board-groups></div>' +
+          '<div class="board-cards" data-board-cards></div>' +
+          '<div class="board-empty" data-board-empty><strong>Доска пока пуста</strong><span>Добавьте первую карточку, чтобы собрать цепочку смысла.</span></div>' +
+        '</div>' +
+        '<aside class="board-inspector" data-board-inspector hidden></aside>' +
+        '<div class="board-modal" data-board-modal hidden>' +
+          '<div class="board-modal-backdrop" data-board-close-modal></div>' +
+          '<form class="board-dialog" data-board-card-form>' +
+            '<div class="board-dialog-header"><div><span class="board-kicker">КАРТОЧКА</span><h2 data-board-form-title>Новая карточка</h2></div><button type="button" class="board-dialog-close" data-board-close-modal aria-label="Закрыть">×</button></div>' +
+            '<label>Заголовок<input name="title" required maxlength="120" placeholder="Например: Слой перевода"></label>' +
+            '<label>Краткое описание<textarea name="summary" rows="2" maxlength="280" placeholder="Что фиксирует эта карточка?"></textarea></label>' +
+            '<label>Полное содержимое<textarea name="content" rows="8" placeholder="Цитата, наблюдение, аргумент или последовательность действий"></textarea></label>' +
+            '<div class="board-dialog-actions"><button type="button" class="lab-btn lab-btn-danger" data-board-delete-card>Удалить</button><span></span><button type="button" class="lab-btn lab-btn-secondary" data-board-close-modal>Отмена</button><button type="submit" class="lab-btn lab-btn-primary">Сохранить</button></div>' +
+          '</form>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  },
   
   boardGenerator: function() {
   return '<div id="board-generator" class="module">' +
@@ -1707,8 +1756,8 @@ const LabRenderer = {
   },
 
   methodology: function() {
-    return '<div id="methodology" class="module research-json-module">' +
-      '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка методичек...</div></div>' +
+    return '<div id="methodology" class="module">' +
+      '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка методологии...</div></div>' +
       '</div>';
   },
 

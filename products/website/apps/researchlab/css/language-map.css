@@ -1,5 +1,9 @@
 /* Стили диагностики живых языков в палитре ResearchLab. */
-.language-map-shell,
+.language-map-shell {
+  color: var(--text-light);
+  padding: clamp(20px, 4vw, 36px);
+}
+
 .language-map-detail {
   background: var(--bg-dark);
   color: var(--text-light);

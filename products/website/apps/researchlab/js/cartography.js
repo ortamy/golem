@@ -175,8 +175,8 @@ const Cartography = (function() {
   }
 
   function buildDetailHTML(entry) {
-    var eventsHtml = (entry.key_events || []).map(function(ev) {
-      return '<li>' + escapeHtml(ev) + '</li>';
+    var eventsHtml = (entry.key_events || []).map(function(ev, index) {
+      return '<div class="cartography-event" role="listitem"><span class="cartography-event-number" aria-hidden="true">' + (index + 1) + '</span><span>' + escapeHtml(ev) + '</span></div>';
     }).join('');
 
     var relatedHtml = (entry.related || []).map(function(id) {
@@ -191,15 +191,15 @@ const Cartography = (function() {
         '<div class="cartography-detail-hebrew" dir="rtl">' + escapeHtml(entry.hebrew || '') + '</div>' +
         '<div class="cartography-detail-paleo" dir="rtl">' + escapeHtml(entry.paleo || '') + '</div>' +
       '</div>' +
-      '<div class="cartography-detail-section">' +
+      '<div class="cartography-detail-section cartography-callout cartography-meaning">' +
         '<h3>Значение</h3>' +
         '<p>' + escapeHtml(entry.meaning || '—') + '</p>' +
       '</div>' +
-      '<div class="cartography-detail-section">' +
+      '<div class="cartography-detail-section cartography-callout cartography-summary">' +
         '<h3>Описание</h3>' +
         '<p>' + escapeHtml(entry.summary || '—') + '</p>' +
       '</div>' +
-      (eventsHtml ? '<div class="cartography-detail-section"><h3>Ключевые события</h3><ul>' + eventsHtml + '</ul></div>' : '') +
+      (eventsHtml ? '<div class="cartography-detail-section"><h3>Ключевые события</h3><div class="cartography-events" role="list">' + eventsHtml + '</div></div>' : '') +
       (relatedHtml ? '<div class="cartography-detail-section"><h3>Связанные</h3><div class="cartography-related">' + relatedHtml + '</div></div>' : '') +
     '</div>';
 

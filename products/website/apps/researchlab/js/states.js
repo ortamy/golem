@@ -255,9 +255,9 @@ const GolemStates = (function() {
     if (s.examples && s.examples.length) {
       examplesHtml = '<div class="state-detail-section">' +
         '<h3>Примеры</h3>' +
-        '<div class="examples-list">' +
-        s.examples.map(function(ex) {
-          return '<span class="example-tag">' + escapeHtml(ex) + '</span>';
+        '<div class="examples-list state-card-grid" role="list">' +
+        s.examples.map(function(ex, index) {
+          return '<div class="example-tag state-example-card" role="listitem"><span class="state-example-index" aria-hidden="true">' + String(index + 1).padStart(2, '0') + '</span><span>' + escapeHtml(ex) + '</span></div>';
         }).join('') +
         '</div></div>';
     }
@@ -267,12 +267,12 @@ const GolemStates = (function() {
     if (s.transitions && s.transitions.length) {
       transitionsHtml = '<div class="state-detail-section">' +
         '<h3>Переходы</h3>' +
-        '<div class="transitions-list">';
+        '<div class="transitions-list state-timeline" role="list">';
       s.transitions.forEach(function(t) {
         var target = statesById[t.to];
         var targetName = target ? target.name : t.to;
-        transitionsHtml += '<div class="transition-item" data-to="' + escapeHtml(t.to) + '">' +
-          '<span class="transition-arrow">→</span>' +
+        transitionsHtml += '<div class="transition-item state-timeline-item" role="listitem" data-to="' + escapeHtml(t.to) + '">' +
+          '<span class="transition-arrow" aria-hidden="true">→</span>' +
           '<div class="transition-info">' +
             '<div class="transition-label">' + escapeHtml(targetName) + (t.label ? ': ' + escapeHtml(t.label) : '') + '</div>' +
             (t.action ? '<div class="transition-action">' + escapeHtml(t.action) + '</div>' : '') +

@@ -185,8 +185,8 @@ const DATA_PATH = 'data/heraldry/heraldry.json';
     }
 
     // Инструменты
-    var instrumentsHTML = (country.instruments || []).map(function(inst) {
-      return '<li>' + escapeHtml(inst) + '</li>';
+    var instrumentsHTML = (country.instruments || []).map(function(inst, index) {
+      return '<div class="heraldry-instrument-card" role="listitem"><span class="heraldry-instrument-index" aria-hidden="true">' + String(index + 1).padStart(2, '0') + '</span><span>' + escapeHtml(inst) + '</span></div>';
     }).join('');
 
     // Связанные
@@ -223,7 +223,7 @@ const DATA_PATH = 'data/heraldry/heraldry.json';
 
       '<div class="heraldry-detail-section">' +
         '<h3>Инструменты</h3>' +
-        '<ul>' + instrumentsHTML + '</ul>' +
+        '<div class="heraldry-instruments" role="list">' + instrumentsHTML + '</div>' +
       '</div>' +
 
       (lossMapHTML ? '<div class="heraldry-detail-section"><h3>Карта утрат</h3><div class="heraldry-loss-map">' + lossMapHTML + '</div></div>' : '') +

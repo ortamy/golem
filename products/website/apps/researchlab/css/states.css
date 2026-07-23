@@ -360,9 +360,106 @@
 }
 
 .transition-arrow {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 1.75rem;
   font-size: 20px;
   color: var(--accent-gold, #b8860b);
   flex-shrink: 0;
+}
+
+.state-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.state-example-card {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  border: 1px solid var(--state-border, rgba(90, 70, 45, 0.2));
+  border-radius: 6px;
+  background: var(--state-card-bg, rgba(255, 255, 255, 0.4));
+  padding: 0.75rem 0.85rem;
+}
+
+.state-example-index {
+  color: var(--state-accent, #8a5a2b);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.state-timeline {
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+  padding-inline-start: 1.25rem;
+}
+
+.state-timeline::before {
+  position: absolute;
+  inset-block: 0.6rem;
+  inset-inline-start: 0.3rem;
+  width: 1px;
+  background: var(--state-border, rgba(90, 70, 45, 0.25));
+  content: "";
+}
+
+.state-timeline-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  border-inline-start: 3px solid var(--state-accent, #8a5a2b);
+  border-radius: 0 6px 6px 0;
+  background: var(--state-card-bg, rgba(255, 255, 255, 0.4));
+  padding: 0.75rem 0.9rem;
+  cursor: pointer;
+}
+
+.state-timeline-item::before {
+  position: absolute;
+  top: 1rem;
+  inset-inline-start: -1.62rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border: 2px solid var(--state-accent, #8a5a2b);
+  border-radius: 50%;
+  background: var(--state-card-bg, #f7f3eb);
+  content: "";
+}
+
+.state-timeline-item:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .state-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .state-timeline {
+    padding-inline-start: 1rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .state-example-card,
+  .state-timeline-item,
+  .state-timeline-item::before {
+    background: var(--state-card-bg, rgba(255, 255, 255, 0.06));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .state-timeline-item {
+    transition: none;
+  }
 }
 
 .transition-info {

@@ -166,7 +166,96 @@
   margin-top: auto;
 }
 
-.heraldry-detail-btn:focus-visible,
+.heraldry-detail-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.heraldry-instruments {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.heraldry-instrument-card {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  border: 1px solid var(--heraldry-border, rgba(90, 70, 45, 0.2));
+  border-radius: 6px;
+  background: var(--heraldry-card-bg, rgba(255, 255, 255, 0.4));
+  padding: 0.75rem 0.85rem;
+}
+
+.heraldry-instrument-index {
+  color: var(--heraldry-accent, #8a5a2b);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.heraldry-loss-map {
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+  padding-inline-start: 1.25rem;
+}
+
+.heraldry-loss-map::before {
+  position: absolute;
+  inset-block: 0.5rem;
+  inset-inline-start: 0.3rem;
+  width: 1px;
+  background: var(--heraldry-border, rgba(90, 70, 45, 0.25));
+  content: "";
+}
+
+.heraldry-loss-item {
+  position: relative;
+  min-width: 0;
+  border-inline-start: 3px solid var(--heraldry-accent, #8a5a2b);
+  border-radius: 0 6px 6px 0;
+  background: var(--heraldry-card-bg, rgba(255, 255, 255, 0.4));
+  padding: 0.75rem 0.9rem;
+}
+
+.heraldry-loss-item::before {
+  position: absolute;
+  top: 1rem;
+  inset-inline-start: -1.62rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border: 2px solid var(--heraldry-accent, #8a5a2b);
+  border-radius: 50%;
+  background: var(--heraldry-card-bg, #f7f3eb);
+  content: "";
+}
+
+@media (max-width: 640px) {
+  .heraldry-instruments {
+    grid-template-columns: 1fr;
+  }
+
+  .heraldry-loss-map {
+    padding-inline-start: 1rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .heraldry-instrument-card,
+  .heraldry-loss-item,
+  .heraldry-loss-item::before {
+    background: var(--heraldry-card-bg, rgba(255, 255, 255, 0.06));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heraldry-instrument-card {
+    transition: none;
+  }
+}
 .heraldry-card:focus-visible {
   outline: 2px solid var(--accent-gold, #b8860b);
   outline-offset: 2px;
@@ -425,5 +514,58 @@
   .heraldry-card {
     animation: none;
     transition: none;
+  }
+}
+
+/* Финальные правила закрепляют timeline поверх базовых legacy-стилей карты утрат. */
+.heraldry-loss-map {
+  display: grid;
+  position: relative;
+  gap: 0.75rem;
+  padding-inline-start: 1.25rem;
+}
+
+.heraldry-loss-map::before {
+  content: "";
+  position: absolute;
+  inset-block: 0.75rem;
+  inset-inline-start: 0.34rem;
+  width: 2px;
+  background: var(--accent-gold, #b8860b);
+  opacity: 0.55;
+}
+
+.heraldry-loss-item {
+  display: flex;
+  position: relative;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.75rem 0.9rem;
+  border-inline-start: 3px solid var(--accent-gold, #b8860b);
+  border-radius: 0 6px 6px 0;
+  background: var(--bg-subtle, #f5f0e8);
+}
+
+.heraldry-loss-item::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 1rem;
+  inset-inline-start: -1.25rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border: 2px solid var(--bg-primary, #fffaf0);
+  border-radius: 50%;
+  background: var(--accent-gold, #b8860b);
+  box-shadow: 0 0 0 1px var(--accent-gold, #b8860b);
+}
+
+html[data-theme="dark"] .heraldry-loss-item {
+  background: var(--bg-subtle, #302820);
+}
+
+@media (max-width: 640px) {
+  .heraldry-loss-map {
+    padding-inline-start: 1.1rem;
   }
 }

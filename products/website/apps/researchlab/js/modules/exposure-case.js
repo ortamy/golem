@@ -19,6 +19,20 @@ const ExposureCase = (function() {
     published: 'Опубликовано'
   };
 
+  // Разрешённые пути: старые записи хранят только имя файла иконки.
+  var ICON_PATHS = {
+    scroll: 'scribe/scroll.png',
+    scrolls: 'scribe/scrolls.png',
+    book: 'ui/book.png',
+    hourglass: 'ui/hourglass.png',
+    sword: 'weapons/sword.png',
+    anchor: 'ui/anchor.png',
+    lamp: 'archaeology/lamp.png',
+    scales: 'ui/scales.png',
+    question: 'ui/question.png'
+  };
+  var ICON_BASE = '../../assets/icons/32/';
+
   function esc(text) {
     var d = document.createElement('div');
     d.textContent = text == null ? '' : String(text);
@@ -32,6 +46,13 @@ const ExposureCase = (function() {
     return esc(String(text));
   }
 
+  function renderBlocks(block) {
+    if (typeof BlockRenderer !== 'undefined' && BlockRenderer.renderSection) {
+      return BlockRenderer.renderSection(block);
+    }
+    return renderMd(block && block.body);
+  }
+
   function confidenceMeta(value) {
     return CONFIDENCE_META[value] || CONFIDENCE_META['needs-review'];
   }
@@ -41,20 +62,85 @@ const ExposureCase = (function() {
     return '<span class="exposure-badge ' + meta.className + '">' + esc(meta.label) + '</span>';
   }
 
+  function iconKey(value) {
+    var match = String(value || '').match(/([^/\\]+?)(?:\.png|\.svg)?$/i);
+    return match ? match[1].toLowerCase() : '';
+  }
+
+  function iconPath(value) {
+    var key = iconKey(value);
+    return ICON_BASE + (ICON_PATHS[key] || ICON_PATHS.question);
+  }
+
+  function renderIcon(value, alt, className) {
+    var label = alt || 'Иконка раздела';
+    return '<img class="' + (className || 'exposure-section-icon') + '" src="' + esc(iconPath(value)) + '" alt="' + esc(label) + '" width="24" height="24" loading="lazy">';
+  }
+
+  function headingMeta(heading, explicitIcon) {
+    var text = String(heading || 'Раздел');
+    var match = text.match(/^!\[icon\]\(([^)]+)\)\s*(.*)$/i);
+    var icon = explicitIcon || (match && match[1]);
+    if (match) text = match[2] || 'Раздел';
+    return { text: text, icon: icon };
+  }
+
+  function renderHeading(heading, explicitIcon, tagName) {
+    var meta = headingMeta(heading, explicitIcon);
+    return '<' + (tagName || 'h2') + ' class="exposure-section-heading">' +
+      (meta.icon ? renderIcon(meta.icon, meta.text) : '') +
+      '<span>' + esc(meta.text) + '</span></' + (tagName || 'h2') + '>';
+  }
+
+  function getTerms(item) {
+    var values = [];
+    ['keyTerms', 'terms', 'tags', 'roots'].forEach(function(key) {
+      var value = item && item[key];
+      if (Array.isArray(value)) values = values.concat(value);
+      else if (value) values.push(value);
+    });
+    if (item && item.hebrewKeyword) values.push(item.hebrewKeyword);
+    return values.map(function(value) {
+      return typeof value === 'object' ? (value.term || value.root || value.name || '') : String(value);
+    }).filter(Boolean).filter(function(value, index, list) { return list.indexOf(value) === index; }).slice(0, 6);
+  }
+
+  function getBodyPreview(item) {
+    var sections = item && item.sections || {};
+    var content = Array.isArray(sections.content) ? sections.content : [];
+    var source = sections.thesis || (content[0] && content[0].body) || sections.shift || '';
+    return String(source).replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/[#*_>`~-]/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+
+  function getSummary(item) {
+    return (item && item.summary) || getBodyPreview(item) || 'Материалы дела находятся в архиве разоблачений.';
+  }
+
   // ===== КАРТОЧКА (каталог) =====
   function renderCard(item) {
-    var tags = (item.tags || []).slice(0, 4).map(function(tag) {
+    var terms = getTerms(item);
+    var termTags = terms.map(function(tag) {
       return '<span class="exposure-card-tag">' + esc(tag) + '</span>';
+    }).join('');
+    var firstContent = item.sections && item.sections.content && item.sections.content[0];
+    var cardIcon = item.icon || (firstContent && headingMeta(firstContent.heading).icon) || 'scroll';
+    var summary = getSummary(item);
+    var related = (item.related || []).slice(0, 3).map(function(id) {
+      return '<span class="exposure-card-related-item">' + esc(id) + '</span>';
     }).join('');
     var sourcesCount = (item.sources || []).length;
     return '<a class="exposure-card" href="#researches/case/' + encodeURIComponent(item.slug) + '" data-slug="' + esc(item.slug) + '">' +
       '<div class="exposure-card-top">' +
-        confidenceBadge(item.confidence) +
+        '<span class="exposure-card-icon-wrap">' + renderIcon(cardIcon, item.title, 'exposure-card-icon') + '</span>' +
+        '<span class="exposure-card-status">' + confidenceBadge(item.confidence) + '</span>' +
         '<span class="exposure-card-category">' + esc(item.category || '') + '</span>' +
       '</div>' +
-      '<div class="exposure-card-title">' + esc(item.title || '') + '</div>' +
-      '<div class="exposure-card-summary">' + esc(item.summary || '') + '</div>' +
-      '<div class="exposure-card-tags">' + tags + '</div>' +
+      '<div class="exposure-card-body">' +
+        '<div class="exposure-card-title">' + esc(item.title || '') + '</div>' +
+        '<div class="exposure-card-summary">' + esc(summary) + '</div>' +
+        '<div class="exposure-card-terms"><span class="exposure-card-label">Ключевые термины</span>' + termTags + '</div>' +
+        (related ? '<div class="exposure-card-related"><span class="exposure-card-label">Связано</span>' + related + '</div>' : '') +
+      '</div>' +
       '<div class="exposure-card-foot">' +
         '<span>' + sourcesCount + ' источник' + (sourcesCount === 1 ? '' : (sourcesCount >= 2 && sourcesCount <= 4 ? 'а' : 'ов')) + '</span>' +
         '<span>' + esc(item.updatedAt || '') + '</span>' +
@@ -81,8 +167,8 @@ const ExposureCase = (function() {
     }
     if (s.shift) blocks.push({ heading: 'Сдвиг', body: s.shift });
     if (s.transmissionChain && s.transmissionChain.length) {
-      var chainHtml = '<div class="substitution-chain">' + s.transmissionChain.map(function(step, i) {
-        return '<div class="substitution-step"><span class="substitution-step-number">' + (i + 1) + '</span>' +
+      var chainHtml = '<div class="substitution-chain exposure-timeline" role="list">' + s.transmissionChain.map(function(step, i) {
+        return '<div class="substitution-step exposure-timeline-step" role="listitem"><span class="substitution-step-number" aria-hidden="true">' + (i + 1) + '</span>' +
           '<strong>' + esc(step.layer || '') + '</strong>' +
           '<span class="substitution-word">' + esc(step.word || '') + '</span>' +
           (step.meaning ? '<span class="substitution-meaning">' + esc(step.meaning) + '</span>' : '') +
@@ -91,23 +177,23 @@ const ExposureCase = (function() {
       blocks.push({ heading: 'Цепочка передачи', bodyHtml: chainHtml });
     }
     (s.content || []).forEach(function(c) {
-      blocks.push({ heading: c.heading || '', body: c.body || '' });
+      blocks.push({ heading: c.heading || '', icon: c.icon, body: c.body || '' });
     });
     if (s.evidence && s.evidence.length) {
-      var evHtml = '<div class="exposure-evidence-table">' + s.evidence.map(function(e) {
-        return '<div class="exposure-evidence-row"><span class="exposure-evidence-type">' + esc(e.type || '') + '</span>' +
+      var evHtml = '<div class="exposure-evidence-table exposure-card-grid" role="list">' + s.evidence.map(function(e) {
+        return '<article class="exposure-evidence-row exposure-info-card" role="listitem"><span class="exposure-evidence-type">' + esc(e.type || '') + '</span>' +
           '<span class="exposure-evidence-ref">' + esc(e.ref || '') + '</span>' +
           (e.hebrew ? '<span class="exposure-evidence-hebrew" dir="rtl" lang="he">' + esc(e.hebrew) + '</span>' : '') +
           (e.note ? '<span class="exposure-evidence-note">' + esc(e.note) + '</span>' : '') +
-        '</div>';
+        '</article>';
       }).join('') + '</div>';
       blocks.push({ heading: 'Свидетельства', bodyHtml: evHtml });
     }
     if (s.reconstruction) blocks.push({ heading: 'Реконструкция', body: s.reconstruction });
     if (s.caveats && s.caveats.length) {
-      var cavHtml = '<ul class="exposure-caveats">' + s.caveats.map(function(c) {
-        return '<li><span class="exposure-caveat-kind">' + esc(c.kind || '') + '</span> ' + esc(c.text || '') + '</li>';
-      }).join('') + '</ul>';
+      var cavHtml = '<div class="exposure-caveats exposure-callout-grid" role="list">' + s.caveats.map(function(c) {
+        return '<div class="exposure-caveat-card" role="listitem"><span class="exposure-caveat-kind">' + esc(c.kind || '') + '</span><span>' + esc(c.text || '') + '</span></div>';
+      }).join('') + '</div>';
       blocks.push({ heading: 'Оговорки', bodyHtml: cavHtml });
     }
     return blocks;
@@ -118,12 +204,13 @@ const ExposureCase = (function() {
     opts = opts || {};
     var blocks = buildSections(item);
     var toc = blocks.map(function(b, i) {
-      return '<a href="#' + sectionId(i) + '" data-section-link data-index="' + i + '">' + esc(b.heading) + '</a>';
+      var meta = headingMeta(b.heading, b.icon);
+      return '<a href="#' + sectionId(i) + '" data-section-link data-index="' + i + '">' + esc(meta.text) + '</a>';
     }).join('');
     var sectionsHtml = blocks.map(function(b, i) {
-      var body = b.bodyHtml != null ? b.bodyHtml : renderMd(b.body);
+      var body = renderBlocks(b);
       return '<article class="exposure-section" id="' + sectionId(i) + '" data-section-index="' + i + '">' +
-        '<h2>' + esc(b.heading) + '</h2>' +
+        renderHeading(b.heading, b.icon) +
         '<div class="exposure-section-body">' + body + '</div>' +
       '</article>';
     }).join('');
@@ -134,9 +221,12 @@ const ExposureCase = (function() {
       '<span>' + esc(item.title || '') + '</span>' +
     '</nav>';
 
-    var tags = (item.tags || []).map(function(t) { return '<span class="exposure-card-tag">' + esc(t) + '</span>'; }).join('');
+    var tags = getTerms(item).map(function(t) { return '<span class="exposure-card-tag">' + esc(t) + '</span>'; }).join('');
+    var relatedItems = opts.relatedItems || {};
     var related = (item.related || []).map(function(id) {
-      return '<a href="#researches/case/' + encodeURIComponent(id) + '">' + esc(id) + '</a>';
+      var relatedItem = relatedItems[id];
+      var label = relatedItem ? relatedItem.title : id;
+      return '<a href="#researches/case/' + encodeURIComponent(id) + '">' + esc(label) + '</a>';
     }).join('');
     var sources = (item.sources || []).map(function(s) {
       return '<li>' + (s.url ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.type || s.ref || 'источник') + '</a>' : esc(s.type || '') + ' ' + esc(s.ref || '')) + '</li>';
@@ -146,15 +236,14 @@ const ExposureCase = (function() {
       '<div class="exposure-case-topbar"><a class="research-back-link" href="#researches" data-exposure-back>← Назад к архиву</a></div>' +
       breadcrumb +
       '<div class="research-detail-layout exposure-case-layout">' +
-        '<aside class="research-toc exposure-case-toc" data-exposure-toc>' +
-          '<h2>Содержание</h2>' + toc +
-        '</aside>' +
         '<main class="research-detail-content">' +
+          '<nav class="research-toc exposure-case-toc" data-exposure-toc aria-label="Содержание разоблачения">' +
+          '<h2>Содержание</h2>' + toc +
+          '</nav>' +
           '<header class="research-detail-header">' +
-            confidenceBadge(item.confidence) +
-            '<h1>' + esc(item.title || '') + '</h1>' +
+            '<div class="exposure-detail-title-row">' + renderIcon(item.icon || 'scroll', item.title, 'exposure-detail-icon') + '<div>' + confidenceBadge(item.confidence) + '<h1>' + esc(item.title || '') + '</h1></div></div>' +
             '<div class="research-detail-tags">' + tags + '</div>' +
-            '<p class="research-detail-summary">' + esc(item.summary || '') + '</p>' +
+            '<p class="research-detail-summary">' + esc(getSummary(item)) + '</p>' +
             '<div class="exposure-progress-wrap"><div class="exposure-progress-track"><div class="exposure-progress-bar" data-exposure-progress></div></div>' +
               '<span class="exposure-progress-label" data-exposure-progress-label">0 из ' + blocks.length + ' секций</span></div>' +
           '</header>' +
@@ -191,6 +280,7 @@ const ExposureCase = (function() {
 
   // ===== БИНДИНГ (используется в детальном просмотре) =====
   function bindCase(container, item) {
+    if (typeof BlockRenderer !== 'undefined' && BlockRenderer.bind) BlockRenderer.bind(container);
     var toc = container.querySelector('[data-exposure-toc]');
     var progressBar = container.querySelector('[data-exposure-progress]');
     var progressLabel = container.querySelector('[data-exposure-progress-label]');
@@ -265,6 +355,7 @@ const ExposureCase = (function() {
   return {
     esc: esc,
     renderMd: renderMd,
+    renderBlocks: renderBlocks,
     confidenceMeta: confidenceMeta,
     confidenceBadge: confidenceBadge,
     renderCard: renderCard,

@@ -135,6 +135,138 @@ html[data-theme="dark"] .substitution-step {
   .research-infobox { grid-column: 1 / -1; position: static; }
 }
 
+.exposure-card-grid,
+.exposure-callout-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0;
+}
+
+.exposure-info-card,
+.exposure-caveat-card {
+  min-width: 0;
+  border: 1px solid var(--border-color, rgba(90, 70, 45, 0.2));
+  border-radius: 6px;
+  background: var(--surface-elevated, rgba(255, 255, 255, 0.38));
+  padding: 0.85rem 1rem;
+}
+
+.exposure-info-card {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.exposure-evidence-type,
+.exposure-caveat-kind {
+  color: var(--accent-color, #8a5a2b);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.exposure-evidence-ref {
+  font-weight: 600;
+}
+
+.exposure-evidence-hebrew {
+  font-size: 1.15rem;
+}
+
+.exposure-evidence-note {
+  color: var(--text-muted, #6f675d);
+  font-size: 0.9rem;
+}
+
+.exposure-caveat-card {
+  display: grid;
+  gap: 0.35rem;
+  border-inline-start: 3px solid var(--accent-color, #8a5a2b);
+}
+
+.exposure-timeline {
+  position: relative;
+  display: grid;
+  gap: 0.8rem;
+  margin: 1rem 0;
+  padding: 0.25rem 0 0.25rem 0.5rem;
+}
+
+.exposure-timeline::before {
+  position: absolute;
+  inset-block: 0.6rem;
+  inset-inline-start: 1.35rem;
+  width: 1px;
+  background: var(--border-color, rgba(90, 70, 45, 0.25));
+  content: "";
+}
+
+.exposure-timeline-step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 2rem minmax(8rem, 0.6fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  border: 1px solid var(--border-color, rgba(90, 70, 45, 0.2));
+  border-radius: 6px;
+  background: var(--surface-elevated, #f7f3eb);
+  padding: 0.7rem 0.85rem 0.7rem 0.45rem;
+}
+
+.exposure-timeline-step .substitution-step-number {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--accent-color, #8a5a2b);
+  border-radius: 50%;
+  background: var(--surface-elevated, #f7f3eb);
+  color: var(--accent-color, #8a5a2b);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.exposure-timeline-step .substitution-word {
+  font-weight: 700;
+}
+
+.exposure-timeline-step .substitution-meaning {
+  color: var(--text-muted, #6f675d);
+}
+
+@media (prefers-color-scheme: dark) {
+  .exposure-info-card,
+  .exposure-caveat-card,
+  .exposure-timeline-step,
+  .exposure-timeline-step .substitution-step-number {
+    background: var(--surface-elevated, rgba(255, 255, 255, 0.06));
+  }
+}
+
+@media (max-width: 640px) {
+  .exposure-card-grid,
+  .exposure-callout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .exposure-timeline-step {
+    grid-template-columns: 2rem minmax(0, 1fr);
+  }
+
+  .exposure-timeline-step .substitution-meaning {
+    grid-column: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exposure-timeline-step {
+    transition: none;
+  }
+}
+
 @media (max-width: 760px) {
   .research-detail-layout { display: block; }
   .research-toc,
@@ -146,6 +278,36 @@ html[data-theme="dark"] .substitution-step {
 @media (max-width: 420px) {
   .research-detail-tags .tool-badge { font-size: .72rem; }
   .substitution-step { grid-template-columns: 28px minmax(0, 1fr); padding: 10px; }
+}
+
+/* Содержание остаётся навигацией в потоке, но больше не занимает боковую колонку. */
+.exposure-case-layout { display: block; }
+.exposure-case-layout .research-detail-content { width: 100%; }
+.exposure-case-layout .exposure-case-toc {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0 0 28px;
+  border: 0;
+  border-bottom: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 0;
+  background: transparent;
+  padding: 0 0 16px;
+}
+.exposure-case-layout .exposure-case-toc h2 {
+  flex: 0 0 100%;
+  margin: 0 0 2px;
+  font-size: 1rem;
+}
+.exposure-case-layout .exposure-case-toc a {
+  display: inline-block;
+  padding: 0;
+}
+.exposure-case-layout .exposure-case-infobox {
+  position: static;
+  width: 100%;
+  margin-top: 36px;
 }
 
 /* ===== Exposure Case — TASK-060 ===== */
@@ -212,8 +374,17 @@ html[data-theme="dark"] .substitution-step {
   box-shadow: 0 2px 8px rgba(44, 24, 16, .08);
   padding: 18px;
   text-decoration: none;
+  animation: exposure-card-in .42s ease both;
   transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
+
+@keyframes exposure-card-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.exposure-card:nth-child(2n) { animation-delay: .06s; }
+.exposure-card:nth-child(3n) { animation-delay: .12s; }
 
 .exposure-card:hover,
 .exposure-card:focus-visible {
@@ -227,6 +398,25 @@ html[data-theme="dark"] .substitution-step {
   align-items: center;
   justify-content: space-between;
 }
+
+.exposure-card-icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 8px;
+  background: var(--bg-tertiary, #efe6d4);
+}
+
+.exposure-card-icon,
+.exposure-detail-icon,
+.exposure-section-icon {
+  object-fit: contain;
+}
+
+.exposure-card-icon { width: 28px; height: 28px; }
+.exposure-card-status { margin-left: auto; }
 
 .exposure-card-category {
   font-size: .78rem;
@@ -250,6 +440,51 @@ html[data-theme="dark"] .substitution-step {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.exposure-card-body { display: flex; flex-direction: column; gap: 10px; }
+.exposure-card-label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-muted, #897866);
+  font-size: .7rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.exposure-card-terms,
+.exposure-card-related { min-height: 24px; }
+
+.exposure-card-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+  color: var(--accent-gold, #8c6500);
+  font-size: .78rem;
+}
+
+.exposure-card-related .exposure-card-label { flex-basis: 100%; }
+.exposure-card-related-item::before { content: '↗ '; }
+
+.exposure-detail-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.exposure-detail-icon {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  margin-top: 4px;
+}
+
+.exposure-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.exposure-section-icon { width: 25px; height: 25px; }
 
 .exposure-card-tags {
   display: flex;
@@ -393,6 +628,68 @@ html[data-theme="dark"] .exposure-card {
 .exposure-preview-frame .exposure-case-topbar,
 .exposure-preview-frame .exposure-breadcrumb { display: none; }
 
+.exposure-related-dock {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .exposure-related-dock {
+    position: fixed;
+    right: 24px;
+    bottom: 18px;
+    left: 24px;
+    z-index: 20;
+    display: block;
+    pointer-events: none;
+  }
+
+  .exposure-related-dock-inner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
+    border: 1px solid var(--accent-gold, #b8860b);
+    border-radius: 9px;
+    background: color-mix(in srgb, var(--bg-secondary, #f7f1e5) 94%, transparent);
+    box-shadow: 0 8px 28px rgba(44, 24, 16, .18);
+    padding: 10px 16px;
+    pointer-events: auto;
+    backdrop-filter: blur(8px);
+  }
+
+  .exposure-related-dock-title {
+    flex: 0 0 auto;
+    color: var(--text-primary, #2c1810);
+    font-family: var(--font-heading, Georgia, serif);
+    font-weight: 700;
+  }
+
+  .exposure-related-dock-links {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 5px 16px;
+  }
+
+  .exposure-related-dock a {
+    color: var(--accent-gold, #8c6500);
+    font-size: .86rem;
+    text-decoration: none;
+  }
+
+  .exposure-related-dock a:hover,
+  .exposure-related-dock a:focus-visible { text-decoration: underline; }
+
+  /* Класс выставляется renderer-ом; :has оставлен как fallback для прямого HTML. */
+  .lab-content.exposure-has-related-dock,
+  .lab-content:has(.exposure-related-dock) { padding-bottom: 90px; }
+}
+
+html[data-theme="dark"] .exposure-related-dock-inner {
+  background: color-mix(in srgb, var(--bg-secondary, #211b17) 94%, transparent);
+}
+
 @media (max-width: 767px) {
   .exposure-grid {
     grid-template-columns: 1fr;
@@ -402,5 +699,38 @@ html[data-theme="dark"] .exposure-card {
 
   .exposure-card {
     padding: 14px;
+  }
+}
+
+/* Финальные правила для визуальных блоков detail-рендера. */
+.exposure-evidence-table.exposure-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.exposure-evidence-table.exposure-card-grid .exposure-evidence-row {
+  min-width: 0;
+}
+
+.exposure-caveats.exposure-callout-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+html[data-theme="dark"] .exposure-info-card,
+html[data-theme="dark"] .exposure-caveat-card {
+  background: var(--bg-subtle, #302820);
+  border-color: var(--border-light, #5c4938);
+}
+
+@media (max-width: 640px) {
+  .exposure-evidence-table.exposure-card-grid,
+  .exposure-caveats.exposure-callout-grid {
+    grid-template-columns: 1fr;
   }
 }
