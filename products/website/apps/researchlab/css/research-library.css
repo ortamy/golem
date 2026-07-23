@@ -198,7 +198,7 @@ html[data-theme="dark"] .substitution-step {
 
 .exposure-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -387,3 +387,15 @@ html[data-theme="dark"] .exposure-card {
 .exposure-preview-frame { pointer-events: none; }
 .exposure-preview-frame .exposure-case-topbar,
 .exposure-preview-frame .exposure-breadcrumb { display: none; }
+
+@media (max-width: 767px) {
+  .exposure-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 0;
+  }
+
+  .exposure-card {
+    padding: 14px;
+  }
+}

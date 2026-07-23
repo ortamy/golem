@@ -1,0 +1,69 @@
+<section class="prompt-generator-shell" aria-labelledby="prompt-generator-title">
+  <div class="prompt-generator-heading">
+    <div>
+      <p class="prompt-generator-kicker">ИНСТРУМЕНТ ИССЛЕДОВАТЕЛЯ · СБОРКА</p>
+      <h1 id="prompt-generator-title">Генератор промптов</h1>
+      <p class="subtitle">Соберите точное задание для нейросети: выберите тему и откройте нужные слои анализа.</p>
+    </div>
+    <span class="prompt-generator-mark" aria-hidden="true">↗</span>
+  </div>
+
+  <div class="prompt-generator-layout">
+    <section class="prompt-generator-card prompt-generator-topic" aria-labelledby="prompt-topic-title">
+      <div class="prompt-generator-card-head">
+        <span class="prompt-generator-step">01</span>
+        <div>
+          <h2 id="prompt-topic-title">Тема исследования</h2>
+          <p>Выберите шаблон для сборки.</p>
+        </div>
+      </div>
+      <label class="prompt-generator-label" for="prompt-template-select">Шаблон</label>
+      <select id="prompt-template-select" class="lab-input" aria-describedby="prompt-template-description">
+        <option value="">Загрузка шаблонов…</option>
+      </select>
+      <p id="prompt-template-description" class="prompt-generator-description" aria-live="polite"></p>
+      <div id="prompt-template-list" class="prompt-generator-template-list" role="list"></div>
+    </section>
+
+    <section class="prompt-generator-card" aria-labelledby="prompt-layers-title">
+      <div class="prompt-generator-card-head">
+        <span class="prompt-generator-step">02</span>
+        <div>
+          <h2 id="prompt-layers-title">Слои анализа</h2>
+          <p>Настройте глубину будущего разбора.</p>
+        </div>
+      </div>
+      <label class="prompt-generator-label" for="prompt-generator-model">Целевая нейросеть</label>
+      <select id="prompt-generator-model" class="lab-input" aria-describedby="prompt-generator-model-help">
+        <option value="Claude">Claude</option>
+        <option value="ChatGPT">ChatGPT</option>
+        <option value="DeepSeek">DeepSeek</option>
+        <option value="Cline">Cline</option>
+      </select>
+      <p id="prompt-generator-model-help" class="prompt-generator-description prompt-generator-model-help">Выберите среду, для которой будет подготовлен промпт.</p>
+      <form id="prompt-generator-form" novalidate>
+        <div id="prompt-generator-fields" class="prompt-generator-fields">
+          <p class="prompt-generator-empty">Выберите тему, чтобы увидеть поля.</p>
+        </div>
+        <button type="submit" class="lab-btn lab-btn-primary prompt-generator-submit">Сгенерировать промпт <span aria-hidden="true">→</span></button>
+        <p id="prompt-generator-status" class="prompt-generator-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+
+  <section class="prompt-generator-card prompt-generator-output" aria-labelledby="prompt-output-title">
+    <div class="prompt-generator-card-head">
+      <span class="prompt-generator-step">03</span>
+      <div>
+        <h2 id="prompt-output-title">Готовый промпт</h2>
+        <p>Скопируйте текст и продолжите исследование в любой нейросети.</p>
+      </div>
+      <span id="prompt-generator-counter" class="prompt-generator-counter">0 знаков</span>
+    </div>
+    <textarea id="prompt-generator-output" class="prompt-generator-textarea" rows="14" readonly placeholder="Здесь появится собранный промпт…" aria-label="Готовый промпт"></textarea>
+    <div class="prompt-generator-output-actions">
+      <span id="prompt-generator-copy-status" class="prompt-generator-copy-status" role="status" aria-live="polite"></span>
+      <button type="button" id="prompt-generator-copy" class="lab-btn lab-btn-secondary" disabled>Скопировать</button>
+    </div>
+  </section>
+</section>

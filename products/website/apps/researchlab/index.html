@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="css/cartography.css">
 <link rel="stylesheet" href="css/states.css">
 <link rel="stylesheet" href="css/translation-comparator.css">
+<link rel="stylesheet" href="css/prompt-generator.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 </head>
@@ -104,6 +105,7 @@
       <div class="sidebar-section-content" id="section-research">
         <a href="#board-generator" class="sidebar-item" data-module="board-generator"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Генератор досок</a>
         <a href="#research-generator" class="sidebar-item" data-module="research-generator"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генератор исследований</a>
+        <a href="#prompt-generator" class="sidebar-item" data-module="prompt-generator"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генератор промптов</a>
         <a href="#board-library" class="sidebar-item" data-module="board-library"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Архив досок</a>
         <a href="#investigation" class="sidebar-item" data-module="investigation"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</a>
         <a href="#heraldry" class="sidebar-item" data-module="heraldry"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Гербовник</a>
@@ -1075,6 +1077,7 @@ const LabRenderer = {
       this.investigation(),
       this.boardGenerator(),
       this.researchGenerator(),
+      this.promptGenerator(),
       this.religionismChecker(),
       this.religionisms(),
       this.translationComparator(),
@@ -1105,6 +1108,7 @@ const LabRenderer = {
       'js/investigation.js',
       'js/etymology-lab.js',
       'js/board-generator.js',
+      'js/prompt-generator.js',
       'js/religionism-checker.js',
       'js/modules/religionisms.js',
       'js/translation-comparator.js',
@@ -1491,6 +1495,10 @@ const LabRenderer = {
       '<div id="rel-detail" class="rel-detail" style="display:none;"></div>' +
       '<div id="rel-empty" class="lab-alert lab-alert-info" style="display:none">Ничего не найдено.</div>' +
       '</div>';
+  },
+
+  promptGenerator: function() {
+    return '<div id="prompt-generator" class="module"></div>';
   },
 
   translationComparator: function() {

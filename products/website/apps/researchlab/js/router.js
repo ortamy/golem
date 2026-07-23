@@ -80,6 +80,12 @@ const LabRouter = (function() {
       return;
     }
 
+    // #prompt-generator — сборщик промптов исследователя
+    if (hash === 'prompt-generator') {
+      showModule('prompt-generator', parsed);
+      return;
+    }
+
     if (modules[hash]) {
       showModule(hash, parsed);
     } else if (hash === 'exposure-editor') {
