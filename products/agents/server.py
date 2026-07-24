@@ -8,6 +8,7 @@ import json
 import subprocess
 import sys
 import threading
+import argparse
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
@@ -17,9 +18,8 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).parent / ".env")
 
 AGENT_NAMES = {"researcher", "exposer", "collector"}
-PORT = 8000
-
 _lock = threading.Lock()
+CORS_ENABLED = True
 
 
 class AgentHandler(BaseHTTPRequestHandler):
@@ -27,6 +27,8 @@ class AgentHandler(BaseHTTPRequestHandler):
         print(f"[server] {fmt % args}")
 
     def _send_cors(self):
+        if not CORS_ENABLED:
+            return
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
@@ -120,8 +122,15 @@ def _run_agent(agent: str, task: str) -> dict:
 
 
 if __name__ == "__main__":
-    httpd = HTTPServer(("0.0.0.0", PORT), AgentHandler)
-    print(f"[server] AI-агенты доступны на http://localhost:{PORT}/api/run")
+    parser = argparse.ArgumentParser(description="HTTP сервер для запуска агентов Голема")
+    parser.add_argument("--host", default="0.0.0.0", help="Адрес привязки сервера")
+    parser.add_argument("--port", type=int, default=8000, help="Порт сервера")
+    parser.add_argument("--no-cors", action="store_true", help="Не добавлять CORS-заголовки")
+    args = parser.parse_args()
+    CORS_ENABLED = not args.no_cors
+    httpd = HTTPServer((args.host, args.port), AgentHandler)
+    display_host = "localhost" if args.host in ("0.0.0.0", "::") else args.host
+    print(f"[server] AI-агенты доступны на http://{display_host}:{args.port}/api/run")
     print("[server] Нажмите Ctrl+C для остановки.")
     try:
         httpd.serve_forever()

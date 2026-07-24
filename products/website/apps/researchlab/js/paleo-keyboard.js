@@ -39,10 +39,38 @@ const PaleoKey = (function() {
   };
 
   var activeIdx = -1;
+  var activeField = null;
+  var keyboardListenerAttached = false;
 
   function init() {
     renderKeys();
     attachKeyboardListener();
+  }
+
+  function isTextField(element) {
+    if (!element || element.disabled || element.readOnly) return false;
+    return element.tagName === 'TEXTAREA' || element.tagName === 'INPUT' ||
+      element.isContentEditable;
+  }
+
+  function getOutput() {
+    var module = document.getElementById('paleo-keyboard');
+    var output = document.getElementById('pk-output');
+    if (activeField && document.contains(activeField) && module &&
+        module.contains(activeField)) return activeField;
+    return output;
+  }
+
+  function getText(field) {
+    if (!field) return '';
+    return field.value != null ? field.value : field.textContent;
+  }
+
+  function setText(field, text) {
+    if (!field) return;
+    if (field.value != null) field.value = text;
+    else field.textContent = text;
+    field.dispatchEvent(new Event('input', { bubbles: true }));
   }
 
   function renderKeys() {
@@ -50,36 +78,42 @@ const PaleoKey = (function() {
     if (!container) return;
     var html = '';
     LETTERS.forEach(function(letter, idx) {
-      html += '<div class="lab-card pk-key" id="pk-key-' + idx + '" ' +
-        'style="width:90px;text-align:center;cursor:pointer;padding:10px 6px;margin:0;transition:all 0.15s;" ' +
-        'onclick="PaleoKey.selectLetter(' + idx + ')" ' +
-        'onmouseenter="PaleoKey.showInfo(' + idx + ')">' +
-        '<div style="font-size:34px;font-family:\'Times New Roman\',serif;line-height:1.2;">' + letter[0] + '</div>' +
-        '<div style="font-size:11px;color:#8a7a6a;margin-top:3px;">' + letter[1] + '</div>' +
-        '<div style="font-size:10px;color:#b8a080;opacity:0.7;">' + letter[4] + '</div>' +
-        '</div>';
+      html += '<button type="button" class="pk-key" id="pk-key-' + idx + '" ' +
+        'data-index="' + idx + '" aria-label="Вставить палео-символ ' + letter[0] + '">' +
+        '<span class="pk-key-symbol">' + letter[0] + '</span>' +
+        '</button>';
     });
     container.innerHTML = html;
+    container.querySelectorAll('.pk-key').forEach(function(key) {
+      var idx = Number(key.getAttribute('data-index'));
+      key.addEventListener('click', function() { selectLetter(idx); });
+      key.addEventListener('mouseenter', function() { showInfo(idx); });
+      key.addEventListener('focus', function() { showInfo(idx); });
+    });
   }
 
   function selectLetter(idx) {
     if (idx < 0 || idx >= LETTERS.length) return;
-    var output = document.getElementById('pk-output');
+    var output = getOutput();
     if (output) {
-      var start = output.selectionStart != null ? output.selectionStart : output.value.length;
-      var end = output.selectionEnd != null ? output.selectionEnd : output.value.length;
-      output.value = output.value.slice(0, start) + LETTERS[idx][0] + output.value.slice(end);
-      output.selectionStart = output.selectionEnd = start + LETTERS[idx][0].length;
+      var text = getText(output);
+      var start = output.selectionStart != null ? output.selectionStart : text.length;
+      var end = output.selectionEnd != null ? output.selectionEnd : text.length;
+      var symbol = LETTERS[idx][0];
+      setText(output, text.slice(0, start) + symbol + text.slice(end));
+      if (output.selectionStart != null) {
+        output.selectionStart = output.selectionEnd = start + symbol.length;
+      }
       output.focus();
     }
     // Highlight active key
     if (activeIdx >= 0) {
       var prev = document.getElementById('pk-key-' + activeIdx);
-      if (prev) prev.style.outline = '';
+      if (prev) prev.classList.remove('is-active');
     }
     activeIdx = idx;
     var el = document.getElementById('pk-key-' + idx);
-    if (el) el.style.outline = '2px solid var(--accent-gold, #b8860b)';
+    if (el) el.classList.add('is-active');
     showInfo(idx);
   }
 
@@ -102,25 +136,25 @@ const PaleoKey = (function() {
   function hideInfo() { /* kept open intentionally */ }
 
   function copy() {
-    var output = document.getElementById('pk-output');
-    var text = output ? output.value : '';
+    var output = getOutput();
+    var text = getText(output);
     if (!text) { showToast('Нечего копировать'); return; }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(function() { showToast('Скопировано'); }).catch(fallbackCopy);
     } else { fallbackCopy(); }
     function fallbackCopy() {
-      output.select();
+      if (output && output.select) output.select();
       document.execCommand('copy');
       showToast('Скопировано');
     }
   }
 
   function clearOutput() {
-    var output = document.getElementById('pk-output');
-    if (output) { output.value = ''; output.focus(); }
+    var output = getOutput();
+    if (output) { setText(output, ''); output.focus(); }
     if (activeIdx >= 0) {
       var el = document.getElementById('pk-key-' + activeIdx);
-      if (el) el.style.outline = '';
+      if (el) el.classList.remove('is-active');
       activeIdx = -1;
     }
     var infoEl = document.getElementById('pk-info');
@@ -128,8 +162,8 @@ const PaleoKey = (function() {
   }
 
   function analyzeInEtymology() {
-    var output = document.getElementById('pk-output');
-    var text = output ? output.value.trim() : '';
+    var output = getOutput();
+    var text = getText(output).trim();
     if (!text) { showToast('Введи слово для разбора'); return; }
     if (window.LabRouter) LabRouter.navigate('etymology-lab');
     setTimeout(function() {
@@ -140,8 +174,8 @@ const PaleoKey = (function() {
   }
 
   function downloadAsPng() {
-    var output = document.getElementById('pk-output');
-    var text = output ? output.value.trim() : '';
+    var output = getOutput();
+    var text = getText(output).trim();
     if (!text) { showToast('Введи слово для скачивания'); return; }
     var fontSize = 80;
     var pad = 40;
@@ -181,25 +215,31 @@ const PaleoKey = (function() {
     setTimeout(function() { t.classList.remove('show'); setTimeout(function() { t.style.display = 'none'; }, 300); }, 2000);
   }
 
-  return { init: init, insertByIndex: selectLetter, insert: selectLetter, selectLetter: selectLetter,
+  function attachKeyboardListener() {
+    if (keyboardListenerAttached) return;
+    keyboardListenerAttached = true;
+    document.addEventListener('focusin', function(e) {
+      var module = document.getElementById('paleo-keyboard');
+      if (module && module.classList.contains('active') && isTextField(e.target) &&
+          module.contains(e.target)) activeField = e.target;
+    });
+    document.addEventListener('keydown', function(e) {
+      var module = document.getElementById('paleo-keyboard');
+      if (!module || !module.classList.contains('active')) return;
+      var focused = document.activeElement;
+      if (!isTextField(focused) || !module.contains(focused)) return;
+      var key = e.key.toUpperCase();
+      if (KEY_MAP[key] !== undefined) {
+        e.preventDefault();
+        selectLetter(KEY_MAP[key]);
+      }
+    });
+  }
+
+  return { init: init, refresh: renderKeys, insertByIndex: selectLetter, insert: selectLetter, selectLetter: selectLetter,
     copy: copy, clear: clearOutput, showInfo: showInfo, hideInfo: hideInfo,
     analyzeInEtymology: analyzeInEtymology, downloadAsPng: downloadAsPng };
 })();
 
 window.PaleoKey = PaleoKey;
-
-  function attachKeyboardListener() {
-    document.addEventListener('keydown', function(e) {
-      var module = document.getElementById('paleo-keyboard');
-      if (!module || !module.classList.contains('active')) return;
-      var focused = document.activeElement;
-      if (focused && focused.id === 'pk-output') {
-        var key = e.key.toUpperCase();
-        if (KEY_MAP[key] !== undefined) {
-          e.preventDefault();
-          selectLetter(KEY_MAP[key]);
-        }
-      }
-    });
-  }
 

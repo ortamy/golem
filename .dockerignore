@@ -1,0 +1,6 @@
+.git
+.golem-secrets
+node_modules
+__pycache__
+*.pyc
+*.luks

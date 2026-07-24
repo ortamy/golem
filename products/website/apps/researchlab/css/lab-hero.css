@@ -22,6 +22,29 @@
 
 .lab-hero__body { min-width: 0; }
 
+.lab-hero__actions {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.lab-hero__action {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  min-height: 42px;
+  min-width: 42px;
+  padding: 6px;
+}
+
+.lab-hero__action img {
+  height: 26px;
+  width: 26px;
+}
+
 .lab-hero__kicker {
   margin: 0 0 8px;
   color: var(--accent-gold);
@@ -116,5 +139,14 @@
   .lab-hero__icon {
     width: 34px;
     height: 34px;
+  }
+
+  .lab-hero__action {
+    align-self: flex-start;
+  }
+
+  .lab-hero__actions {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

@@ -1,0 +1,43 @@
+services:
+  golem:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: golem:latest
+    container_name: golem-isolated
+    hostname: golem
+    restart: unless-stopped
+    # LUKS requires these Linux capabilities inside the container.
+    cap_add:
+      - SYS_ADMIN
+      - MKNOD
+    security_opt:
+      - apparmor=unconfined
+    devices:
+      - /dev/loop-control:/dev/loop-control
+    networks:
+      - golem-net
+    ports:
+      - "127.0.0.1:2222:22"
+    volumes:
+      - golem-luks:/var/lib/golem
+      - .:/workspace/project:ro
+    secrets:
+      - ssh_authorized_keys
+      - luks_passphrase
+
+networks:
+  golem-net:
+    name: golem-isolated-net
+    driver: bridge
+    internal: true
+
+volumes:
+  golem-luks:
+    name: golem-luks
+
+secrets:
+  ssh_authorized_keys:
+    file: .golem-secrets/authorized_keys
+  luks_passphrase:
+    file: .golem-secrets/luks_passphrase

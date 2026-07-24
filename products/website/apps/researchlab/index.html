@@ -7,6 +7,8 @@
 <meta name="description" content="Полноценная исследовательская лаборатория проекта Голем">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="stylesheet" href="css/lab.css">
+<link rel="stylesheet" href="css/agent-map.css">
+<link rel="stylesheet" href="css/agent-server.css">
 <link rel="stylesheet" href="css/root-dictionary.css">
 <link rel="stylesheet" href="css/paleo-images.css">
 <link rel="stylesheet" href="css/etymology-lab.css">
@@ -833,6 +835,18 @@ const LabRenderer = {
       return;
     }
 
+    if (moduleId === 'ai-agents') {
+      if (parsed && parsed.segments && parsed.segments[1]) {
+        this.renderAgentDetail(container, parsed.segments[1]);
+      } else {
+        var agentList = container.querySelector('.agent-list-view');
+        var agentDetail = container.querySelector('.agent-detail-view');
+        if (agentList) agentList.hidden = false;
+        if (agentDetail) { agentDetail.hidden = true; agentDetail.innerHTML = ''; }
+      }
+      return;
+    }
+
     if (moduleId === 'dictionaries') {
       this.loadJsonPage('dictionaries', 'data/dictionaries.json', container);
       return;
@@ -1207,6 +1221,8 @@ const LabRenderer = {
       , 'js/paleo-linguistics.js'
       , 'js/language-map.js'
       , 'js/methodology.js'
+      , 'js/agent-map.js'
+      , 'js/agent-server.js'
     ];
     
     let loaded = 0;
@@ -1705,45 +1721,77 @@ const LabRenderer = {
       { icon: 'paleo/track', name: 'Архитектор потока', desc: 'Проектирует порядок вызова агентов и поток данных без циклических зависимостей.', model: 'Claude Sonnet 4', cat: 'Оркестрация' },
       { icon: 'ui/link', name: 'Связной', desc: 'Связывает разрозненные исследования в единую сеть только на основе реальных данных.', model: 'Claude Sonnet 4', cat: 'Оркестрация' }
     ];
+    agents.forEach(function(agent, index) { agent.id = 'agent-' + index; });
+    this.agentMapData = agents;
     var cards = agents.map(function(a) {
-      return '<div class="tool-card agent-card' + (a.featured ? ' agent-card-orchestrator' : '') + '"><span class="tool-icon"><img src="../../assets/icons/32/' + a.icon + '.png" width="32" height="32" alt="' + a.name + '"></span>' +
+      return '<button type="button" class="tool-card agent-card agent-list-card' + (a.featured ? ' agent-card-orchestrator' : '') + '" data-agent-id="' + a.id + '" onclick="LabRouter.navigate(\'ai-agents\',[\'' + a.id + '\'])" aria-label="Открыть страницу агента: ' + a.name + '"><span class="tool-icon"><img src="../../assets/icons/32/' + a.icon + '.png" width="32" height="32" alt="' + a.name + '"></span>' +
         '<div class="tool-name">' + a.name + '</div>' +
         '<div class="tool-desc">' + a.desc + '</div>' +
-        '<span class="tool-badge model">' + a.model + '</span>' +
+        '<span class="tool-badge model agent-list-model">' + a.model + '</span>' +
+        '<span class="agent-list-role" hidden>' + a.cat + '</span>' +
         '<span class="badge-category">' + a.cat + '</span>' +
-        '<span class="badge-dev">В разработке</span></div>';
+        '<span class="badge-dev">' + (a.featured ? 'Активен' : 'В разработке') + '</span></button>';
     }).join('');
     return '<div id="ai-agents" class="module">' +
-      '<h1><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="AI-Агенты" style="vertical-align: middle; margin-right: 6px;"> AI-Агенты</h1>' +
-      '<p class="subtitle">Мульти-агентная система для автоматического разбора корней, терминов и стихов. Researcher, Exposer и Collector работают вместе, чтобы находить подмены и восстанавливать смысл.</p>' +
+      '<div class="agent-list-view">' +
       '<div class="agent-grid">' + cards + '</div>' +
-      '<div class="lab-card mt-24" style="text-align:center;">' +
-        '<button class="lab-btn lab-btn-primary" disabled>Запустить сервер агентов</button>' +
-        '<div class="text-small text-muted mt-8">Требуется локальный сервер (python server.py)</div>' +
-      '</div>' +
+      '</div><div id="agent-detail-view" class="agent-detail-view" hidden></div>' +
+      '<div id="agent-map-view" class="agent-map-view" hidden></div>' +
+      '<div id="agent-server-view" class="agent-server-view" hidden></div>' +
     '</div>';
+  },
+
+  renderAgentDetail: function(container, agentId) {
+    var agent = (this.agentMapData || []).filter(function(item) { return item.id === agentId; })[0];
+    var list = container.querySelector('.agent-list-view');
+    var detail = container.querySelector('.agent-detail-view');
+    if (!agent) {
+      if (list) list.hidden = false;
+      if (detail) { detail.hidden = true; detail.innerHTML = ''; }
+      return;
+    }
+    if (list) list.hidden = true;
+    if (detail) detail.hidden = false;
+    var map = container.querySelector('.agent-map-view'); if (map) map.hidden = true;
+    var server = container.querySelector('.agent-server-view'); if (server) server.hidden = true;
+    var details = {
+      'agent-0': { from: 'Исследовательский контур', to: 'Сборщик', with: ['Исследователь', 'Архитектор потока', 'Критик'], tasks: ['Принимает запрос и выделяет подзадачи', 'Назначает роли и порядок работы', 'Собирает промежуточные результаты в поток'], prompt: 'Ты — Оркестратор. Разделяй запрос на проверяемые действия, назначай подходящего агента и не допускай циклических зависимостей.', output: 'План: разобрать корень → проверить параллели → сравнить переводы → передать вывод Сборщику.' },
+      'agent-1': { from: 'Оркестратор', to: 'Сборщик', with: ['Семитолог', 'Компаратор', 'Критик'], tasks: ['Разбирает корни и последовательности букв', 'Сверяет палео-образы с контекстом', 'Фиксирует наблюдения и степень уверенности'], prompt: 'Ты — Исследователь. Возвращай наблюдаемые данные, отделяй их от гипотез и показывай физику действия букв.', output: 'Корень разобран. Наблюдение: последовательность указывает на переход и связывание, а не на отвлечённое понятие.' },
+      'agent-2': { from: 'Оркестратор', to: 'Критик', with: ['Компаратор', 'Исследователь', 'Редактор'], tasks: ['Выявляет смысловые подмены', 'Сопоставляет несколько переводных слоёв', 'Показывает, что исчезло при переходе'], prompt: 'Ты — Разоблачитель. Ищи место сдвига от физического действия к абстракции и подтверждай его сопоставлением источников.', output: 'Сдвиг найден: действие заменено определением. Приведены исходная форма, переводной слой и потерянная связка.' }
+    }[agentId] || { from: 'Оркестратор', to: 'Сборщик', with: ['Критик', 'Исследователь'], tasks: ['Выполняет профильную задачу агента', 'Возвращает проверяемые результаты', 'Фиксирует источники и ограничения вывода'], prompt: 'Ты — ' + agent.name + '. Работай в поле MANIFEST.md: возвращай конкретные наблюдения, связи и проверяемые выводы.', output: 'Результат подготовлен: наблюдения отделены от гипотез, связи указаны, ограничения отмечены.' };
+    var esc = function(value) { return escapeHtml(String(value == null ? '' : value)); };
+    var status = agent.featured ? 'Активен' : (agent.cat === 'Разработчик' ? 'В разработке' : 'Активен');
+    var connections = details.with.map(function(name) { return '<li>' + esc(name) + '</li>'; }).join('');
+    var tasks = details.tasks.map(function(task) { return '<li>' + esc(task) + '</li>'; }).join('');
+    if (!detail) return;
+    detail.innerHTML = '<article class="agent-detail-page">' +
+      '<header class="agent-detail-hero"><div class="agent-detail-icon"><img src="../../assets/icons/32/' + esc(agent.icon) + '.png" alt=""></div><div><p class="agent-detail-kicker">АГЕНТ · ' + esc(agent.cat) + '</p><h1>' + esc(agent.name) + '</h1><p class="agent-detail-role">' + esc(agent.desc) + '</p><div class="agent-detail-meta"><span>' + esc(agent.model) + '</span><span class="agent-detail-status">● ' + status + '</span></div></div></header>' +
+      '<div class="agent-detail-grid"><section class="agent-detail-section"><h2>Связи</h2><dl class="agent-connections"><dt>Получает задачи от</dt><dd>' + esc(details.from) + '</dd><dt>Передаёт результаты</dt><dd>' + esc(details.to) + '</dd></dl><h3>Взаимодействует с</h3><ul>' + connections + '</ul></section>' +
+      '<section class="agent-detail-section"><h2>Задачи</h2><ul class="agent-task-list">' + tasks + '</ul></section>' +
+      '<section class="agent-detail-section agent-detail-wide"><h2>Промпт</h2><pre class="agent-prompt">' + esc(details.prompt) + '</pre></section>' +
+      '<section class="agent-detail-section agent-detail-wide"><h2>Пример вывода</h2><pre class="agent-output">' + esc(details.output) + '</pre></section></div>' +
+      '<button type="button" class="lab-btn lab-btn-secondary agent-detail-back" onclick="LabRouter.navigate(\'ai-agents\')">← Назад к списку агентов</button></article>';
   },
 
   edChat: function() {
     return '<div id="ed-chat" class="module">' +
       '<h1><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Нейрочат" style="vertical-align: middle; margin-right: 6px;"> Нейрочат</h1>' +
       '<p class="subtitle">Чат с исследовательской нейросетью для анализа, разбора слов и поиска подмен.</p>' +
-      '<div class="lab-card" id="ec-messages" style="max-height:400px;overflow-y:auto;min-height:200px;">' +
-        '<div class="text-muted" style="text-align:center;padding:40px;" id="ec-welcome">Начните диалог.</div></div>' +
-      '<div class="flex gap-8">' +
-        '<input type="text" id="ec-input" class="lab-input" placeholder="Введите запрос..." onkeydown="if(event.key===\'Enter\')EdChat.send()" />' +
-        '<button class="lab-btn lab-btn-primary" onclick="EdChat.send()"><img src="../../assets/icons/32/paleo/track.png" width="32" height="32" alt="Отправить" style="vertical-align: middle; margin-right: 6px;"> Отправить</button>' +
-'<button class="lab-btn lab-btn-secondary" onclick="EdChat.clear()"><img src="../../assets/icons/32/nav/alert.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button></div>' +
-      '<div class="text-small text-muted mt-8">Экспериментальная функция.</div></div>';
+      '<div class="ec-layout"><main class="ec-main">' +
+        '<div class="ec-toolbar"><label for="ec-model">Модель</label><select id="ec-model" class="lab-select"><option value="claude">Claude Sonnet 4</option><option value="gpt4o">GPT-4o</option><option value="deepseek">DeepSeek</option><option value="gemini">Gemini</option></select><span id="ec-model-label" class="ec-model-label"></span><span id="ec-tokens" class="ec-tokens" hidden></span></div>' +
+        '<div class="lab-card ec-messages" id="ec-messages"><div class="text-muted ec-welcome" id="ec-welcome">Начните диалог.</div></div>' +
+        '<div class="ec-composer"><textarea id="ec-input" class="lab-textarea" rows="3" placeholder="Введите запрос..." onkeydown="if(event.key===\'Enter\'&&!event.shiftKey){event.preventDefault();EdChat.send();}"></textarea><div class="ec-actions"><button class="lab-btn lab-btn-primary" onclick="EdChat.send()">Отправить</button><button class="lab-btn lab-btn-secondary" onclick="EdChat.clear()">Очистить</button><button class="lab-btn lab-btn-secondary" onclick="EdChat.save()">Сохранить диалог</button><button class="lab-btn lab-btn-secondary" onclick="EdChat.export()">Экспортировать Markdown</button><button class="lab-btn lab-btn-secondary" onclick="EdChat.useInPromptGenerator()">Использовать в генераторе промптов</button></div></div>' +
+      '</main><aside id="ec-sidebar" class="ec-sidebar"><section class="ec-panel"><h2>Контекст</h2><h3>Документы</h3><ul id="ec-context-documents" class="ec-document-list"></ul><h3>Активный промпт</h3><textarea id="ec-prompt" class="lab-textarea ec-prompt" rows="5"></textarea></section><section class="ec-panel"><h2>История диалогов</h2><div id="ec-history" class="ec-history">Сохранённых диалогов пока нет.</div></section></aside></div>' +
+      '<div class="text-small text-muted mt-8">Демо-режим: ответы формируются локально и учитывают выбранный стиль модели.</div></div>';
   },
 
   paleoKeyboard: function() {
     return '<div id="paleo-keyboard" class="module">' +
       '<h1><img src="../../assets/icons/32/paleo/track.png" width="32" height="32" alt="Палео-клавиатура" style="vertical-align: middle; margin-right: 6px;"> Палео-ивритская клавиатура</h1>' +
       '<p class="subtitle">Нажимайте на буквы, чтобы вставить их. Каждая буква — с образом и значением.</p>' +
-      '<div id="pk-output" class="lab-card" style="min-height:80px;font-size:28px;direction:rtl;text-align:right;font-family:\'Times New Roman\',serif;line-height:1.6;" contenteditable="true"></div>' +
-      '<div class="flex gap-8 mb-16"><button class="lab-btn lab-btn-secondary" onclick="PaleoKey.copy()"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Копировать" style="vertical-align: middle; margin-right: 6px;"> Копировать</button><button class="lab-btn lab-btn-secondary" onclick="PaleoKey.clear()"><img src="../../assets/icons/32/nav/alert.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button></div>' +
-      '<div id="pk-keys" class="flex flex-wrap gap-8" style="justify-content:center;"></div>' +
+      '<textarea id="pk-output" class="lab-card pk-output" aria-label="Поле палео-текста" placeholder="Введите палео-символы…"></textarea>' +
+      '<div class="flex gap-8 mb-16 pk-actions"><button type="button" class="lab-btn lab-btn-secondary" onclick="PaleoKey.copy()"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Копировать" style="vertical-align: middle; margin-right: 6px;"> Копировать</button><button type="button" class="lab-btn lab-btn-secondary" onclick="PaleoKey.clear()"><img src="../../assets/icons/32/nav/alert.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button></div>' +
+      '<div id="pk-keys" class="pk-keyboard" aria-label="Палео-клавиатура"></div>' +
       '<div id="pk-info" class="lab-card mt-16" style="display:none;"><div class="lab-card-header" id="pk-info-title"></div><div class="lab-card-body" id="pk-info-body"></div></div></div>';
   },
 
@@ -1974,6 +2022,11 @@ function applyLabConfig(role) {
   }
 }
 
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
 </script>
 </body>
 </html>

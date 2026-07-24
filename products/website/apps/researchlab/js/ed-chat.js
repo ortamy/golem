@@ -1,161 +1,254 @@
-/**
- * ed-chat.js — Нейрочат v2
- * Bug #8 fix: saveMessages после первого send
- */
-
 const EdChat = (function() {
   'use strict';
 
   const STORAGE_KEY = 'golem_ed_chat';
-
+  const HISTORY_KEY = 'golem_ed_chat_history';
+  const SETTINGS_KEY = 'golem_ed_chat_settings';
+  const TOKEN_LIMIT = 4096;
+  const CONTEXT_DOCUMENTS = ['MANIFEST.md', 'docs/08-EXPOSURE/', 'docs/ARCHITECTURE.md'];
+  const MODELS = {
+    claude: { name: 'Claude Sonnet 4', style: 'структурно, спокойно и подробно' },
+    gpt4o: { name: 'GPT-4o', style: 'кратко, ясно и по пунктам' },
+    deepseek: { name: 'DeepSeek', style: 'аналитично, с проверкой корней и связей' },
+    gemini: { name: 'Gemini', style: 'с образными аналогиями и несколькими ракурсами' }
+  };
+  const DEFAULT_PROMPT = 'Палео-исследовательский режим: возвращать физику образа, показывать подмены и отделять факт от гипотезы.';
   const DEMO_RESPONSES = [
-    'Отличный вопрос. В иврите корень קדש (KDSh) означает «отделённый», «посвящённый». Отсюда «кадош» — святой, то есть отделённый для особого использования. Понимание этого корня раскрывает, что святость — это не моральное качество, а статус отделённости.',
-    'Слово «церковь» в русском — это калька с греческого ἐκκλησία (экклесия), что значит «собрание». В иврите соответствующее понятие — קהל (каhаль) — тоже собрание, но с оттенком «созванный по делу». Подмена в том, что «церковь» стала обозначать здание и иерархию, а не собрание.',
-    'Яхве (יהוה) — это личное имя, а не титул. Оно происходит от корня היה (HYH) — «быть». Поэтому «Яхве» означает «Тот, Кто есть», «Сущий». Замена на «Господь» стирает это значение и превращает личные отношения в формальные.',
-    'Машиах (משיח) — это не имя и не титул в современном смысле. Это причастие от корня משח (MShH) — «мазать, помазывать». Машиах — это «помазанный», то есть тот, кто посвящён на служение: царь, коэн или пророк. Это функция, а не божественная личность.',
-    'Тшува (תשובה) — одно из самых глубоких понятий. Корень שוב (ShVB) — «возвращаться». Тшува — это не «покаяние» с чувством вины, а возвращение к своему источнику, к Яхве, к истинному пути. Это действие, а не эмоция.',
-    'Тора (תורה) — от корня ירה (YRH) — «направлять, стрелять, учить». Тора — это не «закон» в юридическом смысле, а наставление, указание пути. Это свет, который показывает направление, а не свод правил.',
-    'Септуагинта (LXX) — греческий перевод, созданный в III-II вв. до н.э. в Александрии. Именно в ней впервые появились многие подмены: אדוני (Адонай) перевели как κύριος (Господь), что потом перешло в славянские и русские переводы.',
-    'Имя Яхшуа (יהושע) означает «Яхве спасает». Греческая форма Ἰησοῦς (Иисус) искажает это значение. Когда вы читаете «Иисус» в русском переводе, помните, что оригинал — Яхшуа, и это имя содержит в себе имя Яхве.'
+    'Запрос принят. Разберу его через образ, движение и возможную подмену смысла.',
+    'Вижу здесь несколько слоёв. Сначала отделю наблюдаемое от интерпретации, затем проверю связь корней.',
+    'Для точного разбора нужен контекст: кто действует, что меняется и какое движение скрыто за формулировкой.'
   ];
 
   let messages = [];
+  let settings = { model: 'claude', prompt: DEFAULT_PROMPT };
+
+  function read(key, fallback) {
+    try {
+      const value = localStorage.getItem(key);
+      return value ? JSON.parse(value) : fallback;
+    } catch (error) {
+      return fallback;
+    }
+  }
+
+  function write(key, value) {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+      // Локальное хранилище может быть недоступно в приватном режиме.
+    }
+  }
+
+  function byId(id) {
+    return document.getElementById(id);
+  }
+
+  function model() {
+    return MODELS[settings.model] || MODELS.claude;
+  }
+
+  function tokenCount(text) {
+    return Math.ceil(String(text || '').length / 4);
+  }
+
+  function hasApiKey() {
+    return Boolean(localStorage.getItem('golem_hf_api_key') || localStorage.getItem('golem_api_key'));
+  }
 
   function init() {
-    loadMessages();
+    messages = read(STORAGE_KEY, []);
+    settings = Object.assign(settings, read(SETTINGS_KEY, {}));
+    if (!MODELS[settings.model]) settings.model = 'claude';
+    const select = byId('ec-model');
+    const prompt = byId('ec-prompt');
+    if (select) {
+      select.value = settings.model;
+      select.addEventListener('change', function() {
+        settings.model = select.value;
+        write(SETTINGS_KEY, settings);
+        renderContext();
+        renderTokens();
+      });
+    }
+    if (prompt) {
+      prompt.value = settings.prompt;
+      prompt.addEventListener('input', function() {
+        settings.prompt = prompt.value;
+        write(SETTINGS_KEY, settings);
+        renderContext();
+      });
+    }
     renderMessages();
-  }
-
-  function loadMessages() {
-    try {
-      var data = localStorage.getItem(STORAGE_KEY);
-      if (data) messages = JSON.parse(data);
-    } catch(e) {
-      messages = [];
-    }
-  }
-
-  function saveMessages() {
-    try {
-      if (messages.length > 50) messages = messages.slice(-50);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-    } catch(e) {
-      console.warn('[EdChat] save error:', e);
-    }
+    renderContext();
+    renderTokens();
+    renderHistory();
   }
 
   function renderMessages() {
-    var container = document.getElementById('ec-messages');
+    const container = byId('ec-messages');
     if (!container) return;
-
-    if (messages.length === 0) {
-      container.replaceChildren();
-      var welcome = document.createElement('div');
-      welcome.className = 'text-muted';
-      welcome.id = 'ec-welcome';
-      welcome.style.textAlign = 'center';
-      welcome.style.padding = '40px';
-      welcome.textContent = 'Начните диалог с Нейрочат. Задайте вопрос об иврите, подменах, истории.';
+    container.textContent = '';
+    if (!messages.length) {
+      const welcome = document.createElement('div');
+      welcome.className = 'text-muted ec-welcome';
+      welcome.textContent = 'Начните диалог.';
       container.appendChild(welcome);
       return;
     }
-
-    container.replaceChildren();
-    messages.forEach(function(msg) {
-      var isUser = msg.role === 'user';
-      var row = document.createElement('div');
-      row.style.marginBottom = '12px';
-      if (isUser) row.style.textAlign = 'right';
-
-      var bubble = document.createElement('div');
-      bubble.style.display = 'inline-block';
-      bubble.style.maxWidth = '80%';
-      bubble.style.padding = '10px 14px';
-      bubble.style.borderRadius = '6px';
-      if (isUser) {
-        bubble.style.background = '#b8860b';
-        bubble.style.color = '#faf3e0';
-        bubble.style.textAlign = 'left';
-      } else {
-        bubble.style.background = '#faf3e0';
-        bubble.style.border = '1px solid #d4c4a8';
-        bubble.style.color = '#2c1810';
-      }
-
-      var messageText = document.createElement('div');
-      messageText.style.fontSize = '15px';
-      messageText.style.lineHeight = '1.6';
-      messageText.textContent = msg.text || '';
-
-      var timestamp = document.createElement('div');
-      timestamp.style.fontSize = '11px';
-      timestamp.style.color = isUser ? '#d4c4a8' : '#8a7a6a';
-      timestamp.style.marginTop = '4px';
-      timestamp.textContent = new Date(msg.timestamp).toLocaleTimeString('ru-RU');
-
-      bubble.appendChild(messageText);
-      bubble.appendChild(timestamp);
-      row.appendChild(bubble);
-      container.appendChild(row);
+    messages.forEach(function(message) {
+      const item = document.createElement('article');
+      item.className = 'ec-message ec-message-' + (message.role === 'user' ? 'user' : 'assistant');
+      const meta = document.createElement('div');
+      meta.className = 'ec-message-meta';
+      meta.textContent = message.role === 'user' ? 'Вы' : (message.model || model().name);
+      const body = document.createElement('div');
+      body.className = 'ec-message-body';
+      body.textContent = message.text || '';
+      item.appendChild(meta);
+      item.appendChild(body);
+      container.appendChild(item);
     });
-
     container.scrollTop = container.scrollHeight;
   }
 
-  function send() {
-    var input = document.getElementById('ec-input');
-    if (!input) return;
-    var text = input.value.trim();
-    if (!text) return;
-
-    messages.push({
-      role: 'user',
-      text: text,
-      timestamp: new Date().toISOString()
-    });
-    // Сохраняем сразу после первого сообщения
-    saveMessages();
-    input.value = '';
-    renderMessages();
-    simulateResponse(text);
+  function renderContext() {
+    const documents = byId('ec-context-documents');
+    const prompt = byId('ec-prompt');
+    const label = byId('ec-model-label');
+    if (documents) {
+      documents.textContent = '';
+      CONTEXT_DOCUMENTS.forEach(function(documentName) {
+        const item = document.createElement('li');
+        item.textContent = documentName;
+        documents.appendChild(item);
+      });
+    }
+    if (prompt && document.activeElement !== prompt) prompt.value = settings.prompt;
+    if (label) label.textContent = model().name + ' · ' + model().style;
   }
 
-  function simulateResponse(userText) {
-    var idx = Math.floor(Math.random() * DEMO_RESPONSES.length);
-    var response = DEMO_RESPONSES[idx];
+  function renderTokens() {
+    const indicator = byId('ec-tokens');
+    if (!indicator) return;
+    if (!hasApiKey()) {
+      indicator.hidden = true;
+      return;
+    }
+    const used = messages.reduce(function(total, message) {
+      return total + tokenCount(message.text);
+    }, tokenCount(settings.prompt));
+    indicator.hidden = false;
+    indicator.textContent = 'Токены: ' + Math.min(used, TOKEN_LIMIT) + ' использовано · ' + Math.max(0, TOKEN_LIMIT - used) + ' осталось';
+  }
 
-    var lower = userText.toLowerCase();
-    if (lower.indexOf('свят') !== -1) response = DEMO_RESPONSES[0];
-    else if (lower.indexOf('церков') !== -1) response = DEMO_RESPONSES[1];
-    else if (lower.indexOf('яхве') !== -1 || lower.indexOf('господ') !== -1) response = DEMO_RESPONSES[2];
-    else if (lower.indexOf('машиах') !== -1 || lower.indexOf('помазан') !== -1 || lower.indexOf('христ') !== -1) response = DEMO_RESPONSES[3];
-    else if (lower.indexOf('покаян') !== -1 || lower.indexOf('тшув') !== -1) response = DEMO_RESPONSES[4];
-    else if (lower.indexOf('тор') !== -1 || lower.indexOf('закон') !== -1) response = DEMO_RESPONSES[5];
-    else if (lower.indexOf('септуагинт') !== -1 || lower.indexOf('lxx') !== -1 || lower.indexOf('перевод') !== -1) response = DEMO_RESPONSES[6];
-    else if (lower.indexOf('иисус') !== -1 || lower.indexOf('яхшу') !== -1) response = DEMO_RESPONSES[7];
-
-    setTimeout(function() {
-      messages.push({
-        role: 'assistant',
-        text: response,
-        timestamp: new Date().toISOString()
-      });
+  function send() {
+    const input = byId('ec-input');
+    if (!input || !input.value.trim()) return;
+    const text = input.value.trim();
+    input.value = '';
+    messages.push({ role: 'user', text: text, date: new Date().toISOString(), model: model().name });
+    saveMessages();
+    renderMessages();
+    renderTokens();
+    window.setTimeout(function() {
+      messages.push({ role: 'assistant', text: createResponse(text), date: new Date().toISOString(), model: model().name });
       saveMessages();
       renderMessages();
-    }, 800 + Math.random() * 1200);
+      renderTokens();
+    }, 450);
+  }
+
+  function createResponse(text) {
+    const sample = DEMO_RESPONSES[messages.length % DEMO_RESPONSES.length];
+    return model().name + ': ' + sample + '\n\nФокус ответа: ' + model().style + '.\nПромпт: ' + settings.prompt + '\n\nИсходный запрос: «' + text + '»';
+  }
+
+  function saveMessages() {
+    write(STORAGE_KEY, messages);
+  }
+
+  function saveDialog() {
+    if (!messages.length) return;
+    const defaultTitle = 'Нейрочат · ' + new Date().toLocaleDateString('ru-RU');
+    const title = window.prompt('Название диалога:', defaultTitle);
+    if (!title || !title.trim()) return;
+    const history = read(HISTORY_KEY, []);
+    history.unshift({ title: title.trim(), date: new Date().toISOString(), model: model().name, messages: messages.slice() });
+    write(HISTORY_KEY, history.slice(0, 30));
+    renderHistory();
+  }
+
+  function renderHistory() {
+    const container = byId('ec-history');
+    if (!container) return;
+    const history = read(HISTORY_KEY, []);
+    container.textContent = '';
+    if (!history.length) {
+      container.textContent = 'Сохранённых диалогов пока нет.';
+      return;
+    }
+    history.forEach(function(dialog, index) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'ec-history-item';
+      button.dataset.index = String(index);
+      button.textContent = dialog.title + ' · ' + new Date(dialog.date).toLocaleDateString('ru-RU');
+      button.addEventListener('click', function() { loadHistory(index); });
+      container.appendChild(button);
+    });
+  }
+
+  function loadHistory(index) {
+    const history = read(HISTORY_KEY, []);
+    const dialog = history[index];
+    if (!dialog) return;
+    messages = Array.isArray(dialog.messages) ? dialog.messages : [];
+    settings.model = Object.keys(MODELS).find(function(key) { return MODELS[key].name === dialog.model; }) || settings.model;
+    saveMessages();
+    write(SETTINGS_KEY, settings);
+    const select = byId('ec-model');
+    if (select) select.value = settings.model;
+    renderMessages();
+    renderContext();
+    renderTokens();
+  }
+
+  function exportDialog() {
+    if (!messages.length) return;
+    const markdown = messages.map(function(message) {
+      return '## ' + (message.role === 'user' ? 'Вы' : (message.model || model().name)) + '\n\n' + message.text;
+    }).join('\n\n');
+    const blob = new Blob(['# Нейрочат\n\nМодель: ' + model().name + '\nДата: ' + new Date().toLocaleString('ru-RU') + '\n\n' + markdown], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'neurochat-' + new Date().toISOString().slice(0, 10) + '.md';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  function useInPromptGenerator() {
+    const input = byId('ec-input');
+    const text = input && input.value.trim() ? input.value.trim() : (messages.filter(function(message) { return message.role === 'user'; }).pop() || {}).text;
+    if (!text || !window.LabRouter) return;
+    window.LabRouter.navigate('prompt-generator');
+    window.setTimeout(function() {
+      if (window.PromptGenerator && window.PromptGenerator.addExternalBlock) {
+        window.PromptGenerator.addExternalBlock('Запрос из Нейрочата', text);
+      }
+    }, 100);
   }
 
   function clearChat() {
-    if (confirm('Очистить историю чата?')) {
-      messages = [];
-      localStorage.removeItem(STORAGE_KEY);
-      renderMessages();
-    }
+    messages = [];
+    saveMessages();
+    renderMessages();
+    renderTokens();
   }
 
-  return {
-    init: init,
-    send: send,
-    clear: clearChat
-  };
+  return { init: init, send: send, clear: clearChat, save: saveDialog, export: exportDialog, useInPromptGenerator: useInPromptGenerator, loadHistory: loadHistory };
 })();
+
+window.EdChat = EdChat;
