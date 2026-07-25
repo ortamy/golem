@@ -6,29 +6,34 @@
 
 ## 📂 Структура папки
 
-| Раздел | Папка | Описание |
-|--------|-------|----------|
-| **00-START** | `00-START/` | Вводный материал, README, INDEX |
-| **01-ARCHITECTURE** | `01-ARCHITECTURE/` | Архитектура проекта |
-| **02-MANAGEMENT** | `02-MANAGEMENT/` | Управление: задачи, планы, решения |
-| **03-CONTENT** | `03-CONTENT/` | Контент: глоссарий, стратегия, манифест |
-| **05-AUDITS** | `05-AUDITS/` | Аудиты репозитория |
-| **06-DESIGN** | `06-DESIGN/` | Дизайн и UI/UX |
-| **07-DICTIONARIES** | `07-DICTIONARIES/` | Словари терминов |
-| **08-EXPOSURE** | `08-EXPOSURE/` | Разоблачения |
-| **09-GUIDES** | `09-GUIDES/` | Руководства |
-| **10-INSTRUCTIONS** | `10-INSTRUCTIONS/` | Инструкции |
-| **11-JOB** | `11-JOB/` | Задачи |
-| **12-LIBRARY** | `12-LIBRARY/` | Библиотека (PDF, документы) |
-| **13-METHODOLOGY** | `13-METHODOLOGY/` | Методология |
-| **14-REPORTS** | `14-REPORTS/` | Отчёты |
-| **15-TEMPLATES** | `15-TEMPLATES/` | Шаблоны |
+`00-START` — вводный материал, README, INDEX.  
+`01-ARCHITECTURE` — архитектура проекта.  
+`02-MANAGEMENT` — управление: задачи, планы, решения.  
+`03-CONTENT` — контент: глоссарий, стратегия, манифест.  
+`05-AUDITS` — аудиты репозитория.  
+`06-DESIGN` — дизайн и UI/UX.  
+`07-DICTIONARIES` — словари терминов.  
+`08-EXPOSURE` — разоблачения.  
+`09-GUIDES` — руководства.  
+`10-INSTRUCTIONS` — инструкции.  
+`11-JOB` — задачи.  
+`12-LIBRARY` — библиотека (PDF, документы).  
+`13-METHODOLOGY` — методология.  
+`14-REPORTS` — отчёты.  
+`15-TEMPLATES` — шаблоны.
 
 ---
 
 ## 🔗 Быстрый старт
 
-- [INDEX.md](INDEX.md) — этот индекс
-- [01-ARCHITECTURE/ARCHITECTURE.md](01-ARCHITECTURE/ARCHITECTURE.md) — архитектура проекта
-- [02-MANAGEMENT/BACKLOG.md](02-MANAGEMENT/BACKLOG.md) — текущие задачи
-- [02-MANAGEMENT/ROADMAP.md](02-MANAGEMENT/ROADMAP.md) — дорожная карта
+Начни с `INDEX.md` — он содержит полный индекс всех разделов.  
+Архитектура проекта описана в `01-ARCHITECTURE/ARCHITECTURE.md`.  
+Текущие задачи и приоритеты — в `02-MANAGEMENT/BACKLOG.md` и `02-MANAGEMENT/ROADMAP.md`.
+
+---
+
+## 📌 Как работать с документацией
+
+Всю документацию можно читать как единый текст.  
+Переходы между разделами осуществляются через внутренние ссылки.  
+Если ты ищешь конкретный термин, используй поиск по папке `docs/`.

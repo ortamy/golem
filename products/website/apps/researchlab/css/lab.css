@@ -1393,6 +1393,13 @@ code, pre, kbd, .translit, .mono {
     margin-top: 4px;
   }
 
+  .lab-hamburger img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+  }
+
   .lab-header .logo {
     font-size: 18px;
     letter-spacing: 3px;
@@ -1425,6 +1432,7 @@ code, pre, kbd, .translit, .mono {
   .lab-header-mobile-links {
     display: flex;
     order: 2;
+    margin-left: auto;
     gap: 8px;
     align-items: center;
     flex-shrink: 0;
@@ -1461,6 +1469,12 @@ code, pre, kbd, .translit, .mono {
     flex: 0 0 100%;
     max-width: 100%;
     margin: 0;
+  }
+
+  .lab-hamburger {
+    order: 2;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .header-search input {
