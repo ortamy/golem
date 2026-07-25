@@ -18,13 +18,26 @@
 .methodology-kicker { margin: 0 0 8px; color: var(--accent-gold); font-size: 12px; font-weight: 700; letter-spacing: .16em; }
 .methodology-heading .subtitle { color: var(--text-muted); margin: 0; }
 
+.methodology-toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 6px;
+}
+
 .methodology-tabs {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
-  margin-bottom: 6px;
   padding-bottom: 2px;
-  border-bottom: 1px solid var(--border-light);
+}
+
+.methodology-toolbar .lab-btn {
+  flex: 0 0 auto;
+  margin-bottom: 8px;
+  white-space: nowrap;
 }
 
 .methodology-tab {
@@ -147,9 +160,66 @@
   stroke-linejoin: round;
 }
 
+.methodology-delete-btn:hover {
+  color: var(--accent-red, #a83232);
+  border-color: var(--accent-red, #a83232);
+  background: rgba(168, 50, 50, 0.12);
+}
+
+.methodology-copy-btn.is-copied {
+  color: #2e8b57;
+  border-color: #2e8b57;
+  background: rgba(46, 139, 87, 0.14);
+}
+
+.methodology-edit-btn.is-active {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  background: rgba(184, 134, 11, 0.16);
+}
+
+.methodology-card.is-editing {
+  border-color: var(--accent-gold);
+}
+
+.methodology-card-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.methodology-card-textarea:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+.methodology-form .admin-label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.methodology-form .admin-input,
+.methodology-form .admin-textarea {
+  margin-bottom: 16px;
+}
+
+.methodology-form .admin-textarea {
+  min-height: 160px;
+}
+
 @media (max-width: 640px) {
   .methodology-heading { padding: 20px; }
   .methodology-panel { grid-template-columns: 1fr; }
+  .methodology-toolbar { flex-direction: column; align-items: stretch; }
   .methodology-tabs { gap: 4px; }
   .methodology-tab { padding: 8px 12px; font-size: 14px; }
 }

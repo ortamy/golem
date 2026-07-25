@@ -22,6 +22,11 @@ const PaleoLinguistics = (function() {
     return d.innerHTML;
   }
 
+  // В карточке оставляем только имя языка; подробности открываются по клику.
+  function cardLanguageName(name) {
+    return String(name == null ? '' : name).replace(/\s*\([^)]*\)/g, '').trim();
+  }
+
   function dataPath(name) {
     return new URL('data/paleo-linguistics/' + name, document.baseURI).href;
   }
@@ -102,10 +107,11 @@ const PaleoLinguistics = (function() {
   function renderLangGrid(container) {
     Promise.all(languages.map(loadLanguage)).then(function(metas) {
       var cards = metas.map(function(lang, i) {
-        return '<div class="lab-card pl-lang-card" data-id="' + escapeHtml(lang.id) + '" style="animation-delay:' + (i * 60) + 'ms">' +
-          '<div class="lab-card-header"><img src="../../assets/icons/32/' + escapeHtml(languages[i].icon) + '.png" width="24" height="24" alt="" onerror="this.style.display=\'none\'">' + escapeHtml(lang.name) + '</div>' +
-          '<div class="pl-lang-period">' + escapeHtml(lang.period) + '</div>' +
-          '<div class="lab-card-body pl-lang-role">' + escapeHtml(lang.role) + '</div>' +
+        return '<div class="lab-card pl-lang-card" data-id="' + escapeHtml(lang.id) + '" role="button" tabindex="0" aria-label="Открыть язык: ' + escapeHtml(cardLanguageName(lang.name)) + '" style="animation-delay:' + (i * 60) + 'ms">' +
+          '<div class="pl-lang-card-icon"><img src="../../assets/icons/32/' + escapeHtml(languages[i].icon) + '.png" width="32" height="32" alt="" onerror="this.style.display=\'none\'"></div>' +
+          '<h2 class="pl-lang-title">' + escapeHtml(cardLanguageName(lang.name)) + '</h2>' +
+          '<div class="pl-lang-divider" aria-hidden="true"></div>' +
+          '<div class="pl-lang-role">' + escapeHtml(lang.role) + '</div>' +
         '</div>';
       }).join('');
 
@@ -115,9 +121,16 @@ const PaleoLinguistics = (function() {
         '<div class="pl-lang-grid">' + cards + '</div>';
 
       container.querySelectorAll('.pl-lang-card').forEach(function(card) {
-        card.addEventListener('click', function() {
-          var id = this.getAttribute('data-id');
+        function openCard() {
+          var id = card.getAttribute('data-id');
           if (id && typeof LabRouter !== 'undefined') LabRouter.navigate('paleo-linguistics', [id]);
+        }
+        card.addEventListener('click', openCard);
+        card.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openCard();
+          }
         });
       });
     }).catch(function(error) {

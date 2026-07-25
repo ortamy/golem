@@ -30,10 +30,13 @@
 <link rel="stylesheet" href="css/translation-comparator.css">
 <link rel="stylesheet" href="css/prompt-generator.css">
 <link rel="stylesheet" href="css/davar-checker.css">
+<link rel="stylesheet" href="css/generators-checkers.css">
+<link rel="stylesheet" href="css/clue-generator.css">
 <link rel="stylesheet" href="css/paleo-linguistics.css">
 <link rel="stylesheet" href="css/language-map.css">
 <link rel="stylesheet" href="css/methodology.css">
 <link rel="stylesheet" href="css/lab-hero.css">
+<link rel="stylesheet" href="css/manifest.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 </head>
@@ -71,6 +74,7 @@
   <!-- SIDEBAR -->
   <aside class="lab-sidebar" id="labSidebar">
   <div class="sidebar-items">
+    <a href="#manifest" class="sidebar-item sidebar-item-top" data-module="manifest"><img src="../../assets/icons/32/ui/scroll.png" class="lab-icon" alt="">Манифест</a>
     <a href="#dashboard" class="sidebar-item sidebar-item-top" data-module="dashboard"><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Рабочий стол</a>
     <div class="sidebar-section">
       <div class="sidebar-section-header" data-section="data">
@@ -87,6 +91,7 @@
         <a href="#paleo-mechanics" class="sidebar-item" data-module="paleo-mechanics"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-механика</a>
         <a href="#paleo-linguistics" class="sidebar-item" data-module="paleo-linguistics"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Палео-лингвистика</a>
         <a href="#language-map" class="sidebar-item" data-module="language-map"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Карта языков</a>
+        <a href="#religionisms" class="sidebar-item" data-module="religionisms"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="Религионизмы">Религионизмы</a>
       </div>
     </div>
     <div class="sidebar-section">
@@ -98,12 +103,10 @@
       <div class="sidebar-section-content" id="section-tools">
         <a href="#root-dictionary" class="sidebar-item" data-module="root-dictionary"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Корневой словарь</a>
         <a href="#paleo-images" class="sidebar-item" data-module="paleo-images"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-образы</a>
-        <a href="#etymology-lab" class="sidebar-item" data-module="etymology-lab"><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Этимология</a>
         <a href="#word-analyzer" class="sidebar-item" data-module="word-analyzer"><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Разбор слов</a>
         <a href="#scripture-reader" class="sidebar-item" data-module="scripture-reader"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Книгочтение</a>
-        <a href="#religionism-checker" class="sidebar-item" data-module="religionism-checker"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="Чекер религионимов">Чекер религионимов</a>
-        <a href="#davar-checker" class="sidebar-item" data-module="davar-checker"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="Чекер воплощения">Давар-чекер</a>
-        <a href="#religionisms" class="sidebar-item" data-module="religionisms"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="Религионизмы">Религионизмы</a>
+        <a href="#generators" class="sidebar-item" data-module="generators"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генераторы</a>
+        <a href="#checkers" class="sidebar-item" data-module="checkers"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Чекеры</a>
         <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="Сравнение переводов">Сравнение переводов</a>
       </div>
     </div>
@@ -114,11 +117,6 @@
         <span class="toggle-icon">▼</span>
       </div>
       <div class="sidebar-section-content" id="section-research">
-        <a href="#board" class="sidebar-item" data-module="board"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Исследовательская доска</a>
-        <a href="#board-generator" class="sidebar-item" data-module="board-generator"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Генератор досок</a>
-        <a href="#research-generator" class="sidebar-item" data-module="research-generator"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генератор исследований</a>
-        <a href="#prompt-generator" class="sidebar-item" data-module="prompt-generator"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генератор промптов</a>
-        <a href="#board-library" class="sidebar-item" data-module="board-library"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Архив досок</a>
         <a href="#investigation" class="sidebar-item" data-module="investigation"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</a>
         <a href="#heraldry" class="sidebar-item" data-module="heraldry"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Гербовник</a>
         <a href="#cartography" class="sidebar-item" data-module="cartography"><img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt="">Картография</a>
@@ -914,6 +912,23 @@ const LabRenderer = {
       return;
     }
 
+    if (moduleId === 'generators' || moduleId === 'checkers') {
+      var pagePath = 'pages/' + moduleId + '.html';
+      fetch(pagePath)
+        .then(function(r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + pagePath);
+          return r.text();
+        })
+        .then(function(html) {
+          container.innerHTML = html;
+          container.dataset.loaded = '1';
+        })
+        .catch(function(err) {
+          container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки витрины: ' + err.message + '</div>';
+        });
+      return;
+    }
+
     container.dataset.loaded = '1';
     
     var path = this.markdownPaths[moduleId];
@@ -1150,6 +1165,7 @@ const LabRenderer = {
     if (!container) return;
     
     const modules = [
+      this.manifest(),
       this.dashboard(),
       this.learn(),
       this.rootDictionary(),
@@ -1163,6 +1179,8 @@ const LabRenderer = {
       this.researchGenerator(),
       this.promptGenerator(),
       this.davarChecker(),
+      this.generators(),
+      this.checkers(),
       this.religionismChecker(),
       this.religionisms(),
       this.translationComparator(),
@@ -1198,6 +1216,7 @@ const LabRenderer = {
       'js/board.js',
       'js/board-generator.js',
       'js/prompt-generator.js',
+      'js/clue-generator.js',
       'js/davar-checker.js',
       'js/religionism-checker.js',
       'js/modules/religionisms.js',
@@ -1294,6 +1313,66 @@ const LabRenderer = {
     grid.innerHTML = html;
   }
   },
+
+  manifest: function() {
+    var principles = [
+      {
+        icon: '../../assets/icons/32/ui/scroll.png',
+        title: 'Палео-иврит первичен (22 буквы = 22 образа)',
+        description: 'Каждая из 22 букв сохраняет образ предмета и действие, а не только звук.'
+      },
+      {
+        icon: '../../assets/icons/32/ui/anchor.png',
+        title: 'Слова — это конструкции, а не термины',
+        description: 'Давар собирается из последовательности образов, связанной движением и отношением.'
+      },
+      {
+        icon: '../../assets/icons/32/ui/map.png',
+        title: '7 состояний пространства',
+        description: 'Пространство читается как смена состояний: от Хошеха к Ору и обратно.'
+      },
+      {
+        icon: '../../assets/icons/32/nav/door.png',
+        title: 'Давар — это переход, а не описание',
+        description: 'Смысл проявляется в переходе между состояниями, когда образ становится действием.'
+      }
+    ];
+    var sections = [
+      { icon: '../../assets/icons/32/archaeology/testtube.png', title: 'Лаборатория', hash: 'laboratory', description: 'Инструменты разбора артефактов, слов, текстов и скрытых подмен.' },
+      { icon: '../../assets/icons/32/ui/map.png', title: 'Картография', hash: 'cartography', description: 'Слои карт, маршруты переходов и поле исследовательских связей.' },
+      { icon: '../../assets/icons/32/scribe/scrolls.png', title: 'Гербовник', hash: 'heraldry', description: 'Знаки, гербы и образы, возвращённые в их палео-поле.' },
+      { icon: '../../assets/icons/32/paleo/track.png', title: 'Карта состояний', hash: 'states', description: 'Семь состояний пространства и переходы между ними.' },
+      { icon: '../../assets/icons/32/crafts/hammer-and-chisel.png', title: 'Генераторы', hash: 'generators', description: 'Сборка рабочих форм для исследования, сопоставления и фиксации.' },
+      { icon: '../../assets/icons/32/ui/question.png', title: 'Чекеры', hash: 'checkers', description: 'Проверка слов и текстов на соответствие палео-механике.' },
+      { icon: '../../assets/icons/32/archaeology/lamp.png', title: 'Агенты', hash: 'agents', description: 'Исследовательские агенты для анализа, диалога и поиска связей.' },
+      { icon: '../../assets/icons/32/ui/book.png', title: 'Библиотека', hash: 'library', description: 'Внешние источники и книги для внимательного изучения.' }
+    ];
+    var principleCards = principles.map(function(item) {
+      return '<article class="manifest-principle"><div class="manifest-icon"><img src="' + item.icon + '" width="32" height="32" alt=""></div><h3>' + item.title + '</h3><p>' + item.description + '</p></article>';
+    }).join('');
+    var sectionCards = sections.map(function(item) {
+      return '<a href="#' + item.hash + '" class="manifest-section-card"><span class="manifest-section-icon"><img src="' + item.icon + '" width="32" height="32" alt=""></span><span class="manifest-section-copy"><strong>' + item.title + '</strong><span>' + item.description + '</span></span><span class="manifest-section-arrow" aria-hidden="true">→</span></a>';
+    }).join('');
+    var lossLayers = [
+      { name: 'Палео', value: '100%', note: 'образ и действие' },
+      { name: 'Масорет', value: '80%', note: 'согласный каркас' },
+      { name: 'Греческий', value: '40%', note: 'перенос звучания' },
+      { name: 'Латынь', value: '25%', note: 'терминологический слой' },
+      { name: 'Синодальный', value: '15%', note: 'поздняя фиксация' }
+    ];
+    var lossMap = lossLayers.map(function(item, index) {
+      var arrow = index < lossLayers.length - 1 ? '<span class="manifest-loss-arrow" aria-hidden="true">→</span>' : '';
+      return '<div class="manifest-loss-step"><div class="manifest-loss-value">' + item.value + '</div><strong>' + item.name + '</strong><span>' + item.note + '</span></div>' + arrow;
+    }).join('');
+    return '<div id="manifest" class="module manifest-page">' +
+      '<section class="manifest-hero"><span class="manifest-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅 𐤆</span><p class="manifest-kicker">GOLEM · RESEARCH LAB</p><h1>Голем — исследовательская платформа для реконструкции палео-образного мышления.</h1><p class="manifest-lead">Возвращаем тексту его физику: образ, движение, состояние и переход.</p></section>' +
+      '<section class="manifest-section"><div class="manifest-section-heading"><span class="manifest-index">01</span><div><h2>Четыре опоры</h2><p>Поле, в котором Давар снова становится действием.</p></div></div><div class="manifest-principles">' + principleCards + '</div></section>' +
+      '<section class="manifest-section manifest-loss-section"><div class="manifest-section-heading"><span class="manifest-index">02</span><div><h2>Карта утрат</h2><p>Каждый новый слой оставляет меньше исходного образа.</p></div></div><div class="manifest-loss-map" role="img" aria-label="Палео 100 процентов, Масорет 80 процентов, Греческий 40 процентов, Латынь 25 процентов, Синодальный 15 процентов">' + lossMap + '</div></section>' +
+      '<section class="manifest-section"><div class="manifest-section-heading"><span class="manifest-index">03</span><div><h2>Входы в исследование</h2><p>Выберите направление и продолжите движение внутри платформы.</p></div></div><div class="manifest-section-grid">' + sectionCards + '</div></section>' +
+      '<blockquote class="manifest-quote"><span class="manifest-quote-mark">“</span><p>Мы не восстанавливаем «истинный текст». Мы показываем, что видели глаза человека, читавшего слитный поток согласных.</p></blockquote>' +
+      '<div class="manifest-cta-wrap"><a class="lab-btn lab-btn-primary manifest-cta" href="#laboratory"><img src="../../assets/icons/32/ui/arrows.png" width="24" height="24" alt="">Перейти в Лабораторию</a></div>' +
+      '</div>';
+  },
   
   dashboard: function() {
   return '<div id="dashboard" class="module active dashboard">' +
@@ -1304,7 +1383,7 @@ const LabRenderer = {
       '<a href="#root-dictionary" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Корневой словарь"></span><div class="tool-name">Корневой словарь</div><div class="tool-desc">Поиск по корням иврита. Значение, транслитерация, палео-образы.</div><span class="tool-badge new">Новый</span></a>' +
       '<a href="#word-analyzer" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Разбор слов"></span><div class="tool-name">Разбор слов</div><div class="tool-desc">Массовый разбор: корень, палео-образы, подмены, кеширование.</div><span class="tool-badge new">Новый</span></a>' +
       '<a href="#paleo-images" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/paleo/track.png" width="32" height="32" alt="Палео-образы"></span><div class="tool-name">Палео-образы</div><div class="tool-desc">22 буквы палео-иврита с образами, смыслами и примерами.</div><span class="tool-badge new">Новый</span></a>' +
-      '<a href="#etymology-lab" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Этимология"></span><div class="tool-name">Этимология</div><div class="tool-desc">Глубокий разбор слова: корень, палео-буквы, цепочка подмен.</div><span class="tool-badge new">Новый</span></a>' +
+'<a href="#etymology-checker" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Чекер этимологии"></span><div class="tool-name">Чекер этимологии</div><div class="tool-desc">Проверь слово на соответствие палео-корням, образам и карте утрат.</div><span class="tool-badge new">Новый</span></a>' +
       '<a href="#religionism-checker" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Чекер религионимов"></span><div class="tool-name">Чекер религионимов</div><div class="tool-desc">Проверка текста на подмены: Господь → Яхве, Бог → Элоhим.</div><span class="tool-badge new">Новый</span></a>' +
       '<a href="#translation-comparator" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Сравнение переводов"></span><div class="tool-name">Сравнение переводов</div><div class="tool-desc">Параллельный просмотр ТМ, Септуагинты и Синодального перевода.</div><span class="tool-badge beta">Beta</span></a>' +
       '<a href="#board-generator" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Генератор досок"></span><div class="tool-name">Генератор досок</div><div class="tool-desc">Создание визуальных детективных досок для анализа улик, выводов и вложений. Экспорт в PNG, PDF, TXT.</div><span class="tool-badge new">Новый</span></a>' +
@@ -1363,10 +1442,10 @@ const LabRenderer = {
       '<div id="learn-app" aria-live="polite"></div>' +
       '</div>';
   },
-  etymologyLab: function() {
-    return '<div id="etymology-lab" class="module">' +
-      '<h1><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Этимологическая лаборатория</h1>' +
-      '<p class="subtitle">Глубокий разбор слова: корень, палео-буквы, цепочка подмен.</p>' +
+etymologyLab: function() {
+  return '<div id="etymology-checker" class="module">' +
+    '<h1><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Чекер этимологии</h1>' +
+    '<p class="subtitle">Проверь слово на соответствие палео-корням, образам и карте утрат</p>' +
       '<div class="search-wrap"><input type="text" id="el-input" class="lab-input" placeholder="Введите слово на иврите..." onkeydown="if(event.key===\'Enter\')EtymologyLab.analyze()"><button class="lab-btn lab-btn-primary" onclick="EtymologyLab.analyze()">Разобрать</button></div>' +
       '<div id="el-results"></div></div>';
   },
@@ -1636,6 +1715,14 @@ const LabRenderer = {
 
   davarChecker: function() {
     return '<div id="davar-checker" class="module"></div>';
+  },
+
+  generators: function() {
+    return '<div id="generators" class="module"></div>';
+  },
+
+  checkers: function() {
+    return '<div id="checkers" class="module"></div>';
   },
 
   translationComparator: function() {

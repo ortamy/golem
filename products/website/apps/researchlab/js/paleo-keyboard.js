@@ -165,7 +165,7 @@ const PaleoKey = (function() {
     var output = getOutput();
     var text = getText(output).trim();
     if (!text) { showToast('Введи слово для разбора'); return; }
-    if (window.LabRouter) LabRouter.navigate('etymology-lab');
+if (window.LabRouter) LabRouter.navigate('etymology-checker');
     setTimeout(function() {
       var input = document.getElementById('el-input');
       if (input) { input.value = text; }

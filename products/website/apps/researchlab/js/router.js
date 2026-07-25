@@ -80,9 +80,29 @@ const LabRouter = (function() {
       return;
     }
 
+    // Точки входа манифеста ведут к существующим модулям платформы
+    if (hash === 'laboratory') {
+      showModule('dashboard', parsed);
+      return;
+    }
+    if (hash === 'agents') {
+      showModule('ai-agents', parsed);
+      return;
+    }
+    if (hash === 'library') {
+      showModule('researches', parsed);
+      return;
+    }
+
     // #prompt-generator — сборщик промптов исследователя
     if (hash === 'prompt-generator') {
       showModule('prompt-generator', parsed);
+      return;
+    }
+
+    // #clue-generator — сборка цепочки улик
+    if (hash === 'clue-generator') {
+      showModule('clue-generator', parsed);
       return;
     }
 
@@ -139,6 +159,14 @@ const LabRouter = (function() {
       modules['exposure-editor'] = editor;
     }
 
+    if (moduleId === 'clue-generator' && !modules['clue-generator']) {
+      const clueGenerator = document.createElement('div');
+      clueGenerator.id = 'clue-generator';
+      clueGenerator.className = 'module';
+      document.getElementById('labContent').appendChild(clueGenerator);
+      modules['clue-generator'] = clueGenerator;
+    }
+
     // Скрываем все
     Object.keys(modules).forEach(function(id) {
       modules[id].classList.remove('active');
@@ -176,6 +204,10 @@ const LabRouter = (function() {
       if (editorEl) {
         ExposureEditor.init(editorEl);
       }
+    }
+
+    if (moduleId === 'clue-generator' && window.ClueGenerator) {
+      window.ClueGenerator.init(document.getElementById('clue-generator'));
     }
 
     // Колбэк

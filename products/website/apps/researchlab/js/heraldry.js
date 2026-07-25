@@ -25,6 +25,15 @@ const DATA_PATH = 'data/heraldry/heraldry.json';
     return escapeHtml(value == null || value === '' ? (fallback || '') : String(value));
   }
 
+  function visualAsset(value, className, alt) {
+    if (!value) return '';
+    var asset = String(value);
+    if (/^(https?:\/\/|\/|\.\.?\/)/i.test(asset)) {
+      return '<img class="' + className + '" src="' + escapeHtml(asset) + '" alt="' + escapeHtml(alt || '') + '" loading="lazy" onerror="this.style.display=\'none\'">';
+    }
+    return '<span class="' + className + ' heraldry-asset-text">' + escapeHtml(asset) + '</span>';
+  }
+
   function channelLabel() {
     return 'Искусственный канал';
   }
@@ -82,13 +91,14 @@ const DATA_PATH = 'data/heraldry/heraldry.json';
       var description = c.card_description || (c.symbol_paleo_breakdown && c.symbol_paleo_breakdown.description) || c.symbol || '';
       return '<div class="heraldry-card" data-id="' + escapeHtml(c.id) + '" style="animation-delay: ' + (index * 80) + 'ms">' +
         '<div class="heraldry-card-flags" aria-hidden="true">' +
-          '<img class="heraldry-flag" src="' + text(c.flag) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">' +
-          '<img class="heraldry-coat" src="' + text(c.coat) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">' +
+          visualAsset(c.flag, 'heraldry-flag', 'Флаг ' + c.name) +
+          visualAsset(c.coat, 'heraldry-coat', 'Герб ' + c.name) +
         '</div>' +
         '<div class="heraldry-card-header">' +
           '<h2 class="heraldry-card-title">' + text(c.name) + '</h2>' +
           '<div class="heraldry-card-paleo" dir="rtl" lang="he">' + text(c.paleo, c.hebrew) + '</div>' +
         '</div>' +
+        '<div class="heraldry-card-symbol"><span class="heraldry-card-symbol-label">Символ</span> ' + text(c.symbol) + '</div>' +
         '<p class="heraldry-card-description">' + text(description) + '</p>' +
         '<div class="heraldry-card-conclusion heraldry-conclusion-channel">' + channelLabel() + '</div>' +
         '<button class="lab-btn lab-btn-primary lab-btn-sm heraldry-detail-btn" data-id="' + escapeHtml(c.id) + '">Подробнее →</button>' +
@@ -196,11 +206,12 @@ const DATA_PATH = 'data/heraldry/heraldry.json';
 
     return '<div class="heraldry-detail">' +
       '<div class="heraldry-detail-flags">' +
-        '<img class="heraldry-flag-lg" src="' + escapeHtml(country.flag) + '" alt="Флаг ' + escapeHtml(country.name) + '" onerror="this.style.display=\'none\'">' +
-        '<img class="heraldry-coat-lg" src="' + escapeHtml(country.coat) + '" alt="Герб ' + escapeHtml(country.name) + '" onerror="this.style.display=\'none\'">' +
+        visualAsset(country.flag, 'heraldry-flag-lg', 'Флаг ' + country.name) +
+        visualAsset(country.coat, 'heraldry-coat-lg', 'Герб ' + country.name) +
       '</div>' +
       '<div class="heraldry-detail-names">' +
         '<div class="heraldry-detail-name">' + escapeHtml(country.name) + '</div>' +
+        '<div class="heraldry-detail-symbol">Символ: ' + escapeHtml(country.symbol || '—') + '</div>' +
         '<div class="heraldry-detail-hebrew" dir="rtl">' + escapeHtml(country.hebrew) + '</div>' +
         '<div class="heraldry-detail-paleo" dir="rtl">' + escapeHtml(country.paleo) + '</div>' +
       '</div>' +

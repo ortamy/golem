@@ -51,6 +51,76 @@ const EtyLab = (function() {
   var EXAMPLE_WORDS = ['אמת', 'תורה', 'שלום', 'קדוש', 'חסד', 'יהוה', 'תשובה', 'ברית'];
 
   var rootsData = [];
+  var currentAnalysis = null;
+
+  function escapeHTML(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function normalize(value) {
+    return String(value == null ? '' : value).trim().toLowerCase();
+  }
+
+  function findRootEntry(root) {
+    var target = normalize(root);
+    return rootsData.find(function(r) {
+      return r && (normalize(r.root) === target || normalize(r.translit) === target);
+    }) || null;
+  }
+
+  function derivePaleo(word) {
+    return String(word || '').split('').map(function(ch) {
+      return PALEO[ch] ? PALEO[ch].paleo : '';
+    }).join('');
+  }
+
+  function getTranslation(wordData, clean, entry) {
+    var sub = wordData.subs && wordData.subs[0] ? wordData.subs[0] : null;
+    var explanation = sub && sub[2] ? sub[2] : '';
+    var greekMatch = explanation.match(/Греч\.\s*([^.;]+)/i);
+    var synodal = sub && sub[0] ? sub[0] : '';
+    if (!synodal && entry && entry.substitutions && entry.substitutions.length) {
+      synodal = entry.substitutions[0];
+    }
+
+    return {
+      paleo: (entry && entry.image) || (entry && entry.paleoMeanings ? entry.paleoMeanings.join(' → ') : wordData.meaning),
+      greek: greekMatch ? greekMatch[1].trim() : 'нет отдельной записи',
+      latin: 'нет отдельной записи',
+      synodal: synodal || 'нет отдельной записи',
+      explanation: explanation || 'Переводная запись для этого слова ещё не закреплена в лаборатории.',
+      original: wordData.translit + ' (' + clean + ')'
+    };
+  }
+
+  function renderLossMap(translation) {
+    var layers = [
+      ['Палео', translation.paleo, 'Сохраняется образ, действие и связь букв.'],
+      ['Греческий', translation.greek, 'Образ сжимается до переводного понятия.'],
+      ['Латынь', translation.latin, 'Понятие закрепляется в книжной формуле.'],
+      ['Синодальный', translation.synodal, 'Форма перевода может скрыть исходное действие.']
+    ];
+    return '<div class="el-loss-map" aria-label="Карта утрат">' + layers.map(function(layer, i) {
+      return (i ? '<span class="el-loss-arrow" aria-hidden="true">→</span>' : '') +
+        '<div class="el-loss-layer"><div class="el-loss-label">' + escapeHTML(layer[0]) + '</div>' +
+        '<div class="el-loss-value">' + escapeHTML(layer[1]) + '</div>' +
+        '<div class="el-loss-note">' + escapeHTML(layer[2]) + '</div></div>';
+    }).join('') + '</div>';
+  }
+
+  function renderTools() {
+    return '<div class="el-checker-actions" aria-label="Инструменты проверки">' +
+      '<button class="lab-btn" type="button" onclick="EtymologyLab.checkDictionary()">Проверить по словарю</button>' +
+      '<button class="lab-btn" type="button" onclick="EtymologyLab.compareTranslation()">Сравнить с переводом</button>' +
+      '</div>' +
+      '<div id="el-dictionary-check" class="el-checker-output text-small text-muted">Нажмите кнопку, чтобы проверить сборку по roots.json.</div>' +
+      '<div id="el-translation-check" class="el-checker-output text-small text-muted">Нажмите кнопку, чтобы увидеть сдвиг переводного слоя.</div>';
+  }
 
   function init() {
     fetch('data/roots/roots.json')
@@ -92,9 +162,9 @@ const EtyLab = (function() {
     if (!wordData && rootsData.length > 0) {
       var q = clean.toLowerCase();
       var match = rootsData.find(function(r) {
-        return r.root === clean ||
-          r.translit.toLowerCase() === q ||
-          r.meaning.toLowerCase().indexOf(q) !== -1;
+        return r && (r.root === clean ||
+          normalize(r.translit) === q ||
+          normalize(r.meaning).indexOf(q) !== -1);
       });
       if (match) {
         wordData = {
@@ -111,9 +181,10 @@ const EtyLab = (function() {
     }
 
     if (!wordData) {
-      resultsEl.innerHTML = '<div class="lab-alert lab-alert-warn">Слово «' + val + '» пока нет в базе. Попробуй: ' +
+      currentAnalysis = null;
+      resultsEl.innerHTML = '<div class="lab-alert lab-alert-warn">Слово «' + escapeHTML(val) + '» пока нет в базе. Попробуй: ' +
         EXAMPLE_WORDS.slice(0, 4).map(function(w) {
-          return '<button class="el-chip el-chip-sm" onclick="EtymologyLab.example(\'' + w + '\')">' + w + '</button>';
+          return '<button class="el-chip el-chip-sm" onclick="EtymologyLab.example(\'' + w + '\')">' + escapeHTML(w) + '</button>';
         }).join(' ') + '</div>';
       return;
     }
@@ -153,28 +224,98 @@ const EtyLab = (function() {
       subsHTML += '</tbody></table>';
     }
 
-    var rootMatches = rootsData.filter(function(r) { return r.root === wordData.root || r.translit === wordData.root; });
+    var rootMatches = rootsData.filter(function(r) { return r && (r.root === wordData.root || r.translit === wordData.root); });
     var rootHTML = rootMatches.length > 0
-      ? '<div class="el-root-card"><div class="el-root-heb">' + rootMatches[0].root + '</div><div class="text-small text-muted">' + rootMatches[0].translit + '</div><div class="el-root-meaning">' + rootMatches[0].meaning + '</div></div>'
-      : '<div class="el-root-card"><div class="el-root-heb">' + wordData.root + '</div><div class="el-root-meaning">' + wordData.rootMeaning + '</div></div>';
+      ? '<div class="el-root-card"><div class="el-root-heb">' + escapeHTML(rootMatches[0].root) + '</div><div class="text-small text-muted">' + escapeHTML(rootMatches[0].translit) + '</div><div class="el-root-meaning">' + escapeHTML(rootMatches[0].meaning) + '</div></div>'
+      : '<div class="el-root-card"><div class="el-root-heb">' + escapeHTML(wordData.root) + '</div><div class="el-root-meaning">' + escapeHTML(wordData.rootMeaning) + '</div></div>';
+
+    var dictionaryEntry = rootMatches[0] || wordData._rootEntry || findRootEntry(wordData.root);
+    var translation = getTranslation(wordData, clean, dictionaryEntry);
+    currentAnalysis = {
+      clean: clean,
+      wordData: wordData,
+      dictionaryEntry: dictionaryEntry,
+      wordPaleo: paleoStr.trim(),
+      rootPaleo: derivePaleo(wordData.root),
+      translation: translation
+    };
 
     resultsEl.innerHTML =
       '<div class="el-word-header">' +
-        '<div class="el-word-heb">' + clean + '</div>' +
-        '<div class="el-word-info"><div class="el-word-translit">' + wordData.translit + '</div>' +
-        '<div class="el-word-meaning">' + wordData.meaning + '</div></div>' +
-        '<div class="el-word-paleo">' + paleoStr.trim() + '</div>' +
+        '<div class="el-word-heb">' + escapeHTML(clean) + '</div>' +
+        '<div class="el-word-info"><div class="el-word-translit">' + escapeHTML(wordData.translit) + '</div>' +
+        '<div class="el-word-meaning">' + escapeHTML(wordData.meaning) + '</div></div>' +
+        '<div class="el-word-paleo">' + escapeHTML(paleoStr.trim()) + '</div>' +
       '</div>' +
       '<div class="el-section"><div class="el-section-title">Палео-разбор по буквам</div>' +
         '<p class="text-small text-muted mb-16">Каждая буква — это образ.</p>' +
         '<div class="el-letter-breakdown">' + lettersHTML + '</div></div>' +
       '<div class="el-section"><div class="el-section-title">Корень слова</div>' + rootHTML + '</div>' +
-      (subsHTML ? '<div class="el-section"><div class="el-section-title">Цепочка подмен</div>' + subsHTML + '</div>' : '');
+      (subsHTML ? '<div class="el-section"><div class="el-section-title">Цепочка подмен</div>' + subsHTML + '</div>' : '') +
+      '<div class="el-section"><div class="el-section-title">Карта утрат</div>' + renderLossMap(translation) + '</div>' +
+      '<div class="el-section el-checker-section"><div class="el-section-title">Визуальный чекер</div>' + renderTools() + '</div>';
 
     resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  return { init: init, analyze: analyze, example: example };
+  function checkDictionary() {
+    var output = document.getElementById('el-dictionary-check');
+    if (!output || !currentAnalysis) return;
+    if (!rootsData.length) {
+      output.className = 'el-checker-output el-checker-warn';
+      output.innerHTML = 'roots.json ещё не загружен. Повторите проверку через мгновение.';
+      return;
+    }
+
+    var entry = currentAnalysis.dictionaryEntry || findRootEntry(currentAnalysis.wordData.root);
+    if (!entry) {
+      output.className = 'el-checker-output el-checker-warn';
+      output.innerHTML = 'Корень <strong>' + escapeHTML(currentAnalysis.wordData.root) + '</strong> не найден в roots.json.';
+      return;
+    }
+
+    var differences = [];
+    if (normalize(currentAnalysis.wordData.root) !== normalize(entry.root)) {
+      differences.push('корень: разбор «' + currentAnalysis.wordData.root + '», словарь «' + entry.root + '»');
+    }
+    var expectedPaleo = entry.paleo && entry.paleo.length ? entry.paleo.join('') : derivePaleo(entry.root);
+    if (expectedPaleo && normalize(currentAnalysis.rootPaleo) !== normalize(expectedPaleo)) {
+      differences.push('палео-ряд корня: разбор «' + currentAnalysis.rootPaleo + '», словарь «' + expectedPaleo + '»');
+    }
+    if (entry.meaning && normalize(currentAnalysis.wordData.rootMeaning) !== normalize(entry.meaning)) {
+      differences.push('смысл корня: разбор «' + currentAnalysis.wordData.rootMeaning + '», словарь «' + entry.meaning + '»');
+    }
+
+    if (!differences.length) {
+      output.className = 'el-checker-output el-checker-ok';
+      output.innerHTML = '<strong>Совпадает с roots.json.</strong> Корень, палео-ряд и смысловая запись согласованы.';
+    } else {
+      output.className = 'el-checker-output el-checker-warn';
+      output.innerHTML = '<strong>Найдены расхождения:</strong><ul>' + differences.map(function(item) {
+        return '<li>' + escapeHTML(item) + '</li>';
+      }).join('') + '</ul>';
+    }
+  }
+
+  function compareTranslation() {
+    var output = document.getElementById('el-translation-check');
+    if (!output || !currentAnalysis) return;
+    var translation = currentAnalysis.translation;
+    var isKnown = translation.synodal !== 'нет отдельной записи';
+    output.className = 'el-checker-output ' + (isKnown ? 'el-checker-translation' : 'el-checker-warn');
+    output.innerHTML = '<div class="el-translation-grid">' +
+      '<div><span class="el-compare-label">Палео-сборка</span><strong>' + escapeHTML(translation.paleo) + '</strong></div>' +
+      '<div><span class="el-compare-label">Переводная форма</span><strong class="sub-red">' + escapeHTML(translation.synodal) + '</strong></div>' +
+      '</div><p class="el-translation-diff"><strong>Разница:</strong> ' + escapeHTML(translation.explanation) + '</p>';
+  }
+
+  return {
+    init: init,
+    analyze: analyze,
+    example: example,
+    checkDictionary: checkDictionary,
+    compareTranslation: compareTranslation
+  };
 })();
 
 window.EtymologyLab = EtyLab;

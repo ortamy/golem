@@ -5,7 +5,10 @@
 .rd-stat .num { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--accent-gold); }
 .rd-stat .label { font-size: 12px; color: var(--text-muted); margin-top: 2px; letter-spacing: 1px; text-transform: uppercase; }
 
-.rd-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 20px; margin-bottom: 16px; transition: all 0.2s; }
+/* Сетка корней: одна колонка на мобильном, две на планшете, три на десктопе. */
+#rd-list { display: grid; grid-template-columns: 1fr; gap: 16px; }
+
+.rd-card { min-width: 0; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 20px; transition: all 0.2s; overflow-wrap: anywhere; }
 .rd-card:hover { border-color: var(--accent-gold); box-shadow: 2px 2px 12px var(--shadow-card-hover); }
 .rd-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
 .rd-card-header .root-heb { font-size: 32px; font-family: var(--font-hebrew); line-height: 1; direction: rtl; }
@@ -46,3 +49,11 @@
 /* Dark theme adjustments */
 [data-theme="dark"] .rd-image { background: var(--bg-tertiary); }
 [data-theme="dark"] .rd-subs { background: rgba(212,160,48,0.08); }
+
+@media (min-width: 768px) {
+  #rd-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1025px) {
+  #rd-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

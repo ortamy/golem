@@ -21,6 +21,11 @@ AGENT_NAMES = {"researcher", "exposer", "collector"}
 _lock = threading.Lock()
 CORS_ENABLED = True
 
+METHODOLOGY_CARDS_PATH = (
+    Path(__file__).parent.parent / "website" / "apps" / "researchlab" / "data" / "methodology" / "cards.json"
+)
+_cards_lock = threading.Lock()
+
 
 class AgentHandler(BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
@@ -30,7 +35,7 @@ class AgentHandler(BaseHTTPRequestHandler):
         if not CORS_ENABLED:
             return
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
 
     def do_OPTIONS(self):
@@ -38,7 +43,30 @@ class AgentHandler(BaseHTTPRequestHandler):
         self._send_cors()
         self.end_headers()
 
+    def do_GET(self):
+        if self.path != "/api/methodology/cards":
+            self.send_response(404)
+            self._send_cors()
+            self.end_headers()
+            self.wfile.write(b'{"error":"not found"}')
+            return
+
+        try:
+            data = json.loads(METHODOLOGY_CARDS_PATH.read_text(encoding="utf-8"))
+        except FileNotFoundError:
+            self._respond(404, {"error": "cards.json not found"})
+            return
+        except Exception as e:
+            self._respond(500, {"error": str(e)})
+            return
+
+        self._respond(200, data)
+
     def do_POST(self):
+        if self.path == "/api/methodology/cards":
+            self._handle_save_cards()
+            return
+
         if self.path != "/api/run":
             self.send_response(404)
             self._send_cors()
@@ -77,6 +105,53 @@ class AgentHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
+
+    def _handle_save_cards(self):
+        length = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(length)
+        try:
+            payload = json.loads(body.decode("utf-8"))
+        except Exception:
+            self._respond(400, {"error": "invalid JSON"})
+            return
+
+        error = _validate_cards_payload(payload)
+        if error:
+            self._respond(400, {"error": error})
+            return
+
+        with _cards_lock:
+            try:
+                _write_cards_atomic(payload)
+            except Exception as e:
+                self._respond(500, {"error": str(e)})
+                return
+
+        self._respond(200, payload)
+
+
+def _validate_cards_payload(payload) -> str:
+    if not isinstance(payload, dict):
+        return "payload must be an object"
+    if "categories" not in payload or not isinstance(payload["categories"], dict):
+        return "'categories' must be an object"
+    cards = payload.get("cards")
+    if not isinstance(cards, list):
+        return "'cards' must be an array"
+    for card in cards:
+        if not isinstance(card, dict):
+            return "each card must be an object"
+        for field in ("id", "category", "title", "text"):
+            if not isinstance(card.get(field), str):
+                return f"card.{field} must be a string"
+    return ""
+
+
+def _write_cards_atomic(payload):
+    METHODOLOGY_CARDS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = METHODOLOGY_CARDS_PATH.with_suffix(".json.tmp")
+    tmp_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp_path.replace(METHODOLOGY_CARDS_PATH)
 
 
 def _run_agent(agent: str, task: str) -> dict:

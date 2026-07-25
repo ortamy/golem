@@ -14,7 +14,7 @@ const AdminSettings = (function() {
   var SECTIONS = [
     { key: 'root-dictionary', label: 'Корневой словарь' },
     { key: 'paleo-images', label: 'Палео-образы' },
-    { key: 'etymology-lab', label: 'Этимология' },
+{ key: 'etymology-checker', label: 'Чекер этимологии' },
     { key: 'word-analyzer', label: 'Разбор слов' },
     { key: 'scripture-reader', label: 'Книгочтение' },
     { key: 'researches', label: 'Разоблачения' },

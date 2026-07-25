@@ -4,10 +4,9 @@
  * 7 пространств палео-механики: Тоху → Хошех → Мицраим → Мидбар → Шамаим → Эрец → Эден.
  * - Карточки состояний с палео-символами и описанием
  * - Страница каждого состояния с палео-разбором, переходами и городами
- * - Диагностика: вопросы → определение текущего состояния → рекомендация перехода
  *
  * Маршрут: #states
- * Подмаршруты: #states?state=tohu, #states?diagnostic=true
+ * Подмаршрут: #states?state=tohu
  */
 
 const GolemStates = (function() {
@@ -22,13 +21,8 @@ const GolemStates = (function() {
   let dataPromise = null;
 
   // Состояние модуля
-  let currentView = 'grid'; // 'grid' | 'detail' | 'diagnostic'
+  let currentView = 'grid'; // 'grid' | 'detail'
   let currentStateId = null;
-  let diagnosticState = {
-    currentQuestion: 0,
-    answers: {},
-    completed: false
-  };
 
   // ===== УТИЛИТЫ =====
   function escapeHtml(text) {
@@ -116,8 +110,6 @@ const GolemStates = (function() {
     if (params.state && statesById[params.state]) {
       currentView = 'detail';
       currentStateId = params.state;
-    } else if (params.diagnostic === 'true') {
-      currentView = 'diagnostic';
     } else {
       currentView = 'grid';
       currentStateId = null;
@@ -135,8 +127,6 @@ const GolemStates = (function() {
 
     if (currentView === 'detail' && currentStateId) {
       html = renderStateDetail(currentStateId);
-    } else if (currentView === 'diagnostic') {
-      html = renderDiagnostic();
     } else {
       html = renderGrid();
     }
@@ -203,9 +193,6 @@ const GolemStates = (function() {
         '<button class="states-nav-btn active" onclick="GolemStates.openGrid()">' +
           '<img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt=""> Карта' +
         '</button>' +
-        '<button class="states-nav-btn" onclick="GolemStates.openDiagnostic()">' +
-          '<img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt=""> Диагностика' +
-        '</button>' +
       '</div>' +
       '<div class="states-head">' +
         '<h1><img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt=""> Карта состояний</h1>' +
@@ -213,11 +200,6 @@ const GolemStates = (function() {
       '</div>' +
       '<div class="states-map">' +
         '<div class="states-grid">' + cardsHtml + '</div>' +
-      '</div>' +
-      '<div style="text-align: center; margin-top: 8px;">' +
-        '<button class="lab-btn lab-btn-primary lab-btn-sm" onclick="GolemStates.openDiagnostic()">' +
-          '<img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt=""> Пройти диагностику' +
-        '</button>' +
       '</div>' +
     '</div>';
   }
@@ -303,7 +285,6 @@ const GolemStates = (function() {
     return '<div class="states-page">' +
       '<div class="states-controls">' +
         '<button class="states-nav-btn states-nav-back" onclick="GolemStates.openGrid()"><img src="../../assets/icons/32/nav/home.png" class="lab-icon" alt=""> Назад к карте</button>' +
-        '<button class="states-nav-btn" onclick="GolemStates.openDiagnostic()"><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt=""> Диагностика</button>' +
       '</div>' +
       '<div class="state-detail">' +
         '<div class="state-detail-hero" style="border-bottom-color: ' + color + '33;">' +
