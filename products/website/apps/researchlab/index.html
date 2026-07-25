@@ -39,11 +39,24 @@
 <link rel="stylesheet" href="css/manifest.css">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<!-- Embed mode styles -->
+<style>
+  .lab-header.is-embed, .lab-sidebar.is-embed, .lab-footer.is-embed,
+  .lab-sidebar-overlay.is-embed, .lab-hamburger.is-embed,
+  .lab-header-mobile-links.is-embed, .hotkey-hint.is-embed,
+  #labSidebarToggle.is-embed { display: none !important; }
+  .is-embed .lab-layout { flex-direction: row !important; }
+  .is-embed .lab-layout > .lab-sidebar { display: none !important; }
+  .is-embed .lab-content { padding: 0 !important; min-height: 100vh; }
+  .is-embed .lab-header { display: none !important; }
+  .is-embed .lab-footer { display: none !important; }
+  body.is-embed { padding-top: 0; }
+</style>
 </head>
 <body>
 
 <!-- HEADER -->
-<header class="lab-header">
+<header class="lab-header" id="labHeader">
   <a href="#dashboard" class="logo"><img src="../../assets/images/golem-logo-2.png" alt="ГОЛЕМ" style="height: 40px; width: auto;"></a>
   
   <!-- Global Search -->
@@ -188,6 +201,7 @@
 <script src="js/lab-hero.js"></script>
 <script src="js/root-dictionary.js"></script>
 <script src="js/exposure-editor.js"></script>
+<script src="js/video-lab.js"></script>
 <script>
 // ===== LAB SIDEBAR (mobile only) =====
 const LabSidebar = {
@@ -912,7 +926,7 @@ const LabRenderer = {
       return;
     }
 
-    if (moduleId === 'generators' || moduleId === 'checkers') {
+    if (moduleId === 'generators' || moduleId === 'checkers' || moduleId === 'video-lab') {
       var pagePath = 'pages/' + moduleId + '.html';
       fetch(pagePath)
         .then(function(r) {
@@ -922,9 +936,12 @@ const LabRenderer = {
         .then(function(html) {
           container.innerHTML = html;
           container.dataset.loaded = '1';
+          if (moduleId === 'video-lab' && window.VideoLab) {
+            window.VideoLab.init(container);
+          }
         })
         .catch(function(err) {
-          container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки витрины: ' + err.message + '</div>';
+          container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки модуля: ' + err.message + '</div>';
         });
       return;
     }
@@ -2106,6 +2123,29 @@ function applyLabConfig(role) {
     window.location.hash = config.defaultModule;
   }
 }
+
+// ===== EMBED MODE: hide chrome when loaded in iframe with ?embed=1 =====
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('embed') === '1') {
+    document.documentElement.classList.add('is-embed');
+    document.body.classList.add('is-embed');
+    var els = [
+      'labHeader', 'labSidebar', 'labSidebarOverlay',
+      'labSidebarToggle', 'labSidebar'
+    ];
+    els.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.classList.add('is-embed');
+    });
+    document.querySelector('.lab-footer')?.classList.add('is-embed');
+    document.querySelector('.lab-header-mobile-links')?.classList.add('is-embed');
+    document.querySelector('.hotkey-hint')?.classList.add('is-embed');
+    // Remove sidebar from layout
+    var layout = document.querySelector('.lab-layout');
+    if (layout) layout.classList.add('is-embed');
+  }
+})();
 
 </script>
 <script>

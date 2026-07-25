@@ -106,6 +106,12 @@ const LabRouter = (function() {
       return;
     }
 
+    // #video-lab — генератор видео-образов
+    if (hash === 'video-lab') {
+      showModule('video-lab', parsed);
+      return;
+    }
+
     // #davar-checker — проверка воплощаемости слова
     if (hash === 'davar-checker') {
       showModule('davar-checker', parsed);
@@ -165,6 +171,14 @@ const LabRouter = (function() {
       clueGenerator.className = 'module';
       document.getElementById('labContent').appendChild(clueGenerator);
       modules['clue-generator'] = clueGenerator;
+    }
+
+    if (moduleId === 'video-lab' && !modules['video-lab']) {
+      const videoLab = document.createElement('div');
+      videoLab.id = 'video-lab';
+      videoLab.className = 'module';
+      document.getElementById('labContent').appendChild(videoLab);
+      modules['video-lab'] = videoLab;
     }
 
     // Скрываем все
