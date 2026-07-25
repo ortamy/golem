@@ -72,9 +72,15 @@ const AccessGate = (function() {
         history.replaceState(null, '', window.location.pathname + window.location.search);
       }
       if (hasSession()) {
-        onReady(isAdmin() ? 'admin' : 'guest');
+        var role = isAdmin() ? 'admin' : 'guest';
+        onReady(role);
+        if (role === 'guest') {
+          window.location.hash = '#manifest';
+        }
       } else {
-        renderGate(onReady);
+        sessionStorage.setItem(SESSION_GUEST_KEY, '1');
+        onReady('guest');
+        window.location.hash = '#manifest';
       }
     });
   }
@@ -122,6 +128,7 @@ const AccessGate = (function() {
       sessionStorage.setItem(SESSION_GUEST_KEY, '1');
       overlay.remove();
       onReady('guest');
+      window.location.hash = '#manifest';
     });
     [loginInput, passInput].forEach(function(input) {
       input.addEventListener('keydown', function(e) {
