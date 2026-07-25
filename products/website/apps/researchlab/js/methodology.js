@@ -1,5 +1,5 @@
 /**
- * methodology.js — раздел «Методология»: табы Манифест/Принципы/Методы/Механизмы подмены.
+   * methodology.js — раздел «Методология»: табы Принципы/Методы/Механизмы подмены.
  * CRUD карточек: localStorage (быстрый кеш) + запись в data/methodology/cards.json через
  * сервер products/agents/server.py (порт 8000).
  */
@@ -12,7 +12,6 @@
   var STORAGE_KEY = 'golem_methodology_cards_v1';
 
   var CATEGORIES = [
-    { key: 'manifest', label: 'Манифест' },
     { key: 'principles', label: 'Принципы' },
     { key: 'methods', label: 'Методы' },
     { key: 'mechanisms', label: 'Механизмы подмены' }
