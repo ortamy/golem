@@ -69,6 +69,39 @@
   line-height: 1.55;
 }
 
+/* На десктопе иконка остаётся якорем, а текст собирается в одну левую ось. */
+@media (min-width: 1024px) {
+  .lab-hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    text-align: left;
+  }
+
+  .lab-hero__icon {
+    margin: 0;
+  }
+
+  .lab-hero__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  .lab-hero__kicker,
+  .lab-hero__title,
+  .lab-hero__subtitle {
+    text-align: left;
+  }
+
+  .lab-hero__actions {
+    margin-left: auto;
+  }
+}
+
 /* Не дублируем локальную шапку, но оставляем её кнопки и инструменты. */
 .lab-hero-module--researches .exposure-hero-text,
 .lab-hero-module--learn .learn-hero,

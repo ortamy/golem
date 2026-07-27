@@ -7,9 +7,14 @@ const RootDict = (function() {
 
   function init() {
     fetch('data/roots/roots.json')
-      .then(r => r.json())
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('roots.json: HTTP ' + response.status);
+        }
+        return response.json();
+      })
       .then(data => {
-        roots = data;
+        roots = Array.isArray(data) ? data : [];
         window._roots = data;
         filtered = roots.slice();
         var totalEl = document.getElementById('rd-total');
@@ -21,9 +26,9 @@ const RootDict = (function() {
         render();
       })
       .catch(err => {
-        console.error(err);
+        console.error('[RootDict] Не удалось загрузить словарь:', err);
         var spinnerEl = document.getElementById('rd-spinner');
-        if (spinnerEl) spinnerEl.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки словаря.</div>';
+        if (spinnerEl) spinnerEl.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки словаря. Проверьте, что ResearchLab открыт через HTTP-сервер.</div>';
       });
   }
 

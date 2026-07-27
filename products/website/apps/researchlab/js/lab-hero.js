@@ -225,7 +225,7 @@
     icon.alt = '';
     icon.setAttribute('aria-hidden', 'true');
 
-    var body = createElement('div', 'lab-hero__body', '');
+    var body = createElement('div', 'lab-hero__body hero-text-group', '');
     body.appendChild(createElement('p', 'lab-hero__kicker', config.kicker));
 
     var title = createElement('h1', 'lab-hero__title', config.title);

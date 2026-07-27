@@ -118,6 +118,12 @@ const LabRouter = (function() {
       return;
     }
 
+    // #paleo-builder — сборка слова из палео-букв
+    if (hash === 'paleo-builder') {
+      showModule('paleo-builder', parsed);
+      return;
+    }
+
     // #language-map — диагностика живых языков и их переходов
     if (hash === 'language-map') {
       showModule('language-map', parsed);

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/agent-server.css">
 <link rel="stylesheet" href="css/root-dictionary.css">
 <link rel="stylesheet" href="css/paleo-images.css">
+<link rel="stylesheet" href="css/paleo-builder.css">
 <link rel="stylesheet" href="css/etymology-lab.css">
 <link rel="stylesheet" href="css/board-generator.css">
 <link rel="stylesheet" href="css/board.css">
@@ -115,6 +116,7 @@
       </div>
       <div class="sidebar-section-content" id="section-tools">
         <a href="#root-dictionary" class="sidebar-item" data-module="root-dictionary"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Корневой словарь</a>
+        <a href="#paleo-builder" class="sidebar-item" data-module="paleo-builder"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Палео-Конструктор</a>
         <a href="#paleo-images" class="sidebar-item" data-module="paleo-images"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-образы</a>
         <a href="#word-analyzer" class="sidebar-item" data-module="word-analyzer"><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Разбор слов</a>
         <a href="#scripture-reader" class="sidebar-item" data-module="scripture-reader"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Книгочтение</a>
@@ -926,7 +928,7 @@ const LabRenderer = {
       return;
     }
 
-    if (moduleId === 'generators' || moduleId === 'checkers' || moduleId === 'video-lab') {
+    if (moduleId === 'generators' || moduleId === 'checkers' || moduleId === 'video-lab' || moduleId === 'paleo-builder') {
       var pagePath = 'pages/' + moduleId + '.html';
       fetch(pagePath)
         .then(function(r) {
@@ -936,6 +938,9 @@ const LabRenderer = {
         .then(function(html) {
           container.innerHTML = html;
           container.dataset.loaded = '1';
+          if (moduleId === 'paleo-builder' && window.PaleoBuilder) {
+            window.PaleoBuilder.init(container);
+          }
           if (moduleId === 'video-lab' && window.VideoLab) {
             window.VideoLab.init(container);
           }
@@ -1186,6 +1191,7 @@ const LabRenderer = {
       this.dashboard(),
       this.learn(),
       this.rootDictionary(),
+      this.paleoBuilder(),
       this.wordAnalyzer(),
       this.scriptureReader(),
       this.paleoImages(),
@@ -1227,6 +1233,7 @@ const LabRenderer = {
   loadScripts: function() {
     const scripts = [
       'js/paleo-letters.js',
+      'js/paleo-builder.js',
       'js/paleo-images.js',
       'js/investigation.js',
       'js/etymology-lab.js',
@@ -1395,21 +1402,7 @@ const LabRenderer = {
   return '<div id="dashboard" class="module active dashboard">' +
     '<h1><img src="../../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Лаборатория" style="vertical-align: middle; margin-right: 6px;"> Рабочий стол исследователя</h1>' +
     '<p class="subtitle">Статистика проекта и инструменты для анализа артефактов, символов, текстов, улик и скрытых подмен.</p>' +
-    '<div id="dashboard-widgets" class="dashboard-widgets"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка статистики…</div></div></div>' +
-    '<div class="tool-grid">' +
-      '<a href="#root-dictionary" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Корневой словарь"></span><div class="tool-name">Корневой словарь</div><div class="tool-desc">Поиск по корням иврита. Значение, транслитерация, палео-образы.</div><span class="tool-badge new">Новый</span></a>' +
-      '<a href="#word-analyzer" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Разбор слов"></span><div class="tool-name">Разбор слов</div><div class="tool-desc">Массовый разбор: корень, палео-образы, подмены, кеширование.</div><span class="tool-badge new">Новый</span></a>' +
-      '<a href="#paleo-images" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/paleo/track.png" width="32" height="32" alt="Палео-образы"></span><div class="tool-name">Палео-образы</div><div class="tool-desc">22 буквы палео-иврита с образами, смыслами и примерами.</div><span class="tool-badge new">Новый</span></a>' +
-'<a href="#etymology-checker" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Чекер этимологии"></span><div class="tool-name">Чекер этимологии</div><div class="tool-desc">Проверь слово на соответствие палео-корням, образам и карте утрат.</div><span class="tool-badge new">Новый</span></a>' +
-      '<a href="#religionism-checker" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Чекер религионимов"></span><div class="tool-name">Чекер религионимов</div><div class="tool-desc">Проверка текста на подмены: Господь → Яхве, Бог → Элоhим.</div><span class="tool-badge new">Новый</span></a>' +
-      '<a href="#translation-comparator" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Сравнение переводов"></span><div class="tool-name">Сравнение переводов</div><div class="tool-desc">Параллельный просмотр ТМ, Септуагинты и Синодального перевода.</div><span class="tool-badge beta">Beta</span></a>' +
-      '<a href="#board-generator" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Генератор досок"></span><div class="tool-name">Генератор досок</div><div class="tool-desc">Создание визуальных детективных досок для анализа улик, выводов и вложений. Экспорт в PNG, PDF, TXT.</div><span class="tool-badge new">Новый</span></a>' +
-      '<a href="#board-library" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Архив досок"></span><div class="tool-name">Архив досок</div><div class="tool-desc">Архив созданных досок — просмотр, экспорт, управление.</div><span class="tool-badge new">Новый</span></a>' +
-      '<a href="#vision" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/archaeology/lamp.png" width="32" height="32" alt="Визуальный анализ"></span><div class="tool-name">Визуальный анализ</div><div class="tool-desc">Анализ изображений через SmolVLM-256M. Поиск скрытых символов.</div><span class="tool-badge new">Новый</span></a>' +
-      '<a href="#ed-chat" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Нейрочат"></span><div class="tool-name">Нейрочат</div><div class="tool-desc">Чат с исследовательской нейросетью для анализа, разбора слов и поиска подмен.</div><span class="tool-badge beta">Beta</span></a>' +
-      '<a href="#paleo-keyboard" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/paleo/track.png" width="32" height="32" alt="Палео-клавиатура"></span><div class="tool-name">Палео-клавиатура</div><div class="tool-desc">Виртуальная клавиатура с палео-ивритскими буквами и образами.</div><span class="tool-badge new">Новый</span></a>' +
-      '<a href="#learn" class="tool-card"><span class="tool-icon"><img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Обучение"></span><div class="tool-name">Обучение</div><div class="tool-desc">22 буквы палео-иврита: уроки и игра «Угадай образ».</div><span class="tool-badge new">Новый</span></a>' +
-    '</div></div>';
+    '<div id="dashboard-widgets" class="dashboard-widgets"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка статистики…</div></div></div>';
 },
   
   rootDictionary: function() {
@@ -1422,6 +1415,10 @@ const LabRenderer = {
     '<div id="rd-list"></div><div id="rd-pagination" class="rd-pagination"></div>' +
     '<div id="rd-empty" class="lab-alert lab-alert-info" style="display:none">Ничего не найдено.</div>' +
     '</div>';
+  },
+
+  paleoBuilder: function() {
+    return '<div id="paleo-builder" class="module"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка конструктора…</div></div></div>';
   },
 
   wordAnalyzer: function() {
@@ -1474,6 +1471,10 @@ etymologyLab: function() {
         '<p class="subtitle">Книги Танаха, засвидетельствованные в кумранских свитках. Чтение на палео-иврите с последовательным просмотром стихов.</p>' +
       '</div>' +
       '<div id="scripture-book-grid" class="scripture-book-grid"></div>' +
+      '<nav class="scripture-navigation scripture-navigation-top" id="scripture-navigation-top" style="display:none;" aria-label="Навигация по стихам сверху">' +
+        '<button type="button" class="lab-btn lab-btn-secondary" id="scripture-prev-top">← Предыдущий стих</button>' +
+        '<button type="button" class="lab-btn lab-btn-secondary" id="scripture-next-top">Следующий стих →</button>' +
+      '</nav>' +
       '<article class="scripture-verse" id="scripture-verse-article" style="display:none;" aria-labelledby="scripture-verse-title">' +
         '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm scripture-back-btn" id="scripture-back-btn">← К списку книг</button>' +
         '<div class="scripture-verse-meta" id="scripture-verse-title">Берешит 1:1</div>' +
@@ -1487,12 +1488,29 @@ etymologyLab: function() {
       '</article>' +
       '<nav class="scripture-navigation" id="scripture-navigation" style="display:none;" aria-label="Навигация по стихам">' +
         '<button type="button" class="lab-btn lab-btn-secondary" id="scripture-prev">← Предыдущий стих</button>' +
-        '<button type="button" class="lab-btn lab-btn-primary" id="scripture-next">Следующий стих →</button>' +
+        '<button type="button" class="lab-btn lab-btn-secondary" id="scripture-next">Следующий стих →</button>' +
       '</nav>' +
-      '<section id="scripture-analysis" class="scripture-analysis" style="display:none;" aria-live="polite">' +
-        '<h2>Панель анализа</h2>' +
-        '<p class="text-muted">Панель анализа будет доступна после выбора букв палео-текста.</p>' +
+      '<section id="scripture-analysis" class="scripture-analysis scripture-physics" style="display:none;" aria-live="polite">' +
+        '<button type="button" class="scripture-physics-trigger" id="scripture-physics-trigger" aria-expanded="false" aria-controls="scripture-physics-panel">' +
+          '<span class="scripture-physics-trigger-title">Физика слова</span>' +
+          '<span class="scripture-physics-trigger-hint">Нажми на слово для разбора</span>' +
+          '<span class="scripture-physics-chevron" aria-hidden="true">⌄</span>' +
+        '</button>' +
+        '<div class="scripture-physics-panel" id="scripture-physics-panel" hidden>' +
+          '<div id="scripture-physics-content" class="scripture-physics-content">Выберите слово палео-текста.</div>' +
+        '</div>' +
       '</section>' +
+      '<section id="scripture-tools" class="scripture-tools" style="display:none;" aria-label="Инструменты исследователя">' +
+        '<button type="button" class="lab-btn lab-btn-secondary scripture-tool" id="scripture-tool-analysis" aria-label="Открыть анализ выбранного слова"><img src="../../assets/icons/32/ui/diff.png" alt="" aria-hidden="true"><span>Разобрать</span></button>' +
+        '<button type="button" class="lab-btn lab-btn-secondary scripture-tool" id="scripture-tool-save" aria-label="Сохранить свидетельство выбранного слова"><img src="../../assets/icons/32/ui/download.png" alt="" aria-hidden="true"><span>Сохранить</span></button>' +
+        '<button type="button" class="lab-btn lab-btn-secondary scripture-tool" id="scripture-tool-loss" aria-label="Открыть карту утрат"><img src="../../assets/icons/32/ui/map.png" alt="" aria-hidden="true"><span>Карта утрат</span></button>' +
+      '</section>' +
+      '<aside id="scripture-loss-drawer" class="scripture-loss-drawer" aria-hidden="true" aria-labelledby="scripture-loss-title">' +
+        '<div class="scripture-loss-drawer-head"><h2 id="scripture-loss-title">Карта утрат</h2><button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" id="scripture-loss-close" aria-label="Закрыть карту утрат"><img src="../../assets/icons/32/ui/close.png" alt="" aria-hidden="true"></button></div>' +
+        '<p>От палео-потока к поздним слоям: видим, где исчезает физика образа.</p>' +
+        '<div id="scripture-loss-timeline" class="scripture-loss-timeline"></div>' +
+      '</aside>' +
+      '<div id="scripture-loss-backdrop" class="scripture-loss-backdrop" hidden></div>' +
     '</div>';
   },
 
@@ -2150,7 +2168,9 @@ function applyLabConfig(role) {
 </script>
 <script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js');
+    navigator.serviceWorker.register('./sw.js').catch(function(error) {
+      console.warn('[ResearchLab] ServiceWorker недоступен:', error);
+    });
   }
 </script>
 </body>

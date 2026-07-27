@@ -3,8 +3,6 @@
    Стиль: Древняя библиотека / скрипторий
    ============================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;700&family=Noto+Sans+Phoenician&family=Noto+Serif+Hebrew:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Arabic&family=Noto+Sans+Cuneiform&family=Noto+Sans+Imperial+Aramaic&family=Noto+Sans+Ugaritic&display=swap');
-
 /* ===== CSS CUSTOM PROPERTIES — ТЁМНАЯ ТЕМА ===== */
 :root {
   --bg-primary: #ede0c8;
@@ -29,12 +27,12 @@
   --shadow-card: rgba(44,24,16,0.08);
   --shadow-card-hover: rgba(44,24,16,0.15);
   --shadow-soft: 0 2px 12px rgba(44,24,16,0.10);
-  --font-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-hand: 'Caveat', cursive;
-  --font-hebrew: 'Noto Serif Hebrew', 'Times New Roman', serif;
-  --font-paleo: 'Noto Sans Phoenician', 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif;
-  --font-mono: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-hand: 'Segoe Print', 'Bradley Hand', cursive;
+  --font-hebrew: 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif;
+  --font-paleo: 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif;
+  --font-mono: Consolas, 'Courier New', monospace;
   --transition: 0.2s ease;
   --transition-fast: 0.15s ease;
 }
@@ -1571,6 +1569,58 @@ code, pre, kbd, .translit, .mono {
   .lab-content, .module, .lab-card, .tool-card, .lab-table {
     min-width: 0;
     max-width: 100%;
+  }
+
+  /* На узком экране центрируем основные блоки и их содержимое. */
+  .lab-content,
+  .module,
+  .dashboard,
+  .learn,
+  .learn-module,
+  .lab-card,
+  .tool-card {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .module h1,
+  .module h2,
+  .module h3,
+  .module .subtitle,
+  .lab-card,
+  .lab-card-header,
+  .lab-card-body,
+  .tool-card,
+  .tool-card .tool-name,
+  .tool-card .tool-desc {
+    text-align: center;
+  }
+
+  .lab-content .lab-hero {
+    align-items: center;
+    flex-direction: column;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .lab-content .lab-hero__icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lab-content .lab-hero__body {
+    width: 100%;
+    text-align: center;
+  }
+
+  .lab-content .lab-hero__actions {
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    width: 100%;
   }
 
   .module h1 {

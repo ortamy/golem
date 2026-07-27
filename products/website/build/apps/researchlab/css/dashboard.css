@@ -39,21 +39,41 @@
 .dw-widget-wide { grid-column: 1 / -1; }
 
 /* Карта подмен: радиальный граф */
-.dw-map { display: flex; justify-content: center; }
-.dw-map svg { width: 100%; height: auto; max-width: 460px; }
-.dw-map-node { cursor: pointer; }
-.dw-map-node circle {
-  fill: var(--bg-tertiary); stroke: var(--accent-gold); stroke-width: 1.5;
-  transition: fill var(--transition), stroke var(--transition);
+.dw-map { display: flex; justify-content: center; overflow: hidden; }
+.dw-map svg {
+  display: block; width: 100%; height: auto; max-width: 460px;
+  aspect-ratio: 400 / 360;
 }
-.dw-map-node:hover circle { fill: var(--accent-gold); }
+.dw-map-node {
+  cursor: pointer;
+  outline: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform var(--transition), filter var(--transition);
+}
+.dw-map-node rect {
+  fill: var(--bg-card);
+  stroke: var(--accent-gold);
+  stroke-width: 1;
+  filter: drop-shadow(0 2px 4px rgba(44,24,16,0.10));
+  transition: fill var(--transition), stroke-width var(--transition), filter var(--transition);
+}
+.dw-map-node:hover,
+.dw-map-node:focus-visible { transform: scale(1.05); }
+.dw-map-node:hover rect,
+.dw-map-node:focus-visible rect {
+  fill: var(--bg-secondary);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 7px rgba(184,134,11,0.42));
+}
 .dw-map-node text {
-  font-family: var(--font-serif); font-size: 11px; fill: var(--text-primary);
+  font-family: var(--font-serif); font-size: 11px; fill: var(--text-gold);
   text-anchor: middle; pointer-events: none;
 }
-.dw-map-node:hover text { fill: var(--accent-gold-hover); font-weight: 600; }
+.dw-map-node:hover text,
+.dw-map-node:focus-visible text { fill: var(--accent-gold-hover); font-weight: 600; }
 .dw-map-center circle { fill: var(--bg-dark); stroke: var(--accent-gold); stroke-width: 2; }
-.dw-map-center text { fill: var(--text-light); font-weight: 700; font-size: 13px; }
+.dw-map-center image { display: block; pointer-events: none; }
 .dw-map-line { stroke: var(--border-gold); stroke-width: 1; opacity: 0.5; }
 
 /* Гистограмма механизмов подмены */
@@ -100,4 +120,5 @@
 @media (max-width: 720px) {
   .dw-grid { grid-template-columns: 1fr; }
   .dw-bar-label { width: 96px; font-size: 12px; }
+  .dw-map svg { max-width: 400px; }
 }

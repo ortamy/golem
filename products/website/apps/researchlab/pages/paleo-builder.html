@@ -1,0 +1,65 @@
+<section class="paleo-builder-shell" aria-labelledby="paleo-builder-title">
+  <header class="paleo-builder-header">
+    <div>
+      <p class="paleo-builder-kicker">RESEARCH LAB · СБОРКА ОБРАЗА</p>
+      <h1 id="paleo-builder-title">Палео-Конструктор</h1>
+      <p class="subtitle">Соберите слово как последовательность образов и действий.</p>
+    </div>
+    <div class="paleo-builder-mark" aria-hidden="true">𐤀𐤁𐤂</div>
+  </header>
+
+  <div class="paleo-builder-layout">
+    <section class="letter-palette lab-card" aria-labelledby="letter-palette-title">
+      <div class="zone-heading">
+        <div>
+          <span class="zone-index">01</span>
+          <h2 id="letter-palette-title">Палео-буквы</h2>
+        </div>
+        <span class="zone-count">22</span>
+      </div>
+      <p class="zone-note">Перетащите знак в рабочее поле или выберите его нажатием.</p>
+      <div class="palette-grid" data-paleo-palette></div>
+    </section>
+
+    <section class="workspace lab-card" data-paleo-workspace aria-labelledby="workspace-title">
+      <div class="zone-heading">
+        <div>
+          <span class="zone-index">02</span>
+          <h2 id="workspace-title">Рабочее поле</h2>
+        </div>
+        <span class="workspace-count" data-workspace-count>0</span>
+      </div>
+      <div class="workspace-drop" data-drop-zone tabindex="0" role="list" aria-label="Собираемое слово">
+        <div class="workspace-empty" data-workspace-empty>
+          <span class="drop-glyph" aria-hidden="true">𐤕</span>
+          <strong>Поле ждёт первый знак</strong>
+          <span>Перетащите сюда букву из палитры.</span>
+        </div>
+        <div class="workspace-letters" data-workspace-letters></div>
+      </div>
+      <p class="drop-status" data-drop-status aria-live="polite">Готово к сборке.</p>
+    </section>
+
+    <aside class="assembly-panel lab-card" aria-labelledby="assembly-title">
+      <div class="zone-heading">
+        <div>
+          <span class="zone-index">03</span>
+          <h2 id="assembly-title">Сборка</h2>
+        </div>
+      </div>
+      <div class="assembly-word" data-assembly-word dir="rtl" aria-live="polite">—</div>
+      <div class="assembly-paleo" data-assembly-paleo aria-live="polite">Поле пусто</div>
+      <div class="assembly-breakdown" data-assembly-breakdown>
+        <p class="assembly-placeholder">Побуквенный разбор появится здесь.</p>
+      </div>
+      <div class="assembly-actions">
+        <button type="button" class="lab-btn lab-btn-primary" data-action="check">
+          <img src="../../assets/icons/32/ui/book.png" width="20" height="20" alt="">Проверить в словаре
+        </button>
+        <button type="button" class="lab-btn lab-btn-secondary" data-action="remove">Удалить последнюю</button>
+        <button type="button" class="lab-btn lab-btn-danger" data-action="clear">Очистить поле</button>
+      </div>
+      <div class="dictionary-result" data-dictionary-result aria-live="polite"></div>
+    </aside>
+  </div>
+</section>

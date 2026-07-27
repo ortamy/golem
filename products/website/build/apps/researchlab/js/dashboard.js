@@ -83,26 +83,34 @@ const Dashboard = (function() {
 
   function renderSubstitutionMap(dictEntries) {
     var top = dictEntries.slice(0, 6);
-    var maxCount = top.reduce(function(m, d) { return Math.max(m, d.count); }, 1);
-    var cx = 200, cy = 180, radius = 130;
+    var cx = 200, cy = 180;
+    // Фиксированная геометрия сохраняет карту цельной при любом ресайзе SVG.
+    var nodePositions = [
+      { x: 200, y: 42 },
+      { x: 300, y: 111 },
+      { x: 300, y: 249 },
+      { x: 200, y: 318 },
+      { x: 100, y: 249 },
+      { x: 100, y: 111 }
+    ];
     var lines = '', nodes = '';
 
     top.forEach(function(d, i) {
-      var angle = (i / top.length) * Math.PI * 2 - Math.PI / 2;
-      var x = cx + radius * Math.cos(angle);
-      var y = cy + radius * Math.sin(angle);
-      var r = 18 + (d.count / maxCount) * 22;
-      lines += '<line class="dw-map-line" x1="' + cx + '" y1="' + cy + '" x2="' + x.toFixed(1) + '" y2="' + y.toFixed(1) + '"></line>';
-      var label = d.title.length > 16 ? d.title.slice(0, 15) + '…' : d.title;
-      nodes += '<g class="dw-map-node" data-dict-key="' + esc(d.key) + '" transform="translate(' + x.toFixed(1) + ',' + y.toFixed(1) + ')">' +
-        '<circle r="' + r.toFixed(1) + '"></circle>' +
+      var position = nodePositions[i];
+      var x = position.x;
+      var y = position.y;
+      var label = String(d.title || d.key);
+      var nodeWidth = Math.min(180, Math.max(94, label.length * 7 + 42));
+      lines += '<line class="dw-map-line" x1="' + cx + '" y1="' + cy + '" x2="' + x + '" y2="' + y + '"></line>';
+      nodes += '<g class="dw-map-node" data-dict-key="' + esc(d.key) + '" role="button" tabindex="0" aria-label="Открыть словарь: ' + esc(label) + '" transform="translate(' + x.toFixed(1) + ',' + y.toFixed(1) + ')">' +
+        '<rect x="-' + (nodeWidth / 2).toFixed(1) + '" y="-20" width="' + nodeWidth.toFixed(1) + '" height="40" rx="24"></rect>' +
         '<text dy="4">' + esc(label) + '</text>' +
       '</g>';
     });
 
     var svg = '<svg viewBox="0 0 400 360" role="img" aria-label="Карта подмен">' +
       lines +
-      '<g class="dw-map-center" transform="translate(' + cx + ',' + cy + ')"><circle r="34"></circle><text dy="5">ТаНаХ</text></g>' +
+      '<g class="dw-map-center" transform="translate(' + cx + ',' + cy + ')"><circle r="34"></circle><image href="../../assets/icons/32/ui/book.png" x="-15" y="-15" width="30" height="30" preserveAspectRatio="xMidYMid meet" role="presentation"></image></g>' +
       nodes +
     '</svg>';
 
