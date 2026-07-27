@@ -74,13 +74,9 @@ const AccessGate = (function() {
       if (hasSession()) {
         var role = isAdmin() ? 'admin' : 'guest';
         onReady(role);
-        if (role === 'guest') {
-          window.location.hash = '#manifest';
-        }
       } else {
         sessionStorage.setItem(SESSION_GUEST_KEY, '1');
         onReady('guest');
-        window.location.hash = '#manifest';
       }
     });
   }

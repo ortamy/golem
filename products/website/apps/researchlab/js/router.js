@@ -41,6 +41,9 @@ const LabRouter = (function() {
       });
     });
 
+    // Обрабатываем прямую ссылку сразу после регистрации колбэка.
+    handleHash();
+
     console.log('[Router] Инициализирован. Модулей:', Object.keys(modules).length);
   }
 

@@ -1288,10 +1288,10 @@ const LabRenderer = {
   initModules: function() {
   LabTheme.init();
   LabHotkeys.init();
-  LabRouter.init();
   LabRouter.onChange(function(moduleId, parsed) {
     LabRenderer.loadModule(moduleId, parsed);
   });
+  LabRouter.init();
   // Load active module on init
   var initialParsed = LabRouter.parseHash();
   if (initialParsed.module !== 'dashboard') {

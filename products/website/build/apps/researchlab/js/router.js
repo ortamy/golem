@@ -41,6 +41,9 @@ const LabRouter = (function() {
       });
     });
 
+    // Обрабатываем прямую ссылку сразу после регистрации колбэка.
+    handleHash();
+
     console.log('[Router] Инициализирован. Модулей:', Object.keys(modules).length);
   }
 
@@ -80,6 +83,29 @@ const LabRouter = (function() {
       return;
     }
 
+    // Точки входа манифеста ведут к существующим модулям платформы.
+    if (hash === 'laboratory') {
+      showModule('dashboard', parsed);
+      return;
+    }
+    if (hash === 'agents') {
+      showModule('ai-agents', parsed);
+      return;
+    }
+    if (hash === 'library') {
+      showModule('researches', parsed);
+      return;
+    }
+
+    // Динамические разделы создаются при первом переходе.
+    if (hash === 'generators' || hash === 'checkers' ||
+        hash === 'prompt-generator' || hash === 'clue-generator' ||
+        hash === 'video-lab' || hash === 'davar-checker' ||
+        hash === 'paleo-builder' || hash === 'language-map' || hash === 'board') {
+      showModule(hash, parsed);
+      return;
+    }
+
     if (modules[hash]) {
       showModule(hash, parsed);
     } else if (hash === 'exposure-editor') {
@@ -113,6 +139,14 @@ const LabRouter = (function() {
       editor.className = 'module';
       document.getElementById('labContent').appendChild(editor);
       modules['exposure-editor'] = editor;
+    }
+
+    if (!modules[moduleId] && ['generators', 'checkers', 'prompt-generator', 'clue-generator', 'video-lab', 'davar-checker', 'paleo-builder', 'language-map', 'board'].indexOf(moduleId) !== -1) {
+      var dynamicModule = document.createElement('div');
+      dynamicModule.id = moduleId;
+      dynamicModule.className = 'module';
+      document.getElementById('labContent').appendChild(dynamicModule);
+      modules[moduleId] = dynamicModule;
     }
 
     // Скрываем все

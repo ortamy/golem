@@ -844,6 +844,44 @@ const LabRenderer = {
       return;
     }
 
+    // В build нет новых page-fetch ресурсов source-версии — показываем рабочий fallback.
+    var fallbackPages = {
+      generators: {
+        title: 'Генераторы',
+        text: 'Раздел доступен. Выберите генератор из собранных модулей лаборатории.',
+        links: [
+          ['board-generator', 'Генератор досок'],
+          ['research-generator', 'Генератор исследований'],
+          ['prompt-generator', 'Генератор промптов']
+        ]
+      },
+      checkers: {
+        title: 'Чекеры',
+        text: 'Раздел доступен. Выберите инструмент проверки.',
+        links: [
+          ['religionism-checker', 'Чекер религионимов'],
+          ['davar-checker', 'Чекер Давар']
+        ]
+      },
+      'prompt-generator': { title: 'Генератор промптов', text: 'Маршрут доступен в текущей сборке. Откройте генератор через раздел исследований.' },
+      'clue-generator': { title: 'Генератор улик', text: 'Маршрут доступен в canonical source-версии; в build показан безопасный fallback.' },
+      'video-lab': { title: 'Видео-лаборатория', text: 'Страница доступна в canonical source-версии; в build показан безопасный fallback.' },
+      'davar-checker': { title: 'Чекер Давар', text: 'Маршрут доступен в canonical source-версии; в build показан безопасный fallback.' },
+      'paleo-builder': { title: 'Палео-конструктор', text: 'Страница доступна в canonical source-версии; в build показан безопасный fallback.' },
+      'language-map': { title: 'Языковая карта', text: 'Страница доступна в canonical source-версии; в build показан безопасный fallback.' },
+      board: { title: 'Исследовательская доска', text: 'Страница доступна в canonical source-версии; в build показан безопасный fallback.' }
+    };
+    var fallback = fallbackPages[moduleId];
+    if (fallback) {
+      var linksHtml = (fallback.links || []).map(function(link) {
+        return '<button class="lab-btn lab-btn-secondary lab-btn-sm" type="button" onclick="LabRouter.navigate(\'' + link[0] + '\')">' + escapeHtml(link[1]) + '</button>';
+      }).join(' ');
+      container.innerHTML = '<div class="research-page-head"><h1>' + escapeHtml(fallback.title) + '</h1><p class="subtitle">' + escapeHtml(fallback.text) + '</p></div>' +
+        (linksHtml ? '<div class="lab-actions" style="display:flex;gap:8px;flex-wrap:wrap;">' + linksHtml + '</div>' : '');
+      container.dataset.loaded = '1';
+      return;
+    }
+
     container.dataset.loaded = '1';
     
     var path = this.markdownPaths[moduleId];
@@ -1145,10 +1183,10 @@ const LabRenderer = {
   initModules: function() {
   LabTheme.init();
   LabHotkeys.init();
-  LabRouter.init();
   LabRouter.onChange(function(moduleId, parsed) {
     LabRenderer.loadModule(moduleId, parsed);
   });
+  LabRouter.init();
   // Load active module on init
   var initialParsed = LabRouter.parseHash();
   if (initialParsed.module !== 'dashboard') {

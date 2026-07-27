@@ -74,7 +74,9 @@ const AccessGate = (function() {
       if (hasSession()) {
         onReady(isAdmin() ? 'admin' : 'guest');
       } else {
-        renderGate(onReady);
+        // Лаборатория открыта в гостевом режиме по умолчанию.
+        sessionStorage.setItem(SESSION_GUEST_KEY, '1');
+        onReady('guest');
       }
     });
   }
