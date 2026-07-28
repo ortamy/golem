@@ -6,6 +6,8 @@
 }
 
 .rel-card {
+  display: block;
+  width: 100%;
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 6px;
@@ -13,13 +15,27 @@
   cursor: pointer;
   transition: all var(--transition);
   box-shadow: var(--shadow-soft);
+  color: var(--text-primary);
+  font: inherit;
+  text-align: left;
 }
 .rel-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 20px var(--shadow-card-hover);
   border-color: var(--accent-gold);
 }
+.rel-card:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
+}
 .rel-card:active { transform: translateY(-2px); }
+
+.rel-card-description {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.5;
+}
 
 .rel-card-header {
   display: flex;
@@ -86,7 +102,7 @@
   font-family: var(--font-heading);
   font-size: 30px;
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   color: var(--text-primary);
 }
 

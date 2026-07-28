@@ -58,7 +58,10 @@
 .lab-hero__title {
   margin: 0 0 8px;
   color: var(--accent-gold);
-  font-size: clamp(24px, 3vw, 34px);
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  font-style: normal;
   line-height: 1.15;
 }
 

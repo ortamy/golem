@@ -62,7 +62,7 @@
 .prompt-generator-textarea { width: 100%; min-height: 220px; resize: vertical; padding: 17px; border: 1px solid #76532d; border-radius: 6px; background: #19110d; color: #f1e7d3; font: 14px/1.65 var(--font-mono); }
 .prompt-generator-output-actions { justify-content: flex-end; margin-top: 12px; }
 .prompt-generator-copy-status { color: #b9d58c; }
-.prompt-generator-empty { color: #9d8870; font-style: italic; }
+.prompt-generator-empty { color: #9d8870; font-style: normal; }
 .prompt-generator-loading { padding: 36px; color: #d59b31; text-align: center; }
 .prompt-generator-icon-button { display: inline-grid; place-items: center; flex: 0 0 auto; width: 32px; height: 32px; padding: 0; border: 1px solid #76532d; border-radius: 4px; background: transparent; color: #d7c5a7; cursor: pointer; font: 22px/1 Arial, sans-serif; }
 .prompt-generator-icon-button:hover { border-color: #d59b31; color: #e0a83a; }

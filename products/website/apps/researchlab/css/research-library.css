@@ -588,7 +588,7 @@ html[data-theme="dark"] .exposure-card {
   color: var(--text-primary, #2c1810);
 }
 
-.exposure-original-translit { margin-top: 4px; color: var(--accent-gold, #8c6500); font-style: italic; }
+.exposure-original-translit { margin-top: 4px; color: var(--accent-gold, #8c6500); font-style: normal; }
 .exposure-original-root { margin-top: 6px; color: var(--text-secondary, #675848); font-size: .9rem; }
 .exposure-original-paleo {
   margin-top: 8px;

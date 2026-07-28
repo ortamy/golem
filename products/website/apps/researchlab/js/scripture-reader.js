@@ -11,7 +11,11 @@ const ScriptureReader = (function() {
     selectedIndexes: [],
     roots: [],
     states: [],
-    selectedWordIndex: null
+    selectedWordIndex: null,
+    loaded: false,
+    loading: null,
+    pendingBookId: null,
+    boundRoot: null
   };
 
   var PALEO = window.PaleoLetters;
@@ -146,13 +150,13 @@ const ScriptureReader = (function() {
     var grid = get('scripture-book-grid');
     if (!grid) return;
     grid.innerHTML = state.books.map(function(book) {
-      var badge = book.dataFile
-        ? ''
-        : '<span class="tool-badge">Скоро</span>';
+      var statusClass = book.dataFile ? 'book-status-ready' : 'book-status-pending';
+      var statusLabel = book.dataFile ? 'Есть данные' : 'В работе';
+      var badge = '<div class="book-status ' + statusClass + '">' + statusLabel + '</div>';
       return '<a href="#" class="tool-card scripture-book-card" data-book-id="' + escapeHtml(book.id) + '">' +
 '<span class="tool-icon"><img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt=""></span>' +
         '<div class="tool-name">' + escapeHtml(book.ru) + '</div>' +
-        '<div class="tool-desc">' + escapeHtml(book.en) + '</div>' +
+        '<div class="tool-desc">' + escapeHtml(book.paleo || '') + '</div>' +
         badge +
         '</a>';
     }).join('');
@@ -171,6 +175,7 @@ const ScriptureReader = (function() {
     if (topNav) topNav.style.display = 'none';
     if (analysis) analysis.style.display = 'none';
     if (tools) tools.style.display = 'none';
+    closeLossDrawer();
     state.currentBook = null;
   }
 
@@ -187,18 +192,20 @@ const ScriptureReader = (function() {
     if (topNav) topNav.style.display = '';
     if (analysis) analysis.style.display = '';
     if (tools) tools.style.display = '';
+    var drawer = get('scripture-loss-drawer');
+    if (drawer) {
+      drawer.style.display = '';
+      drawer.setAttribute('aria-hidden', 'false');
+    }
   }
 
   function openBook(bookId) {
-    var book = state.books.filter(function(b) { return b.id === bookId; })[0];
-    if (!book) return;
-
-    if (!book.dataFile) {
-      if (typeof LabToast !== 'undefined') {
-        LabToast.show('Текст «' + book.ru + '» пока не оцифрован. Скоро добавим.');
-      }
+    if (!state.books.length) {
+      state.pendingBookId = bookId;
       return;
     }
+    var book = state.books.filter(function(b) { return b.id === bookId; })[0];
+    if (!book) return;
 
     state.currentBook = book;
     showVerseView();
@@ -206,7 +213,8 @@ const ScriptureReader = (function() {
   }
   function loadVerses(book) {
     setLoading('Загрузка ' + book.ru + '…');
-    return fetch('data/scripture/' + book.dataFile + '.json')
+    var dataFile = book.dataFile || book.id;
+    return fetch('data/scripture/' + dataFile.replace(/\.json$/, '') + '.json')
       .then(function(response) {
         if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
@@ -237,8 +245,6 @@ const ScriptureReader = (function() {
     var literal = get('scripture-literal');
     var previous = get('scripture-prev');
     var next = get('scripture-next');
-    var previousTop = get('scripture-prev-top');
-    var nextTop = get('scripture-next-top');
     var analysis = get('scripture-analysis');
     var physicsTrigger = get('scripture-physics-trigger');
     var physicsPanel = get('scripture-physics-panel');
@@ -253,14 +259,25 @@ const ScriptureReader = (function() {
     if (literal) literal.innerHTML = renderWordLayer(verse.literal, 'scripture-word', 'scripture-literal-word');
     if (previous) previous.disabled = state.currentVerse === 0;
     if (next) next.disabled = state.currentVerse === state.verses.length - 1;
-    if (previousTop) previousTop.disabled = state.currentVerse === 0;
-    if (nextTop) nextTop.disabled = state.currentVerse === state.verses.length - 1;
+    renderVerseNavigation();
     if (analysis) {
       var content = get('scripture-physics-content');
       if (content) content.innerHTML = '<p class="text-muted">Нажми на слово для разбора.</p>';
       if (physicsTrigger) physicsTrigger.setAttribute('aria-expanded', 'false');
       if (physicsPanel) { physicsPanel.hidden = true; physicsPanel.classList.remove('is-open'); }
     }
+  }
+
+  function renderVerseNavigation() {
+    var navigation = get('scripture-verse-nav');
+    if (!navigation) return;
+    navigation.innerHTML = state.verses.map(function(item, index) {
+      var number = item && item.verse != null ? item.verse : index + 1;
+      var active = index === state.currentVerse;
+      return '<button type="button" class="verse-num' + (active ? ' active' : '') + '" data-verse-index="' + index + '"' +
+        (active ? ' aria-current="true"' : '') + ' aria-label="Открыть стих ' + escapeHtml(number) + '">' +
+        escapeHtml(number) + '</button>';
+    }).join('');
   }
 
   function selectedLetters() {
@@ -466,6 +483,7 @@ const ScriptureReader = (function() {
     var drawer = get('scripture-loss-drawer');
     var backdrop = get('scripture-loss-backdrop');
     if (!drawer || !backdrop) return;
+    drawer.style.display = '';
     previousDrawerFocus = document.activeElement;
     renderLossTimeline();
     drawer.classList.add('is-open');
@@ -482,6 +500,7 @@ const ScriptureReader = (function() {
     if (!drawer || !backdrop) return;
     drawer.classList.remove('is-open');
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.style.display = 'none';
     backdrop.hidden = true;
     document.body.classList.remove('scripture-drawer-open');
     if (previousDrawerFocus && previousDrawerFocus.focus) previousDrawerFocus.focus();
@@ -602,13 +621,9 @@ const ScriptureReader = (function() {
     var reader = get('scripture-reader');
     var grid = get('scripture-book-grid');
     var back = get('scripture-back-btn');
-    var previousTop = get('scripture-prev-top');
-    var nextTop = get('scripture-next-top');
 
     if (previous) previous.addEventListener('click', function() { moveVerse(-1); });
     if (next) next.addEventListener('click', function() { moveVerse(1); });
-    if (previousTop) previousTop.addEventListener('click', function() { moveVerse(-1); });
-    if (nextTop) nextTop.addEventListener('click', function() { moveVerse(1); });
     if (paleo) paleo.addEventListener('click', handleLetterClick);
     if (paleo) paleo.addEventListener('keydown', handlePaleoKeydown);
     var copyVerse = get('scripture-copy-verse');
@@ -658,10 +673,19 @@ const ScriptureReader = (function() {
     if (back) back.addEventListener('click', function() {
       showBookGrid();
     });
+    var verseNavigation = get('scripture-verse-nav');
+    if (verseNavigation) verseNavigation.addEventListener('click', function(event) {
+      var button = event.target.closest('.verse-num');
+      if (!button) return;
+      state.currentVerse = Number(button.getAttribute('data-verse-index'));
+      renderVerse();
+    });
   }
 
   function load() {
-    return Promise.all([
+    if (state.loading) return state.loading;
+    if (state.loaded) return Promise.resolve();
+    state.loading = Promise.all([
       fetch('data/qumran-books.json').then(function(response) {
         if (!response.ok) throw new Error('qumran-books.json HTTP ' + response.status);
         return response.json();
@@ -681,6 +705,12 @@ const ScriptureReader = (function() {
         renderLossTimeline();
         renderBookGrid();
         showBookGrid();
+        state.loaded = true;
+        if (state.pendingBookId) {
+          var requestedBookId = state.pendingBookId;
+          state.pendingBookId = null;
+          openBook(requestedBookId);
+        }
       })
       .catch(function(error) {
         var module = get('scripture-reader');
@@ -688,16 +718,33 @@ const ScriptureReader = (function() {
           module.innerHTML = '<div class="lab-alert lab-alert-error scripture-reader-error">Ошибка загрузки списка книг: ' +
             escapeHtml(error.message) + '</div>';
         }
+        throw error;
       });
+    return state.loading;
   }
 
-  function init() {
-    if (state.initialized || !get('scripture-reader')) return;
-    state.initialized = true;
-    bindEvents();
-    load();
+  function init(parsed) {
+    var reader = get('scripture-reader');
+    if (!reader) return;
+    var requestedBookId = parsed && parsed.params && parsed.params.book;
+    if (requestedBookId) {
+      if (state.loaded) openBook(requestedBookId);
+      else state.pendingBookId = requestedBookId;
+    }
+    if (state.boundRoot !== reader) {
+      bindEvents();
+      state.boundRoot = reader;
+      state.initialized = true;
+      if (state.loaded) {
+        renderLossTimeline();
+        renderBookGrid();
+        showBookGrid();
+        if (requestedBookId) openBook(requestedBookId);
+      }
+    }
+    if (!state.loaded) load().catch(function() {});
   }
 
-  window.ScriptureReader = { init: init, renderVerse: renderVerse };
+  window.ScriptureReader = { init: init, openBook: openBook, renderVerse: renderVerse };
   return window.ScriptureReader;
 })();

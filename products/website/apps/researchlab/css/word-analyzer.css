@@ -135,7 +135,7 @@
 .wa-translit {
   font-size: 14px;
   color: var(--text-secondary);
-  font-style: italic;
+  font-style: normal;
 }
 .wa-root {
   font-size: 14px;

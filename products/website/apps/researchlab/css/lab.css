@@ -28,7 +28,7 @@
   --shadow-card-hover: rgba(44,24,16,0.15);
   --shadow-soft: 0 2px 12px rgba(44,24,16,0.10);
   --font-serif: Georgia, 'Times New Roman', serif;
-  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-heading: 'DM Sans', 'Inter', Arial, sans-serif;
   --font-hand: 'Segoe Print', 'Bradley Hand', cursive;
   --font-hebrew: 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif;
   --font-paleo: 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif;
@@ -263,7 +263,7 @@ code, pre, kbd, .translit, .mono {
 }
 .sidebar-title {
   font-family: var(--font-heading);
-  font-size: 14px; font-weight: 700; font-style: italic;
+  font-size: 14px; font-weight: 700; font-style: normal;
   color: var(--text-muted); padding: 0 20px 10px;
   border-bottom: 1px solid var(--border-light);
   letter-spacing: 2px; text-transform: uppercase;
@@ -377,7 +377,7 @@ code, pre, kbd, .translit, .mono {
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 .module h1 {
   font-family: var(--font-heading);
-  font-size: 38px; font-weight: 700; font-style: italic;
+  font-size: 38px; font-weight: 700; font-style: normal;
   color: var(--accent-gold); margin-bottom: 10px;
   letter-spacing: 0.5px;
 }
@@ -387,7 +387,7 @@ code, pre, kbd, .translit, .mono {
 }
 .module h2 {
   font-family: var(--font-heading);
-  font-size: 28px; font-weight: 600; font-style: italic;
+  font-size: 28px; font-weight: 600; font-style: normal;
   color: var(--text-primary); margin-bottom: 14px; padding-bottom: 10px;
   border-bottom: 1px solid var(--border-light);
 }
@@ -693,7 +693,7 @@ code, pre, kbd, .translit, .mono {
 }
 .lab-card-header {
   font-family: var(--font-heading);
-  font-size: 20px; font-weight: 600; font-style: italic;
+  font-size: 20px; font-weight: 600; font-style: normal;
   color: var(--accent-gold); margin-bottom: 10px;
   padding-bottom: 8px; border-bottom: 1px solid var(--border-light);
 }
@@ -718,7 +718,7 @@ code, pre, kbd, .translit, .mono {
   animation: spin 1s linear infinite; margin: 0 auto 10px;
 }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-.lab-spinner .spinner-text { font-size: 15px; color: var(--text-muted); font-style: italic; }
+.lab-spinner .spinner-text { font-size: 15px; color: var(--text-muted); font-style: normal; }
 
 /* ===== TABLE ===== */
 .lab-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
@@ -839,7 +839,7 @@ code, pre, kbd, .translit, .mono {
   border-left: 3px solid var(--accent-gold);
   color: var(--text-secondary);
   background: var(--bg-tertiary);
-  font-style: italic;
+  font-style: normal;
 }
 .research-preview code,
 .research-preview pre {
@@ -853,7 +853,7 @@ code, pre, kbd, .translit, .mono {
   border: 1px solid var(--border-light);
   white-space: pre-wrap;
 }
-.research-preview-placeholder { color: var(--text-muted); text-align: center; font-style: italic; }
+.research-preview-placeholder { color: var(--text-muted); text-align: center; font-style: normal; }
 
 /* ===== PALEO-HEBREW KEYBOARD ===== */
 .pk-output {
@@ -919,7 +919,7 @@ code, pre, kbd, .translit, .mono {
   border: 1px solid transparent;
   font-family: var(--font-serif);
   font-size: 14px;
-  font-style: italic;
+  font-style: normal;
   line-height: 26px;
   text-align: left;
   direction: ltr;
@@ -1237,6 +1237,12 @@ code, pre, kbd, .translit, .mono {
   color: var(--text-secondary);
   line-height: 1.55;
   white-space: pre-line;
+}
+.dictionary-separator {
+  border: 0;
+  border-top: 1px solid var(--border-light);
+  margin: 16px 0;
+  opacity: 0.6;
 }
 
 .research-term-card {

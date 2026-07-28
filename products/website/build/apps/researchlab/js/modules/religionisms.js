@@ -1,6 +1,6 @@
 /**
  * religionisms.js — Модуль «Религионизмы»
- * Визуальные карточки-схемы сфер с 9 компонентами религионизма.
+ * Краткий обзор сфер и полный inline-разбор по клику.
  */
 const Religionisms = (function() {
   'use strict';
@@ -88,23 +88,22 @@ const Religionisms = (function() {
     if (empty) empty.style.display = 'none';
 
     grid.innerHTML = list.map(function(s, idx) {
-var iconPath = '../../assets/icons/32/' + (s.icon || 'ui/question.png');
-      var rootBadge = s.keyRoot
-        ? '<div class="rel-root-badge" dir="rtl">' + escapeHtml(s.keyRoot.root) + '</div>'
-        : '';
-      var componentsPreview = COMPONENTS.slice(0, 9).map(function(c) {
-        return '<div class="rel-comp-mini"><span class="rel-comp-label">' + c[1] + '</span><span class="rel-comp-value">' + escapeHtml(truncate(s[c[0]], 40)) + '</span></div>';
-      }).join('');
+      var iconPath = '../../assets/icons/32/' + (s.icon || 'ui/question.png');
+      var description = getShortDescription(s);
 
-      return '<div class="rel-card" style="animation-delay:' + (idx * 40) + 'ms" onclick="Religionisms.open(\'' + s.id + '\')">' +
+      return '<button type="button" class="rel-card" style="animation-delay:' + (idx * 40) + 'ms" onclick="Religionisms.open(\'' + s.id + '\')">' +
         '<div class="rel-card-header">' +
         '<img src="' + iconPath + '" class="rel-card-icon" alt="">' +
         '<div class="rel-card-name">' + escapeHtml(s.name) + '</div>' +
-        rootBadge +
         '</div>' +
-        '<div class="rel-comp-grid">' + componentsPreview + '</div>' +
-        '</div>';
+        '<p class="rel-card-description">' + escapeHtml(description) + '</p>' +
+        '</button>';
     }).join('');
+  }
+
+  function getShortDescription(sphere) {
+    var description = sphere.description || (sphere.keyRoot && sphere.keyRoot.note) || sphere.promise || '';
+    return truncate(description.replace(/\s+/g, ' ').trim(), 150);
   }
 
   function truncate(text, len) {
@@ -131,21 +130,19 @@ var iconPath = '../../assets/icons/32/' + (s.icon || 'ui/question.png');
     if (grid) grid.style.display = 'none';
     detail.style.display = '';
 
-    var filtered = spheres.filter(function(s) { return s.id === activeSphereId; });
-    var sphere = filtered.length > 0 ? filtered[0] : null;
+    var sphere = spheres.filter(function(item) { return item.id === activeSphereId; })[0];
     if (!sphere) {
       detail.innerHTML = '<div class="lab-alert lab-alert-error">Сфера не найдена.</div>';
       return;
     }
 
-var iconPath = '../../assets/icons/32/' + (sphere.icon || 'ui/question.png');
+    var iconPath = '../../assets/icons/32/' + (sphere.icon || 'ui/question.png');
     var componentsHtml = COMPONENTS.map(function(c) {
       return '<div class="rel-comp-block">' +
         '<div class="rel-comp-title">' + c[1] + '</div>' +
         '<div class="rel-comp-text">' + escapeHtml(sphere[c[0]] || '—') + '</div>' +
         '</div>';
     }).join('');
-
     var rootHtml = sphere.keyRoot
       ? '<div class="rel-root-block">' +
         '<div class="rel-root-title">Ключевой корень</div>' +

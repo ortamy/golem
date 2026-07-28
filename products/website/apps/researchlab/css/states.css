@@ -168,7 +168,7 @@
   font-size: 13px;
   line-height: 1.45;
   color: var(--accent-gold, #8b6508);
-  font-style: italic;
+  font-style: normal;
 }
 
 .state-card-olam span,
@@ -242,7 +242,7 @@
   font-size: 17px;
   line-height: 1.6;
   color: var(--text-muted, #6b5b4e);
-  font-style: italic;
+  font-style: normal;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -778,7 +778,7 @@
 
 .diagnostic-result .result-physics {
   font-size: 16px;
-  font-style: italic;
+  font-style: normal;
   color: var(--text-muted, #6b5b4e);
   margin-bottom: 20px;
   line-height: 1.6;
@@ -790,7 +790,7 @@
   font-size: 18px;
   line-height: 1.45;
   color: var(--accent-gold, #8b6508);
-  font-style: italic;
+  font-style: normal;
 }
 
 .diagnostic-result .result-transition {

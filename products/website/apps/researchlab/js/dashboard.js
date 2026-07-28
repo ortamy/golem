@@ -24,23 +24,56 @@ const Dashboard = (function() {
     });
   }
 
+  function bookDataPath(book) {
+    var file = book && (book.dataFile || book.id);
+    return file ? 'data/scripture/' + String(file).replace(/\.json$/, '') + '.json' : '';
+  }
+
+  function loadBookProgress(books, forceReload) {
+    return Promise.all((books || []).map(function(book) {
+      var path = bookDataPath(book);
+      if (!path) return Promise.resolve({ book: book, status: 'loading', verses: [] });
+
+      return fetchJson(path, forceReload).then(function(verses) {
+        if (!Array.isArray(verses) || !verses.length) {
+          return { book: book, status: 'in-progress', verses: [], percent: 0 };
+        }
+        return {
+          book: book,
+          status: 'completed',
+          verses: verses,
+          percent: 100
+        };
+      }).catch(function() {
+        // Отсутствующий JSON означает, что книга ещё не начата.
+        return { book: book, status: 'not-started', verses: [], percent: 0 };
+      });
+    }));
+  }
+
   function loadData(forceReload) {
     return Promise.all([
       fetchJson('data/roots/roots.json', forceReload),
       fetchJson('data/dictionaries.json', forceReload),
       fetchJson('data/exposures/index.json', forceReload),
       fetchJson('data/heraldry/heraldry.json', forceReload),
-      fetchJson('data/qumran-books.json', forceReload),
-      fetchJson('data/scripture/bereshit-1.json', forceReload).catch(function() { return []; })
+      fetchJson('data/qumran-books.json', forceReload)
     ]).then(function(results) {
+      var books = (results[4] && results[4].books) || [];
+      return loadBookProgress(books, forceReload).then(function(bookProgress) {
+        var firstLoaded = bookProgress.filter(function(item) {
+          return item.status === 'completed';
+        })[0];
       return {
         roots: results[0] || [],
         dictionaries: results[1] || {},
         researches: results[2] || [],
         heraldry: results[3] || [],
-        qumranBooks: (results[4] && results[4].books) || [],
-        scriptureVerses: results[5] || []
-      };
+          qumranBooks: books,
+          bookProgress: bookProgress,
+          scriptureVerses: firstLoaded ? firstLoaded.verses : []
+        };
+      });
     });
   }
 
@@ -86,10 +119,11 @@ const Dashboard = (function() {
         renderSubstitutionMap(dictEntries) +
         renderMechanismsBars(dictEntries) +
         renderLatestResearches(data.researches) +
-        renderBooksProgress(data.qumranBooks, data.scriptureVerses) +
+        renderBooksProgress(data.qumranBooks, data.bookProgress) +
       '</div>';
 
     bindMapClicks(container);
+    bindBookClicks(container);
   }
 
   function renderCounters(data, dictEntries, totalTerms) {
@@ -177,14 +211,40 @@ const Dashboard = (function() {
     '</div>';
   }
 
-  function renderBooksProgress(books, verses) {
-    var withData = (books || []).filter(function(b) { return b && b.dataFile; });
-    var pctBooks = books.length ? Math.round((withData.length / books.length) * 100) : 0;
-    var bookNames = withData.map(function(b) { return b.ru; }).join(', ') || '—';
+  var paleoBookIcons = {
+    bereshit: '𐤁', shmot: '𐤔', vayikra: '𐤅', bemidbar: '𐤁', dvarim: '𐤃',
+    yehoshua: '𐤉', shoftim: '𐤔', 'shmuel-alef': '𐤔', 'shmuel-bet': '𐤔',
+    'melachim-alef': '𐤌', 'melachim-bet': '𐤌', yeshayahu: '𐤉', yirmeyahu: '𐤉',
+    yehezkel: '𐤉', 'the-twelve': '𐤕', tehillim: '𐤕', mishlei: '𐤌', iyov: '𐤀',
+    'shir-hashirim': '𐤔', rut: '𐤓', eikhah: '𐤀', kohelet: '𐤒', daniel: '𐤃',
+    'ezra-nechemyah': '𐤀', 'divrei-hayamim': '𐤃'
+  };
+
+  function renderBooksProgress(books, progress) {
+    var progressById = {};
+    (progress || []).forEach(function(item) {
+      if (item.book && item.book.id) progressById[item.book.id] = item;
+    });
+    var cards = (books || []).map(function(book) {
+      var item = progressById[book.id] || { status: 'loading', verses: [], percent: 0 };
+      var verses = item.verses || [];
+      var status = item.status === 'completed' ? (verses.length + '/' + verses.length + ' стихов') :
+        item.status === 'in-progress' ? 'В процессе' :
+        item.status === 'not-started' ? 'Не начата' : 'Данные загружаются…';
+      var modifier = item.status === 'completed' ? 'completed' :
+        item.status === 'in-progress' ? 'in-progress' :
+        item.status === 'not-started' ? 'not-started' : 'loading';
+      var label = 'Открыть книгу «' + (book.ru || book.id) + '»';
+      return '<button type="button" class="book-card book-card--' + modifier + '" data-book-id="' + esc(book.id) + '" aria-label="' + esc(label) + '">' +
+        '<span class="book-card-icon" lang="hbo" aria-hidden="true">' + esc(paleoBookIcons[book.id] || '𐤀') + '</span>' +
+        '<span class="book-card-name">' + esc(book.ru || book.id) + '</span>' +
+        '<span class="book-card-track" aria-hidden="true"><span class="book-card-fill" style="width:' + (item.percent || 0) + '%"></span></span>' +
+        '<span class="book-card-status">' + esc(status) + '</span>' +
+      '</button>';
+    }).join('');
     return '<div class="dw-widget">' +
-      '<h3>Прогресс по книгам</h3>' +
-      '<div class="dw-progress-track"><div class="dw-progress-fill" style="width:' + pctBooks + '%">' + withData.length + ' / ' + books.length + '</div></div>' +
-      '<div class="dw-progress-caption">Оцифровано: ' + esc(bookNames) + ' — ' + esc(verses.length) + ' стихов на палео-иврите.</div>' +
+      '<h3>Древо Книг</h3>' +
+      '<div class="book-grid" role="list">' + (cards || '<div class="lab-alert lab-alert-info">Данные загружаются…</div>') + '</div>' +
     '</div>';
   }
 
@@ -201,6 +261,15 @@ const Dashboard = (function() {
       el.addEventListener('click', go);
       el.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+      });
+    });
+  }
+
+  function bindBookClicks(container) {
+    container.querySelectorAll('.book-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var bookId = card.getAttribute('data-book-id');
+        if (window.LabRouter && bookId) LabRouter.navigate('scripture-reader', [], { book: bookId });
       });
     });
   }

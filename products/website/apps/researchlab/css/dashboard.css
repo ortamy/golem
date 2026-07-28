@@ -33,7 +33,7 @@
 }
 .dw-widget h3 {
   font-family: var(--font-heading); font-size: 20px; font-weight: 600;
-  font-style: italic; color: var(--text-primary); margin-bottom: 14px;
+  font-style: normal; color: var(--text-primary); margin-bottom: 14px;
   padding-bottom: 8px; border-bottom: 1px solid var(--border-light);
 }
 .dw-widget-wide { grid-column: 1 / -1; }
@@ -80,10 +80,13 @@
 
 /* Гистограмма механизмов подмены */
 .dw-bars { display: flex; flex-direction: column; gap: 10px; }
-.dw-bar-row { display: flex; align-items: center; gap: 10px; }
+.dw-bar-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 8px 0; border-bottom: 1px solid var(--border-light);
+}
 .dw-bar-label {
   width: 130px; flex-shrink: 0; font-size: 13px; color: var(--text-secondary);
-  text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .dw-bar-track {
   flex: 1; background: var(--bg-tertiary); border-radius: 3px; height: 18px; overflow: hidden;
@@ -97,30 +100,60 @@
 /* Последние разборы */
 .dw-list { display: flex; flex-direction: column; gap: 10px; }
 .dw-list-item {
-  display: block; padding: 10px 12px; border-radius: 4px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 8px 0; border-bottom: 1px solid var(--border-light);
   background: var(--bg-tertiary); text-decoration: none; color: var(--text-primary);
   transition: background var(--transition), color var(--transition);
 }
 .dw-list-item:hover { background: rgba(184,134,11,0.10); color: var(--accent-gold); }
-.dw-list-title { font-weight: 600; font-size: 15px; }
-.dw-list-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.dw-list-title { min-width: 0; flex: 1; font-weight: 600; font-size: 15px; }
+.dw-list-meta { flex-shrink: 0; font-size: 12px; color: var(--text-muted); margin-top: 0; text-align: right; }
 
-/* Прогресс по книгам */
-.dw-progress-track {
-  background: var(--bg-tertiary); border-radius: 4px; height: 22px; overflow: hidden; margin-bottom: 8px;
+/* Древо Книг: компактная библиотечная сетка */
+.book-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
 }
-.dw-progress-fill {
-  height: 100%; background: var(--accent-gold);
-  display: flex; align-items: center; justify-content: flex-end;
-  padding-right: 8px; color: #2c1810; font-size: 11px; font-weight: 700;
-  transition: width 0.6s ease; white-space: nowrap;
+.book-card {
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  min-width: 0; min-height: 148px; padding: 14px 12px 12px;
+  border: 1px solid var(--border-light); border-radius: 8px;
+  box-shadow: var(--shadow-soft); color: var(--text-primary); text-align: center;
+  cursor: pointer; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
-.dw-progress-caption { font-size: 13px; color: var(--text-secondary); }
-
-[data-theme="dark"] .dw-progress-fill { color: #2c1810; }
+.book-card:hover, .book-card:focus-visible {
+  transform: translateY(-2px); border-color: var(--accent-gold);
+  box-shadow: 0 5px 14px rgba(184,134,11,0.2); outline: none;
+}
+.book-card--completed { background: rgba(184,134,11,0.18); }
+.book-card--in-progress { background: #fff7d6; }
+.book-card--not-started, .book-card--loading { background: var(--bg-tertiary); }
+.book-card-icon {
+  color: var(--text-gold); font-family: var(--font-paleo); font-size: 36px;
+  line-height: 1; min-height: 38px;
+}
+.book-card-name {
+  display: block; width: 100%; overflow: hidden; text-overflow: ellipsis;
+  font-family: var(--font-serif); font-size: 15px; font-weight: 600; white-space: nowrap;
+}
+.book-card-track {
+  display: block; width: 100%; height: 7px; overflow: hidden;
+  background: var(--bg-tertiary); border-radius: 4px;
+}
+.book-card-fill {
+  display: block; height: 100%; background: var(--accent-gold);
+  border-radius: 4px; transition: width 0.6s ease;
+}
+.book-card-status {
+  display: block; width: 100%; margin-top: auto; color: var(--text-secondary);
+  font-size: 12px; line-height: 1.2; white-space: nowrap;
+}
+.book-card--not-started .book-card-fill, .book-card--loading .book-card-fill { background: var(--border-light); }
 
 @media (max-width: 720px) {
   .dw-grid { grid-template-columns: 1fr; }
   .dw-bar-label { width: 96px; font-size: 12px; }
   .dw-map svg { max-width: 400px; }
+  .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .book-card { min-height: 142px; }
 }

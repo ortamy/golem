@@ -18,7 +18,7 @@
 .el-word-header .el-word-paleo { font-size: 32px; letter-spacing: 6px; color: var(--accent-gold); }
 
 .el-section { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 20px; margin-bottom: 16px; }
-.el-section-title { font-family: var(--font-heading); font-size: 18px; font-weight: 600; font-style: italic; color: var(--accent-gold); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border-light); }
+.el-section-title { font-family: var(--font-heading); font-size: 18px; font-weight: 600; font-style: normal; color: var(--accent-gold); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border-light); }
 
 .el-letter-breakdown { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 .el-letter-box { text-align: center; background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: 6px; padding: 14px 10px; min-width: 90px; transition: all 0.2s; }
