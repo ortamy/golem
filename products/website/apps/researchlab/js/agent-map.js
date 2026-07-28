@@ -23,9 +23,7 @@
   }
 
   function getAgents() {
-    var renderer = window.LabRenderer;
-    if (!renderer && typeof LabRenderer !== 'undefined') renderer = LabRenderer;
-    return (renderer && renderer.agentMapData) || [];
+    return (window.PageController && window.PageController.agentMapData) || [];
   }
 
   function defaultPosition(index) {

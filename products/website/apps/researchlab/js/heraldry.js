@@ -39,8 +39,8 @@ const DATA_PATH = 'data/heraldry/heraldry.json';
   }
 
   // ===== ИНИЦИАЛИЗАЦИЯ =====
-  function init() {
-    var container = document.getElementById('heraldry');
+  function init(el) {
+    var container = el || document.getElementById('heraldry');
     if (container) loadData(container);
   }
 

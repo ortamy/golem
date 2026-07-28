@@ -70,6 +70,16 @@ const LabRouter = (function() {
   function handleHash() {
     var parsed = parseHash();
     var hash = parsed.module;
+    var routedModules = [
+      'manifest', 'dashboard', 'learn', 'dictionaries', 'researches',
+      'exposure', 'methodology', 'paleo-mechanics', 'paleo-linguistics',
+      'language-map', 'religionisms', 'root-dictionary', 'paleo-builder',
+      'paleo-images', 'word-analyzer', 'scripture-reader', 'generators',
+      'checkers', 'translation-comparator', 'investigation', 'heraldry',
+      'cartography', 'states', 'ai-agents', 'ed-chat', 'vision',
+      'paleo-keyboard', 'admin-settings', 'exposure-editor', 'clue-generator',
+      'video-lab', 'prompt-generator', 'davar-checker', 'board'
+    ];
 
     // #settings is an alias for #admin-settings
     if (hash === 'settings') {
@@ -139,7 +149,7 @@ const LabRouter = (function() {
       return;
     }
 
-    if (modules[hash]) {
+    if (modules[hash] || routedModules.indexOf(hash) !== -1) {
       showModule(hash, parsed);
     } else if (hash === 'exposure-editor') {
       // Dynamic module — будет создан в showModule
@@ -165,29 +175,16 @@ const LabRouter = (function() {
 
   // ===== ПОКАЗ МОДУЛЯ =====
   function showModule(moduleId, parsed) {
-    // Создаём контейнер для exposure-editor если его ещё нет
-    if (moduleId === 'exposure-editor' && !modules['exposure-editor']) {
-      const editor = document.createElement('div');
-      editor.id = 'exposure-editor';
-      editor.className = 'module';
-      document.getElementById('labContent').appendChild(editor);
-      modules['exposure-editor'] = editor;
-    }
-
-    if (moduleId === 'clue-generator' && !modules['clue-generator']) {
-      const clueGenerator = document.createElement('div');
-      clueGenerator.id = 'clue-generator';
-      clueGenerator.className = 'module';
-      document.getElementById('labContent').appendChild(clueGenerator);
-      modules['clue-generator'] = clueGenerator;
-    }
-
-    if (moduleId === 'video-lab' && !modules['video-lab']) {
-      const videoLab = document.createElement('div');
-      videoLab.id = 'video-lab';
-      videoLab.className = 'module';
-      document.getElementById('labContent').appendChild(videoLab);
-      modules['video-lab'] = videoLab;
+    // Создаём контейнер до вызова PageController.
+    if (!modules[moduleId]) {
+      var root = document.getElementById('labContent');
+      if (root) {
+        var el = document.createElement('div');
+        el.id = moduleId;
+        el.className = 'module';
+        root.appendChild(el);
+        modules[moduleId] = el;
+      }
     }
 
     // Скрываем все
@@ -221,19 +218,7 @@ const LabRouter = (function() {
 
     currentModule = moduleId;
 
-    // Инициализация exposure-editor при активации
-    if (moduleId === 'exposure-editor' && window.ExposureEditor) {
-      const editorEl = document.getElementById('exposure-editor');
-      if (editorEl) {
-        ExposureEditor.init(editorEl);
-      }
-    }
-
-    if (moduleId === 'clue-generator' && window.ClueGenerator) {
-      window.ClueGenerator.init(document.getElementById('clue-generator'));
-    }
-
-    // Колбэк
+    // PageController получает единственный вызов через зарегистрированный колбэк.
     if (onModuleChange) {
       onModuleChange(moduleId, parsed);
     }
@@ -257,3 +242,5 @@ const LabRouter = (function() {
     onChange: onChange
   };
 })();
+
+window.LabRouter = LabRouter;

@@ -7,6 +7,7 @@ const Dashboard = (function() {
   'use strict';
 
   var loaded = false;
+  var reloading = false;
 
   function esc(text) {
     var d = document.createElement('div');
@@ -15,9 +16,31 @@ const Dashboard = (function() {
   }
 
   function fetchJson(path) {
-    return fetch(path).then(function(r) {
+    var forceReload = arguments.length > 1 && arguments[1];
+    var requestPath = forceReload ? path + '?_reload=' + Date.now() : path;
+    return fetch(requestPath, forceReload ? { cache: 'no-store' } : undefined).then(function(r) {
       if (!r.ok) throw new Error('HTTP ' + r.status + ' для ' + path);
       return r.json();
+    });
+  }
+
+  function loadData(forceReload) {
+    return Promise.all([
+      fetchJson('data/roots/roots.json', forceReload),
+      fetchJson('data/dictionaries.json', forceReload),
+      fetchJson('data/exposures/index.json', forceReload),
+      fetchJson('data/heraldry/heraldry.json', forceReload),
+      fetchJson('data/qumran-books.json', forceReload),
+      fetchJson('data/scripture/bereshit-1.json', forceReload).catch(function() { return []; })
+    ]).then(function(results) {
+      return {
+        roots: results[0] || [],
+        dictionaries: results[1] || {},
+        researches: results[2] || [],
+        heraldry: results[3] || [],
+        qumranBooks: (results[4] && results[4].books) || [],
+        scriptureVerses: results[5] || []
+      };
     });
   }
 
@@ -26,25 +49,26 @@ const Dashboard = (function() {
     if (!container) return;
     if (loaded) return;
 
-    Promise.all([
-      fetchJson('data/roots/roots.json'),
-      fetchJson('data/dictionaries.json'),
-      fetchJson('data/exposures/index.json'),
-      fetchJson('data/heraldry/heraldry.json'),
-      fetchJson('data/qumran-books.json'),
-      fetchJson('data/scripture/bereshit-1.json').catch(function() { return []; })
-    ]).then(function(results) {
+    loadData(false).then(function(data) {
       loaded = true;
-      render(container, {
-        roots: results[0] || [],
-        dictionaries: results[1] || {},
-        researches: results[2] || [],
-        heraldry: results[3] || [],
-        qumranBooks: (results[4] && results[4].books) || [],
-        scriptureVerses: results[5] || []
-      });
+      render(container, data);
     }).catch(function(err) {
       container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки статистики: ' + esc(err.message) + '</div>';
+    });
+  }
+
+  function reload() {
+    var container = document.getElementById('dashboard-widgets');
+    if (!container || reloading) return;
+    reloading = true;
+    container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Обновление статистики…</div></div>';
+    loadData(true).then(function(data) {
+      loaded = true;
+      render(container, data);
+    }).catch(function(err) {
+      container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка обновления статистики: ' + esc(err.message) + '</div>';
+    }).then(function() {
+      reloading = false;
     });
   }
 
@@ -154,7 +178,7 @@ const Dashboard = (function() {
   }
 
   function renderBooksProgress(books, verses) {
-    var withData = books.filter(function(b) { return b.dataFile; });
+    var withData = (books || []).filter(function(b) { return b && b.dataFile; });
     var pctBooks = books.length ? Math.round((withData.length / books.length) * 100) : 0;
     var bookNames = withData.map(function(b) { return b.ru; }).join(', ') || '—';
     return '<div class="dw-widget">' +
@@ -168,9 +192,9 @@ const Dashboard = (function() {
     container.querySelectorAll('[data-dict-key]').forEach(function(el) {
       var go = function() {
         var key = el.getAttribute('data-dict-key');
-        if (window.LabRenderer && LabRenderer.pageState && LabRenderer.pageState.dictionaries) {
-          LabRenderer.pageState.dictionaries.key = key;
-          LabRenderer.pageState.dictionaries.query = '';
+        if (window.PageController && PageController.pageState && PageController.pageState.dictionaries) {
+          PageController.pageState.dictionaries.key = key;
+          PageController.pageState.dictionaries.query = '';
         }
         LabRouter.navigate('dictionaries');
       };
@@ -181,6 +205,6 @@ const Dashboard = (function() {
     });
   }
 
-  window.Dashboard = { init: init };
+  window.Dashboard = { init: init, reload: reload };
   return window.Dashboard;
 })();

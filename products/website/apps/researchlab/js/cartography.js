@@ -10,7 +10,7 @@
 const Cartography = (function() {
   'use strict';
 
-  const DATA_PATH = 'data/cartography.json';
+  const DATA_PATH = '../../data/cartography.json';
   const TYPE_LABELS = { country: 'Страна', city: 'Город', region: 'Регион', empire: 'Империя' };
   const ERA_LABELS = { ancient: 'Древние', modern: 'Современные' };
   const REGION_LABELS = {
@@ -34,8 +34,9 @@ const Cartography = (function() {
   }
 
   // ===== ИНИЦИАЛИЗАЦИЯ =====
-  function init() {
-    var container = document.getElementById('cartography');
+  function init(el) {
+    console.log('[Cartography] init вызван, container:', el);
+    var container = el || document.getElementById('cartography');
     if (container) loadData(container);
   }
 
@@ -53,12 +54,15 @@ const Cartography = (function() {
 
     container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка картографии...</div></div>';
 
+    console.log('[Cartography] Загружаем путь:', dataPath());
     dataPromise = fetch(dataPath())
       .then(function(response) {
+        console.log('[Cartography] Ответ fetch:', response.status, response.url, response.ok);
         if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
       .then(function(data) {
+        console.log('[Cartography] Данные получены:', data);
         var list = Array.isArray(data) ? data : (data && Array.isArray(data.entries) ? data.entries : null);
         if (!list) throw new Error('Неверный формат данных');
         entries = list.filter(function(e) { return e && e.id && e.name; });
@@ -68,6 +72,7 @@ const Cartography = (function() {
         return entries;
       })
       .catch(function(error) {
+        console.error('[Cartography] Ошибка загрузки:', error);
         dataPromise = null;
         container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки картографии: ' + escapeHtml(error.message) + '</div>';
         throw error;
