@@ -771,6 +771,16 @@ const PageController = (function() {
         container.dataset.loaded = '1';
         break;
 
+      case 'linguistic-tensor':
+        showSpinner(container, 'Загрузка лингвистического тензора…');
+        if (window.LinguisticTensor) {
+          window.LinguisticTensor.init(container, parsed);
+        } else {
+          showError(container, 'Модуль «Лингвистический тензор» не загрузился.');
+        }
+        container.dataset.loaded = '1';
+        break;
+
       case 'methodology':
         showSpinner(container, 'Загрузка методологии…');
         if (window.MethodologyLab) {

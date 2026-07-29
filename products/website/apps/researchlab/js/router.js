@@ -78,7 +78,7 @@ const LabRouter = (function() {
       'checkers', 'translation-comparator', 'investigation', 'heraldry',
       'cartography', 'states', 'ai-agents', 'ed-chat', 'vision',
       'paleo-keyboard', 'admin-settings', 'exposure-editor', 'clue-generator',
-      'video-lab', 'prompt-generator', 'davar-checker', 'board', 'name-decoder'
+      'video-lab', 'prompt-generator', 'davar-checker', 'board', 'name-decoder', 'linguistic-tensor'
     ];
 
     // #settings is an alias for #admin-settings
