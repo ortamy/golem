@@ -213,7 +213,16 @@ const ScriptureReader = (function() {
   }
   function loadVerses(book) {
     setLoading('Загрузка ' + book.ru + '…');
-    var dataFile = book.dataFile || book.id;
+    // Не запрашиваем несуществующий файл: в каталоге пока есть только Берешит.
+    if (!book.dataFile) {
+      var pendingArticle = get('scripture-verse-article');
+      if (pendingArticle) {
+        pendingArticle.innerHTML = '<div class="lab-alert lab-alert-info scripture-reader-error">Текст книги «' + escapeHtml(book.ru) + '» пока не загружен в библиотеку.</div>';
+      }
+      state.verses = [];
+      return Promise.resolve([]);
+    }
+    var dataFile = book.dataFile;
     return fetch('data/scripture/' + dataFile.replace(/\.json$/, '') + '.json')
       .then(function(response) {
         if (!response.ok) throw new Error('HTTP ' + response.status);

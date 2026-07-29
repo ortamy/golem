@@ -33,6 +33,7 @@
   var WAND_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 4l1.5 1.5M19 8l1.5 1.5M4 20l9-9M13 9l2 2"></path><path d="M15 4l-1 3 3-1z"></path></svg>';
   var EDIT_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h4l10-10-4-4L4 16v4z"></path><path d="M13 7l4 4"></path></svg>';
   var DELETE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 7h14"></path><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path><path d="M7 7l1 13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1l1-13"></path></svg>';
+  var INFO_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 10.5v5"></path><circle cx="12" cy="7.5" r=".7" fill="currentColor" stroke="none"></circle></svg>';
   var CHECK_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 13l4 4L19 7"></path></svg>';
   var SAVE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>';
 
@@ -208,17 +209,23 @@
 
     panel.className = 'methodology-panel';
     panel.innerHTML = cards.map(function(card, index) {
-      return '<article class="methodology-card" style="animation-delay:' + (index * 30) + 'ms">' +
+      var documentClass = card.document === 'system-architecture' ? ' methodology-document-card' : '';
+      var cardText = card.summary || card.text;
+      var infoButton = card.text
+        ? '<button type="button" class="methodology-icon-btn methodology-info-btn" data-id="' + escapeHtml(card.id) + '" title="Открыть полный текст" aria-label="Открыть полный текст карточки">' + INFO_ICON + '</button>'
+        : '';
+      return '<article class="methodology-card' + documentClass + '" data-id="' + escapeHtml(card.id) + '" style="animation-delay:' + (index * 30) + 'ms">' +
         '<div class="methodology-card-head">' +
           '<h3 class="methodology-card-title">' + escapeHtml(card.title) + '</h3>' +
           '<div class="methodology-card-actions">' +
+            infoButton +
             '<button type="button" class="methodology-icon-btn methodology-copy-btn" data-id="' + escapeHtml(card.id) + '" title="Копировать" aria-label="Копировать карточку">' + COPY_ICON + '</button>' +
             '<button type="button" class="methodology-icon-btn methodology-prompt-btn" data-id="' + escapeHtml(card.id) + '" title="В конструктор промптов" aria-label="Отправить в конструктор промптов">' + WAND_ICON + '</button>' +
             '<button type="button" class="methodology-icon-btn methodology-edit-btn" data-id="' + escapeHtml(card.id) + '" title="Редактировать" aria-label="Редактировать карточку">' + EDIT_ICON + '</button>' +
             '<button type="button" class="methodology-icon-btn methodology-delete-btn" data-id="' + escapeHtml(card.id) + '" title="Удалить" aria-label="Удалить карточку">' + DELETE_ICON + '</button>' +
           '</div>' +
         '</div>' +
-        '<p class="methodology-card-text">' + escapeHtml(card.text) + '</p>' +
+        '<p class="methodology-card-text">' + escapeHtml(cardText) + '</p>' +
       '</article>';
     }).join('');
 
@@ -234,6 +241,22 @@
   }
 
   function bindCardActions(container, panel) {
+    panel.querySelectorAll('.methodology-info-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(event) {
+        event.stopPropagation();
+        var card = findCard(btn.dataset.id);
+        if (card) openFullText(card);
+      });
+    });
+
+    panel.querySelectorAll('.methodology-document-card').forEach(function(article) {
+      article.addEventListener('click', function(event) {
+        if (event.target.closest('button')) return;
+        var card = findCard(article.dataset.id);
+        if (card) openFullText(card);
+      });
+    });
+
     panel.querySelectorAll('.methodology-copy-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var card = findCard(btn.dataset.id);
@@ -266,6 +289,18 @@
         if (card) deleteCard(container, card);
       });
     });
+  }
+
+  function openFullText(card) {
+    if (!card || !window.LabModal) return;
+    var content = typeof marked !== 'undefined' && marked.parse
+      ? marked.parse(card.text || '')
+      : '<p>' + escapeHtml(card.text || '').replace(/\n/g, '<br>') + '</p>';
+    window.LabModal.show(
+      INFO_ICON + '<span class="methodology-modal-title">' + escapeHtml(card.title) + '</span>',
+      '<div class="methodology-document-content">' + content + '</div>',
+      '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabModal.close()">Закрыть</button>'
+    );
   }
 
   function startInlineEdit(article, card) {

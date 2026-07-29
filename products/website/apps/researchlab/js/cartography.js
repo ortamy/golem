@@ -10,7 +10,8 @@
 const Cartography = (function() {
   'use strict';
 
-  const DATA_PATH = '../../data/cartography.json';
+  // Путь считается от страницы лаборатории, а не от каталога js/.
+  const DATA_PATH = 'data/cartography.json';
   const TYPE_LABELS = { country: 'Страна', city: 'Город', region: 'Регион', empire: 'Империя' };
   const ERA_LABELS = { ancient: 'Древние', modern: 'Современные' };
   const REGION_LABELS = {

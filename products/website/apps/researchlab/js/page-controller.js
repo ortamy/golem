@@ -166,7 +166,7 @@ const PageController = (function() {
           '<div class="doc-desc">' + escapeHtml((doc.description || '').split('---')[0].trim().substring(0, 120) + (doc.description && doc.description.length > 120 ? '...' : '')) + '</div>' +
           '</a>';
       }).join('');
-      var heading = page === 'exposure' ? 'Принципы' : (page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички');
+      var heading = page === 'exposure' ? 'Архив' : (page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички');
       container.innerHTML = '<div class="research-page-head">' +
         '<h1><img src="' + iconPath + '" class="lab-icon" alt="">' + heading + '</h1>' +
         '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p>' +
@@ -193,7 +193,7 @@ const PageController = (function() {
       var content = typeof marked !== 'undefined' && marked.parse ? marked.parse(section.content || '') : escapeHtml(section.content || '');
       return '<article class="research-section"><h2>' + escapeHtml(section.title || '') + '</h2><div class="research-section-content">' + content + '</div></article>';
     }).join('');
-    var heading = page === 'exposure' ? 'Принципы' : (page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички');
+    var heading = page === 'exposure' ? 'Архив' : (page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички');
     var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState[\'' + page + '\'].key=\'\';PageController.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', PageController.jsonCache[\'' + page + '\'])">← Назад к списку</button>';
     container.innerHTML = '<div class="research-page-head"><h1>' + heading + '</h1>' +
       '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p></div>' +
@@ -784,6 +784,16 @@ const PageController = (function() {
           window.MethodologyLab.init(container);
         } else {
           showError(container, 'Модуль «Методология» не загрузился.');
+        }
+        container.dataset.loaded = '1';
+        break;
+
+      case 'name-decoder':
+        showSpinner(container, 'Загрузка дешифратора имени…');
+        if (window.NameDecoder) {
+          window.NameDecoder.init(container);
+        } else {
+          showError(container, 'Модуль «Дешифратор Имени» не загрузился.');
         }
         container.dataset.loaded = '1';
         break;

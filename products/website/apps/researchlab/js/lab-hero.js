@@ -172,8 +172,8 @@
       icon: 'ui/book.png'
     },
     'exposure': {
-      kicker: 'ГОЛЕМ · ПРИНЦИПЫ',
-      title: 'Принципы',
+      kicker: 'ГОЛЕМ · АРХИВ',
+      title: 'Архив',
       subtitle: 'Материалы о подменах, их механизмах и переходах между слоями смысла.',
       icon: 'archaeology/lamp.png'
     },

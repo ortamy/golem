@@ -38,6 +38,32 @@
 <link rel="stylesheet" href="css/methodology.css">
 <link rel="stylesheet" href="css/lab-hero.css">
 <link rel="stylesheet" href="css/manifest.css">
+<style>
+  .name-decoder-shell { max-width: 980px; margin: 0 auto; }
+  .name-decoder-hero { padding: 28px 30px; margin-bottom: 22px; background: var(--bg-dark); border: 1px solid var(--border-dark); border-radius: 10px; box-shadow: var(--shadow-soft); }
+  .name-decoder-kicker { margin: 0 0 8px; color: var(--accent-gold); font-size: 12px; font-weight: 700; letter-spacing: .16em; }
+  .name-decoder-hero h1 { margin: 0 0 8px; color: var(--accent-gold); }
+  .name-decoder-hero .subtitle { margin: 0; color: var(--text-muted); }
+  .name-decoder-form { padding: 20px; margin-bottom: 22px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; }
+  .name-decoder-form label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-weight: 700; }
+  .name-decoder-form-row { display: flex; gap: 10px; }
+  .name-decoder-form-row .lab-input { flex: 1; }
+  .name-decoder-hint { margin: 10px 0 0; color: var(--text-muted); font-size: 13px; }
+  .name-decoder-result { display: grid; gap: 16px; }
+  .name-decoder-paleo-card { text-align: center; }
+  .name-decoder-paleo { color: var(--accent-gold); font-family: var(--font-paleo, serif); font-size: clamp(42px, 8vw, 76px); line-height: 1.2; letter-spacing: .12em; }
+  .name-decoder-hebrew { margin-top: 8px; color: var(--text-secondary); font-size: 26px; }
+  .name-decoder-transliteration { margin: 12px 0 0; color: var(--text-muted); }
+  .name-decoder-letter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .name-decoder-letter-card { position: relative; padding: 16px; }
+  .name-decoder-letter-index { color: var(--accent-gold); font-size: 12px; font-weight: 700; }
+  .name-decoder-letter-paleo { display: block; margin: 8px 0; color: var(--accent-gold); font-size: 42px; line-height: 1; }
+  .name-decoder-letter-card h3 { margin: 0 0 5px; color: var(--text-primary); font-family: var(--font-heading); }
+  .name-decoder-letter-card p { margin: 0; color: var(--text-secondary); line-height: 1.45; }
+  .name-decoder-purpose .lab-card-body p { margin-top: 0; color: var(--accent-gold); font-size: 18px; line-height: 1.6; }
+  .name-decoder-purpose small { color: var(--text-muted); line-height: 1.5; }
+  @media (max-width: 640px) { .name-decoder-form-row { flex-direction: column; } .name-decoder-hero { padding: 22px 20px; } }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 <!-- Embed mode styles -->
@@ -100,7 +126,7 @@
         <a href="#learn" class="sidebar-item" data-module="learn"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Обучение</a>
         <a href="#dictionaries" class="sidebar-item" data-module="dictionaries"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Словари</a>
         <a href="#researches" class="sidebar-item" data-module="researches"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</a>
-        <a href="#exposure" class="sidebar-item" data-module="exposure"><img src="../../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Принципы</a>
+        <a href="#exposure" class="sidebar-item" data-module="exposure"><img src="../../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Архив</a>
         <a href="#methodology" class="sidebar-item" data-module="methodology"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Методология</a>
         <a href="#paleo-mechanics" class="sidebar-item" data-module="paleo-mechanics"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-механика</a>
         <a href="#paleo-linguistics" class="sidebar-item" data-module="paleo-linguistics"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Палео-лингвистика</a>
@@ -123,6 +149,7 @@
         <a href="#generators" class="sidebar-item" data-module="generators"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генераторы</a>
         <a href="#checkers" class="sidebar-item" data-module="checkers"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Чекеры</a>
         <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="Сравнение переводов">Сравнение переводов</a>
+        <a href="#name-decoder" class="sidebar-item" data-module="name-decoder"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="Дешифратор Имени">Дешифратор Имени</a>
       </div>
     </div>
     <div class="sidebar-section">
@@ -205,6 +232,7 @@
 <script src="js/learn.js"></script>
 <script src="js/load-researches.js"></script>
 <script src="js/methodology.js"></script>
+<script src="js/name-decoder.js"></script>
 <script src="js/paleo-linguistics.js"></script>
 <script src="js/language-map.js"></script>
 <script src="js/states.js"></script>

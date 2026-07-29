@@ -70,7 +70,7 @@
 
 .methodology-panel {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   opacity: 1;
   transition: opacity 0.25s ease;
@@ -98,6 +98,28 @@
   border-color: var(--accent-gold);
   box-shadow: 0 8px 22px var(--shadow-card-hover);
   transform: translateY(-2px);
+}
+
+.methodology-document-card { cursor: pointer; }
+.methodology-document-card .methodology-card-text { color: var(--text-primary); }
+.methodology-document-content { line-height: 1.65; }
+.methodology-document-content h1,
+.methodology-document-content h2,
+.methodology-document-content h3 {
+  margin: 1.2em 0 .55em;
+  color: var(--text-gold);
+  font-family: var(--font-heading);
+}
+.methodology-document-content h1:first-child,
+.methodology-document-content h2:first-child { margin-top: 0; }
+.methodology-document-content ul,
+.methodology-document-content ol { padding-left: 1.4em; }
+.methodology-document-content li { margin: .25em 0; }
+.methodology-document-content blockquote {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 3px solid var(--accent-gold);
+  color: var(--text-secondary);
 }
 
 .methodology-card-head {
@@ -158,6 +180,27 @@
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.methodology-icon-btn img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.methodology-icon-btn.methodology-info-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.methodology-modal-title {
+  vertical-align: middle;
+}
+
+.methodology-info-btn:hover {
+  border-color: var(--accent-gold);
+  background: rgba(184, 134, 11, 0.12);
 }
 
 .methodology-delete-btn:hover {
