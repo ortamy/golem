@@ -175,7 +175,6 @@ const ScriptureReader = (function() {
     if (topNav) topNav.style.display = 'none';
     if (analysis) analysis.style.display = 'none';
     if (tools) tools.style.display = 'none';
-    closeLossDrawer();
     state.currentBook = null;
   }
 
@@ -192,11 +191,6 @@ const ScriptureReader = (function() {
     if (topNav) topNav.style.display = '';
     if (analysis) analysis.style.display = '';
     if (tools) tools.style.display = '';
-    var drawer = get('scripture-loss-drawer');
-    if (drawer) {
-      drawer.style.display = '';
-      drawer.setAttribute('aria-hidden', 'false');
-    }
   }
 
   function openBook(bookId) {
@@ -467,54 +461,6 @@ const ScriptureReader = (function() {
     }
   }
 
-  function renderLossTimeline() {
-    var timeline = get('scripture-loss-timeline');
-    if (!timeline) return;
-    var layers = [
-      { name: 'Палео-поток', value: 100, note: 'Полная связность образа' },
-      { name: 'Слитный согласный поток', value: 90, note: 'Часть границ уже скрыта' },
-      { name: 'Масоретский слой', value: 70, note: 'Добавлены поздние знаки чтения' },
-      { name: 'Греческий слой', value: 40, note: 'Смена структуры образа' },
-      { name: 'Латинский слой', value: 25, note: 'Ещё один слой передачи' },
-      { name: 'Синодальный слой', value: 15, note: 'Остаток исходной физики' }
-    ];
-    timeline.innerHTML = layers.map(function(layer) {
-      return '<div class="scripture-loss-item"><div class="scripture-loss-item-head"><strong>' +
-        escapeHtml(layer.name) + '</strong><b>' + layer.value + '%</b></div>' +
-        '<div class="scripture-loss-bar"><span style="width:' + layer.value + '%"></span></div>' +
-        '<small>' + escapeHtml(layer.note) + '</small></div>';
-    }).join('');
-  }
-
-  var previousDrawerFocus = null;
-
-  function openLossDrawer() {
-    var drawer = get('scripture-loss-drawer');
-    var backdrop = get('scripture-loss-backdrop');
-    if (!drawer || !backdrop) return;
-    drawer.style.display = '';
-    previousDrawerFocus = document.activeElement;
-    renderLossTimeline();
-    drawer.classList.add('is-open');
-    drawer.setAttribute('aria-hidden', 'false');
-    backdrop.hidden = false;
-    document.body.classList.add('scripture-drawer-open');
-    var close = get('scripture-loss-close');
-    if (close) close.focus();
-  }
-
-  function closeLossDrawer() {
-    var drawer = get('scripture-loss-drawer');
-    var backdrop = get('scripture-loss-backdrop');
-    if (!drawer || !backdrop) return;
-    drawer.classList.remove('is-open');
-    drawer.setAttribute('aria-hidden', 'true');
-    drawer.style.display = 'none';
-    backdrop.hidden = true;
-    document.body.classList.remove('scripture-drawer-open');
-    if (previousDrawerFocus && previousDrawerFocus.focus) previousDrawerFocus.focus();
-  }
-
   function requestAIAnalysis() {
     var evidence = currentEvidence();
     if (!evidence) return Promise.resolve();
@@ -648,21 +594,12 @@ const ScriptureReader = (function() {
     });
     var analysisTool = get('scripture-tool-analysis');
     var saveTool = get('scripture-tool-save');
-    var lossTool = get('scripture-tool-loss');
     if (analysisTool) analysisTool.addEventListener('click', function() {
       if (state.selectedIndexes.length) { renderAnalysis(); openPhysics(); }
       else if (typeof LabToast !== 'undefined') LabToast.show('Сначала выберите слово палео-текста.');
       requestAIAnalysis();
     });
     if (saveTool) saveTool.addEventListener('click', saveEvidence);
-    if (lossTool) lossTool.addEventListener('click', openLossDrawer);
-    var lossClose = get('scripture-loss-close');
-    var lossBackdrop = get('scripture-loss-backdrop');
-    if (lossClose) lossClose.addEventListener('click', closeLossDrawer);
-    if (lossBackdrop) lossBackdrop.addEventListener('click', closeLossDrawer);
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') closeLossDrawer();
-    });
     if (reader) {
       reader.addEventListener('mouseover', handleWordHover);
       reader.addEventListener('mouseout', function(event) {
@@ -711,7 +648,6 @@ const ScriptureReader = (function() {
         state.books = Array.isArray(results[0].books) ? results[0].books : [];
         state.roots = Array.isArray(results[1]) ? results[1] : [];
         state.states = Array.isArray(results[2].states) ? results[2].states : [];
-        renderLossTimeline();
         renderBookGrid();
         showBookGrid();
         state.loaded = true;
@@ -745,7 +681,6 @@ const ScriptureReader = (function() {
       state.boundRoot = reader;
       state.initialized = true;
       if (state.loaded) {
-        renderLossTimeline();
         renderBookGrid();
         showBookGrid();
         if (requestedBookId) openBook(requestedBookId);

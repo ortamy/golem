@@ -1,4 +1,4 @@
-/* methodology.css — раздел «Методология»: табы + карточки */
+/* methodology.css — раздел «Методология»: выпадающий список + карточки */
 .methodology-shell {
   max-width: 1180px;
   margin: 0 auto;
@@ -17,55 +17,50 @@
 .methodology-heading h1 { margin: 0 0 8px; color: var(--accent-gold); }
 .methodology-kicker { margin: 0 0 8px; color: var(--accent-gold); font-size: 12px; font-weight: 700; letter-spacing: .16em; }
 .methodology-heading .subtitle { color: var(--text-muted); margin: 0; }
+.methodology-heading > div { transition: opacity .18s ease, transform .18s ease; }
+.methodology-heading.is-updating > div { opacity: .45; transform: translateY(2px); }
 
 .methodology-toolbar {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
-  border-bottom: 1px solid var(--border-light);
-  margin-bottom: 6px;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
 }
 
-.methodology-tabs {
-  display: flex;
-  gap: 6px;
+.methodology-navigation {
   flex-wrap: wrap;
-  padding-bottom: 2px;
 }
 
-.methodology-toolbar .lab-btn {
+.methodology-select-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-secondary);
+  font: 600 14px/1.3 var(--font-heading);
+}
+
+.methodology-select-label .lab-input {
+  min-width: 260px;
+  margin: 0;
+}
+
+.methodology-navigation .methodology-select-label {
+  flex: 1 1 260px;
+}
+
+.methodology-navigation .methodology-select-label .lab-input {
+  flex: 1 1 auto;
+}
+
+.methodology-toolbar > .lab-btn {
   flex: 0 0 auto;
-  margin-bottom: 8px;
   white-space: nowrap;
-}
-
-.methodology-tab {
-  padding: 10px 18px;
-  border: 1px solid transparent;
-  border-bottom: none;
-  border-radius: 6px 6px 0 0;
-  background: transparent;
-  color: var(--text-secondary);
-  font: 600 15px/1.3 var(--font-heading);
-  cursor: pointer;
-  transition: color 0.2s, background 0.2s, border-color 0.2s;
-}
-
-.methodology-tab:hover { color: var(--accent-gold); background: var(--bg-tertiary); }
-
-.methodology-tab.active {
-  color: var(--accent-gold);
-  background: var(--bg-card);
-  border-color: var(--border-light);
-  box-shadow: 0 -2px 0 var(--accent-gold) inset;
-}
-
-.methodology-tab-description {
-  margin: 16px 0 24px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  white-space: pre-line;
 }
 
 .methodology-panel {
@@ -92,6 +87,31 @@
   background: var(--bg-card);
   box-shadow: var(--shadow-soft);
   transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.methodology-shift-card {
+  background: #fff;
+  cursor: pointer;
+}
+
+.methodology-shift-card .methodology-card-icon {
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+}
+
+.methodology-card-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.methodology-card-icon {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .methodology-card:hover {
@@ -263,6 +283,22 @@
   .methodology-heading { padding: 20px; }
   .methodology-panel { grid-template-columns: 1fr; }
   .methodology-toolbar { flex-direction: column; align-items: stretch; }
-  .methodology-tabs { gap: 4px; }
-  .methodology-tab { padding: 8px 12px; font-size: 14px; }
+  .methodology-select-label { align-items: stretch; flex-direction: column; }
+  .methodology-select-label .lab-input { min-width: 0; width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .methodology-navigation {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .methodology-navigation .methodology-select-label,
+  .methodology-navigation .methodology-select-label .lab-input,
+  .methodology-navigation > .lab-btn {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
 }

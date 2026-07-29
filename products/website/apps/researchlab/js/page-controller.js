@@ -415,16 +415,9 @@ const PageController = (function() {
           '<section id="scripture-tools" class="scripture-tools" style="display:none;" aria-label="Инструменты исследователя">' +
           '<button type="button" class="lab-btn lab-btn-secondary scripture-tool" id="scripture-tool-analysis" aria-label="Открыть анализ выбранного слова"><img src="../../assets/icons/32/ui/diff.png" alt="" aria-hidden="true"><span>Разобрать</span></button>' +
           '<button type="button" class="lab-btn lab-btn-secondary scripture-tool" id="scripture-tool-save" aria-label="Сохранить свидетельство выбранного слова"><img src="../../assets/icons/32/ui/download.png" alt="" aria-hidden="true"><span>Сохранить</span></button>' +
-          '<button type="button" class="lab-btn lab-btn-secondary scripture-tool" id="scripture-tool-loss" aria-label="Открыть карту утрат"><img src="../../assets/icons/32/ui/map.png" alt="" aria-hidden="true"><span>Карта утрат</span></button>' +
           '</section>' +
           '</main>' +
-          '<aside id="scripture-loss-drawer" class="scripture-loss-drawer" aria-hidden="true" style="display:none;" aria-labelledby="scripture-loss-title">' +
-          '<div class="scripture-loss-drawer-head"><h2 id="scripture-loss-title">Карта утрат</h2><button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" id="scripture-loss-close" aria-label="Закрыть карту утрат"><img src="../../assets/icons/32/ui/close.png" alt="" aria-hidden="true"></button></div>' +
-          '<p>От палео-потока к поздним слоям: видим, где исчезает физика образа.</p>' +
-          '<div id="scripture-loss-timeline" class="scripture-loss-timeline"></div>' +
-          '</aside>' +
-          '</div>' +
-          '<div id="scripture-loss-backdrop" class="scripture-loss-backdrop" hidden></div>';
+          '</div>';
         container.dataset.loaded = '1';
         if (window.ScriptureReader) window.ScriptureReader.init(parsed);
         break;

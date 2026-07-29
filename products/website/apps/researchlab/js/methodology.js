@@ -13,12 +13,128 @@
 
   var CATEGORIES = [
     { key: 'principles', label: 'Принципы разоблачения' },
-    { key: 'methods', label: 'Методы разоблачения' },
-    { key: 'mechanisms', label: 'Механизмы подмены' }
+    { key: 'methods', label: 'Методы разоблачения', source: 'language' },
+    { key: 'mechanisms', label: 'Механизмы подмены' },
+    { key: 'shifts', label: 'Языковые сдвиги', source: 'language-shifts' },
+    { key: 'techniques', label: 'Приёмы подмены', source: 'techniques' },
+    { key: 'philosophemes', label: 'Греческие философемы', source: 'philosophemes' },
+    { key: 'distortions', label: 'Типы искажений', source: 'distortions' }
   ];
+
+  var METHODOLOGY_HERO = {
+    principles: {
+      kicker: 'ГОЛЕМ · ПРИНЦИПЫ РАЗОБЛАЧЕНИЯ',
+      description: 'Базовые правила, по которым выявляется подмена смысла и возвращается физика текста.'
+    },
+    methods: {
+      kicker: 'ГОЛЕМ · МЕТОДЫ РАЗОБЛАЧЕНИЯ',
+      description: 'Рабочие способы проверки слова, перевода и цепочки смысловых сдвигов.'
+    },
+    mechanisms: {
+      kicker: 'ГОЛЕМ · МЕХАНИЗМЫ ПОДМЕНЫ',
+      description: 'Системные ходы, через которые живое действие превращается в застывшую формулу.'
+    },
+    shifts: {
+      kicker: 'ГОЛЕМ · ЯЗЫКОВЫЕ СДВИГИ',
+      description: 'Десять изменений языка, которые меняют ритм, конкретность и присутствие исходного текста.'
+    },
+    techniques: {
+      kicker: 'ГОЛЕМ · ПРИЁМЫ ПОДМЕНЫ',
+      description: 'Конкретные техники, которыми система искажает смысл и лишает слово силы.'
+    },
+    philosophemes: {
+      kicker: 'ГОЛЕМ · ГРЕЧЕСКИЕ ФИЛОСОФЕМЫ',
+      description: 'Тридцать пять моделей мышления, которые перевод превратил в линзу для чтения ТаНаХа.'
+    },
+    distortions: {
+      kicker: 'ГОЛЕМ · ТИПЫ ИСКАЖЕНИЙ',
+      description: 'Девять диагностических моделей, показывающих, как понятие теряет исходную физику в цепочке перевода.'
+    }
+  };
 
   var store = null; // { categories: {...}, cards: [...] }
   var activeTab = CATEGORIES[0].key;
+  var activeDocument = '';
+  var activeTechniqueCategory = '';
+  var exposureDocuments = null;
+
+  var TECHNIQUE_CATEGORIES = [
+    'Языковые приёмы',
+    'Смысловые приёмы',
+    'Социальные приёмы',
+    'Экономические приёмы',
+    'Финансовые приёмы',
+    'Исторические приёмы',
+    'Символические приёмы',
+    'Межкультурные приёмы (вавилонский слой)'
+  ];
+
+  var PHILOSOPHEME_SECTIONS = /^\d+\.\s+/i;
+
+  var LANGUAGE_SHIFT_TITLES = [
+    'Заглавные буквы',
+    'Знаки препинания',
+    'Пробелы',
+    'Гласные (огласовки)',
+    'Абстракции',
+    'Глагол «быть»',
+    'Дуализм (тело/душа)',
+    'Время (прошлое/настоящее/будущее)',
+    'Имена → титулы',
+    'Религия (священное/мирское)'
+  ];
+
+  var LANGUAGE_SHIFT_SUMMARIES = [
+    'Равные по размеру буквы иврита заменили визуальной иерархией заглавных и строчных букв.',
+    'Знаки препинания разбили ритм и дыхание текста на логические блоки.',
+    'Пробелы разделили слитный поток речи и скрыли связь слов внутри смихута.',
+    'Зафиксированные огласовки создали одно чтение там, где согласные допускали несколько вариантов.',
+    'Конкретные действия и отношения заменили отвлечёнными понятиями: «истиной», «любовью» и «духовностью».',
+    'Динамическое действие «быть» превратилось в статичную связку и описание сущности.',
+    'Целостный человек стал разделённым на «душу» и «тело» по греческой дуалистической схеме.',
+    'Завершённость и незавершённость действия заменили линейной шкалой прошлого, настоящего и будущего.',
+    'Имена, несущие присутствие и смысл, заменили должностями и переводными титулами.',
+    'Целостную жизнь перед Яхве разделили на «религиозную» и «мирскую» сферы.'
+  ];
+
+  var LANGUAGE_SHIFT_ICONS = [
+    'ui/markbook.png',
+    'ui/diff.png',
+    'ui/arrows.png',
+    'ui/book.png',
+    'ui/question.png',
+    'ui/enter.png',
+    'ui/scales.png',
+    'ui/clock.png',
+    'ui/user.png',
+    'ui/home.png'
+  ];
+
+  var LANGUAGE_TECHNIQUE_TITLES = [
+    'Сакральный жаргон',
+    'Абстрагирование',
+    'Легитимация перевода',
+    'Импорт вместо перевода',
+    'Слова-пустышки',
+    'Разрыв корневых связей',
+    'Глагол → состояние',
+    'Имя → безличный титул',
+    'Стирание этимологии',
+    'Кастрация смысла'
+  ];
+
+  var LANGUAGE_TECHNIQUE_SUMMARIES = [
+    'Система создаёт специальный язык, непонятный непосвящённым, чтобы создать касту толкователей-посредников.',
+    'Иврит говорит конкретно — кровь, вода, хлеб. Система заменяет это абстракциями: «душа», «дух», «вера».',
+    'Каждый слой перевода добавляет и теряет смысл. За четыре шага живое наставление Торы становится мёртвым кодексом «закона».',
+    'Система не переводит греческие слова, а импортирует их. Непонятное слово («епископ», «дьявол») создаёт зависимость от толкователя.',
+    'Система внедряет слова, которые ничего не значат («духовность», «самореализация»), но создают иллюзию понимания.',
+    'Иврит — язык корней. От одного корня растут десятки слов. Перевод разрывает эти связи, и смыслы теряют родство.',
+    'Иврит мыслит глаголами: действие первично. Система заменяет их существительными-состояниями («вера», «покаяние»).',
+    'Система заменяет личное обращение (Яхве) безличной формулой («Господь»), убивая личные отношения.',
+    'Система сохраняет слово, но стирает память о его происхождении. Слово живо, но корень забыт («физика», «технология»).',
+    'Система сохраняет оболочку слова, но полностью вынимает из него содержание. Слово звучит знакомо, но больше ничего не значит.'
+  ];
 
   function escapeHtml(value) {
     return String(value == null ? '' : value)
@@ -132,7 +248,8 @@
       return response.text();
     }).then(function(html) {
       container.innerHTML = html;
-      bindTabs(container);
+      bindCategorySelect(container);
+      bindDocumentSelect(container);
       bindAddButton(container);
       loadStore(container);
     }).catch(function(error) {
@@ -148,7 +265,13 @@
     }).then(function(data) {
       store = data;
       saveLocalStore(store);
-      showTab(container, activeTab);
+      return fetch('data/exposures/documents.json').then(function(response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+      }).then(function(documents) {
+        exposureDocuments = documents;
+        showTab(container, activeTab);
+      });
     }).catch(function() {
       var cached = loadLocalStore();
       if (cached) {
@@ -164,15 +287,28 @@
     });
   }
 
-  function bindTabs(container) {
-    var tabs = container.querySelectorAll('.methodology-tab');
-    tabs.forEach(function(tab) {
-      tab.addEventListener('click', function() {
-        var key = tab.dataset.tab;
-        if (key === activeTab) return;
-        activeTab = key;
-        showTab(container, key);
-      });
+  function bindCategorySelect(container) {
+    var select = container.querySelector('#methodology-category-select');
+    if (!select) return;
+    select.value = activeTab;
+    select.addEventListener('change', function() {
+      activeTab = select.value;
+      activeDocument = '';
+      showTab(container, activeTab);
+    });
+  }
+
+  function bindDocumentSelect(container) {
+    var select = container.querySelector('#methodology-document-select');
+    if (!select) return;
+    select.addEventListener('change', function() {
+      if (activeTab === 'techniques') {
+        activeTechniqueCategory = select.value;
+        activeDocument = '';
+      } else {
+        activeDocument = select.value;
+      }
+      showTab(container, activeTab);
     });
   }
 
@@ -181,22 +317,192 @@
     if (btn) btn.addEventListener('click', function() { openForm(container); });
   }
 
-  function showTab(container, key) {
-    var tabs = container.querySelectorAll('.methodology-tab');
-    tabs.forEach(function(tab) {
-      var isActive = tab.dataset.tab === key;
-      tab.classList.toggle('active', isActive);
-      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+  function updateDocumentSelect(container, cards) {
+    var select = container.querySelector('#methodology-document-select');
+    if (!select) return;
+
+    var options = ['<option value="">' + (activeTab === 'techniques' ? 'Выберите категорию' : 'Все документы') + '</option>'];
+    cards.forEach(function(card) {
+      options.push('<option value="' + escapeHtml(card.id) + '">' + escapeHtml(card.title || 'Документ') + '</option>');
     });
+    select.innerHTML = options.join('');
+    var hasActiveDocument = cards.some(function(card) { return card.id === activeDocument; });
+    if (!hasActiveDocument) activeDocument = '';
+    select.value = activeDocument;
+  }
+
+  function parseTechniqueCards(section) {
+    var lines = String(section && section.content || '').split(/\n+/);
+    var categoryIndex = TECHNIQUE_CATEGORIES.indexOf(activeTechniqueCategory);
+    return lines.map(function(line, index) {
+      var match = line.trim().match(/^[-*]\s+\*\*(.+?):\*\*\s*(.*)$/);
+      if (!match) return null;
+      return {
+        id: 'exposure-technique-' + categoryIndex + '-' + index,
+        category: 'techniques',
+        title: match[1],
+        summary: match[2],
+        text: match[2],
+        icon: '../../assets/icons/32/ui/diff.png',
+        document: 'technique-card'
+      };
+    }).filter(Boolean);
+  }
+
+  function findTechniqueCard(id) {
+    var match = id.match(/^exposure-technique-(\d+)-(\d+)$/);
+    if (!match || !exposureDocuments || !exposureDocuments.techniques) return null;
+
+    var categoryIndex = parseInt(match[1], 10);
+    var itemIndex = parseInt(match[2], 10);
+    var category = TECHNIQUE_CATEGORIES[categoryIndex];
+    var section = (exposureDocuments.techniques.sections || []).filter(function(candidate) {
+      return candidate.title === category;
+    })[0];
+    if (!section) return null;
+
+    var lines = String(section.content || '').split(/\n+/);
+    var item = lines.map(function(line) {
+      return line.trim().match(/^[-*]\s+\*\*(.+?):\*\*\s*(.*)$/);
+    }).filter(Boolean)[itemIndex];
+    if (!item) return null;
+
+    return {
+      id: id,
+      category: 'techniques',
+      title: item[1],
+      text: item[2]
+    };
+  }
+
+  function updateHero(container, key) {
+    var heroData = METHODOLOGY_HERO[key] || METHODOLOGY_HERO.principles;
+    var kicker = container.querySelector('#methodology-hero-kicker');
+    var description = container.querySelector('#methodology-hero-description');
+    var heading = container.querySelector('.methodology-heading');
+    if (!kicker || !description) return;
+
+    if (heading) heading.classList.add('is-updating');
+    setTimeout(function() {
+      kicker.textContent = heroData.kicker;
+      description.textContent = heroData.description;
+      if (heading) heading.classList.remove('is-updating');
+    }, 100);
+  }
+
+  function showTab(container, key) {
+    var select = container.querySelector('#methodology-category-select');
+    if (select) select.value = key;
 
     var panel = container.querySelector('#methodology-panel');
-    var descriptionEl = container.querySelector('#methodology-tab-description');
     if (!panel || !store) return;
 
+    var category = CATEGORIES.filter(function(item) { return item.key === key; })[0] || {};
+    updateHero(container, key);
     var catInfo = (store.categories || {})[key] || {};
-    if (descriptionEl) descriptionEl.textContent = catInfo.description || '';
 
     var cards = (store.cards || []).filter(function(c) { return c.category === key; });
+    if (category.source && exposureDocuments && exposureDocuments[category.source]) {
+      var documentData = exposureDocuments[category.source];
+      var sourceSections = (documentData.sections || []).filter(function(section) {
+        return /^Сдвиг\s+\d+$/i.test(section.title || '');
+      });
+      if (key === 'shifts') {
+        cards = sourceSections.slice(0, 10).map(function(section, index) {
+          return {
+            id: 'exposure-shifts-' + index,
+            category: key,
+            title: LANGUAGE_SHIFT_TITLES[index] || section.title,
+            summary: LANGUAGE_SHIFT_SUMMARIES[index] || section.content,
+            text: section.content,
+            icon: '../../assets/icons/32/' + LANGUAGE_SHIFT_ICONS[index],
+            document: 'language-shift',
+            sourceIndex: index
+          };
+        });
+      } else if (key === 'methods') {
+        var techniqueSections = (documentData.sections || []).filter(function(section) {
+          return /^Подмена\s+\d+$/i.test(section.title || '');
+        });
+        cards = techniqueSections.slice(0, 10).map(function(section, index) {
+          return {
+            id: 'exposure-methods-language-' + index,
+            category: key,
+            title: LANGUAGE_TECHNIQUE_TITLES[index] || section.title,
+            summary: LANGUAGE_TECHNIQUE_SUMMARIES[index] || section.content,
+            text: section.content,
+            icon: '../../assets/icons/32/' + LANGUAGE_SHIFT_ICONS[index],
+            document: 'language-technique',
+            sourceIndex: index
+          };
+        });
+      } else if (key === 'techniques') {
+        var techniqueCategorySections = (documentData.sections || []).filter(function(section) {
+          return TECHNIQUE_CATEGORIES.indexOf(section.title) !== -1;
+        });
+        var selectedTechniqueSection = techniqueCategorySections.filter(function(section) {
+          return section.title === activeTechniqueCategory;
+        })[0];
+        cards = selectedTechniqueSection ? parseTechniqueCards(selectedTechniqueSection) : [];
+      } else if (key === 'philosophemes') {
+        cards = (documentData.sections || []).filter(function(section) {
+          return PHILOSOPHEME_SECTIONS.test(section.title || '');
+        }).slice(0, 35).map(function(section, index) {
+          var text = section.content || '';
+          var summaryMatch = text.match(/^\*\*Философема:\*\*\s*([^\n]+)/i);
+          return {
+            id: 'exposure-philosopheme-' + index,
+            category: key,
+            title: section.title,
+            summary: summaryMatch ? summaryMatch[1] : text.split('\n')[0],
+            text: text,
+            icon: '../../assets/icons/32/ui/book.png',
+            document: 'philosopheme-card'
+          };
+        });
+      } else if (key === 'distortions') {
+        cards = (documentData.sections || []).filter(function(section) {
+          return PHILOSOPHEME_SECTIONS.test(section.title || '') && /^([1-9])\./.test(section.title || '');
+        }).slice(0, 9).map(function(section, index) {
+          var text = section.content || '';
+          var summaryMatch = text.match(/^\*\*Суть:\*\*\s*([^\n]+)/i);
+          return {
+            id: 'exposure-distortion-' + index,
+            category: key,
+            title: section.title,
+            summary: summaryMatch ? summaryMatch[1] : text.split('\n')[0],
+            text: text,
+            icon: '../../assets/icons/32/ui/scales.png',
+            document: 'distortion-card'
+          };
+        });
+      } else {
+        cards = [{
+          id: 'exposure-' + key,
+          category: key,
+          title: documentData.title,
+          summary: documentData.description,
+          text: documentData.sections.map(function(section) {
+            return '## ' + section.title + '\n\n' + section.content;
+          }).join('\n\n---\n\n'),
+          document: 'source-document'
+        }];
+      }
+    }
+    if (key === 'techniques') {
+      var categorySelect = container.querySelector('#methodology-document-select');
+      if (categorySelect) {
+        categorySelect.innerHTML = ['<option value="">Выберите категорию</option>'].concat(TECHNIQUE_CATEGORIES.map(function(category) {
+          return '<option value="' + escapeHtml(category) + '">' + escapeHtml(category) + '</option>';
+        })).join('');
+        categorySelect.value = activeTechniqueCategory;
+      }
+    } else {
+      updateDocumentSelect(container, cards);
+    }
+    if (activeDocument && key !== 'techniques') {
+      cards = cards.filter(function(card) { return card.id === activeDocument; });
+    }
     renderPanel(container, panel, cards);
   }
 
@@ -209,14 +515,19 @@
 
     panel.className = 'methodology-panel';
     panel.innerHTML = cards.map(function(card, index) {
-      var documentClass = card.document === 'system-architecture' ? ' methodology-document-card' : '';
+      var isDocumentCard = card.document === 'system-architecture' || card.document === 'source-document' || card.document === 'language-shift' || card.document === 'language-technique' || card.document === 'technique-card' || card.document === 'philosopheme-card' || card.document === 'distortion-card';
+      var documentClass = isDocumentCard ? ' methodology-document-card' : '';
+      var shiftClass = card.document === 'language-shift' || card.document === 'language-technique' || card.document === 'technique-card' || card.document === 'philosopheme-card' || card.document === 'distortion-card' ? ' methodology-shift-card' : '';
       var cardText = card.summary || card.text;
+      var cardIcon = card.icon
+        ? '<img src="' + escapeHtml(card.icon) + '" class="methodology-card-icon" alt="" aria-hidden="true">'
+        : '';
       var infoButton = card.text
         ? '<button type="button" class="methodology-icon-btn methodology-info-btn" data-id="' + escapeHtml(card.id) + '" title="Открыть полный текст" aria-label="Открыть полный текст карточки">' + INFO_ICON + '</button>'
         : '';
-      return '<article class="methodology-card' + documentClass + '" data-id="' + escapeHtml(card.id) + '" style="animation-delay:' + (index * 30) + 'ms">' +
+      return '<article class="methodology-card' + documentClass + shiftClass + '" data-id="' + escapeHtml(card.id) + '" style="animation-delay:' + (index * 30) + 'ms">' +
         '<div class="methodology-card-head">' +
-          '<h3 class="methodology-card-title">' + escapeHtml(card.title) + '</h3>' +
+          '<div class="methodology-card-heading">' + cardIcon + '<h3 class="methodology-card-title">' + escapeHtml(card.title) + '</h3></div>' +
           '<div class="methodology-card-actions">' +
             infoButton +
             '<button type="button" class="methodology-icon-btn methodology-copy-btn" data-id="' + escapeHtml(card.id) + '" title="Копировать" aria-label="Копировать карточку">' + COPY_ICON + '</button>' +
@@ -236,6 +547,84 @@
     var cards = store.cards || [];
     for (var i = 0; i < cards.length; i++) {
       if (cards[i].id === id) return cards[i];
+    }
+    if (id.indexOf('exposure-technique-') === 0) {
+      return findTechniqueCard(id);
+    }
+    if (id.indexOf('exposure-philosopheme-') === 0 && exposureDocuments) {
+      var philosophemeIndex = parseInt(id.substring('exposure-philosopheme-'.length), 10);
+      var philosophemeDocument = exposureDocuments.philosophemes;
+      var philosophemeSection = philosophemeDocument && (philosophemeDocument.sections || []).filter(function(section) {
+        return PHILOSOPHEME_SECTIONS.test(section.title || '');
+      })[philosophemeIndex];
+      if (philosophemeSection) {
+        return {
+          id: id,
+          category: 'philosophemes',
+          title: philosophemeSection.title,
+          text: philosophemeSection.content
+        };
+      }
+    }
+    if (id.indexOf('exposure-distortion-') === 0 && exposureDocuments) {
+      var distortionIndex = parseInt(id.substring('exposure-distortion-'.length), 10);
+      var distortionDocument = exposureDocuments.distortions;
+      var distortionSection = distortionDocument && (distortionDocument.sections || []).filter(function(section) {
+        return PHILOSOPHEME_SECTIONS.test(section.title || '') && /^([1-9])\./.test(section.title || '');
+      })[distortionIndex];
+      if (distortionSection) {
+        return {
+          id: id,
+          category: 'distortions',
+          title: distortionSection.title,
+          text: distortionSection.content
+        };
+      }
+    }
+    if (id.indexOf('exposure-shifts-') === 0 && exposureDocuments) {
+      var shiftIndex = parseInt(id.substring('exposure-shifts-'.length), 10);
+      var shiftsDocument = exposureDocuments['language-shifts'];
+      var shiftSection = shiftsDocument && (shiftsDocument.sections || []).filter(function(section) {
+        return /^Сдвиг\s+\d+$/i.test(section.title || '');
+      })[shiftIndex];
+      if (shiftSection) {
+        return {
+          id: id,
+          category: 'shifts',
+          title: LANGUAGE_SHIFT_TITLES[shiftIndex] || shiftSection.title,
+          text: shiftSection.content
+        };
+      }
+    }
+    if (id.indexOf('exposure-methods-language-') === 0 && exposureDocuments) {
+      var techniqueIndex = parseInt(id.substring('exposure-methods-language-'.length), 10);
+      var languageDocument = exposureDocuments.language;
+      var techniqueSection = languageDocument && (languageDocument.sections || []).filter(function(section) {
+        return /^Подмена\s+\d+$/i.test(section.title || '');
+      })[techniqueIndex];
+      if (techniqueSection) {
+        return {
+          id: id,
+          category: 'methods',
+          title: LANGUAGE_TECHNIQUE_TITLES[techniqueIndex] || techniqueSection.title,
+          text: techniqueSection.content
+        };
+      }
+    }
+    if (id.indexOf('exposure-') === 0 && exposureDocuments) {
+      var key = id.substring('exposure-'.length);
+      var category = CATEGORIES.filter(function(item) { return item.key === key; })[0] || {};
+      var documentData = exposureDocuments[category.source || key];
+      if (documentData) {
+        return {
+          id: id,
+          category: key,
+          title: documentData.title,
+          text: (documentData.sections || []).map(function(section) {
+            return '## ' + section.title + '\n\n' + section.content;
+          }).join('\n\n---\n\n')
+        };
+      }
     }
     return null;
   }
