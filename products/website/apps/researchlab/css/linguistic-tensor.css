@@ -15,13 +15,16 @@
 .tensor-totals { display: flex; gap: 16px; color: var(--text-secondary); font-size: 14px; text-align: right; }
 .tensor-totals span { display: grid; gap: 2px; }
 .tensor-totals b { color: var(--text-gold); font-family: var(--font-mono); font-size: 24px; }
-.tensor-table-wrap { overflow-x: auto; border: 1px solid var(--border-light); border-radius: 8px; background: var(--bg-card); box-shadow: var(--shadow-soft); }
-.tensor-table { width: 100%; min-width: 680px; border-collapse: collapse; }
-.tensor-table th, .tensor-table td { padding: 16px; border-bottom: 1px solid var(--border-light); text-align: left; vertical-align: middle; }
-.tensor-table thead th { color: var(--text-secondary); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-.tensor-table tbody tr:last-child th, .tensor-table tbody tr:last-child td { border-bottom: 0; }
-.tensor-table tbody th { width: 29%; color: var(--text-primary); font-size: 15px; font-weight: 700; }
-.tensor-table tbody th small { display: block; margin-top: 4px; color: var(--text-muted); font-size: 12px; font-weight: 400; line-height: 1.35; }
+.tensor-axis-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.tensor-axis-card { min-width: 0; padding: 20px; border: 1px solid var(--border-light); border-radius: 8px; background: var(--bg-card); box-shadow: var(--shadow-soft); }
+.tensor-axis-head { display: flex; align-items: flex-start; gap: 14px; min-height: 64px; margin-bottom: 18px; }
+.tensor-axis-number { flex: 0 0 auto; color: var(--text-gold); font-family: var(--font-mono); font-size: 13px; font-weight: 700; }
+.tensor-axis-head h3 { margin: 0 0 4px; color: var(--text-primary); font-family: var(--font-heading); font-size: 21px; line-height: 1.15; }
+.tensor-axis-head p { margin: 0; color: var(--text-muted); font-size: 13px; line-height: 1.35; }
+.tensor-lane + .tensor-lane { margin-top: 14px; }
+.tensor-lane-label { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 6px; color: var(--text-secondary); font-size: 14px; }
+.tensor-lane-label strong { color: var(--text-primary); font-family: var(--font-mono); font-size: 14px; }
+.tensor-axis-verdict { margin: 18px 0 0; padding-top: 12px; border-top: 1px solid var(--border-light); color: var(--text-gold); font-size: 13px; line-height: 1.35; }
 .tensor-score-wrap { display: grid; grid-template-columns: minmax(90px, 1fr) 38px; align-items: center; gap: 12px; }
 .tensor-score-bar { height: 8px; overflow: hidden; border-radius: 4px; background: var(--bg-hover); }
 .tensor-score-fill { display: block; height: 100%; border-radius: inherit; background: var(--text-muted); transition: width 260ms ease-out; }

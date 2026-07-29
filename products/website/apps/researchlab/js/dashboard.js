@@ -25,14 +25,16 @@ const Dashboard = (function() {
   }
 
   function bookDataPath(book) {
-    var file = book && (book.dataFile || book.id);
+    // В каталоге есть книги-заготовки без локального свидетельства.
+    // Запрашиваем только файл, явно указанный в dataFile.
+    var file = book && book.dataFile;
     return file ? 'data/scripture/' + String(file).replace(/\.json$/, '') + '.json' : '';
   }
 
   function loadBookProgress(books, forceReload) {
     return Promise.all((books || []).map(function(book) {
       var path = bookDataPath(book);
-      if (!path) return Promise.resolve({ book: book, status: 'loading', verses: [] });
+      if (!path) return Promise.resolve({ book: book, status: 'not-started', verses: [], percent: 0 });
 
       return fetchJson(path, forceReload).then(function(verses) {
         if (!Array.isArray(verses) || !verses.length) {

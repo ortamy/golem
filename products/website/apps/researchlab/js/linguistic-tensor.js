@@ -75,17 +75,22 @@
     if (!left || !right || left.id === right.id) return;
     current.analysis = buildAnalysis(left, right);
     var analysis = current.analysis;
-    var rows = analysis.rows.map(function(row) {
+    var cards = analysis.rows.map(function(row, index) {
       var leftTone = row.left > row.right ? 'lead' : (row.left < row.right ? 'trail' : 'equal');
       var rightTone = row.right > row.left ? 'lead' : (row.right < row.left ? 'trail' : 'equal');
-      return '<tr><th scope="row"><span>' + escapeHtml(row.axis.title) + '</span><small>' + escapeHtml(row.axis.hint) + '</small></th>' +
-        '<td>' + bar(row.left, leftTone) + '</td><td>' + bar(row.right, rightTone) + '</td></tr>';
+      var lead = row.delta === 0 ? 'Сопоставимая плотность' :
+        (row.delta > 0 ? left.name + ' · выше плотность' : right.name + ' · выше плотность');
+      return '<article class="tensor-axis-card" aria-labelledby="tensor-axis-' + index + '">' +
+        '<div class="tensor-axis-head"><span class="tensor-axis-number">0' + (index + 1) + '</span><div><h3 id="tensor-axis-' + index + '">' + escapeHtml(row.axis.title) + '</h3><p>' + escapeHtml(row.axis.hint) + '</p></div></div>' +
+        '<div class="tensor-lane"><div class="tensor-lane-label"><span>' + escapeHtml(left.name) + '</span><strong>' + row.left + '</strong></div>' + bar(row.left, leftTone) + '</div>' +
+        '<div class="tensor-lane"><div class="tensor-lane-label"><span>' + escapeHtml(right.name) + '</span><strong>' + row.right + '</strong></div>' + bar(row.right, rightTone) + '</div>' +
+        '<p class="tensor-axis-verdict">' + escapeHtml(lead) + '</p></article>';
     }).join('');
     container.querySelector('#tensor-results').innerHTML =
       '<section class="tensor-results" aria-labelledby="tensor-results-title">' +
       '<div class="tensor-results-head"><div><p class="tensor-kicker">СЛОЙ СРАВНЕНИЯ · 06 ОСЕЙ</p><h2 id="tensor-results-title">Плотность языкового потока</h2></div>' +
       '<div class="tensor-totals"><span><b>' + analysis.leftTotal + '</b> ' + escapeHtml(left.name) + '</span><span><b>' + analysis.rightTotal + '</b> ' + escapeHtml(right.name) + '</span></div></div>' +
-      '<div class="tensor-table-wrap"><table class="tensor-table"><thead><tr><th scope="col">Ось</th><th scope="col">' + escapeHtml(left.name) + '</th><th scope="col">' + escapeHtml(right.name) + '</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+      '<div class="tensor-axis-grid" aria-label="Сравнение по шести осям">' + cards + '</div>' +
       '<aside class="tensor-verdict" aria-labelledby="tensor-verdict-title"><div><p class="tensor-kicker">ИТОГОВЫЙ ВЕРДИКТ</p><h2 id="tensor-verdict-title">' + escapeHtml(analysis.verdict) + '</h2><p>Баллы нормированы по шкале 0–100 и собраны из исследовательских признаков Карты языков.</p></div><button type="button" class="lab-btn lab-btn-secondary tensor-copy" id="tensor-copy">Копировать как промпт</button></aside>' +
       '</section>';
     var copyButton = container.querySelector('#tensor-copy');
