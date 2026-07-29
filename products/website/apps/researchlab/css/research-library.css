@@ -324,15 +324,21 @@ html[data-theme="dark"] .substitution-step {
 .exposure-hero-text .subtitle { margin: 0; }
 
 .exposure-filters {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   align-items: flex-end;
   margin-bottom: 16px;
 }
 
+.exposure-filters label { min-width: 0; width: 100%; }
+
 .exposure-filters .lab-input,
-.exposure-filters select { min-width: 180px; }
+.exposure-filters select {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
 
 .exposure-chips {
   display: flex;
@@ -362,6 +368,10 @@ html[data-theme="dark"] .substitution-step {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+}
+
+@media (max-width: 640px) {
+  .exposure-filters { grid-template-columns: 1fr; }
 }
 
 .exposure-card {
