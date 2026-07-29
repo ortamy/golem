@@ -39,6 +39,7 @@
 <link rel="stylesheet" href="css/methodology.css">
 <link rel="stylesheet" href="css/lab-hero.css">
 <link rel="stylesheet" href="css/manifest.css">
+<link rel="stylesheet" href="css/theme-white.css">
 <style>
   .name-decoder-shell { max-width: 980px; margin: 0 auto; }
   .name-decoder-hero { padding: 28px 30px; margin-bottom: 22px; background: var(--bg-dark); border: 1px solid var(--border-dark); border-radius: 10px; box-shadow: var(--shadow-soft); }
@@ -290,18 +291,22 @@ const LabSidebar = {
   }
 };
 
-// ===== LAB THEME (Dark Mode) =====
+// ===== LAB THEME =====
 const LabTheme = {
+  themes: ['light', 'white', 'dark'],
   init: function() {
     var saved = localStorage.getItem('golem_theme') || 'light';
-    this.set(saved);
+    this.set(this.themes.indexOf(saved) >= 0 ? saved : 'light');
   },
   set: function(theme) {
+    if (this.themes.indexOf(theme) < 0) theme = 'light';
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('golem_theme', theme);
     var icon = theme === 'dark'
       ? '<img src="../../assets/icons/32/ui/sun.png" width="24" height="24" alt="Светлая тема">'
-      : '<img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема">';
+      : theme === 'white'
+        ? '<span aria-hidden="true" style="display:block;width:20px;height:20px;border-radius:50%;background:#fff;border:1px solid #999;box-shadow:0 0 0 1px rgba(255,255,255,.35)"></span>'
+        : '<img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема">';
     var btn = document.getElementById('themeBtn');
     if (btn) btn.innerHTML = icon;
     var btnMobile = document.getElementById('themeBtnMobile');
@@ -309,7 +314,8 @@ const LabTheme = {
   },
   toggle: function() {
     var current = document.documentElement.getAttribute('data-theme') || 'light';
-    this.set(current === 'dark' ? 'light' : 'dark');
+    var index = this.themes.indexOf(current);
+    this.set(this.themes[(index + 1) % this.themes.length]);
   }
 };
 
@@ -368,7 +374,7 @@ const LabToast = {
     if (!t) {
       t = document.createElement('div');
       t.id = 'lab-toast';
-      t.style.cssText = 'position:fixed;top:24px;left:50%;transform:translateX(-50%);background:#2c1810;color:#ede0c8;padding:10px 24px;font-size:14px;font-family:"EB Garamond",serif;opacity:0;pointer-events:none;z-index:9999;border-radius:4px;border:1px solid #b8860b;transition:opacity 0.4s;';
+      t.style.cssText = 'position:fixed;top:24px;left:50%;transform:translateX(-50%);background:var(--bg-dark);color:var(--text-light);padding:10px 24px;font-size:14px;font-family:"EB Garamond",serif;opacity:0;pointer-events:none;z-index:9999;border-radius:4px;border:1px solid var(--border-gold);transition:opacity 0.4s;';
       document.body.appendChild(t);
     }
     t.textContent = msg;

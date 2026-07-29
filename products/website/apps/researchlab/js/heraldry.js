@@ -88,29 +88,23 @@ const DATA_PATH = 'data/heraldry/heraldry.json';
     }
 
     var cards = countries.map(function(c, index) {
-      var description = c.card_description || (c.symbol_paleo_breakdown && c.symbol_paleo_breakdown.description) || c.symbol || '';
-      return '<div class="heraldry-card" data-id="' + escapeHtml(c.id) + '" style="animation-delay: ' + (index * 80) + 'ms">' +
-        '<div class="heraldry-card-flags" aria-hidden="true">' +
-          visualAsset(c.flag, 'heraldry-flag', 'Флаг ' + c.name) +
-          visualAsset(c.coat, 'heraldry-coat', 'Герб ' + c.name) +
-        '</div>' +
+      var flag = c.emoji || c.flag || '';
+      var paleo = c.paleo || c.hebrew || '';
+      return '<article class="heraldry-card" data-id="' + escapeHtml(c.id) + '" style="animation-delay: ' + (index * 80) + 'ms">' +
         '<div class="heraldry-card-header">' +
-          '<h2 class="heraldry-card-title">' + text(c.name) + '</h2>' +
-          '<div class="heraldry-card-paleo" dir="rtl" lang="he">' + text(c.paleo, c.hebrew) + '</div>' +
+          '<div class="heraldry-card-country">' +
+            (flag && flag !== '--' ? '<span class="heraldry-card-flag" role="img" aria-label="Флаг ' + escapeHtml(c.name) + '">' + text(flag) + '</span>' : '') +
+            '<h2 class="heraldry-card-title">' + text(c.name) + '</h2>' +
+          '</div>' +
+          (paleo ? '<div class="heraldry-card-paleo" dir="rtl" lang="he">' + text(paleo) + '</div>' : '') +
         '</div>' +
         '<div class="heraldry-card-symbol"><span class="heraldry-card-symbol-label">Символ</span> ' + text(c.symbol) + '</div>' +
-        '<p class="heraldry-card-description">' + text(description) + '</p>' +
-        '<div class="heraldry-card-conclusion heraldry-conclusion-channel">' + channelLabel() + '</div>' +
-        '<button class="lab-btn lab-btn-primary lab-btn-sm heraldry-detail-btn" data-id="' + escapeHtml(c.id) + '">Подробнее →</button>' +
-      '</div>';
+        '<button class="lab-btn lab-btn-secondary lab-btn-sm heraldry-detail-btn" data-id="' + escapeHtml(c.id) + '" aria-label="Открыть разбор: ' + escapeHtml(c.name) + '">Подробнее <span aria-hidden="true">→</span></button>' +
+      '</article>';
     }).join('');
 
     container.innerHTML = '<div class="heraldry-page">' +
-      '<div class="heraldry-head">' +
-        '<h1><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt=""> Гербовник</h1>' +
-        '<p class="subtitle">Карта государственных конструкций: от древних империй к современным каналам.</p>' +
-      '</div>' +
-      '<div class="heraldry-grid">' + cards + '</div>' +
+      '<div class="heraldry-grid" aria-label="Страны в гербовнике">' + cards + '</div>' +
     '</div>';
 
     // Обработчики кликов
@@ -214,6 +208,11 @@ const DATA_PATH = 'data/heraldry/heraldry.json';
         '<div class="heraldry-detail-symbol">Символ: ' + escapeHtml(country.symbol || '—') + '</div>' +
         '<div class="heraldry-detail-hebrew" dir="rtl">' + escapeHtml(country.hebrew) + '</div>' +
         '<div class="heraldry-detail-paleo" dir="rtl">' + escapeHtml(country.paleo) + '</div>' +
+      '</div>' +
+
+      '<div class="heraldry-detail-section">' +
+        '<h3>Краткий палео-смысл</h3>' +
+        '<p>' + escapeHtml(country.meaning || country.card_description || 'Описание уточняется.') + '</p>' +
       '</div>' +
 
       '<div class="heraldry-detail-section">' +

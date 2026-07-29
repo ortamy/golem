@@ -209,78 +209,51 @@ const PageController = (function() {
   }
 
   function renderManifestPage(container, data) {
-    var cards = Array.isArray(data.cards) ? data.cards : [];
-    var supportTitles = [
-      'ЧТО ТАКОЕ ГОЛЕМ',
-      'ПОЧЕМУ ЭТО ВАЖНО',
-      'Палео-иврит — первичен',
-      'Палео-механика как метод'
-    ];
-    var supportIcons = ['א', 'ע', 'מ', 'ד'];
-    var lossLevels = [0, 2, 3, 4, 5];
-    var lossPercentages = ['100%', '70%', '40%', '25%', '15%'];
-    var lossCards = lossLevels.map(function(level) {
-      return cards.filter(function(card) {
-        return new RegExp('^Уровень\\s+' + level + ':', 'i').test(card.title || '');
-      })[0];
-    }).filter(Boolean);
-    var supportCards = supportTitles.map(function(title, index) {
-      var card = cards.filter(function(candidate) { return candidate.title === title; })[0];
-      if (!card) return '';
-      var summary = String(card.text || '').replace(/[*#>\n]/g, ' ').replace(/\s+/g, ' ').trim();
-      if (summary.length > 240) summary = summary.substring(0, 237) + '…';
-      return '<article class="lab-card manifest-support-card" style="animation-delay: ' + (index * 45) + 'ms">' +
-        '<span class="manifest-support-icon paleo" lang="hbo" aria-hidden="true">' + supportIcons[index] + '</span>' +
-        '<span class="manifest-support-index">Опора 0' + (index + 1) + '</span>' +
-        '<h3>' + escapeHtml(card.title) + '</h3>' +
-        '<p>' + escapeHtml(summary) + '</p>' +
-        '</article>';
-    }).join('');
-    var lossHtml = lossCards.map(function(card, index) {
-      var title = (card.title || '').replace(/^Уровень\s+[0-5]:\s*/i, '');
-      return '<li class="manifest-loss-plate" style="--loss-fill: ' + lossPercentages[index] + '">' +
+    var story = data.story || {};
+    var acts = story.acts || {};
+    var problem = acts.problem || {};
+    var methodology = acts.methodology || {};
+    var application = acts.application || {};
+    var paragraphs = function(items) {
+      return (items || []).map(function(text) { return '<p>' + escapeHtml(text) + '</p>'; }).join('');
+    };
+    var lossHtml = (story.lossMap || []).map(function(layer, index) {
+      var className = layer.percent === '15%' ? ' manifest-loss-plate-light' : (layer.percent === '40%' || layer.percent === '25%' ? ' manifest-loss-plate-dark' : '');
+      return '<li class="manifest-loss-plate' + className + '" style="--loss-fill:' + escapeHtml(layer.percent) + '">' +
         '<span class="manifest-loss-number">0' + (index + 1) + '</span>' +
-        '<span class="manifest-loss-copy"><strong>' + escapeHtml(title) + '</strong><span>' + escapeHtml(card.text || '') + '</span></span>' +
-        '<span class="manifest-loss-percent">' + lossPercentages[index] + '</span>' +
-        '</li>';
+        '<span class="manifest-loss-copy"><strong>' + escapeHtml(layer.title) + '</strong><span>' + escapeHtml(layer.text) + '</span></span>' +
+        '<span class="manifest-loss-percent">' + escapeHtml(layer.percent) + '</span></li>';
     }).join('');
-    var usedTitles = supportTitles.concat(lossCards.map(function(card) { return card.title; }));
-    var accordionCards = cards.filter(function(card) {
-      return usedTitles.indexOf(card.title) === -1;
-    });
-    var accordionHtml = accordionCards.map(function(card, index) {
-      var content = typeof marked !== 'undefined' && marked.parse
-        ? marked.parse(card.text || '')
-        : '<p>' + escapeHtml(card.text || '').replace(/\n/g, '<br>') + '</p>';
-      return '<details class="manifest-accordion-item" style="animation-delay: ' + (index * 25) + 'ms">' +
-        '<summary><span class="manifest-accordion-index">' + String(index + 1).padStart(2, '0') + '</span>' +
-        '<span>' + escapeHtml(card.title || 'Раздел манифеста') + '</span><span class="manifest-accordion-mark" aria-hidden="true">+</span></summary>' +
-        '<div class="manifest-accordion-panel"><div class="manifest-accordion-content">' + content + '</div></div>' +
-        '</details>';
+    var mizraimSteps = (methodology.mizraim || []).map(function(step, index) {
+      return '<li class="manifest-mizraim-step"><span class="manifest-mizraim-glyph paleo" lang="hbo">' + escapeHtml(step.glyph) + '</span>' +
+        '<span class="manifest-mizraim-index">0' + (index + 1) + '</span><strong>' + escapeHtml(step.title) + '</strong><p>' + escapeHtml(step.text) + '</p></li>';
+    }).join('');
+    var spaceCards = (story.spaces || []).map(function(space, index) {
+      return '<article class="lab-card manifest-space-card" style="animation-delay:' + (index * 40) + 'ms">' +
+        '<span class="manifest-space-glyph paleo" lang="hbo" aria-hidden="true">' + escapeHtml(space.glyph) + '</span>' +
+        '<span class="manifest-space-index">0' + (index + 1) + ' · пространство</span>' +
+        '<h3>' + escapeHtml(space.title) + '</h3><p>' + escapeHtml(space.text) + '</p></article>';
     }).join('');
 
     container.innerHTML = '<div class="manifest-page">' +
       '<header class="manifest-hero">' +
       '<div class="manifest-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
-      '<div class="manifest-kicker">RESEARCHLAB · МЕТОДОЛОГИЧЕСКОЕ ЯДРО</div>' +
-      '<h1>' + escapeHtml(data.title || 'Манифест проекта') + '</h1>' +
-      '<p class="manifest-lead">' + escapeHtml(data.description || '') + '</p>' +
-      '</header>' +
-      '<section class="manifest-section manifest-loss-section" aria-labelledby="manifest-loss-title">' +
-      '<div class="manifest-section-heading"><div><span class="manifest-section-label">01 · слои передачи</span><h2 id="manifest-loss-title">Карта утрат</h2>' +
-      '<p>Как образ сжимается до понятия: процент сохранённой физики смысла на каждом слое.</p></div></div>' +
-      '<ol class="manifest-loss-map" aria-label="Карта утрат от палео-образов к Синодальному слою">' + (lossHtml || '<li class="lab-alert lab-alert-info">Карта утрат пока не заполнена.</li>') + '</ol>' +
-      '</section>' +
-      '<section class="manifest-section manifest-support-section" aria-labelledby="manifest-supports-title">' +
-      '<div class="manifest-section-heading"><div><span class="manifest-section-label">02 · ядро</span><h2 id="manifest-supports-title">Четыре опоры</h2>' +
-      '<p>Минимальный каркас, через который Давар возвращает тексту образ, движение и переход.</p></div></div>' +
-      '<div class="manifest-supports">' + (supportCards || '<div class="lab-alert lab-alert-info">Опоры манифеста пока не заполнены.</div>') + '</div>' +
-      '</section>' +
-      '<section class="manifest-section manifest-accordion-section" aria-labelledby="manifest-accordion-title">' +
-      '<div class="manifest-section-heading"><div><span class="manifest-section-label">03 · глубина</span><h2 id="manifest-accordion-title">Глубокие принципы</h2>' +
-      '<p>Раскрой блок, чтобы войти в конкретный слой методологии.</p></div></div>' +
-      '<div class="manifest-accordion">' + (accordionHtml || '<div class="lab-alert lab-alert-info">Дополнительные разделы пока не заполнены.</div>') + '</div>' +
-      '</section>' +
+      '<div class="manifest-kicker">RESEARCHLAB · ИСТОРИЯ ВОССТАНОВЛЕНИЯ</div>' +
+      '<h1>' + escapeHtml(story.title || data.title || 'Манифест проекта') + '</h1>' +
+      '<p class="manifest-lead">' + escapeHtml(story.lead || data.description || '') + '</p>' +
+      '</header><div class="manifest-hero-divider" aria-hidden="true"></div>' +
+      '<section class="manifest-act manifest-act-problem" aria-labelledby="manifest-problem-title">' +
+      '<div class="manifest-act-heading"><span class="manifest-act-number">I</span><div><span class="manifest-section-label">Акт I · проблема</span><h2 id="manifest-problem-title">' + escapeHtml(problem.title || 'Проблема') + '</h2></div></div>' +
+      '<div class="manifest-story-copy">' + paragraphs(problem.paragraphs) + '</div>' +
+      '<section class="manifest-loss-section" aria-labelledby="manifest-loss-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Карта утрат</span><h3 id="manifest-loss-title">Как образ сжимается до понятия</h3></div></div><ol class="manifest-loss-map" aria-label="Карта утрат">' + lossHtml + '</ol></section></section>' +
+      '<section class="manifest-act manifest-act-methodology" aria-labelledby="manifest-methodology-title">' +
+      '<div class="manifest-act-heading"><span class="manifest-act-number">II</span><div><span class="manifest-section-label">Акт II · методология</span><h2 id="manifest-methodology-title">' + escapeHtml(methodology.title || 'Методология') + '</h2></div></div>' +
+      '<div class="manifest-story-copy">' + paragraphs(methodology.paragraphs) + '</div>' +
+      '<div class="manifest-mizraim"><div class="manifest-section-heading"><div><span class="manifest-section-label">Разбор слова</span><h3>Мицраим</h3><p>' + escapeHtml(methodology.mizraimLead || '') + '</p></div></div><ol class="manifest-mizraim-list">' + mizraimSteps + '</ol><p class="manifest-mizraim-conclusion">' + escapeHtml(methodology.mizraimConclusion || '') + '</p></div>' +
+      '<section class="manifest-spaces-section" aria-labelledby="manifest-spaces-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Семь моделей среды</span><h3 id="manifest-spaces-title">Карта пространств</h3><p>Семь состояний, через которые проходит поток.</p></div></div><div class="manifest-spaces">' + spaceCards + '</div></section></section>' +
+      '<section class="manifest-act manifest-act-application" aria-labelledby="manifest-application-title">' +
+      '<div class="manifest-act-heading"><span class="manifest-act-number">III</span><div><span class="manifest-section-label">Акт III · применение</span><h2 id="manifest-application-title">' + escapeHtml(application.title || 'Применение') + '</h2></div></div>' +
+      '<div class="manifest-story-copy">' + paragraphs(application.paragraphs) + '</div><div class="manifest-cta-wrap"><a class="lab-btn lab-btn-primary manifest-cta" href="#root-dictionary">Перейти в Лабораторию <span aria-hidden="true">→</span></a></div></section>' +
       '</div>';
   }
 

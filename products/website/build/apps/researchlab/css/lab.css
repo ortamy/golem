@@ -61,6 +61,34 @@
   --shadow-soft: 0 2px 12px rgba(0,0,0,0.35);
 }
 
+/* ===== WHITE THEME ===== */
+[data-theme="white"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #fafafa;
+  --bg-dark: #fafafa;
+  --bg-dark-hover: #f0f0f0;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #333333;
+  --text-muted: #777777;
+  --text-light: #1a1a1a;
+  --text-gold: #666666;
+  --border-light: #e0e0e0;
+  --border-dark: #d6d6d6;
+  --border-gold: #bdbdbd;
+  --accent-gold: #555555;
+  --accent-gold-hover: #333333;
+  --accent-red: #b83226;
+  --accent-red-hover: #92251d;
+  --accent-green: #286828;
+  --shadow-card: rgba(0,0,0,0.04);
+  --shadow-card-hover: rgba(0,0,0,0.10);
+  --shadow-soft: 0 2px 12px rgba(0,0,0,0.06);
+}
+[data-theme="white"] body::before,
+[data-theme="white"] body::after { opacity: 0; }
+
 /* ===== БАЗА ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }

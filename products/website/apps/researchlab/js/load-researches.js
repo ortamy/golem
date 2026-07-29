@@ -313,11 +313,11 @@ const LoadResearches = (function() {
           '<h1><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</h1>' +
           '<p class="subtitle">Разбор подмен смысла в языке, истории, экономике, спорте и других сферах — через восстановление ивритских корней ТаНаХа.</p>' +
         '</div>' +
-        '<button type="button" class="lab-btn lab-btn-primary exposure-new-btn" id="researches-new-btn">+ Новое дело</button>' +
       '</div>' +
       '<div class="research-controls exposure-filters">' +
       '<label class="research-search-label">Поиск<input id="researches-search" class="lab-input" type="search" placeholder="Название, тема, тег или категория" value="' + escapeHtml(state.query) + '"></label>' +
       '<label>Категория<select id="researches-category" class="lab-input"><option value="all">Все категории</option>' + options + '</select></label>' +
+      '<button type="button" class="lab-btn lab-btn-primary exposure-new-btn" id="researches-new-btn">+ Новое дело</button>' +
       '</div>' +
       renderConfidenceChips() +
       '<div class="research-meta"><strong>' + filtered.length + ' из ' + items.length + '</strong><span>Опубликованные разоблачения проекта «Голем»</span></div>' +
