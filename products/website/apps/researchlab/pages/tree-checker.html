@@ -1,0 +1,21 @@
+<section class="tree-checker-shell" aria-labelledby="tree-checker-title">
+  <header class="tree-checker-intro">
+    <p class="tree-checker-kicker">𐤏𐤑 · ШЕСТЬ УРОВНЕЙ</p>
+    <h1 id="tree-checker-title">Чекер дерева</h1>
+    <p class="subtitle">Проведите учение от семени до плодов. На каждом уровне зафиксируйте наблюдение и оцените, держится ли дерево.</p>
+  </header>
+  <div class="tree-checker-toolbar" role="toolbar" aria-label="Пресеты">
+    <span class="tree-checker-toolbar-label">Быстрая проверка:</span>
+    <button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-tree-preset="trinity">Троица</button>
+    <button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-tree-reset>Очистить</button>
+  </div>
+  <div class="tree-checker-progress" aria-live="polite"><span data-tree-progress-bar></span></div>
+  <form class="tree-checker-form" data-tree-form>
+    <div data-tree-level></div>
+    <div class="tree-checker-actions">
+      <button type="button" class="lab-btn lab-btn-secondary" data-tree-prev>← Назад</button>
+      <button type="button" class="lab-btn lab-btn-primary" data-tree-next>Далее →</button>
+    </div>
+  </form>
+  <section class="tree-checker-result" data-tree-result hidden aria-live="polite"></section>
+</section>

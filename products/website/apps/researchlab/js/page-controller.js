@@ -693,6 +693,15 @@ const PageController = (function() {
         }
         break;
 
+      case 'tree-checker':
+        showSpinner(container, 'Загрузка дерева…');
+        if (window.TreeChecker) {
+          window.TreeChecker.init(container);
+        } else {
+          showError(container, 'Модуль «Чекер дерева» не загрузился.');
+        }
+        break;
+
       // ===== МОДУЛИ С JS-ИНИЦИАЛИЗАЦИЕЙ =====
       case 'cartography':
         showSpinner(container, 'Загрузка картографии…');

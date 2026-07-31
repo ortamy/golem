@@ -1,0 +1,42 @@
+/** Чекер дерева: шесть уровней от семени до плодов. */
+(function(window, document) {
+  'use strict';
+  var PAGE_PATH = 'pages/tree-checker.html';
+  var levels = [
+    { key: 'seed', name: 'Семя', paleo: '𐤆𐤓𐤏', description: 'Человек или дыхание, с которого учение началось.', question: 'Как жил основатель? Совпадает ли его жизнь с учением?' },
+    { key: 'soil', name: 'Почва', paleo: '𐤀𐤃𐤌𐤄', description: 'Культурная, политическая и экономическая среда произрастания.', question: 'В какой среде родилось учение и кто поддерживал его рост?' },
+    { key: 'roots', name: 'Корни', paleo: '𐤔𐤓𐤔', description: 'Источник дыхания: связь с Авраhамом, Ицхаком, Яаковом и Израилем.', question: 'Признаёт ли учение Израиль корнем или заменяет его?' },
+    { key: 'trunk', name: 'Ствол', paleo: '𐤂𐤆𐤏', description: 'Центральная идея, на которой держится вся система.', question: 'Кто находится в центре? Противоречит ли идея Шма — Яхве один?' },
+    { key: 'branches', name: 'Ветви', paleo: '𐤏𐤍𐤐', description: 'Видимые действия, практики, привычки и дисциплины.', question: 'Ведут ли ежедневные практики к свободе или к зависимости?' },
+    { key: 'fruits', name: 'Плоды', paleo: '𐤐𐤓𐤉', description: 'Поведение, характер и результат жизни последователей.', question: 'Что это учение рождает: жизнь и целостность или страх и разделения?' }
+  ];
+  var preset = { seed: ['Никейский собор и имперская власть', 'rotten'], soil: ['Греческая философия и римская политика', 'rotten'], roots: ['Израиль заменён общиной системы', 'rotten'], trunk: ['Единство описывается как три лица', 'rotten'], branches: ['Догматы, соборы, анафемы и обряды', 'rotten'], fruits: ['Разделения, преследования и антисемитизм', 'rotten'] };
+  var state = { index: 0, answers: {} };
+  function esc(value) { var node = document.createElement('div'); node.textContent = value == null ? '' : String(value); return node.innerHTML; }
+  function init(container) {
+    if (!container || container.dataset.loading === '1') return;
+    if (container.dataset.loaded === '1') { bind(container); return; }
+    container.dataset.loading = '1';
+    fetch(PAGE_PATH).then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); }).then(function(markup) {
+      container.innerHTML = markup; container.dataset.loaded = '1'; delete container.dataset.loading; bind(container);
+    }).catch(function(error) { delete container.dataset.loading; container.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить Чекер дерева: ' + esc(error.message) + '</div>'; });
+  }
+  function bind(container) {
+    if (container.dataset.treeBound === '1') { render(container); return; }
+    container.dataset.treeBound = '1';
+    container.querySelector('[data-tree-next]').addEventListener('click', function() { save(container); if (state.index === levels.length - 1) showResult(container); else { state.index++; render(container); } });
+    container.querySelector('[data-tree-prev]').addEventListener('click', function() { save(container); if (state.index > 0) { state.index--; render(container); } });
+    container.querySelector('[data-tree-reset]').addEventListener('click', function() { state = { index: 0, answers: {} }; container.querySelector('[data-tree-result]').hidden = true; container.querySelector('[data-tree-form]').hidden = false; render(container); });
+    container.querySelector('[data-tree-preset="trinity"]').addEventListener('click', function() { state = { index: 0, answers: JSON.parse(JSON.stringify(preset)) }; container.querySelector('[data-tree-result]').hidden = true; container.querySelector('[data-tree-form]').hidden = false; render(container); });
+    render(container);
+  }
+  function save(container) { var level = levels[state.index], text = container.querySelector('[data-tree-text]'), rating = container.querySelector('input[name="tree-rating"]:checked'); state.answers[level.key] = [text ? text.value.trim() : '', rating ? rating.value : 'unclear']; }
+  function render(container) {
+    var level = levels[state.index], answer = state.answers[level.key] || ['', 'unclear'], target = container.querySelector('[data-tree-level]');
+    target.innerHTML = '<div class="tree-checker-level"><div class="tree-checker-level-kicker">Уровень ' + (state.index + 1) + ' из 6 · ' + level.paleo + '</div><h2>' + level.name + '</h2><p class="tree-checker-level-description">' + level.description + '</p><p class="tree-checker-question">' + level.question + '</p><textarea class="lab-textarea" data-tree-text placeholder="Зафиксируйте наблюдение…">' + esc(answer[0]) + '</textarea><div class="tree-checker-rating" role="radiogroup" aria-label="Оценка уровня"><label><input type="radio" name="tree-rating" value="healthy"' + (answer[1] === 'healthy' ? ' checked' : '') + '> Держится</label><label><input type="radio" name="tree-rating" value="unclear"' + (answer[1] === 'unclear' ? ' checked' : '') + '> Требует проверки</label><label><input type="radio" name="tree-rating" value="rotten"' + (answer[1] === 'rotten' ? ' checked' : '') + '> Гнилое место</label></div></div>';
+    container.querySelector('[data-tree-prev]').disabled = state.index === 0; container.querySelector('[data-tree-next]').textContent = state.index === levels.length - 1 ? 'Показать дерево' : 'Далее →'; container.querySelector('[data-tree-progress-bar]').style.width = ((state.index + 1) / levels.length * 100) + '%';
+  }
+  function treeSvg() { var points = levels.map(function(level, i) { var answer = state.answers[level.key] || ['', 'unclear'], color = answer[1] === 'healthy' ? '#4d8b52' : (answer[1] === 'rotten' ? '#b45d4d' : '#b28a3c'), y = 42 + i * 62; return { level: level, color: color, y: y }; }); var links = points.slice(0, -1).map(function(p, i) { return '<path d="M 350 ' + (p.y + 16) + ' C 230 ' + (p.y + 35) + ', 470 ' + (points[i + 1].y - 35) + ', 350 ' + (points[i + 1].y - 16) + '" fill="none" stroke="' + points[i + 1].color + '" stroke-width="12" stroke-linecap="round"/>'; }).join(''); var nodes = points.map(function(p) { return '<circle cx="350" cy="' + p.y + '" r="16" fill="' + p.color + '"/><text x="382" y="' + (p.y + 5) + '" font-size="16">' + p.level.name + ' · ' + p.level.paleo + '</text>'; }).join(''); return '<svg class="tree-checker-svg" viewBox="0 0 700 420" role="img" aria-label="Дерево результатов">' + '<path d="M 180 405 Q 350 370 520 405" fill="none" stroke="#9b762d" stroke-width="4"/><path d="M 350 394 L 350 410" stroke="#70462f" stroke-width="18" stroke-linecap="round"/>' + links + nodes + '</svg>'; }
+  function showResult(container) { save(container); var score = levels.reduce(function(sum, level) { return sum + ((state.answers[level.key] || ['', 'unclear'])[1] === 'healthy' ? 1 : ((state.answers[level.key] || ['', 'unclear'])[1] === 'unclear' ? .5 : 0)); }, 0), rotten = levels.filter(function(level) { return (state.answers[level.key] || ['', 'unclear'])[1] === 'rotten'; }).length, healthy = rotten === 0 && score >= 5, verdict = healthy ? 'Дерево держится: признаки эмет обнаружены на всех уровнях.' : (score >= 3 ? 'Дерево требует дальнейшей проверки: есть смешанные уровни.' : 'Дерево гнилое: ключевые уровни ведут в Мицраим, а не в Шамаим.'); var list = levels.map(function(level) { var a = state.answers[level.key] || ['', 'unclear']; return '<li><strong>' + level.name + '</strong><span>' + (a[1] === 'healthy' ? 'Держится' : (a[1] === 'rotten' ? 'Гнилое место' : 'Требует проверки')) + '</span></li>'; }).join(''); container.querySelector('[data-tree-form]').hidden = true; var result = container.querySelector('[data-tree-result]'); result.innerHTML = '<h2>Результат проверки</h2><div class="tree-checker-verdict ' + (healthy ? 'is-healthy' : 'is-rotten') + '">' + verdict + '</div><div class="tree-checker-svg-wrap">' + treeSvg() + '</div><ul class="tree-checker-summary">' + list + '</ul><button type="button" class="lab-btn lab-btn-primary" data-tree-again>Проверить другое дерево</button>'; result.hidden = false; result.querySelector('[data-tree-again]').addEventListener('click', function() { state = { index: 0, answers: {} }; result.hidden = true; container.querySelector('[data-tree-form]').hidden = false; render(container); }); }
+  window.TreeChecker = { init: init };
+})(window, document);

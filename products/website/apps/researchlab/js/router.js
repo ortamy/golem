@@ -78,7 +78,7 @@ const LabRouter = (function() {
       'checkers', 'translation-comparator', 'investigation', 'heraldry',
       'cartography', 'states', 'timeline', 'ai-agents', 'ed-chat', 'vision',
       'paleo-keyboard', 'admin-settings', 'exposure-editor', 'clue-generator',
-      'video-lab', 'prompt-generator', 'davar-checker', 'board', 'name-decoder', 'linguistic-tensor'
+      'video-lab', 'prompt-generator', 'davar-checker', 'tree-checker', 'board', 'name-decoder', 'linguistic-tensor'
     ];
 
     // #settings is an alias for #admin-settings
@@ -128,6 +128,12 @@ const LabRouter = (function() {
     // #davar-checker — проверка воплощаемости слова
     if (hash === 'davar-checker') {
       showModule('davar-checker', parsed);
+      return;
+    }
+
+    // #tree-checker — проверка учения по шести уровням дерева
+    if (hash === 'tree-checker') {
+      showModule('tree-checker', parsed);
       return;
     }
 
