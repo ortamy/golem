@@ -103,9 +103,15 @@ const DATA_PATH = 'data/heraldry/heraldry.json';
       '</article>';
     }).join('');
 
-    container.innerHTML = '<div class="heraldry-page">' +
-      '<div class="heraldry-grid" aria-label="Страны в гербовнике">' + cards + '</div>' +
-    '</div>';
+    container.innerHTML = '<header class="section-hero">' +
+        '<div class="section-hero-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
+        '<div class="section-hero-kicker">ГОЛЕМ · ГЕРБОВНИК</div>' +
+        '<h1><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Гербовник</h1>' +
+        '<p class="section-hero-lead">Исследование государственных конструкций через палео-анализ гербов, флагов и символов власти.</p>' +
+      '</header>' +
+      '<div class="heraldry-page">' +
+        '<div class="heraldry-grid" aria-label="Страны в гербовнике">' + cards + '</div>' +
+      '</div>';
 
     // Обработчики кликов
     container.querySelectorAll('.heraldry-card').forEach(function(card) {

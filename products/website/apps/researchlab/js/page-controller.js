@@ -396,12 +396,12 @@ const PageController = (function() {
         break;
 
       case 'investigation':
-        container.innerHTML = '<div class="investigation-heading">' +
-          '<div><div class="investigation-kicker">AI / ДОСЬЕ</div>' +
+        container.innerHTML = '<header class="section-hero">' +
+          '<div class="section-hero-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
+          '<div class="section-hero-kicker">ГОЛЕМ · РАССЛЕДОВАНИЕ</div>' +
           '<h1><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</h1>' +
-          '<p class="subtitle">Введите слово, корень или перевод. Сопоставьте происхождение, цепочку подмен и текстовые свидетельства.</p></div>' +
-          '<div class="investigation-stamp" aria-hidden="true">CASE<br><strong>01</strong></div>' +
-          '</div>' +
+          '<p class="section-hero-lead">Введите слово, корень или перевод. Сопоставьте происхождение, цепочку подмен и текстовые свидетельства.</p>' +
+        '</header>' +
           '<form id="investigation-form" class="investigation-search" onsubmit="event.preventDefault(); Investigation.investigate();">' +
           '<label for="investigation-input">Объект расследования</label>' +
           '<div class="investigation-search-row"><input type="search" id="investigation-input" class="lab-input" placeholder="חסד, милость, HSD..." autocomplete="off" required>' +
@@ -721,6 +721,16 @@ const PageController = (function() {
           window.GolemStates.init(parsed);
         } else {
           showError(container, 'Модуль «Карта состояний» не загрузился.');
+        }
+        break;
+
+      case 'timeline':
+        showSpinner(container, 'Загрузка палео-таймлайна…');
+        if (window.Timeline) {
+          container.dataset.loaded = '1';
+          window.Timeline.init(container, parsed);
+        } else {
+          showError(container, 'Модуль «Палео-таймлайн» не загрузился.');
         }
         break;
 

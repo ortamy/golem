@@ -132,11 +132,13 @@ const Cartography = (function() {
       ? '<div class="cartography-grid">' + list.map(renderCard).join('') + '</div>'
       : '<div class="lab-alert lab-alert-info">Ничего не найдено по выбранным фильтрам.</div>';
 
-    container.innerHTML = '<div class="cartography-page">' +
-      '<div class="cartography-head">' +
-        '<h1><img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt=""> Картография</h1>' +
-        '<p class="subtitle">Смысловая карта: страны, города и регионы как пространственные конструкции.</p>' +
-      '</div>' +
+    container.innerHTML = '<header class="section-hero">' +
+        '<div class="section-hero-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
+        '<div class="section-hero-kicker">ГОЛЕМ · КАРТОГРАФИЯ</div>' +
+        '<h1><img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt="">Картография</h1>' +
+        '<p class="section-hero-lead">Смысловая карта: страны, города и регионы как пространственные конструкции.</p>' +
+      '</header>' +
+      '<div class="cartography-page">' +
       filtersHtml +
       cardsHtml +
     '</div>';

@@ -308,12 +308,12 @@ const LoadResearches = (function() {
     }).join('');
     var filtered = getFiltered();
 
-    container.innerHTML = '<div class="exposure-hero">' +
-        '<div class="exposure-hero-text">' +
-          '<h1><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</h1>' +
-          '<p class="subtitle">Разбор подмен смысла в языке, истории, экономике, спорте и других сферах — через восстановление ивритских корней ТаНаХа.</p>' +
-        '</div>' +
-      '</div>' +
+    container.innerHTML = '<header class="section-hero">' +
+        '<div class="section-hero-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
+        '<div class="section-hero-kicker">ГОЛЕМ · РАЗОБЛАЧЕНИЯ</div>' +
+        '<h1><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</h1>' +
+        '<p class="section-hero-lead">Разбор подмен смысла в языке, истории, экономике, спорте и других сферах — через восстановление ивритских корней ТаНаХа.</p>' +
+      '</header>' +
       '<div class="research-controls exposure-filters">' +
       '<label class="research-search-label">Поиск<input id="researches-search" class="lab-input" type="search" placeholder="Название, тема, тег или категория" value="' + escapeHtml(state.query) + '"></label>' +
       '<label>Категория<select id="researches-category" class="lab-input"><option value="all">Все категории</option>' + options + '</select></label>' +
