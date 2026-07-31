@@ -16,9 +16,9 @@
       icon: 'ui/book.png'
     },
     'researches': {
-      kicker: 'ГОЛЕМ · РАЗОБЛАЧЕНИЯ',
-      title: 'Разоблачения',
-      subtitle: 'Разбор подмен смысла в языке, истории, экономике и других сферах — через восстановление ивритских корней ТаНаХа.',
+      kicker: 'ГОЛЕМ · БИБЛИОТЕКА',
+      title: 'Библиотека',
+      subtitle: 'Архив исследовательских материалов о языке, истории, экономике и других сферах.',
       icon: 'scribe/scrolls.png'
     },
     'root-dictionary': {
@@ -57,6 +57,12 @@
       subtitle: 'Эволюция письма и языка через форму букв, корни и физику образа.',
       icon: 'scribe/scroll.png'
     },
+    'paleo-builder': {
+      kicker: 'ГОЛЕМ · ПАЛЕО-КОНСТРУКТОР',
+      title: 'Палео-Конструктор',
+      subtitle: 'Соберите слово как последовательность образов и действий.',
+      icon: 'crafts/hammer-and-chisel.png'
+    },
     'prompt-generator': {
       kicker: 'ГОЛЕМ · ГЕНЕРАТОР ПРОМПТОВ',
       title: 'Генератор промптов',
@@ -94,10 +100,22 @@
       icon: 'ui/question.png'
     },
     'checkers': {
-      kicker: 'КОНТРОЛЬ И СВЕРКА',
+      kicker: 'ГОЛЕМ · ЧЕКЕРЫ',
       title: 'Чекеры',
       subtitle: 'Проверьте текст на смысловые подмены и сопоставьте формулировку с физикой исходного образа.',
       icon: 'ui/question.png'
+    },
+    'generators': {
+      kicker: 'ГОЛЕМ · ГЕНЕРАТОРЫ',
+      title: 'Генераторы',
+      subtitle: 'Соберите рабочее поле, маршрут исследования или точный запрос к инструменту.',
+      icon: 'crafts/hammer-and-chisel.png'
+    },
+    'clue-generator': {
+      kicker: 'ГОЛЕМ · ГЕНЕРАТОР УЛИК',
+      title: 'Генератор улик',
+      subtitle: 'Соберите наблюдения в цепочку: от факта через связь к выводу.',
+      icon: 'ui/link.png'
     },
     'word-analyzer': {
       kicker: 'ГОЛЕМ · РАЗБОР СЛОВ',
@@ -195,6 +213,18 @@
       subtitle: 'Сравнение живых языков по способности собирать Давар и переводить речь между состояниями.',
       icon: 'paleo/track.png'
     },
+    'linguistic-tensor': {
+      kicker: 'ГОЛЕМ · ЛИНГВИСТИЧЕСКИЙ ТЕНЗОР',
+      title: 'Лингвистический тензор',
+      subtitle: 'Сопоставьте два языка и посмотрите, где их поток удерживает действие, корень и физику образа.',
+      icon: 'archaeology/testtube.png'
+    },
+    'timeline': {
+      kicker: 'ГОЛЕМ · ПАЛЕО-ТАЙМЛАЙН',
+      title: 'Каталог таймлайнов',
+      subtitle: 'Хронологические карты событий: от палео-ивритского письма до цифровых инструментов восстановления.',
+      icon: 'paleo/track.png'
+    },
     'admin-settings': {
       kicker: 'ГОЛЕМ · НАСТРОЙКИ',
       title: 'Настройки / Администрирование',
@@ -224,6 +254,10 @@
     var hero = createElement('section', 'lab-hero', '');
     hero.setAttribute('aria-labelledby', 'lab-hero-title-' + moduleId);
     hero.setAttribute('data-lab-hero', moduleId);
+
+    var watermark = createElement('div', 'lab-hero__watermark', '𐤀 𐤁 𐤂 𐤃 𐤄 𐤅');
+    watermark.setAttribute('aria-hidden', 'true');
+    hero.appendChild(watermark);
 
     var icon = document.createElement('img');
     icon.className = 'lab-hero__icon';

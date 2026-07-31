@@ -64,9 +64,9 @@ const Timeline = (function() {
       var hiddenEvents = events.slice(3);
       var eventMarkup = function(ev, hidden) {
           return '' +
-            '<div class="event-card' + (hidden ? ' event-card-hidden' : '') + '"' + (hidden ? ' hidden' : '') + '>' +
-              '<div class="event-date">' + escapeHtml(ev.date) + '</div>' +
-              '<div class="event-title">' + escapeHtml(ev.title) + '</div>' +
+            '<div class="timeline-event-row' + (hidden ? ' event-card-hidden' : '') + '"' + (hidden ? ' hidden' : '') + '>' +
+              '<span class="timeline-date">' + escapeHtml(ev.date) + '</span>' +
+              '<span class="timeline-title">' + escapeHtml(ev.title) + '</span>' +
             '</div>';
       };
       var eventsHtml = visibleEvents.map(function(ev) { return eventMarkup(ev, false); }).join('') +
@@ -175,17 +175,6 @@ const Timeline = (function() {
     });
   }
 
-  function toggleEvents(btn) {
-    var container = btn.closest('.tl-container');
-    if (container) {
-      var events = container.querySelector('.tl-event-cards');
-      var expanded = container.classList.toggle('tl-container-expanded');
-      if (events) events.hidden = !expanded;
-      btn.textContent = expanded ? '← Свернуть' : '→ Открыть';
-      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    }
-  }
-
   function pluralize(n, one, two, five) {
     n = Math.abs(n) % 100;
     var n1 = n % 10;
@@ -198,8 +187,7 @@ const Timeline = (function() {
   return {
     init: init,
     render: renderCatalog,
-    renderDetail: renderDetail,
-    toggleEvents: toggleEvents
+    renderDetail: renderDetail
   };
 })();
 

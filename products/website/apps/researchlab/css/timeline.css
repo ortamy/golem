@@ -230,30 +230,26 @@
   margin-top: 14px;
 }
 
-.event-card {
+.timeline-event-row {
   display: grid;
-  grid-template-columns: minmax(70px, auto) minmax(0, 1fr);
-  align-items: baseline;
-  gap: 10px;
-  padding: 7px 0;
-  border-bottom: 1px solid var(--border-light, #e8e0d4);
+  grid-template-columns: minmax(100px, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 5px 0;
 }
 
-.event-card:last-child {
-  border-bottom: 0;
-}
-
-.event-date {
+.timeline-date {
   font-size: 0.75rem;
-  font-weight: 700;
   color: var(--text-muted, #9a8a7a);
-  letter-spacing: 0.04em;
+  text-align: left;
   white-space: nowrap;
 }
 
-.event-title {
+.timeline-title {
+  min-width: 0;
+  flex: 1;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary, #2c1810);
   line-height: 1.35;
   font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
@@ -277,20 +273,14 @@
 }
 
 /* ===== ТЁМНАЯ ТЕМА ===== */
-[data-theme="dark"] .tl-container,
-[data-theme="dark"] .event-card {
+[data-theme="dark"] .tl-container {
   background: var(--bg-card, #2a2218);
   border-color: var(--border-dark, #3a2a1a);
 }
 
 [data-theme="dark"] .tl-container-title,
-[data-theme="dark"] .event-title {
+[data-theme="dark"] .timeline-title {
   color: var(--text-primary, #e8dcc8);
-}
-
-[data-theme="dark"] .event-card {
-  background: transparent;
-  border-bottom-color: var(--border-dark, #3a2a1a);
 }
 
 [data-theme="dark"] .tl-container-description {
@@ -344,16 +334,16 @@
     min-width: 120px;
   }
 
-  .event-card {
-    grid-template-columns: 64px minmax(0, 1fr);
+  .timeline-event-row {
+    grid-template-columns: 100px minmax(0, 1fr);
     gap: 8px;
   }
 
-  .event-date {
+  .timeline-date {
     font-size: 0.7rem;
   }
 
-  .event-title {
+  .timeline-title {
     font-size: 0.85rem;
   }
 }

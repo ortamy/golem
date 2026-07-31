@@ -1,5 +1,5 @@
 /**
- * load-researches.js — каталог и детальный просмотр «Разоблачений» (#researches).
+ * load-researches.js — каталог и детальный просмотр библиотеки (#researches).
  * Данные: data/exposures/index.json (единая схема дела, см. tools/migrate-exposures.py).
  * Рендер карточек, досье и превью — через ExposureCase (js/modules/exposure-case.js),
  * так что каталог, страница дела и форма создания используют один и тот же шаблон.
@@ -201,7 +201,7 @@ const LoadResearches = (function() {
       renderPage(container);
       return;
     }
-    container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка разоблачений...</div></div>';
+    container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка материалов библиотеки...</div></div>';
     fetch('data/exposures/index.json')
       .then(function(r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -212,7 +212,7 @@ const LoadResearches = (function() {
         renderPage(container);
       })
       .catch(function(err) {
-        container.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить разоблачения: ' + escapeHtml(err.message) + '</div>';
+        container.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить материалы библиотеки: ' + escapeHtml(err.message) + '</div>';
       });
   }
 
@@ -278,7 +278,7 @@ const LoadResearches = (function() {
     });
     ids = ids.filter(function(id, position) { return index[id] && ids.indexOf(id) === position && (!current || id !== current.slug); }).slice(0, 4);
     if (!ids.length) return '';
-    return '<aside class="exposure-related-dock" aria-label="Связанные разоблачения">' +
+    return '<aside class="exposure-related-dock" aria-label="Связанные материалы">' +
       '<div class="exposure-related-dock-inner">' +
         '<div class="exposure-related-dock-links">' + ids.map(function(id) {
           return '<a href="#researches/case/' + encodeURIComponent(id) + '">' + escapeHtml(index[id].title || id) + '</a>';
@@ -308,19 +308,13 @@ const LoadResearches = (function() {
     }).join('');
     var filtered = getFiltered();
 
-    container.innerHTML = '<header class="section-hero">' +
-        '<div class="section-hero-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
-        '<div class="section-hero-kicker">ГОЛЕМ · РАЗОБЛАЧЕНИЯ</div>' +
-        '<h1><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Разоблачения</h1>' +
-        '<p class="section-hero-lead">Разбор подмен смысла в языке, истории, экономике, спорте и других сферах — через восстановление ивритских корней ТаНаХа.</p>' +
-      '</header>' +
-      '<div class="research-controls exposure-filters">' +
+    container.innerHTML = '<div class="research-controls exposure-filters">' +
       '<label class="research-search-label">Поиск<input id="researches-search" class="lab-input" type="search" placeholder="Название, тема, тег или категория" value="' + escapeHtml(state.query) + '"></label>' +
       '<label>Категория<select id="researches-category" class="lab-input"><option value="all">Все категории</option>' + options + '</select></label>' +
       '<button type="button" class="lab-btn lab-btn-primary exposure-new-btn" id="researches-new-btn">+ Новое дело</button>' +
       '</div>' +
       renderConfidenceChips() +
-      '<div class="research-meta"><strong>' + filtered.length + ' из ' + items.length + '</strong><span>Опубликованные разоблачения проекта «Голем»</span></div>' +
+      '<div class="research-meta"><strong>' + filtered.length + ' из ' + items.length + '</strong><span>Материалы библиотеки проекта «Голем»</span></div>' +
       '<div id="researches-results">' + renderCards(filtered) + '</div>' +
       '<div id="researches-related-dock-slot">' + renderRelatedDock(filtered) + '</div>';
 

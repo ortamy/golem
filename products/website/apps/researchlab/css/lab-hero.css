@@ -1,5 +1,6 @@
 /* Единая шапка разделов лаборатории. */
 .lab-hero {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 18px;
@@ -10,6 +11,20 @@
   border: 1px solid var(--border-dark);
   border-radius: 10px;
   box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.lab-hero__watermark {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: rgba(255, 215, 0, .06);
+  font-family: var(--font-paleo, serif);
+  font-size: 100px;
+  letter-spacing: .08em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
 }
 
 .lab-hero__icon {
@@ -124,6 +139,12 @@
 .lab-hero-module--board-generator > h1,
 .lab-hero-module--board-generator > .subtitle,
 .lab-hero-module--investigation .investigation-heading,
+.lab-hero-module--investigation > .section-hero,
+.lab-hero-module--linguistic-tensor .section-hero,
+.lab-hero-module--paleo-builder .section-hero,
+.lab-hero-module--generators .section-hero,
+.lab-hero-module--checkers .section-hero,
+.lab-hero-module--timeline .tl-hero,
 .lab-hero-module--religionisms > h1,
 .lab-hero-module--religionisms > .subtitle,
 .lab-hero-module--vision > h1,
@@ -156,6 +177,18 @@
 .lab-hero-module--admin-settings .admin-title,
 .lab-hero-module--admin-settings .admin-subtitle,
 .lab-hero-module--exposure-editor .exposure-editor-header > h1 {
+  display: none;
+}
+
+.lab-hero-module--paleo-builder .paleo-builder-header,
+.lab-hero-module--linguistic-tensor .tensor-head,
+.lab-hero-module--clue-generator .clue-page > .gc-kicker,
+.lab-hero-module--clue-generator .clue-page > h1,
+.lab-hero-module--clue-generator .clue-page > .subtitle,
+.lab-hero-module--timeline .tl-hero,
+.lab-hero-module--cartography .section-hero,
+.lab-hero-module--heraldry .section-hero,
+.lab-hero-module--investigation .section-hero {
   display: none;
 }
 
