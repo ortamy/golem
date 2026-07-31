@@ -216,44 +216,294 @@ const PageController = (function() {
     var paragraphs = function(items) {
       return (items || []).map(function(text) { return '<p>' + escapeHtml(text) + '</p>'; }).join('');
     };
+
+    // Карта утрат — карточки с анимацией и интерактивностью
     var lossHtml = (story.lossMap || []).map(function(layer, index) {
-      var className = layer.percent === '15%' ? ' manifest-loss-plate-light' : (layer.percent === '40%' || layer.percent === '25%' ? ' manifest-loss-plate-dark' : '');
-      return '<li class="manifest-loss-plate' + className + '" style="--loss-fill:' + escapeHtml(layer.percent) + '">' +
-        '<span class="manifest-loss-number">0' + (index + 1) + '</span>' +
-        '<span class="manifest-loss-copy"><strong>' + escapeHtml(layer.title) + '</strong><span>' + escapeHtml(layer.text) + '</span></span>' +
-        '<span class="manifest-loss-percent">' + escapeHtml(layer.percent) + '</span></li>';
+      var num = '0' + (index + 1);
+      var hasDetail = !!(layer.lost || layer.examples);
+      return '<li class="manifest-loss-card" data-loss-index="' + index + '" style="animation-delay:' + (index * 150) + 'ms" ' +
+        (hasDetail ? 'role="button" tabindex="0" aria-expanded="false"' : '') + '>' +
+        '<div class="manifest-loss-card-head">' +
+          '<span class="manifest-loss-card-num">' + num + '</span>' +
+          '<span class="manifest-loss-card-percent">' + escapeHtml(layer.percent) + '</span>' +
+        '</div>' +
+        '<h4 class="manifest-loss-card-title">' + escapeHtml(layer.title) + '</h4>' +
+        '<p class="manifest-loss-card-text">' + escapeHtml(layer.text) + '</p>' +
+        (hasDetail ? '<div class="manifest-loss-card-detail" hidden>' +
+          (layer.lost ? '<p class="manifest-loss-card-lost"><strong>Что потеряно:</strong> ' + escapeHtml(layer.lost) + '</p>' : '') +
+          (layer.examples ? '<p class="manifest-loss-card-examples"><strong>Пример:</strong> ' + escapeHtml(layer.examples) + '</p>' : '') +
+        '</div>' : '') +
+      '</li>';
     }).join('');
+
+    // Разбор Мицраим
     var mizraimSteps = (methodology.mizraim || []).map(function(step, index) {
       return '<li class="manifest-mizraim-step"><span class="manifest-mizraim-glyph paleo" lang="hbo">' + escapeHtml(step.glyph) + '</span>' +
         '<span class="manifest-mizraim-index">0' + (index + 1) + '</span><strong>' + escapeHtml(step.title) + '</strong><p>' + escapeHtml(step.text) + '</p></li>';
     }).join('');
+
+    // Принцип потока
+    var flow = methodology.flowPrinciple || {};
+    var flowHtml = '';
+    if (flow.title) {
+      flowHtml = '<div class="manifest-flow">' +
+        '<div class="manifest-section-heading"><div><span class="manifest-section-label">Принцип</span><h3>' + escapeHtml(flow.title) + '</h3></div></div>' +
+        '<p class="manifest-flow-lead">' + escapeHtml(flow.lead || '') + '</p>' +
+        '<p>' + escapeHtml(flow.body || '') + '</p>' +
+        '<p class="manifest-flow-paleo"><span class="paleo" lang="hbo">' + escapeHtml(flow.paleoImage || '') + '</span></p>' +
+        '<p class="manifest-flow-criterion">' + escapeHtml(flow.criterion || '') + '</p>' +
+        '</div>';
+    }
+
+    // Эмет / Шекер
+    var es = methodology.emetSheker || {};
+    var emetShekerHtml = '';
+    if (es.title) {
+      var checksHtml = (es.checks || []).map(function(c, i) {
+        return '<li><span class="manifest-es-check-num">' + (i + 1) + '</span><span>' + escapeHtml(c) + '</span></li>';
+      }).join('');
+      emetShekerHtml = '<div class="manifest-es">' +
+        '<div class="manifest-section-heading"><div><span class="manifest-section-label">Критерий</span><h3>' + escapeHtml(es.title) + '</h3><p>' + escapeHtml(es.lead || '') + '</p></div></div>' +
+        '<div class="manifest-es-pair">' +
+          '<div class="manifest-es-card manifest-es-emet">' +
+            '<div class="manifest-es-glyph paleo" lang="hbo">' + escapeHtml(es.emet.glyph) + '</div>' +
+            '<h4>' + escapeHtml(es.emet.word) + '</h4>' +
+            '<p class="manifest-es-meaning">' + escapeHtml(es.emet.meaning) + '</p>' +
+            '<p class="manifest-es-paleo">' + escapeHtml(es.emet.paleoImage) + '</p>' +
+          '</div>' +
+          '<div class="manifest-es-card manifest-es-sheker">' +
+            '<div class="manifest-es-glyph paleo" lang="hbo">' + escapeHtml(es.sheker.glyph) + '</div>' +
+            '<h4>' + escapeHtml(es.sheker.word) + '</h4>' +
+            '<p class="manifest-es-meaning">' + escapeHtml(es.sheker.meaning) + '</p>' +
+            '<p class="manifest-es-paleo">' + escapeHtml(es.sheker.paleoImage) + '</p>' +
+          '</div>' +
+        '</div>' +
+        '<ol class="manifest-es-checks">' + checksHtml + '</ol>' +
+        '</div>';
+    }
+
+    // Давар
+    var davar = methodology.davar || {};
+    var davarHtml = '';
+    if (davar.title) {
+      var davarLetters = (davar.letters || []).map(function(l) {
+        return '<div class="manifest-davar-letter">' +
+          '<span class="manifest-davar-glyph paleo" lang="hbo">' + escapeHtml(l.glyph) + '</span>' +
+          '<span class="manifest-davar-name">' + escapeHtml(l.name) + '</span>' +
+          '<span class="manifest-davar-image">' + escapeHtml(l.image) + '</span>' +
+        '</div>';
+      }).join('');
+      var exampleSteps = (davar.example && davar.example.steps || []).map(function(s, i) {
+        return '<li><span class="manifest-davar-step-num">' + (i + 1) + '</span><span>' + escapeHtml(s) + '</span></li>';
+      }).join('');
+      davarHtml = '<div class="manifest-davar">' +
+        '<div class="manifest-section-heading"><div><span class="manifest-section-label">Слово-действие</span><h3>' + escapeHtml(davar.title) + '</h3></div></div>' +
+        '<p class="manifest-davar-lead">' + escapeHtml(davar.lead || '') + '</p>' +
+        '<div class="manifest-davar-letters">' + davarLetters + '</div>' +
+        '<p class="manifest-davar-assembly">' + escapeHtml(davar.assembly || '') + '</p>' +
+        '<p class="manifest-davar-function">' + escapeHtml(davar.function || '') + '</p>' +
+        '<p>' + escapeHtml(davar.body || '') + '</p>' +
+        '<p class="manifest-davar-conclusion">' + escapeHtml(davar.conclusion || '') + '</p>' +
+        (davar.example ? '<div class="manifest-davar-example">' +
+          '<div class="manifest-davar-example-head">' +
+            '<span class="manifest-davar-example-from">' + escapeHtml(davar.example.from) + '</span>' +
+            '<span class="manifest-davar-example-davar paleo" lang="hbo">𐤃𐤁𐤓</span>' +
+            '<span class="manifest-davar-example-text">' + escapeHtml(davar.example.davar) + '</span>' +
+          '</div>' +
+          '<ol class="manifest-davar-steps">' + exampleSteps + '</ol>' +
+        '</div>' : '') +
+        '</div>';
+    }
+
+    // Карта пространств
     var spaceCards = (story.spaces || []).map(function(space, index) {
       return '<article class="lab-card manifest-space-card" style="animation-delay:' + (index * 40) + 'ms">' +
         '<span class="manifest-space-glyph paleo" lang="hbo" aria-hidden="true">' + escapeHtml(space.glyph) + '</span>' +
-        '<span class="manifest-space-index">0' + (index + 1) + ' · пространство</span>' +
-        '<h3>' + escapeHtml(space.title) + '</h3><p>' + escapeHtml(space.text) + '</p></article>';
+        '<span class="manifest-space-index">0' + (index + 1) + ' · ' + escapeHtml(space.name) + '</span>' +
+        '<h3>' + escapeHtml(space.title) + '</h3>' +
+        '<p>' + escapeHtml(space.text) + '</p>' +
+        '<p class="manifest-space-life"><strong>В жизни:</strong> ' + escapeHtml(space.life || '') + '</p>' +
+        '<p class="manifest-space-examples"><strong>Примеры:</strong> ' + escapeHtml(space.examples || '') + '</p>' +
+        '</article>';
+    }).join('');
+
+    // Палео-стандарт — 22 буквы
+    var paleoLetters = story.paleoStandard || [];
+    var paleoGridHtml = paleoLetters.map(function(letter, index) {
+      return '<button type="button" class="manifest-paleo-card" data-paleo-index="' + index + '" ' +
+        'aria-label="' + escapeHtml(letter.name) + ' — ' + escapeHtml(letter.image) + ', функция: ' + escapeHtml(letter.function) + '">' +
+        '<span class="manifest-paleo-glyph paleo" lang="hbo">' + escapeHtml(letter.glyph) + '</span>' +
+        '<span class="manifest-paleo-name">' + escapeHtml(letter.name) + '</span>' +
+        '<span class="manifest-paleo-image">' + escapeHtml(letter.image) + '</span>' +
+        '<span class="manifest-paleo-function">' + escapeHtml(letter.function) + '</span>' +
+        '</button>';
+    }).join('');
+
+    // Шаги применения
+    var appSteps = (application.steps || []).map(function(step, index) {
+      return '<li class="manifest-app-step"><span class="manifest-app-step-num">' + (index + 1) + '</span>' +
+        '<div><strong>' + escapeHtml(step.title) + '</strong><p>' + escapeHtml(step.text) + '</p></div></li>';
+    }).join('');
+
+    // Связанные документы
+    var relatedDocs = (application.relatedDocs || []).map(function(doc) {
+      return '<a href="' + escapeHtml(doc.path) + '" class="manifest-related-doc">' + escapeHtml(doc.title) + '</a>';
     }).join('');
 
     container.innerHTML = '<div class="manifest-page">' +
       '<header class="manifest-hero">' +
       '<div class="manifest-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
-      '<div class="manifest-kicker">RESEARCHLAB · ИСТОРИЯ ВОССТАНОВЛЕНИЯ</div>' +
+      '<div class="manifest-kicker">RESEARCHLAB · МАНИФЕСТ v' + escapeHtml(data.version || '8.0') + '</div>' +
       '<h1>' + escapeHtml(story.title || data.title || 'Манифест проекта') + '</h1>' +
       '<p class="manifest-lead">' + escapeHtml(story.lead || data.description || '') + '</p>' +
       '</header><div class="manifest-hero-divider" aria-hidden="true"></div>' +
+
+      // АКТ I: ПРОБЛЕМА
       '<section class="manifest-act manifest-act-problem" aria-labelledby="manifest-problem-title">' +
       '<div class="manifest-act-heading"><span class="manifest-act-number">I</span><div><span class="manifest-section-label">Акт I · проблема</span><h2 id="manifest-problem-title">' + escapeHtml(problem.title || 'Проблема') + '</h2></div></div>' +
       '<div class="manifest-story-copy">' + paragraphs(problem.paragraphs) + '</div>' +
-      '<section class="manifest-loss-section" aria-labelledby="manifest-loss-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Карта утрат</span><h3 id="manifest-loss-title">Как образ сжимается до понятия</h3></div></div><ol class="manifest-loss-map" aria-label="Карта утрат">' + lossHtml + '</ol></section></section>' +
+      '<section class="manifest-loss-section" aria-labelledby="manifest-loss-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Карта утрат</span><h3 id="manifest-loss-title">Как образ сжимается до понятия</h3></div></div><ol class="manifest-loss-map" aria-label="Карта утрат">' + lossHtml + '</ol></section>' +
+      '</section>' +
+
+      // АКТ II: МЕТОДОЛОГИЯ
       '<section class="manifest-act manifest-act-methodology" aria-labelledby="manifest-methodology-title">' +
       '<div class="manifest-act-heading"><span class="manifest-act-number">II</span><div><span class="manifest-section-label">Акт II · методология</span><h2 id="manifest-methodology-title">' + escapeHtml(methodology.title || 'Методология') + '</h2></div></div>' +
       '<div class="manifest-story-copy">' + paragraphs(methodology.paragraphs) + '</div>' +
+
+      // Разбор Мицраим
       '<div class="manifest-mizraim"><div class="manifest-section-heading"><div><span class="manifest-section-label">Разбор слова</span><h3>Мицраим</h3><p>' + escapeHtml(methodology.mizraimLead || '') + '</p></div></div><ol class="manifest-mizraim-list">' + mizraimSteps + '</ol><p class="manifest-mizraim-conclusion">' + escapeHtml(methodology.mizraimConclusion || '') + '</p></div>' +
-      '<section class="manifest-spaces-section" aria-labelledby="manifest-spaces-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Семь моделей среды</span><h3 id="manifest-spaces-title">Карта пространств</h3><p>Семь состояний, через которые проходит поток.</p></div></div><div class="manifest-spaces">' + spaceCards + '</div></section></section>' +
+
+      // Принцип потока
+      flowHtml +
+
+      // Эмет / Шекер
+      emetShekerHtml +
+
+      // Давар
+      davarHtml +
+
+      // Карта пространств
+      '<section class="manifest-spaces-section" aria-labelledby="manifest-spaces-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Семь моделей среды</span><h3 id="manifest-spaces-title">Карта пространств</h3><p>Семь состояний, через которые проходит поток.</p></div></div><div class="manifest-spaces">' + spaceCards + '</div></section>' +
+
+      // Палео-стандарт — интерактивная сетка 22 букв
+      '<section class="manifest-paleo-section" aria-labelledby="manifest-paleo-title">' +
+      '<div class="manifest-section-heading"><div><span class="manifest-section-label">Палео-стандарт</span><h3 id="manifest-paleo-title">Двадцать две буквы</h3><p>Наведи на букву — увидишь функцию. Нажми — получишь разбор.</p></div></div>' +
+      '<div class="manifest-paleo-grid" id="manifest-paleo-grid">' + paleoGridHtml + '</div>' +
+      '<div class="manifest-paleo-detail" id="manifest-paleo-detail" hidden>' +
+        '<div class="manifest-paleo-detail-glyph paleo" lang="hbo" id="manifest-paleo-detail-glyph"></div>' +
+        '<div class="manifest-paleo-detail-info">' +
+          '<h4 id="manifest-paleo-detail-name"></h4>' +
+          '<p class="manifest-paleo-detail-image" id="manifest-paleo-detail-image"></p>' +
+          '<p class="manifest-paleo-detail-function" id="manifest-paleo-detail-function"></p>' +
+          '<p class="manifest-paleo-detail-desc" id="manifest-paleo-detail-desc"></p>' +
+        '</div>' +
+      '</div>' +
+      '</section>' +
+
+      '</section>' +
+
+      // АКТ III: ПРИМЕНЕНИЕ
       '<section class="manifest-act manifest-act-application" aria-labelledby="manifest-application-title">' +
       '<div class="manifest-act-heading"><span class="manifest-act-number">III</span><div><span class="manifest-section-label">Акт III · применение</span><h2 id="manifest-application-title">' + escapeHtml(application.title || 'Применение') + '</h2></div></div>' +
-      '<div class="manifest-story-copy">' + paragraphs(application.paragraphs) + '</div><div class="manifest-cta-wrap"><a class="lab-btn lab-btn-primary manifest-cta" href="#root-dictionary">Перейти в Лабораторию <span aria-hidden="true">→</span></a></div></section>' +
+      '<div class="manifest-story-copy">' + paragraphs(application.paragraphs) + '</div>' +
+      (appSteps ? '<ol class="manifest-app-steps">' + appSteps + '</ol>' : '') +
+      (relatedDocs ? '<div class="manifest-related"><div class="manifest-section-heading"><div><span class="manifest-section-label">Связанные документы</span><h3>Иди дальше</h3><p>Манифест говорит «что и зачем». Остальные документы — «как».</p></div></div><div class="manifest-related-list">' + relatedDocs + '</div></div>' : '') +
+      '<div class="manifest-cta-wrap"><a class="lab-btn lab-btn-primary manifest-cta" href="#root-dictionary">Перейти в Лабораторию <span aria-hidden="true">→</span></a></div>' +
+      '</section>' +
+
       '</div>';
+
+    // Инициализация интерактивности палео-сетки
+    initManifestPaleoGrid(container, paleoLetters);
+
+    // Инициализация интерактивности карты утрат
+    initManifestLossMap(container);
+  }
+
+  // ===== ИНТЕРАКТИВНОСТЬ ПАЛЕО-СЕТКИ =====
+  function initManifestPaleoGrid(container, letters) {
+    var grid = container.querySelector('#manifest-paleo-grid');
+    if (!grid || !letters.length) return;
+
+    var detail = container.querySelector('#manifest-paleo-detail');
+    var detailGlyph = container.querySelector('#manifest-paleo-detail-glyph');
+    var detailName = container.querySelector('#manifest-paleo-detail-name');
+    var detailImage = container.querySelector('#manifest-paleo-detail-image');
+    var detailFunction = container.querySelector('#manifest-paleo-detail-function');
+    var detailDesc = container.querySelector('#manifest-paleo-detail-desc');
+
+    var cards = grid.querySelectorAll('.manifest-paleo-card');
+    cards.forEach(function(card) {
+      // Hover — подсветка и показ функции (CSS обрабатывает визуал)
+      card.addEventListener('mouseenter', function() {
+        cards.forEach(function(c) { c.classList.remove('is-hovered'); });
+        card.classList.add('is-hovered');
+      });
+
+      // Click — разбор буквы
+      card.addEventListener('click', function() {
+        var idx = parseInt(card.getAttribute('data-paleo-index'), 10);
+        var letter = letters[idx];
+        if (!letter) return;
+
+        cards.forEach(function(c) { c.classList.remove('is-active'); });
+        card.classList.add('is-active');
+
+        if (detail) {
+          detail.hidden = false;
+          if (detailGlyph) detailGlyph.textContent = letter.glyph;
+          if (detailName) detailName.textContent = letter.name + ' — ' + letter.image;
+          if (detailImage) detailImage.textContent = 'Образ: ' + letter.image;
+          if (detailFunction) detailFunction.textContent = 'Функция: ' + letter.function;
+          if (detailDesc) detailDesc.textContent = letter.desc;
+        }
+      });
+
+      // Keyboard support
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+  }
+
+  // ===== ИНТЕРАКТИВНОСТЬ КАРТЫ УТРАТ =====
+  function initManifestLossMap(container) {
+    var cards = container.querySelectorAll('.manifest-loss-card');
+    if (!cards.length) return;
+
+    cards.forEach(function(card) {
+      var detail = card.querySelector('.manifest-loss-card-detail');
+      if (!detail) return;
+
+      // Click — выезжающий блок с подробным описанием
+      card.addEventListener('click', function() {
+        var isOpen = !detail.hidden;
+        // Закрываем все остальные
+        cards.forEach(function(c) {
+          var d = c.querySelector('.manifest-loss-card-detail');
+          if (d && d !== detail) {
+            d.hidden = true;
+            c.classList.remove('is-expanded');
+            c.setAttribute('aria-expanded', 'false');
+          }
+        });
+        // Переключаем текущую
+        detail.hidden = isOpen;
+        card.classList.toggle('is-expanded', !isOpen);
+        card.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+      });
+
+      // Keyboard support
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
   }
 
   // ===== ПРИМЕНЕНИЕ QUERY-ПАРАМЕТРА =====
