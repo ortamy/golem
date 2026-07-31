@@ -507,7 +507,7 @@ const ExposureEditor = (function() {
     if (cancelBtn) {
       cancelBtn.addEventListener('click', function() {
         if (confirm('Отменить редактирование? Несохранённые данные будут потеряны.')) {
-          LabRouter.navigate('exposure');
+          LabRouter.navigate('researches');
         }
       });
     }

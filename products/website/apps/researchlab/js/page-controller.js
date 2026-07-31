@@ -40,12 +40,11 @@ const PageController = (function() {
     container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">' + escapeHtml(text || 'Загрузка…') + '</div></div>';
   }
 
-  // ===== JSON-СТРАНИЦЫ (словари, разоблачения, палео-механика) =====
+  // ===== JSON-СТРАНИЦЫ (словари, методология, палео-механика) =====
 
   var jsonCache = {};
   var pageState = {
     dictionaries: { key: '', query: '' },
-    exposure: { key: '' },
     methodology: { key: '' },
     'paleo-mechanics': { key: '' }
   };
@@ -157,7 +156,7 @@ const PageController = (function() {
       return;
     }
     if (!state.key) {
-      var iconPath = page === 'exposure' ? '../../assets/icons/32/archaeology/lamp.png' : (page === 'paleo-mechanics' ? '../../assets/icons/32/paleo/track.png' : '../../assets/icons/32/crafts/hammer-and-chisel.png');
+      var iconPath = page === 'paleo-mechanics' ? '../../assets/icons/32/paleo/track.png' : '../../assets/icons/32/crafts/hammer-and-chisel.png';
       var docCards = keys.map(function(key, index) {
         var doc = data[key];
         return '<a href="#" class="doc-card" data-key="' + escapeHtml(key) + '" style="animation-delay: ' + (index * 50) + 'ms">' +
@@ -166,7 +165,7 @@ const PageController = (function() {
           '<div class="doc-desc">' + escapeHtml((doc.description || '').split('---')[0].trim().substring(0, 120) + (doc.description && doc.description.length > 120 ? '...' : '')) + '</div>' +
           '</a>';
       }).join('');
-      var heading = page === 'exposure' ? 'Архив' : (page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички');
+      var heading = page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички';
       container.innerHTML = '<div class="research-page-head">' +
         '<h1><img src="' + iconPath + '" class="lab-icon" alt="">' + heading + '</h1>' +
         '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p>' +
@@ -193,7 +192,7 @@ const PageController = (function() {
       var content = typeof marked !== 'undefined' && marked.parse ? marked.parse(section.content || '') : escapeHtml(section.content || '');
       return '<article class="research-section"><h2>' + escapeHtml(section.title || '') + '</h2><div class="research-section-content">' + content + '</div></article>';
     }).join('');
-    var heading = page === 'exposure' ? 'Архив' : (page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички');
+    var heading = page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички';
     var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState[\'' + page + '\'].key=\'\';PageController.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', PageController.jsonCache[\'' + page + '\'])">← Назад к списку</button>';
     container.innerHTML = '<div class="research-page-head"><h1>' + heading + '</h1>' +
       '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p></div>' +
@@ -784,11 +783,11 @@ const PageController = (function() {
         break;
 
       case 'name-decoder':
-        showSpinner(container, 'Загрузка дешифратора имени…');
+        showSpinner(container, 'Загрузка чекера имени…');
         if (window.NameDecoder) {
           window.NameDecoder.init(container);
         } else {
-          showError(container, 'Модуль «Дешифратор Имени» не загрузился.');
+          showError(container, 'Модуль «Чекер имени» не загрузился.');
         }
         container.dataset.loaded = '1';
         break;
@@ -816,10 +815,6 @@ const PageController = (function() {
 
       case 'dictionaries':
         loadJsonPage('dictionaries', 'data/dictionaries.json', container);
-        break;
-
-      case 'exposure':
-        loadJsonPage('exposure', 'data/exposures/documents.json', container);
         break;
 
       case 'paleo-mechanics':

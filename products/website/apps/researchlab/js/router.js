@@ -72,7 +72,7 @@ const LabRouter = (function() {
     var hash = parsed.module;
     var routedModules = [
       'manifest', 'dashboard', 'learn', 'dictionaries', 'researches',
-      'exposure', 'methodology', 'paleo-mechanics', 'paleo-linguistics',
+      'methodology', 'paleo-mechanics', 'paleo-linguistics',
       'language-map', 'religionisms', 'root-dictionary', 'paleo-builder',
       'paleo-images', 'word-analyzer', 'scripture-reader', 'generators',
       'checkers', 'translation-comparator', 'investigation', 'heraldry',

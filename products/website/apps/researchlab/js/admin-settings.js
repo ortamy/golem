@@ -21,7 +21,6 @@ const AdminSettings = (function() {
     { key: 'religionism-checker', label: 'Чекер религионимов' },
     { key: 'translation-comparator', label: 'Сравнение переводов' },
     { key: 'dictionaries', label: 'Словари' },
-    { key: 'exposure', label: 'Принципы' },
     { key: 'methodology', label: 'Методички' },
     { key: 'board-generator', label: 'Генератор досок' },
     { key: 'research-generator', label: 'Генератор исследований' },
