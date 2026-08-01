@@ -78,7 +78,15 @@ const LabRouter = (function() {
       'checkers', 'translation-comparator', 'investigation', 'heraldry',
       'cartography', 'states', 'timeline', 'ai-agents', 'ed-chat', 'vision',
       'paleo-keyboard', 'admin-settings', 'exposure-editor', 'clue-generator',
-      'video-lab', 'prompt-generator', 'davar-checker', 'tree-checker', 'board', 'name-decoder', 'linguistic-tensor'
+      'video-lab', 'prompt-generator', 'davar-checker', 'tree-checker', 'board', 'name-decoder', 'linguistic-tensor',
+      // Маршруты разоблачений (обрабатываются в default-кейсе PageController через mdPaths)
+      'exposure-dictionary', 'exposure-principles', 'exposure-distortions',
+      'exposure-mechanisms', 'exposure-linguistic-methods', 'exposure-methods',
+      'exposure-language', 'exposure-language-shifts', 'exposure-bavelisms',
+      'exposure-masoretic', 'exposure-philosophemes', 'exposure-system-architecture',
+      'exposure-religionism-theory', 'exposure-techniques',
+      'method-archeology', 'method-hebrew-reconstruction', 'method-layers',
+      'method-translation', 'method-transliteration', 'method-tree'
     ];
 
     // #settings is an alias for #admin-settings

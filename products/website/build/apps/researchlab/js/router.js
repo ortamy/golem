@@ -70,6 +70,24 @@ const LabRouter = (function() {
   function handleHash() {
     var parsed = parseHash();
     var hash = parsed.module;
+    var routedModules = [
+      'manifest', 'dashboard', 'learn', 'dictionaries', 'researches',
+      'methodology', 'paleo-mechanics', 'paleo-linguistics',
+      'language-map', 'religionisms', 'root-dictionary', 'paleo-builder',
+      'paleo-images', 'word-analyzer', 'scripture-reader', 'generators',
+      'checkers', 'translation-comparator', 'investigation', 'heraldry',
+      'cartography', 'states', 'timeline', 'ai-agents', 'ed-chat', 'vision',
+      'paleo-keyboard', 'admin-settings', 'exposure-editor', 'clue-generator',
+      'video-lab', 'prompt-generator', 'davar-checker', 'tree-checker', 'board', 'name-decoder', 'linguistic-tensor',
+      // Маршруты разоблачений (обрабатываются в default-кейсе PageController через mdPaths)
+      'exposure-dictionary', 'exposure-principles', 'exposure-distortions',
+      'exposure-mechanisms', 'exposure-linguistic-methods', 'exposure-methods',
+      'exposure-language', 'exposure-language-shifts', 'exposure-bavelisms',
+      'exposure-masoretic', 'exposure-philosophemes', 'exposure-system-architecture',
+      'exposure-religionism-theory', 'exposure-techniques',
+      'method-archeology', 'method-hebrew-reconstruction', 'method-layers',
+      'method-translation', 'method-transliteration', 'method-tree'
+    ];
 
     // #settings is an alias for #admin-settings
     if (hash === 'settings') {
@@ -83,7 +101,7 @@ const LabRouter = (function() {
       return;
     }
 
-    // Точки входа манифеста ведут к существующим модулям платформы.
+    // Точки входа манифеста ведут к существующим модулям платформы
     if (hash === 'laboratory') {
       showModule('dashboard', parsed);
       return;
@@ -97,16 +115,55 @@ const LabRouter = (function() {
       return;
     }
 
-    // Динамические разделы создаются при первом переходе.
-    if (hash === 'generators' || hash === 'checkers' ||
-        hash === 'prompt-generator' || hash === 'clue-generator' ||
-        hash === 'video-lab' || hash === 'davar-checker' ||
-        hash === 'paleo-builder' || hash === 'language-map' || hash === 'board') {
-      showModule(hash, parsed);
+    // #prompt-generator — сборщик промптов исследователя
+    if (hash === 'prompt-generator') {
+      showModule('prompt-generator', parsed);
       return;
     }
 
-    if (modules[hash]) {
+    // #clue-generator — сборка цепочки улик
+    if (hash === 'clue-generator') {
+      showModule('clue-generator', parsed);
+      return;
+    }
+
+    // #video-lab — генератор видео-образов
+    if (hash === 'video-lab') {
+      showModule('video-lab', parsed);
+      return;
+    }
+
+    // #davar-checker — проверка воплощаемости слова
+    if (hash === 'davar-checker') {
+      showModule('davar-checker', parsed);
+      return;
+    }
+
+    // #tree-checker — проверка учения по шести уровням дерева
+    if (hash === 'tree-checker') {
+      showModule('tree-checker', parsed);
+      return;
+    }
+
+    // #paleo-builder — сборка слова из палео-букв
+    if (hash === 'paleo-builder') {
+      showModule('paleo-builder', parsed);
+      return;
+    }
+
+    // #language-map — диагностика живых языков и их переходов
+    if (hash === 'language-map') {
+      showModule('language-map', parsed);
+      return;
+    }
+
+    // #board — интерактивная доска сборки кейса
+    if (hash === 'board') {
+      showModule('board', parsed);
+      return;
+    }
+
+    if (modules[hash] || routedModules.indexOf(hash) !== -1) {
       showModule(hash, parsed);
     } else if (hash === 'exposure-editor') {
       // Dynamic module — будет создан в showModule
@@ -132,21 +189,16 @@ const LabRouter = (function() {
 
   // ===== ПОКАЗ МОДУЛЯ =====
   function showModule(moduleId, parsed) {
-    // Создаём контейнер для exposure-editor если его ещё нет
-    if (moduleId === 'exposure-editor' && !modules['exposure-editor']) {
-      const editor = document.createElement('div');
-      editor.id = 'exposure-editor';
-      editor.className = 'module';
-      document.getElementById('labContent').appendChild(editor);
-      modules['exposure-editor'] = editor;
-    }
-
-    if (!modules[moduleId] && ['generators', 'checkers', 'prompt-generator', 'clue-generator', 'video-lab', 'davar-checker', 'paleo-builder', 'language-map', 'board'].indexOf(moduleId) !== -1) {
-      var dynamicModule = document.createElement('div');
-      dynamicModule.id = moduleId;
-      dynamicModule.className = 'module';
-      document.getElementById('labContent').appendChild(dynamicModule);
-      modules[moduleId] = dynamicModule;
+    // Создаём контейнер до вызова PageController.
+    if (!modules[moduleId]) {
+      var root = document.getElementById('labContent');
+      if (root) {
+        var el = document.createElement('div');
+        el.id = moduleId;
+        el.className = 'module';
+        root.appendChild(el);
+        modules[moduleId] = el;
+      }
     }
 
     // Скрываем все
@@ -180,15 +232,7 @@ const LabRouter = (function() {
 
     currentModule = moduleId;
 
-    // Инициализация exposure-editor при активации
-    if (moduleId === 'exposure-editor' && window.ExposureEditor) {
-      const editorEl = document.getElementById('exposure-editor');
-      if (editorEl) {
-        ExposureEditor.init(editorEl);
-      }
-    }
-
-    // Колбэк
+    // PageController получает единственный вызов через зарегистрированный колбэк.
     if (onModuleChange) {
       onModuleChange(moduleId, parsed);
     }
@@ -212,3 +256,5 @@ const LabRouter = (function() {
     onChange: onChange
   };
 })();
+
+window.LabRouter = LabRouter;

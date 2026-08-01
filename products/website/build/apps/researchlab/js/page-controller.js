@@ -40,12 +40,11 @@ const PageController = (function() {
     container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">' + escapeHtml(text || 'Загрузка…') + '</div></div>';
   }
 
-  // ===== JSON-СТРАНИЦЫ (словари, разоблачения, палео-механика) =====
+  // ===== JSON-СТРАНИЦЫ (словари, методология, палео-механика) =====
 
   var jsonCache = {};
   var pageState = {
     dictionaries: { key: '', query: '' },
-    exposure: { key: '' },
     methodology: { key: '' },
     'paleo-mechanics': { key: '' }
   };
@@ -157,7 +156,7 @@ const PageController = (function() {
       return;
     }
     if (!state.key) {
-      var iconPath = page === 'exposure' ? '../../assets/icons/32/archaeology/lamp.png' : (page === 'paleo-mechanics' ? '../../assets/icons/32/paleo/track.png' : '../../assets/icons/32/crafts/hammer-and-chisel.png');
+      var iconPath = page === 'paleo-mechanics' ? '../../assets/icons/32/paleo/track.png' : '../../assets/icons/32/crafts/hammer-and-chisel.png';
       var docCards = keys.map(function(key, index) {
         var doc = data[key];
         return '<a href="#" class="doc-card" data-key="' + escapeHtml(key) + '" style="animation-delay: ' + (index * 50) + 'ms">' +
@@ -166,7 +165,7 @@ const PageController = (function() {
           '<div class="doc-desc">' + escapeHtml((doc.description || '').split('---')[0].trim().substring(0, 120) + (doc.description && doc.description.length > 120 ? '...' : '')) + '</div>' +
           '</a>';
       }).join('');
-      var heading = page === 'exposure' ? 'Архив' : (page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички');
+      var heading = page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички';
       container.innerHTML = '<div class="research-page-head">' +
         '<h1><img src="' + iconPath + '" class="lab-icon" alt="">' + heading + '</h1>' +
         '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p>' +
@@ -193,7 +192,7 @@ const PageController = (function() {
       var content = typeof marked !== 'undefined' && marked.parse ? marked.parse(section.content || '') : escapeHtml(section.content || '');
       return '<article class="research-section"><h2>' + escapeHtml(section.title || '') + '</h2><div class="research-section-content">' + content + '</div></article>';
     }).join('');
-    var heading = page === 'exposure' ? 'Архив' : (page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички');
+    var heading = page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички';
     var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState[\'' + page + '\'].key=\'\';PageController.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', PageController.jsonCache[\'' + page + '\'])">← Назад к списку</button>';
     container.innerHTML = '<div class="research-page-head"><h1>' + heading + '</h1>' +
       '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p></div>' +
@@ -209,6 +208,7 @@ const PageController = (function() {
   }
 
   function renderManifestPage(container, data) {
+    document.title = 'Манифест — Golem';
     var story = data.story || {};
     var acts = story.acts || {};
     var problem = acts.problem || {};
@@ -217,44 +217,356 @@ const PageController = (function() {
     var paragraphs = function(items) {
       return (items || []).map(function(text) { return '<p>' + escapeHtml(text) + '</p>'; }).join('');
     };
+
+    // Карта утрат — карточки с анимацией и интерактивностью
     var lossHtml = (story.lossMap || []).map(function(layer, index) {
-      var className = layer.percent === '15%' ? ' manifest-loss-plate-light' : (layer.percent === '40%' || layer.percent === '25%' ? ' manifest-loss-plate-dark' : '');
-      return '<li class="manifest-loss-plate' + className + '" style="--loss-fill:' + escapeHtml(layer.percent) + '">' +
-        '<span class="manifest-loss-number">0' + (index + 1) + '</span>' +
-        '<span class="manifest-loss-copy"><strong>' + escapeHtml(layer.title) + '</strong><span>' + escapeHtml(layer.text) + '</span></span>' +
-        '<span class="manifest-loss-percent">' + escapeHtml(layer.percent) + '</span></li>';
+      var num = '0' + (index + 1);
+      var hasDetail = !!(layer.lost || layer.examples);
+      return '<li class="manifest-loss-card" data-loss-index="' + index + '" style="animation-delay:' + (index * 150) + 'ms" ' +
+        (hasDetail ? 'role="button" tabindex="0" aria-expanded="false" aria-label="Развернуть слой: ' + escapeHtml(layer.title) + '"' : '') + '>' +
+        '<div class="manifest-loss-card-head">' +
+          '<span class="manifest-loss-card-num">' + num + '</span>' +
+          '<span class="manifest-loss-card-percent">' + escapeHtml(layer.percent) + '</span>' +
+        '</div>' +
+        '<span class="manifest-loss-card-chevron" aria-hidden="true">⌄</span>' +
+        '<h4 class="manifest-loss-card-title">' + escapeHtml(layer.title) + '</h4>' +
+        '<p class="manifest-loss-card-text">' + escapeHtml(layer.text) + '</p>' +
+        (hasDetail ? '<div class="manifest-loss-card-detail" hidden>' +
+          (layer.lost ? '<p class="manifest-loss-card-lost"><strong>Что потеряно:</strong> ' + escapeHtml(layer.lost) + '</p>' : '') +
+          (layer.examples ? '<p class="manifest-loss-card-examples"><strong>Пример:</strong> ' + escapeHtml(layer.examples) + '</p>' : '') +
+        '</div>' : '') +
+      '</li>';
     }).join('');
+
+    // Разбор Мицраим
     var mizraimSteps = (methodology.mizraim || []).map(function(step, index) {
       return '<li class="manifest-mizraim-step"><span class="manifest-mizraim-glyph paleo" lang="hbo">' + escapeHtml(step.glyph) + '</span>' +
         '<span class="manifest-mizraim-index">0' + (index + 1) + '</span><strong>' + escapeHtml(step.title) + '</strong><p>' + escapeHtml(step.text) + '</p></li>';
     }).join('');
+
+    // Принцип потока
+    var flow = methodology.flowPrinciple || {};
+    var flowHtml = '';
+    if (flow.title) {
+      flowHtml = '<div class="manifest-flow">' +
+        '<div class="manifest-section-heading"><div><span class="manifest-section-label">Принцип</span><h3>' + escapeHtml(flow.title) + '</h3></div></div>' +
+        '<p class="manifest-flow-lead">' + escapeHtml(flow.lead || '') + '</p>' +
+        '<p>' + escapeHtml(flow.body || '') + '</p>' +
+        '<p class="manifest-flow-paleo"><span class="paleo" lang="hbo">' + escapeHtml(flow.paleoImage || '') + '</span></p>' +
+        '<p class="manifest-flow-criterion">' + escapeHtml(flow.criterion || '') + '</p>' +
+        '</div>';
+    }
+
+    // Эмет / Шекер
+    var es = methodology.emetSheker || {};
+    var emetShekerHtml = '';
+    if (es.title) {
+      var checksHtml = (es.checks || []).map(function(c, i) {
+        return '<li><span class="manifest-es-check-num">' + (i + 1) + '</span><span>' + escapeHtml(c) + '</span></li>';
+      }).join('');
+      emetShekerHtml = '<div class="manifest-es">' +
+        '<div class="manifest-section-heading"><div><span class="manifest-section-label">Критерий</span><h3>' + escapeHtml(es.title) + '</h3><p>' + escapeHtml(es.lead || '') + '</p></div></div>' +
+        '<div class="manifest-es-pair">' +
+          '<div class="manifest-es-card manifest-es-emet">' +
+            '<div class="manifest-es-glyph paleo" lang="hbo">' + escapeHtml(es.emet.glyph) + '</div>' +
+            '<h4>' + escapeHtml(es.emet.word) + '</h4>' +
+            '<p class="manifest-es-meaning">' + escapeHtml(es.emet.meaning) + '</p>' +
+            '<p class="manifest-es-paleo">' + escapeHtml(es.emet.paleoImage) + '</p>' +
+          '</div>' +
+          '<div class="manifest-es-card manifest-es-sheker">' +
+            '<div class="manifest-es-glyph paleo" lang="hbo">' + escapeHtml(es.sheker.glyph) + '</div>' +
+            '<h4>' + escapeHtml(es.sheker.word) + '</h4>' +
+            '<p class="manifest-es-meaning">' + escapeHtml(es.sheker.meaning) + '</p>' +
+            '<p class="manifest-es-paleo">' + escapeHtml(es.sheker.paleoImage) + '</p>' +
+          '</div>' +
+        '</div>' +
+        '<ol class="manifest-es-checks">' + checksHtml + '</ol>' +
+        '</div>';
+    }
+
+    // Давар
+    var davar = methodology.davar || {};
+    var davarHtml = '';
+    if (davar.title) {
+      var davarLetters = (davar.letters || []).map(function(l) {
+        return '<div class="manifest-davar-letter">' +
+          '<span class="manifest-davar-glyph paleo" lang="hbo">' + escapeHtml(l.glyph) + '</span>' +
+          '<span class="manifest-davar-name">' + escapeHtml(l.name) + '</span>' +
+          '<span class="manifest-davar-image">' + escapeHtml(l.image) + '</span>' +
+        '</div>';
+      }).join('');
+      var exampleSteps = (davar.example && davar.example.steps || []).map(function(s, i) {
+        return '<li><span class="manifest-davar-step-num">' + (i + 1) + '</span><span>' + escapeHtml(s) + '</span></li>';
+      }).join('');
+      davarHtml = '<div class="manifest-davar">' +
+        '<div class="manifest-section-heading"><div><span class="manifest-section-label">Слово-действие</span><h3>' + escapeHtml(davar.title) + '</h3></div></div>' +
+        '<p class="manifest-davar-lead">' + escapeHtml(davar.lead || '') + '</p>' +
+        '<div class="manifest-davar-letters">' + davarLetters + '</div>' +
+        '<p class="manifest-davar-assembly">' + escapeHtml(davar.assembly || '') + '</p>' +
+        '<p class="manifest-davar-function">' + escapeHtml(davar.function || '') + '</p>' +
+        '<p>' + escapeHtml(davar.body || '') + '</p>' +
+        '<p class="manifest-davar-conclusion">' + escapeHtml(davar.conclusion || '') + '</p>' +
+        (davar.example ? '<div class="manifest-davar-example">' +
+          '<div class="manifest-davar-example-head">' +
+            '<span class="manifest-davar-example-from">' + escapeHtml(davar.example.from) + '</span>' +
+            '<span class="manifest-davar-example-davar paleo" lang="hbo">𐤃𐤁𐤓</span>' +
+            '<span class="manifest-davar-example-text">' + escapeHtml(davar.example.davar) + '</span>' +
+          '</div>' +
+          '<ol class="manifest-davar-steps">' + exampleSteps + '</ol>' +
+        '</div>' : '') +
+        '</div>';
+    }
+
+    // Карта пространств
     var spaceCards = (story.spaces || []).map(function(space, index) {
       return '<article class="lab-card manifest-space-card" style="animation-delay:' + (index * 40) + 'ms">' +
         '<span class="manifest-space-glyph paleo" lang="hbo" aria-hidden="true">' + escapeHtml(space.glyph) + '</span>' +
-        '<span class="manifest-space-index">0' + (index + 1) + ' · пространство</span>' +
-        '<h3>' + escapeHtml(space.title) + '</h3><p>' + escapeHtml(space.text) + '</p></article>';
+        '<span class="manifest-space-index">0' + (index + 1) + ' · ' + escapeHtml(space.name) + '</span>' +
+        '<h3>' + escapeHtml(space.title) + '</h3>' +
+        '<p>' + escapeHtml(space.text) + '</p>' +
+        '<p class="manifest-space-life"><strong>В жизни:</strong> ' + escapeHtml(space.life || '') + '</p>' +
+        '<p class="manifest-space-examples"><strong>Примеры:</strong> ' + escapeHtml(space.examples || '') + '</p>' +
+        '</article>';
     }).join('');
 
-    container.innerHTML = '<div class="manifest-page">' +
+    // Палео-стандарт — 22 буквы
+    var paleoLetters = story.paleoStandard || [];
+    var paleoGridHtml = paleoLetters.map(function(letter, index) {
+      return '<button type="button" class="manifest-paleo-card" data-paleo-index="' + index + '" ' +
+        'aria-label="' + escapeHtml(letter.name) + ' — ' + escapeHtml(letter.image) + ', функция: ' + escapeHtml(letter.function) + '">' +
+        '<span class="manifest-paleo-glyph paleo" lang="hbo">' + escapeHtml(letter.glyph) + '</span>' +
+        '<span class="manifest-paleo-name">' + escapeHtml(letter.name) + '</span>' +
+        '<span class="manifest-paleo-image">' + escapeHtml(letter.image) + '</span>' +
+        '<span class="manifest-paleo-function">' + escapeHtml(letter.function) + '</span>' +
+        '</button>';
+    }).join('');
+
+    // Шаги применения
+    var appSteps = (application.steps || []).map(function(step, index) {
+      return '<li class="manifest-app-step"><span class="manifest-app-step-num">' + (index + 1) + '</span>' +
+        '<div><strong>' + escapeHtml(step.title) + '</strong><p>' + escapeHtml(step.text) + '</p></div></li>';
+    }).join('');
+
+    // Связанные документы
+    var relatedDocs = (application.relatedDocs || []).map(function(doc) {
+      return '<a href="' + escapeHtml(doc.path) + '" class="manifest-related-doc">' + escapeHtml(doc.title) + '</a>';
+    }).join('');
+
+    container.innerHTML = '<div class="manifest-progress" aria-hidden="true"><span class="manifest-progress-bar" id="manifest-progress-bar"></span></div>' +
+      '<div class="manifest-toc" id="manifest-toc" aria-label="Навигация по манифесту">' +
+      '<div class="manifest-toc-acts">' +
+      '<a href="#manifest-act-problem" class="manifest-toc-link" data-toc="manifest-act-problem">Акт I · Проблема</a>' +
+      '<a href="#manifest-act-methodology" class="manifest-toc-link" data-toc="manifest-act-methodology">Акт II · Методология</a>' +
+      '<a href="#manifest-act-application" class="manifest-toc-link" data-toc="manifest-act-application">Акт III · Применение</a>' +
+      '</div>' +
+      '</div>' +
+      '<div class="manifest-page">' +
       '<header class="manifest-hero">' +
       '<div class="manifest-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
-      '<div class="manifest-kicker">RESEARCHLAB · ИСТОРИЯ ВОССТАНОВЛЕНИЯ</div>' +
+      '<div class="manifest-kicker">RESEARCHLAB · МАНИФЕСТ v' + escapeHtml(data.version || '8.0') + '</div>' +
       '<h1>' + escapeHtml(story.title || data.title || 'Манифест проекта') + '</h1>' +
       '<p class="manifest-lead">' + escapeHtml(story.lead || data.description || '') + '</p>' +
       '</header><div class="manifest-hero-divider" aria-hidden="true"></div>' +
-      '<section class="manifest-act manifest-act-problem" aria-labelledby="manifest-problem-title">' +
+
+      // АКТ I: ПРОБЛЕМА
+      '<section class="manifest-act manifest-act-problem" id="manifest-act-problem" aria-labelledby="manifest-problem-title">' +
       '<div class="manifest-act-heading"><span class="manifest-act-number">I</span><div><span class="manifest-section-label">Акт I · проблема</span><h2 id="manifest-problem-title">' + escapeHtml(problem.title || 'Проблема') + '</h2></div></div>' +
       '<div class="manifest-story-copy">' + paragraphs(problem.paragraphs) + '</div>' +
-      '<section class="manifest-loss-section" aria-labelledby="manifest-loss-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Карта утрат</span><h3 id="manifest-loss-title">Как образ сжимается до понятия</h3></div></div><ol class="manifest-loss-map" aria-label="Карта утрат">' + lossHtml + '</ol></section></section>' +
-      '<section class="manifest-act manifest-act-methodology" aria-labelledby="manifest-methodology-title">' +
+      '<section class="manifest-loss-section" aria-labelledby="manifest-loss-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Карта утрат</span><h3 id="manifest-loss-title">Как образ сжимается до понятия</h3></div></div><ol class="manifest-loss-map" aria-label="Карта утрат">' + lossHtml + '</ol></section>' +
+      '</section>' +
+
+      // АКТ II: МЕТОДОЛОГИЯ
+      '<section class="manifest-act manifest-act-methodology" id="manifest-act-methodology" aria-labelledby="manifest-methodology-title">' +
       '<div class="manifest-act-heading"><span class="manifest-act-number">II</span><div><span class="manifest-section-label">Акт II · методология</span><h2 id="manifest-methodology-title">' + escapeHtml(methodology.title || 'Методология') + '</h2></div></div>' +
       '<div class="manifest-story-copy">' + paragraphs(methodology.paragraphs) + '</div>' +
+
+      // Разбор Мицраим
       '<div class="manifest-mizraim"><div class="manifest-section-heading"><div><span class="manifest-section-label">Разбор слова</span><h3>Мицраим</h3><p>' + escapeHtml(methodology.mizraimLead || '') + '</p></div></div><ol class="manifest-mizraim-list">' + mizraimSteps + '</ol><p class="manifest-mizraim-conclusion">' + escapeHtml(methodology.mizraimConclusion || '') + '</p></div>' +
-      '<section class="manifest-spaces-section" aria-labelledby="manifest-spaces-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Семь моделей среды</span><h3 id="manifest-spaces-title">Карта пространств</h3><p>Семь состояний, через которые проходит поток.</p></div></div><div class="manifest-spaces">' + spaceCards + '</div></section></section>' +
-      '<section class="manifest-act manifest-act-application" aria-labelledby="manifest-application-title">' +
+
+      // Принцип потока
+      flowHtml +
+
+      // Эмет / Шекер
+      emetShekerHtml +
+
+      // Давар
+      davarHtml +
+
+      // Карта пространств
+      '<section class="manifest-spaces-section" aria-labelledby="manifest-spaces-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Семь моделей среды</span><h3 id="manifest-spaces-title">Карта пространств</h3><p>Семь состояний, через которые проходит поток.</p></div></div><div class="manifest-spaces">' + spaceCards + '</div></section>' +
+
+      // Палео-стандарт — интерактивная сетка 22 букв
+      '<section class="manifest-paleo-section" aria-labelledby="manifest-paleo-title">' +
+      '<div class="manifest-section-heading"><div><span class="manifest-section-label">Палео-стандарт</span><h3 id="manifest-paleo-title">Двадцать две буквы</h3><p>Наведи на букву — увидишь функцию. Нажми — получишь разбор.</p></div></div>' +
+      '<div class="manifest-paleo-grid" id="manifest-paleo-grid">' + paleoGridHtml + '</div>' +
+      '<div class="manifest-paleo-detail" id="manifest-paleo-detail" hidden aria-live="polite">' +
+        '<div class="manifest-paleo-detail-glyph paleo" lang="hbo" id="manifest-paleo-detail-glyph"></div>' +
+        '<div class="manifest-paleo-detail-info">' +
+          '<h4 id="manifest-paleo-detail-name"></h4>' +
+          '<p class="manifest-paleo-detail-image" id="manifest-paleo-detail-image"></p>' +
+          '<p class="manifest-paleo-detail-function" id="manifest-paleo-detail-function"></p>' +
+          '<p class="manifest-paleo-detail-desc" id="manifest-paleo-detail-desc"></p>' +
+        '</div>' +
+      '</div>' +
+      '</section>' +
+
+      '</section>' +
+
+      // АКТ III: ПРИМЕНЕНИЕ
+      '<section class="manifest-act manifest-act-application" id="manifest-act-application" aria-labelledby="manifest-application-title">' +
       '<div class="manifest-act-heading"><span class="manifest-act-number">III</span><div><span class="manifest-section-label">Акт III · применение</span><h2 id="manifest-application-title">' + escapeHtml(application.title || 'Применение') + '</h2></div></div>' +
-      '<div class="manifest-story-copy">' + paragraphs(application.paragraphs) + '</div><div class="manifest-cta-wrap"><a class="lab-btn lab-btn-primary manifest-cta" href="#root-dictionary">Перейти в Лабораторию <span aria-hidden="true">→</span></a></div></section>' +
+      '<div class="manifest-story-copy">' + paragraphs(application.paragraphs) + '</div>' +
+      (appSteps ? '<ol class="manifest-app-steps">' + appSteps + '</ol>' : '') +
+      (relatedDocs ? '<div class="manifest-related"><div class="manifest-section-heading"><div><span class="manifest-section-label">Связанные документы</span><h3>Иди дальше</h3><p>Манифест говорит «что и зачем». Остальные документы — «как».</p></div></div><div class="manifest-related-list">' + relatedDocs + '</div></div>' : '') +
+      '<div class="manifest-cta-wrap"><a class="lab-btn lab-btn-primary manifest-cta" href="#dashboard">Начать исследование <span aria-hidden="true">→</span></a>' +
+      '<a class="lab-btn lab-btn-secondary manifest-cta manifest-cta-secondary" href="#root-dictionary">Открыть корневой словарь</a></div>' +
+      '</section>' +
+
       '</div>';
+
+    // Инициализация интерактивности палео-сетки
+    initManifestPaleoGrid(container, paleoLetters);
+
+    // Инициализация интерактивности карты утрат
+    initManifestLossMap(container);
+
+    // Инициализация оглавления, scroll-spy и progress-bar
+    initManifestNav(container);
+  }
+
+  // ===== НАВИГАЦИЯ ПО МАНИФЕСТУ: TOC + SCROLL-SPY + PROGRESS =====
+  function initManifestNav(container) {
+    var toc = container.querySelector('#manifest-toc');
+    var progressBar = container.querySelector('#manifest-progress-bar');
+    var actIds = ['manifest-act-problem', 'manifest-act-methodology', 'manifest-act-application'];
+
+    if (progressBar) {
+      var doc = container;
+      window.addEventListener('scroll', function() {
+        var rect = doc.getBoundingClientRect();
+        var total = doc.offsetHeight - window.innerHeight;
+        if (total <= 0) return;
+        var progress = Math.min(1, Math.max(0, -rect.top / total));
+        progressBar.style.width = (progress * 100) + '%';
+      }, { passive: true });
+    }
+
+    if (!toc) return;
+
+    // Scroll-spy: подсветка текущего акта
+    var links = toc.querySelectorAll('.manifest-toc-link');
+    var spy = function() {
+      var current = actIds[0];
+      actIds.forEach(function(id) {
+        var el = doc.querySelector('#' + id);
+        if (!el) return;
+        var rect = el.getBoundingClientRect();
+        if (rect.top <= 120) current = id;
+      });
+      links.forEach(function(link) {
+        link.classList.toggle('is-active', link.getAttribute('data-toc') === current);
+      });
+    };
+
+    window.addEventListener('scroll', spy, { passive: true });
+    spy();
+
+    // Плавная прокрутка по якорям внутри SPA
+    links.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var id = this.getAttribute('data-toc');
+        var target = doc.querySelector('#' + id);
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  // ===== ИНТЕРАКТИВНОСТЬ ПАЛЕО-СЕТКИ =====
+  function initManifestPaleoGrid(container, letters) {
+    var grid = container.querySelector('#manifest-paleo-grid');
+    if (!grid || !letters.length) return;
+
+    var detail = container.querySelector('#manifest-paleo-detail');
+    var detailGlyph = container.querySelector('#manifest-paleo-detail-glyph');
+    var detailName = container.querySelector('#manifest-paleo-detail-name');
+    var detailImage = container.querySelector('#manifest-paleo-detail-image');
+    var detailFunction = container.querySelector('#manifest-paleo-detail-function');
+    var detailDesc = container.querySelector('#manifest-paleo-detail-desc');
+
+    var cards = grid.querySelectorAll('.manifest-paleo-card');
+    cards.forEach(function(card) {
+      // Hover — подсветка и показ функции (CSS обрабатывает визуал)
+      card.addEventListener('mouseenter', function() {
+        cards.forEach(function(c) { c.classList.remove('is-hovered'); });
+        card.classList.add('is-hovered');
+      });
+
+      // Click — разбор буквы
+      card.addEventListener('click', function() {
+        var idx = parseInt(card.getAttribute('data-paleo-index'), 10);
+        var letter = letters[idx];
+        if (!letter) return;
+
+        cards.forEach(function(c) { c.classList.remove('is-active'); });
+        card.classList.add('is-active');
+
+        if (detail) {
+          detail.hidden = false;
+          if (detailGlyph) detailGlyph.textContent = letter.glyph;
+          if (detailName) detailName.textContent = letter.name + ' — ' + letter.image;
+          if (detailImage) detailImage.textContent = 'Образ: ' + letter.image;
+          if (detailFunction) detailFunction.textContent = 'Функция: ' + letter.function;
+          if (detailDesc) detailDesc.textContent = letter.desc;
+        }
+      });
+
+      // Keyboard support
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+  }
+
+  // ===== ИНТЕРАКТИВНОСТЬ КАРТЫ УТРАТ =====
+  function initManifestLossMap(container) {
+    var cards = container.querySelectorAll('.manifest-loss-card');
+    if (!cards.length) return;
+
+    cards.forEach(function(card) {
+      var detail = card.querySelector('.manifest-loss-card-detail');
+      if (!detail) return;
+
+      // Click — выезжающий блок с подробным описанием
+      card.addEventListener('click', function() {
+        var isOpen = !detail.hidden;
+        // Закрываем все остальные
+        cards.forEach(function(c) {
+          var d = c.querySelector('.manifest-loss-card-detail');
+          if (d && d !== detail) {
+            d.hidden = true;
+            c.classList.remove('is-expanded');
+            c.setAttribute('aria-expanded', 'false');
+          }
+        });
+        // Переключаем текущую
+        detail.hidden = isOpen;
+        card.classList.toggle('is-expanded', !isOpen);
+        card.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+      });
+
+      // Keyboard support
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
   }
 
   // ===== ПРИМЕНЕНИЕ QUERY-ПАРАМЕТРА =====
@@ -396,12 +708,12 @@ const PageController = (function() {
         break;
 
       case 'investigation':
-        container.innerHTML = '<div class="investigation-heading">' +
-          '<div><div class="investigation-kicker">AI / ДОСЬЕ</div>' +
+        container.innerHTML = '<header class="section-hero">' +
+          '<div class="section-hero-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
+          '<div class="section-hero-kicker">ГОЛЕМ · РАССЛЕДОВАНИЕ</div>' +
           '<h1><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</h1>' +
-          '<p class="subtitle">Введите слово, корень или перевод. Сопоставьте происхождение, цепочку подмен и текстовые свидетельства.</p></div>' +
-          '<div class="investigation-stamp" aria-hidden="true">CASE<br><strong>01</strong></div>' +
-          '</div>' +
+          '<p class="section-hero-lead">Введите слово, корень или перевод. Сопоставьте происхождение, цепочку подмен и текстовые свидетельства.</p>' +
+        '</header>' +
           '<form id="investigation-form" class="investigation-search" onsubmit="event.preventDefault(); Investigation.investigate();">' +
           '<label for="investigation-input">Объект расследования</label>' +
           '<div class="investigation-search-row"><input type="search" id="investigation-input" class="lab-input" placeholder="חסד, милость, HSD..." autocomplete="off" required>' +
@@ -693,6 +1005,15 @@ const PageController = (function() {
         }
         break;
 
+      case 'tree-checker':
+        showSpinner(container, 'Загрузка дерева…');
+        if (window.TreeChecker) {
+          window.TreeChecker.init(container);
+        } else {
+          showError(container, 'Модуль «Чекер дерева» не загрузился.');
+        }
+        break;
+
       // ===== МОДУЛИ С JS-ИНИЦИАЛИЗАЦИЕЙ =====
       case 'cartography':
         showSpinner(container, 'Загрузка картографии…');
@@ -721,6 +1042,16 @@ const PageController = (function() {
           window.GolemStates.init(parsed);
         } else {
           showError(container, 'Модуль «Карта состояний» не загрузился.');
+        }
+        break;
+
+      case 'timeline':
+        showSpinner(container, 'Загрузка палео-таймлайна…');
+        if (window.Timeline) {
+          container.dataset.loaded = '1';
+          window.Timeline.init(container, parsed);
+        } else {
+          showError(container, 'Модуль «Палео-таймлайн» не загрузился.');
         }
         break;
 
@@ -765,11 +1096,11 @@ const PageController = (function() {
         break;
 
       case 'name-decoder':
-        showSpinner(container, 'Загрузка дешифратора имени…');
+        showSpinner(container, 'Загрузка чекера имени…');
         if (window.NameDecoder) {
           window.NameDecoder.init(container);
         } else {
-          showError(container, 'Модуль «Дешифратор Имени» не загрузился.');
+          showError(container, 'Модуль «Чекер имени» не загрузился.');
         }
         container.dataset.loaded = '1';
         break;
@@ -787,7 +1118,13 @@ const PageController = (function() {
       // ===== JSON-СТРАНИЦЫ =====
       case 'manifest':
         showSpinner(container, 'Загрузка манифеста…');
+        if (jsonCache.manifest) {
+          renderManifestPage(container, jsonCache.manifest);
+          container.dataset.loaded = '1';
+          break;
+        }
         fetchJson('data/methodology/manifest.json').then(function(data) {
+          jsonCache.manifest = data;
           renderManifestPage(container, data);
           container.dataset.loaded = '1';
         }).catch(function(err) {
@@ -797,10 +1134,6 @@ const PageController = (function() {
 
       case 'dictionaries':
         loadJsonPage('dictionaries', 'data/dictionaries.json', container);
-        break;
-
-      case 'exposure':
-        loadJsonPage('exposure', 'data/exposures/documents.json', container);
         break;
 
       case 'paleo-mechanics':

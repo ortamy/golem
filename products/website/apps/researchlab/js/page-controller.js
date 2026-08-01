@@ -208,6 +208,7 @@ const PageController = (function() {
   }
 
   function renderManifestPage(container, data) {
+    document.title = 'Манифест — Golem';
     var story = data.story || {};
     var acts = story.acts || {};
     var problem = acts.problem || {};
@@ -222,11 +223,12 @@ const PageController = (function() {
       var num = '0' + (index + 1);
       var hasDetail = !!(layer.lost || layer.examples);
       return '<li class="manifest-loss-card" data-loss-index="' + index + '" style="animation-delay:' + (index * 150) + 'ms" ' +
-        (hasDetail ? 'role="button" tabindex="0" aria-expanded="false"' : '') + '>' +
+        (hasDetail ? 'role="button" tabindex="0" aria-expanded="false" aria-label="Развернуть слой: ' + escapeHtml(layer.title) + '"' : '') + '>' +
         '<div class="manifest-loss-card-head">' +
           '<span class="manifest-loss-card-num">' + num + '</span>' +
           '<span class="manifest-loss-card-percent">' + escapeHtml(layer.percent) + '</span>' +
         '</div>' +
+        '<span class="manifest-loss-card-chevron" aria-hidden="true">⌄</span>' +
         '<h4 class="manifest-loss-card-title">' + escapeHtml(layer.title) + '</h4>' +
         '<p class="manifest-loss-card-text">' + escapeHtml(layer.text) + '</p>' +
         (hasDetail ? '<div class="manifest-loss-card-detail" hidden>' +
@@ -350,7 +352,15 @@ const PageController = (function() {
       return '<a href="' + escapeHtml(doc.path) + '" class="manifest-related-doc">' + escapeHtml(doc.title) + '</a>';
     }).join('');
 
-    container.innerHTML = '<div class="manifest-page">' +
+    container.innerHTML = '<div class="manifest-progress" aria-hidden="true"><span class="manifest-progress-bar" id="manifest-progress-bar"></span></div>' +
+      '<div class="manifest-toc" id="manifest-toc" aria-label="Навигация по манифесту">' +
+      '<div class="manifest-toc-acts">' +
+      '<a href="#manifest-act-problem" class="manifest-toc-link" data-toc="manifest-act-problem">Акт I · Проблема</a>' +
+      '<a href="#manifest-act-methodology" class="manifest-toc-link" data-toc="manifest-act-methodology">Акт II · Методология</a>' +
+      '<a href="#manifest-act-application" class="manifest-toc-link" data-toc="manifest-act-application">Акт III · Применение</a>' +
+      '</div>' +
+      '</div>' +
+      '<div class="manifest-page">' +
       '<header class="manifest-hero">' +
       '<div class="manifest-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
       '<div class="manifest-kicker">RESEARCHLAB · МАНИФЕСТ v' + escapeHtml(data.version || '8.0') + '</div>' +
@@ -359,14 +369,14 @@ const PageController = (function() {
       '</header><div class="manifest-hero-divider" aria-hidden="true"></div>' +
 
       // АКТ I: ПРОБЛЕМА
-      '<section class="manifest-act manifest-act-problem" aria-labelledby="manifest-problem-title">' +
+      '<section class="manifest-act manifest-act-problem" id="manifest-act-problem" aria-labelledby="manifest-problem-title">' +
       '<div class="manifest-act-heading"><span class="manifest-act-number">I</span><div><span class="manifest-section-label">Акт I · проблема</span><h2 id="manifest-problem-title">' + escapeHtml(problem.title || 'Проблема') + '</h2></div></div>' +
       '<div class="manifest-story-copy">' + paragraphs(problem.paragraphs) + '</div>' +
       '<section class="manifest-loss-section" aria-labelledby="manifest-loss-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Карта утрат</span><h3 id="manifest-loss-title">Как образ сжимается до понятия</h3></div></div><ol class="manifest-loss-map" aria-label="Карта утрат">' + lossHtml + '</ol></section>' +
       '</section>' +
 
       // АКТ II: МЕТОДОЛОГИЯ
-      '<section class="manifest-act manifest-act-methodology" aria-labelledby="manifest-methodology-title">' +
+      '<section class="manifest-act manifest-act-methodology" id="manifest-act-methodology" aria-labelledby="manifest-methodology-title">' +
       '<div class="manifest-act-heading"><span class="manifest-act-number">II</span><div><span class="manifest-section-label">Акт II · методология</span><h2 id="manifest-methodology-title">' + escapeHtml(methodology.title || 'Методология') + '</h2></div></div>' +
       '<div class="manifest-story-copy">' + paragraphs(methodology.paragraphs) + '</div>' +
 
@@ -389,7 +399,7 @@ const PageController = (function() {
       '<section class="manifest-paleo-section" aria-labelledby="manifest-paleo-title">' +
       '<div class="manifest-section-heading"><div><span class="manifest-section-label">Палео-стандарт</span><h3 id="manifest-paleo-title">Двадцать две буквы</h3><p>Наведи на букву — увидишь функцию. Нажми — получишь разбор.</p></div></div>' +
       '<div class="manifest-paleo-grid" id="manifest-paleo-grid">' + paleoGridHtml + '</div>' +
-      '<div class="manifest-paleo-detail" id="manifest-paleo-detail" hidden>' +
+      '<div class="manifest-paleo-detail" id="manifest-paleo-detail" hidden aria-live="polite">' +
         '<div class="manifest-paleo-detail-glyph paleo" lang="hbo" id="manifest-paleo-detail-glyph"></div>' +
         '<div class="manifest-paleo-detail-info">' +
           '<h4 id="manifest-paleo-detail-name"></h4>' +
@@ -403,12 +413,13 @@ const PageController = (function() {
       '</section>' +
 
       // АКТ III: ПРИМЕНЕНИЕ
-      '<section class="manifest-act manifest-act-application" aria-labelledby="manifest-application-title">' +
+      '<section class="manifest-act manifest-act-application" id="manifest-act-application" aria-labelledby="manifest-application-title">' +
       '<div class="manifest-act-heading"><span class="manifest-act-number">III</span><div><span class="manifest-section-label">Акт III · применение</span><h2 id="manifest-application-title">' + escapeHtml(application.title || 'Применение') + '</h2></div></div>' +
       '<div class="manifest-story-copy">' + paragraphs(application.paragraphs) + '</div>' +
       (appSteps ? '<ol class="manifest-app-steps">' + appSteps + '</ol>' : '') +
       (relatedDocs ? '<div class="manifest-related"><div class="manifest-section-heading"><div><span class="manifest-section-label">Связанные документы</span><h3>Иди дальше</h3><p>Манифест говорит «что и зачем». Остальные документы — «как».</p></div></div><div class="manifest-related-list">' + relatedDocs + '</div></div>' : '') +
-      '<div class="manifest-cta-wrap"><a class="lab-btn lab-btn-primary manifest-cta" href="#root-dictionary">Перейти в Лабораторию <span aria-hidden="true">→</span></a></div>' +
+      '<div class="manifest-cta-wrap"><a class="lab-btn lab-btn-primary manifest-cta" href="#dashboard">Начать исследование <span aria-hidden="true">→</span></a>' +
+      '<a class="lab-btn lab-btn-secondary manifest-cta manifest-cta-secondary" href="#root-dictionary">Открыть корневой словарь</a></div>' +
       '</section>' +
 
       '</div>';
@@ -418,6 +429,58 @@ const PageController = (function() {
 
     // Инициализация интерактивности карты утрат
     initManifestLossMap(container);
+
+    // Инициализация оглавления, scroll-spy и progress-bar
+    initManifestNav(container);
+  }
+
+  // ===== НАВИГАЦИЯ ПО МАНИФЕСТУ: TOC + SCROLL-SPY + PROGRESS =====
+  function initManifestNav(container) {
+    var toc = container.querySelector('#manifest-toc');
+    var progressBar = container.querySelector('#manifest-progress-bar');
+    var actIds = ['manifest-act-problem', 'manifest-act-methodology', 'manifest-act-application'];
+
+    if (progressBar) {
+      var doc = container;
+      window.addEventListener('scroll', function() {
+        var rect = doc.getBoundingClientRect();
+        var total = doc.offsetHeight - window.innerHeight;
+        if (total <= 0) return;
+        var progress = Math.min(1, Math.max(0, -rect.top / total));
+        progressBar.style.width = (progress * 100) + '%';
+      }, { passive: true });
+    }
+
+    if (!toc) return;
+
+    // Scroll-spy: подсветка текущего акта
+    var links = toc.querySelectorAll('.manifest-toc-link');
+    var spy = function() {
+      var current = actIds[0];
+      actIds.forEach(function(id) {
+        var el = doc.querySelector('#' + id);
+        if (!el) return;
+        var rect = el.getBoundingClientRect();
+        if (rect.top <= 120) current = id;
+      });
+      links.forEach(function(link) {
+        link.classList.toggle('is-active', link.getAttribute('data-toc') === current);
+      });
+    };
+
+    window.addEventListener('scroll', spy, { passive: true });
+    spy();
+
+    // Плавная прокрутка по якорям внутри SPA
+    links.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var id = this.getAttribute('data-toc');
+        var target = doc.querySelector('#' + id);
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   }
 
   // ===== ИНТЕРАКТИВНОСТЬ ПАЛЕО-СЕТКИ =====
@@ -1055,7 +1118,13 @@ const PageController = (function() {
       // ===== JSON-СТРАНИЦЫ =====
       case 'manifest':
         showSpinner(container, 'Загрузка манифеста…');
+        if (jsonCache.manifest) {
+          renderManifestPage(container, jsonCache.manifest);
+          container.dataset.loaded = '1';
+          break;
+        }
         fetchJson('data/methodology/manifest.json').then(function(data) {
+          jsonCache.manifest = data;
           renderManifestPage(container, data);
           container.dataset.loaded = '1';
         }).catch(function(err) {
