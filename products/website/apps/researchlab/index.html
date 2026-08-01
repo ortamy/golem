@@ -386,8 +386,10 @@ const LabToast = {
   }
 };
 
-// ===== LAB SEARCH (Global) =====
+// ===== LAB SEARCH (Global Paleo) =====
 const LabSearch = {
+  MAX_TOTAL: 30,
+
   search: function(query) {
     var results = document.getElementById('gs-results');
     query = query.trim().toLowerCase();
@@ -395,62 +397,192 @@ const LabSearch = {
       results.classList.remove('show');
       return;
     }
-    
-    var items = [];
-    
-    // Search roots
+
+    // ===== Подгрузка данных разделов при первом поиске =====
+    if (!LabSearch._dataLoaded) {
+      LabSearch._dataLoaded = true;
+      // Методология — карточки
+      fetch('data/methodology/cards.json').then(function(response) {
+        return response.json();
+      }).then(function(data) {
+        LabSearch._methodCards = (data && data.cards) || [];
+        RequireReSearch();
+      }).catch(function() {});
+      // Картография
+      if (window.Cartography) {
+        var cartContainer = document.createElement('div');
+        window.Cartography.loadData(cartContainer).catch(function() {});
+      }
+      // Гербовник
+      if (window.Heraldry) {
+        var heraldryContainer = document.createElement('div');
+        window.Heraldry.loadData(heraldryContainer).catch(function() {});
+      }
+      // Книгочтение — книги
+      fetch('data/qumran-books.json').then(function(response) {
+        return response.json();
+      }).then(function(data) {
+        LabSearch._scriptureBooks = (data && data.books) || [];
+        RequireReSearch();
+      }).catch(function() {});
+    }
+    function RequireReSearch() {
+      var input = document.getElementById('gs-input');
+      if (!input) return;
+      var q = input.value.trim();
+      if (q.length >= 2) LabSearch.search(q);
+    }
+
+    var grouped = [
+      { key: 'roots', label: 'Корни и словари', icon: '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Корни" style="vertical-align: middle; margin-right: 6px;">', items: [] },
+      { key: 'methodology', label: 'Методология', icon: '<img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Методология" style="vertical-align: middle; margin-right: 6px;">', items: [] },
+      { key: 'cartography', label: 'Картография', icon: '<img src="../../assets/icons/32/ui/web.png" width="32" height="32" alt="Картография" style="vertical-align: middle; margin-right: 6px;">', items: [] },
+      { key: 'heraldry', label: 'Гербовник', icon: '<img src="../../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Гербовник" style="vertical-align: middle; margin-right: 6px;">', items: [] },
+      { key: 'scripture', label: 'Книгочтение', icon: '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Книгочтение" style="vertical-align: middle; margin-right: 6px;">', items: [] },
+      { key: 'religionisms', label: 'Религионизмы', icon: '<img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Религионизмы" style="vertical-align: middle; margin-right: 6px;">', items: [] },
+      { key: 'translations', label: 'Сравнение переводов', icon: '<img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Переводы" style="vertical-align: middle; margin-right: 6px;">', items: [] }
+    ];
+
+    var byKey = {};
+    grouped.forEach(function(g) { byKey[g.key] = g; });
+
+    function push(key, icon, text, module, moduleName, params) {
+      var group = byKey[key];
+      if (!group) return;
+      group.items.push({ icon: icon, text: text, module: module, moduleName: moduleName, params: params || null });
+    }
+
+    // ===== КОРНИ И СЛОВАРИ =====
     if (window.RootDict && window._roots) {
       window._roots.forEach(function(r) {
         if (r.root.indexOf(query) !== -1 || r.translit.toLowerCase().indexOf(query) !== -1 || r.meaning.toLowerCase().indexOf(query) !== -1) {
-          items.push({ icon: '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Корневой словарь" style="vertical-align: middle; margin-right: 6px;">', text: r.root + ' — ' + r.meaning.substring(0, 60), module: 'root-dictionary', moduleName: 'Корневой словарь' });
+          push('roots', '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Корневой словарь" style="vertical-align: middle; margin-right: 6px;">', r.root + ' — ' + r.meaning.substring(0, 60), 'root-dictionary', 'Корневой словарь');
         }
       });
     }
-    
-    // Search checker dict
+
+    // ===== МЕТОДОЛОГИЯ (карточки и табы) =====
+    var methodCards = (window.MethodologyLab && window.MethodologyLab.getCards) ? window.MethodologyLab.getCards() : (LabSearch._methodCards || []);
+    if (window.MethodologyLab) {
+      methodCards.forEach(function(c) {
+        var title = String(c.title || '').toLowerCase();
+        var text = String(c.text || '').toLowerCase();
+        var summary = String(c.summary || '').toLowerCase();
+        if (title.indexOf(query) !== -1 || text.indexOf(query) !== -1 || summary.indexOf(query) !== -1) {
+          var catKey = c.category;
+          var catLabel = catKey;
+          (window.MethodologyLab.getCategories() || []).forEach(function(cat) {
+            if (cat.key === catKey) catLabel = cat.label;
+          });
+          push('methodology', '<img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Методология" style="vertical-align: middle; margin-right: 6px;">', (c.title || '') + ' — ' + String(c.summary || c.text || '').substring(0, 60), 'methodology', 'Методология · ' + catLabel, { category: catKey });
+        }
+      });
+      // Табы методологии
+      (window.MethodologyLab.getCategories() || []).forEach(function(cat) {
+        if (cat.label.toLowerCase().indexOf(query) !== -1) {
+          push('methodology', '<img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Методология" style="vertical-align: middle; margin-right: 6px;">', cat.label, 'methodology', 'Методология · ' + cat.label, { category: cat.key });
+        }
+      });
+    }
+
+    // ===== КАРТОГРАФИЯ (страны, города, регионы) =====
+    if (window.Cartography && window.Cartography.getEntries) {
+      window.Cartography.getEntries().forEach(function(e) {
+        if (e.name.toLowerCase().indexOf(query) !== -1 || (e.hebrew || '').toLowerCase().indexOf(query) !== -1 || (e.meaning || '').toLowerCase().indexOf(query) !== -1) {
+          push('cartography', '<img src="../../assets/icons/32/ui/web.png" width="32" height="32" alt="Картография" style="vertical-align: middle; margin-right: 6px;">', e.name + ' — ' + String(e.meaning || '').substring(0, 60), 'cartography', 'Картография · ' + (e.type || ''));
+        }
+      });
+    }
+
+    // ===== ГЕРБОВНИК (страны и символы) =====
+    if (window.Heraldry && window.Heraldry.getCountries) {
+      window.Heraldry.getCountries().forEach(function(c) {
+        var nameMatch = c.name.toLowerCase().indexOf(query) !== -1;
+        var symbolMatch = String(c.symbol || '').toLowerCase().indexOf(query) !== -1;
+        var hebrewMatch = String(c.hebrew || '').toLowerCase().indexOf(query) !== -1;
+        if (nameMatch || symbolMatch || hebrewMatch) {
+          push('heraldry', '<img src="../../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Гербовник" style="vertical-align: middle; margin-right: 6px;">', c.name + ' — ' + String(c.symbol || '').substring(0, 60), 'heraldry', 'Гербовник · ' + c.name);
+        }
+      });
+    }
+
+    // ===== КНИГОЧТЕНИЕ (книги) =====
+    var books = (window.ScriptureReader && window.ScriptureReader.getBooks && window.ScriptureReader.getBooks().length) ? window.ScriptureReader.getBooks() : (LabSearch._scriptureBooks || []);
+    books.forEach(function(b) {
+      if (String(b.ru || '').toLowerCase().indexOf(query) !== -1 || String(b.he || '').toLowerCase().indexOf(query) !== -1) {
+        push('scripture', '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Книгочтение" style="vertical-align: middle; margin-right: 6px;">', b.ru + (b.paleo ? ' (' + b.paleo + ')' : ''), 'scripture-reader', 'Книгочтение · Книга', { book: b.id });
+      }
+    });
+
+    // ===== РЕЛИГИОНИЗМЫ =====
     if (window.RelChecker && window._relDict) {
       window._relDict.forEach(function(d) {
         if (d[0].toLowerCase().indexOf(query) !== -1 || d[1].toLowerCase().indexOf(query) !== -1) {
-          items.push({ icon: '<img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Чекер религионимов" style="vertical-align: middle; margin-right: 6px;">', text: d[0] + ' → ' + d[1], module: 'religionism-checker', moduleName: 'Чекер религионимов' });
+          push('religionisms', '<img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Чекер религионимов" style="vertical-align: middle; margin-right: 6px;">', d[0] + ' → ' + d[1], 'religionism-checker', 'Чекер религионимов');
         }
       });
     }
-    
-    // Search translation data
+
+    // ===== СРАВНЕНИЕ ПЕРЕВОДОВ =====
     if (window.TransComp && window._tcData) {
       Object.keys(window._tcData).forEach(function(key) {
         if (key.toLowerCase().indexOf(query) !== -1) {
-          items.push({ icon: '<img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Сравнение переводов" style="vertical-align: middle; margin-right: 6px;">', text: key, module: 'translation-comparator', moduleName: 'Сравнение переводов' });
+          push('translations', '<img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Сравнение переводов" style="vertical-align: middle; margin-right: 6px;">', key, 'translation-comparator', 'Сравнение переводов');
         }
       });
     }
-    
-    // Limit
-    if (items.length > 20) items = items.slice(0, 20);
-    
-    if (items.length === 0) {
+
+    // ===== СБОРКА =====
+    var total = 0;
+    var hasAny = false;
+    grouped.forEach(function(g) { if (g.items.length) hasAny = true; });
+
+    if (!hasAny) {
       results.innerHTML = '<div class="search-result-item" style="color:var(--text-muted);cursor:default;">Ничего не найдено</div>';
       results.classList.add('show');
       return;
     }
-    
+
     var html = '';
-    items.forEach(function(item) {
-      html += '<div class="search-result-item" onclick="LabSearch.goTo(\'' + item.module + '\')">' +
-        '<span class="sr-icon">' + item.icon + '</span>' +
-        '<span class="sr-text">' + escapeHtml(item.text) + '</span>' +
-        '<span class="sr-module">' + item.moduleName + '</span></div>';
+    grouped.forEach(function(g) {
+      if (!g.items.length) return;
+      var items = g.items.slice(0, 6);
+      total += items.length;
+      if (total > LabSearch.MAX_TOTAL) {
+        items = items.slice(0, LabSearch.MAX_TOTAL - (total - items.length));
+        if (!items.length) return;
+      }
+      html += '<div class="sr-group"><div class="sr-group-head">' + g.icon + ' <span class="sr-group-label">' + g.label + '</span><span class="sr-group-count">' + items.length + '</span></div>';
+      items.forEach(function(item) {
+        html += '<div class="search-result-item sr-item" onclick="LabSearch.goTo(\'' + item.module + '\', \'' + (item.params ? JSON.stringify(item.params).replace(/'/g, '&#39;') : '') + '\')">' +
+          '<span class="sr-text">' + escapeHtml(item.text) + '</span>' +
+          '<span class="sr-module">' + item.moduleName + '</span></div>';
+      });
+      html += '</div>';
     });
+
     results.innerHTML = html;
     results.classList.add('show');
   },
-  goTo: function(module) {
+
+  goTo: function(module, paramsJson) {
     this.hide();
-    LabRouter.navigate(module);
+    var segments = null;
+    var params = null;
+    if (paramsJson) {
+      try { params = JSON.parse(paramsJson); } catch(e) {}
+    }
+    if (module === 'scripture-reader' && params && params.book) {
+      segments = null;
+    }
+    LabRouter.navigate(module, segments, params);
   },
+
   hide: function() {
-    document.getElementById('gs-results').classList.remove('show');
-    document.getElementById('gs-input').value = '';
+    var res = document.getElementById('gs-results');
+    var input = document.getElementById('gs-input');
+    if (res) res.classList.remove('show');
+    if (input) input.value = '';
   }
 };
 

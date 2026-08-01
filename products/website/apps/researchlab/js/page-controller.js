@@ -592,6 +592,9 @@ const PageController = (function() {
       if (moduleId === 'scripture-reader' && window.ScriptureReader) {
         window.ScriptureReader.init(parsed);
       }
+      if (moduleId === 'methodology' && window.MethodologyLab) {
+        window.MethodologyLab.init(container, parsed);
+      }
       return;
     }
 
@@ -1088,7 +1091,7 @@ const PageController = (function() {
       case 'methodology':
         showSpinner(container, 'Загрузка методологии…');
         if (window.MethodologyLab) {
-          window.MethodologyLab.init(container);
+          window.MethodologyLab.init(container, parsed);
         } else {
           showError(container, 'Модуль «Методология» не загрузился.');
         }

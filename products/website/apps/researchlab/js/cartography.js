@@ -226,7 +226,8 @@ const Cartography = (function() {
   return {
     init: init,
     loadData: loadData,
-    showDetail: showDetail
+    showDetail: showDetail,
+    getEntries: function() { return entries; }
   };
 })();
 

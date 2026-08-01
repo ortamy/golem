@@ -15,6 +15,7 @@ const ScriptureReader = (function() {
     loaded: false,
     loading: null,
     pendingBookId: null,
+    pendingVerse: null,
     boundRoot: null
   };
 
@@ -193,9 +194,10 @@ const ScriptureReader = (function() {
     if (tools) tools.style.display = '';
   }
 
-  function openBook(bookId) {
+  function openBook(bookId, verseNumber) {
     if (!state.books.length) {
       state.pendingBookId = bookId;
+      state.pendingVerse = verseNumber || null;
       return;
     }
     var book = state.books.filter(function(b) { return b.id === bookId; })[0];
@@ -203,9 +205,9 @@ const ScriptureReader = (function() {
 
     state.currentBook = book;
     showVerseView();
-    loadVerses(book);
+    loadVerses(book, verseNumber);
   }
-  function loadVerses(book) {
+  function loadVerses(book, verseNumber) {
     setLoading('Загрузка ' + book.ru + '…');
     // Не запрашиваем несуществующий файл: в каталоге пока есть только Берешит.
     if (!book.dataFile) {
@@ -225,7 +227,10 @@ const ScriptureReader = (function() {
       .then(function(data) {
         if (!Array.isArray(data) || !data.length) throw new Error('Пустой набор стихов');
         state.verses = data;
-        state.currentVerse = 0;
+        var requestedIndex = verseNumber == null ? -1 : data.findIndex(function(item) {
+          return String(item && item.verse) === String(verseNumber);
+        });
+        state.currentVerse = requestedIndex >= 0 ? requestedIndex : 0;
         renderVerse();
       })
       .catch(function(error) {
@@ -653,8 +658,10 @@ const ScriptureReader = (function() {
         state.loaded = true;
         if (state.pendingBookId) {
           var requestedBookId = state.pendingBookId;
+          var requestedVerse = state.pendingVerse;
           state.pendingBookId = null;
-          openBook(requestedBookId);
+          state.pendingVerse = null;
+          openBook(requestedBookId, requestedVerse);
         }
       })
       .catch(function(error) {
@@ -672,9 +679,13 @@ const ScriptureReader = (function() {
     var reader = get('scripture-reader');
     if (!reader) return;
     var requestedBookId = parsed && parsed.params && parsed.params.book;
+    var requestedVerse = parsed && parsed.params && parsed.params.verse;
     if (requestedBookId) {
-      if (state.loaded) openBook(requestedBookId);
-      else state.pendingBookId = requestedBookId;
+      if (state.loaded) openBook(requestedBookId, requestedVerse);
+      else {
+        state.pendingBookId = requestedBookId;
+        state.pendingVerse = requestedVerse || null;
+      }
     }
     if (state.boundRoot !== reader) {
       bindEvents();
@@ -683,12 +694,19 @@ const ScriptureReader = (function() {
       if (state.loaded) {
         renderBookGrid();
         showBookGrid();
-        if (requestedBookId) openBook(requestedBookId);
+        if (requestedBookId) openBook(requestedBookId, requestedVerse);
       }
     }
     if (!state.loaded) load().catch(function() {});
   }
 
-  window.ScriptureReader = { init: init, openBook: openBook, renderVerse: renderVerse };
+  window.ScriptureReader = {
+    init: init,
+    openBook: openBook,
+    renderVerse: renderVerse,
+    getBooks: function() { return state.books; },
+    getVerses: function() { return state.verses; },
+    getCurrentBook: function() { return state.currentBook; }
+  };
   return window.ScriptureReader;
 })();

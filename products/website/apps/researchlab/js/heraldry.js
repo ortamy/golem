@@ -321,7 +321,8 @@ const DATA_PATH = 'data/heraldry/heraldry.json';
     init: init,
     loadData: loadData,
     showDetail: showDetail,
-    exportDetail: exportDetail
+    exportDetail: exportDetail,
+    getCountries: function() { return countries; }
   };
 })();
 

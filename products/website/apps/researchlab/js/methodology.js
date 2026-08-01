@@ -235,10 +235,24 @@
     });
   }
 
-  window.MethodologyLab = { init: init };
+  window.MethodologyLab = {
+    init: init,
+    getCards: function() { return store ? (store.cards || []) : []; },
+    getCategories: function() { return CATEGORIES; }
+  };
 
-  function init(container) {
+  function init(container, parsed) {
     if (!container) return;
+    if (parsed && parsed.params && parsed.params.category) {
+      var requestedCategory = parsed.params.category;
+      var validCategory = CATEGORIES.some(function(cat) { return cat.key === requestedCategory; });
+      if (validCategory) {
+        // При переходе из поиска — переключение вкладки и повторный рендер.
+        activeTab = requestedCategory;
+        activeDocument = '';
+        container.dataset.methodologyReady = '0';
+      }
+    }
     if (container.dataset.methodologyReady === '1') return;
     container.dataset.methodologyReady = '1';
     container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка…</div></div>';
