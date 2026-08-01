@@ -218,23 +218,16 @@ const PageController = (function() {
       return (items || []).map(function(text) { return '<p>' + escapeHtml(text) + '</p>'; }).join('');
     };
 
-    // Карта утрат — карточки с анимацией и интерактивностью
+    // Карта утрат — вертикальный стек слоёв без наложений.
     var lossHtml = (story.lossMap || []).map(function(layer, index) {
       var num = '0' + (index + 1);
-      var hasDetail = !!(layer.lost || layer.examples);
-      return '<li class="manifest-loss-card" data-loss-index="' + index + '" style="animation-delay:' + (index * 150) + 'ms" ' +
-        (hasDetail ? 'role="button" tabindex="0" aria-expanded="false" aria-label="Развернуть слой: ' + escapeHtml(layer.title) + '"' : '') + '>' +
-        '<div class="manifest-loss-card-head">' +
-          '<span class="manifest-loss-card-num">' + num + '</span>' +
-          '<span class="manifest-loss-card-percent">' + escapeHtml(layer.percent) + '</span>' +
+      return '<li class="manifest-loss-layer">' +
+        '<span class="manifest-loss-layer-num">' + num + '</span>' +
+        '<div class="manifest-loss-layer-copy">' +
+          '<h4 class="manifest-loss-layer-title">' + escapeHtml(layer.title) + '</h4>' +
+          '<p class="manifest-loss-layer-text">' + escapeHtml(layer.text) + '</p>' +
         '</div>' +
-        '<span class="manifest-loss-card-chevron" aria-hidden="true">⌄</span>' +
-        '<h4 class="manifest-loss-card-title">' + escapeHtml(layer.title) + '</h4>' +
-        '<p class="manifest-loss-card-text">' + escapeHtml(layer.text) + '</p>' +
-        (hasDetail ? '<div class="manifest-loss-card-detail" hidden>' +
-          (layer.lost ? '<p class="manifest-loss-card-lost"><strong>Что потеряно:</strong> ' + escapeHtml(layer.lost) + '</p>' : '') +
-          (layer.examples ? '<p class="manifest-loss-card-examples"><strong>Пример:</strong> ' + escapeHtml(layer.examples) + '</p>' : '') +
-        '</div>' : '') +
+        '<span class="manifest-loss-layer-percent">' + escapeHtml(layer.percent) + '</span>' +
       '</li>';
     }).join('');
 
@@ -372,7 +365,7 @@ const PageController = (function() {
       '<section class="manifest-act manifest-act-problem" id="manifest-act-problem" aria-labelledby="manifest-problem-title">' +
       '<div class="manifest-act-heading"><span class="manifest-act-number">I</span><div><span class="manifest-section-label">Акт I · проблема</span><h2 id="manifest-problem-title">' + escapeHtml(problem.title || 'Проблема') + '</h2></div></div>' +
       '<div class="manifest-story-copy">' + paragraphs(problem.paragraphs) + '</div>' +
-      '<section class="manifest-loss-section" aria-labelledby="manifest-loss-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Карта утрат</span><h3 id="manifest-loss-title">Как образ сжимается до понятия</h3></div></div><ol class="manifest-loss-map" aria-label="Карта утрат">' + lossHtml + '</ol></section>' +
+      '<section class="manifest-loss-section lab-card" aria-labelledby="manifest-loss-title"><div class="manifest-section-heading manifest-loss-heading"><div><span class="manifest-section-label">Карта утрат</span><h3 id="manifest-loss-title">Как образ сжимается до понятия</h3></div></div><ol class="manifest-loss-map" aria-label="Карта утрат">' + lossHtml + '</ol></section>' +
       '</section>' +
 
       // АКТ II: МЕТОДОЛОГИЯ

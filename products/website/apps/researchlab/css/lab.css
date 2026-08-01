@@ -2052,3 +2052,92 @@ code, pre, kbd, .translit, .mono {
   #ed-chat .ec-toolbar { align-items: stretch; }
   #ed-chat .ec-toolbar .lab-select { flex: 1; }
 }
+
+/* ===== КАРТА УТРАТ — ВЕРТИКАЛЬНЫЙ СТЕК ===== */
+.manifest-loss-section.lab-card {
+  padding: 32px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+}
+.manifest-loss-heading { margin-bottom: 24px; }
+.manifest-loss-heading h3 { margin: 0; }
+.manifest-loss-map {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  list-style: none;
+}
+.manifest-loss-layer {
+  --loss-color: var(--accent-gold);
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 78px;
+  gap: 18px;
+  align-items: start;
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px solid color-mix(in srgb, var(--loss-color) 42%, var(--border-light));
+  border-left: 5px solid var(--loss-color);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--loss-color) 9%, var(--bg-card));
+  color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition), background-color var(--transition);
+}
+.manifest-loss-layer:nth-child(2) { --loss-color: color-mix(in srgb, var(--accent-gold) 78%, var(--bg-dark)); }
+.manifest-loss-layer:nth-child(3) { --loss-color: color-mix(in srgb, var(--accent-gold) 56%, var(--bg-dark)); }
+.manifest-loss-layer:nth-child(4) { --loss-color: color-mix(in srgb, var(--accent-gold) 34%, var(--bg-dark)); }
+.manifest-loss-layer:nth-child(5) { --loss-color: var(--bg-dark); }
+.manifest-loss-layer:hover {
+  border-color: var(--loss-color);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+.manifest-loss-layer-num {
+  padding-top: 3px;
+  color: var(--loss-color);
+  font: 600 12px/1 var(--font-mono);
+  letter-spacing: .12em;
+}
+.manifest-loss-layer-copy { min-width: 0; }
+.manifest-loss-layer-title {
+  margin: 0;
+  color: var(--text-primary);
+  font: 600 20px/1.2 var(--font-heading);
+}
+.manifest-loss-layer-text {
+  margin: 7px 0 0;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.manifest-loss-layer-percent {
+  justify-self: end;
+  padding-top: 1px;
+  color: var(--loss-color);
+  font: 700 28px/1 var(--font-heading);
+  white-space: nowrap;
+}
+@media (max-width: 620px) {
+  .manifest-loss-section.lab-card { padding: 22px 16px; }
+  .manifest-loss-layer {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 10px 12px;
+    padding: 15px 14px;
+  }
+  .manifest-loss-layer-percent {
+    grid-column: 2;
+    justify-self: start;
+    padding-top: 0;
+    font-size: 23px;
+  }
+  .manifest-loss-layer-title { font-size: 18px; }
+  .manifest-loss-layer-text { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .manifest-loss-layer { transition: none; }
+}
