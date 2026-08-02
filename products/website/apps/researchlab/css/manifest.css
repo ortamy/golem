@@ -154,7 +154,7 @@
 .manifest-principle p { margin-top: 10px; color: var(--text-secondary); font-size: 16px; line-height: 1.45; }
 
 .manifest-loss-section { padding-left: 0; padding-right: 0; }
-.manifest-loss-map { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr; align-items: center; gap: 10px; padding: 28px 18px; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); background: rgba(250,243,224,.55); }
+.manifest-loss-map { display: grid; grid-template-columns: 1fr; align-items: stretch; gap: 12px; width: 100%; max-width: 760px; margin: 0; padding: 0; border: 0; background: transparent; list-style: none; overflow: visible; }
 .manifest-loss-step { min-width: 0; text-align: center; }
 .manifest-loss-value { color: var(--accent-gold); font-family: var(--font-heading); font-size: 40px; font-weight: 700; line-height: 1; }
 .manifest-loss-step strong { display: block; margin-top: 8px; font-family: var(--font-heading); font-size: 21px; }
@@ -179,7 +179,7 @@
 
 @media (max-width: 900px) {
   .manifest-principles, .manifest-section-grid { grid-template-columns: repeat(2, 1fr); }
-  .manifest-loss-map { grid-template-columns: repeat(5, 1fr); gap: 5px; padding-left: 8px; padding-right: 8px; }
+  .manifest-loss-map { grid-template-columns: 1fr; gap: 10px; padding-left: 0; padding-right: 0; }
   .manifest-loss-arrow { font-size: 18px; }
 }
 
@@ -189,7 +189,7 @@
   .manifest-lead { font-size: 18px; }
   .manifest-section { padding-top: 42px; }
   .manifest-principles, .manifest-section-grid { grid-template-columns: 1fr; }
-  .manifest-loss-map { display: flex; align-items: stretch; flex-direction: column; gap: 8px; }
+  .manifest-loss-map { display: grid; grid-template-columns: 1fr; align-items: stretch; gap: 8px; }
   .manifest-loss-step { display: grid; grid-template-columns: 62px 1fr; align-items: center; column-gap: 10px; text-align: left; }
   .manifest-loss-value { grid-row: span 2; font-size: 32px; text-align: right; }
   .manifest-loss-step strong { margin-top: 0; }
@@ -324,7 +324,16 @@
 .manifest-loss-section, .manifest-spaces-section { padding: 56px 0 0; }
 .manifest-section-heading { margin-bottom: 20px; }
 .manifest-section-heading h3 { color: var(--text-primary); font: 600 28px/1.15 var(--font-heading); }
-.manifest-loss-map { gap: 9px; }
+.manifest-loss-map {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  width: 100%;
+  max-width: 760px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
 .manifest-loss-plate { min-height: 76px; }
 .manifest-loss-copy span { white-space: normal; }
 .manifest-mizraim { max-width: 920px; margin-top: 52px; padding: 32px; border: 1px solid var(--border-gold); background: var(--bg-secondary); box-shadow: var(--shadow-card); }
