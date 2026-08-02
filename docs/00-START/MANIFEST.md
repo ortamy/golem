@@ -195,11 +195,11 @@
 
 Манифест — это **вход**. Это не вся методология. Для работы с конкретными словами, стихами и подменами используй:
 
-- `docs/08-EXPOSURE/exposure-principles.md` — 23 принципа разоблачения.
-- `docs/08-EXPOSURE/exposure-methods.md` — 40 методов разоблачения.
-- `docs/08-EXPOSURE/exposure-distortions.md` — 9 типов искажений.
-- `docs/08-EXPOSURE/exposure-mechanisms.md` — 7 механизмов подмены.
-- `docs/08-EXPOSURE/exposure-techniques.md` — 80+ приёмов подмены.
+- `docs/08-EXPOSURE/principles.md` — 23 принципа разоблачения.
+- `docs/08-EXPOSURE/methods.md` — 40 методов разоблачения.
+- `docs/08-EXPOSURE/distortions.md` — 9 типов искажений.
+- `docs/08-EXPOSURE/mechanisms.md` — 7 механизмов подмены.
+- `docs/08-EXPOSURE/techniques.md` — 80+ приёмов подмены.
 - `docs/07-DICTIONARIES/dictionary-exposures.md` — словарь разоблачений.
 - `methodology/states.md` — карта состояний пространства.
 - `products/website/researchlab/data/roots.json` — основной словарь корней.

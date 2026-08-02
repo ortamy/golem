@@ -40,7 +40,7 @@ Tikun — третий этап аудита после check-bdikah и check-mi
 
 Обновить:
 🔴 terminology/chesed.md — добавить корневые связи и палео-иврит
-🔴 exposure/exposure-techniques.md — добавить приём «подмена верности на жалость»
+🔴 exposure/techniques.md — добавить приём «подмена верности на жалость»
 
 Исправить:
 🔴 immanu-el.md — в метаданных указано researches/, исправить на terminology/

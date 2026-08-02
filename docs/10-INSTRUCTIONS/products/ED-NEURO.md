@@ -10,7 +10,7 @@
 - **Тема:** Документация нейросети «Эд» — архитектура, философия, отличие от коммерческих нейросетей
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `ed/neuro/`, `docs/ED-AGENT.md`, `docs/ED-ASSISTANT.md`, `guides/GUIDE-NEURO.md`
+- **Связанные файлы:** `ed/neuro/`, `docs/ED-AGENT.md`, `docs/ED-ASSISTANT.md`, `guides/NEURO.md`
 - **Хеш:** ожидает
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-12
@@ -149,8 +149,8 @@ ed/neuro/
 ## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
 - `ed/neuro/` — код нейросети
 - `docs/ED-AGENT.md` — документация агента
-- `guides/GUIDE-NEURO.md` — руководство по запуску
-- `guides/GUIDE-DEPLOY.md` — развёртывание
+- `guides/NEURO.md` — руководство по запуску
+- `guides/DEPLOY.md` — развёртывание
 
 ---
 

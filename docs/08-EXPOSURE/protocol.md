@@ -6,7 +6,7 @@
 - **Дата создания:** 2026-07-31
 - **Причина обновления:** Приведение к единому стандарту палео-букв, интеграция с `exposure-evidence.md`, добавление Принципа Арона и Хук Свива.
 - **Статус:** Активный
-- **Связанные файлы:** `exposure-evidence.md`, `exposure-methods.md`, `exposure-principles.md`, `template.md`, `MANIFEST.md`
+- **Связанные файлы:** `exposure-evidence.md`, `methods.md`, `principles.md`, `template.md`, `MANIFEST.md`
 
 ---
 
@@ -149,7 +149,7 @@
 ## 8. Связанные документы
 
 - `exposure-evidence.md` — критерии доказательности.
-- `exposure-methods.md` — 40 методов разоблачения.
-- `exposure-principles.md` — 23 принципа разоблачения.
+- `methods.md` — 40 методов разоблачения.
+- `principles.md` — 23 принципа разоблачения.
 - `template.md` — шаблон разоблачения.
 - `MANIFEST.md` — методология, карта пространств, Давар.

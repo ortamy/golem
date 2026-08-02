@@ -600,6 +600,15 @@ const PageController = (function() {
         if (window.Dashboard) window.Dashboard.init();
         break;
 
+      case 'analyzers':
+      case 'layer-analyzer':
+      case 'ai-analyzer':
+      case 'dialect-analyzer':
+        container.innerHTML = '';
+        container.dataset.loaded = '1';
+        if (window.GolemAnalyzers) window.GolemAnalyzers.render(container, moduleId);
+        break;
+
       case 'root-dictionary':
         container.innerHTML = '<h1><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Корневой словарь</h1>' +
           '<p class="subtitle">Поиск по корням иврита. Введите корень, слово или значение.</p>' +

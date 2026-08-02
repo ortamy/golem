@@ -136,23 +136,23 @@ web
 
 ## 📋 ШАБЛОНЫ ДЛЯ СОЗДАНИЯ КОНТЕНТА
 
-- Термин — TEMPLATE-TERM.md — `content/terminology/` или `content/bashah/terminology/` — иконка `terminology.png`
-- Исследование — TEMPLATE-RESEARCH.md — `content/researches/` — иконка `research.png`
-- Учение (дерево) — TEMPLATE-TEACHING.md — `content/teachings/` или `content/bashah/teachings/` — иконка `teaching.png`
-- Разоблачение системы — TEMPLATE-EXPOSURE.md — `content/researches/` — иконка `exposure.png`
-- Книга — TEMPLATE-BOOK.md — `content/tanakh/books/` или `content/bashah/books/` — иконка `book.png`
-- Личность — TEMPLATE-PERSON.md — `content/tanakh/persons/` или `content/bashah/persons/` — иконка `person.png`
-- Событие — TEMPLATE-EVENT.md — `content/tanakh/events/` или `content/bashah/events/` — иконка `event.png`
-- Практика — TEMPLATE-PRACTICE.md — `content/practices/` или `content/bashah/practices/` — иконка `practice.png`
-- Урок иврита — TEMPLATE-LEARN.md — `content/learn-hebrew/` — иконка `learn.png`
+- Термин — TERM.md — `content/terminology/` или `content/bashah/terminology/` — иконка `terminology.png`
+- Исследование — RESEARCH.md — `content/researches/` — иконка `research.png`
+- Учение (дерево) — TEACHING.md — `content/teachings/` или `content/bashah/teachings/` — иконка `teaching.png`
+- Разоблачение системы — EXPOSURE.md — `content/researches/` — иконка `exposure.png`
+- Книга — BOOK.md — `content/tanakh/books/` или `content/bashah/books/` — иконка `book.png`
+- Личность — PERSON.md — `content/tanakh/persons/` или `content/bashah/persons/` — иконка `person.png`
+- Событие — EVENT.md — `content/tanakh/events/` или `content/bashah/events/` — иконка `event.png`
+- Практика — PRACTICE.md — `content/practices/` или `content/bashah/practices/` — иконка `practice.png`
+- Урок иврита — LEARN.md — `content/learn-hebrew/` — иконка `learn.png`
 - Послание — TEMPLATE-LETTER.md (если создан) — `content/bashah/letters/` — иконка `letter.png`
 - Концепт — TEMPLATE-CONCEPT.md (если создан) — `content/bashah/concepts/` или `content/tanakh/concepts/` — иконка `concept.png`
 - Хронология — TEMPLATE-CHRONOLOGY.md (если создан) — `content/bashah/chronology/` или `content/tanakh/chronology/` — иконка `chronology.png`
 - Рукопись — TEMPLATE-MANUSCRIPT.md (если создан) — `content/bashah/manuscripts/` или `content/tanakh/manuscripts/` — иконка `manuscript.png`
 - География — TEMPLATE-GEOGRAPHY.md (если создан) — `content/bashah/geography/` или `content/tanakh/geography/` — иконка `geography.png`
 - Невуа — TEMPLATE-NEVUA.md (если создан) — `content/bashah/nevua/` — иконка `nevua.png`
-- 7 врат — TEMPLATE-CONCEPT-ANALYSIS.md — `content/terminology/` — иконка `terminology.png`
-- Самообучение — TEMPLATE-SELF-LEARNING.md — `instructions/templates/` — иконка `default.png`
+- 7 врат — CONCEPT-ANALYSIS.md — `content/terminology/` — иконка `terminology.png`
+- Самообучение — SELF-LEARNING.md — `instructions/templates/` — иконка `default.png`
 - Карта образов — IMAGE-MAP.md — `instructions/` — иконка `default.png`
 
 ---
@@ -171,7 +171,7 @@ web
 8. **Кастрация смысла** — полное → пустое
 9. **Вавилонизация** — танахическое → языческое
 
-Подробно: `instructions/exposure/exposure-distortions.md`
+Подробно: `instructions/exposure/distortions.md`
 
 ---
 
@@ -186,7 +186,7 @@ web
 5. **Подмена прощения на накопление долга** — циклы свободы заменены вечным долгом
 6. **Религиозный синкретизм** — танахическое сливается с языческим
 
-Подробно: `instructions/exposure/exposure-mechanisms.md`
+Подробно: `instructions/exposure/mechanisms.md`
 
 ---
 
@@ -206,7 +206,7 @@ web
 - Завет — союз любви, не торг
 - Кровь — это жизнь, не магия
 
-Подробно: `instructions/exposure/exposure-principles.md`
+Подробно: `instructions/exposure/principles.md`
 
 ---
 
@@ -223,7 +223,7 @@ web
 9. Конец — куда приводит система
 10. **Вавилонский жрец** — архетип посредника (самый древний компонент)
 
-Подробно: `instructions/exposure/exposure-system-architecture.md`
+Подробно: `instructions/exposure/system-architecture.md`
 
 ---
 
@@ -288,32 +288,32 @@ web
 > Я — Эд, Свидетель проекта «Голем». Для полноценной работы мне необходимо загрузить следующие файлы. Пожалуйста, скормите их мне по порядку:
 >
 > **Шаблоны (12 файлов):**
-> 1. `instructions/templates/TEMPLATE-TERM.md`
-> 2. `instructions/templates/TEMPLATE-RESEARCH.md`
-> 3. `instructions/templates/TEMPLATE-TEACHING.md`
-> 4. `instructions/templates/TEMPLATE-EXPOSURE.md`
-> 5. `instructions/templates/TEMPLATE-BOOK.md`
-> 6. `instructions/templates/TEMPLATE-PERSON.md`
-> 7. `instructions/templates/TEMPLATE-EVENT.md`
-> 8. `instructions/templates/TEMPLATE-PRACTICE.md`
-> 9. `instructions/templates/TEMPLATE-LEARN.md`
-> 10. `instructions/templates/TEMPLATE-CONCEPT-ANALYSIS.md`
-> 11. `instructions/templates/TEMPLATE-SELF-LEARNING.md`
+> 1. `instructions/templates/TERM.md`
+> 2. `instructions/templates/RESEARCH.md`
+> 3. `instructions/templates/TEACHING.md`
+> 4. `instructions/templates/EXPOSURE.md`
+> 5. `instructions/templates/BOOK.md`
+> 6. `instructions/templates/PERSON.md`
+> 7. `instructions/templates/EVENT.md`
+> 8. `instructions/templates/PRACTICE.md`
+> 9. `instructions/templates/LEARN.md`
+> 10. `instructions/templates/CONCEPT-ANALYSIS.md`
+> 11. `instructions/templates/SELF-LEARNING.md`
 > 12. `instructions/IMAGE-MAP.md`
 >
 > **Методологии (4 файла):**
-> 13. `instructions/methodology/methodology-archeology.md`
+> 13. `instructions/methodology/archeology.md`
 > 14. `instructions/methodology/methodology-hebrew-reconstruction.md`
-> 15. `instructions/methodology/methodology-translation.md`
-> 16. `instructions/methodology/methodology-tree.md`
+> 15. `instructions/methodology/translation.md`
+> 16. `instructions/methodology/tree.md`
 >
 > **Словари tahor (6 файлов):**
 > 17. `instructions/dictionaries/dictionaries-religionims.md`
-> 18. `instructions/dictionaries/dictionaries-latinisms.md`
-> 19. `instructions/dictionaries/dictionaries-grecisms.md`
+> 18. `instructions/dictionaries/latinisms.md`
+> 19. `instructions/dictionaries/grecisms.md`
 > 20. `instructions/dictionaries/dictionaries-slavicisms.md`
-> 21. `instructions/dictionaries/dictionaries-politisms.md`
-> 22. `instructions/dictionaries/dictionaries-psychologisms.md`
+> 21. `instructions/dictionaries/politisms.md`
+> 22. `instructions/dictionaries/psychologisms.md`
 >
 > **Документы проекта (5 файлов):**
 > 23. `instructions/MANIFEST.md`
@@ -323,18 +323,18 @@ web
 > 27. `instructions/IMAGES-CATALOGUE.md`
 >
 > **Exposure — система разоблачения (6 файлов):**
-> 28. `instructions/exposure/exposure-distortions.md`
-> 29. `instructions/exposure/exposure-mechanisms.md`
-> 30. `instructions/exposure/exposure-techniques.md`
-> 31. `instructions/exposure/exposure-principles.md`
-> 32. `instructions/exposure/exposure-system-architecture.md`
+> 28. `instructions/exposure/distortions.md`
+> 29. `instructions/exposure/mechanisms.md`
+> 30. `instructions/exposure/techniques.md`
+> 31. `instructions/exposure/principles.md`
+> 32. `instructions/exposure/system-architecture.md`
 > 33. `instructions/exposure/exposure-bavel.md`
 >
 > **Дополнительные файлы (при необходимости):**
-> 34. `instructions/methodology/methodology-transliteration.md`
+> 34. `instructions/methodology/transliteration.md`
 > 35. `instructions/exposure/exposure-language.md`
-> 36. `instructions/exposure/exposure-methods.md`
-> 37. `instructions/exposure/exposure-religionism-theory.md`
+> 36. `instructions/exposure/methods.md`
+> 37. `instructions/exposure/religionism-theory.md`
 > 38–41. `instructions/checkers/` — 4 файла
 > 42. `instructions/FORBIDDEN-WORDS.md`
 >

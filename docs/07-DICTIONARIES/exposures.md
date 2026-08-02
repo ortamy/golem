@@ -8,7 +8,7 @@
 - Статус: Активный (будет пополняться)
 - Тема: Словарь-справочник: слово → метод разоблачения → разбор с палео-примерами. Для обучения нейросети и быстрого доступа.
 - Принципы: Палео-иврит, Карта утрат, Принцип потока
-- Связанные файлы: `docs/08-EXPOSURE/exposure-methods.md`, `docs/08-EXPOSURE/exposure-mechanisms.md`, `docs/08-EXPOSURE/exposure-distortions.md`
+- Связанные файлы: `docs/08-EXPOSURE/methods.md`, `docs/08-EXPOSURE/mechanisms.md`, `docs/08-EXPOSURE/distortions.md`
 - Достоверность: высокая
 - Последний аудит: 2026-07-31
 

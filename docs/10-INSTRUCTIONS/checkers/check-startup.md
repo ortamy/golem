@@ -34,13 +34,13 @@
 
 ### ЭТАП 3: EXPOSURE — РАЗОБЛАЧЕНИЕ
 
-- [ ] `instructions/exposure/exposure-distortions.md` — 8 типов искажений
-- [ ] `instructions/exposure/exposure-methods.md` — 32 метода
-- [ ] `instructions/exposure/exposure-mechanisms.md` — 5 механик подмены
+- [ ] `instructions/exposure/distortions.md` — 8 типов искажений
+- [ ] `instructions/exposure/methods.md` — 32 метода
+- [ ] `instructions/exposure/mechanisms.md` — 5 механик подмены
 - [ ] `instructions/exposure/exposure-language.md` — 10 языковых подмен
-- [ ] `instructions/exposure/exposure-techniques.md` — 70+ приёмов
+- [ ] `instructions/exposure/techniques.md` — 70+ приёмов
 - [ ] `instructions/exposure/exposure-religionism.md` — теория религионизмов
-- [ ] `instructions/exposure/exposure-system-architecture.md` — архитектура системы
+- [ ] `instructions/exposure/system-architecture.md` — архитектура системы
 
 ### ЭТАП 4: ОЧИЩЕНИЕ ЯЗЫКА
 
@@ -102,10 +102,10 @@
 
 - [ ] `instructions/chat-prompt.md`
 - [ ] `instructions/forbidden-words.md`
-- [ ] `instructions/exposure/exposure-methods.md`
-- [ ] `instructions/exposure/exposure-distortions.md`
+- [ ] `instructions/exposure/methods.md`
+- [ ] `instructions/exposure/distortions.md`
 - [ ] `instructions/exposure/exposure-language.md`
-- [ ] `instructions/exposure/exposure-techniques.md`
+- [ ] `instructions/exposure/techniques.md`
 - [ ] `instructions/tahor/religionims.md`
 - [ ] `instructions/tahor/grecisms.md`
 - [ ] `instructions/checkers/check-bdikah.md`

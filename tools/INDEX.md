@@ -8,7 +8,7 @@
 
 - **Всего скриптов:** 40+
 - **Папок:** 10
-- **Последнее обновление:** 2026-07-01
+- **Последнее обновление:** 2026-08-02
 
 ---
 
@@ -20,6 +20,13 @@
 - [interlinear-generator.py](interlinear-generator.py) - генератор интерлинеарного текста
 - [replace_emoji_with_icons.py](replace_emoji_with_icons.py) - замена эмодзи на иконки
 - [replace_h2_emoji.py](replace_h2_emoji.py) - замена эмодзи в заголовках
+
+## 🔎 ANALYZERS
+
+- [analyze.py](analyzers/analyze.py) - CLI послойной диагностики текста
+- [engine.py](analyzers/engine.py) - расширяемый движок анализа
+- [markers.json](analyzers/markers.json) - каталог маркеров восьми слоёв
+- [ANALYZERS.md](../docs/09-GUIDES/ANALYZERS.md) - руководство по запуску и расширению
 
 ---
 

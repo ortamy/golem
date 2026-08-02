@@ -10,7 +10,7 @@
 - **Тема:** Документация агента «Эд» — философия, архитектура, режимы работы, отличие от ассистента
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `ed/agent/`, `docs/ED-NEURO.md`, `docs/ED-ASSISTANT.md`, `guides/GUIDE-AGENT.md`
+- **Связанные файлы:** `ed/agent/`, `docs/ED-NEURO.md`, `docs/ED-ASSISTANT.md`, `guides/AGENT.md`
 - **Хеш:** ожидает
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-12
@@ -195,7 +195,7 @@ python ed/agent/agent.py --watch
 - `docs/ED-NEURO.md` — нейросеть «Эд»
 - `docs/ED-ASSISTANT.md` — ассистент «Эд»
 - `docs/ED-DAVAR.md` — язык Давар
-- `guides/GUIDE-AGENT.md` — руководство по запуску
+- `guides/AGENT.md` — руководство по запуску
 
 ---
 

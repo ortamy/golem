@@ -39,7 +39,7 @@
 
 ### Новое исследование
 - Ты: даёшь тему
-- Cline: читает `GUIDE-WORKFLOW-RESEARCH.md`, пишет черновик
+- Cline: читает `WORKFLOW-RESEARCH.md`, пишет черновик
 - Эд: проверяет через 4 этапа аудита
 - Cline: исправляет замечания
 - Ты: подтверждаешь
@@ -104,10 +104,10 @@
 
 ### Руководства
 - Все руководства: `guides/`
-- Быстрый старт: `guides/GUIDE-ONBOARDING.md`
+- Быстрый старт: `guides/ONBOARDING.md`
 - Как писать: `guides/GUIDE-WRITING.md`
-- Аудит: `guides/GUIDE-AUDIT.md`
-- Терминология: `guides/GUIDE-TERMINOLOGY.md`
+- Аудит: `guides/AUDIT.md`
+- Терминология: `guides/TERMINOLOGY.md`
 
 ---
 

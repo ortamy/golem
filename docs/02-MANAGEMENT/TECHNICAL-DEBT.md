@@ -178,7 +178,7 @@
 - [x] `content/researches/systems/gematria.md` — Гематрия: разоблачение системы числового контроля — 2026-06-17
 - [x] `instructions/agent/AGENT-PROMPT.md` v3.2 — обновлён с иконками, без эмодзи — 2026-06-17
 - [x] `instructions/agent/AGENT-RETROSPECTIVE.md` v1.1 — заполнена ретроспектива — 2026-06-17
-- [x] `guides/GUIDE-DAVAR.md` v1.0 — создан с нуля — 2026-06-17
+- [x] `guides/DAVAR.md` v1.0 — создан с нуля — 2026-06-17
 - [x] `tools/generators/generate-bashah-templates.py` — скрипт генерации шаблонов БаШаХа — 2026-06-17
 - [x] 85+ шаблонов в `content/bashah/` — 2026-06-17
 
@@ -198,7 +198,7 @@
 - [x] 6 категорий контента в веб-интерфейсе — 2026-06-14
 - [x] `learn-hebrew/` — 5 файлов — 2026-06-14
 - [x] `bashah/` — 3 новых файла — 2026-06-14
-- [x] `GUIDE-CODING.md` v2.0 — 2026-06-14
+- [x] `CODING.md` v2.0 — 2026-06-14
 - [x] `CONTROL.md` v3.0 — 2026-06-14
 - [x] `STRATEGY.md` v1.0 — 2026-06-14
 - [x] `WEB-INTERFACE.md` v1.0 — 2026-06-14

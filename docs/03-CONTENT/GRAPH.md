@@ -148,25 +148,25 @@ graph TD
 `instructions/collaboration-guide.md`
 
 ### סוּגֵי עִיוּת — ТИПЫ ИСКАЖЕНИЙ И ИХ ПРИЁМЫ
-`instructions/exposure/exposure-distortions.md`
+`instructions/exposure/distortions.md`
 
 ### שְׁלִיטַת הַלָּשׁוֹן — ЯЗЫК КАК ИНСТРУМЕНТ КОНТРОЛЯ
 `instructions/exposure/exposure-language-control.md`
 
 ### מַנְגְּנוֹנֵי חֲשִׂיפָה — МЕХАНИЗМЫ ПОДМЕНЫ
-`instructions/exposure/exposure-mechanisms.md`
+`instructions/exposure/mechanisms.md`
 
 ### שִׁיטוֹת חֲשִׂיפָה — МЕТОДЫ РАЗОБЛАЧЕНИЯ
-`instructions/exposure/exposure-methods.md`
+`instructions/exposure/methods.md`
 
 ### עֶקְרוֹנוֹת חֲשִׂיפָה — ОСНОВНЫЕ ПРИНЦИПЫ РАЗОБЛАЧЕНИЯ
-`instructions/exposure/exposure-principles.md`
+`instructions/exposure/principles.md`
 
 ### אַדְרִיכָלוּת הַמַּעֲרֶכֶת — АРХИТЕКТУРА СИСТЕМЫ
-`instructions/exposure/exposure-system-architecture.md`
+`instructions/exposure/system-architecture.md`
 
 ### תַּכְסִיסֵי חֲשִׂיפָה — ПРИЁМЫ ПОДМЕНЫ: ПОЛНЫЙ КАТАЛОГ
-`instructions/exposure/exposure-techniques.md`
+`instructions/exposure/techniques.md`
 
 ### ТЕОРИЯ РЕЛИГИОНИЗМОВ — ПОЛНОЕ РАЗОБЛАЧЕНИЕ
 `instructions/exposure/exposure-theory-religionism.md`
@@ -211,13 +211,13 @@ graph TD
 `instructions/security-policy.md`
 
 ### ГРЕЦИЗМЫ
-`instructions/dictionaries/dictionaries-grecisms.md`
+`instructions/dictionaries/grecisms.md`
 
 ### ЛАТИНИЗМЫ
-`instructions/dictionaries/dictionaries-latinisms.md`
+`instructions/dictionaries/latinisms.md`
 
 ### ИМЕНА И НАЗВАНИЯ: КАРТА ОЧИЩЕНИЯ
-`instructions/dictionaries/dictionaries-names.md`
+`instructions/dictionaries/names.md`
 
 ### ФРАЗЫ И ВЫРАЖЕНИЯ: КАРТА ОЧИЩЕНИЯ
 `instructions/dictionaries/dictionaries-phrases.md`

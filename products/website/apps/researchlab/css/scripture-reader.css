@@ -258,6 +258,94 @@
   font-size: 20px;
 }
 
+.scripture-reading-layer[hidden] {
+  display: none;
+}
+
+.scripture-reading-toggle {
+  display: block;
+  margin: 22px auto 0;
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.scripture-reading-toggle:hover,
+.scripture-reading-toggle:focus-visible {
+  background: rgba(212, 160, 48, 0.12);
+  outline: none;
+}
+
+.scripture-assembly-view {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1px solid var(--accent-gold);
+  border-radius: 4px;
+  background: rgba(212, 160, 48, 0.08);
+  text-align: left;
+}
+
+.scripture-layer-label {
+  color: var(--text-gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scripture-assembly-line,
+.scripture-function-line,
+.scripture-translation-text {
+  margin: 6px 0 14px;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+.scripture-assembly-words {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 18px;
+}
+
+.scripture-assembly-word {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  background: var(--bg-card);
+}
+
+.scripture-assembly-word-paleo {
+  margin-bottom: 7px;
+  color: var(--accent-gold);
+  font-family: 'Noto Sans Phoenician', sans-serif;
+  font-size: 21px;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.scripture-assembly-word p {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.scripture-function-line {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.scripture-translation-view {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--border-light);
+  background: var(--bg-secondary);
+  text-align: left;
+}
+
 .scripture-navigation {
   display: flex;
   justify-content: space-between;
@@ -572,6 +660,72 @@
 .scripture-ai-note p {
   margin: 6px 0 0;
   white-space: pre-wrap;
+}
+
+.scripture-word-analysis {
+  padding: 2px 0;
+}
+
+.scripture-word-analysis-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.scripture-word-analysis-glyph {
+  color: var(--accent-gold);
+  font-family: 'Noto Sans Phoenician', sans-serif;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.scripture-word-letters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.scripture-word-letter {
+  display: inline-flex;
+  min-width: 54px;
+  padding: 8px 6px;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  background: var(--bg-card);
+}
+
+.scripture-word-letter b {
+  color: var(--accent-gold);
+  font-family: 'Noto Sans Phoenician', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.scripture-word-letter small {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.scripture-word-detail {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent-gold);
+  background: var(--bg-card);
+}
+
+.scripture-word-detail p {
+  margin: 5px 0 0;
+  line-height: 1.6;
+}
+
+.scripture-word-context {
+  margin: 14px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
 @media (max-width: 767px) {

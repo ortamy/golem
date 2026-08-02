@@ -77,7 +77,7 @@ const LabRouter = (function() {
       'paleo-images', 'word-analyzer', 'scripture-reader', 'generators',
       'checkers', 'translation-comparator', 'investigation', 'heraldry',
       'cartography', 'states', 'timeline', 'ai-agents', 'ed-chat', 'vision',
-      'paleo-keyboard', 'admin-settings', 'exposure-editor', 'clue-generator',
+      'paleo-keyboard', 'admin-settings', 'analyzers', 'layer-analyzer', 'ai-analyzer', 'dialect-analyzer', 'exposure-editor', 'clue-generator',
       'video-lab', 'prompt-generator', 'davar-checker', 'tree-checker', 'board', 'name-decoder', 'linguistic-tensor',
       // Маршруты разоблачений (обрабатываются в default-кейсе PageController через mdPaths)
       'exposure-dictionary', 'exposure-principles', 'exposure-distortions',

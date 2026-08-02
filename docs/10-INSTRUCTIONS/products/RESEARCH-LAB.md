@@ -136,4 +136,4 @@ products/webapp/
 - `instructions/products/webapp.md`
 - `content/foundations/hebrew-roots.md`
 - `data/religious-dictionary.json`
-- `instructions/templates/TEMPLATE-RESEARCH.md`
+- `instructions/templates/RESEARCH.md`

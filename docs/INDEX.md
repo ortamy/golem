@@ -48,7 +48,9 @@
 
 ### 09-GUIDES (Руководства)
 - [09-GUIDES/](09-GUIDES/) - руководства
-- [GUIDE-SETTINGS.md](09-GUIDES/GUIDE-SETTINGS.md) - модуль настроек и администрирования
+- [ANALYZERS.md](09-GUIDES/ANALYZERS.md) - CLI-анализаторы слоёв подмен
+- [RESEARCHLAB-ANALYZERS.md](09-GUIDES/RESEARCHLAB-ANALYZERS.md) - веб-модуль анализаторов Research Lab
+- [SETTINGS.md](09-GUIDES/SETTINGS.md) - модуль настроек и администрирования
 
 ### 10-INSTRUCTIONS (Инструкции)
 - [10-INSTRUCTIONS/](10-INSTRUCTIONS/) - инструкции

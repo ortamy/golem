@@ -10,7 +10,7 @@
 - **Тема:** Аудит полезности текста с использованием всех инструментов разоблачения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `instructions/checkers/check-mivdak.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-mechanisms.md`
+- **Связанные файлы:** `instructions/checkers/check-mivdak.md`, `instructions/exposure/methods.md`, `instructions/exposure/distortions.md`, `instructions/exposure/mechanisms.md`
 - **Хеш:** ожидает
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-11
@@ -61,15 +61,15 @@ Mivdak — второй этап аудита после check-bdikah. Оцен�
 
 ЧТО ДОБАВИТЬ
 ➕ термин: хесед → уже есть в terminology/
-🟡 обновить: exposure-techniques.md — добавить приём «подмена верности на жалость»
+🟡 обновить: techniques.md — добавить приём «подмена верности на жалость»
 
 ИТОГ: Пройдено 15/32. Текст: ❌ требует доработки
 
 ## КАТЕГОРИИ ДЛЯ ОЦЕНКИ
 
 Полные списки в отдельных файлах:
-- 32 метода — `instructions/exposure/exposure-methods.md`
-- 8 типов искажений — `instructions/exposure/exposure-distortions.md`
-- 5 механик подмены — `instructions/exposure/exposure-mechanisms.md`
+- 32 метода — `instructions/exposure/methods.md`
+- 8 типов искажений — `instructions/exposure/distortions.md`
+- 5 механик подмены — `instructions/exposure/mechanisms.md`
 - 10 языковых подмен — `instructions/exposure/exposure-language.md`
-- 70+ приёмов — `instructions/exposure/exposure-techniques.md`
+- 70+ приёмов — `instructions/exposure/techniques.md`

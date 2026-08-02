@@ -10,7 +10,7 @@
 - **Тема:** Полный список устойчивых фраз и выражений, требующих возврата к ивритскому смыслу. Алфавитный порядок.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-- **Связанные файлы:** `docs/07-DICTIONARIES/religionisms.md`, `docs/08-EXPOSURE/exposure-linguistic.md`, `docs/08-EXPOSURE/exposure-methods.md`, `docs/08-EXPOSURE/exposure-principles.md`, `docs/08-EXPOSURE/exposure-mechanisms.md`
+- **Связанные файлы:** `docs/07-DICTIONARIES/religionisms.md`, `docs/08-EXPOSURE/linguistic.md`, `docs/08-EXPOSURE/methods.md`, `docs/08-EXPOSURE/principles.md`, `docs/08-EXPOSURE/mechanisms.md`
 - **Хеш:** ожидает
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-08-01
@@ -25,7 +25,7 @@
 
 **Палео-образ очищения:** 𐤈·𐤄·𐤓 — таhор: пригодный, чистый. 𐤈 (змея) + 𐤄 (окно) + 𐤓 (голова) = змея, которую окно направляет через голову. Очищение — это возвращение к пригодности.
 
-**Связанные документы:** `MANIFEST.md` (методология, карта пространств), `exposure-linguistic.md` (языковые искажения), `exposure-mechanisms.md` (Механизм 4 — Подмена живого отношения на мёртвую структуру).
+**Связанные документы:** `MANIFEST.md` (методология, карта пространств), `linguistic.md` (языковые искажения), `mechanisms.md` (Механизм 4 — Подмена живого отношения на мёртвую структуру).
 
 
 ## 📜 СПИСОК
@@ -271,9 +271,9 @@
 ## СВЯЗАННЫЕ ДОКУМЕНТЫ
 
 - `MANIFEST.md` — методология, карта пространств, Давар.
-- `exposure-linguistic.md` — языковые искажения.
-- `exposure-mechanisms.md` — 7 механизмов подмены.
-- `exposure-methods.md` — 40 методов разоблачения.
-- `exposure-principles.md` — 23 принципа разоблачения.
+- `linguistic.md` — языковые искажения.
+- `mechanisms.md` — 7 механизмов подмены.
+- `methods.md` — 40 методов разоблачения.
+- `principles.md` — 23 принципа разоблачения.
 - `dictionary-exposures.md` — словарь разоблачений.
 - `states.md` — карта состояний пространства.

@@ -117,14 +117,14 @@ help                — справка
 4. Вставь блок метаданных в начало файла
 
 **Типы файлов и их шаблоны:**
-- `terminology` → `content/terminology/` → TEMPLATE-TERM.md
-- `research` → `content/researches/` → TEMPLATE-RESEARCH.md
-- `teaching` → `content/teachings/` → TEMPLATE-TEACHING.md
-- `book` → `content/tanakh/books/` → TEMPLATE-BOOK.md
-- `person` → `content/tanakh/persons/` → TEMPLATE-PERSON.md
-- `event` → `content/tanakh/events/` → TEMPLATE-EVENT.md
-- `practice` → `content/practices/` → TEMPLATE-PRACTICE.md
-- `learn` → `content/learn-hebrew/` → TEMPLATE-LEARN.md
+- `terminology` → `content/terminology/` → TERM.md
+- `research` → `content/researches/` → RESEARCH.md
+- `teaching` → `content/teachings/` → TEACHING.md
+- `book` → `content/tanakh/books/` → BOOK.md
+- `person` → `content/tanakh/persons/` → PERSON.md
+- `event` → `content/tanakh/events/` → EVENT.md
+- `practice` → `content/practices/` → PRACTICE.md
+- `learn` → `content/learn-hebrew/` → LEARN.md
 - `guide` → `guides/` → GUIDE-*.md
 - `doc` → `docs/` → стандартный
 - `idea` → `ideas/` → стандартный + Статус идеи
@@ -166,7 +166,7 @@ help                — справка
 ```
 python tools/generators/generate-teaching-files.py  # если нужно создать файл из NAME_MAP
 ```
-Затем заполнить по TEMPLATE-TEACHING.md.
+Затем заполнить по TEACHING.md.
 
 ### Обновить files.json
 ```
