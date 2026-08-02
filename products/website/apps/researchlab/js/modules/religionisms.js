@@ -20,15 +20,24 @@ const Religionisms = (function() {
   let spheres = [];
   let activeSphereId = '';
   let query = '';
+  let loading = false;
 
   function init() {
+    if (spheres.length) {
+      render();
+      return;
+    }
+    if (loading) return;
+    loading = true;
     fetch('data/religionisms/religionisms.json')
       .then(function(r) { return r.json(); })
       .then(function(data) {
+        loading = false;
         spheres = data.spheres || [];
         render();
       })
       .catch(function(err) {
+        loading = false;
         console.error(err);
         var grid = document.getElementById('rel-grid');
         if (grid) grid.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки данных о религионизмах.</div>';

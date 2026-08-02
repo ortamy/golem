@@ -621,6 +621,7 @@ const PageController = (function() {
         applyQueryParam(parsed, 'rd-search',
           function() { return !!window._roots; },
           function(query) { RootsSearch.filter(query); });
+        if (window.RootDict) RootDict.init();
         break;
 
       case 'word-analyzer':
@@ -845,6 +846,7 @@ const PageController = (function() {
           '<div id="rel-detail" class="rel-detail" style="display:none;"></div>' +
           '<div id="rel-empty" class="lab-alert lab-alert-info" style="display:none">Ничего не найдено.</div>';
         container.dataset.loaded = '1';
+        if (window.Religionisms) Religionisms.init();
         break;
 
       case 'translation-comparator':

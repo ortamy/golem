@@ -818,6 +818,14 @@ const LabRenderer = {
       if (window.LoadResearches) window.LoadResearches.render(container, parsed);
       return;
     }
+    if (moduleId === 'root-dictionary') {
+      if (window.RootDict) window.RootDict.init();
+      return;
+    }
+    if (moduleId === 'religionisms') {
+      if (window.Religionisms) window.Religionisms.init();
+      return;
+    }
 
     if (moduleId === 'heraldry') {
       if (!window.Heraldry) {

@@ -4,11 +4,22 @@ const RootDict = (function() {
   let roots = [];
   let filtered = [];
   let currentPage = 1;
+  let loading = false;
 
   function init() {
+    if (roots.length) {
+      var readySpinner = document.getElementById('rd-spinner');
+      if (readySpinner) readySpinner.classList.remove('show');
+      filtered = roots.slice();
+      render();
+      return;
+    }
+    if (loading) return;
+    loading = true;
     fetch('data/roots/roots.json')
       .then(r => r.json())
       .then(data => {
+        loading = false;
         roots = data;
         window._roots = data;
         filtered = roots.slice();
@@ -21,6 +32,7 @@ const RootDict = (function() {
         render();
       })
       .catch(err => {
+        loading = false;
         console.error(err);
         var spinnerEl = document.getElementById('rd-spinner');
         if (spinnerEl) spinnerEl.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки словаря.</div>';
