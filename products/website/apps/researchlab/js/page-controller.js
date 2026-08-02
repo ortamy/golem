@@ -748,36 +748,6 @@ const PageController = (function() {
           function() { WordAnalyzer.analyze(); });
         break;
 
-      case 'paleo-images':
-        container.innerHTML = '<h1><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-образы</h1>' +
-          '<p class="subtitle">22 буквы палео-ивритского алфавита. Нажмите на букву, чтобы увидеть описание.</p>' +
-          '<div class="pi-grid" id="pi-grid"></div>' +
-          '<div class="pi-detail" id="pi-detail">' +
-          '<div class="pi-detail-header"><div class="pi-dpaleo" id="pi-dpaleo"></div><div class="pi-dinfo"><div class="pi-dname" id="pi-dname"></div><div class="pi-dtranslit" id="pi-dtranslit"></div></div></div>' +
-          '<div class="pi-dmeaning" id="pi-dmeaning"></div><div class="pi-ddesc" id="pi-ddesc"></div><div class="pi-dexample" id="pi-dexample"></div><div class="pi-droots" id="pi-droots"></div>' +
-          '</div>';
-        container.dataset.loaded = '1';
-        // Сетка создаётся после инициализации SPA, поэтому рендерим её здесь.
-        var paleoGrid = container.querySelector('#pi-grid');
-        if (paleoGrid && typeof LETTERS !== 'undefined') {
-          paleoGrid.innerHTML = LETTERS.map(function(letter, index) {
-            return '<button type="button" class="pi-card" data-paleo-index="' + index + '" aria-label="Открыть образ: ' + escapeHtml(letter.name) + '">' +
-              '<span class="pi-paleo">' + escapeHtml(letter.paleo) + '</span>' +
-              '<span class="pi-name">' + escapeHtml(letter.name) + '</span>' +
-              '<span class="pi-translit">' + escapeHtml(letter.translit) + '</span>' +
-              '<span class="pi-meaning">' + escapeHtml(letter.meaning.split(',')[0]) + '</span>' +
-              '</button>';
-          }).join('');
-          paleoGrid.querySelectorAll('.pi-card').forEach(function(card) {
-            card.addEventListener('click', function() {
-              if (typeof PaleoImages !== 'undefined') {
-                PaleoImages.show(parseInt(card.getAttribute('data-paleo-index'), 10));
-              }
-            });
-          });
-        }
-        break;
-
       case 'learn':
         container.innerHTML = '<div id="learn-app" aria-live="polite"></div>';
         container.dataset.loaded = '1';

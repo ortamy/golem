@@ -123,12 +123,6 @@
       subtitle: 'Переход от формы слова к корню, образу и карте смысловых сдвигов.',
       icon: 'archaeology/testtube.png'
     },
-    'paleo-images': {
-      kicker: 'ГОЛЕМ · ПАЛЕО-ОБРАЗЫ',
-      title: 'Палео-образы',
-      subtitle: 'Буквы как предметные образы: форма, движение и собранное значение.',
-      icon: 'paleo/track.png'
-    },
     'etymology-checker': {
       kicker: 'ГОЛЕМ · ЧЕКЕРЫ',
       title: 'Чекер этимологии',

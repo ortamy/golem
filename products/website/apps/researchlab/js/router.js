@@ -74,7 +74,7 @@ const LabRouter = (function() {
       'manifest', 'dashboard', 'learn', 'dictionaries', 'researches',
       'methodology', 'paleo-mechanics', 'paleo-linguistics',
       'language-map', 'religionisms', 'root-dictionary', 'paleo-builder',
-      'paleo-images', 'word-analyzer', 'scripture-reader', 'generators',
+      'word-analyzer', 'scripture-reader', 'generators',
       'checkers', 'translation-comparator', 'investigation', 'heraldry',
       'cartography', 'states', 'timeline', 'ai-agents', 'ed-chat', 'vision',
       'paleo-keyboard', 'admin-settings', 'analyzers', 'layer-analyzer', 'ai-analyzer', 'dialect-analyzer', 'exposure-editor', 'clue-generator',
