@@ -233,7 +233,6 @@ const ExposureCase = (function() {
     }).join('');
 
     return '<div class="exposure-case-page">' +
-      '<div class="exposure-case-topbar"><a class="research-back-link" href="#researches" data-exposure-back>← Назад к архиву</a></div>' +
       breadcrumb +
       '<div class="research-detail-layout exposure-case-layout">' +
         '<main class="research-detail-content">' +
@@ -244,6 +243,7 @@ const ExposureCase = (function() {
             '<div class="exposure-detail-title-row">' + renderIcon(item.icon || 'scroll', item.title, 'exposure-detail-icon') + '<div>' + confidenceBadge(item.confidence) + '<h1>' + esc(item.title || '') + '</h1></div></div>' +
             '<div class="research-detail-tags">' + tags + '</div>' +
             '<p class="research-detail-summary">' + esc(getSummary(item)) + '</p>' +
+            '<a class="lab-btn lab-btn-secondary lab-btn-sm research-back-link" href="#researches" data-exposure-back>← Назад к архиву</a>' +
             '<div class="exposure-progress-wrap"><div class="exposure-progress-track"><div class="exposure-progress-bar" data-exposure-progress></div></div>' +
               '<span class="exposure-progress-label" data-exposure-progress-label">0 из ' + blocks.length + ' секций</span></div>' +
           '</header>' +

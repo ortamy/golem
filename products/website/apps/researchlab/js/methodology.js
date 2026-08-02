@@ -265,6 +265,7 @@
       bindCategorySelect(container);
       bindDocumentSelect(container);
       bindAddButton(container);
+      bindBackButton(container);
       loadStore(container);
     }).catch(function(error) {
       container.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить раздел: ' + escapeHtml(error.message) + '</div>';
@@ -331,6 +332,15 @@
     if (btn) btn.addEventListener('click', function() { openForm(container); });
   }
 
+  function bindBackButton(container) {
+    var btn = container.querySelector('#methodology-back-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      activeDocument = '';
+      showTab(container, activeTab);
+    });
+  }
+
   function updateDocumentSelect(container, cards) {
     var select = container.querySelector('#methodology-document-select');
     if (!select) return;
@@ -389,17 +399,21 @@
     };
   }
 
-  function updateHero(container, key) {
+  function updateHero(container, key, documentCard) {
     var heroData = METHODOLOGY_HERO[key] || METHODOLOGY_HERO.principles;
     var kicker = container.querySelector('#methodology-hero-kicker');
+    var title = container.querySelector('#methodology-title');
     var description = container.querySelector('#methodology-hero-description');
+    var back = container.querySelector('#methodology-back-btn');
     var heading = container.querySelector('.methodology-heading');
     if (!kicker || !description) return;
 
     if (heading) heading.classList.add('is-updating');
     setTimeout(function() {
-      kicker.textContent = heroData.kicker;
-      description.textContent = heroData.description;
+      kicker.textContent = documentCard ? 'ГОЛЕМ · ДОКУМЕНТ' : heroData.kicker;
+      if (title) title.textContent = documentCard ? (documentCard.title || 'Документ') : 'Методология';
+      description.textContent = documentCard ? (documentCard.summary || documentCard.text || heroData.description) : heroData.description;
+      if (back) back.hidden = !documentCard;
       if (heading) heading.classList.remove('is-updating');
     }, 100);
   }
@@ -412,7 +426,6 @@
     if (!panel || !store) return;
 
     var category = CATEGORIES.filter(function(item) { return item.key === key; })[0] || {};
-    updateHero(container, key);
     var catInfo = (store.categories || {})[key] || {};
 
     var cards = (store.cards || []).filter(function(c) { return c.category === key; });
@@ -514,6 +527,10 @@
     } else {
       updateDocumentSelect(container, cards);
     }
+    var selectedDocument = activeDocument && key !== 'techniques'
+      ? cards.filter(function(card) { return card.id === activeDocument; })[0]
+      : null;
+    updateHero(container, key, selectedDocument);
     if (activeDocument && key !== 'techniques') {
       cards = cards.filter(function(card) { return card.id === activeDocument; });
     }

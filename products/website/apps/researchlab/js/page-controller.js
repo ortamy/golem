@@ -118,18 +118,16 @@ const PageController = (function() {
         '<div class="term-restored">' + escapeHtml(term.restored) + '</div>' +
         '</article>';
     }).join('');
-    var dictionaryDescription = escapeHtml(dictionary.description || '')
-      .replace(/---/g, '<hr class="dictionary-separator">');
+    var dictionaryDescription = escapeHtml((dictionary.description || '').replace(/---/g, '').trim());
+    var dictionaryHeading = escapeHtml(dictionary.title || 'Словари');
     container.innerHTML = '<div class="research-page-head">' +
-      '<h1><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Словари</h1>' +
-      '<p class="subtitle">Словарные карты подмен с ивритским соответствием и палео-формой.</p>' +
+      '<h1><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">' + dictionaryHeading + '</h1>' +
+      '<p class="subtitle text-muted">' + dictionaryDescription + '</p>' + backBtn +
       '</div>' +
       '<div class="research-controls">' +
       '<label>Словарь<select id="research-dictionary-select" class="lab-input">' + options + '</select></label>' +
       '<label class="research-search-label">Поиск<input id="research-dictionary-search" class="lab-input" type="search" value="' + escapeHtml(state.query) + '" placeholder="Слово, иврит или восстановленный смысл"></label>' +
       '</div>' +
-      '<div class="research-meta">' + backBtn + '<span>' + terms.length + ' из ' + (dictionary.terms || []).length + ' терминов</span></div>' +
-      '<div class="research-description">' + dictionaryDescription + '</div>' +
       '<div class="term-grid" id="term-grid">' + (termCards || '<div class="lab-alert lab-alert-info">По запросу ничего не найдено.</div>') + '</div>';
     var termGrid = document.getElementById('term-grid');
     if (termGrid) termGrid.querySelectorAll('.term-card').forEach(function(c) { c.classList.add('fade-in-stagger'); });
@@ -145,6 +143,101 @@ const PageController = (function() {
       renderDictionaries(container, data);
       var nextSearch = document.getElementById('research-dictionary-search');
       if (nextSearch) { nextSearch.focus(); nextSearch.setSelectionRange(state.query.length, state.query.length); }
+    });
+  }
+
+  function renderInlineMarkdown(text) {
+    if (typeof marked !== 'undefined' && marked.parseInline) {
+      return marked.parseInline(text || '');
+    }
+    return escapeHtml(text || '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  }
+
+  function parsePaleoMechanicsContent(content) {
+    var labels = ['Образ', 'Функция', 'Палео-написание', 'Как работает', 'Пример в слове', 'Сравнение с греческой подменой'];
+    var source = String(content || '').replace(/\r/g, '');
+    var fields = {};
+
+    labels.forEach(function(label, index) {
+      var marker = '**' + label + ':**';
+      var start = source.indexOf(marker);
+      if (start === -1) return;
+      start += marker.length;
+      var end = source.length;
+      labels.slice(index + 1).forEach(function(nextLabel) {
+        var next = source.indexOf('**' + nextLabel + ':**', start);
+        if (next !== -1 && next < end) end = next;
+      });
+      fields[label] = source.slice(start, end).trim();
+    });
+
+    fields.steps = (fields['Как работает'] || '').split('\n')
+      .map(function(line) { return line.replace(/^\s*-\s*/, '').trim(); })
+      .filter(Boolean);
+    return fields;
+  }
+
+  function getPaleoGlyph(letterName) {
+    var glyphs = {
+      'Алеф': '𐤀', 'Бет': '𐤁', 'Гимель': '𐤂', 'Далет': '𐤃', 'Вав': '𐤅',
+      'Хей': '𐤄', 'Заин': '𐤆', 'Хет': '𐤇', 'Тет': '𐤈', 'Йод': '𐤉',
+      'Каф': '𐤊', 'Ламед': '𐤋', 'Мем': '𐤌', 'Нун': '𐤍', 'Самех': '𐤎',
+      'Аин': '𐤏', 'Пей': '𐤐', 'Цади': '𐤑', 'Коф': '𐤒', 'Реш': '𐤓',
+      'Шин': '𐤔', 'Тав': '𐤕'
+    };
+    return glyphs[letterName] || '';
+  }
+
+  function renderPaleoMechanicsDocument(container, documentData, options, backBtn) {
+    var fields = parsePaleoMechanicsContent((documentData.sections || [])[0] && documentData.sections[0].content);
+    var assemblyNames = (fields['Пример в слове'] || '').match(/[А-ЯЁ][а-яё]+/g) || [];
+    var assemblyGlyphs = assemblyNames.map(getPaleoGlyph).filter(Boolean);
+    var paleoAssembly = assemblyGlyphs.length ? assemblyGlyphs.join(' + ') : (fields['Палео-написание'] || '');
+    var paleoWord = assemblyGlyphs.length ? assemblyGlyphs.join('') : (fields['Палео-написание'] || '');
+    var image = fields['Образ'] || 'Палео-образ не указан';
+    var functionText = fields['Функция'] || '';
+    var exampleText = fields['Пример в слове'] || '';
+    var comparisonText = fields['Сравнение с греческой подменой'] || '';
+    var steps = fields.steps || [];
+    var cards = [
+      '<article class="paleo-module paleo-module-image">' +
+        '<div class="paleo-module-heading"><img src="../../assets/icons/32/paleo/track.png" alt=""><h2>Образ</h2></div>' +
+        '<p class="paleo-module-lead">' + renderInlineMarkdown(image) + '</p>' +
+      '</article>',
+      '<article class="paleo-module paleo-module-function">' +
+        '<div class="paleo-module-heading"><img src="../../assets/icons/32/archaeology/testtube.png" alt=""><h2>Функция</h2></div>' +
+        '<div class="paleo-module-copy">' + renderInlineMarkdown(functionText) + '</div>' +
+      '</article>',
+      '<article class="paleo-module paleo-module-example">' +
+        '<div class="paleo-module-heading"><img src="../../assets/icons/32/ui/book.png" alt=""><h2>Пример в слове</h2></div>' +
+        '<div class="paleo-word-display" lang="hbo">' + escapeHtml(paleoWord) + '</div>' +
+        '<div class="paleo-assembly"><span>Сборка</span><strong lang="hbo">' + escapeHtml(paleoAssembly) + '</strong></div>' +
+        '<p class="paleo-module-copy">' + renderInlineMarkdown(exampleText) + '</p>' +
+      '</article>',
+      '<article class="paleo-module paleo-module-steps">' +
+        '<div class="paleo-module-heading"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" alt=""><h2>Как работает</h2></div>' +
+        '<ol class="paleo-steps">' + steps.map(function(step, index) {
+          return '<li class="paleo-step"><span>' + (index + 1) + '</span><div>' + renderInlineMarkdown(step) + '</div></li>';
+        }).join('') + '</ol>' +
+      '</article>',
+      '<article class="paleo-module paleo-module-comparison">' +
+        '<div class="paleo-module-heading"><img src="../../assets/icons/32/ui/scales.png" alt=""><h2>Сравнение с греческой подменой</h2></div>' +
+        '<div class="paleo-comparison-copy">' + renderInlineMarkdown(comparisonText) + '</div>' +
+      '</article>'
+    ].join('');
+
+    container.innerHTML = '<div class="research-page-head paleo-mechanics-head">' +
+      '<h1>' + escapeHtml(documentData.title || 'Палео-механика') + '</h1>' +
+      '<p class="subtitle text-muted">' + escapeHtml((documentData.description || '').replace(/---/g, '').trim()) + '</p>' +
+      backBtn +
+      '</div>' +
+      '<div class="research-controls"><label>Документ<select id="research-paleo-mechanics-select" class="lab-input">' + options + '</select></label></div>' +
+      '<div class="paleo-mechanics-modules">' + cards + '</div>';
+
+    var select = document.getElementById('research-paleo-mechanics-select');
+    if (select) select.addEventListener('change', function() {
+      PageController.pageState['paleo-mechanics'].key = this.value;
+      renderDocumentPage(container, 'paleo-mechanics', PageController.jsonCache['paleo-mechanics']);
     });
   }
 
@@ -188,17 +281,27 @@ const PageController = (function() {
       return '<option value="' + escapeHtml(key) + '"' + (key === state.key ? ' selected' : '') + '>' +
         escapeHtml(data[key].title || key) + '</option>';
     }).join('');
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState[\'' + page + '\'].key=\'\';PageController.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', PageController.jsonCache[\'' + page + '\'])">← Назад к списку</button>';
+    if (page === 'paleo-mechanics') {
+      renderPaleoMechanicsDocument(container, documentData, options, backBtn);
+      return;
+    }
     var sections = (documentData.sections || []).map(function(section) {
       var content = typeof marked !== 'undefined' && marked.parse ? marked.parse(section.content || '') : escapeHtml(section.content || '');
       return '<article class="research-section"><h2>' + escapeHtml(section.title || '') + '</h2><div class="research-section-content">' + content + '</div></article>';
     }).join('');
-    var heading = page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички';
-    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState[\'' + page + '\'].key=\'\';PageController.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', PageController.jsonCache[\'' + page + '\'])">← Назад к списку</button>';
-    container.innerHTML = '<div class="research-page-head"><h1>' + heading + '</h1>' +
-      '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p></div>' +
+    var heading = page === 'paleo-mechanics' ? (documentData.title || 'Палео-механика') : 'Методички';
+    var documentDescription = escapeHtml(documentData.description || '');
+    var paleoDescription = escapeHtml((documentData.description || '').replace(/---/g, '').trim());
+    var documentHead = page === 'paleo-mechanics'
+      ? '<div class="research-page-head"><h1>' + heading + '</h1>' +
+        '<p class="subtitle text-muted">' + paleoDescription + '</p>' + backBtn + '</div>'
+      : '<div class="research-page-head"><h1>' + heading + '</h1>' +
+        '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p></div>';
+    container.innerHTML = documentHead +
       '<div class="research-controls"><label>Документ<select id="research-' + page + '-select" class="lab-input">' + options + '</select></label></div>' +
-      '<div class="research-meta">' + backBtn + '</div>' +
-      '<div class="research-description">' + escapeHtml(documentData.description || '') + '</div>' +
+      (page === 'paleo-mechanics' ? '' : '<div class="research-meta">' + backBtn + '</div>') +
+      (page === 'paleo-mechanics' ? '' : '<div class="research-description">' + documentDescription + '</div>') +
       '<div class="research-sections">' + sections + '</div>';
     var select = document.getElementById('research-' + page + '-select');
     if (select) select.addEventListener('change', function() {
@@ -654,6 +757,25 @@ const PageController = (function() {
           '<div class="pi-dmeaning" id="pi-dmeaning"></div><div class="pi-ddesc" id="pi-ddesc"></div><div class="pi-dexample" id="pi-dexample"></div><div class="pi-droots" id="pi-droots"></div>' +
           '</div>';
         container.dataset.loaded = '1';
+        // Сетка создаётся после инициализации SPA, поэтому рендерим её здесь.
+        var paleoGrid = container.querySelector('#pi-grid');
+        if (paleoGrid && typeof LETTERS !== 'undefined') {
+          paleoGrid.innerHTML = LETTERS.map(function(letter, index) {
+            return '<button type="button" class="pi-card" data-paleo-index="' + index + '" aria-label="Открыть образ: ' + escapeHtml(letter.name) + '">' +
+              '<span class="pi-paleo">' + escapeHtml(letter.paleo) + '</span>' +
+              '<span class="pi-name">' + escapeHtml(letter.name) + '</span>' +
+              '<span class="pi-translit">' + escapeHtml(letter.translit) + '</span>' +
+              '<span class="pi-meaning">' + escapeHtml(letter.meaning.split(',')[0]) + '</span>' +
+              '</button>';
+          }).join('');
+          paleoGrid.querySelectorAll('.pi-card').forEach(function(card) {
+            card.addEventListener('click', function() {
+              if (typeof PaleoImages !== 'undefined') {
+                PaleoImages.show(parseInt(card.getAttribute('data-paleo-index'), 10));
+              }
+            });
+          });
+        }
         break;
 
       case 'learn':
@@ -1311,20 +1433,6 @@ const PageController = (function() {
       });
     }
 
-    // Render paleo-images grid
-    var piGrid = document.getElementById('pi-grid');
-    if (piGrid && typeof LETTERS !== 'undefined') {
-      var html = '';
-      LETTERS.forEach(function(l, idx) {
-        html += '<div class="pi-card" onclick="PaleoImages.show(' + idx + ')">';
-        html += '<div class="pi-paleo">' + l.paleo + '</div>';
-        html += '<div class="pi-name">' + l.name + '</div>';
-        html += '<div class="pi-translit">' + l.translit + '</div>';
-        html += '<div class="pi-meaning">' + l.meaning.split(',')[0] + '</div>';
-        html += '</div>';
-      });
-      piGrid.innerHTML = html;
-    }
   }
   }
 

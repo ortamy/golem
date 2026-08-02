@@ -77,6 +77,11 @@
   line-height: 1.55;
 }
 
+.research-detail-header .research-back-link {
+  display: inline-flex;
+  margin-top: 16px;
+}
+
 .research-detail-section {
   scroll-margin-top: 24px;
   margin-bottom: 30px;
@@ -643,7 +648,8 @@ html[data-theme="dark"] .exposure-card {
 .exposure-case-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
 .exposure-preview-frame { pointer-events: none; }
 .exposure-preview-frame .exposure-case-topbar,
-.exposure-preview-frame .exposure-breadcrumb { display: none; }
+.exposure-preview-frame .exposure-breadcrumb,
+.exposure-preview-frame .research-detail-header .research-back-link { display: none; }
 
 .exposure-related-dock {
   display: none;
