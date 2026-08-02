@@ -8,7 +8,7 @@
   var DATA_PATH = 'data/language-map/languages.json';
   var pagePromise = null;
   var dataPromise = null;
-  var state = { markup: '', languages: [] };
+  var state = { markup: '', languages: [], sort: 'asc' };
 
   function assetUrl(path) {
     return new URL(path, document.baseURI).href;
@@ -124,9 +124,14 @@
   function getFilteredLanguages(container) {
     var type = normalize((container.querySelector('#language-map-type') || {}).value || 'all');
     var davar = normalize((container.querySelector('#language-map-davar') || {}).value || 'all');
+    var sort = (container.querySelector('#language-map-sort') || {}).value || state.sort;
+    state.sort = sort;
     return state.languages.filter(function(language) {
       return (type === 'all' || normalize(language.type) === type) &&
         (davar === 'all' || normalize(language.has_davar) === davar);
+    }).sort(function(left, right) {
+      var result = String(left.name || '').localeCompare(String(right.name || ''), 'ru', { sensitivity: 'base' });
+      return sort === 'desc' ? -result : result;
     });
   }
 
@@ -141,31 +146,34 @@
     count.textContent = 'Показано языков: ' + languages.length + ' из ' + state.languages.length;
   }
 
-  function openLanguage(id) {
-    if (findLanguage(id) && window.LabRouter) {
-      window.LabRouter.navigate('language-map', [id]);
-    }
+  function openLanguage(id, container) {
+    var language = findLanguage(id);
+    if (!language) return;
+    if (window.LabRouter) window.LabRouter.navigate('language-map', [id]);
+    if (container) renderDetail(container, language);
   }
 
   function bindList(container) {
     var grid = container.querySelector('#language-map-grid');
     var type = container.querySelector('#language-map-type');
     var davar = container.querySelector('#language-map-davar');
+    var sort = container.querySelector('#language-map-sort');
     if (!grid || grid.dataset.bound === '1') return;
 
     grid.addEventListener('click', function(event) {
       var card = event.target.closest('.language-map-card');
-      if (card) openLanguage(card.dataset.languageId);
+      if (card) openLanguage(card.dataset.languageId, container);
     });
     grid.addEventListener('keydown', function(event) {
       var card = event.target.closest('.language-map-card');
       if (card && (event.key === 'Enter' || event.key === ' ')) {
         event.preventDefault();
-        openLanguage(card.dataset.languageId);
+        openLanguage(card.dataset.languageId, container);
       }
     });
     if (type) type.addEventListener('change', function() { renderCards(container); });
     if (davar) davar.addEventListener('change', function() { renderCards(container); });
+    if (sort) sort.addEventListener('change', function() { renderCards(container); });
     grid.dataset.bound = '1';
   }
 
@@ -184,7 +192,8 @@
       '<p class="language-map-future">Полный анализ языка будет добавлен в следующем слое исследования.</p>' +
       '</section>';
     container.querySelector('.language-map-back').addEventListener('click', function() {
-      window.LabRouter.navigate('language-map');
+      if (window.LabRouter) window.LabRouter.navigate('language-map');
+      render(container, { segments: ['language-map'] });
     });
   }
 

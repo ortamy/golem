@@ -123,7 +123,9 @@ const PaleoLinguistics = (function() {
       container.querySelectorAll('.pl-lang-card').forEach(function(card) {
         function openCard() {
           var id = card.getAttribute('data-id');
-          if (id && typeof LabRouter !== 'undefined') LabRouter.navigate('paleo-linguistics', [id]);
+          if (!id) return;
+          if (typeof LabRouter !== 'undefined') LabRouter.navigate('paleo-linguistics', [id]);
+          route(container, { segments: ['paleo-linguistics', id] });
         }
         card.addEventListener('click', openCard);
         card.addEventListener('keydown', function(event) {
@@ -152,6 +154,12 @@ const PaleoLinguistics = (function() {
       currentTab = 'alphabet';
       container.innerHTML = renderLangPage(lang);
       bindLangPageEvents(container, lang);
+      var back = container.querySelector('.pl-back-btn');
+      if (back) back.addEventListener('click', function(event) {
+        event.preventDefault();
+        if (typeof LabRouter !== 'undefined') LabRouter.navigate('paleo-linguistics');
+        renderLangGrid(container);
+      });
     }).catch(function(error) {
       container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки языка: ' + escapeHtml(error.message) + '</div>';
     });

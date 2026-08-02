@@ -142,6 +142,18 @@ const LoadResearches = (function() {
       updateHash();
     }
 
+    // Открываем дело сразу, как карточку словаря.
+    if (results) results.addEventListener('click', function(e) {
+      var card = e.target.closest('.exposure-card');
+      if (!card) return;
+      e.preventDefault();
+      var slug = card.getAttribute('data-slug');
+      if (!slug) return;
+      state.activeSlug = slug;
+      history.replaceState(null, '', '#researches/case/' + encodeURIComponent(slug));
+      renderDetail(container);
+    });
+
     if (search) search.addEventListener('input', update);
     if (category) category.addEventListener('change', update);
     if (newBtn) newBtn.addEventListener('click', function() { LabRouter.navigate('exposure-editor'); });

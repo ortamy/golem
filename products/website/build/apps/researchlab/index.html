@@ -954,19 +954,6 @@ const LabRenderer = {
         '</div>' +
         '<div class="dict-grid" id="dict-grid">' + dictCards + '</div>';
       
-      // Add click handlers to dict cards
-      var dictGrid = document.getElementById('dict-grid');
-      if (dictGrid) {
-        var cards = dictGrid.querySelectorAll('.dict-card');
-        cards.forEach(function(card) {
-          card.addEventListener('click', function(e) {
-            e.preventDefault();
-            state.key = this.getAttribute('data-key');
-            state.query = '';
-            self.renderDictionaries(container, data);
-          });
-        });
-      }
       return;
     }
     
@@ -1059,18 +1046,6 @@ const LabRenderer = {
         '</div>' +
         '<div class="doc-grid" id="doc-grid">' + docCards + '</div>';
       
-      // Add click handlers to doc cards
-      var docGrid = document.getElementById('doc-grid');
-      if (docGrid) {
-        var cards = docGrid.querySelectorAll('.doc-card');
-        cards.forEach(function(card) {
-          card.addEventListener('click', function(e) {
-            e.preventDefault();
-            state.key = this.getAttribute('data-key');
-            self.renderDocumentPage(container, page, data);
-          });
-        });
-      }
       return;
     }
     
@@ -1138,6 +1113,42 @@ const LabRenderer = {
     ];
     
     container.innerHTML = modules.join('\n');
+    container.addEventListener('click', function(e) {
+      const card = e.target.closest('.dict-card, .doc-card, .term-card, .tool-card, .agent-card, .rel-card, .dashboard-widget');
+      if (!card) return;
+
+      const key = card.getAttribute('data-key');
+      if (key) {
+        e.preventDefault();
+        const activeModule = document.querySelector('.module.active');
+        if (!activeModule) return;
+        const moduleId = activeModule.id;
+        
+        if (moduleId === 'dictionaries') {
+          LabRenderer.pageState.dictionaries.key = key;
+          LabRenderer.renderDictionaries(activeModule, LabRenderer.jsonData.dictionaries);
+          return;
+        }
+        if (moduleId === 'exposure' || moduleId === 'methodology' || moduleId === 'paleo-mechanics') {
+          LabRenderer.pageState[moduleId].key = key;
+          LabRenderer.renderDocumentPage(activeModule, moduleId, LabRenderer.jsonData[moduleId]);
+          return;
+        }
+      }
+
+      const module = card.getAttribute('data-module');
+      if (module) {
+        e.preventDefault();
+        LabRouter.navigate(module);
+        return;
+      }
+
+      const path = card.getAttribute('data-path');
+      if (path && window.openFile) {
+        e.preventDefault();
+        openFile(path);
+      }
+    });
     this.loadScripts();
   },
   

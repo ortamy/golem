@@ -13,7 +13,7 @@
   box-shadow: var(--shadow-soft);
 }
 
-.language-map-head { max-width: 800px; margin-bottom: 28px; }
+.language-map-head { max-width: 800px; margin-bottom: 20px; }
 .language-map-kicker {
   color: var(--text-gold);
   font-family: var(--font-mono);
@@ -33,11 +33,11 @@
 .language-map-filters {
   display: grid;
   grid-template-columns: repeat(2, minmax(180px, 1fr));
-  gap: 16px;
+  gap: 14px;
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
-  padding: 18px 0;
-  margin-bottom: 18px;
+  padding: 14px 0;
+  margin-bottom: 14px;
 }
 .language-map-filter { display: flex; flex-direction: column; gap: 6px; }
 .language-map-filter label { color: var(--text-primary); font-size: 15px; }
