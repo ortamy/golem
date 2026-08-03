@@ -679,68 +679,6 @@ html[data-theme="dark"] .exposure-card {
 .exposure-preview-frame .exposure-breadcrumb,
 .exposure-preview-frame .research-detail-header .research-back-link { display: none; }
 
-.exposure-related-dock {
-  display: none;
-}
-
-@media (min-width: 1025px) {
-  .exposure-related-dock {
-    position: fixed;
-    right: 24px;
-    bottom: 18px;
-    left: 24px;
-    z-index: 20;
-    display: block;
-    pointer-events: none;
-  }
-
-  .exposure-related-dock-inner {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    max-width: 1100px;
-    margin: 0 auto;
-    border: 1px solid var(--accent-gold, #b8860b);
-    border-radius: 9px;
-    background: color-mix(in srgb, var(--bg-secondary, #f7f1e5) 94%, transparent);
-    box-shadow: 0 8px 28px rgba(44, 24, 16, .18);
-    padding: 10px 16px;
-    pointer-events: auto;
-    backdrop-filter: blur(8px);
-  }
-
-  .exposure-related-dock-title {
-    flex: 0 0 auto;
-    color: var(--text-primary, #2c1810);
-    font-family: var(--font-heading, Georgia, serif);
-    font-weight: 700;
-  }
-
-  .exposure-related-dock-links {
-    display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    gap: 5px 16px;
-  }
-
-  .exposure-related-dock a {
-    color: var(--accent-gold, #8c6500);
-    font-size: .86rem;
-    text-decoration: none;
-  }
-
-  .exposure-related-dock a:hover,
-  .exposure-related-dock a:focus-visible { text-decoration: underline; }
-
-  /* Класс выставляется renderer-ом; :has оставлен как fallback для прямого HTML. */
-  .lab-content.exposure-has-related-dock,
-  .lab-content:has(.exposure-related-dock) { padding-bottom: 90px; }
-}
-
-html[data-theme="dark"] .exposure-related-dock-inner {
-  background: color-mix(in srgb, var(--bg-secondary, #211b17) 94%, transparent);
-}
-
 @media (max-width: 767px) {
   .exposure-grid {
     grid-template-columns: 1fr;

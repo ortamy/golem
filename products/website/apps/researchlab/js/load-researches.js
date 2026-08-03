@@ -268,30 +268,6 @@ const LoadResearches = (function() {
     return index;
   }
 
-  // Нижняя панель даёт быстрый переход к соседним делам и не меняет шаблон карточки.
-  function renderRelatedDock(source, current) {
-    var index = itemIndex();
-    var ids = current && Array.isArray(current.related) ? current.related.slice() : [];
-    var candidates = source || items;
-    candidates.forEach(function(item) {
-      if (item !== current && item.slug && ids.indexOf(item.slug) === -1 && ids.length < 4) ids.push(item.slug);
-    });
-    ids = ids.filter(function(id, position) { return index[id] && ids.indexOf(id) === position && (!current || id !== current.slug); }).slice(0, 4);
-    if (!ids.length) return '';
-    return '<aside class="exposure-related-dock" aria-label="Связанные материалы">' +
-      '<div class="exposure-related-dock-inner">' +
-        '<div class="exposure-related-dock-links">' + ids.map(function(id) {
-          return '<a href="#researches/case/' + encodeURIComponent(id) + '">' + escapeHtml(index[id].title || id) + '</a>';
-        }).join('') + '</div>' +
-      '</div>' +
-    '</aside>';
-  }
-
-  function setDockState(container) {
-    var host = container.closest('.lab-content') || container;
-    host.classList.toggle('exposure-has-related-dock', !!container.querySelector('.exposure-related-dock'));
-  }
-
   function renderConfidenceChips() {
     var order = ['all', 'verified', 'needs-review', 'hypothesis', 'disputed'];
     var labels = { all: 'Все' };
@@ -315,10 +291,8 @@ const LoadResearches = (function() {
       '</div>' +
       renderConfidenceChips() +
       '<div class="research-meta"><strong>' + filtered.length + ' из ' + items.length + '</strong><span>Материалы библиотеки проекта «Голем»</span></div>' +
-      '<div id="researches-results">' + renderCards(filtered) + '</div>' +
-      '<div id="researches-related-dock-slot">' + renderRelatedDock(filtered) + '</div>';
+      '<div id="researches-results">' + renderCards(filtered) + '</div>';
 
-    setDockState(container);
     bindListEvents(container);
   }
 
@@ -336,9 +310,6 @@ const LoadResearches = (function() {
       var list = getFiltered();
       if (meta) meta.textContent = list.length + ' из ' + items.length;
       results.innerHTML = renderCards(list);
-      var dockSlot = container.querySelector('#researches-related-dock-slot');
-      if (dockSlot) dockSlot.innerHTML = renderRelatedDock(list);
-      setDockState(container);
       updateHash();
     }
 
@@ -372,12 +343,10 @@ const LoadResearches = (function() {
     if (!item) {
       container.innerHTML = '<div class="lab-alert lab-alert-error">Дело «' + escapeHtml(state.activeSlug) + '» не найдено.</div>' +
         '<a class="research-back-link" href="#researches">← Назад к архиву</a>';
-      setDockState(container);
       return;
     }
     history.replaceState(null, '', '#researches/case/' + encodeURIComponent(item.slug));
-    container.innerHTML = ExposureCase.renderCase(item, { relatedItems: itemIndex() }) + renderRelatedDock(items, item);
-    setDockState(container);
+    container.innerHTML = ExposureCase.renderCase(item, { relatedItems: itemIndex() });
     ExposureCase.bindCase(container, item);
 
     var back = container.querySelector('[data-exposure-back]');

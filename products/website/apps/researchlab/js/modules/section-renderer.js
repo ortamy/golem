@@ -81,6 +81,64 @@ const SectionRenderer = (function() {
     }).join('') + '</div>';
   }
 
+  function patchIcon(id, title, detail, index) {
+    var text = (String(title || '') + ' ' + String(detail || '')).toLowerCase();
+    var iconSets = {
+      etymology: ['archaeology/testtube.png', 'ui/book.png', 'scribe/scroll.png'],
+      exposure: ['weapons/sword.png', 'ui/question.png', 'ui/anchor.png'],
+      practice: ['paleo/track.png', 'archaeology/lamp.png', 'ui/anchor.png'],
+      summary: ['ui/scales.png', 'ui/book.png', 'scribe/scrolls.png']
+    };
+    if (/корень|этимолог|слово|палео|букв/.test(text)) return ICON_BASE + 'archaeology/testtube.png';
+    if (/искаж|подмен|греческ|латин|перевод/.test(text)) return ICON_BASE + 'weapons/sword.png';
+    if (/практи|сдел|шаг|примен|провер/.test(text)) return ICON_BASE + 'paleo/track.png';
+    if (/свод|итог|уров|вывод|ключ/.test(text)) return ICON_BASE + 'ui/scales.png';
+    var icons = iconSets[id] || ['ui/book.png', 'scribe/scroll.png', 'archaeology/testtube.png'];
+    return ICON_BASE + icons[(index || 0) % icons.length];
+  }
+
+  // Списки в аналитических карточках становятся компактными смысловыми плашками.
+  function renderPatchCards(items, id, offset) {
+    var cards = items.map(function(item, index) {
+      var content = String(item || '').replace(/^\s*[-*+]\s+/, '').trim();
+      if (!content) return '';
+      var plain = content.replace(/<[^>]+>/g, '').replace(/\*\*/g, '').trim();
+      var parts = plain.split(/\s+—\s+|\s*:\s+/);
+      var title = parts.shift().trim() || 'Фрагмент';
+      var detail = parts.join(' — ').trim() || plain;
+      return '<article class="section-patch-card" role="listitem">' +
+        '<img class="section-patch-icon" src="' + escapeHtml(patchIcon(id, title, detail, (offset || 0) + index)) + '" alt="" width="28" height="28" loading="lazy">' +
+        '<div class="section-patch-copy"><strong class="section-patch-title">' + escapeHtml(title) + '</strong>' +
+        '<span class="section-patch-detail">' + escapeHtml(detail) + '</span></div>' +
+      '</article>';
+    }).filter(Boolean);
+    return '<div class="section-patches-gallery" role="list">' + cards.join('') + '</div>';
+  }
+
+  function renderPatchList(value, id) {
+    if (Array.isArray(value)) return renderPatchCards(value, id, 0);
+    var lines = String(value || '').split(/\r?\n/);
+    var output = [];
+    var list = [];
+    var listIndex = 0;
+    function flushList() {
+      if (!list.length) return;
+      output.push(renderPatchCards(list, id, listIndex));
+      listIndex += list.length;
+      list = [];
+    }
+    lines.forEach(function(line) {
+      if (/^\s*[-*+]\s+/.test(line)) {
+        list.push(line);
+      } else {
+        flushList();
+        if (line.trim()) output.push(renderMarkdown(line));
+      }
+    });
+    flushList();
+    return output.join('');
+  }
+
   function cleanTitle(value) {
     var title = String(value || 'Раздел').replace(/^!\[icon\]\([^)]*\)\s*/i, '').trim();
     return title || 'Раздел';
@@ -211,11 +269,12 @@ const SectionRenderer = (function() {
 
   var RULES = {
     essence: { icon: ICON_BASE + 'scribe/scroll.png', className: 'essence-card', render: renderMarkdown },
-    etymology: { icon: ICON_BASE + 'archaeology/testtube.png', className: 'etymology-card', render: renderMarkdown },
+    etymology: { icon: ICON_BASE + 'archaeology/testtube.png', className: 'etymology-card', render: function(value) { return renderPatchList(value, 'etymology'); } },
     tanakh: { icon: ICON_BASE + 'ui/book.png', className: 'tanakh-card', render: renderTanakh },
-    exposure: { icon: ICON_BASE + 'weapons/sword.png', className: 'exposure-card exposure-section-card', render: renderMarkdown },
-    practice: { icon: ICON_BASE + 'archaeology/lamp.png', className: 'practice-card', render: renderMarkdown },
-    summary: { icon: ICON_BASE + 'ui/scales.png', className: 'summary-card', render: renderMarkdown },
+    exposure: { icon: ICON_BASE + 'weapons/sword.png', className: 'exposure-card exposure-section-card', render: function(value) { return renderPatchList(value, 'exposure'); } },
+    distortions: { icon: ICON_BASE + 'weapons/sword.png', className: 'exposure-card exposure-section-card', render: function(value) { return renderPatchList(value, 'exposure'); } },
+    practice: { icon: ICON_BASE + 'archaeology/lamp.png', className: 'practice-card', render: function(value) { return renderPatchList(value, 'practice'); } },
+    summary: { icon: ICON_BASE + 'ui/scales.png', className: 'summary-card', render: function(value) { return renderPatchList(value, 'summary'); } },
     typology: { icon: ICON_BASE + 'ui/anchor.png', className: 'typology-card', render: renderTypology },
     related: { icon: ICON_BASE + 'scribe/scrolls.png', className: 'related-card', render: renderMarkdown },
     transmission: { icon: ICON_BASE + 'ui/hourglass.png', className: 'transmission-card', render: renderMarkdown },
