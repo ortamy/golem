@@ -433,9 +433,9 @@ const ScriptureReader = (function() {
 
     if (title) title.textContent = state.currentBook.ru + ' ' + (verse.chapter || 1) + ':' + verse.verse;
 
-    // Для Берешит 1:1 используем 4-строчный формат.
-    var isFirstVerse = verse.chapter === 1 && verse.verse === 1;
-    var usedFourLine = isFirstVerse && renderFourLineVerse(verse);
+    // Для книги Берешит используем 4-строчный формат (эталон Берешит 1:1).
+    var isBereshit = state.currentBook && state.currentBook.id === 'bereshit';
+    var usedFourLine = isBereshit && renderFourLineVerse(verse);
 
     if (!usedFourLine) {
       if (paleo) paleo.innerHTML = renderPaleo(verse.paleo, verse.hebrew);

@@ -12,7 +12,9 @@
   var ICONS = {
     layer: '../../assets/icons/32/archaeology/testtube.png',
     ai: '../../assets/icons/32/crafts/hammer-and-chisel.png',
-    dialect: '../../assets/icons/32/scribe/scroll.png'
+    dialect: '../../assets/icons/32/scribe/scroll.png',
+    tensor: '../../assets/icons/32/archaeology/testtube.png',
+    word: '../../assets/icons/32/archaeology/testtube.png'
   };
   var LAYERS = [
     { id: 'hellenization', name: 'Эллинизация', markers: ['абстракц', 'идея', 'философ', 'категор', 'теор'], diagnosis: 'Предметное действие переводится в отвлечённую идею или категорию.' },
@@ -82,7 +84,7 @@
   function card(icon, title, description, route, tag) { return '<article class="analyzer-card"><img class="analyzer-card__icon" src="' + icon + '" alt=""><h2>' + esc(title) + '</h2><p>' + esc(description) + '</p><div class="analyzer-card__footer"><span class="analyzer-card__tag">' + esc(tag) + '</span><a class="lab-btn lab-btn-primary lab-btn-sm" href="#' + route + '">Открыть</a></div></article>'; }
 
   function renderOverview(container) {
-    container.innerHTML = '<div class="analyzers-shell">' + hero('GOLEM · RESEARCH LAB', 'Анализаторы', 'Вертикальные инструменты для диагностики текста: увидеть слой, проверить смысловой сдвиг и найти слова, которые требуют палео-восстановления.') + '<div class="analyzers-grid">' + card(ICONS.layer, 'Слой-анализ', 'Показывает процентное соотношение восьми слоёв подмен и формирует краткую диагностику доминирующего слоя.', 'layer-analyzer', 'структура / проценты') + card(ICONS.ai, 'ИИ-анализ', 'Даёт смысловую интерпретацию и рекомендации. Сейчас работает автономный mock; API подключается через единый адаптер.', 'ai-analyzer', 'локально / API') + card(ICONS.dialect, 'Диалект-анализ', 'Находит грецизмы и латинизмы и предлагает ивритские или палео-аналоги для дальнейшей проверки.', 'dialect-analyzer', 'словарь / замена') + '</div></div>';
+    container.innerHTML = '<div class="analyzers-shell">' + hero('GOLEM · RESEARCH LAB', 'Анализаторы', 'Вертикальные инструменты для диагностики текста: увидеть слой, проверить смысловой сдвиг и найти слова, которые требуют палео-восстановления.') + '<div class="analyzers-grid">' + card(ICONS.layer, 'Слой-анализ', 'Показывает процентное соотношение восьми слоёв подмен и формирует краткую диагностику доминирующего слоя.', 'layer-analyzer', 'структура / проценты') + card(ICONS.ai, 'ИИ-анализ', 'Даёт смысловую интерпретацию и рекомендации. Сейчас работает автономный mock; API подключается через единый адаптер.', 'ai-analyzer', 'локально / API') + card(ICONS.dialect, 'Диалект-анализ', 'Находит грецизмы и латинизмы и предлагает ивритские или палео-аналоги для дальнейшей проверки.', 'dialect-analyzer', 'словарь / замена') + card(ICONS.tensor, 'Лингвистический тензор', 'Точечное сравнение двух языков по шести осям: где поток удерживает действие, корень и физику образа.', 'linguistic-tensor', 'сравнение / 6 осей') + card(ICONS.word, 'Разбор слов', 'Разбирает слово по палео-механике: показывает палео-образы, корень, значение и цепочку подмен.', 'word-analyzer', 'палео / корни') + '</div></div>';
   }
 
   function resultShell(container, body) { var result = container.querySelector('.analyzer-result'); if (result) result.innerHTML = body; }
