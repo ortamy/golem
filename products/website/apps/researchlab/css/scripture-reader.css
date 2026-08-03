@@ -809,3 +809,161 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ==== 4-СТРОЧНЫЙ ФОРМАТ (Берешит 1:1) ==== */
+/* Применяется только к словам с классом scripture-fourline. */
+.scripture-fourline {
+  display: inline-block;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 4px;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  line-height: 2.1;
+}
+
+.scripture-paleo-word.scripture-fourline {
+  font-size: 40px;
+  letter-spacing: 0.06em;
+  color: var(--accent-gold, #b8860b);
+  font-family: var(--font-paleo, "Times New Roman", serif);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.scripture-hebrew-word.scripture-fourline {
+  font-size: 30px;
+  direction: rtl;
+  color: var(--text-primary, #2c1810);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.scripture-translit-word.scripture-fourline {
+  font-size: 19px;
+  color: var(--text-secondary, #675848);
+}
+
+.scripture-literal-word.scripture-fourline {
+  font-size: 19px;
+  color: var(--text-primary, #2c1810);
+}
+
+/* Синхронизация при наведении: одно слово во всех строках */
+.scripture-fourline.is-word-hovered {
+  background: rgba(184, 134, 11, 0.16);
+  color: var(--accent-gold, #b8860b);
+  box-shadow: 0 0 0 1px rgba(184, 134, 11, 0.35);
+}
+
+/* Плавающая навигация между стихами (sticky внизу) */
+.scripture-navigation {
+  position: sticky;
+  bottom: 16px;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  margin-top: 24px;
+  background: var(--bg-card, #fffdf7);
+  border: 1px solid var(--border-light, #d8c8a8);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(44, 24, 16, 0.14);
+}
+
+.scripture-navigation .lab-btn {
+  flex: 1;
+  max-width: 220px;
+}
+
+/* Сборка слова (механика) — карточка в нижней панели */
+.scripture-paleo-build {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--bg-secondary, #f7f1e5);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 8px;
+}
+
+.scripture-paleo-build .scripture-word-analysis {
+  margin-top: 0;
+}
+
+/* ==== НАВИГАЦИЯ ГЛАВЫ → СТИХИ (белый контейнер) ==== */
+.scripture-verse-nav {
+  display: block;
+  margin: 0 0 22px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--border-light, #d8c8a8);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(44, 24, 16, 0.08);
+}
+
+.scripture-nav-label {
+  margin: 0 0 8px;
+  color: var(--text-gold, #b8860b);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.scripture-chapter-buttons,
+.scripture-verse-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.scripture-chapter-buttons {
+  margin-bottom: 18px;
+}
+
+.chapter-btn,
+.scripture-verse-buttons .verse-num {
+  min-width: 38px;
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid var(--border-light, #d8c8a8);
+  border-radius: 6px;
+  background: var(--bg-secondary, #f7f1e5);
+  color: var(--text-secondary, #675848);
+  cursor: pointer;
+  font: 600 13px/1 var(--font-heading, Georgia, serif);
+  transition: border-color var(--transition, 0.2s ease), background var(--transition, 0.2s ease), color var(--transition, 0.2s ease), box-shadow var(--transition, 0.2s ease);
+}
+
+.chapter-btn:hover,
+.chapter-btn:focus-visible,
+.scripture-verse-buttons .verse-num:hover,
+.scripture-verse-buttons .verse-num:focus-visible {
+  border-color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold, #b8860b);
+  outline: none;
+}
+
+.chapter-btn.active,
+.chapter-btn.active:hover,
+.chapter-btn.active:focus-visible,
+.scripture-verse-buttons .verse-num.active,
+.scripture-verse-buttons .verse-num.active:hover,
+.scripture-verse-buttons .verse-num.active:focus-visible {
+  border-color: var(--accent-gold, #b8860b);
+  background: var(--accent-gold, #b8860b);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(184, 134, 11, 0.3);
+}
+
+html[data-theme="dark"] .scripture-verse-nav {
+  background: var(--bg-card, #211b17);
+}
+
+@media (max-width: 600px) {
+  .scripture-navigation {
+    flex-direction: row;
+    bottom: 8px;
+  }
+  .scripture-navigation .lab-btn { max-width: none; }
+}

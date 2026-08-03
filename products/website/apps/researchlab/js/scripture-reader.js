@@ -387,6 +387,32 @@ const ScriptureReader = (function() {
       });
   }
 
+  // Рендер 4-строчного формата для Берешит 1:1 (палео, иврит, транслит, перевод).
+  function renderFourLineVerse(verse) {
+    var words = (verse.words && verse.words.length) ? verse.words : [];
+    if (!words.length) return false;
+
+    var paleo = get('scripture-paleo');
+    var hebrew = get('scripture-hebrew');
+    var translit = get('scripture-translit');
+    var literal = get('scripture-literal');
+
+    function line(words, field, className, wordClass) {
+      return words.map(function(word, index) {
+        var text = word[field] || '';
+        return '<span class="' + className + ' ' + wordClass + '" data-word-index="' + index + '"' +
+          ' role="button" tabindex="0" aria-label="Разобрать слово ' + escapeHtml(text) + '">' +
+          escapeHtml(text) + '</span>';
+      }).join(' ');
+    }
+
+    if (paleo) paleo.innerHTML = line(words, 'paleo', 'scripture-word', 'scripture-paleo-word scripture-fourline');
+    if (hebrew) hebrew.innerHTML = line(words, 'hebrew', 'scripture-word', 'scripture-hebrew-word scripture-fourline');
+    if (translit) translit.innerHTML = line(words, 'translit', 'scripture-word', 'scripture-translit-word scripture-fourline');
+    if (literal) literal.innerHTML = line(words, 'literal', 'scripture-word', 'scripture-literal-word scripture-fourline');
+    return true;
+  }
+
   function renderVerse() {
     var verse = state.verses[state.currentVerse];
     if (!verse || !state.currentBook) return;
@@ -406,14 +432,21 @@ const ScriptureReader = (function() {
     state.selectedWordIndex = null;
 
     if (title) title.textContent = state.currentBook.ru + ' ' + (verse.chapter || 1) + ':' + verse.verse;
-    if (paleo) paleo.innerHTML = renderPaleo(verse.paleo, verse.hebrew);
-    if (hebrew) hebrew.innerHTML = renderWordLayer(verse.hebrew, 'scripture-word', 'scripture-hebrew-word');
-    if (translit) translit.innerHTML = renderWordLayer(verse.translit, 'scripture-word', 'scripture-translit-word');
-    if (literal) literal.innerHTML = renderWordLayer(verse.literal, 'scripture-word', 'scripture-literal-word');
+
+    // Для Берешит 1:1 используем 4-строчный формат.
+    var isFirstVerse = verse.chapter === 1 && verse.verse === 1;
+    var usedFourLine = isFirstVerse && renderFourLineVerse(verse);
+
+    if (!usedFourLine) {
+      if (paleo) paleo.innerHTML = renderPaleo(verse.paleo, verse.hebrew);
+      if (hebrew) hebrew.innerHTML = renderWordLayer(verse.hebrew, 'scripture-word', 'scripture-hebrew-word');
+      if (translit) translit.innerHTML = renderWordLayer(verse.translit, 'scripture-word', 'scripture-translit-word');
+      if (literal) literal.innerHTML = renderWordLayer(verse.literal, 'scripture-word', 'scripture-literal-word');
+    }
     renderReadingLayers(verse);
     if (previous) previous.disabled = state.currentVerse === 0;
     if (next) next.disabled = state.currentVerse === state.verses.length - 1;
-    renderVerseNavigation();
+    renderChapterVerseNav();
     if (analysis) {
       var content = get('scripture-physics-content');
       if (content) content.innerHTML = '<p class="text-muted">Нажми на слово для разбора.</p>';
@@ -422,16 +455,50 @@ const ScriptureReader = (function() {
     }
   }
 
-  function renderVerseNavigation() {
+  function verseChapters() {
+    var chapters = [];
+    state.verses.forEach(function(v) {
+      if (chapters.indexOf(v.chapter) === -1) chapters.push(v.chapter);
+    });
+    return chapters.sort(function(a, b) { return a - b; });
+  }
+
+  function chapterVerses(chapter) {
+    return state.verses.map(function(v, i) {
+      return { verse: v.verse, index: i };
+    }).filter(function(item) {
+      return state.verses[item.index].chapter === chapter;
+    });
+  }
+
+  // Навигация глава → стих в белом контейнере.
+  function renderChapterVerseNav() {
     var navigation = get('scripture-verse-nav');
     if (!navigation) return;
-    navigation.innerHTML = state.verses.map(function(item, index) {
-      var number = item && item.verse != null ? item.verse : index + 1;
-      var active = index === state.currentVerse;
-      return '<button type="button" class="verse-num' + (active ? ' active' : '') + '" data-verse-index="' + index + '"' +
-        (active ? ' aria-current="true"' : '') + ' aria-label="Открыть стих ' + escapeHtml(number) + '">' +
-        escapeHtml(number) + '</button>';
+    var currentVerse = state.verses[state.currentVerse];
+    var currentChapter = currentVerse ? currentVerse.chapter : 1;
+
+    var chapters = verseChapters();
+    var chapterButtons = chapters.map(function(ch) {
+      return '<button type="button" class="chapter-btn' + (ch === currentChapter ? ' active' : '') + '" data-chapter="' + ch + '"' +
+        (ch === currentChapter ? ' aria-current="true"' : '') + ' aria-label="Открыть главу ' + ch + '">' +
+        escapeHtml(ch) + '</button>';
     }).join('');
+
+    var verses = chapterVerses(currentChapter);
+    var verseButtons = verses.map(function(item) {
+      var active = item.index === state.currentVerse;
+      return '<button type="button" class="verse-num' + (active ? ' active' : '') + '" data-verse-index="' + item.index + '"' +
+        (active ? ' aria-current="true"' : '') + ' aria-label="Открыть стих ' + escapeHtml(item.verse) + '">' +
+        escapeHtml(item.verse) + '</button>';
+    }).join('');
+
+    navigation.innerHTML = '<div class="scripture-chapter-nav">' +
+      '<div class="scripture-nav-label">Главы</div>' +
+      '<div class="scripture-chapter-buttons">' + (chapterButtons || '<span class="text-muted">Главы не найдены.</span>') + '</div>' +
+      '<div class="scripture-nav-label">Стихи</div>' +
+      '<div class="scripture-verse-buttons">' + (verseButtons || '<span class="text-muted">В главе нет стихов.</span>') + '</div>' +
+      '</div>';
   }
 
   function selectedLetters() {
@@ -732,6 +799,16 @@ const ScriptureReader = (function() {
     if (next) next.addEventListener('click', function() { moveVerse(1); });
     if (paleo) paleo.addEventListener('click', handleLetterClick);
     if (paleo) paleo.addEventListener('keydown', handlePaleoKeydown);
+    // Клики по словам в 4-строчном формате (иврит, транслит, перевод) открывают палео-сборку.
+    ['scripture-hebrew', 'scripture-translit', 'scripture-literal'].forEach(function(id) {
+      var layer = get(id);
+      if (layer) layer.addEventListener('click', function(event) {
+        var word = event.target.closest('.scripture-fourline');
+        if (!word) return;
+        event.preventDefault();
+        selectWord(word.getAttribute('data-word-index'));
+      });
+    });
     var copyVerse = get('scripture-copy-verse');
     if (copyVerse) copyVerse.addEventListener('click', copyCurrentVerse);
     var analysis = get('scripture-analysis');
@@ -775,6 +852,16 @@ const ScriptureReader = (function() {
     });
     var verseNavigation = get('scripture-verse-nav');
     if (verseNavigation) verseNavigation.addEventListener('click', function(event) {
+      var chapterBtn = event.target.closest('.chapter-btn');
+      if (chapterBtn) {
+        var chapter = Number(chapterBtn.getAttribute('data-chapter'));
+        var first = chapterVerses(chapter)[0];
+        if (first) {
+          state.currentVerse = first.index;
+          renderVerse();
+        }
+        return;
+      }
       var button = event.target.closest('.verse-num');
       if (!button) return;
       state.currentVerse = Number(button.getAttribute('data-verse-index'));
