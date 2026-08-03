@@ -199,6 +199,15 @@ const ExposureCase = (function() {
     return blocks;
   }
 
+  // Сокращает заголовок раздела до 1–2 слов для содержания (TOC).
+  // Использует общий словарь сокращений из SectionRenderer.
+  function shortenTocTitle(value) {
+    if (typeof SectionRenderer !== 'undefined' && SectionRenderer.shortenTitle) {
+      return SectionRenderer.shortenTitle(value);
+    }
+    return String(value || 'Раздел');
+  }
+
   // ===== ДОСЬЕ (полный детальный просмотр) =====
   function renderCase(item, opts) {
     opts = opts || {};
@@ -206,7 +215,7 @@ const ExposureCase = (function() {
     var blocks = normalizedSections.length ? normalizedSections : buildSections(item);
     var toc = blocks.map(function(b, i) {
       var title = b.tocTitle || b.title || headingMeta(b.heading, b.icon).text;
-      return '<a href="#' + sectionId(i) + '" data-section-link data-index="' + i + '">' + esc(title) + '</a>';
+      return '<a href="#' + sectionId(i) + '" data-section-link data-index="' + i + '">' + esc(shortenTocTitle(title)) + '</a>';
     }).join('');
     var sectionsHtml = (typeof SectionRenderer !== 'undefined')
       ? SectionRenderer.renderArticle(item)
@@ -217,12 +226,6 @@ const ExposureCase = (function() {
             '<div class="exposure-section-body">' + body + '</div>' +
           '</article>';
         }).join('');
-
-    var breadcrumb = '<nav class="exposure-breadcrumb" aria-label="Хлебные крошки">' +
-      '<a href="#researches">Разоблачения</a> / ' +
-      '<span>' + esc(item.category || '') + '</span> / ' +
-      '<span>' + esc(item.title || '') + '</span>' +
-    '</nav>';
 
     var tags = getTerms(item).map(function(t) { return '<span class="exposure-card-tag">' + esc(t) + '</span>'; }).join('');
     var relatedItems = opts.relatedItems || {};
@@ -236,37 +239,37 @@ const ExposureCase = (function() {
     }).join('');
 
     return '<div class="exposure-case-page">' +
-      breadcrumb +
-      '<div class="research-detail-layout exposure-case-layout">' +
-        '<main class="research-detail-content">' +
-          '<nav class="research-toc exposure-case-toc" data-exposure-toc aria-label="Содержание разоблачения">' +
-          '<h2>Содержание</h2>' + toc +
-          '</nav>' +
-          '<header class="research-detail-header">' +
-            '<div class="exposure-detail-title-row">' + renderIcon(item.icon || 'scroll', item.title, 'exposure-detail-icon') + '<div>' + confidenceBadge(item.confidence) + '<h1>' + esc(item.title || '') + '</h1></div></div>' +
-            '<div class="research-detail-tags">' + tags + '</div>' +
-            '<p class="research-detail-summary">' + esc(getSummary(item)) + '</p>' +
-            '<a class="lab-btn lab-btn-secondary lab-btn-sm research-back-link" href="#researches" data-exposure-back>← Назад к архиву</a>' +
-            '<div class="exposure-progress-wrap"><div class="exposure-progress-track"><div class="exposure-progress-bar" data-exposure-progress></div></div>' +
-              '<span class="exposure-progress-label" data-exposure-progress-label">0 из ' + blocks.length + ' секций</span></div>' +
-          '</header>' +
-          sectionsHtml +
-        '</main>' +
-        '<aside class="research-infobox exposure-case-infobox">' +
-          '<h2>Информация</h2>' +
-          '<dl>' +
-            '<dt>Статус</dt><dd>' + esc(STATUS_LABELS[item.status] || item.status || '') + '</dd>' +
-            '<dt>Обновлено</dt><dd>' + esc(item.updatedAt || '') + '</dd>' +
-            (item.author ? '<dt>Автор</dt><dd>' + esc(item.author) + '</dd>' : '') +
-          '</dl>' +
-          (sources ? '<h3>Источники</h3><ul class="exposure-sources-list">' + sources + '</ul>' : '') +
-          (related ? '<h3>Связанные дела</h3><div class="research-related">' + related + '</div>' : '') +
-          '<div class="exposure-case-actions">' +
-            '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-exposure-copy-link>Скопировать ссылку</button>' +
-            '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-exposure-download-md>Скачать Markdown</button>' +
-            (opts.showAskAi === false ? '' : '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-exposure-ask-ai data-slug="' + esc(item.slug) + '">Попросить AI дополнить</button>') +
-          '</div>' +
-        '</aside>' +
+      '<div class="exposure-case-container">' +
+        '<header class="research-detail-header">' +
+          '<div class="exposure-detail-title-row">' + renderIcon(item.icon || 'scroll', item.title, 'exposure-detail-icon') + '<div>' + confidenceBadge(item.confidence) + '<h1>' + esc(item.title || '') + '</h1></div></div>' +
+          '<div class="research-detail-tags">' + tags + '</div>' +
+          '<a class="lab-btn lab-btn-secondary lab-btn-sm research-back-link" href="#researches" data-exposure-back>← Назад к архиву</a>' +
+          '<div class="exposure-progress-wrap"><div class="exposure-progress-track"><div class="exposure-progress-bar" data-exposure-progress></div></div>' +
+            '<span class="exposure-progress-label" data-exposure-progress-label">0 из ' + blocks.length + ' секций</span></div>' +
+        '</header>' +
+        '<div class="research-detail-layout exposure-case-layout">' +
+          '<main class="research-detail-content">' +
+            '<nav class="research-toc exposure-case-toc" data-exposure-toc aria-label="Содержание разоблачения">' +
+            '<h2>Содержание</h2>' + toc +
+            '</nav>' +
+            sectionsHtml +
+          '</main>' +
+          '<aside class="research-infobox exposure-case-infobox">' +
+            '<h2>Информация</h2>' +
+            '<dl>' +
+              '<dt>Статус</dt><dd>' + esc(STATUS_LABELS[item.status] || item.status || '') + '</dd>' +
+              '<dt>Обновлено</dt><dd>' + esc(item.updatedAt || '') + '</dd>' +
+              (item.author ? '<dt>Автор</dt><dd>' + esc(item.author) + '</dd>' : '') +
+            '</dl>' +
+            (sources ? '<h3>Источники</h3><ul class="exposure-sources-list">' + sources + '</ul>' : '') +
+            (related ? '<h3>Связанные дела</h3><div class="research-related">' + related + '</div>' : '') +
+            '<div class="exposure-case-actions">' +
+              '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-exposure-copy-link>Скопировать ссылку</button>' +
+              '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-exposure-download-md>Скачать Markdown</button>' +
+              (opts.showAskAi === false ? '' : '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-exposure-ask-ai data-slug="' + esc(item.slug) + '">Попросить AI дополнить</button>') +
+            '</div>' +
+          '</aside>' +
+        '</div>' +
       '</div>' +
     '</div>';
   }

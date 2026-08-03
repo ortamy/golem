@@ -1,5 +1,23 @@
 
 /* Research detail page — RL.5 (shared with exposure case view) */
+.exposure-case-container {
+  background: #fff;
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(44, 24, 16, 0.08);
+  padding: 32px;
+}
+
+.exposure-case-container .research-detail-header {
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border-light, #d4c4a8);
+  padding-bottom: 24px;
+}
+
+.exposure-case-container .research-detail-layout {
+  margin-top: 0;
+}
+
 .research-back-link {
   color: var(--accent-gold, #b8860b);
   font-weight: 600;

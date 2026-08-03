@@ -68,10 +68,24 @@ const PageController = (function() {
       return;
     }
     if (!state.key) {
-      var dictCards = keys.map(function(key, index) {
+      var specialCards = [
+        '<a href="#" class="dict-card" data-key="__root_dictionary" style="animation-delay: 0ms">' +
+          '<img src="../../assets/icons/32/ui/book.png" class="dict-icon" alt="">' +
+          '<div class="dict-name">Корневой словарь</div>' +
+          '<div class="dict-count">150 корней</div>' +
+          '<div class="dict-desc">Поиск по корням иврита. Введите корень, слово или значение.</div>' +
+          '</a>',
+        '<a href="#" class="dict-card" data-key="__paleo_glossary" style="animation-delay: 50ms">' +
+          '<img src="../../assets/icons/32/paleo/track.png" class="dict-icon" alt="">' +
+          '<div class="dict-name">Палео-глоссарий</div>' +
+          '<div class="dict-count">100 слов</div>' +
+          '<div class="dict-desc">Первая партия: 100 слов как русла потока — палео-форма, квадратное письмо, функция и корень.</div>' +
+          '</a>'
+      ].join('');
+      var dictCards = specialCards + keys.map(function(key, index) {
         var dict = data[key];
         var count = (dict.terms || []).length;
-        return '<a href="#" class="dict-card" data-key="' + escapeHtml(key) + '" style="animation-delay: ' + (index * 50) + 'ms">' +
+        return '<a href="#" class="dict-card" data-key="' + escapeHtml(key) + '" style="animation-delay: ' + ((index + 2) * 50) + 'ms">' +
           '<img src="../../assets/icons/32/ui/book.png" class="dict-icon" alt="">' +
           '<div class="dict-name">' + escapeHtml(dict.title || key) + '</div>' +
           '<div class="dict-count">' + count + ' терминов</div>' +
@@ -94,6 +108,14 @@ const PageController = (function() {
           });
         });
       }
+      return;
+    }
+    if (state.key === '__root_dictionary') {
+      renderRootDictionaryModule(container, data);
+      return;
+    }
+    if (state.key === '__paleo_glossary') {
+      renderPaleoGlossaryModule(container, data);
       return;
     }
     var dictionary = data[state.key];
@@ -144,6 +166,39 @@ const PageController = (function() {
       var nextSearch = document.getElementById('research-dictionary-search');
       if (nextSearch) { nextSearch.focus(); nextSearch.setSelectionRange(state.query.length, state.query.length); }
     });
+  }
+
+  function renderRootDictionaryModule(container, data) {
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState.dictionaries.key=\'\';PageController.renderDictionaries(document.getElementById(\'dictionaries\'), PageController.jsonCache.dictionaries)">← Назад к словарям</button>';
+    container.innerHTML = '<div class="research-page-head">' +
+      '<h1><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Корневой словарь</h1>' +
+      '<p class="subtitle">Поиск по корням иврита. Введите корень, слово или значение.</p>' + backBtn +
+      '</div>' +
+      '<div class="search-wrap"><input type="text" id="rd-search" class="lab-input" placeholder="אמן, AMN, верить..." oninput="if(window.RootsSearch)RootsSearch.filter(this.value)" autofocus></div>' +
+      '<div class="rd-stats"><div class="rd-stat"><div class="num" id="rd-total">150</div><div class="label">Корней</div></div><div class="rd-stat"><div class="num" id="rd-found">0</div><div class="label">Найдено</div></div></div>' +
+      '<div id="rd-spinner" class="rd-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка словаря…</div></div>' +
+      '<div id="rd-list"></div><div id="rd-pagination" class="rd-pagination"></div>' +
+      '<div id="rd-empty" class="lab-alert lab-alert-info" style="display:none">Ничего не найдено.</div>';
+    if (window.RootDict) RootDict.init();
+  }
+
+  function renderPaleoGlossaryModule(container, data) {
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState.dictionaries.key=\'\';PageController.renderDictionaries(document.getElementById(\'dictionaries\'), PageController.jsonCache.dictionaries)">← Назад к словарям</button>';
+    container.innerHTML = '<div class="research-page-head">' +
+      '<div class="paleo-glossary-head">' +
+      '<div class="paleo-glossary-icon" aria-hidden="true">𐤌</div>' +
+      '<div><p class="paleo-glossary-kicker">ГОЛЕМ · СЛОВАРИ</p><h1>Палео-глоссарий</h1>' +
+      '<p class="subtitle">Первая партия: 100 слов как русла потока — палео-форма, квадратное письмо, функция и корень.</p></div>' +
+      '</div>' + backBtn +
+      '</div>' +
+      '<div class="paleo-glossary-controls">' +
+      '<label class="paleo-glossary-search">Поиск<input id="paleo-glossary-search" class="lab-input" type="search" placeholder="Палео-форма, слово или транслитерация" autocomplete="off"></label>' +
+      '<label>Корень<select id="paleo-glossary-root" class="lab-input"><option value="all">Все корни</option></select></label>' +
+      '</div>' +
+      '<div id="paleo-glossary-meta" class="paleo-glossary-meta" aria-live="polite"></div>' +
+      '<div id="paleo-glossary-grid" class="paleo-glossary-grid"></div>' +
+      '<nav id="paleo-glossary-pagination" class="paleo-glossary-pagination" aria-label="Страницы глоссария"></nav>';
+    if (window.PaleoGlossary) window.PaleoGlossary.init(container);
   }
 
   function renderInlineMarkdown(text) {

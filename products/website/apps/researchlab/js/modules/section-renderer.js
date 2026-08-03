@@ -176,6 +176,46 @@ const SectionRenderer = (function() {
     return title || 'Раздел';
   }
 
+  // Сокращает заголовок секции до 1–2 слов по правилам проекта.
+  // Используется и для карточек внутри статьи, и для оглавления (TOC).
+  function shortenTitle(value) {
+    var title = cleanTitle(value);
+    var upper = title.toUpperCase();
+    var exact = {
+      'СУТЬ': 'Суть',
+      'ВВЕДЕНИЕ': 'Введение',
+      'КОНТЕКСТ ТАНАХА': 'Контекст Танаха',
+      'СВЯЗЬ С МАШИАХОМ': 'Связь с Машиахом',
+      'ИСКАЖЕНИЯ': 'Искажения',
+      'РАЗОБЛАЧЕНИЕ': 'Разоблачение',
+      'ПРАКТИКА': 'Практика',
+      'СВОДКА': 'Сводка',
+      'ТИПОЛОГИЧЕСКИЕ СВЯЗИ': 'Типологии',
+      'ОРИГИНАЛ': 'Оригинал',
+      'СДВИГ': 'Сдвиг',
+      'СВИДЕТЕЛЬСТВА': 'Свидетельства',
+      'РЕКОНСТРУКЦИЯ': 'Реконструкция',
+      'ОГОВОРКИ': 'Оговорки',
+      'ЦЕПОЧКА ПЕРЕДАЧИ': 'Цепочка передачи',
+      'ЭТИМОЛОГИЯ': 'Этимология'
+    };
+    if (exact[upper]) return exact[upper];
+    if (/^ЧАСТЬ\s+\d+\s*:/.test(upper)) {
+      var after = title.replace(/^Часть\s+\d+\s*:\s*/i, '').trim();
+      var firstWord = after.split(/\s+/).filter(function(w) { return w && !/^[—–-]$/.test(w); })[0];
+      if (firstWord) return firstWord.charAt(0).toUpperCase() + firstWord.slice(1).toLowerCase();
+      return 'Раздел';
+    }
+    if (/^КОНТЕКСТ/.test(upper)) return 'Контекст';
+    if (/^СВЯЗАННЫЕ/.test(upper)) return 'Связанные';
+    var words = title.split(/\s+/).filter(function(w) { return w && !/^[—–-]$/.test(w); });
+    if (!words.length) return 'Раздел';
+    if (words.length <= 2) {
+      return words.map(function(w) { return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase(); }).join(' ');
+    }
+    return words[0].charAt(0).toUpperCase() + words[0].slice(1).toLowerCase();
+  }
+
   function idForTitle(value) {
     var title = cleanTitle(value).toLowerCase();
     var known = [
@@ -262,7 +302,6 @@ const SectionRenderer = (function() {
       sections.push(section);
     }
 
-    add('Суть', source.thesis, 'scroll');
     if (source.original) {
       var original = source.original;
       var originalLines = [];
@@ -341,7 +380,7 @@ const SectionRenderer = (function() {
       ? renderOriginalCards(section.cards)
       : (section.layout === 'comparison' ? renderComparison(section.comparison) : rule.render(section.content));
     return '<article class="exposure-section research-section-card ' + rule.className + '" id="exposure-section-' + index + '" data-section-index="' + index + '" data-section-id="' + escapeHtml(section.id) + '">' +
-      '<header class="research-section-card-head"><img class="exposure-section-icon" src="' + escapeHtml(rule.icon) + '" alt="" width="40" height="40" loading="lazy"><h2 class="exposure-section-heading-text">' + escapeHtml(section.title) + '</h2></header>' +
+      '<header class="research-section-card-head"><img class="exposure-section-icon" src="' + escapeHtml(rule.icon) + '" alt="" width="40" height="40" loading="lazy"><h2 class="exposure-section-heading-text">' + escapeHtml(shortenTitle(section.title)) + '</h2></header>' +
       '<div class="exposure-section-body">' + body + '</div>' +
     '</article>';
   }
@@ -354,7 +393,8 @@ const SectionRenderer = (function() {
     rules: RULES,
     normalizeArticle: normalizeArticle,
     renderSection: renderSection,
-    renderArticle: renderArticle
+    renderArticle: renderArticle,
+    shortenTitle: shortenTitle
   };
   return window.SectionRenderer;
 })();
