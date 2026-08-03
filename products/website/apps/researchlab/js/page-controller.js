@@ -727,6 +727,25 @@ const PageController = (function() {
         if (window.RootDict) RootDict.init();
         break;
 
+      case 'paleo-glossary':
+        container.innerHTML = '<div class="paleo-glossary-page">' +
+          '<header class="paleo-glossary-head">' +
+          '<div class="paleo-glossary-icon" aria-hidden="true">𐤌</div>' +
+          '<div><p class="paleo-glossary-kicker">ГОЛЕМ · ИНСТРУМЕНТЫ</p><h1>Палео-глоссарий</h1>' +
+          '<p class="subtitle">Первая партия: 100 слов как русла потока — палео-форма, квадратное письмо, функция и корень.</p></div>' +
+          '</header>' +
+          '<div class="paleo-glossary-controls">' +
+          '<label class="paleo-glossary-search">Поиск<input id="paleo-glossary-search" class="lab-input" type="search" placeholder="Палео-форма, слово или транслитерация" autocomplete="off"></label>' +
+          '<label>Корень<select id="paleo-glossary-root" class="lab-input"><option value="all">Все корни</option></select></label>' +
+          '</div>' +
+          '<div id="paleo-glossary-meta" class="paleo-glossary-meta" aria-live="polite"></div>' +
+          '<div id="paleo-glossary-grid" class="paleo-glossary-grid"></div>' +
+          '<nav id="paleo-glossary-pagination" class="paleo-glossary-pagination" aria-label="Страницы глоссария"></nav>' +
+          '</div>';
+        container.dataset.loaded = '1';
+        if (window.PaleoGlossary) window.PaleoGlossary.init(container);
+        break;
+
       case 'word-analyzer':
         container.innerHTML = '<h1><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Разбор слов</h1>' +
           '<p class="subtitle">Вставьте слова через запятую или каждое с новой строки. Мы найдём корень, палео-образы, транслитерацию и цепочку подмен.</p>' +

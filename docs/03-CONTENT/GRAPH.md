@@ -216,28 +216,28 @@ graph TD
 ### ЛАТИНИЗМЫ
 `instructions/dictionaries/latinisms.md`
 
-### ИМЕНА И НАЗВАНИЯ: КАРТА ОЧИЩЕНИЯ
+### ИМЕНИЗМЫ
 `instructions/dictionaries/names.md`
 
-### ФРАЗЫ И ВЫРАЖЕНИЯ: КАРТА ОЧИЩЕНИЯ
+### ФРАЗИЗМЫ
 `instructions/dictionaries/dictionaries-phrases.md`
 
 ### РЕЛИГИОНИЗМЫ
 `instructions/dictionaries/dictionaries-religionims.md`
 
-### СЛАВЯНИЗМЫ: КАРТА ОЧИЩЕНИЯ
+### СЛАВЯНИЗМЫ
 `instructions/dictionaries/dictionaries-slavicisms.md`
 
-### תַּבְנִית נִתּוּחַ מֻשָּׂג — ШАБЛОН АНАЛИЗА ПОНЯТИЯ
+### ШАБЛОН АНАЛИЗА ПОНЯТИЯ
 `instructions/templates/concept-analysis-template.md`
 
-### תַּבְנִית מֶחְקָר — ШАБЛОН ИССЛЕДОВАНИЯ
+### ШАБЛОН ИССЛЕДОВАНИЯ
 `instructions/templates/research-template.md`
 
-### תַּבְנִית לְמִידָה עַצְמִית — ШАБЛОН САМООБУЧЕНИЯ НЕЙРОСЕТИ
+### ШАБЛОН САМООБУЧЕНИЯ НЕЙРОСЕТИ
 `instructions/templates/self-learning-template.md`
 
-### 🛠УСТРАНЕНИЕ ПРОБЛЕМ (TROUBLESHOOTING)
+### УСТРАНЕНИЕ ПРОБЛЕМ (TROUBLESHOOTING)
 `instructions/troubleshooting.md`
 
 ### 🔄 РАБОЧИЙ ПРОЦЕСС (WORKFLOW)
@@ -245,7 +245,7 @@ graph TD
 
 ## researches/
 
-### אָלוֹפַּתְיָה — АЛЛОПАТИЯ: ЛЕЧЕНИЕ СИМПТОМОВ ИЛИ Рефуа ЦЕЛОС
+### АЛЛОПАТИЯ: ЛЕЧЕНИЕ СИМПТОМОВ ИЛИ Рефуа ЦЕЛОС
 `researches/archive/allopaty.md`
 
 ### 🐍 КАДУЦЕЙ: ЗМЕИ, ПОЗВОНОЧНИК И КОНТРОЛЬ

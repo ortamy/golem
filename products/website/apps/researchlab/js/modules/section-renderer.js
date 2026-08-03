@@ -100,7 +100,7 @@ const SectionRenderer = (function() {
   // Списки в аналитических карточках становятся компактными смысловыми плашками.
   function renderPatchCards(items, id, offset) {
     var cards = items.map(function(item, index) {
-      var content = String(item || '').replace(/^\s*[-*+]\s+/, '').trim();
+      var content = String(item || '').replace(/^\s*(?:[-*+]\s+|•\s*)/, '').trim();
       if (!content) return '';
       var plain = content.replace(/<[^>]+>/g, '').replace(/\*\*/g, '').trim();
       var parts = plain.split(/\s+—\s+|\s*:\s+/);
@@ -128,7 +128,7 @@ const SectionRenderer = (function() {
       list = [];
     }
     lines.forEach(function(line) {
-      if (/^\s*[-*+]\s+/.test(line)) {
+      if (/^\s*(?:[-*+]\s+|•\s*)/.test(line)) {
         list.push(line);
       } else {
         flushList();
@@ -137,6 +137,38 @@ const SectionRenderer = (function() {
     });
     flushList();
     return output.join('');
+  }
+
+  // Оригинальные цитаты разделяем на отдельные карточки «цитата → разбор».
+  function renderOriginalCards(cards) {
+    if (!Array.isArray(cards)) return renderMarkdown(cards);
+    return '<div class="original-subcards" role="list">' + cards.map(function(card) {
+      return '<article class="original-subcard" role="listitem">' +
+        '<h3 class="original-subcard-title">' + escapeHtml(card.title || 'Цитата') + '</h3>' +
+        '<blockquote class="original-subcard-quote">' + renderMarkdown(card.quote || '') + '</blockquote>' +
+        '<div class="original-subcard-analysis"><strong>Разбор</strong>' + renderMarkdown(card.analysis || '') + '</div>' +
+      '</article>';
+    }).join('') + '</div>';
+  }
+
+  // Сравнение собираем в две подписанные колонки, чтобы цвет не был единственным маркером.
+  function renderComparison(comparison) {
+    if (!comparison) return '';
+    var left = comparison.left || {};
+    var right = comparison.right || {};
+    var rows = Array.isArray(comparison.rows) ? comparison.rows : [];
+    return '<div class="comparison-grid" role="table" aria-label="Сравнение">' +
+      '<div class="comparison-header" role="row">' +
+        '<div class="comparison-column comparison-column-left" role="columnheader">' + escapeHtml(left.title || 'Левая сторона') + '</div>' +
+        '<div class="comparison-column comparison-column-right" role="columnheader">' + escapeHtml(right.title || 'Правая сторона') + '</div>' +
+      '</div>' +
+      '<div class="comparison-rows">' + rows.map(function(row) {
+        return '<div class="comparison-row" role="row">' +
+          '<div class="comparison-cell comparison-cell-left" role="cell">' + escapeHtml(row.left || '') + '</div>' +
+          '<div class="comparison-cell comparison-cell-right" role="cell">' + escapeHtml(row.right || '') + '</div>' +
+        '</div>';
+      }).join('') + '</div>' +
+    '</div>';
   }
 
   function cleanTitle(value) {
@@ -185,8 +217,12 @@ const SectionRenderer = (function() {
     return {
       id: (section && section.id) || idForTitle(title),
       title: title,
+      tocTitle: section && section.tocTitle ? String(section.tocTitle) : '',
       content: section && section.content !== undefined ? section.content : (section && section.body) || '',
-      icon: section && section.icon ? iconForLegacy(section.icon) : null
+      icon: section && section.icon ? iconForLegacy(section.icon) : null,
+      layout: section && section.layout ? String(section.layout) : '',
+      cards: section && Array.isArray(section.cards) ? section.cards : null,
+      comparison: section && section.comparison ? section.comparison : null
     };
   }
 
@@ -283,12 +319,27 @@ const SectionRenderer = (function() {
 
   function ruleFor(section) {
     var baseId = String(section.id || '').replace(/-\d+$/, '');
-    return RULES[baseId] || { icon: section.icon || DEFAULT_ICON, className: 'generic-card', render: renderMarkdown };
+    var content = section && section.content;
+    var hasListMarkers = Array.isArray(content) || /(?:^|\n)\s*(?:[-*+]\s+|•\s*)/.test(String(content || ''));
+    var knownRule = RULES[baseId];
+    // Специализированные форматы сохраняют приоритет над универсальным списком.
+    if (knownRule && (baseId === 'tanakh' || baseId === 'typology')) return knownRule;
+    if (hasListMarkers) {
+      return {
+        icon: (knownRule && knownRule.icon) || section.icon || DEFAULT_ICON,
+        className: (knownRule && knownRule.className) || 'generic-card list-card',
+        render: function(value) { return renderPatchList(value, baseId || 'generic'); }
+      };
+    }
+    if (knownRule) return knownRule;
+    return { icon: section.icon || DEFAULT_ICON, className: 'generic-card', render: renderMarkdown };
   }
 
   function renderSection(section, index) {
     var rule = ruleFor(section);
-    var body = rule.render(section.content);
+    var body = section.layout === 'original-cards'
+      ? renderOriginalCards(section.cards)
+      : (section.layout === 'comparison' ? renderComparison(section.comparison) : rule.render(section.content));
     return '<article class="exposure-section research-section-card ' + rule.className + '" id="exposure-section-' + index + '" data-section-index="' + index + '" data-section-id="' + escapeHtml(section.id) + '">' +
       '<header class="research-section-card-head"><img class="exposure-section-icon" src="' + escapeHtml(rule.icon) + '" alt="" width="40" height="40" loading="lazy"><h2 class="exposure-section-heading-text">' + escapeHtml(section.title) + '</h2></header>' +
       '<div class="exposure-section-body">' + body + '</div>' +

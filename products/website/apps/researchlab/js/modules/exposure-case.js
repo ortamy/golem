@@ -205,7 +205,7 @@ const ExposureCase = (function() {
     var normalizedSections = (typeof SectionRenderer !== 'undefined') ? SectionRenderer.normalizeArticle(item) : [];
     var blocks = normalizedSections.length ? normalizedSections : buildSections(item);
     var toc = blocks.map(function(b, i) {
-      var title = b.title || headingMeta(b.heading, b.icon).text;
+      var title = b.tocTitle || b.title || headingMeta(b.heading, b.icon).text;
       return '<a href="#' + sectionId(i) + '" data-section-link data-index="' + i + '">' + esc(title) + '</a>';
     }).join('');
     var sectionsHtml = (typeof SectionRenderer !== 'undefined')

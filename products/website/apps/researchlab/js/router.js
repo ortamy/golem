@@ -73,7 +73,7 @@ const LabRouter = (function() {
     var routedModules = [
       'manifest', 'dashboard', 'learn', 'dictionaries', 'researches',
       'methodology', 'paleo-mechanics', 'paleo-linguistics',
-      'language-map', 'religionisms', 'root-dictionary', 'paleo-builder',
+      'language-map', 'religionisms', 'root-dictionary', 'paleo-glossary', 'paleo-builder',
       'word-analyzer', 'scripture-reader', 'generators',
       'checkers', 'translation-comparator', 'investigation', 'heraldry',
       'cartography', 'states', 'timeline', 'ai-agents', 'ed-chat', 'vision',
