@@ -75,7 +75,7 @@ const LabRouter = (function() {
       'methodology', 'paleo-mechanics', 'paleo-linguistics',
       'language-map', 'religionisms', 'root-dictionary', 'paleo-glossary', 'paleo-builder',
       'word-analyzer', 'scripture-reader', 'generators',
-      'checkers', 'translation-comparator', 'investigation', 'heraldry',
+      'checkers', 'state-checker', 'translation-comparator', 'investigation', 'heraldry',
       'cartography', 'states', 'timeline', 'ai-agents', 'ed-chat', 'vision',
       'paleo-keyboard', 'admin-settings', 'analyzers', 'layer-analyzer', 'ai-analyzer', 'dialect-analyzer', 'exposure-editor', 'clue-generator',
       'video-lab', 'prompt-generator', 'davar-checker', 'tree-checker', 'board', 'name-decoder', 'linguistic-tensor',

@@ -1178,6 +1178,16 @@ const PageController = (function() {
         }
         break;
 
+      case 'state-checker':
+        showSpinner(container, 'Загрузка чекера стран…');
+        if (window.StateChecker) {
+          window.StateChecker.init(container);
+        } else {
+          showError(container, 'Модуль «Чекер стран» не загрузился.');
+        }
+        container.dataset.loaded = '1';
+        break;
+
       case 'tree-checker':
         showSpinner(container, 'Загрузка дерева…');
         if (window.TreeChecker) {
