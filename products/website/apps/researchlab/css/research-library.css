@@ -312,7 +312,35 @@ html[data-theme="dark"] .substitution-step {
 .exposure-case-layout .exposure-case-infobox {
   position: static;
   width: 100%;
-  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 20px auto 0;
+  padding: 12px 14px;
+}
+.exposure-case-layout .exposure-case-infobox h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+.exposure-case-layout .exposure-case-infobox dl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin: 0;
+}
+.exposure-case-layout .exposure-case-infobox dt { margin: 0; font-size: .68rem; }
+.exposure-case-layout .exposure-case-infobox dd { margin: 0; font-size: .86rem; }
+.exposure-case-layout .exposure-case-infobox h3 { margin: 0; font-size: .82rem; }
+.exposure-case-layout .exposure-case-infobox .exposure-sources-list { margin: 0; padding-left: 16px; }
+.exposure-case-layout .exposure-case-infobox .research-related { flex-direction: row; flex-wrap: wrap; margin: 0; }
+.exposure-case-layout .exposure-case-infobox .exposure-case-actions { flex-direction: row; flex-wrap: wrap; gap: 6px; margin: 0 0 0 auto; }
+
+@media (max-width: 640px) {
+  .exposure-case-layout .exposure-case-infobox { align-items: flex-start; }
+  .exposure-case-layout .exposure-case-infobox .exposure-case-actions { width: 100%; margin-left: 0; }
+  .exposure-case-layout .exposure-case-infobox .exposure-case-actions .lab-btn { flex: 1 1 auto; }
 }
 
 /* ===== Exposure Case — TASK-060 ===== */

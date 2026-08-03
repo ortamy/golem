@@ -202,18 +202,21 @@ const ExposureCase = (function() {
   // ===== ДОСЬЕ (полный детальный просмотр) =====
   function renderCase(item, opts) {
     opts = opts || {};
-    var blocks = buildSections(item);
+    var normalizedSections = (typeof SectionRenderer !== 'undefined') ? SectionRenderer.normalizeArticle(item) : [];
+    var blocks = normalizedSections.length ? normalizedSections : buildSections(item);
     var toc = blocks.map(function(b, i) {
-      var meta = headingMeta(b.heading, b.icon);
-      return '<a href="#' + sectionId(i) + '" data-section-link data-index="' + i + '">' + esc(meta.text) + '</a>';
+      var title = b.title || headingMeta(b.heading, b.icon).text;
+      return '<a href="#' + sectionId(i) + '" data-section-link data-index="' + i + '">' + esc(title) + '</a>';
     }).join('');
-    var sectionsHtml = blocks.map(function(b, i) {
-      var body = renderBlocks(b);
-      return '<article class="exposure-section" id="' + sectionId(i) + '" data-section-index="' + i + '">' +
-        renderHeading(b.heading, b.icon) +
-        '<div class="exposure-section-body">' + body + '</div>' +
-      '</article>';
-    }).join('');
+    var sectionsHtml = (typeof SectionRenderer !== 'undefined')
+      ? SectionRenderer.renderArticle(item)
+      : blocks.map(function(b, i) {
+          var body = renderBlocks(b);
+          return '<article class="exposure-section" id="' + sectionId(i) + '" data-section-index="' + i + '">' +
+            renderHeading(b.heading, b.icon) +
+            '<div class="exposure-section-body">' + body + '</div>' +
+          '</article>';
+        }).join('');
 
     var breadcrumb = '<nav class="exposure-breadcrumb" aria-label="Хлебные крошки">' +
       '<a href="#researches">Разоблачения</a> / ' +

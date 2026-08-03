@@ -1,0 +1,250 @@
+/**
+ * section-renderer.js — единая визуальная сборка статей библиотеки.
+ * Нормализует старые blocks heading/body в sections id/title/content.
+ */
+const SectionRenderer = (function() {
+  'use strict';
+
+  var ICON_BASE = '../../assets/icons/32/';
+  var DEFAULT_ICON = ICON_BASE + 'scribe/scroll.png';
+
+  function escapeHtml(value) {
+    var node = document.createElement('div');
+    node.textContent = value == null ? '' : String(value);
+    return node.innerHTML;
+  }
+
+  function renderMarkdown(value) {
+    if (Array.isArray(value)) {
+      return '<ul>' + value.map(function(item) { return '<li>' + escapeHtml(item) + '</li>'; }).join('') + '</ul>';
+    }
+    if (value == null || value === '') return '';
+    var text = String(value);
+    var html = (typeof marked !== 'undefined' && marked.parse) ? marked.parse(text) : '<p>' + escapeHtml(text).replace(/\n/g, '<br>') + '</p>';
+    return (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) ? DOMPurify.sanitize(html) : escapeHtml(text).replace(/\n/g, '<br>');
+  }
+
+  // В контексте ТаНаХа разделяем квадратный текст, транслитерацию и перевод.
+  function renderTanakh(value) {
+    var html = renderMarkdown(value);
+    return html.replace(/<blockquote>([\s\S]*?)<\/blockquote>/gi, function(_, inner) {
+      var clean = inner.replace(/<\/p>\s*<p>/gi, '<br>').replace(/<\/?p>/gi, '');
+      var lines = clean.split(/<br\s*\/?>\s*/i).filter(function(line) { return line.trim(); });
+      if (lines.length < 2) return '<blockquote class="tanakh-quote">' + clean + '</blockquote>';
+      var seenHebrew = false;
+      var nonHebrewLines = 0;
+      var rendered = lines.map(function(line) {
+        var isHebrew = /[\u0590-\u05ff]/.test(line);
+        var className = isHebrew ? 'tanakh-quote-line tanakh-hebrew-line' : 'tanakh-quote-line';
+        var divider = false;
+        if (isHebrew) seenHebrew = true;
+        else if (seenHebrew) {
+          nonHebrewLines += 1;
+          divider = nonHebrewLines === 1;
+          className += ' tanakh-translation-line';
+        }
+        return { html: '<span class="' + className + '">' + line + '</span>', divider: divider };
+      });
+      return '<blockquote class="tanakh-quote">' + rendered.map(function(line) {
+        return (line.divider ? '<span class="tanakh-quote-divider" aria-hidden="true"></span>' : '') + line.html;
+      }).join('') + '</blockquote>';
+    });
+  }
+
+  function typologyIcon(name, description) {
+    var text = (String(name || '') + ' ' + String(description || '')).toLowerCase();
+    var icon = 'ui/anchor.png';
+    if (/скини|ковчег|свит|тора/.test(text)) icon = 'scribe/scroll.png';
+    else if (/голгоф|гиппократ|пленени|вопрос/.test(text)) icon = 'ui/question.png';
+    else if (/огонь|жар|плам|свет|ламп/.test(text)) icon = 'archaeology/lamp.png';
+    else if (/камень|опор|основан/.test(text)) icon = 'ui/anchor.png';
+    return ICON_BASE + icon;
+  }
+
+  // Превращает строки «связь — пояснение» в сканируемую галерею карточек.
+  function renderTypology(value) {
+    var items = Array.isArray(value) ? value : String(value || '').split(/\r?\n/);
+    var cards = items.map(function(item) {
+      var line = String(item || '').replace(/^\s*[-*+]\s+/, '').trim();
+      if (!line || /^---+$/.test(line)) return '';
+      var parts = line.split(/\s+—\s+/);
+      var name = parts.shift().trim();
+      var description = parts.join(' — ').trim() || 'Связь в образной цепочке';
+      return '<article class="typology-link-card">' +
+        '<img class="typology-link-icon" src="' + escapeHtml(typologyIcon(name, description)) + '" alt="" width="32" height="32" loading="lazy">' +
+        '<div class="typology-link-copy"><strong class="typology-link-name">' + escapeHtml(name) + '</strong>' +
+        '<span class="typology-link-description">' + escapeHtml(description) + '</span></div>' +
+      '</article>';
+    }).filter(Boolean);
+    return '<div class="typology-links-gallery" role="list">' + cards.map(function(card) {
+      return card.replace('<article ', '<article role="listitem" ');
+    }).join('') + '</div>';
+  }
+
+  function cleanTitle(value) {
+    var title = String(value || 'Раздел').replace(/^!\[icon\]\([^)]*\)\s*/i, '').trim();
+    return title || 'Раздел';
+  }
+
+  function idForTitle(value) {
+    var title = cleanTitle(value).toLowerCase();
+    var known = [
+      { id: 'essence', words: ['суть', 'тезис'] },
+      { id: 'etymology', words: ['этимология', 'оригинал', 'корень'] },
+      { id: 'tanakh', words: ['танах', 'контекст', 'свидетельства'] },
+      { id: 'exposure', words: ['искажения', 'разоблачение', 'сдвиг'] },
+      { id: 'practice', words: ['практика', 'применение'] },
+      { id: 'summary', words: ['сводка', 'вывод', 'реконструкция'] },
+      { id: 'typology', words: ['типологические связи'] },
+      { id: 'related', words: ['связанные файлы', 'связанные материалы'] },
+      { id: 'transmission', words: ['цепочка передачи'] },
+      { id: 'caveats', words: ['оговорки'] }
+    ];
+    for (var i = 0; i < known.length; i += 1) {
+      if (known[i].words.some(function(word) { return title.indexOf(word) !== -1; })) return known[i].id;
+    }
+    return title.replace(/[^a-zа-яё0-9]+/gi, '-').replace(/^-+|-+$/g, '') || 'section';
+  }
+
+  function iconForLegacy(value) {
+    var match = String(value || '').match(/([^/\\]+?)(?:\.png|\.svg)?$/i);
+    var name = match ? match[1].toLowerCase() : '';
+    var paths = {
+      scroll: 'scribe/scroll.png',
+      book: 'ui/book.png',
+      hourglass: 'ui/hourglass.png',
+      sword: 'weapons/sword.png',
+      anchor: 'ui/anchor.png',
+      lamp: 'archaeology/lamp.png',
+      scales: 'ui/scales.png',
+      question: 'ui/question.png'
+    };
+    return ICON_BASE + (paths[name] || 'scribe/scroll.png');
+  }
+
+  function normalizeSection(section) {
+    var title = cleanTitle(section && (section.title || section.heading));
+    return {
+      id: (section && section.id) || idForTitle(title),
+      title: title,
+      content: section && section.content !== undefined ? section.content : (section && section.body) || '',
+      icon: section && section.icon ? iconForLegacy(section.icon) : null
+    };
+  }
+
+  function normalizeArticle(article) {
+    article = article || {};
+    var source = article.sections;
+    if (Array.isArray(source)) {
+      var usedArrayIds = {};
+      return source.filter(function(section) {
+        return !isHiddenSection(section);
+      }).map(function(section) {
+        var normalized = normalizeSection(section);
+        normalized.id = uniqueId(normalized.id, usedArrayIds);
+        return normalized;
+      });
+    }
+
+    source = source || {};
+    var sections = [];
+    var usedIds = {};
+    function uniqueId(id, registry) {
+      var base = id || 'section';
+      var unique = base;
+      var suffix = 2;
+      var used = registry || usedIds;
+      while (used[unique]) {
+        unique = base + '-' + suffix;
+        suffix += 1;
+      }
+      used[unique] = true;
+      return unique;
+    }
+    function add(title, content, icon) {
+      if (content == null || content === '' || (Array.isArray(content) && !content.length)) return;
+      var section = normalizeSection({ title: title, content: content, icon: icon });
+      section.id = uniqueId(section.id);
+      sections.push(section);
+    }
+
+    add('Суть', source.thesis, 'scroll');
+    if (source.original) {
+      var original = source.original;
+      var originalLines = [];
+      if (original.hebrew) originalLines.push(original.hebrew);
+      if (original.translit) originalLines.push(original.translit);
+      if (original.root) originalLines.push('Корень: ' + original.root);
+      if (Array.isArray(original.paleo) && original.paleo.length) originalLines.push(original.paleo.join(' '));
+      add('Этимология', originalLines, 'book');
+    }
+    add('Сдвиг', source.shift, 'sword');
+    if (Array.isArray(source.transmissionChain) && source.transmissionChain.length) {
+      add('Цепочка передачи', source.transmissionChain.map(function(step) {
+        return [step.layer, step.word, step.meaning].filter(Boolean).join(' — ');
+      }), 'hourglass');
+    }
+    (source.content || []).filter(function(section) {
+      return !isHiddenSection(section);
+    }).forEach(function(section) {
+      var normalized = normalizeSection(section);
+      normalized.id = uniqueId(normalized.id);
+      sections.push(normalized);
+    });
+    if (Array.isArray(source.evidence) && source.evidence.length) {
+      add('Свидетельства', source.evidence.map(function(item) {
+        return [item.type, item.ref, item.hebrew, item.note].filter(Boolean).join(' — ');
+      }), 'scales');
+    }
+    add('Реконструкция', source.reconstruction, 'lamp');
+    if (Array.isArray(source.caveats) && source.caveats.length) {
+      add('Оговорки', source.caveats.map(function(item) { return [item.kind, item.text].filter(Boolean).join(' — '); }), 'question');
+    }
+    return sections;
+  }
+
+  function isHiddenSection(section) {
+    var title = String(section && (section.title || section.heading) || '').replace(/^!\[icon\]\([^)]*\)\s*/i, '').trim().toLowerCase();
+    var id = String(section && section.id || '').toLowerCase();
+    return id === 'related' || id === 'связанные-файлы' || title === 'связанные файлы' || title === 'связанные материалы';
+  }
+
+  var RULES = {
+    essence: { icon: ICON_BASE + 'scribe/scroll.png', className: 'essence-card', render: renderMarkdown },
+    etymology: { icon: ICON_BASE + 'archaeology/testtube.png', className: 'etymology-card', render: renderMarkdown },
+    tanakh: { icon: ICON_BASE + 'ui/book.png', className: 'tanakh-card', render: renderTanakh },
+    exposure: { icon: ICON_BASE + 'weapons/sword.png', className: 'exposure-card exposure-section-card', render: renderMarkdown },
+    practice: { icon: ICON_BASE + 'archaeology/lamp.png', className: 'practice-card', render: renderMarkdown },
+    summary: { icon: ICON_BASE + 'ui/scales.png', className: 'summary-card', render: renderMarkdown },
+    typology: { icon: ICON_BASE + 'ui/anchor.png', className: 'typology-card', render: renderTypology },
+    related: { icon: ICON_BASE + 'scribe/scrolls.png', className: 'related-card', render: renderMarkdown },
+    transmission: { icon: ICON_BASE + 'ui/hourglass.png', className: 'transmission-card', render: renderMarkdown },
+    caveats: { icon: ICON_BASE + 'ui/question.png', className: 'caveats-card', render: renderMarkdown }
+  };
+
+  function ruleFor(section) {
+    var baseId = String(section.id || '').replace(/-\d+$/, '');
+    return RULES[baseId] || { icon: section.icon || DEFAULT_ICON, className: 'generic-card', render: renderMarkdown };
+  }
+
+  function renderSection(section, index) {
+    var rule = ruleFor(section);
+    var body = rule.render(section.content);
+    return '<article class="exposure-section research-section-card ' + rule.className + '" id="exposure-section-' + index + '" data-section-index="' + index + '" data-section-id="' + escapeHtml(section.id) + '">' +
+      '<header class="research-section-card-head"><img class="exposure-section-icon" src="' + escapeHtml(rule.icon) + '" alt="" width="40" height="40" loading="lazy"><h2 class="exposure-section-heading-text">' + escapeHtml(section.title) + '</h2></header>' +
+      '<div class="exposure-section-body">' + body + '</div>' +
+    '</article>';
+  }
+
+  function renderArticle(article) {
+    return normalizeArticle(article).map(renderSection).join('');
+  }
+
+  window.SectionRenderer = {
+    rules: RULES,
+    normalizeArticle: normalizeArticle,
+    renderSection: renderSection,
+    renderArticle: renderArticle
+  };
+  return window.SectionRenderer;
+})();
