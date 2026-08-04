@@ -18,7 +18,8 @@
     { key: 'shifts', label: 'Языковые сдвиги', source: 'language-shifts' },
     { key: 'techniques', label: 'Приёмы подмены', source: 'techniques' },
     { key: 'philosophemes', label: 'Греческие философемы', source: 'philosophemes' },
-    { key: 'distortions', label: 'Типы искажений', source: 'distortions' }
+    { key: 'distortions', label: 'Типы искажений', source: 'distortions' },
+    { key: 'paleo-translation', label: 'Принципы палео-перевода' }
   ];
 
   var METHODOLOGY_HERO = {
@@ -49,6 +50,10 @@
     distortions: {
       kicker: 'ГОЛЕМ · ТИПЫ ИСКАЖЕНИЙ',
       description: 'Девять диагностических моделей, показывающих, как понятие теряет исходную физику в цепочке перевода.'
+    },
+    'paleo-translation': {
+      kicker: 'ГОЛЕМ · ПРИНЦИПЫ ПАЛЕО-ПЕРЕВОДА',
+      description: 'Правила, по которым перевод восстанавливает конструкцию и сохраняет физику палео-образа.'
     }
   };
 
@@ -57,6 +62,31 @@
   var activeDocument = '';
   var activeTechniqueCategory = '';
   var exposureDocuments = null;
+  var paleoTranslationCards = [];
+  var PALEO_TRANSLATION_FALLBACK = [
+    ['Восстанавливай конструкцию, а не заменяй слова', 'Палео-перевод передаёт последовательность функций букв и описывает собранную конструкцию, а не подбирает привычный словарный эквивалент.'],
+    ['Читай буквы как функции', 'Буквы являются образами предметов и действий. Сначала переводчик собирает их механику, и только затем формулирует русское описание.'],
+    ['Убирай греческие философемы', 'Абстрактные понятия поздних слоёв перевода заменяются конкретными образами, действиями и состояниями исходной конструкции.'],
+    ['Не добавляй прошедшее время', 'Вместо искусственной временной связки передавай состояние и происходящее действие, сохраняя живой поток текста.'],
+    ['Не отделяй пространственные приставки', 'Пространственные отношения передавай как часть конструкции: слитные приставки сохраняют направление потока.'],
+    ['Собирай каждый стих отдельно', 'Каждый стих имеет собственную последовательность букв и функций. Нельзя переносить готовую сборку по аналогии.'],
+    ['Ставь действие в центр', 'Главное в предложении — то, что происходит. Перевод должен сохранять движение действия, а не превращать его в описание персонажа.'],
+    ['Проверяй через физический опыт', 'Любой образ должен быть проверяем через тело, предмет или действие. Непроверяемая отвлечённость указывает на философему.'],
+    ['Сохраняй поток, а не порядок слов', 'Русский порядок слов можно менять, если это помогает удержать очередность и направление палео-действия.'],
+    ['Читай «это» как указание на действие', 'Указательное слово обозначает происходящее сейчас, а не неподвижную сущность или предмет.'],
+    ['Выбирай конкретное', 'Если возможны отвлечённое и физическое прочтения, выбирай конкретный образ, который можно представить и проверить.'],
+    ['Ставь точность выше красоты', 'Литературная гладкость не должна скрывать механику. Достоверный перевод сохраняет точность даже ценой непривычного звучания.'],
+    ['Показывай неопределённость', 'Неясный элемент конструкции нужно отмечать, а не маскировать уверенной формулировкой.'],
+    ['Начинай с букв', 'Не начинай с готового слова или традиционного значения. Сначала собери последовательность образов, затем сформулируй результат.'],
+    ['Учитывай контекст', 'Функция слова определяется соседними конструкциями. Изолированный перевод может потерять направление всего потока.'],
+    ['Используй заглавную букву как функцию', 'Заглавная буква обозначает начало новой смысловой конструкции, а не служит декоративным правилом.'],
+    ['Не добавляй пунктуацию в поток', 'Паузы и связи передавай порядком конструкций и слитными приставками, не навязывая позднюю разметку.'],
+    ['Оживляй образ физическим действием', 'Если последовательность букв нельзя представить как процесс в реальном мире, конструкция ещё не собрана.'],
+    ['Не подменяй палео-образы современными корнями', 'Современные языки несут другую логику. Опирайся на палео-образ и его физическую механику.'],
+    ['Сначала спрашивай «как»', 'Вопрос о механике действия важнее вопроса о причине. Сначала опиши, как работает конструкция.'],
+    ['Используй ощущения для проверки', 'Телесный отклик помогает проверить поток, напряжение, дверь или воду.'],
+    ['Ищи конструкции, а не границы слов', 'Первичен слитный поток согласных. Выделяй работающие последовательности образов, а не поздние пробелы.']
+  ];
 
   var TECHNIQUE_CATEGORIES = [
     'Языковые приёмы',
@@ -110,6 +140,18 @@
     'ui/home.png'
   ];
 
+  var MECHANISM_ICONS = [
+    'ui/question.png',
+    'ui/scales.png',
+    'paleo/track.png',
+    'ui/anchor.png',
+    'ui/diff.png',
+    'ui/arrows.png',
+    'ui/markbook.png'
+  ];
+
+  var FIRST_MECHANISM_SUMMARY = 'Система берёт два понятия, которые в иврите имеют ясное функциональное различие, и заменяет их моральной оценкой. Функция становится моралью. Пригодность становится «добром». Непригодность — «злом».';
+
   var LANGUAGE_TECHNIQUE_TITLES = [
     'Сакральный жаргон',
     'Абстрагирование',
@@ -145,6 +187,48 @@
       .replace(/'/g, '&#039;');
   }
 
+  function parsePaleoTranslationCards(markdown) {
+    var headings = String(markdown || '').split(/\r?\n(?=##\s)/).slice(1);
+    var icons = [
+      'paleo/track.png', 'scribe/scroll.png', 'ui/scales.png', 'ui/clock.png',
+      'nav/door.png', 'ui/grid.png', 'ui/arrows.png', 'ui/anchor.png',
+      'archaeology/testtube.png', 'ui/markbook.png', 'ui/compass.png',
+      'ui/question.png', 'ui/keyboard.png', 'ui/scroll.png', 'ui/book.png',
+      'ui/diff.png', 'ui/info.png', 'ui/enter.png', 'ui/anchor.png',
+      'ui/user.png', 'ui/flag.png', 'ui/hourglass.png', 'ui/sun.png',
+      'ui/link.png', 'ui/grid.png'
+    ];
+    return headings.map(function(section, index) {
+      var lines = section.split(/\r?\n/);
+      var title = lines.shift().replace(/^##\s+/, '').trim();
+      var text = lines.join('\n').trim();
+      var summary = text.split(/\n\s*\n/)[0] || 'Принцип восстановления палео-конструкции.';
+      return {
+        id: 'paleo-translation-' + index,
+        category: 'paleo-translation',
+        title: title,
+        summary: summary.replace(/\*\*/g, ''),
+        text: text,
+        icon: '../../assets/icons/32/' + icons[index % icons.length],
+        document: 'paleo-translation-card'
+      };
+    }).filter(function(card) { return card.title && card.text; });
+  }
+
+  function fallbackPaleoTranslationCards() {
+    return PALEO_TRANSLATION_FALLBACK.map(function(item, index) {
+      return {
+        id: 'paleo-translation-' + index,
+        category: 'paleo-translation',
+        title: item[0],
+        summary: item[1],
+        text: item[1],
+        icon: '../../assets/icons/32/ui/book.png',
+        document: 'paleo-translation-card'
+      };
+    });
+  }
+
   var COPY_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="11" height="11" rx="1.5"></rect><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"></path></svg>';
   var WAND_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 4l1.5 1.5M19 8l1.5 1.5M4 20l9-9M13 9l2 2"></path><path d="M15 4l-1 3 3-1z"></path></svg>';
   var EDIT_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h4l10-10-4-4L4 16v4z"></path><path d="M13 7l4 4"></path></svg>';
@@ -152,6 +236,7 @@
   var INFO_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 10.5v5"></path><circle cx="12" cy="7.5" r=".7" fill="currentColor" stroke="none"></circle></svg>';
   var CHECK_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 13l4 4L19 7"></path></svg>';
   var SAVE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>';
+  var MODAL_ICON = '<img src="../../assets/icons/32/ui/close.png" width="24" height="24" alt="" aria-hidden="true" style="vertical-align:middle;margin-right:8px;">';
 
   function toast(msg) {
     if (window.LabToast) window.LabToast.show(msg);
@@ -238,7 +323,8 @@
   window.MethodologyLab = {
     init: init,
     getCards: function() { return store ? (store.cards || []) : []; },
-    getCategories: function() { return CATEGORIES; }
+    getCategories: function() { return CATEGORIES; },
+    openCard: function(id) { openFullText(findCard(id) || { title: id || 'Карточка методологии', summary: 'Материалы карточки загружаются из текущего раздела методологии.' }); }
   };
 
   function init(container, parsed) {
@@ -284,7 +370,9 @@
         if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       }).then(function(documents) {
-        exposureDocuments = documents;
+        exposureDocuments = documents && Object.keys(documents).length ? documents : null;
+        // Исходные docs не входят в публичный корень приложения.
+        paleoTranslationCards = fallbackPaleoTranslationCards();
         showTab(container, activeTab);
       });
     }).catch(function() {
@@ -355,9 +443,9 @@
     select.value = activeDocument;
   }
 
-  function parseTechniqueCards(section) {
+  function parseTechniqueCards(section, categoryIndex) {
     var lines = String(section && section.content || '').split(/\n+/);
-    var categoryIndex = TECHNIQUE_CATEGORIES.indexOf(activeTechniqueCategory);
+    categoryIndex = categoryIndex == null ? TECHNIQUE_CATEGORIES.indexOf(activeTechniqueCategory) : categoryIndex;
     return lines.map(function(line, index) {
       var match = line.trim().match(/^[-*]\s+\*\*(.+?):\*\*\s*(.*)$/);
       if (!match) return null;
@@ -371,6 +459,45 @@
         document: 'technique-card'
       };
     }).filter(Boolean);
+  }
+
+  function cleanMethodTitle(title) {
+    var clean = String(title || '').replace(/^\s*\d+[.)\-:]?\s*/, '').trim();
+    return clean ? clean.charAt(0).toLocaleUpperCase('ru-RU') + clean.slice(1) : 'Метод разоблачения';
+  }
+
+  function methodEssence(text, fallback) {
+    var source = String(text || '');
+    var essence = source.match(/\*\*Суть:\*\*\s*([\s\S]*?)(?=\n\s*\*\*[^*]+:\*\*|\n\s*---|$)/i);
+    if (essence) source = essence[1];
+    else source = source.split(/\n\s*\n/)[0];
+    source = source.replace(/^[-*]\s*/, '').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
+    return source || fallback || 'Краткое описание метода разоблачения.';
+  }
+
+  function mechanismEssence(text) {
+    var source = String(text || '').replace(/\r/g, '');
+    var paragraph = source.split(/\n\s*\n/)[0]
+      .replace(/^\s*[-*]\s*/, '')
+      .replace(/^\s*\*{0,2}Суть:\s*\*{0,2}/i, '')
+      .replace(/\*\*/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    return paragraph
+      ? paragraph.charAt(0).toLocaleUpperCase('ru-RU') + paragraph.slice(1)
+      : 'Краткое описание механизма подмены.';
+  }
+
+  function displayCardTitle(title) {
+    return cleanMethodTitle(title);
+  }
+
+  function displayCardSummary(summary) {
+    var text = String(summary == null ? '' : summary)
+      .replace(/^\s*\*{0,2}Суть:\s*\*{0,2}/i, '')
+      .replace(/^\s*Суть\s*[-—:]\s*/i, '')
+      .trim();
+    return text ? text.charAt(0).toLocaleUpperCase('ru-RU') + text.slice(1) : text;
   }
 
   function findTechniqueCard(id) {
@@ -429,6 +556,25 @@
     var catInfo = (store.categories || {})[key] || {};
 
     var cards = (store.cards || []).filter(function(c) { return c.category === key; });
+    if (key === 'methods' && exposureDocuments && exposureDocuments.language) {
+      var languageSections = exposureDocuments.language.sections || [];
+      cards = languageSections.filter(function(section) {
+        return /^Подмена\s+\d+$/i.test(section.title || '');
+      }).slice(0, 10).map(function(section, index) {
+        return {
+          id: 'exposure-methods-language-' + index,
+          category: key,
+          title: cleanMethodTitle(LANGUAGE_TECHNIQUE_TITLES[index] || section.title),
+          summary: methodEssence(section.content, LANGUAGE_TECHNIQUE_SUMMARIES[index]),
+          text: section.content,
+          icon: '../../assets/icons/32/' + LANGUAGE_SHIFT_ICONS[index],
+          document: 'language-technique'
+        };
+      });
+    }
+    if (key === 'paleo-translation') {
+      cards = paleoTranslationCards;
+    }
     if (category.source && exposureDocuments && exposureDocuments[category.source]) {
       var documentData = exposureDocuments[category.source];
       var sourceSections = (documentData.sections || []).filter(function(section) {
@@ -455,22 +601,40 @@
           return {
             id: 'exposure-methods-language-' + index,
             category: key,
-            title: LANGUAGE_TECHNIQUE_TITLES[index] || section.title,
-            summary: LANGUAGE_TECHNIQUE_SUMMARIES[index] || section.content,
+            title: cleanMethodTitle(LANGUAGE_TECHNIQUE_TITLES[index] || section.title),
+            summary: methodEssence(section.content, LANGUAGE_TECHNIQUE_SUMMARIES[index]),
             text: section.content,
             icon: '../../assets/icons/32/' + LANGUAGE_SHIFT_ICONS[index],
             document: 'language-technique',
             sourceIndex: index
           };
         });
+      } else if (key === 'mechanisms') {
+        cards = (documentData.sections || []).filter(function(section) {
+          return /^\s*\d+[.)\-:]?\s+/.test(section.title || '');
+        }).map(function(section, index) {
+          return {
+            id: 'exposure-mechanism-' + (section.title || '').match(/^\s*(\d+)/)[1],
+            category: key,
+            title: cleanMethodTitle(section.title),
+            summary: index === 0 ? FIRST_MECHANISM_SUMMARY : mechanismEssence(section.content),
+            text: section.content,
+            icon: '../../assets/icons/32/' + MECHANISM_ICONS[index % MECHANISM_ICONS.length],
+            document: 'mechanism-card'
+          };
+        });
       } else if (key === 'techniques') {
         var techniqueCategorySections = (documentData.sections || []).filter(function(section) {
           return TECHNIQUE_CATEGORIES.indexOf(section.title) !== -1;
         });
-        var selectedTechniqueSection = techniqueCategorySections.filter(function(section) {
-          return section.title === activeTechniqueCategory;
-        })[0];
-        cards = selectedTechniqueSection ? parseTechniqueCards(selectedTechniqueSection) : [];
+        var selectedTechniqueSections = activeTechniqueCategory
+          ? techniqueCategorySections.filter(function(section) {
+              return section.title === activeTechniqueCategory;
+            })
+          : techniqueCategorySections;
+        cards = selectedTechniqueSections.reduce(function(allCards, section) {
+          return allCards.concat(parseTechniqueCards(section, TECHNIQUE_CATEGORIES.indexOf(section.title)));
+        }, []);
       } else if (key === 'philosophemes') {
         cards = (documentData.sections || []).filter(function(section) {
           return PHILOSOPHEME_SECTIONS.test(section.title || '');
@@ -519,7 +683,7 @@
     if (key === 'techniques') {
       var categorySelect = container.querySelector('#methodology-document-select');
       if (categorySelect) {
-        categorySelect.innerHTML = ['<option value="">Выберите категорию</option>'].concat(TECHNIQUE_CATEGORIES.map(function(category) {
+        categorySelect.innerHTML = ['<option value="">Все документы</option>'].concat(TECHNIQUE_CATEGORIES.map(function(category) {
           return '<option value="' + escapeHtml(category) + '">' + escapeHtml(category) + '</option>';
         })).join('');
         categorySelect.value = activeTechniqueCategory;
@@ -546,19 +710,19 @@
 
     panel.className = 'methodology-panel';
     panel.innerHTML = cards.map(function(card, index) {
-      var isDocumentCard = card.document === 'system-architecture' || card.document === 'source-document' || card.document === 'language-shift' || card.document === 'language-technique' || card.document === 'technique-card' || card.document === 'philosopheme-card' || card.document === 'distortion-card';
+      var isDocumentCard = card.document === 'system-architecture' || card.document === 'source-document' || card.document === 'language-shift' || card.document === 'language-technique' || card.document === 'technique-card' || card.document === 'philosopheme-card' || card.document === 'distortion-card' || card.document === 'paleo-translation-card';
       var documentClass = isDocumentCard ? ' methodology-document-card' : '';
-      var shiftClass = card.document === 'language-shift' || card.document === 'language-technique' || card.document === 'technique-card' || card.document === 'philosopheme-card' || card.document === 'distortion-card' ? ' methodology-shift-card' : '';
-      var cardText = card.summary || card.text;
+      var shiftClass = card.document === 'language-shift' || card.document === 'language-technique' || card.document === 'technique-card' || card.document === 'philosopheme-card' || card.document === 'distortion-card' || card.document === 'paleo-translation-card' ? ' methodology-shift-card' : '';
+      var cardText = displayCardSummary(card.summary || card.text);
+      var cardTitle = displayCardTitle(card.title);
+      var isCompactMethod = card.document === 'language-technique' || card.document === 'mechanism-card';
       var cardIcon = card.icon
         ? '<img src="' + escapeHtml(card.icon) + '" class="methodology-card-icon" alt="" aria-hidden="true">'
         : '';
-      var infoButton = card.text
-        ? '<button type="button" class="methodology-icon-btn methodology-info-btn" data-id="' + escapeHtml(card.id) + '" title="Открыть полный текст" aria-label="Открыть полный текст карточки">' + INFO_ICON + '</button>'
-        : '';
+      var infoButton = '<button type="button" class="methodology-icon-btn methodology-info-btn" data-id="' + escapeHtml(card.id) + '" onclick="MethodologyLab.openCard(this.dataset.id); return false;" title="Открыть полный текст" aria-label="Открыть полный текст карточки">' + INFO_ICON + '</button>';
       return '<article class="methodology-card' + documentClass + shiftClass + '" data-id="' + escapeHtml(card.id) + '" style="animation-delay:' + (index * 30) + 'ms">' +
         '<div class="methodology-card-head">' +
-          '<div class="methodology-card-heading">' + cardIcon + '<h3 class="methodology-card-title">' + escapeHtml(card.title) + '</h3></div>' +
+          '<div class="methodology-card-heading">' + cardIcon + '<h3 class="methodology-card-title">' + escapeHtml(cardTitle) + '</h3></div>' +
           '<div class="methodology-card-actions">' +
             infoButton +
             '<button type="button" class="methodology-icon-btn methodology-copy-btn" data-id="' + escapeHtml(card.id) + '" title="Копировать" aria-label="Копировать карточку">' + COPY_ICON + '</button>' +
@@ -581,6 +745,9 @@
     }
     if (id.indexOf('exposure-technique-') === 0) {
       return findTechniqueCard(id);
+    }
+    if (id.indexOf('paleo-translation-') === 0) {
+      return paleoTranslationCards.filter(function(card) { return card.id === id; })[0] || null;
     }
     if (id.indexOf('exposure-philosopheme-') === 0 && exposureDocuments) {
       var philosophemeIndex = parseInt(id.substring('exposure-philosopheme-'.length), 10);
@@ -664,8 +831,12 @@
     panel.querySelectorAll('.methodology-info-btn').forEach(function(btn) {
       btn.addEventListener('click', function(event) {
         event.stopPropagation();
+        event.preventDefault();
         var card = findCard(btn.dataset.id);
-        if (card) openFullText(card);
+        openFullText(card || {
+          title: btn.dataset.id || 'Карточка методологии',
+          summary: 'Материалы карточки загружаются из текущего раздела методологии.'
+        });
       });
     });
 
@@ -712,12 +883,13 @@
   }
 
   function openFullText(card) {
-    if (!card || !window.LabModal) return;
+    if (!card || typeof LabModal === 'undefined') return;
+    var fullText = card.text || card.summary || 'Для этой карточки полный текст пока не добавлен.';
     var content = typeof marked !== 'undefined' && marked.parse
-      ? marked.parse(card.text || '')
-      : '<p>' + escapeHtml(card.text || '').replace(/\n/g, '<br>') + '</p>';
-    window.LabModal.show(
-      INFO_ICON + '<span class="methodology-modal-title">' + escapeHtml(card.title) + '</span>',
+      ? marked.parse(fullText)
+      : '<p>' + escapeHtml(fullText).replace(/\n/g, '<br>') + '</p>';
+    LabModal.show(
+      MODAL_ICON + '<span class="methodology-modal-title">' + escapeHtml(card.title) + '</span>',
       '<div class="methodology-document-content">' + content + '</div>',
       '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabModal.close()">Закрыть</button>'
     );

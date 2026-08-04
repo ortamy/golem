@@ -286,12 +286,23 @@
   .methodology-select-label { align-items: stretch; flex-direction: column; }
   .methodology-select-label .lab-input { min-width: 0; width: 100%; }
 }
-
 @media (max-width: 768px) {
+  .methodology-toolbar {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 0;
+    height: auto;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    align-content: start;
+  }
+
   .methodology-navigation {
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: stretch;
-    gap: 12px;
+    justify-content: flex-start;
+    gap: 10px;
   }
 
   .methodology-navigation .methodology-select-label,
@@ -300,5 +311,10 @@
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
+  }
+
+  .methodology-navigation .methodology-select-label {
+    flex: 0 0 auto;
+    min-height: 0;
   }
 }

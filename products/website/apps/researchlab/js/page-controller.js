@@ -341,7 +341,22 @@ const PageController = (function() {
       renderPaleoMechanicsDocument(container, documentData, options, backBtn);
       return;
     }
+    var mechanismIndex = 0;
+    var mechanismIcons = ['ui/question.png', 'ui/scales.png', 'paleo/track.png', 'ui/anchor.png', 'ui/diff.png', 'ui/arrows.png', 'ui/markbook.png'];
+    var firstMechanismSummary = 'Система берёт два понятия, которые в иврите имеют ясное функциональное различие, и заменяет их моральной оценкой. Функция становится моралью. Пригодность становится «добром». Непригодность — «злом».';
     var sections = (documentData.sections || []).map(function(section) {
+      var isMechanism = page === 'methodology' && /^\s*\d+[.)\-:]?\s+/.test(section.title || '');
+      if (isMechanism) {
+        var summary = String(section.content || '').replace(/\r/g, '').split(/\n\s*\n/)[0]
+          .replace(/^\s*[-*]\s*/, '')
+          .replace(/^\s*\*{0,2}Суть:\s*\*{0,2}/i, '')
+          .replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
+        if (mechanismIndex === 0) summary = firstMechanismSummary;
+        summary = summary ? summary.charAt(0).toLocaleUpperCase('ru-RU') + summary.slice(1) : 'Краткое описание механизма подмены.';
+        var icon = mechanismIcons[mechanismIndex % mechanismIcons.length];
+        mechanismIndex++;
+        return '<article class="research-section methodology-card"><div class="methodology-card-head"><h2><img src="../../assets/icons/32/' + icon + '" class="methodology-card-icon" alt="" aria-hidden="true">' + escapeHtml(section.title || '').replace(/^\s*\d+[.)\-:]?\s*/, '') + '</h2></div><div class="research-section-content"><p>' + escapeHtml(summary) + '</p></div></article>';
+      }
       var content = typeof marked !== 'undefined' && marked.parse ? marked.parse(section.content || '') : escapeHtml(section.content || '');
       return '<article class="research-section"><h2>' + escapeHtml(section.title || '') + '</h2><div class="research-section-content">' + content + '</div></article>';
     }).join('');
