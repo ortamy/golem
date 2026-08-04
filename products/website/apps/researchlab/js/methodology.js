@@ -492,12 +492,17 @@
         id: 'exposure-technique-' + categoryIndex + '-' + index,
         category: 'techniques',
         title: match[1],
-        summary: match[2],
+        summary: techniqueCardSummary(match[1]),
         text: match[2],
         icon: '../../assets/icons/32/ui/diff.png',
         document: 'technique-card'
       };
     }).filter(Boolean);
+  }
+
+  function techniqueCardSummary(title) {
+    var label = cleanMethodTitle(title);
+    return label + ' меняет смысл исходной конструкции.';
   }
 
   function cleanMethodTitle(title) {

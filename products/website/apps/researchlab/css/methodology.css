@@ -285,6 +285,46 @@
   min-height: 160px;
 }
 
+/* Тёмный слой сохраняет единое поле для форм, кнопок и карточек. */
+html[data-theme="dark"] .methodology-toolbar,
+html[data-theme="dark"] .methodology-card,
+html[data-theme="dark"] .methodology-card[data-id^="principles-"],
+html[data-theme="dark"] .methodology-card[data-id^="mechanisms-"],
+html[data-theme="dark"] .methodology-shift-card {
+  background: var(--bg-card);
+  border-color: var(--border-light);
+  box-shadow: var(--shadow-soft);
+}
+
+html[data-theme="dark"] .methodology-select-label .lab-input,
+html[data-theme="dark"] .methodology-select-label .lab-input option {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .methodology-card:hover {
+  box-shadow: 0 8px 22px var(--shadow-card-hover);
+}
+
+html[data-theme="dark"] .methodology-icon-btn {
+  background: var(--bg-primary);
+  border-color: var(--border-light);
+  color: var(--text-muted);
+}
+
+html[data-theme="dark"] .methodology-toolbar .lab-btn {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .35);
+}
+
+html[data-theme="dark"] .methodology-toolbar .lab-btn-primary {
+  color: var(--bg-dark);
+}
+
+html[data-theme="dark"] .methodology-toolbar .lab-btn-secondary:hover,
+html[data-theme="dark"] .methodology-toolbar .lab-btn-secondary:active {
+  background: rgba(212, 160, 48, .14);
+}
+
 @media (max-width: 640px) {
   .methodology-heading { padding: 20px; }
   .methodology-panel { grid-template-columns: 1fr; }
