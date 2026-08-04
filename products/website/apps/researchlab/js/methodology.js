@@ -8,6 +8,7 @@
 
   var PAGE_PATH = 'pages/methodology.html';
   var DATA_PATH = 'data/methodology/cards.json';
+  var MECHANISMS_DATA_PATH = 'data/methodology/mechanisms.json';
   var API_URL = 'http://localhost:8000/api/methodology/cards';
   var STORAGE_KEY = 'golem_methodology_cards_v1';
 
@@ -151,6 +152,18 @@
   ];
 
   var FIRST_MECHANISM_SUMMARY = 'Система берёт два понятия, которые в иврите имеют ясное функциональное различие, и заменяет их моральной оценкой. Функция становится моралью. Пригодность становится «добром». Непригодность — «злом».';
+
+  var DISTORTION_SUMMARIES = [
+    'Понятие заменяется на другое, искажая его истинную функцию.',
+    'Живые отношения заменяются правовыми конструкциями.',
+    'Внешние действия подменяются внутренними переживаниями.',
+    'Действие заменяется чувством, а результат — состоянием.',
+    'Конкретные образы заменяются отвлечёнными понятиями.',
+    'Смысл теряет полноту и сужается до одного значения.',
+    'Целостное дробится на противоположности.',
+    'Полнота смысла заменяется пустотой.',
+    'Палео-смыслы подменяются чужеродными категориями.'
+  ];
 
   var LANGUAGE_TECHNIQUE_TITLES = [
     'Сакральный жаргон',
@@ -360,15 +373,29 @@
   }
 
   function loadStore(container) {
-    fetch(DATA_PATH).then(function(response) {
-      if (!response.ok) throw new Error('HTTP ' + response.status + ' for ' + DATA_PATH);
-      return response.json();
-    }).then(function(data) {
-      store = data;
+    Promise.all([fetch(DATA_PATH), fetch(MECHANISMS_DATA_PATH)]).then(function(responses) {
+      responses.forEach(function(response, index) {
+        var path = index === 0 ? DATA_PATH : MECHANISMS_DATA_PATH;
+        if (!response.ok) throw new Error('HTTP ' + response.status + ' for ' + path);
+      });
+      return Promise.all(responses.map(function(response) { return response.json(); }));
+    }).then(function(dataSets) {
+      var principleCards = Array.isArray(dataSets[0]) ? dataSets[0] : (dataSets[0].cards || []);
+      var mechanismCards = Array.isArray(dataSets[1]) ? dataSets[1] : (dataSets[1].cards || []);
+      store = {
+        categories: (dataSets[0] && dataSets[0].categories) || {},
+        cards: principleCards.map(function(card, index) {
+          return normalizeExternalCard(card, 'principles', index);
+        }).concat(mechanismCards.map(function(card, index) {
+          return normalizeExternalCard(card, 'mechanisms', index);
+        }))
+      };
       saveLocalStore(store);
       return fetch('data/exposures/documents.json').then(function(response) {
-        if (!response.ok) throw new Error('HTTP ' + response.status);
+        if (!response.ok) return null;
         return response.json();
+      }).catch(function() {
+        return null;
       }).then(function(documents) {
         exposureDocuments = documents && Object.keys(documents).length ? documents : null;
         // Исходные docs не входят в публичный корень приложения.
@@ -388,6 +415,18 @@
         }
       }
     });
+  }
+
+  function normalizeExternalCard(card, category, index) {
+    return {
+      id: card.id || category + '-' + (index + 1),
+      category: category,
+      title: card.title || 'Карточка методологии',
+      summary: card.summary || card.text || '',
+      text: card.text || card.summary || '',
+      icon: card.icon || '../../assets/icons/32/ui/book.png',
+      document: category === 'mechanisms' ? 'mechanism-card' : 'principle-card'
+    };
   }
 
   function bindCategorySelect(container) {
@@ -655,13 +694,12 @@
         cards = (documentData.sections || []).filter(function(section) {
           return PHILOSOPHEME_SECTIONS.test(section.title || '') && /^([1-9])\./.test(section.title || '');
         }).slice(0, 9).map(function(section, index) {
-          var text = section.content || '';
-          var summaryMatch = text.match(/^\*\*Суть:\*\*\s*([^\n]+)/i);
+          var text = DISTORTION_SUMMARIES[index];
           return {
             id: 'exposure-distortion-' + index,
             category: key,
-            title: section.title,
-            summary: summaryMatch ? summaryMatch[1] : text.split('\n')[0],
+            title: cleanMethodTitle(section.title),
+            summary: text,
             text: text,
             icon: '../../assets/icons/32/ui/scales.png',
             document: 'distortion-card'

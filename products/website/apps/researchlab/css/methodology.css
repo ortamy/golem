@@ -89,6 +89,12 @@
   transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
 }
 
+/* Принципы и механизмы используют белую поверхность карточек. */
+.methodology-card[data-id^="principles-"],
+.methodology-card[data-id^="mechanisms-"] {
+  background: #fff;
+}
+
 .methodology-shift-card {
   background: #fff;
   cursor: pointer;
