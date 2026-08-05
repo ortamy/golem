@@ -823,20 +823,35 @@ const PageController = (function() {
     if (mapView) mapView.hidden = true;
     if (serverView) serverView.hidden = true;
     pipelines.hidden = false;
-    pipelines.innerHTML = '<div class="agent-pipelines-head"><div><p class="agent-detail-kicker">GOLEM · ОРКЕСТРАЦИЯ</p><h2>Пайплайны</h2><p>Готовые цепочки передачи контекста между агентами.</p></div><div class="pipeline-page-actions"><button type="button" class="lab-btn lab-btn-primary pipeline-create-btn" data-pipeline-create>+ Создать пайплайн</button><button type="button" class="lab-btn lab-btn-secondary" data-pipelines-back>← К списку агентов</button></div></div><div class="agent-pipelines-status lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка пайплайнов…</div></div>';
+    pipelines.innerHTML = '<div class="agent-pipelines-head"><div><p class="agent-detail-kicker">GOLEM · ОРКЕСТРАЦИЯ</p><h2>Пайплайны</h2><p>Готовые цепочки передачи контекста между агентами.</p><div class="pipeline-server-status" data-pipeline-server-status data-status="checking"><span class="pipeline-server-dot" aria-hidden="true"></span><span>Проверка сервера…</span></div></div><div class="pipeline-page-actions"><button type="button" class="lab-btn lab-btn-primary pipeline-create-btn" data-pipeline-create>+ Создать пайплайн</button><button type="button" class="lab-btn lab-btn-secondary" data-pipelines-back>← К списку агентов</button></div></div><div class="agent-pipelines-status lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка локальных пайплайнов…</div></div>';
     pipelines.querySelector('[data-pipelines-back]').addEventListener('click', function() {
       showAgentList(container);
     });
     checkAgentServer().then(function() {
-      return fetch(AGENT_API_URL + '/api/pipelines');
-    }).then(function(response) {
-      if (!response.ok) throw new Error('HTTP ' + response.status);
+      updatePipelineServerStatus(pipelines, true);
+    }).catch(function() {
+      updatePipelineServerStatus(pipelines, false);
+    });
+    fetch('data/pipelines.json').then(function(response) {
+      if (!response.ok) throw new Error('Локальный JSON недоступен');
       return response.json();
+    }).catch(function() {
+      return fetch(AGENT_API_URL + '/api/pipelines').then(function(response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+      });
     }).then(function(data) {
       renderAgentPipelines(container, pipelines, data);
     }).catch(function(error) {
-      pipelines.querySelector('.agent-pipelines-status').outerHTML = isAgentServerUnavailable(error) ? agentServerMessage() : '<div class="lab-alert lab-alert-error">Не удалось загрузить пайплайны: ' + escapeHtml(error.message) + '</div>';
+      pipelines.querySelector('.agent-pipelines-status').outerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить локальные и серверные пайплайны: ' + escapeHtml(error.message) + '</div>';
     });
+  }
+
+  function updatePipelineServerStatus(pipelines, isOnline) {
+    var status = pipelines.querySelector('[data-pipeline-server-status]');
+    if (!status) return;
+    status.dataset.status = isOnline ? 'online' : 'offline';
+    status.querySelector('span:last-child').textContent = isOnline ? 'Сервер запущен' : 'Сервер отключен';
   }
 
   function renderAgentPipelines(container, pipelines, data) {

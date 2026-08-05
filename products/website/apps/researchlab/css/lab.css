@@ -658,6 +658,11 @@ code, pre, kbd, .translit, .mono {
 }
 .agent-pipelines-head h2 { margin: 0 0 6px; }
 .agent-pipelines-head p:last-child { color: var(--text-secondary); }
+.pipeline-server-status { display: inline-flex; align-items: center; gap: 7px; margin-top: 10px; color: var(--text-muted); font: 600 12px var(--font-mono); }
+.pipeline-server-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--text-muted); box-shadow: 0 0 0 3px rgba(138,122,106,.12); }
+.pipeline-server-status[data-status="online"] { color: var(--accent-green); }
+.pipeline-server-status[data-status="online"] .pipeline-server-dot { background: var(--accent-green); box-shadow: 0 0 0 3px rgba(42,106,42,.14); }
+.pipeline-server-status[data-status="offline"] .pipeline-server-dot { background: var(--text-muted); }
 .pipeline-page-actions { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
 .agent-pipelines-grid {
   display: grid;
