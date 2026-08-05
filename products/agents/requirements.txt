@@ -1,4 +1,3 @@
-crewai==1.15.2
-anthropic==0.116.0
-openai==2.45.0
-python-dotenv==1.2.2
+flask
+openai
+python-dotenv
