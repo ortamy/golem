@@ -12,7 +12,13 @@ const TransComp = (function() {
     'Берешит 1:1': {
       tm: 'בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ',
       lxx: 'Ἐν ἀρχῇ ἐποίησεν ὁ θεὸς τὸν οὐρανὸν καὶ τὴν γῆν',
-      synodal: 'В начале сотворил Бог небо и землю.'
+      synodal: 'В начале сотворил Бог небо и землю.',
+      // Тестовая карта источников для Берешит 1:1.
+      sourceWitness: {
+        qumran: 'בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ',
+        samaritan: 'בְּרֵאשִׁית בָּרָא אֱלֹהִם אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ',
+        note: 'Для Берешит 1:1 ТМ и Кумранское чтение совпадают; в Самаритянском слое отмечено одно расхождение написания.'
+      }
     },
     'Берешит 1:2': {
       tm: 'וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם',
@@ -64,18 +70,7 @@ const TransComp = (function() {
     return new URL('data/' + name, document.baseURI).href;
   }
 
-  // ===== ВКЛАДКИ =====
-  function switchTab(tabId) {
-    document.querySelectorAll('#translation-comparator .lab-tab').forEach(function(btn) {
-      btn.classList.toggle('active', btn.dataset.tab === tabId);
-    });
-    document.querySelectorAll('#translation-comparator .tc-tab-panel').forEach(function(panel) {
-      panel.style.display = (panel.id === tabId) ? '' : 'none';
-    });
-    if (tabId === 'tc-tab-witnesses' && !_witnesses) loadWitnesses();
-  }
-
-  // ===== ВКЛАДКА «СРАВНЕНИЕ» =====
+  // ===== СРАВНИТЕЛЬНАЯ КАРТА =====
   function search() {
     var query = document.getElementById('tc-search').value.trim();
     var results = document.getElementById('tc-results');
@@ -103,13 +98,88 @@ const TransComp = (function() {
     }
 
     var entry = DATA[matchKey];
-    document.getElementById('tc-tm').textContent = entry.tm;
-    document.getElementById('tc-lxx').textContent = entry.lxx;
-    document.getElementById('tc-synodal').textContent = entry.synodal;
-    var header = document.querySelector('#tc-results .lab-card-header');
-    if (header) header.textContent = matchKey;
-    results.style.display = 'block';
-    placeholder.style.display = 'none';
+    var render = function() {
+      var witness = (_witnesses || []).find(function(item) {
+        return item.ref.toLowerCase() === matchKey.toLowerCase();
+      });
+      renderComparisonMap(matchKey, entry, witness || entry.sourceWitness);
+      results.style.display = 'block';
+      placeholder.style.display = 'none';
+    };
+
+    if (_witnesses) render();
+    else loadWitnesses().then(render).catch(render);
+  }
+
+  function setComparisonText(id, value, fallback) {
+    var node = document.getElementById(id);
+    if (node) node.textContent = value || fallback || 'Нет данных для этого стиха.';
+  }
+
+  function comparisonWords(value) {
+    return String(value || '').trim().split(/\s+/).filter(Boolean);
+  }
+
+  function normalizeWord(word) {
+    return String(word || '').replace(/[\u0591-\u05C7\u05D0-\u05EA]/g, function(mark) {
+      return /[\u05D0-\u05EA]/.test(mark) ? mark : '';
+    }).replace(/[.,;:!?()\[\]{}"'׳״־—-]/g, '');
+  }
+
+  function renderComparedText(id, value, reference, fallback, isReference) {
+    var node = document.getElementById(id);
+    if (!node) return { match: 0, diff: 0, minor: 0, missing: 0 };
+    var words = comparisonWords(value);
+    if (!words.length) {
+      node.innerHTML = '<span class="tc-word tc-word-missing">[—] ' + escHtml(fallback) + '</span>';
+      return { match: 0, diff: 0, minor: 0, missing: 1 };
+    }
+    var referenceWords = comparisonWords(reference);
+    var counts = { match: 0, diff: 0, minor: 0, missing: 0 };
+    node.innerHTML = words.map(function(word, index) {
+      var status = isReference ? 'match' : (index >= referenceWords.length ? 'missing' : (normalizeWord(word) === normalizeWord(referenceWords[index]) ? 'match' : (normalizeWord(word).length === normalizeWord(referenceWords[index]).length ? 'minor' : 'diff')));
+      counts[status]++;
+      return '<span class="tc-word ' + (status === 'diff' ? 'red-zone' : 'tc-word-' + status) + '">' + escHtml(word) + '</span>';
+    }).join(' ');
+    if (!isReference && referenceWords.length > words.length) counts.missing += referenceWords.length - words.length;
+    return counts;
+  }
+
+  function renderSourceAnalysis(tm, qumran, samaritan, witness) {
+    var total = { match: 0, diff: 0, minor: 0, missing: 0 };
+    [{ id: 'tc-qumran', value: qumran, fallback: 'Прямого фрагмента не сохранилось.' },
+      { id: 'tc-samaritan', value: samaritan, fallback: 'Самаритянское чтение не сохранилось.' }].forEach(function(source) {
+      var counts = renderComparedText(source.id, source.value, tm, source.fallback, false);
+      total.match += counts.match; total.diff += counts.diff; total.minor += counts.minor; total.missing += counts.missing;
+    });
+    renderComparedText('tc-tm', tm, tm, 'Нет данных', true);
+    var sum = total.match + total.diff + total.minor + total.missing || 1;
+    var ratio = document.getElementById('tc-source-ratio');
+    if (ratio) ratio.innerHTML = '<span class="tc-ratio-match">Совпадения ' + Math.round(total.match / sum * 100) + '%</span><span class="tc-ratio-diff">Расхождения ' + Math.round((total.diff + total.minor) / sum * 100) + '%</span><span class="tc-ratio-missing">Отсутствуют ' + Math.round(total.missing / sum * 100) + '%</span>';
+    var keyDifference = document.getElementById('tc-source-key-difference');
+    if (keyDifference) keyDifference.textContent = (witness && witness.note) || 'Слова источников сопоставлены с ТМ по позиции; отличия показывают сдвиг чтения, пропуски отмечены отдельно.';
+  }
+
+  function renderComparisonMap(ref, entry, witness) {
+    renderSourceAnalysis(entry.tm, witness && witness.qumran, witness && witness.samaritan, witness);
+    setComparisonText('tc-lxx', (witness && witness.lxx) || entry.lxx, 'Нет данных');
+    setComparisonText('tc-peshitta', witness && witness.peshitta, 'Данные Пешитты не загружены.');
+    setComparisonText('tc-synodal', entry.synodal, 'Нет данных');
+    setComparisonText('tc-modern', '', 'Современный русский перевод пока не загружен.');
+    setComparisonText('tc-divergence', witness && witness.note, 'Для этого стиха отдельное описание расхождения пока не загружено.');
+    setComparisonText('tc-paleo-analysis', witness && witness.paleo_analysis, 'Палео-разбор для этого стиха пока не загружен.');
+
+    var divergenceText = witness && witness.note;
+    var paleoText = witness && witness.paleo_analysis;
+    var analysisSection = document.getElementById('tc-analysis-section');
+    if (analysisSection) analysisSection.hidden = !(divergenceText || paleoText);
+    var divergenceBlock = document.getElementById('tc-divergence-block');
+    var paleoBlock = document.getElementById('tc-paleo-block');
+    if (divergenceBlock) divergenceBlock.hidden = !divergenceText;
+    if (paleoBlock) paleoBlock.hidden = !paleoText;
+    var status = witness ? (DIVERGENCE_CLASS[witness.divergence] || 'highlight-gold') : 'highlight-gold';
+    var divergence = document.getElementById('tc-divergence');
+    if (divergence) divergence.className = 'tc-analysis-text ' + status;
   }
 
   // ===== ВКЛАДКА «СВИДЕТЕЛИ» =====
@@ -118,10 +188,9 @@ const TransComp = (function() {
 
   function loadWitnesses() {
     var panel = document.getElementById('tc-witnesses-table');
-    if (!panel) return;
-    panel.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка свидетелей...</div></div>';
+    if (panel) panel.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка свидетелей...</div></div>';
 
-    fetch(dataPath('witnesses.json'))
+    return fetch(dataPath('witnesses.json'))
       .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function(data) {
         _witnesses = Array.isArray(data) ? data : [];
@@ -129,7 +198,8 @@ const TransComp = (function() {
         renderDivergenceMap();
       })
       .catch(function(err) {
-        panel.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки свидетелей: ' + escHtml(err.message) + '</div>';
+        _witnesses = [];
+        if (panel) panel.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки свидетелей: ' + escHtml(err.message) + '</div>';
       });
   }
 
@@ -237,15 +307,16 @@ const TransComp = (function() {
     var root = document.getElementById('translation-comparator');
     if (!root) return;
 
-    root.querySelectorAll('.lab-tab').forEach(function(btn) {
-      btn.addEventListener('click', function() { switchTab(btn.dataset.tab); });
-    });
+    if (document.getElementById('tc-search')) {
+      document.getElementById('tc-search').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') search();
+      });
+    }
   }
 
   return {
     init: init,
     search: search,
-    switchTab: switchTab,
     showWitnessDetail: showWitnessDetail
   };
 })();

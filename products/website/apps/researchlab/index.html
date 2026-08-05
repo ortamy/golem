@@ -150,7 +150,7 @@
         <a href="#scripture-reader" class="sidebar-item" data-module="scripture-reader"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Книгочтение</a>
         <a href="#generators" class="sidebar-item" data-module="generators"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генераторы</a>
         <a href="#checkers" class="sidebar-item" data-module="checkers"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Чекеры</a>
-        <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="Сравнение переводов">Сравнение переводов</a>
+        <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="Компаратор">Компаратор</a>
           <a href="#analyzers" class="sidebar-item" data-module="analyzers"><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Анализаторы</a>
       </div>
     </div>
@@ -442,7 +442,7 @@ const LabSearch = {
       { key: 'heraldry', label: 'Гербовник', icon: '<img src="../../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Гербовник" style="vertical-align: middle; margin-right: 6px;">', items: [] },
       { key: 'scripture', label: 'Книгочтение', icon: '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Книгочтение" style="vertical-align: middle; margin-right: 6px;">', items: [] },
       { key: 'religionisms', label: 'Религионизмы', icon: '<img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Религионизмы" style="vertical-align: middle; margin-right: 6px;">', items: [] },
-      { key: 'translations', label: 'Сравнение переводов', icon: '<img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Переводы" style="vertical-align: middle; margin-right: 6px;">', items: [] }
+      { key: 'translations', label: 'Компаратор', icon: '<img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Компаратор" style="vertical-align: middle; margin-right: 6px;">', items: [] }
     ];
 
     var byKey = {};
@@ -529,7 +529,7 @@ const LabSearch = {
     if (window.TransComp && window._tcData) {
       Object.keys(window._tcData).forEach(function(key) {
         if (key.toLowerCase().indexOf(query) !== -1) {
-          push('translations', '<img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Сравнение переводов" style="vertical-align: middle; margin-right: 6px;">', key, 'translation-comparator', 'Сравнение переводов');
+          push('translations', '<img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Компаратор" style="vertical-align: middle; margin-right: 6px;">', key, 'translation-comparator', 'Компаратор');
         }
       });
     }
