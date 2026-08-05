@@ -749,6 +749,43 @@ const PageController = (function() {
     run(query);
   }
 
+  function renderAgentDetail(container, agentId) {
+    var detail = container.querySelector('#agent-detail-view');
+    var list = container.querySelector('.agent-list-view');
+    var agent = (agentMapData || []).filter(function(item) { return item.id === agentId; })[0];
+    if (!detail || !agent) return;
+    if (list) list.hidden = true;
+    detail.hidden = false;
+    detail.innerHTML = '<div class="agent-detail-page">' +
+      '<div class="agent-detail-hero"><div class="agent-detail-icon"><img src="../../assets/icons/32/' + escapeHtml(agent.icon) + '.png" alt=""></div><div><div class="agent-detail-kicker">GOLEM · AI-AGENTS</div><h1>' + escapeHtml(agent.name) + '</h1><p class="agent-detail-role">' + escapeHtml(agent.desc) + '</p><div class="agent-detail-meta"><span>' + escapeHtml(agent.cat) + '</span><span>' + escapeHtml(agent.model) + '</span><span class="agent-detail-status">Готов к запуску</span></div></div></div>' +
+      '<div class="agent-detail-grid"><section class="agent-detail-section agent-detail-wide"><h2>Запуск агента</h2><form id="agent-run-form"><label for="agent-run-input">Запрос</label><textarea id="agent-run-input" class="lab-textarea agent-prompt" rows="4">разбери слово Берешит</textarea><button type="submit" class="lab-btn lab-btn-primary" id="agent-run-button">Запустить</button></form></section>' +
+      '<section class="agent-detail-section agent-detail-wide"><h2>Результат</h2><pre id="agent-run-output" class="agent-output" aria-live="polite">Результат появится после запуска.</pre></section></div>' +
+      '<button type="button" class="lab-btn lab-btn-secondary agent-detail-back" onclick="LabRouter.navigate(\'ai-agents\')">← К списку агентов</button></div>';
+    var form = detail.querySelector('#agent-run-form');
+    var input = detail.querySelector('#agent-run-input');
+    var output = detail.querySelector('#agent-run-output');
+    var button = detail.querySelector('#agent-run-button');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      var query = input.value.trim();
+      if (!query) return;
+      button.disabled = true;
+      output.textContent = 'Запуск пайплайна…';
+      fetch('http://localhost:5000/run', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: query }) })
+        .then(function(response) { if (!response.ok) throw new Error('HTTP ' + response.status); return response.json(); })
+        .then(function(result) { output.textContent = JSON.stringify(result, null, 2); })
+        .catch(function(error) { output.textContent = 'Ошибка запуска: ' + error.message; })
+        .then(function() { button.disabled = false; });
+    });
+  }
+
+  function showAgentList(container) {
+    var detail = container.querySelector('#agent-detail-view');
+    var list = container.querySelector('.agent-list-view');
+    if (detail) detail.hidden = true;
+    if (list) list.hidden = false;
+  }
+
   // ===== ОСНОВНОЙ МЕТОД РЕНДЕРИНГА =====
   function render(moduleId, container, parsed) {
     console.log('[PC] Рендерим модуль:', moduleId, container);
@@ -760,6 +797,11 @@ const PageController = (function() {
       }
       if (moduleId === 'methodology' && window.MethodologyLab) {
         window.MethodologyLab.init(container, parsed);
+      }
+      if (moduleId === 'ai-agents' && parsed && parsed.segments && parsed.segments[1]) {
+        renderAgentDetail(container, parsed.segments[1]);
+      } else if (moduleId === 'ai-agents') {
+        showAgentList(container);
       }
       return;
     }
@@ -1100,7 +1142,8 @@ const PageController = (function() {
           { icon: 'paleo/track', name: 'Архитектор потока', desc: 'Проектирует порядок вызова агентов.', model: 'Claude Sonnet 4', cat: 'Оркестрация' },
           { icon: 'ui/link', name: 'Связной', desc: 'Связывает разрозненные исследования в единую сеть.', model: 'Claude Sonnet 4', cat: 'Оркестрация' }
         ];
-        agents.forEach(function(a, i) { a.id = 'agent-' + i; });
+        var agentSlugs = ['orchestrator', 'researcher', 'exposer', 'collector', 'critic', 'semitologist', 'comparator', 'editor', 'paleo-translator', 'frontend-developer', 'ai-engineer', 'verifier', 'technical-writer', 'code-reviewer', 'flow-architect', 'liaison'];
+        agents.forEach(function(a, i) { a.id = agentSlugs[i] || ('agent-' + i); });
         agentMapData = agents;
         var cards = agents.map(function(a) {
           return '<button type="button" class="tool-card agent-card agent-list-card' + (a.featured ? ' agent-card-orchestrator' : '') + '" data-agent-id="' + a.id + '" onclick="LabRouter.navigate(\'ai-agents\',[\'' + a.id + '\'])" aria-label="Открыть страницу агента: ' + a.name + '"><span class="tool-icon"><img src="../../assets/icons/32/' + a.icon + '.png" width="32" height="32" alt="' + a.name + '"></span>' +
@@ -1116,6 +1159,9 @@ const PageController = (function() {
           '<div id="agent-map-view" class="agent-map-view" hidden></div>' +
           '<div id="agent-server-view" class="agent-server-view" hidden></div>';
         container.dataset.loaded = '1';
+        if (parsed && parsed.segments && parsed.segments[1]) {
+          renderAgentDetail(container, parsed.segments[1]);
+        }
         break;
 
       case 'ed-chat':

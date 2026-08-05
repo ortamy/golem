@@ -6,6 +6,21 @@ from orchestrator import dispatch
 app = Flask(__name__)
 
 
+@app.after_request
+def add_cors_headers(response):
+    """Разрешает Research Lab, открытой на другом локальном порту, вызвать API."""
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    return response
+
+
+@app.route("/run", methods=["OPTIONS"])
+def run_options():
+    return ("", 204)
+
+
+@app.post("/run")
 @app.post("/api/run")
 def run_pipeline():
     payload = request.get_json(silent=True) or {}
