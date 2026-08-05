@@ -14,7 +14,8 @@
     ai: '../../assets/icons/32/crafts/hammer-and-chisel.png',
     dialect: '../../assets/icons/32/scribe/scroll.png',
     tensor: '../../assets/icons/32/archaeology/testtube.png',
-    word: '../../assets/icons/32/archaeology/testtube.png'
+    word: '../../assets/icons/32/archaeology/testtube.png',
+    state: '../../assets/icons/32/paleo/track.png'
   };
   var LAYERS = [
     { id: 'hellenization', name: 'Эллинизация', markers: ['абстракц', 'идея', 'философ', 'категор', 'теор'], diagnosis: 'Предметное действие переводится в отвлечённую идею или категорию.' },
@@ -84,7 +85,50 @@
   function card(icon, title, description, route, tag) { return '<article class="analyzer-card"><img class="analyzer-card__icon" src="' + icon + '" alt=""><h2>' + esc(title) + '</h2><p>' + esc(description) + '</p><div class="analyzer-card__footer"><span class="analyzer-card__tag">' + esc(tag) + '</span><a class="lab-btn lab-btn-primary lab-btn-sm" href="#' + route + '">Открыть</a></div></article>'; }
 
   function renderOverview(container) {
-    container.innerHTML = '<div class="analyzers-shell">' + hero('GOLEM · RESEARCH LAB', 'Анализаторы', 'Вертикальные инструменты для диагностики текста: увидеть слой, проверить смысловой сдвиг и найти слова, которые требуют палео-восстановления.') + '<div class="analyzers-grid">' + card(ICONS.layer, 'Слой-анализ', 'Показывает процентное соотношение восьми слоёв подмен и формирует краткую диагностику доминирующего слоя.', 'layer-analyzer', 'структура / проценты') + card(ICONS.ai, 'ИИ-анализ', 'Даёт смысловую интерпретацию и рекомендации. Сейчас работает автономный mock; API подключается через единый адаптер.', 'ai-analyzer', 'локально / API') + card(ICONS.dialect, 'Диалект-анализ', 'Находит грецизмы и латинизмы и предлагает ивритские или палео-аналоги для дальнейшей проверки.', 'dialect-analyzer', 'словарь / замена') + card(ICONS.tensor, 'Лингвистический тензор', 'Точечное сравнение двух языков по шести осям: где поток удерживает действие, корень и физику образа.', 'linguistic-tensor', 'сравнение / 6 осей') + card(ICONS.word, 'Разбор слов', 'Разбирает слово по палео-механике: показывает палео-образы, корень, значение и цепочку подмен.', 'word-analyzer', 'палео / корни') + '</div></div>';
+    container.innerHTML = '<div class="analyzers-shell">' + hero('GOLEM · RESEARCH LAB', 'Анализаторы', 'Вертикальные инструменты для диагностики текста: увидеть слой, проверить смысловой сдвиг и найти слова, которые требуют палео-восстановления.') + '<div class="analyzers-grid">' + card(ICONS.layer, 'Слой-анализ', 'Показывает процентное соотношение восьми слоёв подмен и формирует краткую диагностику доминирующего слоя.', 'layer-analyzer', 'структура / проценты') + card(ICONS.ai, 'ИИ-анализ', 'Даёт смысловую интерпретацию и рекомендации. Сейчас работает автономный mock; API подключается через единый адаптер.', 'ai-analyzer', 'локально / API') + card(ICONS.dialect, 'Диалект-анализ', 'Находит грецизмы и латинизмы и предлагает ивритские или палео-аналоги для дальнейшей проверки.', 'dialect-analyzer', 'словарь / замена') + card(ICONS.state, 'Анализатор состояний (Теhилим)', 'Выберите состояние и получите соответствующий псалом с краткой диагностикой перехода.', 'state-analyzer', 'состояние / псалом') + card(ICONS.tensor, 'Лингвистический тензор', 'Точечное сравнение двух языков по шести осям: где поток удерживает действие, корень и физику образа.', 'linguistic-tensor', 'сравнение / 6 осей') + card(ICONS.word, 'Разбор слов', 'Разбирает слово по палео-механике: показывает палео-образы, корень, значение и цепочку подмен.', 'word-analyzer', 'палео / корни') + '</div></div>';
+  }
+
+  function copyText(text, status) {
+    function done() { status.textContent = 'Текст псалма скопирован.'; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(function() { fallback(); });
+      return;
+    }
+    fallback();
+    function fallback() {
+      var area = document.createElement('textarea');
+      area.value = text;
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      try { document.execCommand('copy'); done(); } catch (error) { status.textContent = 'Не удалось скопировать текст.'; }
+      document.body.removeChild(area);
+    }
+  }
+
+  function renderStateAnalyzer(container) {
+    container.innerHTML = '<div class="analyzers-shell">' + pageHead(ICONS.state, 'Анализатор состояний (Теhилим)', 'Выберите состояние потока и получите связанный псалом с краткой диагностикой.') + '<div class="state-analyzer-workspace"><section class="analyzer-panel"><label class="analyzer-label" for="state-analyzer-select">Состояние</label><select class="analyzer-select" id="state-analyzer-select"><option value="">Выберите состояние</option></select><p class="analyzer-helper">Псалом и диагностика загружаются из локального набора данных Research Lab.</p></section><section class="analyzer-panel state-analyzer-result" id="state-analyzer-result" aria-live="polite"><div class="analyzer-empty">Выберите состояние, чтобы открыть псалом.</div></section></div></div>';
+    var select = container.querySelector('#state-analyzer-select');
+    var result = container.querySelector('#state-analyzer-result');
+    fetch('data/tehillim.json').then(function(response) {
+      if (!response.ok) throw new Error('Не удалось загрузить Теhилим.');
+      return response.json();
+    }).then(function(items) {
+      items.forEach(function(item) {
+        var option = document.createElement('option');
+        option.value = item.state;
+        option.textContent = item.label || item.state;
+        select.appendChild(option);
+      });
+      select.addEventListener('change', function() {
+        var item = items.find(function(entry) { return entry.state === select.value; });
+        if (!item) { result.innerHTML = '<div class="analyzer-empty">Выберите состояние, чтобы открыть псалом.</div>'; return; }
+        var copyPayload = 'Теhилим ' + item.psalm + '\n\n' + item.text;
+        result.innerHTML = '<div class="state-analyzer-heading"><span class="analyzers-chip">' + esc(item.label || item.state) + '</span><strong>Псалом ' + esc(item.psalm) + '</strong></div><div class="state-analyzer-psalm" dir="auto">' + esc(item.text) + '</div><div class="analyzer-diagnosis"><strong>Диагностика состояния</strong>' + esc(item.diagnosis) + '</div><div class="analyzer-controls"><button class="lab-btn lab-btn-secondary" type="button" id="state-analyzer-copy">Скопировать текст</button><span class="analyzer-status" id="state-analyzer-status" role="status" aria-live="polite"></span></div>';
+        container.querySelector('#state-analyzer-copy').addEventListener('click', function() { copyText(copyPayload, container.querySelector('#state-analyzer-status')); });
+      });
+    }).catch(function(error) { result.innerHTML = '<div class="lab-alert lab-alert-error">' + esc(error.message) + '</div>'; });
   }
 
   function resultShell(container, body) { var result = container.querySelector('.analyzer-result'); if (result) result.innerHTML = body; }
@@ -110,5 +154,5 @@
     container.querySelector('#analyzer-clear').addEventListener('click', function() { input.value = ''; status.textContent = ''; resultShell(container, '<div class="analyzer-empty">Заполните поле и запустите анализ.</div>'); input.focus(); });
   }
 
-  window.GolemAnalyzers = { render: function(container, moduleId) { if (moduleId === 'analyzers') renderOverview(container); else renderAnalyzerPage(container, moduleId === 'layer-analyzer' ? 'layer' : moduleId === 'ai-analyzer' ? 'ai' : 'dialect'); }, adapter: AnalyzerAdapter, layers: LAYERS };
+  window.GolemAnalyzers = { render: function(container, moduleId) { if (moduleId === 'analyzers') renderOverview(container); else if (moduleId === 'state-analyzer') renderStateAnalyzer(container); else renderAnalyzerPage(container, moduleId === 'layer-analyzer' ? 'layer' : moduleId === 'ai-analyzer' ? 'ai' : 'dialect'); }, adapter: AnalyzerAdapter, layers: LAYERS };
 })(window, document);

@@ -65,6 +65,11 @@
 .analyzer-dialect-item:last-child { border-bottom: 0; }
 .analyzer-dialect-item span:last-child { color: var(--accent-green); font-weight: 700; text-align: right; }
 .analyzer-status { min-height: 24px; margin-top: 10px; color: var(--text-muted); font-size: 13px; }
+.state-analyzer-workspace { display: grid; grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr); gap: 18px; align-items: start; }
+.state-analyzer-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.state-analyzer-heading strong { color: var(--accent-gold-hover); font-family: var(--font-heading); font-size: 22px; }
+.state-analyzer-psalm { padding: 18px; color: var(--text-primary); background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 7px; font: 18px/1.7 var(--font-serif); white-space: pre-wrap; }
+@media (max-width: 900px) { .state-analyzer-workspace { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .analyzers-grid { grid-template-columns: 1fr; } .analyzer-workspace { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .analyzers-hero { padding: 24px 20px; } .analyzer-panel { padding: 16px; } .analyzer-settings, .analyzer-dialect-grid { grid-template-columns: 1fr; } .analyzer-page-head { gap: 10px; } }
 @media (prefers-reduced-motion: reduce) { .analyzer-card, .analyzer-bar span { transition: none; } }

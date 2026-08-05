@@ -955,6 +955,7 @@ const PageController = (function() {
       case 'layer-analyzer':
       case 'ai-analyzer':
       case 'dialect-analyzer':
+      case 'state-analyzer':
         container.innerHTML = '';
         container.dataset.loaded = '1';
         if (window.GolemAnalyzers) window.GolemAnalyzers.render(container, moduleId);
