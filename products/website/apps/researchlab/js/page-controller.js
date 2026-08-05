@@ -40,6 +40,23 @@ const PageController = (function() {
     container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">' + escapeHtml(text || 'Загрузка…') + '</div></div>';
   }
 
+  var AGENT_API_URL = 'http://127.0.0.1:5000';
+
+  function checkAgentServer() {
+    return fetch(AGENT_API_URL + '/api/health', { cache: 'no-store' }).then(function(response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
+    });
+  }
+
+  function isAgentServerUnavailable(error) {
+    return error && (error.name === 'TypeError' || error.name === 'NetworkError' || /Failed to fetch|NetworkError|ERR_CONNECTION_REFUSED/i.test(error.message || ''));
+  }
+
+  function agentServerMessage() {
+    return '<div class="lab-alert lab-alert-error">Сервер AI-Агентов недоступен. Запустите из корня проекта: <code>python products/agents/server.py</code></div>';
+  }
+
   // ===== JSON-СТРАНИЦЫ (словари, методология, палео-механика) =====
 
   var jsonCache = {};
@@ -771,10 +788,12 @@ const PageController = (function() {
       if (!query) return;
       button.disabled = true;
       output.textContent = 'Запуск пайплайна…';
-      fetch('http://localhost:5000/run', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: query }) })
+      checkAgentServer().then(function() {
+        return fetch(AGENT_API_URL + '/run', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: query }) });
+      })
         .then(function(response) { if (!response.ok) throw new Error('HTTP ' + response.status); return response.json(); })
         .then(function(result) { output.textContent = JSON.stringify(result, null, 2); })
-        .catch(function(error) { output.textContent = 'Ошибка запуска: ' + error.message; })
+        .catch(function(error) { output.innerHTML = isAgentServerUnavailable(error) ? agentServerMessage() : 'Ошибка запуска: ' + escapeHtml(error.message); })
         .then(function() { button.disabled = false; });
     });
   }
@@ -782,8 +801,125 @@ const PageController = (function() {
   function showAgentList(container) {
     var detail = container.querySelector('#agent-detail-view');
     var list = container.querySelector('.agent-list-view');
+    var pipelines = container.querySelector('.agent-pipelines-view');
     if (detail) detail.hidden = true;
+    if (pipelines) pipelines.hidden = true;
     if (list) list.hidden = false;
+  }
+
+  function openAgentPipelines(container) {
+    var list = container.querySelector('.agent-list-view');
+    var detail = container.querySelector('#agent-detail-view');
+    var mapView = container.querySelector('.agent-map-view');
+    var serverView = container.querySelector('.agent-server-view');
+    var pipelines = container.querySelector('.agent-pipelines-view');
+    if (!pipelines) {
+      pipelines = document.createElement('section');
+      pipelines.className = 'agent-pipelines-view';
+      container.appendChild(pipelines);
+    }
+    if (list) list.hidden = true;
+    if (detail) detail.hidden = true;
+    if (mapView) mapView.hidden = true;
+    if (serverView) serverView.hidden = true;
+    pipelines.hidden = false;
+    pipelines.innerHTML = '<div class="agent-pipelines-head"><div><p class="agent-detail-kicker">GOLEM · ОРКЕСТРАЦИЯ</p><h2>Пайплайны</h2><p>Готовые цепочки передачи контекста между агентами.</p></div><div class="pipeline-page-actions"><button type="button" class="lab-btn lab-btn-primary pipeline-create-btn" data-pipeline-create>+ Создать пайплайн</button><button type="button" class="lab-btn lab-btn-secondary" data-pipelines-back>← К списку агентов</button></div></div><div class="agent-pipelines-status lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка пайплайнов…</div></div>';
+    pipelines.querySelector('[data-pipelines-back]').addEventListener('click', function() {
+      showAgentList(container);
+    });
+    checkAgentServer().then(function() {
+      return fetch(AGENT_API_URL + '/api/pipelines');
+    }).then(function(response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
+    }).then(function(data) {
+      renderAgentPipelines(container, pipelines, data);
+    }).catch(function(error) {
+      pipelines.querySelector('.agent-pipelines-status').outerHTML = isAgentServerUnavailable(error) ? agentServerMessage() : '<div class="lab-alert lab-alert-error">Не удалось загрузить пайплайны: ' + escapeHtml(error.message) + '</div>';
+    });
+  }
+
+  function renderAgentPipelines(container, pipelines, data) {
+    var cards = (Array.isArray(data) ? data : []).map(function(pipeline) {
+      var agents = (pipeline.agents || []).map(function(agentName, agentIndex) {
+        var agent = (agentMapData || []).filter(function(item) { return item.name === agentName; })[0] || { name: agentName, desc: 'Участник цепочки передачи контекста.', icon: 'paleo/track' };
+        return (agentIndex ? '<span class="pipeline-flow-arrow" aria-hidden="true">→</span>' : '') + '<li class="pipeline-timeline-step" tabindex="0" title="' + escapeHtml(agent.desc) + '" data-agent-name="' + escapeHtml(agent.name) + '" data-status="pending"><img src="../../assets/icons/32/' + escapeHtml(agent.icon) + '.png" alt=""><span class="pipeline-status-dot" aria-hidden="true"></span><div><strong>' + escapeHtml(agent.name) + '</strong><small>' + escapeHtml(agent.desc) + '</small></div></li>';
+      }).join('');
+      return '<article class="agent-pipeline-card" data-pipeline-id="' + escapeHtml(pipeline.id) + '"><div class="pipeline-card-head"><div class="pipeline-card-title"><img src="../../assets/icons/32/paleo/track.png" alt=""><h3>' + escapeHtml(pipeline.name) + '</h3><span class="pipeline-status-badge" data-pipeline-run-status data-status="pending">Ожидание запуска</span></div><div class="agent-pipeline-actions"><button type="button" class="pipeline-icon-btn" data-pipeline-edit aria-label="Редактировать пайплайн">✎</button><button type="button" class="pipeline-icon-btn pipeline-delete" data-pipeline-delete aria-label="Удалить пайплайн">✕</button></div></div><p class="agent-pipeline-route">' + escapeHtml(pipeline.description || 'Цепочка передачи контекста') + '</p><ol class="pipeline-timeline" aria-label="Этапы пайплайна">' + agents + '</ol><button type="button" class="lab-btn lab-btn-primary pipeline-run-btn" data-pipeline-run>Запустить</button></article>';
+    }).join('');
+    pipelines.querySelector('.agent-pipelines-status').outerHTML = '<div class="agent-pipelines-grid">' + (cards || '<div class="lab-alert lab-alert-info">Пайплайны пока не созданы.</div>') + '</div>';
+    pipelines.querySelector('[data-pipeline-create]').addEventListener('click', function() { openPipelineModal(container, pipelines, null); });
+    pipelines.querySelectorAll('[data-pipeline-edit]').forEach(function(button) {
+      button.addEventListener('click', function() { openPipelineModal(container, pipelines, findPipeline(data, this.closest('[data-pipeline-id]').dataset.pipelineId)); });
+    });
+    pipelines.querySelectorAll('[data-pipeline-delete]').forEach(function(button) {
+      button.addEventListener('click', function() { deletePipeline(container, pipelines, data, this.closest('[data-pipeline-id]').dataset.pipelineId); });
+    });
+    pipelines.querySelectorAll('[data-pipeline-run]').forEach(function(button) {
+      button.addEventListener('click', function() { runPipeline(this.closest('[data-pipeline-id]'), findPipeline(data, this.closest('[data-pipeline-id]').dataset.pipelineId)); });
+    });
+  }
+
+  function runPipeline(card, pipeline) {
+    var steps = Array.prototype.slice.call(card.querySelectorAll('.pipeline-timeline-step'));
+    var status = card.querySelector('[data-pipeline-run-status]');
+    var button = card.querySelector('[data-pipeline-run]');
+    if (!steps.length || !pipeline || button.disabled) return;
+    button.disabled = true;
+    steps.forEach(function(step) { step.dataset.status = 'pending'; });
+    var index = 0;
+    function advance() {
+      if (index >= steps.length) {
+        status.textContent = 'Готово';
+        status.dataset.status = 'done';
+        button.disabled = false;
+        return;
+      }
+      var step = steps[index];
+      step.dataset.status = 'running';
+      status.textContent = '⏳ ' + step.dataset.agentName;
+      setTimeout(function() {
+        if (pipeline.failAt && index === pipeline.failAt) {
+          step.dataset.status = 'error';
+          status.textContent = 'Ошибка: ' + step.dataset.agentName;
+          status.dataset.status = 'error';
+          button.disabled = false;
+          return;
+        }
+        step.dataset.status = 'done';
+        index += 1;
+        advance();
+      }, 700);
+    }
+    advance();
+  }
+
+  function findPipeline(pipelines, id) {
+    return pipelines.filter(function(item) { return item.id === id; })[0] || null;
+  }
+
+  function openPipelineModal(container, pipelines, pipeline) {
+    var modal = document.createElement('div');
+    modal.className = 'pipeline-modal';
+    modal.innerHTML = '<div class="pipeline-modal-backdrop" data-pipeline-close></div><form class="pipeline-dialog"><div class="modal-header"><h3>' + (pipeline ? 'Редактировать пайплайн' : 'Новый пайплайн') + '</h3><button type="button" class="modal-close" data-pipeline-close aria-label="Закрыть">×</button></div><div class="pipeline-form-body"><label>Название<input name="name" class="lab-input" required maxlength="100" value="' + escapeHtml(pipeline ? pipeline.name : '') + '"></label><label>Краткое описание<textarea name="description" class="lab-textarea" rows="3" maxlength="240">' + escapeHtml(pipeline ? pipeline.description : '') + '</textarea></label><fieldset><legend>Агенты по порядку</legend><div class="pipeline-agent-list" data-pipeline-agent-list></div><div class="pipeline-agent-add"><select class="lab-select" data-pipeline-agent-select><option value="">Выберите агента</option>' + agentMapData.map(function(agent) { return '<option value="' + escapeHtml(agent.name) + '">' + escapeHtml(agent.name) + '</option>'; }).join('') + '</select><button type="button" class="lab-btn lab-btn-secondary" data-pipeline-agent-add>Добавить</button></div></fieldset></div><div class="modal-footer"><button type="button" class="lab-btn lab-btn-secondary" data-pipeline-close>Отмена</button><button type="submit" class="lab-btn lab-btn-primary">Сохранить</button></div></form>';
+    document.body.appendChild(modal);
+    var list = modal.querySelector('[data-pipeline-agent-list]');
+    var selected = (pipeline && pipeline.agents || []).slice();
+    function renderSelected() { list.innerHTML = selected.map(function(agent, index) { return '<div class="pipeline-agent-row"><span>' + (index + 1) + '. ' + escapeHtml(agent) + '</span><button type="button" data-agent-up aria-label="Поднять">↑</button><button type="button" data-agent-down aria-label="Опустить">↓</button><button type="button" data-agent-remove aria-label="Удалить">✕</button></div>'; }).join('') || '<span class="text-muted">Добавьте хотя бы одного агента.</span>'; }
+    renderSelected();
+    modal.querySelector('[data-pipeline-agent-add]').addEventListener('click', function() { var value = modal.querySelector('[data-pipeline-agent-select]').value; if (value && selected.indexOf(value) === -1) { selected.push(value); renderSelected(); } });
+    list.addEventListener('click', function(event) { var row = event.target.closest('.pipeline-agent-row'); if (!row) return; var index = Array.prototype.indexOf.call(list.children, row); if (event.target.hasAttribute('data-agent-up') && index > 0) { var item = selected.splice(index, 1)[0]; selected.splice(index - 1, 0, item); } if (event.target.hasAttribute('data-agent-down') && index < selected.length - 1) { var next = selected.splice(index, 1)[0]; selected.splice(index + 1, 0, next); } if (event.target.hasAttribute('data-agent-remove')) selected.splice(index, 1); renderSelected(); });
+    modal.querySelectorAll('[data-pipeline-close]').forEach(function(button) { button.addEventListener('click', function() { modal.remove(); }); });
+    modal.querySelector('form').addEventListener('submit', function(event) { event.preventDefault(); var form = new FormData(event.target); if (!selected.length) { alert('Добавьте хотя бы одного агента.'); return; } savePipeline(container, pipelines, pipeline, { name: form.get('name'), description: form.get('description'), agents: selected }).then(function() { modal.remove(); }); });
+  }
+
+  function savePipeline(container, pipelines, pipeline, payload) {
+    return fetch(AGENT_API_URL + '/api/pipelines' + (pipeline ? '/' + encodeURIComponent(pipeline.id) : ''), { method: pipeline ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).then(function(response) { if (!response.ok) return response.json().then(function(error) { throw new Error(error.error || 'HTTP ' + response.status); }); return response.json(); }).then(function() { openAgentPipelines(container); });
+  }
+
+  function deletePipeline(container, pipelines, data, id) {
+    if (!window.confirm('Удалить этот пайплайн?')) return;
+    fetch(AGENT_API_URL + '/api/pipelines/' + encodeURIComponent(id), { method: 'DELETE' }).then(function(response) { if (!response.ok) throw new Error('HTTP ' + response.status); return response.json(); }).then(function() { openAgentPipelines(container); }).catch(function(error) { alert('Не удалось удалить пайплайн: ' + error.message); });
   }
 
   // ===== ОСНОВНОЙ МЕТОД РЕНДЕРИНГА =====
@@ -1152,12 +1288,29 @@ const PageController = (function() {
             '<span class="tool-badge model agent-list-model">' + a.model + '</span>' +
             '<span class="agent-list-role" hidden>' + a.cat + '</span>' +
             '<span class="badge-category">' + a.cat + '</span>' +
-            '<span class="badge-dev">' + (a.featured ? 'Активен' : 'В разработке') + '</span></button>';
+            '<span class="badge-dev ' + (a.featured ? 'badge-dev-active' : 'badge-dev-progress') + '">' + (a.featured ? 'Активен' : 'В разработке') + '</span></button>';
         }).join('');
         container.innerHTML = '<div class="agent-list-view"><div class="agent-grid">' + cards + '</div></div>' +
           '<div id="agent-detail-view" class="agent-detail-view" hidden></div>' +
           '<div id="agent-map-view" class="agent-map-view" hidden></div>' +
-          '<div id="agent-server-view" class="agent-server-view" hidden></div>';
+          '<div id="agent-server-view" class="agent-server-view" hidden></div>' +
+          '<div class="agent-pipelines-view" hidden></div>';
+        var agentControls = document.createElement('section');
+        agentControls.className = 'agent-controls-panel';
+        agentControls.setAttribute('aria-label', 'Управление агентами');
+        agentControls.innerHTML = '<button type="button" class="lab-btn lab-btn-primary agent-control-button" data-agent-map-open><img src="../../assets/icons/32/ui/web.png" alt="" aria-hidden="true"><span>Карта агентов</span></button>' +
+          '<button type="button" class="lab-btn lab-btn-secondary agent-control-button" data-agent-pipelines-open><img src="../../assets/icons/32/paleo/track.png" alt="" aria-hidden="true"><span>Пайплайны</span></button>' +
+          '<button type="button" class="lab-btn lab-btn-secondary agent-control-button" data-agent-server-open><img src="../../assets/icons/32/ui/settings.png" alt="" aria-hidden="true"><span>Запустить сервер</span></button>';
+        container.insertBefore(agentControls, container.querySelector('.agent-list-view'));
+        agentControls.querySelector('[data-agent-map-open]').addEventListener('click', function() {
+          if (window.AgentMap) window.AgentMap.open();
+        });
+        agentControls.querySelector('[data-agent-pipelines-open]').addEventListener('click', function() {
+          openAgentPipelines(container);
+        });
+        agentControls.querySelector('[data-agent-server-open]').addEventListener('click', function() {
+          if (window.AgentServer) window.AgentServer.open();
+        });
         container.dataset.loaded = '1';
         if (parsed && parsed.segments && parsed.segments[1]) {
           renderAgentDetail(container, parsed.segments[1]);

@@ -269,26 +269,6 @@
 
     hero.appendChild(icon);
     hero.appendChild(body);
-    if (moduleId === 'ai-agents') {
-      var actions = createElement('div', 'lab-hero__actions', '');
-      var mapButton = document.createElement('button');
-      mapButton.type = 'button';
-      mapButton.className = 'lab-btn lab-btn-primary lab-hero__action';
-      mapButton.title = 'Открыть карту агентов';
-      mapButton.setAttribute('aria-label', 'Открыть карту агентов');
-      mapButton.innerHTML = '<img src="../../assets/icons/32/ui/web.png" alt="" aria-hidden="true">';
-      mapButton.addEventListener('click', function() { window.AgentMap.open(); });
-      actions.appendChild(mapButton);
-      var serverButton = document.createElement('button');
-      serverButton.type = 'button';
-      serverButton.className = 'lab-btn lab-btn-secondary lab-hero__action';
-      serverButton.title = 'Настроить запуск сервера агентов';
-      serverButton.setAttribute('aria-label', 'Настроить запуск сервера агентов');
-      serverButton.innerHTML = '<img src="../../assets/icons/32/ui/arrows.png" alt="" aria-hidden="true">';
-      serverButton.addEventListener('click', function() { window.AgentServer.open(); });
-      actions.appendChild(serverButton);
-      hero.appendChild(actions);
-    }
     return hero;
   }
 
