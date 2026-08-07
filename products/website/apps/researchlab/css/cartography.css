@@ -9,6 +9,74 @@
   margin: 0 auto;
 }
 
+.cartography-world {
+  margin: 0 0 28px;
+  padding: 22px;
+  background: var(--bg-card, #fffdf8);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(44, 24, 16, 0.08);
+}
+
+.cartography-world-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.cartography-world-kicker {
+  color: var(--accent-gold, #9d7210);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.cartography-world-head h2 {
+  margin: 4px 0;
+  color: var(--text-primary, #2c1810);
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 26px;
+}
+
+.cartography-world-head p {
+  margin: 0;
+  color: var(--text-muted, #6b5b4e);
+  font-family: var(--font-body, 'EB Garamond', Georgia, serif);
+}
+
+.cartography-world-mark {
+  color: var(--accent-gold, #b8860b);
+  font-family: var(--font-paleo, 'Times New Roman', serif);
+  font-size: 42px;
+  line-height: 1;
+}
+
+.cartography-world-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 8px;
+  background: #eee0bd;
+}
+
+.world-sea { fill: #eee0bd; }
+.world-graticule path { fill: none; stroke: #c9b98e; stroke-width: 1; opacity: .45; }
+.world-land { fill: #c29b55; stroke: #4a3020; stroke-width: 2.4; stroke-linejoin: round; }
+.world-borders path { fill: none; stroke: #76502d; stroke-width: 1.1; opacity: .8; stroke-linecap: round; stroke-linejoin: round; }
+.world-borders .world-river { stroke: #9d7c4a; stroke-width: 1.4; opacity: .7; }
+.world-labels { fill: #4a3020; font-family: var(--font-body, 'EB Garamond', Georgia, serif); font-size: 16px; font-weight: 600; }
+
+@media (max-width: 640px) {
+  .cartography-world { padding: 14px; }
+  .cartography-world-head h2 { font-size: 22px; }
+  .cartography-world-head p { font-size: 14px; }
+  .world-labels { font-size: 13px; }
+}
+
 .cartography-head {
   margin-bottom: 18px;
 }
@@ -41,6 +109,19 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+.cartography-era-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-right: 6px;
+  border-right: 1px solid var(--border-light, #d4c4a8);
+}
+
+.cartography-era-tab {
+  border-radius: 6px;
+  font-weight: 600;
 }
 
 .cartography-filter-btn {
@@ -332,6 +413,7 @@
   .cartography-page { padding: 16px; }
   .cartography-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cartography-stats { margin-left: 0; width: 100%; }
+  .cartography-era-tabs { width: 100%; border-right: 0; padding-right: 0; }
 }
 
 @media (max-width: 1100px) and (min-width: 769px) {

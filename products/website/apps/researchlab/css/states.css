@@ -202,13 +202,19 @@
 
 /* ===== СТРАНИЦА СОСТОЯНИЯ ===== */
 .state-detail {
-  max-width: 860px;
+  max-width: 1080px;
   margin: 0 auto;
+  padding: 0 32px 36px;
+  background: var(--bg-card, #fffdf8);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(44, 24, 16, 0.10);
+  overflow: hidden;
 }
 
 .state-detail-hero {
-  text-align: center;
-  padding: 40px 24px;
+  text-align: left;
+  padding: 40px 0 32px;
   margin-bottom: 32px;
   border-bottom: 1px solid var(--border-light, #d4c4a8);
   position: relative;
@@ -244,13 +250,14 @@
   color: var(--text-muted, #6b5b4e);
   font-style: normal;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .state-detail-section {
   margin-bottom: 28px;
   padding-bottom: 28px;
   border-bottom: 1px solid var(--border-light, #d4c4a8);
+  text-align: left;
 }
 
 .state-detail-section:last-child {
@@ -285,14 +292,14 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 16px;
 }
 
 .paleo-breakdown-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 4px;
   padding: 8px 12px;
   background: var(--bg-subtle, #f5f0e8);
@@ -314,7 +321,7 @@
 .paleo-breakdown-item .paleo-func {
   font-size: 10px;
   color: var(--text-muted, #6b5b4e);
-  text-align: center;
+  text-align: left;
   max-width: 80px;
 }
 
@@ -333,6 +340,10 @@
   border-radius: 14px;
   font-size: 13px;
   color: var(--text-secondary, #4a3728);
+}
+
+.state-example-card {
+  min-height: 54px;
 }
 
 /* Переходы */
@@ -366,6 +377,23 @@
   font-size: 20px;
   color: var(--accent-gold, #b8860b);
   flex-shrink: 0;
+}
+
+.transition-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 6px;
+  background: var(--bg-card, #fffdf8);
+}
+
+.transition-icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 .state-card-grid {
@@ -497,6 +525,12 @@
 
 .state-city-card:hover {
   border-color: var(--accent-gold, #b8860b);
+}
+
+.state-city-card:focus-visible,
+.transition-item:focus-visible {
+  outline: 2px solid var(--accent-gold, #b8860b);
+  outline-offset: 3px;
 }
 
 .state-city-card .city-name {
@@ -882,6 +916,22 @@
   align-items: center;
 }
 
+.states-toolbar {
+  width: 100%;
+  min-height: 58px;
+  justify-content: flex-end;
+  padding: 10px 16px;
+  background: var(--bg-card, #fffdf8);
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(44, 24, 16, 0.08);
+  box-sizing: border-box;
+}
+
+.states-toolbar .states-nav-back {
+  display: none;
+}
+
 .states-controls .states-nav-btn {
   padding: 8px 16px;
   font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
@@ -915,6 +965,25 @@
 
 /* ===== АДАПТАЦИЯ ===== */
 @media (max-width: 768px) {
+  .states-toolbar {
+    justify-content: stretch;
+  }
+
+  .states-toolbar .states-nav-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .state-detail {
+    width: 100%;
+    padding: 0 16px 24px;
+    border-radius: 6px;
+  }
+
+  .state-detail-hero {
+    padding-top: 28px;
+  }
+
   .states-page { padding: 16px; }
   .states-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .states-grid > .state-card:last-child:nth-child(7) { grid-column: auto; }

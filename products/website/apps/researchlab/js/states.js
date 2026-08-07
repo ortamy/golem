@@ -21,8 +21,14 @@ const GolemStates = (function() {
   let dataPromise = null;
 
   // Состояние модуля
-  let currentView = 'grid'; // 'grid' | 'detail'
+  let currentView = 'grid'; // 'grid' | 'detail' | 'diagnostic'
   let currentStateId = null;
+  // Состояние диагностики хранится отдельно от маршрута карты.
+  let diagnosticState = {
+    currentQuestion: 0,
+    answers: {},
+    completed: false
+  };
 
   // ===== УТИЛИТЫ =====
   function escapeHtml(text) {
@@ -107,7 +113,10 @@ const GolemStates = (function() {
     parsed = parsed || (LabRouter.parseHash ? LabRouter.parseHash() : { params: {} });
     var params = parsed.params || {};
 
-    if (params.state && statesById[params.state]) {
+    if (params.diagnostic === 'true') {
+      currentView = 'diagnostic';
+      currentStateId = null;
+    } else if (params.state && statesById[params.state]) {
       currentView = 'detail';
       currentStateId = params.state;
     } else {
@@ -127,6 +136,8 @@ const GolemStates = (function() {
 
     if (currentView === 'detail' && currentStateId) {
       html = renderStateDetail(currentStateId);
+    } else if (currentView === 'diagnostic') {
+      html = renderDiagnostic();
     } else {
       html = renderGrid();
     }
@@ -142,6 +153,13 @@ const GolemStates = (function() {
         var id = this.getAttribute('data-state-id');
         if (id) openState(id);
       });
+      card.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          var id = this.getAttribute('data-state-id');
+          if (id) openState(id);
+        }
+      });
     });
 
     // Клики по переходам
@@ -149,6 +167,13 @@ const GolemStates = (function() {
       item.addEventListener('click', function() {
         var id = this.getAttribute('data-to');
         if (id) openState(id);
+      });
+      item.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          var id = this.getAttribute('data-to');
+          if (id) openState(id);
+        }
       });
     });
 
@@ -158,6 +183,12 @@ const GolemStates = (function() {
         var id = this.getAttribute('data-city-id');
         if (id && window.Cartography) {
           Cartography.showDetail(id);
+        }
+      });
+      card.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          this.click();
         }
       });
     });
@@ -172,7 +203,7 @@ const GolemStates = (function() {
 
     var cardsHtml = sorted.map(function(s, i) {
       var color = s.color || '#b8860b';
-      return '<div class="state-card" data-state-id="' + escapeHtml(s.id) + '" tabindex="0" style="animation-delay:' + (i * 70) + 'ms; --state-color: ' + color + '">' +
+      return '<div class="state-card" data-state-id="' + escapeHtml(s.id) + '" role="button" aria-label="Открыть состояние: ' + escapeHtml(s.name) + '" tabindex="0" style="animation-delay:' + (i * 70) + 'ms; --state-color: ' + color + '">' +
         '<div class="state-card-paleo">' + escapeHtml(s.paleo || '') + '</div>' +
         '<h2 class="state-card-name">' + escapeHtml(s.name) + '</h2>' +
         '<div class="state-card-hebrew" dir="rtl">' + escapeHtml(s.hebrew || '') + '</div>' +
@@ -188,7 +219,7 @@ const GolemStates = (function() {
     }).join('');
 
     return '<div class="states-page">' +
-      '<div class="states-controls">' +
+      '<div class="states-controls states-toolbar">' +
         '<span class="states-nav-back"></span>' +
         '<button class="states-nav-btn active" onclick="GolemStates.openGrid()">' +
           '<img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt=""> Карта' +
@@ -253,8 +284,8 @@ const GolemStates = (function() {
       s.transitions.forEach(function(t) {
         var target = statesById[t.to];
         var targetName = target ? target.name : t.to;
-        transitionsHtml += '<div class="transition-item state-timeline-item" role="listitem" data-to="' + escapeHtml(t.to) + '">' +
-          '<span class="transition-arrow" aria-hidden="true">→</span>' +
+        transitionsHtml += '<div class="transition-item state-timeline-item" role="button" tabindex="0" aria-label="Открыть переход в состояние: ' + escapeHtml(targetName) + '" data-to="' + escapeHtml(t.to) + '">' +
+          '<span class="transition-icon" aria-hidden="true"><img src="../../assets/icons/32/ui/arrows.png" alt=""></span>' +
           '<div class="transition-info">' +
             '<div class="transition-label">' + escapeHtml(targetName) + (t.label ? ': ' + escapeHtml(t.label) : '') + '</div>' +
             (t.action ? '<div class="transition-action">' + escapeHtml(t.action) + '</div>' : '') +
@@ -321,7 +352,7 @@ const GolemStates = (function() {
       '<h3>Города и страны в этом состоянии</h3>' +
       '<div class="state-cities">' +
       matching.map(function(e) {
-        return '<div class="state-city-card" data-city-id="' + escapeHtml(e.id) + '">' +
+        return '<div class="state-city-card" role="button" tabindex="0" aria-label="Открыть запись картографии: ' + escapeHtml(e.name) + '" data-city-id="' + escapeHtml(e.id) + '">' +
           '<div class="city-name">' + escapeHtml(e.name) + '</div>' +
           (e.hebrew ? '<div class="city-hebrew" dir="rtl">' + escapeHtml(e.hebrew) + '</div>' : '') +
           (e.summary ? '<div class="city-summary">' + escapeHtml(e.summary) + '</div>' : '') +

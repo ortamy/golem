@@ -136,6 +136,9 @@
         <a href="#paleo-mechanics" class="sidebar-item" data-module="paleo-mechanics"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-механика</a>
         <a href="#paleo-linguistics" class="sidebar-item" data-module="paleo-linguistics"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Палео-лингвистика</a>
         <a href="#language-map" class="sidebar-item" data-module="language-map"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Карта языков</a>
+        <a href="#cartography" class="sidebar-item" data-module="cartography"><img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt="">Картография</a>
+        <a href="#states" class="sidebar-item" data-module="states"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Карта состояний</a>
+        <a href="#timeline" class="sidebar-item" data-module="timeline"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-таймлайн</a>
         <a href="#religionisms" class="sidebar-item" data-module="religionisms"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="Религионизмы">Религионизмы</a>
       </div>
     </div>
@@ -152,20 +155,6 @@
         <a href="#checkers" class="sidebar-item" data-module="checkers"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Чекеры</a>
         <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="Компаратор">Компаратор</a>
           <a href="#analyzers" class="sidebar-item" data-module="analyzers"><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Анализаторы</a>
-      </div>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-header" data-section="research">
-        <img src="../../assets/icons/32/scribe/scroll.png" class="icon" alt="">
-        <span>Исследование</span>
-        <span class="toggle-icon">▼</span>
-      </div>
-      <div class="sidebar-section-content" id="section-research">
-        <a href="#investigation" class="sidebar-item" data-module="investigation"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</a>
-        <a href="#heraldry" class="sidebar-item" data-module="heraldry"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Гербовник</a>
-        <a href="#cartography" class="sidebar-item" data-module="cartography"><img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt="">Картография</a>
-        <a href="#states" class="sidebar-item" data-module="states"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Карта состояний</a>
-        <a href="#timeline" class="sidebar-item" data-module="timeline"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-таймлайн</a>
       </div>
     </div>
     <div class="sidebar-section">
@@ -415,11 +404,6 @@ const LabSearch = {
         var cartContainer = document.createElement('div');
         window.Cartography.loadData(cartContainer).catch(function() {});
       }
-      // Гербовник
-      if (window.Heraldry) {
-        var heraldryContainer = document.createElement('div');
-        window.Heraldry.loadData(heraldryContainer).catch(function() {});
-      }
       // Книгочтение — книги
       fetch('data/qumran-books.json').then(function(response) {
         return response.json();
@@ -439,7 +423,6 @@ const LabSearch = {
       { key: 'roots', label: 'Корни и словари', icon: '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Корни" style="vertical-align: middle; margin-right: 6px;">', items: [] },
       { key: 'methodology', label: 'Методология', icon: '<img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Методология" style="vertical-align: middle; margin-right: 6px;">', items: [] },
       { key: 'cartography', label: 'Картография', icon: '<img src="../../assets/icons/32/ui/web.png" width="32" height="32" alt="Картография" style="vertical-align: middle; margin-right: 6px;">', items: [] },
-      { key: 'heraldry', label: 'Гербовник', icon: '<img src="../../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Гербовник" style="vertical-align: middle; margin-right: 6px;">', items: [] },
       { key: 'scripture', label: 'Книгочтение', icon: '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Книгочтение" style="vertical-align: middle; margin-right: 6px;">', items: [] },
       { key: 'religionisms', label: 'Религионизмы', icon: '<img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Религионизмы" style="vertical-align: middle; margin-right: 6px;">', items: [] },
       { key: 'translations', label: 'Компаратор', icon: '<img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Компаратор" style="vertical-align: middle; margin-right: 6px;">', items: [] }
@@ -492,18 +475,6 @@ const LabSearch = {
       window.Cartography.getEntries().forEach(function(e) {
         if (e.name.toLowerCase().indexOf(query) !== -1 || (e.hebrew || '').toLowerCase().indexOf(query) !== -1 || (e.meaning || '').toLowerCase().indexOf(query) !== -1) {
           push('cartography', '<img src="../../assets/icons/32/ui/web.png" width="32" height="32" alt="Картография" style="vertical-align: middle; margin-right: 6px;">', e.name + ' — ' + String(e.meaning || '').substring(0, 60), 'cartography', 'Картография · ' + (e.type || ''));
-        }
-      });
-    }
-
-    // ===== ГЕРБОВНИК (страны и символы) =====
-    if (window.Heraldry && window.Heraldry.getCountries) {
-      window.Heraldry.getCountries().forEach(function(c) {
-        var nameMatch = c.name.toLowerCase().indexOf(query) !== -1;
-        var symbolMatch = String(c.symbol || '').toLowerCase().indexOf(query) !== -1;
-        var hebrewMatch = String(c.hebrew || '').toLowerCase().indexOf(query) !== -1;
-        if (nameMatch || symbolMatch || hebrewMatch) {
-          push('heraldry', '<img src="../../assets/icons/32/scribe/scrolls.png" width="32" height="32" alt="Гербовник" style="vertical-align: middle; margin-right: 6px;">', c.name + ' — ' + String(c.symbol || '').substring(0, 60), 'heraldry', 'Гербовник · ' + c.name);
         }
       });
     }

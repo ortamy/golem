@@ -949,6 +949,9 @@ const PageController = (function() {
       if (moduleId === 'methodology' && window.MethodologyLab) {
         window.MethodologyLab.init(container, parsed);
       }
+      if (moduleId === 'states' && window.GolemStates) {
+        window.GolemStates.init(parsed);
+      }
       if (moduleId === 'ai-agents' && parsed && parsed.segments && parsed.segments[1]) {
         renderAgentDetail(container, parsed.segments[1]);
       } else if (moduleId === 'ai-agents') {
@@ -1091,8 +1094,8 @@ const PageController = (function() {
       case 'investigation':
         container.innerHTML = '<header class="section-hero">' +
           '<div class="section-hero-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
-          '<div class="section-hero-kicker">ГОЛЕМ · РАССЛЕДОВАНИЕ</div>' +
-          '<h1><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Расследование</h1>' +
+          '<div class="section-hero-kicker">ГОЛЕМ · ЧЕКЕР ПОДМЕН</div>' +
+          '<h1><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Чекер подмен</h1>' +
           '<p class="section-hero-lead">Введите слово, корень или перевод. Сопоставьте происхождение, цепочку подмен и текстовые свидетельства.</p>' +
         '</header>' +
           '<form id="investigation-form" class="investigation-search" onsubmit="event.preventDefault(); Investigation.investigate();">' +
