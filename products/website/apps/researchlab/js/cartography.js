@@ -14,6 +14,7 @@ const Cartography = (function() {
   const DATA_PATH = 'data/cartography.json';
   const HERALDRY_DATA_PATH = 'data/heraldry/heraldry.json';
   const STATE_MATRIX_PATH = 'data/state-matrix.json';
+  const GENDER_MATRIX_PATH = 'data/gender-matrix.json';
   const MODERN_COUNTRIES_PATH = 'data/modern-countries.json';
   const TYPE_LABELS = { country: 'Страна', 'modern-state': 'Современное государство', city: 'Город', region: 'Регион', empire: 'Империя' };
   const ERA_LABELS = { ancient: 'Древние', modern: 'Современные' };
@@ -30,6 +31,19 @@ const Cartography = (function() {
   let countryDescriptions = {};
   let countryStates = {};
   let filters = { era: '', type: '', region: '' };
+  let mapView = false;
+  let genderMatrix = { zones: {} };
+  let genderMapMarkup = '';
+
+  const MAP_THEMES = [
+    { id: 'near-east', title: 'Ближний Восток', description: 'Узлы Леванта, Египта и Месопотамии: среда ранних потоков и сдвигов.', mark: '𐤀' },
+    { id: 'europe', title: 'Европа', description: 'Континентальная карта состояний, границ и исторических переходов.', mark: '𐤄' },
+    { id: 'empires', title: 'Империи', description: 'Крупные державы как пространственные конструкции и зоны влияния.', mark: '𐤌' },
+    { id: 'ancient-routes', title: 'Древние маршруты', description: 'Регионы, города и коридоры, через которые двигался Давар.', mark: '𐤃' },
+    { id: 'modern-states', title: 'Современные государства', description: 'Глобальный слой диагностики по матрице состояний стран.', mark: '𐤔' },
+    { id: 'state-matrix', title: 'Матрица состояний', description: 'Поле Хошех и Ор: сравнение доминирующих состояний на одной карте.', mark: '𐤏' },
+    { id: 'gender-images', title: 'Эшет хаиль и Иш хаиль', topic: 'Карта сохранённых образов', description: 'В каких культурах женщина-строитель (эшет хаиль) и мужчина-созидатель (иш хаиль) сохранили свою палео-функцию? Греко-римский слой vs естественная среда', mark: '𐤀' }
+  ];
 
   const MAP_INFO = {
     russia: ['Россия', 'Европа и Азия'], usa: ['США', 'Северная Америка'], canada: ['Канада', 'Северная Америка'],
@@ -102,6 +116,10 @@ const Cartography = (function() {
     return new URL(MODERN_COUNTRIES_PATH, document.baseURI).href;
   }
 
+  function genderMatrixPath() {
+    return new URL(GENDER_MATRIX_PATH, document.baseURI).href;
+  }
+
   function modernCountryId(name) {
     return 'modern-' + String(name).toLowerCase().replace(/[^a-zа-яё0-9]+/gi, '-').replace(/^-|-$/g, '');
   }
@@ -111,6 +129,24 @@ const Cartography = (function() {
       var info = MAP_INFO[id] || MAP_COUNTRY_NAMES[id];
       var state = info && countryStates[info[0]];
       return prefix.replace('class="world-country"', 'class="world-country world-state-' + (state || 'unknown') + '"') + close;
+    });
+  }
+
+  function genderZoneForCountry(countryId) {
+    var info = MAP_INFO[countryId] || MAP_COUNTRY_NAMES[countryId];
+    if (!info) return 'unknown';
+    var zones = genderMatrix.zones || {};
+    var direct = zones.direct && zones.direct.countries || [];
+    var indirect = zones.indirect && zones.indirect.countries || [];
+    if (direct.indexOf(info[0]) !== -1) return 'direct';
+    if (indirect.indexOf(info[0]) !== -1) return 'indirect';
+    if ((zones.lost && zones.lost.countries || []).indexOf(info[0]) !== -1 || (zones.lost && zones.lost.continents || []).indexOf(info[1]) !== -1) return 'lost';
+    return 'unknown';
+  }
+
+  function applyGenderClasses(markup) {
+    return markup.replace(/class="world-country world-state-[^"]+" data-country-id="([^"]+)"/gi, function(match, id) {
+      return match.replace('world-state-' + (match.match(/world-state-([\w-]+)/) || ['', 'unknown'])[1], 'gender-zone-' + genderZoneForCountry(id));
     });
   }
 
@@ -186,6 +222,10 @@ const Cartography = (function() {
         if (!response.ok) throw new Error('HTTP ' + response.status + ' for modern countries');
         return response.json();
       }),
+      fetch(genderMatrixPath()).then(function(response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status + ' for gender matrix');
+        return response.json();
+      }),
       loadWorldMap()
     ])
       .then(function(results) {
@@ -199,7 +239,9 @@ const Cartography = (function() {
           var states = country.states || {};
           countryStates[country.name] = Object.keys(states).sort(function(a, b) { return Number(states[b]) - Number(states[a]); })[0] || '';
         });
-        worldMapMarkup = applyStateClasses(results[4]);
+        genderMatrix = results[4] || { zones: {} };
+        worldMapMarkup = applyStateClasses(results[5]);
+        genderMapMarkup = applyGenderClasses(worldMapMarkup);
         var list = Array.isArray(data) ? data : (data && Array.isArray(data.entries) ? data.entries : null);
         if (!list) throw new Error('Неверный формат данных');
         var ancientEntries = list.filter(function(e) { return e && e.id && e.name; }).map(function(e) {
@@ -268,15 +310,27 @@ const Cartography = (function() {
     return '<div class="cartography-filter-group" data-filter-group="' + kind + '">' + buttons + '</div>';
   }
 
-  // Контекстная карта: статичная SVG-схема, не участвующая в навигации.
-  function renderWorldMap() {
-    return '<section class="cartography-world" aria-labelledby="cartography-world-title">' +
-      '<div class="cartography-world-head"><div><span class="cartography-world-kicker">RESEARCH LAB · КОНТЕКСТ</span><h2 id="cartography-world-title">Карта мира</h2><p>Материки и основные пространственные узлы перед историческим слоем.</p></div><span class="cartography-world-mark" aria-hidden="true">𐤌</span></div>' +
+  function renderWorldMap(fullscreen, gender) {
+    var mapMarkup = gender ? genderMapMarkup : worldMapMarkup;
+    var title = gender ? 'Эшет хаиль и Иш хаиль' : 'Карта мира';
+    var kicker = gender ? 'КАРТА СОХРАНЁННЫХ ОБРАЗОВ' : 'RESEARCH LAB · КАРТА СОСТОЯНИЙ';
+    var legend = gender ? '<div class="gender-map-legend"><span class="gender-legend-direct">Образ сохранён напрямую</span><span class="gender-legend-indirect">Сохранён косвенно</span><span class="gender-legend-lost">Образ утрачен</span><span class="gender-legend-unknown">Нет данных</span></div>' : '';
+    return '<section class="cartography-world' + (fullscreen ? ' cartography-world-fullscreen' : '') + '" aria-labelledby="cartography-world-title">' +
+      '<div class="cartography-world-head"><div><span class="cartography-world-kicker">' + kicker + '</span><h2 id="cartography-world-title">' + title + '</h2><p>' + (gender ? 'Зоны показывают, где палео-функция образа сохранилась, сместилась или утрачена.' : 'Наведите на страну, чтобы открыть диагноз по state-matrix.json.') + '</p></div>' +
+      (fullscreen ? '<button type="button" class="lab-btn lab-btn-secondary cartography-back">Назад к темам</button>' : '') + '</div>' +
+      legend +
       '<svg class="cartography-world-svg" viewBox="0 0 950 620" role="img" aria-label="Интерактивная карта мира" focusable="false">' +
         '<rect class="world-sea" x="0" y="0" width="950" height="620"></rect>' +
-        '<g class="world-countries">' + worldMapMarkup + '</g>' +
+        '<g class="world-countries">' + mapMarkup + '</g>' +
       '</svg>' +
     '</section>';
+  }
+
+  function renderThemeCard(theme, index) {
+    return '<article class="cartography-theme-card" style="animation-delay:' + (index * 70) + 'ms">' +
+      '<div class="cartography-theme-preview" aria-hidden="true"><svg viewBox="0 0 950 620" focusable="false"><rect class="world-sea" x="0" y="0" width="950" height="620"></rect><g class="world-countries">' + worldMapMarkup + '</g></svg><span class="cartography-theme-mark">' + theme.mark + '</span></div>' +
+      '<div class="cartography-theme-body"><span class="cartography-card-type">' + escapeHtml(theme.topic || 'Тема карты') + '</span><h2 class="cartography-card-title">' + escapeHtml(theme.title) + '</h2><p class="cartography-card-summary">' + escapeHtml(theme.description) + '</p>' +
+      '<button type="button" class="lab-btn lab-btn-primary cartography-open-map" data-theme-id="' + escapeHtml(theme.id) + '">Открыть карту</button></div></article>';
   }
 
   // ===== РЕНДЕРИНГ СТРАНИЦЫ =====
@@ -286,21 +340,11 @@ const Cartography = (function() {
       return;
     }
 
-    var list = getFiltered();
-    var filtersHtml = '<div class="cartography-filters">' +
-      '<div class="cartography-era-tabs" role="group" aria-label="Слой картографии">' +
-        '<button type="button" class="cartography-filter-btn cartography-era-tab' + (!filters.era ? ' active' : '') + '" data-filter-kind="era" data-filter-value="">Все</button>' +
-        '<button type="button" class="cartography-filter-btn cartography-era-tab' + (filters.era === 'modern' ? ' active' : '') + '" data-filter-kind="era" data-filter-value="modern">Современные</button>' +
-        '<button type="button" class="cartography-filter-btn cartography-era-tab' + (filters.era === 'ancient' ? ' active' : '') + '" data-filter-kind="era" data-filter-value="ancient">Древние</button>' +
-      '</div>' +
-      buildFilterGroup('type', TYPE_LABELS) +
-      buildFilterGroup('region', REGION_LABELS) +
-      '<div class="cartography-stats">Найдено: ' + list.length + ' из ' + entries.length + '</div>' +
-      '</div>';
-
-    var cardsHtml = list.length
-      ? '<div class="cartography-grid">' + list.map(renderCard).join('') + '</div>'
-      : '<div class="lab-alert lab-alert-info">Ничего не найдено по выбранным фильтрам.</div>';
+    if (mapView) {
+      container.innerHTML = '<div class="cartography-map-shell">' + renderWorldMap(true, mapView === 'gender') + '</div>';
+      bindMapInteractions(container);
+      return;
+    }
 
     container.innerHTML = '<header class="section-hero">' +
         '<div class="section-hero-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
@@ -308,32 +352,18 @@ const Cartography = (function() {
         '<h1><img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt="">Картография</h1>' +
         '<p class="section-hero-lead">Смысловая карта: страны, города и регионы как пространственные конструкции.</p>' +
       '</header>' +
-      '<div class="cartography-page">' +
-      renderWorldMap() +
-      filtersHtml +
-      cardsHtml +
-    '</div>';
+      '<button type="button" class="cartography-world-launch" data-open-map="1"><span aria-hidden="true">𐤌</span><span><strong>Глобальная карта состояний</strong><small>Открыть полный слой диагностики</small></span><span aria-hidden="true">→</span></button>' +
+      '<div class="cartography-theme-grid">' + MAP_THEMES.map(renderThemeCard).join('') + '</div>';
 
-    container.querySelectorAll('.cartography-filter-btn').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        setFilter(this.getAttribute('data-filter-kind'), this.getAttribute('data-filter-value'));
-      });
+    container.querySelectorAll('.cartography-open-map, .cartography-world-launch').forEach(function(button) {
+      button.addEventListener('click', function() { mapView = this.getAttribute('data-theme-id') === 'gender-images' ? 'gender' : true; renderPage(container); });
     });
+    bindMapInteractions(container);
+  }
 
-    container.querySelectorAll('.cartography-card').forEach(function(card) {
-      card.addEventListener('click', function() {
-        var id = this.getAttribute('data-id');
-        if (id) showDetail(id);
-      });
-      card.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          var id = this.getAttribute('data-id');
-          if (id) showDetail(id);
-        }
-      });
-    });
-
+  function bindMapInteractions(container) {
+    var back = container.querySelector('.cartography-back');
+    if (back) back.addEventListener('click', function() { mapView = false; renderPage(container); });
     container.querySelectorAll('.world-country').forEach(function(country) {
       country.addEventListener('click', function() { showCountryDetail(this.getAttribute('data-country-id')); });
       country.addEventListener('keydown', function(event) {
@@ -344,6 +374,13 @@ const Cartography = (function() {
 
   function showCountryDetail(countryId) {
     var info = MAP_INFO[countryId] || MAP_COUNTRY_NAMES[countryId] || [countryId.replace(/[-_]/g, ' '), 'Не определён'];
+    if (mapView === 'gender') {
+      var zone = genderZoneForCountry(countryId);
+      var labels = { direct: 'Образ сохранён напрямую', indirect: 'Образ сохранён косвенно', lost: 'Образ утрачен', unknown: 'Нет данных' };
+      var genderHtml = '<div class="cartography-detail cartography-map-detail"><div class="cartography-detail-section cartography-callout"><p><strong>Зона:</strong> ' + escapeHtml(labels[zone]) + '</p><p>Эшет хаиль — женщина-строитель; Иш хаиль — мужчина-созидатель. Карта фиксирует сохранённость функции в культурной среде.</p></div></div>';
+      if (typeof LabModal !== 'undefined') LabModal.show(escapeHtml(info[0]), genderHtml, '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabModal.close()">Закрыть</button>');
+      return;
+    }
     var hasData = Boolean(countryStates[info[0]]);
     var description = countryDescriptions[info[0]] || (hasData
       ? 'Географическая точка в карте потока.'
