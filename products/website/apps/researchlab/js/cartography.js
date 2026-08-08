@@ -30,8 +30,13 @@ const Cartography = (function() {
   let worldMapMarkup = '';
   let countryDescriptions = {};
   let countryStates = {};
+  let stateMatrixCountries = [];
   let filters = { era: '', type: '', region: '' };
   let mapView = false;
+  let mapZoom = 1;
+  let mapPan = { x: 0, y: 0 };
+  let mapDragging = false;
+  let mapDragStart = { x: 0, y: 0 };
   let genderMatrix = { zones: {} };
   let genderMapMarkup = '';
 
@@ -233,6 +238,14 @@ const Cartography = (function() {
         var heraldryList = Array.isArray(results[1]) ? results[1] : [];
         var matrix = results[2] && Array.isArray(results[2].countries) ? results[2].countries : [];
         var countryNames = results[3] && Array.isArray(results[3].countries) ? results[3].countries : [];
+        var matrixByName = {};
+        matrix.forEach(function(country) { if (country && country.name) matrixByName[country.name] = country; });
+        stateMatrixCountries = countryNames.map(function(name) {
+          return matrixByName[name] || { name: name, diagnosis: 'Нет диагноза в state-matrix.json.', note: 'Данные по состояниям для этой страны ещё не внесены.' };
+        });
+        matrix.forEach(function(country) {
+          if (country && country.name && !matrixByName[country.name]) stateMatrixCountries.push(country);
+        });
         registerCountryAliases(countryNames);
         matrix.forEach(function(country) {
           countryDescriptions[country.name] = country.note || '';
@@ -314,15 +327,16 @@ const Cartography = (function() {
     var mapMarkup = gender ? genderMapMarkup : worldMapMarkup;
     var title = gender ? 'Эшет хаиль и Иш хаиль' : 'Карта мира';
     var kicker = gender ? 'КАРТА СОХРАНЁННЫХ ОБРАЗОВ' : 'RESEARCH LAB · КАРТА СОСТОЯНИЙ';
-    var legend = gender ? '<div class="gender-map-legend"><span class="gender-legend-direct">Образ сохранён напрямую</span><span class="gender-legend-indirect">Сохранён косвенно</span><span class="gender-legend-lost">Образ утрачен</span><span class="gender-legend-unknown">Нет данных</span></div>' : '';
+    var legend = gender ? '<div class="gender-map-legend"><span class="gender-legend-direct">Образ сохранён напрямую</span><span class="gender-legend-indirect">Сохранён косвенно</span><span class="gender-legend-lost">Образ утрачен</span><span class="gender-legend-unknown">Нет данных</span></div>' : '<div class="cartography-map-legend" aria-label="Легенда состояний">' + [['tohu', 'Тоху'], ['hoshekh', 'Хошех'], ['mizraim', 'Мицраим'], ['rakia', 'Ракиа'], ['shamaim', 'Шамаим'], ['midbar', 'Мидбар'], ['erets', 'Эрец'], ['eden', 'Эден']].map(function(item) { return '<span><i class="world-state-' + item[0] + '" aria-hidden="true"></i>' + item[1] + '</span>'; }).join('') + '</div>';
+    var controls = gender ? '' : '<div class="cartography-map-controls" role="group" aria-label="Управление масштабом карты"><button type="button" class="cartography-map-zoom-in" title="Увеличить масштаб">+</button><button type="button" class="cartography-map-zoom-out" title="Уменьшить масштаб">−</button><button type="button" class="cartography-map-zoom-reset">Сбросить масштаб</button></div>';
     return '<section class="cartography-world' + (fullscreen ? ' cartography-world-fullscreen' : '') + '" aria-labelledby="cartography-world-title">' +
       '<div class="cartography-world-head"><div><span class="cartography-world-kicker">' + kicker + '</span><h2 id="cartography-world-title">' + title + '</h2><p>' + (gender ? 'Зоны показывают, где палео-функция образа сохранилась, сместилась или утрачена.' : 'Наведите на страну, чтобы открыть диагноз по state-matrix.json.') + '</p></div>' +
       (fullscreen ? '<button type="button" class="lab-btn lab-btn-secondary cartography-back">Назад к темам</button>' : '') + '</div>' +
-      legend +
-      '<svg class="cartography-world-svg" viewBox="0 0 950 620" role="img" aria-label="Интерактивная карта мира" focusable="false">' +
+      '<div class="cartography-map-canvas"><svg class="cartography-world-svg" viewBox="0 0 950 620" role="img" aria-label="Интерактивная карта мира" focusable="false">' +
         '<rect class="world-sea" x="0" y="0" width="950" height="620"></rect>' +
-        '<g class="world-countries">' + mapMarkup + '</g>' +
-      '</svg>' +
+        '<g class="world-map-viewport" transform="translate(' + mapPan.x + ' ' + mapPan.y + ') scale(' + mapZoom + ')"><g class="world-countries">' + mapMarkup + '</g></g>' +
+      '</svg>' + controls + '</div>' +
+      legend +
     '</section>';
   }
 
@@ -333,6 +347,41 @@ const Cartography = (function() {
       '<button type="button" class="lab-btn lab-btn-primary cartography-open-map" data-theme-id="' + escapeHtml(theme.id) + '">Открыть карту</button></div></article>';
   }
 
+  function renderStateCard(country, index) {
+    var states = country.states || {};
+    var dominantState = Object.keys(states).sort(function(a, b) { return Number(states[b]) - Number(states[a]); })[0] || 'unknown';
+    var diagnosis = country.diagnosis || country.note || 'Диагноз уточняется.';
+    return '<article class="cartography-state-card" data-country-name="' + escapeHtml(country.name) + '" tabindex="0" role="button" aria-label="Открыть диагноз: ' + escapeHtml(country.name) + '" style="animation-delay:' + (index * 35) + 'ms">' +
+      '<div class="cartography-state-card-head"><span class="cartography-card-type">Карта состояний</span><span class="cartography-state-dot world-state-' + escapeHtml(dominantState) + '" aria-hidden="true"></span></div>' +
+      '<h2>' + escapeHtml(country.name) + '</h2><p>' + escapeHtml(diagnosis) + '</p></article>';
+  }
+
+  function renderStateMatrixPage(container) {
+    container.innerHTML = '<div class="cartography-state-page"><div class="cartography-map-shell">' + renderWorldMap(true, false) + '</div><div class="cartography-state-search"><label for="cartography-country-search">Поиск страны</label><input id="cartography-country-search" type="search" placeholder="Введите название страны" autocomplete="off"></div><div class="cartography-state-grid">' + stateMatrixCountries.map(renderStateCard).join('') + '</div></div>';
+    bindMapInteractions(container);
+    var openCountry = function(card) {
+      var country = stateMatrixCountries.find(function(item) { return item.name === card.getAttribute('data-country-name'); });
+      if (country) showStateCountryDetail(country);
+    };
+    container.querySelector('.cartography-back').addEventListener('click', function() { mapView = false; renderPage(container); });
+    container.querySelector('#cartography-country-search').addEventListener('input', function() {
+      var query = this.value.trim().toLocaleLowerCase();
+      container.querySelectorAll('.cartography-state-card').forEach(function(card) {
+        card.hidden = query && card.getAttribute('data-country-name').toLocaleLowerCase().indexOf(query) === -1;
+      });
+    });
+    container.querySelectorAll('.cartography-state-card').forEach(function(card) {
+      card.addEventListener('click', function() { openCountry(this); });
+      card.addEventListener('keydown', function(event) { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openCountry(this); } });
+    });
+  }
+
+  function showStateCountryDetail(country) {
+    var diagnosis = country.diagnosis || country.note || 'Диагноз уточняется.';
+    var html = '<div class="cartography-detail cartography-map-detail"><div class="cartography-detail-section cartography-callout"><p><strong>Диагноз:</strong> ' + escapeHtml(diagnosis) + '</p><p>' + escapeHtml(country.note || '') + '</p></div></div>';
+    if (typeof LabModal !== 'undefined') LabModal.show(escapeHtml(country.name), html, '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabModal.close()">Закрыть</button>');
+  }
+
   // ===== РЕНДЕРИНГ СТРАНИЦЫ =====
   function renderPage(container) {
     if (!entries.length) {
@@ -341,6 +390,10 @@ const Cartography = (function() {
     }
 
     if (mapView) {
+      if (mapView === 'states') {
+        renderStateMatrixPage(container);
+        return;
+      }
       container.innerHTML = '<div class="cartography-map-shell">' + renderWorldMap(true, mapView === 'gender') + '</div>';
       bindMapInteractions(container);
       return;
@@ -356,7 +409,7 @@ const Cartography = (function() {
       '<div class="cartography-theme-grid">' + MAP_THEMES.map(renderThemeCard).join('') + '</div>';
 
     container.querySelectorAll('.cartography-open-map, .cartography-world-launch').forEach(function(button) {
-      button.addEventListener('click', function() { mapView = this.getAttribute('data-theme-id') === 'gender-images' ? 'gender' : true; renderPage(container); });
+      button.addEventListener('click', function() { mapView = this.hasAttribute('data-open-map') ? 'states' : (this.getAttribute('data-theme-id') === 'gender-images' ? 'gender' : true); renderPage(container); });
     });
     bindMapInteractions(container);
   }
@@ -364,6 +417,20 @@ const Cartography = (function() {
   function bindMapInteractions(container) {
     var back = container.querySelector('.cartography-back');
     if (back) back.addEventListener('click', function() { mapView = false; renderPage(container); });
+    var svg = container.querySelector('.cartography-world-svg');
+    var zoomIn = container.querySelector('.cartography-map-zoom-in');
+    var zoomOut = container.querySelector('.cartography-map-zoom-out');
+    var zoomReset = container.querySelector('.cartography-map-zoom-reset');
+    function rerenderMap() { renderPage(container); }
+    if (zoomIn) zoomIn.addEventListener('click', function() { mapZoom = Math.min(3, +(mapZoom + .25).toFixed(2)); rerenderMap(); });
+    if (zoomOut) zoomOut.addEventListener('click', function() { mapZoom = Math.max(1, +(mapZoom - .25).toFixed(2)); rerenderMap(); });
+    if (zoomReset) zoomReset.addEventListener('click', function() { mapZoom = 1; mapPan = { x: 0, y: 0 }; rerenderMap(); });
+    if (svg && !container.querySelector('.cartography-map-shell .cartography-state-grid')) {
+      svg.addEventListener('pointerdown', function(event) { mapDragging = true; mapDragStart = { x: event.clientX, y: event.clientY }; svg.setPointerCapture(event.pointerId); svg.classList.add('is-dragging'); });
+      svg.addEventListener('pointermove', function(event) { if (!mapDragging) return; var rect = svg.getBoundingClientRect(); mapPan.x += (event.clientX - mapDragStart.x) * 950 / rect.width; mapPan.y += (event.clientY - mapDragStart.y) * 620 / rect.height; mapDragStart = { x: event.clientX, y: event.clientY }; var viewport = svg.querySelector('.world-map-viewport'); if (viewport) viewport.setAttribute('transform', 'translate(' + mapPan.x + ' ' + mapPan.y + ') scale(' + mapZoom + ')'); });
+      svg.addEventListener('pointerup', function() { mapDragging = false; svg.classList.remove('is-dragging'); });
+      svg.addEventListener('pointercancel', function() { mapDragging = false; svg.classList.remove('is-dragging'); });
+    }
     container.querySelectorAll('.world-country').forEach(function(country) {
       country.addEventListener('click', function() { showCountryDetail(this.getAttribute('data-country-id')); });
       country.addEventListener('keydown', function(event) {

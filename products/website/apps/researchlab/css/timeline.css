@@ -4,7 +4,7 @@
 .section-hero {
   position: relative;
   padding: 40px 32px 36px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   background: var(--bg-dark, #1a1410);
   border: 1px solid var(--border-dark, #3a2a1a);
   border-radius: 10px;
@@ -54,7 +54,7 @@
 .tl-hero {
   position: relative;
   padding: 40px 32px 36px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   background: var(--bg-dark, #1a1410);
   border: 1px solid var(--border-dark, #3a2a1a);
   border-radius: 10px;
