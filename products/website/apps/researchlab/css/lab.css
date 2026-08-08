@@ -2452,6 +2452,69 @@ code, pre, kbd, .translit, .mono {
   line-height: 1.55;
   overflow-wrap: anywhere;
 }
+
+/* ===== ТИПОГРАФИКА ЧИТАТЕЛЬСКИХ МОДУЛЕЙ ===== */
+.lab-content .module,
+.lab-content .module p,
+.lab-content .module li,
+.lab-content .module blockquote,
+.lab-content .module dd,
+.lab-content .module .research-detail-summary,
+.lab-content .module .research-section-content,
+.lab-content .module .methodology-document-content,
+.lab-content .module .exposure-case-container,
+.lab-content .module .scripture-verse {
+  line-height: 1.7;
+}
+
+.lab-content .module p,
+.lab-content .module li,
+.lab-content .module blockquote,
+.lab-content .module .methodology-document-content,
+.lab-content .module .research-section-content {
+  max-width: 750px;
+}
+
+.lab-content .module p,
+.lab-content .module .methodology-document-content p,
+.lab-content .module .research-section-content p {
+  margin-bottom: 20px;
+}
+
+.paleo-highlight {
+  color: var(--paleo-highlight-color, #80551f);
+  font-family: var(--font-paleo);
+  font-weight: 700;
+}
+
+[data-theme="dark"] .paleo-highlight {
+  --paleo-highlight-color: #d4a030;
+}
+
+[data-theme="white"] .paleo-highlight {
+  --paleo-highlight-color: #69451d;
+}
+
+.paleo,
+[lang="hbo"],
+.paleo-highlight,
+.research-term-paleo,
+.root-paleo,
+.rd-card-header .root-paleo,
+.rd-card-header .root-heb,
+.wa-root-heb,
+.el-root-card .el-root-heb,
+.rel-root-heb,
+.scripture-paleo,
+.scripture-paleo-word,
+.scripture-paleo-letter,
+.scripture-analysis-paleo,
+.scripture-selection-paleo,
+.manifest-flow-paleo .paleo,
+.manifest-mizraim-glyph {
+  color: var(--paleo-highlight-color, var(--accent-gold));
+  font-weight: 700;
+}
 .manifest-loss-layer-percent {
   justify-self: end;
   padding-top: 1px;
