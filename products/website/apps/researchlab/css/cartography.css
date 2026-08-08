@@ -64,11 +64,19 @@
 }
 
 .world-sea { fill: #eee0bd; }
-.world-graticule path { fill: none; stroke: #c9b98e; stroke-width: 1; opacity: .45; }
-.world-land { fill: #c29b55; stroke: #4a3020; stroke-width: 2.4; stroke-linejoin: round; }
-.world-borders path { fill: none; stroke: #76502d; stroke-width: 1.1; opacity: .8; stroke-linecap: round; stroke-linejoin: round; }
-.world-borders .world-river { stroke: #9d7c4a; stroke-width: 1.4; opacity: .7; }
-.world-labels { fill: #4a3020; font-family: var(--font-body, 'EB Garamond', Georgia, serif); font-size: 16px; font-weight: 600; }
+.world-countries { fill: #d9d2c7; stroke: #4a3020; stroke-width: .7; stroke-linejoin: round; stroke-linecap: round; }
+.world-countries .world-state-tohu { fill: #d9c9b0; }
+.world-countries .world-state-hoshekh { fill: #c9b598; }
+.world-countries .world-state-mizraim { fill: #b99f7a; }
+.world-countries .world-state-rakia { fill: #a98a5f; }
+.world-countries .world-state-shamaim { fill: #9a7947; }
+.world-countries .world-state-midbar { fill: #8a6733; }
+.world-countries .world-state-erets { fill: #7a5420; }
+.world-countries .world-state-eden { fill: #6b4418; }
+.world-countries .world-state-unknown { fill: #d9c9b0; }
+.world-country { cursor: pointer; outline: none; transition: fill .16s ease, stroke .16s ease, stroke-width .16s ease; }
+.world-country:hover, .world-country:focus-visible { fill: #70462f; stroke: #b8860b; stroke-width: 1.4; }
+.world-country:focus-visible { outline: none; }
 
 @media (max-width: 640px) {
   .cartography-world { padding: 14px; }
@@ -171,6 +179,7 @@
   flex-direction: column;
   gap: 8px;
   min-width: 0;
+  overflow: hidden;
 }
 
 .cartography-card:hover {
@@ -202,6 +211,12 @@
   font-weight: 700;
   color: var(--text-primary, #2c1810);
   margin: 0;
+  min-height: 2.3em;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .cartography-card-hebrew {
@@ -209,6 +224,8 @@
   font-size: 16px;
   color: var(--text-secondary, #4a3728);
   direction: rtl;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .cartography-card-paleo {
@@ -216,12 +233,16 @@
   font-size: 16px;
   color: var(--accent-gold, #9d7210);
   direction: rtl;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .cartography-card-meaning {
   font-size: 13px;
   font-weight: 600;
   color: var(--text-secondary, #4a3728);
+  overflow-wrap: anywhere;
 }
 
 .cartography-card-summary {
@@ -235,6 +256,8 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  overflow-wrap: anywhere;
+  min-height: 4.2em;
 }
 
 /* ===== ДЕТАЛЬНЫЙ ПРОСМОТР (МОДАЛКА) ===== */

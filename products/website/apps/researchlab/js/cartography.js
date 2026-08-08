@@ -13,7 +13,9 @@ const Cartography = (function() {
   // Путь считается от страницы лаборатории, а не от каталога js/.
   const DATA_PATH = 'data/cartography.json';
   const HERALDRY_DATA_PATH = 'data/heraldry/heraldry.json';
-  const TYPE_LABELS = { country: 'Страна', city: 'Город', region: 'Регион', empire: 'Империя' };
+  const STATE_MATRIX_PATH = 'data/state-matrix.json';
+  const MODERN_COUNTRIES_PATH = 'data/modern-countries.json';
+  const TYPE_LABELS = { country: 'Страна', 'modern-state': 'Современное государство', city: 'Город', region: 'Регион', empire: 'Империя' };
   const ERA_LABELS = { ancient: 'Древние', modern: 'Современные' };
   const REGION_LABELS = {
     Levant: 'Левант', Egypt: 'Египет', Mesopotamia: 'Месопотамия',
@@ -23,7 +25,66 @@ const Cartography = (function() {
   let entries = [];
   let entriesById = {};
   let dataPromise = null;
+  let worldMapPromise = null;
+  let worldMapMarkup = '';
+  let countryDescriptions = {};
+  let countryStates = {};
   let filters = { era: '', type: '', region: '' };
+
+  const MAP_INFO = {
+    russia: ['Россия', 'Европа и Азия'], usa: ['США', 'Северная Америка'], canada: ['Канада', 'Северная Америка'],
+    mexico: ['Мексика', 'Северная Америка'], brazil: ['Бразилия', 'Южная Америка'], argentina: ['Аргентина', 'Южная Америка'],
+    egypt: ['Египет', 'Африка'], 'south africa': ['ЮАР', 'Африка'], china: ['Китай', 'Азия'], india: ['Индия', 'Азия'],
+    japan: ['Япония', 'Азия'], israel: ['Израиль', 'Азия'], iran: ['Иран', 'Азия'], iraq: ['Ирак', 'Азия'],
+    turkey: ['Турция', 'Европа и Азия'], france: ['Франция', 'Европа'], germany: ['Германия', 'Европа'],
+    ukraine: ['Украина', 'Европа'], australia: ['Австралия', 'Океания'],
+    britain: ['Великобритания', 'Европа'], italy: ['Италия', 'Европа'], spain: ['Испания', 'Европа'],
+    mexico: ['Мексика', 'Северная Америка'], argentina: ['Аргентина', 'Южная Америка'],
+    canada: ['Канада', 'Северная Америка'], 'south africa': ['ЮАР', 'Африка'], saudi: ['Саудовская Аравия', 'Азия']
+  };
+  const MAP_COUNTRY_NAMES = {
+    finland: ['Финляндия', 'Европа'], norway: ['Норвегия', 'Европа'], sweden: ['Швеция', 'Европа'],
+    poland: ['Польша', 'Европа'], kazakhstan: ['Казахстан', 'Азия'], indonesia: ['Индонезия', 'Азия'],
+    philippines: ['Филиппины', 'Азия'], colombia: ['Колумбия', 'Южная Америка'], peru: ['Перу', 'Южная Америка'],
+    chile: ['Чили', 'Южная Америка'], venezuela: ['Венесуэла', 'Южная Америка'], ecuador: ['Эквадор', 'Южная Америка'],
+    bolivia: ['Боливия', 'Южная Америка'], paraguay: ['Парагвай', 'Южная Америка'], uruguay: ['Уругвай', 'Южная Америка'],
+    guyana: ['Гайана', 'Южная Америка'], suriname: ['Суринам', 'Южная Америка'],
+    algeria: ['Алжир', 'Африка'], morocco: ['Марокко', 'Африка'], tunisia: ['Тунис', 'Африка'],
+    nigeria: ['Нигерия', 'Африка'], kenya: ['Кения', 'Африка'], ethiopia: ['Эфиопия', 'Африка'],
+    madagascar: ['Мадагаскар', 'Африка'], namibia: ['Намибия', 'Африка'], botswana: ['Ботсвана', 'Африка'],
+    iran: ['Иран', 'Азия'], iraq: ['Ирак', 'Азия'], afghanistan: ['Афганистан', 'Азия'], pakistan: ['Пакистан', 'Азия'],
+    mongolia: ['Монголия', 'Азия'], vietnam: ['Вьетнам', 'Азия'], thailand: ['Таиланд', 'Азия'], malaysia: ['Малайзия', 'Азия'],
+    'north korea': ['Северная Корея', 'Азия'], 'south korea': ['Южная Корея', 'Азия'],
+    portugal: ['Португалия', 'Европа'], netherlands: ['Нидерланды', 'Европа'], belgium: ['Бельгия', 'Европа'],
+    switzerland: ['Швейцария', 'Европа'], austria: ['Австрия', 'Европа'], czechia: ['Чехия', 'Европа'],
+    romania: ['Румыния', 'Европа'], greece: ['Греция', 'Европа'], serbia: ['Сербия', 'Европа'],
+    'new zealand': ['Новая Зеландия', 'Австралия'], papua: ['Папуа — Новая Гвинея', 'Австралия']
+  };
+  const CONTINENT_COUNTRIES = {
+    'Северная Америка': ['Канада', 'США', 'Мексика', 'Гватемала', 'Белиз', 'Гондурас', 'Сальвадор', 'Никарагуа', 'Коста-Рика', 'Панама', 'Куба', 'Гаити', 'Доминиканская Республика', 'Ямайка'],
+    'Южная Америка': ['Аргентина', 'Боливия', 'Бразилия', 'Чили', 'Колумбия', 'Эквадор', 'Гайана', 'Парагвай', 'Перу', 'Суринам', 'Уругвай', 'Венесуэла'],
+    'Европа': ['Австрия', 'Бельгия', 'Болгария', 'Великобритания', 'Венгрия', 'Германия', 'Греция', 'Дания', 'Ирландия', 'Исландия', 'Испания', 'Италия', 'Латвия', 'Литва', 'Нидерланды', 'Норвегия', 'Польша', 'Португалия', 'Румыния', 'Сербия', 'Словакия', 'Словения', 'Финляндия', 'Франция', 'Хорватия', 'Чехия', 'Швейцария', 'Швеция', 'Эстония'],
+    'Азия': ['Афганистан', 'Бангладеш', 'Бахрейн', 'Вьетнам', 'Индия', 'Индонезия', 'Иордания', 'Ирак', 'Иран', 'Израиль', 'Казахстан', 'Камбоджа', 'Катар', 'Китай', 'Киргизия', 'Кувейт', 'Лаос', 'Малайзия', 'Монголия', 'Непал', 'Оман', 'Пакистан', 'Палестина', 'Саудовская Аравия', 'Северная Корея', 'Сингапур', 'Сирия', 'Таиланд', 'Таджикистан', 'Туркменистан', 'Турция', 'Узбекистан', 'Филиппины', 'Шри-Ланка', 'Южная Корея', 'Япония'],
+    'Африка': ['Алжир', 'Ангола', 'Бенин', 'Ботсвана', 'Буркина-Фасо', 'Бурунди', 'Габон', 'Гана', 'Гвинея', 'Египет', 'Замбия', 'Зимбабве', 'Камерун', 'Кения', 'Конго', 'Либерия', 'Ливия', 'Мадагаскар', 'Малави', 'Мали', 'Марокко', 'Мозамбик', 'Намибия', 'Нигер', 'Нигерия', 'Руанда', 'Сенегал', 'Сомали', 'Судан', 'Тунис', 'Уганда', 'ЦАР', 'Чад', 'Эфиопия', 'ЮАР'],
+    'Австралия': ['Австралия', 'Новая Зеландия', 'Папуа — Новая Гвинея', 'Фиджи', 'Вануату', 'Самоа', 'Тонга']
+  };
+  function registerCountryAliases(countryNames) {
+    countryNames.forEach(function(name) {
+      var id = String(name).toLowerCase().replace(/[—’']/g, ' ').replace(/[^a-zа-яё0-9]+/gi, ' ').trim();
+      if (!MAP_INFO[id]) {
+        var continent = Object.keys(CONTINENT_COUNTRIES).find(function(key) { return CONTINENT_COUNTRIES[key].indexOf(name) !== -1; }) || 'Не определён';
+        MAP_INFO[id] = [name, continent];
+      }
+    });
+  }
+  Object.keys(MAP_COUNTRY_NAMES).forEach(function(id) { MAP_INFO[id] = MAP_COUNTRY_NAMES[id]; });
+  const STATE_COUNTRY_IDS = {
+    'Россия': 'russia', 'Израиль': 'israel', 'США': 'usa', 'Египет': 'egypt',
+    'Германия': 'germany', 'Китай': 'china', 'Индия': 'india', 'Украина': 'ukraine',
+    'Япония': 'japan', 'Франция': 'france', 'Бразилия': 'brazil', 'Саудовская Аравия': 'saudi',
+    'Австралия': 'australia', 'Канада': 'canada', 'Великобритания': 'britain', 'Италия': 'italy',
+    'Испания': 'spain', 'Мексика': 'mexico', 'Аргентина': 'argentina', 'Турция': 'turkey', 'ЮАР': 'south africa'
+  };
 
   function dataPath() {
     return new URL(DATA_PATH, document.baseURI).href;
@@ -31,6 +92,52 @@ const Cartography = (function() {
 
   function heraldryDataPath() {
     return new URL(HERALDRY_DATA_PATH, document.baseURI).href;
+  }
+
+  function stateMatrixPath() {
+    return new URL(STATE_MATRIX_PATH, document.baseURI).href;
+  }
+
+  function modernCountriesPath() {
+    return new URL(MODERN_COUNTRIES_PATH, document.baseURI).href;
+  }
+
+  function modernCountryId(name) {
+    return 'modern-' + String(name).toLowerCase().replace(/[^a-zа-яё0-9]+/gi, '-').replace(/^-|-$/g, '');
+  }
+
+  function applyStateClasses(markup) {
+    return markup.replace(/(<path\b[^>]*class="world-country"[^>]*data-country-id="([^"]+)"[^>]*)(\/?>)/gi, function(match, prefix, id, close) {
+      var info = MAP_INFO[id] || MAP_COUNTRY_NAMES[id];
+      var state = info && countryStates[info[0]];
+      return prefix.replace('class="world-country"', 'class="world-country world-state-' + (state || 'unknown') + '"') + close;
+    });
+  }
+
+  function loadWorldMap() {
+    if (worldMapPromise) return worldMapPromise;
+    var mapUrl = new URL('../../assets/maps/world-map.svg', document.baseURI).href;
+    worldMapPromise = fetch(mapUrl).then(function(response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status + ' for world map');
+      return response.text();
+    }).then(function(source) {
+      var documentNode = new DOMParser().parseFromString(source, 'image/svg+xml');
+      if (documentNode.querySelector('parsererror')) throw new Error('Неверный формат world-map.svg');
+      return Array.prototype.map.call(documentNode.querySelectorAll('path'), function(path) {
+        var id = path.getAttribute('id');
+        if (!id || id === 'path1' || id === 'path-1') return '';
+        path.removeAttribute('style');
+        path.removeAttribute('inkscape:path-effect');
+        path.removeAttribute('inkscape:original-d');
+        path.removeAttribute('transform');
+        path.setAttribute('class', 'world-country');
+        path.setAttribute('data-country-id', id);
+        path.setAttribute('tabindex', '0');
+        path.setAttribute('role', 'button');
+        return new XMLSerializer().serializeToString(path);
+      }).join('');
+    });
+    return worldMapPromise;
   }
 
   function escapeHtml(text) {
@@ -70,22 +177,48 @@ const Cartography = (function() {
       fetch(heraldryDataPath()).then(function(response) {
         if (!response.ok) throw new Error('HTTP ' + response.status + ' for heraldry');
         return response.json();
-      })
+      }),
+      fetch(stateMatrixPath()).then(function(response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status + ' for state matrix');
+        return response.json();
+      }),
+      fetch(modernCountriesPath()).then(function(response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status + ' for modern countries');
+        return response.json();
+      }),
+      loadWorldMap()
     ])
       .then(function(results) {
         var data = results[0];
-        var modernList = Array.isArray(results[1]) ? results[1] : [];
+        var heraldryList = Array.isArray(results[1]) ? results[1] : [];
+        var matrix = results[2] && Array.isArray(results[2].countries) ? results[2].countries : [];
+        var countryNames = results[3] && Array.isArray(results[3].countries) ? results[3].countries : [];
+        registerCountryAliases(countryNames);
+        matrix.forEach(function(country) {
+          countryDescriptions[country.name] = country.note || '';
+          var states = country.states || {};
+          countryStates[country.name] = Object.keys(states).sort(function(a, b) { return Number(states[b]) - Number(states[a]); })[0] || '';
+        });
+        worldMapMarkup = applyStateClasses(results[4]);
         var list = Array.isArray(data) ? data : (data && Array.isArray(data.entries) ? data.entries : null);
         if (!list) throw new Error('Неверный формат данных');
         var ancientEntries = list.filter(function(e) { return e && e.id && e.name; }).map(function(e) {
           e.era = e.era || 'ancient';
           return e;
         });
-        var modernEntries = modernList.filter(function(e) { return e && e.id && e.name; }).map(function(e) {
+        var heraldryByName = {};
+        heraldryList.forEach(function(e) { if (e && e.name) heraldryByName[e.name] = e; });
+        var modernEntries = countryNames.map(function(name) {
+          var source = heraldryByName[name] || {};
+          var e = Object.assign({}, source);
+          e.id = source.id || modernCountryId(name);
+          e.name = name;
           e.era = 'modern';
-          e.type = e.type || 'country';
-          e.summary = e.summary || e.card_description || e.description || '';
-          e.meaning = e.meaning || e.card_description || '';
+          e.type = 'modern-state';
+          e.paleo = e.paleo || e.hebrew || '';
+          e.summary = e.summary || e.card_description || e.description || (name + ' — современное государство со своей территорией, историей и языковой средой.');
+          e.meaning = e.meaning || e.card_description || 'Государство и его географическая среда';
+          e.dominantState = countryStates[name] || '';
           return e;
         });
         entries = ancientEntries.concat(modernEntries);
@@ -139,24 +272,9 @@ const Cartography = (function() {
   function renderWorldMap() {
     return '<section class="cartography-world" aria-labelledby="cartography-world-title">' +
       '<div class="cartography-world-head"><div><span class="cartography-world-kicker">RESEARCH LAB · КОНТЕКСТ</span><h2 id="cartography-world-title">Карта мира</h2><p>Материки и основные пространственные узлы перед историческим слоем.</p></div><span class="cartography-world-mark" aria-hidden="true">𐤌</span></div>' +
-      '<svg class="cartography-world-svg" viewBox="0 0 1200 560" role="img" aria-label="Схематичная карта мира с материками и основными странами" focusable="false">' +
-        '<rect class="world-sea" x="0" y="0" width="1200" height="560" rx="8"></rect>' +
-        '<g class="world-graticule" aria-hidden="true"><path d="M40 140H1160M20 280H1180M40 420H1160M200 30V530M400 20V540M600 12V548M800 20V540M1000 30V530"></path></g>' +
-        '<g class="world-land">' +
-          '<path d="M50 142l18-29 31-8 20-26 43-8 35 13 42-6 35 18 33 7 37 26-8 18-27 8-13 21-32 4-18 27-28 8-24-19-31 5-30-16-37 7-28-22z"></path>' +
-          '<path d="M232 211l24-15 31 8 26 27-9 31-20 22-9 35-19 26-8 49-19 38-14-28 4-39-13-32 8-32-11-35 20-24z"></path>' +
-          '<path d="M380 113l22-30 36-18 41 7 23 18 38-5 30 14 38-4 34 15 52 4 29 18 39 5 28 27-18 20-40-4-24 16-42-5-29 20-44-8-36 17-40-8-30 13-31-16-29 6-26-22 17-23z"></path>' +
-          '<path d="M531 207l28-2 29 17 24 34-13 35-25 17-14 37-24 28-9 35-22 30-22-11 7-37 17-28-7-36 17-28-7-28z"></path>' +
-          '<path d="M702 111l25-25 31-9 28 13 20 22 29 11 10 25-22 17-32-7-25 15-26-18-32 5-17-19z"></path>' +
-          '<path d="M753 191l31-18 40 4 30 13 45-3 34 18 43 19 30 28-19 27-32 7-15 26-36 8-20 31-31 22-31-14-17-32-29-8-12-30-29-9 8-27-24-17 23-23z"></path>' +
-          '<path d="M867 394l25-13 30 13 20 26-18 37-27 10-24-17-19-29z"></path>' +
-          '<path d="M1016 232l24-10 30 12 16 22-17 24-31 1-24-15-19-19z"></path>' +
-        '</g>' +
-        '<g class="world-borders" aria-hidden="true">' +
-          '<path d="M111 100l-9 80M153 91l-6 91M194 105l-10 80M236 119l-13 69M92 139l146 8M79 169l148 7M171 201l65 3M259 218l-17 60M277 230l-10 82M286 260l-31 12M265 319l-20 67M412 82l8 116M449 75l2 118M487 77l-6 122M526 91l-5 113M565 93l-10 116M606 101l-7 116M647 111l-13 112M687 128l-22 91M420 124h226M401 155l242 9M442 186l175 4M535 205l-6 112M557 213l-8 108M586 230l-12 93M747 88l-8 100M781 91l-11 102M811 108l-9 93M734 129l89 12M721 160l113 10M805 196l-10 81M842 198l-14 95M881 211l-12 97M916 224l-10 88M951 240l-18 78M790 238l168 24M801 273l130 22M852 315l-24 42M886 319l-20 39M909 330l-15 38M899 395l-18 25M928 406l-14 28M1036 222l-4 62M1064 226l-7 61"></path>' +
-          '<path class="world-river" d="M575 242c-18 22-9 37 7 51m-25-8c-17 18-12 32-3 48M170 132c-17 17-22 31-8 44"></path>' +
-        '</g>' +
-        '<g class="world-labels" aria-hidden="true"><text x="111" y="128">Северная Америка</text><text x="241" y="350">Южная Америка</text><text x="463" y="104">Европа</text><text x="551" y="291">Африка</text><text x="826" y="151">Азия</text><text x="861" y="376">Австралия</text><text x="126" y="151">США</text><text x="171" y="126">Канада</text><text x="522" y="117">Россия</text><text x="800" y="231">Китай</text><text x="284" y="300">Бразилия</text><text x="892" y="426">Австралия</text><text x="1042" y="215">Япония</text></g>' +
+      '<svg class="cartography-world-svg" viewBox="0 0 950 620" role="img" aria-label="Интерактивная карта мира" focusable="false">' +
+        '<rect class="world-sea" x="0" y="0" width="950" height="620"></rect>' +
+        '<g class="world-countries">' + worldMapMarkup + '</g>' +
       '</svg>' +
     '</section>';
   }
@@ -207,11 +325,40 @@ const Cartography = (function() {
         var id = this.getAttribute('data-id');
         if (id) showDetail(id);
       });
+      card.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          var id = this.getAttribute('data-id');
+          if (id) showDetail(id);
+        }
+      });
+    });
+
+    container.querySelectorAll('.world-country').forEach(function(country) {
+      country.addEventListener('click', function() { showCountryDetail(this.getAttribute('data-country-id')); });
+      country.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showCountryDetail(this.getAttribute('data-country-id')); }
+      });
     });
   }
 
+  function showCountryDetail(countryId) {
+    var info = MAP_INFO[countryId] || MAP_COUNTRY_NAMES[countryId] || [countryId.replace(/[-_]/g, ' '), 'Не определён'];
+    var hasData = Boolean(countryStates[info[0]]);
+    var description = countryDescriptions[info[0]] || (hasData
+      ? 'Географическая точка в карте потока.'
+      : 'Данные уточняются. Поток в этой стране пока не диагностирован');
+    var diagnosis = hasData ? countryStates[info[0]] : 'Данные уточняются. Поток в этой стране пока не диагностирован';
+    var html = '<div class="cartography-detail cartography-map-detail"><div class="cartography-detail-section cartography-callout">' +
+      '<p><strong>Материк:</strong> ' + escapeHtml(info[1]) + '</p>' +
+      '<p><strong>Диагноз:</strong> ' + escapeHtml(diagnosis) + '</p>' +
+      '<p>' + escapeHtml(description) + '</p>' +
+      '</div></div>';
+    if (typeof LabModal !== 'undefined') LabModal.show(escapeHtml(info[0]), html, '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabModal.close()">Закрыть</button>');
+  }
+
   function renderCard(e, index) {
-    return '<div class="cartography-card" data-id="' + escapeHtml(e.id) + '" tabindex="0" style="animation-delay:' + (index * 60) + 'ms">' +
+    return '<div class="cartography-card" data-id="' + escapeHtml(e.id) + '" tabindex="0" role="button" aria-label="Открыть карточку: ' + escapeHtml(e.name) + '" style="animation-delay:' + (index * 60) + 'ms">' +
       '<div class="cartography-card-type">' + escapeHtml(TYPE_LABELS[e.type] || e.type || '') + '</div>' +
       '<h2 class="cartography-card-title">' + escapeHtml(e.name) + '</h2>' +
       '<div class="cartography-card-hebrew" dir="rtl" lang="he">' + escapeHtml(e.hebrew || '') + '</div>' +
@@ -230,7 +377,7 @@ const Cartography = (function() {
     }
 
     var html = buildDetailHTML(entry);
-    if (window.LabModal) {
+    if (typeof LabModal !== 'undefined') {
       LabModal.show(escapeHtml(entry.name), html, '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabModal.close()">Закрыть</button>');
     }
   }
@@ -246,6 +393,12 @@ const Cartography = (function() {
       return '<span class="cartography-related-tag" data-related-id="' + escapeHtml(id) + '">' + escapeHtml(label) + '</span>';
     }).join('');
 
+    var paleoBreakdown = entry.symbol_paleo_breakdown && entry.symbol_paleo_breakdown.elements
+      ? entry.symbol_paleo_breakdown.elements.map(function(element) {
+          return '<li><strong>' + escapeHtml(element.element || '') + '</strong>: ' + escapeHtml(element.paleo || '') + ' — ' + escapeHtml(element.meaning || '') + '</li>';
+        }).join('')
+      : '<li><strong>' + escapeHtml(entry.paleo || 'Палео-форма не задана') + '</strong>: последовательность знаков для отдельного исследования.</li>';
+
     var html = '<div class="cartography-detail">' +
       '<div class="cartography-detail-names">' +
         '<div class="cartography-detail-name">' + escapeHtml(entry.name) + '</div>' +
@@ -259,6 +412,12 @@ const Cartography = (function() {
       '<div class="cartography-detail-section cartography-callout cartography-summary">' +
         '<h3>Описание</h3>' +
         '<p>' + escapeHtml(entry.summary || '—') + '</p>' +
+      '</div>' +
+      '<div class="cartography-detail-section cartography-paleo-analysis">' +
+        '<h3>Разбор на палео-иврите</h3>' +
+        '<p><strong>Палео-форма:</strong> <span class="cartography-detail-paleo" dir="rtl">' + escapeHtml(entry.paleo || '—') + '</span></p>' +
+        '<p><strong>Смысловая сборка:</strong> ' + escapeHtml(entry.meaning || 'Географическая среда и её поток') + '</p>' +
+        '<ul>' + paleoBreakdown + '</ul>' +
       '</div>' +
       (eventsHtml ? '<div class="cartography-detail-section"><h3>Ключевые события</h3><div class="cartography-events" role="list">' + eventsHtml + '</div></div>' : '') +
       (relatedHtml ? '<div class="cartography-detail-section"><h3>Связанные</h3><div class="cartography-related">' + relatedHtml + '</div></div>' : '') +
