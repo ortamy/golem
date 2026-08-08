@@ -28,10 +28,9 @@
   ],
   "quotes": [
     {
-      "hebrew": "טֶקְסְט",
       "translit": "Tekst",
       "literal": "Буквальный перевод цитаты",
-      "ref": "Книга 1:1"
+      "ref": "Берешит 1:1"
     }
   ],
   "substitutionChain": [
