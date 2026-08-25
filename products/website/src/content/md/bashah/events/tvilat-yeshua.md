@@ -371,11 +371,7 @@
 - `content/bashah/persons/yohanan-matbil.md` — Йоханан Погружатель
 - `content/bashah/events/shavuot-ruach.md` — Шавуот, дарование Руах Кодеш общине
 - `content/bashah/concepts/mashiah-bashah.md` — Машиах в писаниях посланников
-<<<<<<< HEAD
 - `docs/06-METHODOLOGY/EXPOSURE-DISTORTIONS.md` — типы искажений
-=======
-- `instructions/exposure/exposure-distortions.md` — типы искажений
->>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 
 ---
 

@@ -10,11 +10,7 @@
 - **Тема:** Культ личности как религиозный феномен. Человек на месте Яхве. От фараона до современности. Механизмы, истоки, разоблачение через ТаНаХ.
 - **Аудит:** bdikah  | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-<<<<<<< HEAD
 - **Связанные файлы:** `content/researches/bavel-sacrifice.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `docs/06-METHODOLOGY/EXPOSURE-BAVEL.md`
-=======
-- **Связанные файлы:** `content/researches/bavel-sacrifice.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-bavel.md`
->>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** ожидает
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-20
@@ -184,13 +180,8 @@
 ##  СВЯЗАННЫЕ ФАЙЛЫ
 
 - `content/researches/bavel-sacrifice.md` — вавилонская подмена корбана
-<<<<<<< HEAD
 - `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md` — архитектура системы
 - `docs/06-METHODOLOGY/EXPOSURE-BAVEL.md` — вавилонский слой
-=======
-- `instructions/exposure/exposure-system-architecture.md` — архитектура системы
-- `instructions/exposure/exposure-bavel.md` — вавилонский слой
->>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - `content/tanakh/persons/moshe.md` — Моше против фараона
 
 ---

@@ -8,11 +8,7 @@
 - **Тема:** Грамматические падежи как лингвистический инструмент формирования рабского мышления. Как греко-римская грамматика встроила иерархию, вину и подчинение в структуру языка.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE-SHIFTS.md`, `docs/06-METHODOLOGY/EXPOSURE-DISTORTIONS.md`
-=======
-- **Связанные файлы:** `instructions/exposure/exposure-language-shifts.md`, `instructions/exposure/exposure-distortions.md`
->>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** ожидает
 - **Достоверность:** средняя
 

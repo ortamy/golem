@@ -8,11 +8,7 @@
 - **Тема:** Догмат Троицы как эллинско-римская адаптация. Историческое расследование. Отсутствие в ТаНаХе и у ранних учеников.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-<<<<<<< HEAD
 - **Связанные файлы:** `researches/angelology-exposure.md`, `docs/06-METHODOLOGY/EXPOSURE-DISTORTIONS.md`, `docs/06-METHODOLOGY/EXPOSURE-LINGUISTIC-METHODS.md`
-=======
-- **Связанные файлы:** `researches/angelology-exposure.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-linguistic-methods.md`
->>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** ожидает
 - **Достоверность:** высокая
 

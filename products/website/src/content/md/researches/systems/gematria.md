@@ -10,11 +10,7 @@
 - **Тема:** Разоблачение гематрии как системы контроля — происхождение, методы, опровержение из ТаНаХа
 - **Аудит:** bdikah  | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-<<<<<<< HEAD
 - **Связанные файлы:** `content/terminology/gematria.md`, `content/researches/systems/talmud-judaism.md`, `docs/06-METHODOLOGY/EXPOSURE-DISTORTIONS.md`, `docs/06-METHODOLOGY/EXPOSURE-MECHANISMS.md`
-=======
-- **Связанные файлы:** `content/terminology/gematria.md`, `content/researches/systems/talmud-judaism.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-mechanisms.md`
->>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 82f19f44
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-17
@@ -316,15 +312,9 @@
 - `content/terminology/gematria.md` — разбор понятия (если создан)
 - `content/researches/systems/talmud-judaism.md` — талмудический иудаизм
 - `content/researches/history/greek-as-weapon.md` — греческое влияние
-<<<<<<< HEAD
 - `docs/06-METHODOLOGY/EXPOSURE-DISTORTIONS.md` — типы искажений
 - `docs/06-METHODOLOGY/EXPOSURE-MECHANISMS.md` — механизмы подмены
 - `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md` — архитектура седер
-=======
-- `instructions/exposure/exposure-distortions.md` — типы искажений
-- `instructions/exposure/exposure-mechanisms.md` — механизмы подмены
-- `instructions/exposure/exposure-system-architecture.md` — архитектура седер
->>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 
 
 ##  ВВЕДЕНИЕ

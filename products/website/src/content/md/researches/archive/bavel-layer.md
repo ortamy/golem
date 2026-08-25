@@ -223,11 +223,7 @@
 - `content/researches/enuma-bereshit.md` — сравнение эпосов
 - `content/researches/cabbala-gematria.md` — каббала и гематрия
 - `content/researches/korban-zevah.md` — корбан и зевах
-<<<<<<< HEAD
 - `docs/06-METHODOLOGY/EXPOSURE-DISTORTIONS.md` — типы искажений
-=======
-- `instructions/exposure/exposure-distortions.md` — типы искажений
->>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 
 ---
 
