@@ -83,11 +83,7 @@ cd tools && python golem.py
 Ивритские темы — ивритское имя: `chesed.md`, `brit-hadashah.md`. Светские темы — английское: `history-of-banks.md`, `psychology.md`.
 
 ### Как заполнить метаданные?
-<<<<<<< HEAD
 Запусти `unify-metadata.py --fix` — он добавит недостающие поля. Или создай вручную по шаблону из `docs/12-TEMPLATES/RESEARCH-TEMPLATE.md`.
-=======
-Запусти `unify-metadata.py --fix` — он добавит недостающие поля. Или создай вручную по шаблону из `instructions/templates/research-template.md`.
->>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 
 ### Что делать с пустым файлом?
 Запусти `fill-empty-files.py` — он создаст черновик с правильной структурой. Потом заполни содержанием.

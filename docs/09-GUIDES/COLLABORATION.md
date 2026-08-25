@@ -10,11 +10,7 @@
 - **Тема:** Как участвовать в проекте «Голем» — правила, процесс, коммуникация
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
-<<<<<<< HEAD
 - **Связанные файлы:** `instructions/COLLABORATION-GUIDE.md`, `instructions/RESEARCH-PRINCIPLES.md`, `instructions/FORBIDDEN-WORDS.md`, `CONTROL.md`, `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE.md`, `docs/06-METHODOLOGY/METHODS.md`
-=======
-- **Связанные файлы:** `instructions/COLLABORATION-GUIDE.md`, `instructions/RESEARCH-PRINCIPLES.md`, `instructions/FORBIDDEN-WORDS.md`, `CONTROL.md`, `instructions/exposure/exposure-language.md`, `instructions/exposure/methods.md`
->>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** ожидает
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-11
@@ -91,11 +87,7 @@
 ### ШАГ 3: СОЗДАЙ ЧЕРНОВИК
 
 - создай файл в `drafts/`
-<<<<<<< HEAD
 - следуй шаблону `docs/12-TEMPLATES/RESEARCH-TEMPLATE.md`
-=======
-- следуй шаблону `instructions/templates/RESEARCH-TEMPLATE.md`
->>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - заполни метаданные
 
 ### ШАГ 4: ПРОВЕРЬ СЕБЯ
