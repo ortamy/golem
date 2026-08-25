@@ -1,0 +1,17 @@
+Port 22
+Protocol 2
+UsePAM no
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+ChallengeResponseAuthentication no
+PermitRootLogin no
+PermitEmptyPasswords no
+AllowUsers golem
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+X11Forwarding no
+AllowTcpForwarding no
+GatewayPorts no
+PermitTunnel no
+ClientAliveInterval 300
+ClientAliveCountMax 2

@@ -1,0 +1,87 @@
+.davar-checker-shell {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.davar-checker-intro {
+  margin-bottom: 28px;
+}
+
+.davar-checker-kicker {
+  margin: 0 0 8px;
+  color: var(--accent-gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.davar-checker-form {
+  padding: 24px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  background: var(--bg-dark);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .18);
+}
+
+.davar-checker-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.davar-checker-form-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.davar-checker-form-row .lab-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.davar-checker-hint {
+  margin: 10px 0 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.davar-checker-result {
+  margin-top: 20px;
+  padding: 22px 24px;
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.davar-checker-result-davar {
+  border-left-color: var(--accent-green, #6f9b63);
+}
+
+.davar-checker-result-noise {
+  border-left-color: var(--accent-red, #b45d4d);
+}
+
+.davar-checker-result-warn,
+.davar-checker-result-unknown {
+  border-left-color: var(--accent-gold);
+}
+
+@media (max-width: 640px) {
+  .davar-checker-form {
+    padding: 18px;
+  }
+
+  .davar-checker-form-row {
+    flex-direction: column;
+  }
+
+  .davar-checker-form-row .lab-btn {
+    width: 100%;
+  }
+}

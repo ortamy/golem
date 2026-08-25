@@ -1,0 +1,60 @@
+# Database
+data/*.db
+data/*.sqlite
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+
+# Virtual environment
+.venv/
+venv/
+
+# Secrets
+.env
+*.local.yml
+secrets.json
+*.key
+*.pem
+
+# Models (большие файлы)
+ed/neuro/models/*.gguf
+ed/neuro/models/*.bin
+*.pt
+*.pth
+
+# Training data (сырые данные)
+ed/neuro/training-data/raw/
+ed/neuro/training-data/*.json.raw
+
+# Backups
+*.tar.gz
+*.zip
+backups/
+
+# Temp files
+*.tmp
+*.log
+export.txt
+structure.txt
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache
+tools/cache/
+
+# Reports (старые)
+reports/STATS_*.md

@@ -1,0 +1,21 @@
+# ed/assistant/config.yml — конфигурация ассистента «Эд» (v1.0)
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+
+assistant:
+  name: "Эд"
+  version: "1.0"
+  language: "ru"
+
+tools:
+  path: "../tools"
+
+commands:
+  aliases:
+    ch: "check"
+    fx: "fix"
+    gen: "generate"
+    rep: "report"
+    srch: "search"

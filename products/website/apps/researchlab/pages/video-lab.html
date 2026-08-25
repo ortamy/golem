@@ -1,0 +1,53 @@
+<section class="prompt-generator-shell" aria-labelledby="video-lab-title">
+  <header class="prompt-generator-heading">
+    <div>
+      <p class="prompt-generator-kicker">ГЕНЕРАТОРЫ · ВИЗУАЛИЗАЦИЯ</p>
+      <h1 id="video-lab-title">Генератор видео-образов</h1>
+      <p class="subtitle">Визуализируй механику слова: буквы, состояния и переходы в движении.</p>
+    </div>
+    <span class="prompt-generator-mark" aria-hidden="true">🎥</span>
+  </header>
+
+  <div class="prompt-generator-layout">
+    <section class="prompt-generator-card" aria-labelledby="vl-input-title">
+      <div class="prompt-generator-card-head">
+        <span class="prompt-generator-step">01</span>
+        <div>
+          <h2 id="vl-input-title">Исходное слово</h2>
+          <p>Введите слово на иврите для построения видео-образа.</p>
+        </div>
+      </div>
+      <div class="vl-input-group">
+        <input type="text" id="vl-word-input" class="lab-input vl-word-input" placeholder="Например: אמת, תורה, שלום" />
+        <button type="button" id="vl-generate-btn" class="lab-btn lab-btn-primary">Сгенерировать</button>
+      </div>
+      <p id="vl-status" class="prompt-generator-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="prompt-generator-card" aria-labelledby="vl-visual-title">
+      <div class="prompt-generator-card-head">
+        <span class="prompt-generator-step">02</span>
+        <div>
+          <h2 id="vl-visual-title">Видео-образ</h2>
+          <p>Последовательность состояний букв и их переходы.</p>
+        </div>
+      </div>
+      <div id="vl-visual-output" class="vl-visual-output">
+        <p class="prompt-generator-empty">Введите слово и нажмите «Сгенерировать».</p>
+      </div>
+    </section>
+  </div>
+
+  <section class="prompt-generator-card" aria-labelledby="vl-description-title">
+    <div class="prompt-generator-card-head">
+      <span class="prompt-generator-step">03</span>
+      <div>
+        <h2 id="vl-description-title">Описание движения</h2>
+        <p>Текстовое описание визуальной механики слова.</p>
+      </div>
+    </div>
+    <div id="vl-description-output" class="vl-description-output">
+      <p class="prompt-generator-empty">Здесь появится описание.</p>
+    </div>
+  </section>
+</section>

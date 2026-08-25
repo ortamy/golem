@@ -1,0 +1,106 @@
+/* Карточки секций библиотеки: визуальная сборка без изменения текста. */
+.research-section-card {
+  position: relative;
+  margin: 0 0 20px;
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 8px;
+  background: var(--bg-secondary, #f7f1e5);
+  box-shadow: 0 3px 12px rgba(44, 24, 16, .07);
+  padding: 18px 20px 20px;
+  scroll-margin-top: 120px;
+}
+
+.research-section-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  border-radius: 8px 0 0 8px;
+  background: var(--accent-gold, #b8860b);
+  content: '';
+}
+
+.research-section-card.exposure-card { display: block; animation: none; border-left: 3px solid var(--accent-red, #8e2f25); }
+.research-section-card.exposure-card::before { display: none; }
+.research-section-card.practice-card { border-left-color: var(--accent-gold, #b8860b); }
+.research-section-card.tanakh-card { border-left-color: #6d8e9e; }
+
+.research-section-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 12px;
+}
+
+.research-section-card-head .exposure-section-icon { flex: 0 0 auto; width: 40px; height: 40px; margin-right: 12px; }
+.exposure-section-heading-text { margin: 0; color: var(--text-primary, #2c1810); font-family: var(--font-heading, Georgia, serif); font-size: 1.2rem; }
+.research-section-card .exposure-section-body { color: var(--text-primary, #2c1810); line-height: 1.65; }
+.research-section-card .exposure-section-body > :first-child { margin-top: 0; }
+.research-section-card .exposure-section-body > :last-child { margin-bottom: 0; }
+.research-section-card blockquote { border-left: 3px solid var(--accent-gold, #b8860b); background: rgba(184, 134, 11, .08); padding: 8px 14px; }
+.research-section-card li + li { margin-top: 5px; }
+
+.tanakh-card .tanakh-quote { font-size: 1.04em; }
+.tanakh-card .tanakh-quote-line { display: block; }
+.tanakh-card .tanakh-hebrew-line { font-size: 1.16em; font-family: "Times New Roman", serif; }
+.tanakh-card .tanakh-translation-line { color: var(--text-secondary, #675848); }
+.tanakh-card .tanakh-quote-divider { display: block; height: 1px; margin: 7px 0; background: var(--border-light, #d4c4a8); }
+
+.typology-links-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+}
+
+.typology-link-card {
+  display: flex;
+  flex: 1 1 190px;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  border: 1px solid var(--border-light, #d4c4a8);
+  border-radius: 7px;
+  background: var(--bg-tertiary, #efe6d4);
+  padding: 12px;
+}
+
+.typology-link-icon { flex: 0 0 auto; width: 32px; height: 32px; object-fit: contain; }
+.typology-link-copy { display: flex; min-width: 0; flex-direction: column; gap: 3px; }
+.typology-link-name { color: var(--text-primary, #2c1810); line-height: 1.25; }
+.typology-link-description { color: var(--text-secondary, #675848); font-size: .9rem; line-height: 1.35; }
+
+html[data-theme="dark"] .typology-link-card { background: var(--bg-secondary, #211b17); }
+
+.section-patches-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+}
+
+.section-patch-card {
+  display: flex;
+  flex: 1 1 220px;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  border: 0;
+  border-radius: 7px;
+  background: var(--bg-tertiary, #efe6d4);
+  padding: 10px 12px;
+}
+
+.section-patch-icon { flex: 0 0 auto; width: 28px; height: 28px; object-fit: contain; }
+.section-patch-copy { display: flex; min-width: 0; flex-direction: column; gap: 2px; }
+.section-patch-title { color: var(--text-primary, #2c1810); line-height: 1.25; }
+.section-patch-detail { color: var(--text-secondary, #675848); font-size: .88rem; line-height: 1.35; }
+html[data-theme="dark"] .section-patch-card { background: var(--bg-secondary, #211b17); }
+
+html[data-theme="dark"] .research-section-card { background: var(--bg-secondary, #211b17); border-color: var(--border-light, #514234); }
+html[data-theme="dark"] .research-section-card blockquote { background: rgba(184, 134, 11, .12); }
+
+@media (max-width: 640px) {
+  .research-section-card { padding: 15px 16px 17px; }
+  .typology-link-card { flex-basis: 100%; }
+  .section-patch-card { flex-basis: 100%; }
+}
