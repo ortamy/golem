@@ -1,52 +1,6 @@
-﻿CONFLICT FILES: 10
-RESOLVED: INDEX.md
-RESOLVED: MANIFEST.md
-RESOLVED: ARCHITECTURE.md
-RESOLVED: DEVELOPMENT-PROCESS.md
-RESOLVED: COLLABORATION.md
-RESOLVED: CONTRIBUTING.md
-RESOLVED: DEPLOY.md
-RESOLVED: FAQ.md
-RESOLVED: PALEO-ENGINEER-PATH.md
-RESOLVED: WORKFLOW-RESEARCH.md
-UNIQUE IN OLD DIRS: 5
-UNIQUE: C:\Users\DELL\Desktop\golem-main\docs\03-CONTENT\DEREKH-ABBA.md
-UNIQUE: C:\Users\DELL\Desktop\golem-main\docs\08-EXPOSURE\religionism-theory.md
-UNIQUE: C:\Users\DELL\Desktop\golem-main\docs\12-JOB\current.md
-UNIQUE: C:\Users\DELL\Desktop\golem-main\docs\12-JOB\done.md
-UNIQUE: C:\Users\DELL\Desktop\golem-main\docs\12-JOB\prompts.md
-DELETED DIR: 03-CONTENT
-DELETED DIR: 05-AUDITS
-DELETED DIR: 06-DESIGN
-DELETED DIR: 07-DICTIONARIES
-DELETED DIR: 08-EXPOSURE
-DELETED DIR: 10-INSTRUCTIONS
-DELETED DIR: 11-AGENTS
-DELETED DIR: 12-JOB
-DELETED DIR: 13-METHODOLOGY
-DELETED DIR: 14-REPORTS
-DELETED DIR: 15-TEMPLATES
-DELETED DIR: 16-MECHANICS
-DUP REMOVED: 09-GUIDES/AGENT.md
-DUP REMOVED: 09-GUIDES/AI-WORKFLOW.md
-DUP REMOVED: 09-GUIDES/ANALYZERS.md
-DUP REMOVED: 09-GUIDES/ASSISTANT.md
-DUP REMOVED: 09-GUIDES/AUDIT.md
-DUP REMOVED: 09-GUIDES/CHECKERS.md
-DUP REMOVED: 09-GUIDES/CLINE.md
-DUP REMOVED: 09-GUIDES/DAVAR.md
-DUP REMOVED: 09-GUIDES/EXPOSURE.md
-DUP REMOVED: 09-GUIDES/HEBREW.MD
-DUP REMOVED: 09-GUIDES/ICONS.md
-DUP REMOVED: 09-GUIDES/NEURO.md
-DUP REMOVED: 09-GUIDES/PALEO-TRANSLATION-PRINCIPLES.md
-DUP REMOVED: 09-GUIDES/PALEO-TRANSLATION-PROTOCOL.md
-DUP REMOVED: 09-GUIDES/RESEARCHLAB-ANALYZERS.md
-DUP REMOVED: 09-GUIDES/SETTINGS.md
-DUP REMOVED: 09-GUIDES/STATE-DIAGNOSTICS.md
-DUP REMOVED: 09-GUIDES/TERMINOLOGY.md
-RESTORED FROM GIT: RELIGIONISM-THEORY=True
-RENAMED TO UPPER: 0
-TOTAL FILES: 181
-BAD NAMES LEFT: 0
-CONFLICT MARKS LEFT: 0
+﻿DEREKH-ABBA -> 04-STANDARD | # 📜 ДЕРЕХ АББА — ПУТЬ ОТЦОВ 
+INDEX L1: # 📑 ИНДЕКС ДОКУМЕНТАЦИИ «ГОЛЕМ»
+MANIFEST L1: # МАНИФЕСТ ПРОЕКТА «ГОЛЕМ» v11.0
+COMMIT OUT: [main cc679c32] docs: finalize restructure - resolve conflicts, remove legacy dirs, normalize names  168 files changed, 194 insertions(+), 43965 deletions(-)  delete mode 100644 docs/03-CONTENT/AI-MODELS.md  delete mode 100644 docs/03-CONTENT/GLOSSARY-DEVELOPMENT.md  delete mode 100644 docs/03-CONTENT/GRAPH.md  delete mode 100644 docs/03-CONTENT/IDEAS.md  delete mode 100644 docs/03-CONTENT/ML-COURSE.md  delete mode 100644 docs/03-CONTENT/PALEO-READING-METHODS.md  delete mode 100644 docs/03-CONTENT/PALEO-STANDARD.md  delete mode 100644 docs/03-CONTENT/STATS.md  delete mode 100644 docs/03-CONTENT/STRATEGY.md  rename docs/{03-CONTENT => 04-STANDARD}/DEREKH-ABBA.md (100%)  delete mode 100644 docs/05-AUDITS/ARCHITECTURE-AUDIT.md  delete mode 100644 docs/05-AUDITS/EXPOSURE-AUDIT.md  delete mode 100644 docs/05-AUDITS/WEBSITE-AUDIT.md  delete mode 100644 docs/06-DESIGN/DESIGN-SYSTEM.md  delete mode 100644 docs/06-DESIGN/ICON-MAP.md  rename docs/{08-EXPOSURE/religionism-theory.md => 06-METHODOLOGY/RITUAL-CHAIN.md} (97%)  delete mode 100644 docs/07-DICTIONARIES/economisms.md  delete mode 100644 docs/07-DICTIONARIES/estethisms.md  delete mode 100644 docs/07-DICTIONARIES/exposures.md  delete mode 100644 docs/07-DICTIONARIES/gastronomisms.md  delete mode 100644 docs/07-DICTIONARIES/grecisms.md  delete mode 100644 docs/07-DICTIONARIES/juridisms.md  delete mode 100644 docs/07-DICTIONARIES/latinisms.md  delete mode 100644 docs/07-DICTIONARIES/marketisms.md  delete mode 100644 docs/07-DICTIONARIES/mediasms.md  delete mode 100644 docs/07-DICTIONARIES/medicinisms.md  delete mode 100644 docs/07-DICTIONARIES/militarisms.md  delete mode 100644 docs/07-DICTIONARIES/modernisms.md  delete mode 100644 docs/07-DICTIONARIES/names.md  delete mode 100644 docs/07-DICTIONARIES/newageisms.md  delete mode 100644 docs/07-DICTIONARIES/phrasisms.md  delete mode 100644 docs/07-DICTIONARIES/politisms.md  delete mode 100644 docs/07-DICTIONARIES/psychologisms.md  delete mode 100644 docs/07-DICTIONARIES/religionisms.md  delete mode 100644 docs/07-DICTIONARIES/scientisms.md  delete mode 100644 docs/07-DICTIONARIES/slavicisms.md  delete mode 100644 docs/07-DICTIONARIES/sportisms.md  delete mode 100644 docs/07-DICTIONARIES/technologisms.md  delete mode 100644 docs/08-EXPOSURE/cultural-matrices.md  delete mode 100644 docs/08-EXPOSURE/distortions.md  delete mode 100644 docs/08-EXPOSURE/evidence.md  delete mode 100644 docs/08-EXPOSURE/linguistic-methods.md  delete mode 100644 docs/08-EXPOSURE/linguistic.md  delete mode 100644 docs/08-EXPOSURE/mechanisms.md  delete mode 100644 docs/08-EXPOSURE/methods.md  delete mode 100644 docs/08-EXPOSURE/philosophemes.md  delete mode 100644 docs/08-EXPOSURE/principles.md  delete mode 100644 docs/08-EXPOSURE/protocol.md  delete mode 100644 docs/08-EXPOSURE/system-architecture.md  delete mode 100644 docs/08-EXPOSURE/techniques.md  delete mode 100644 docs/08-EXPOSURE/template.md  delete mode 100644 docs/09-GUIDES/AGENT.md  delete mode 100644 docs/09-GUIDES/AI-WORKFLOW.md  delete mode 100644 docs/09-GUIDES/ANALYZERS.md  delete mode 100644 docs/09-GUIDES/ASSISTANT.md  delete mode 100644 docs/09-GUIDES/AUDIT.md  delete mode 100644 docs/09-GUIDES/CHECKERS.md  delete mode 100644 docs/09-GUIDES/CLINE.md  delete mode 100644 docs/09-GUIDES/DAVAR.md  delete mode 100644 docs/09-GUIDES/EXPOSURE.md  delete mode 100644 docs/09-GUIDES/HEBREW.MD  delete mode 100644 docs/09-GUIDES/ICONS.md  delete mode 100644 docs/09-GUIDES/NEURO.md  delete mode 100644 docs/09-GUIDES/PALEO-TRANSLATION-PRINCIPLES.md  delete mode 100644 docs/09-GUIDES/PALEO-TRANSLATION-PROTOCOL.md  delete mode 100644 docs/09-GUIDES/RESEARCHLAB-ANALYZERS.md  delete mode 100644 docs/09-GUIDES/SETTINGS.md  delete mode 100644 docs/09-GUIDES/STATE-DIAGNOSTICS.md  delete mode 100644 docs/09-GUIDES/TERMINOLOGY.md  delete mode 100644 docs/10-INSTRUCTIONS/RESEARCH-LAB-MAP.md  delete mode 100644 docs/10-INSTRUCTIONS/agent/AGENT-PROMPT.md  delete mode 100644 docs/10-INSTRUCTIONS/agent/AGENT-RETROSPECTIVE.md  delete mode 100644 docs/10-INSTRUCTIONS/agent/AGENT-ROUTINE.md  delete mode 100644 docs/10-INSTRUCTIONS/agent/AUDIT-REPORT.md  delete mode 100644 docs/10-INSTRUCTIONS/agent/AUDIT-SYSTEM.md  delete mode 100644 docs/10-INSTRUCTIONS/agent/CHAT-PROMPT.md  delete mode 100644 docs/10-INSTRUCTIONS/assistant/ASSISTANT-ARCHITECTURE-AUDIT.md  delete mode 100644 docs/10-INSTRUCTIONS/assistant/ASSISTANT-CHAT-PROMPT.md  delete mode 100644 docs/10-INSTRUCTIONS/assistant/ASSISTANT-RETROSPECTIVE.md  delete mode 100644 docs/10-INSTRUCTIONS/assistant/ASSISTANT-ROUTINE.md  delete mode 100644 docs/10-INSTRUCTIONS/checkers/check-bdikah.md  delete mode 100644 docs/10-INSTRUCTIONS/checkers/check-consistency.md  delete mode 100644 docs/10-INSTRUCTIONS/checkers/check-fact.md  delete mode 100644 docs/10-INSTRUCTIONS/checkers/check-mivdak.md  delete mode 100644 docs/10-INSTRUCTIONS/checkers/check-startup.md  delete mode 100644 docs/10-INSTRUCTIONS/checkers/check-tahor.md  delete mode 100644 docs/10-INSTRUCTIONS/checkers/check-tikun.md  delete mode 100644 docs/10-INSTRUCTIONS/products/ED-AGENT.md  delete mode 100644 docs/10-INSTRUCTIONS/products/ED-ASSISTANT.md  delete mode 100644 docs/10-INSTRUCTIONS/products/ED-DAVAR.md  delete mode 100644 docs/10-INSTRUCTIONS/products/ED-NEURO.md  delete mode 100644 docs/10-INSTRUCTIONS/products/RESEARCH-LAB.md  delete mode 100644 docs/10-INSTRUCTIONS/products/WEB-INTERFACE.md  delete mode 100644 docs/10-INSTRUCTIONS/products/WEBSITE.md  delete mode 100644 docs/11-AGENTS/AGENT-ARCHITECTURE.md  delete mode 100644 docs/11-AGENTS/AGENT-PIPELINES.md  delete mode 100644 docs/11-AGENTS/AGENT-STATUS.md  delete mode 100644 docs/11-AGENTS/AGENT-SYSTEM-INFO.md  delete mode 100644 docs/11-AGENTS/NEW-CHAT-PROMPT.md  delete mode 100644 docs/11-AGENTS/ONBOARDING-CHECKLIST.md  delete mode 100644 docs/12-JOB/backlog.md  delete mode 100644 docs/12-JOB/current.md  delete mode 100644 docs/12-JOB/done.md  delete mode 100644 docs/12-JOB/ideas.md  delete mode 100644 docs/12-JOB/prompts.md  delete mode 100644 docs/13-METHODOLOGY/BOOKS-STATES-MAP.md  delete mode 100644 docs/13-METHODOLOGY/archeology.md  delete mode 100644 docs/13-METHODOLOGY/layers.md  delete mode 100644 docs/13-METHODOLOGY/reconstruction.md  delete mode 100644 docs/13-METHODOLOGY/research-principles.md  delete mode 100644 docs/13-METHODOLOGY/states.md  delete mode 100644 docs/13-METHODOLOGY/translation.md  delete mode 100644 docs/13-METHODOLOGY/transliteration.md  delete mode 100644 docs/13-METHODOLOGY/tree.md  delete mode 100644 docs/14-REPORTS/researches-report.txt  delete mode 100644 docs/15-TEMPLATES/BOOK.md  delete mode 100644 docs/15-TEMPLATES/CONCEPT-ANALYSIS.md  delete mode 100644 docs/15-TEMPLATES/CONSPIRACY-BOARD.md  delete mode 100644 docs/15-TEMPLATES/EVENT.md  delete mode 100644 docs/15-TEMPLATES/EXPOSURE.md  delete mode 100644 docs/15-TEMPLATES/INDEX.md  delete mode 100644 docs/15-TEMPLATES/LEARN.md  delete mode 100644 docs/15-TEMPLATES/PERSON.md  delete mode 100644 docs/15-TEMPLATES/PLACE.md  delete mode 100644 docs/15-TEMPLATES/PRACTICE.md  delete mode 100644 docs/15-TEMPLATES/RESEARCH.md  delete mode 100644 docs/15-TEMPLATES/SELF-LEARNING.md  delete mode 100644 docs/15-TEMPLATES/TEACHING.md  delete mode 100644 docs/15-TEMPLATES/TERM.md  delete mode 100644 docs/15-TEMPLATES/TZEL.md  delete mode 100644 docs/16-MECHANICS/README.md  delete mode 100644 docs/16-MECHANICS/aleph-ox.md  delete mode 100644 docs/16-MECHANICS/ayin-eye.md  delete mode 100644 docs/16-MECHANICS/bet-house.md  delete mode 100644 docs/16-MECHANICS/chet-fence.md  delete mode 100644 docs/16-MECHANICS/dalet-door.md  delete mode 100644 docs/16-MECHANICS/gimel-camel.md  delete mode 100644 docs/16-MECHANICS/he-window.md  delete mode 100644 docs/16-MECHANICS/kaf-palm.md  delete mode 100644 docs/16-MECHANICS/lamed-staff.md  delete mode 100644 docs/16-MECHANICS/mem-water.md  delete mode 100644 docs/16-MECHANICS/nun-fish.md  delete mode 100644 docs/16-MECHANICS/pey-mouth.md  delete mode 100644 docs/16-MECHANICS/qof-needle.md  delete mode 100644 docs/16-MECHANICS/resh-head.md  delete mode 100644 docs/16-MECHANICS/samekh-support.md  delete mode 100644 docs/16-MECHANICS/shin-tooth.md  delete mode 100644 docs/16-MECHANICS/tav-seal.md  delete mode 100644 docs/16-MECHANICS/tet-serpent.md  delete mode 100644 docs/16-MECHANICS/tsadi-hook.md  delete mode 100644 docs/16-MECHANICS/vav-hook.md  delete mode 100644 docs/16-MECHANICS/yod-hand.md  delete mode 100644 docs/16-MECHANICS/zayin-weapon.md  create mode 100644 go.bat  create mode 100644 tools/finish.ps1  create mode 100644 tools/fix-all.ps1  create mode 100644 tools/fix-report.txt  create mode 100644 tools/upper.ps1
+LOG: cc679c32 docs: finalize restructure - resolve conflicts, remove legacy dirs, normalize names >> a806e7ac update remote files
+TOTAL: 
