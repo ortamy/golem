@@ -7,7 +7,11 @@
 - **Статус:** Активный
 - **Тема:** Как освоить профессию палео-инженера: навыки, тренировка, этапы развития, практика.
 - **Принципы:** Палео-иврит, Карта утрат, Хук Свива, Принцип Арона, поиск причины как источник власти
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/00-START/MANIFEST.md`, `docs/04-STANDARD/PALEO-STANDARD.md`, ``, ``, ``, `docs/06-METHODOLOGY/STATES.md`
+=======
+- **Связанные файлы:** `docs/03-CONTENT/MANIFEST.md`, `docs/03-CONTENT/PALEO-STANDARD.md`, `docs/08-EXPOSURE/protocol.md`, `docs/08-EXPOSURE/template.md`, `docs/08-EXPOSURE/evidence.md`, `methodology/states.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Достоверность:** высокая
 
 ---
@@ -354,10 +358,19 @@
 
 ## СВЯЗАННЫЕ ДОКУМЕНТЫ
 
+<<<<<<< HEAD
 - `docs/00-START/MANIFEST.md` — методология.
 - `docs/04-STANDARD/PALEO-STANDARD.md` — стандарт букв.
 - `` — протокол.
 - `` — шаблон.
 - `` — критерии.
 - `docs/06-METHODOLOGY/STATES.md` — карта состояний.
+=======
+- `docs/03-CONTENT/MANIFEST.md` — методология.
+- `docs/03-CONTENT/PALEO-STANDARD.md` — стандарт букв.
+- `docs/08-EXPOSURE/protocol.md` — протокол.
+- `docs/08-EXPOSURE/template.md` — шаблон.
+- `docs/08-EXPOSURE/evidence.md` — критерии.
+- `methodology/states.md` — карта состояний.
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - `products/website/researchlab/data/roots.json` — словарь корней.

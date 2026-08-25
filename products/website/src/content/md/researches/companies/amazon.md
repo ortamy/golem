@@ -10,7 +10,11 @@
 - **Тема:** Разоблачение Amazon через призму ТаНаХ. Глобальная торговля, контроль над ресурсами, эксплуатация амаль. Материальное пристрастие и потеря лица.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/companies/amazon.md`, `docs/06-METHODOLOGY/EXPOSURE-METHODS.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `terminology/torah.md`, `terminology/yhwh.md`
+=======
+- **Связанные файлы:** `researches/companies/amazon.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `terminology/torah.md`, `terminology/yhwh.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** ad2595f3
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

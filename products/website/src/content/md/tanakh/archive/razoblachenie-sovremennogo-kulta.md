@@ -10,7 +10,11 @@
 - **Тема:** Разоблачение современного культа «верности себе» (эмуна ле-ацмо) через призму ТаНаХа. Истинная вера (эмуна) — верность Яхве, а не своему сердцу
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/teachings/razoblachenie-sovremennogo-kulta.md`, `terminology/emuna.md`, `terminology/levav.md`, `terminology/nefesh.md`, `docs/06-METHODOLOGY/EXPOSURE-TECHNIQUES.md`, `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE.md`
+=======
+- **Связанные файлы:** `researches/teachings/razoblachenie-sovremennogo-kulta.md`, `terminology/emuna.md`, `terminology/levav.md`, `terminology/nefesh.md`, `instructions/exposure/exposure-techniques.md`, `instructions/exposure/exposure-language.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** cbd775c3
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-11

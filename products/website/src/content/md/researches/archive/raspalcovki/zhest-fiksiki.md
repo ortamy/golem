@@ -10,7 +10,11 @@
 - **Тема:** Жест «Фиксики»
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/teachings/arkhiv/raspalcovki/zhest-fiksiki.md`, `docs/06-METHODOLOGY/EXPOSURE-METHODS.md`, `terminology/el.md`
+=======
+- **Связанные файлы:** `researches/teachings/arkhiv/raspalcovki/zhest-fiksiki.md`, `instructions/exposure/exposure-methods.md`, `terminology/el.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 70603810
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

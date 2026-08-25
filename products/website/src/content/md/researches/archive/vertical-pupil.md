@@ -10,7 +10,11 @@
 - **Тема:** Вертикальный зрачок хищников как образ духовной технологии чужих сил. Сужение света, контроль восприятия, охота на овец Яхве. Разоблачение через ТаНаХ.
 - **Аудит:** bdikah  | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `content/researches/bavel-sacrifice.md`, `content/terminology/nachash.md`, `content/terminology/arum.md`, `docs/06-METHODOLOGY/EXPOSURE-BAVEL.md`
+=======
+- **Связанные файлы:** `content/researches/bavel-sacrifice.md`, `content/terminology/nachash.md`, `content/terminology/arum.md`, `instructions/exposure/exposure-bavel.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** ожидает
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-20
@@ -176,7 +180,11 @@
 - `content/researches/bavel-sacrifice.md` — вавилонская подмена корбана
 - `content/terminology/nachash.md` — змей (нахаш)
 - `content/terminology/arum.md` — хитрый, проницательный (арум)
+<<<<<<< HEAD
 - `docs/06-METHODOLOGY/EXPOSURE-BAVEL.md` — вавилонский слой
+=======
+- `instructions/exposure/exposure-bavel.md` — вавилонский слой
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 
 ---
 

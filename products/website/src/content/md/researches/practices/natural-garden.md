@@ -11,7 +11,11 @@
 - **Тема:** Природный сад как танахический подход к земле. Возделывать и хранить. Сад Эдена как образец. Не борьба с тева, а со-творчество.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-PRINCIPLES.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `docs/06-METHODOLOGY/TREE-METHOD.md`, `terminology/shmitah.md`, `terminology/yhwh.md`
+=======
+- **Связанные файлы:** `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/tree-method.md`, `terminology/shmitah.md`, `terminology/yhwh.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 813a56a7
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

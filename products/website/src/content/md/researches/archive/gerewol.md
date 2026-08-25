@@ -9,7 +9,11 @@
 - **Тема:** Анализ минhаг Gerewol народа водаабе через призму ТаНаХ. Красота бриа как пэсэль. Авода бриа вместо Творца.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `terminology/yhwh.md`
+=======
+- **Связанные файлы:** `instructions/exposure/exposure-system-architecture.md`, `terminology/yhwh.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** f48e4b18
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

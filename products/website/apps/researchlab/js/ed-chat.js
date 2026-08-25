@@ -5,7 +5,11 @@ const EdChat = (function() {
   const HISTORY_KEY = 'golem_ed_chat_history';
   const SETTINGS_KEY = 'golem_ed_chat_settings';
   const TOKEN_LIMIT = 4096;
+<<<<<<< HEAD
   const CONTEXT_DOCUMENTS = ['MANIFEST.md', 'docs/06-METHODOLOGY/', 'docs/01-ARCHITECTURE/ARCHITECTURE.md'];
+=======
+  const CONTEXT_DOCUMENTS = ['MANIFEST.md', 'docs/08-EXPOSURE/', 'docs/ARCHITECTURE.md'];
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
   const MODELS = {
     claude: { name: 'Claude Sonnet 4', style: 'структурно, спокойно и подробно' },
     gpt4o: { name: 'GPT-4o', style: 'кратко, ясно и по пунктам' },

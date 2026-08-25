@@ -10,7 +10,11 @@
 - **Тема:** Плоды как критерий суда Яхве — не вера, не слова, а дела
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/METHODOLOGY-TREE.md`, `content/terminology/tov.md`, `content/terminology/mishpat.md`
+=======
+- **Связанные файлы:** `instructions/methodology/methodology-tree.md`, `content/terminology/tov.md`, `content/terminology/mishpat.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** d35dd376
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-12

@@ -10,7 +10,11 @@
 - **Тема:** Полное исследование медного змея (Нехуштан) — был ли это инструмент Яхве или языческий идол, проникший в ТаНаХ
 - **Аудит:** bdikah  | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `content/terminology/nachash.md`, `content/terminology/seraph.md`, `content/researches/tanakh/nachash-serpent.md`, `docs/06-METHODOLOGY/EXPOSURE-RELIGIONISM.md`
+=======
+- **Связанные файлы:** `content/terminology/nachash.md`, `content/terminology/seraph.md`, `content/researches/tanakh/nachash-serpent.md`, `instructions/exposure/exposure-religionism.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** f40b7d9a
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-12

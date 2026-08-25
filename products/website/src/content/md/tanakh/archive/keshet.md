@@ -9,7 +9,11 @@
 - **Тема:** Библейское значение слова קֶשֶׁת как боевого лука, ставшего знаком мира. Снятие ложных машмаут.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/HEBREW-RECONSTRUCTION.md`, `docs/06-METHODOLOGY/TRANSLATION-METHODOLOGY.md`, `docs/06-METHODOLOGY/TRANSLITERATION-DISTORTIONS.md`, `researches/tanakh/magen-david.md`, `terminology/yhwh.md`
+=======
+- **Связанные файлы:** `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/methodology/transliteration-distortions.md`, `researches/tanakh/magen-david.md`, `terminology/yhwh.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 24af5cfb
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

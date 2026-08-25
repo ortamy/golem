@@ -10,7 +10,11 @@
 - **Тема:** ТаНаХ как летопись сопротивления империям. Воины Израиля, Маккавеи, Бар-Кохба. Разоблачение попытки Рима превратить ТаНаХ в «духовную книгу».
 - **Аудит:** bdikah  | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `content/tanakh/books/yehoshua.md`, `content/researches/religion-war-machine.md`, `content/researches/bavel-sacrifice.md`, `docs/06-METHODOLOGY/EXPOSURE-BAVEL.md`
+=======
+- **Связанные файлы:** `content/tanakh/books/yehoshua.md`, `content/researches/religion-war-machine.md`, `content/researches/bavel-sacrifice.md`, `instructions/exposure/exposure-bavel.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** ожидает
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-18
@@ -181,7 +185,11 @@
 - `content/researches/religion-war-machine.md` — религиозная власть как машина войны
 - `content/researches/bavel-sacrifice.md` — вавилонская подмена корбана
 - `content/tanakh/books/yehoshua.md` — книга Йеhошуа
+<<<<<<< HEAD
 - `docs/06-METHODOLOGY/EXPOSURE-BAVEL.md` — вавилонский слой
+=======
+- `instructions/exposure/exposure-bavel.md` — вавилонский слой
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 
 ---
 

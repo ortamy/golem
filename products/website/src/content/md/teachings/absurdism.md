@@ -10,7 +10,11 @@
 - **Тема:** Проверка учения «Абсурдизм» методом дерева — от семени до плодов
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/METHODOLOGY-TREE.md`, `content/teachings/existentialism.md`, `content/teachings/nihilism.md`
+=======
+- **Связанные файлы:** `instructions/methodology/methodology-tree.md`, `content/teachings/existentialism.md`, `content/teachings/nihilism.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 36e210d3
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-12
@@ -253,8 +257,13 @@
 
 ## СВЯЗАННЫЕ ЕДИНИЦА ХРАНЕНИЯ → מְגִלָּה — СВИТОК. ПОДМЕНА: СВИТОК ЗАМЕНЁН НА ФАЙЛ (МЕГИЛА, מְגִלָּה)
 
+<<<<<<< HEAD
 - `docs/06-METHODOLOGY/METHODOLOGY-TREE.md` — метод дерева
 - `docs/06-METHODOLOGY/EXPOSURE-RELIGIONISM.md` — научное объяснение → מָשָׁל — притча (машал, מָשָׁל) религионизмов
+=======
+- `instructions/methodology/methodology-tree.md` — метод дерева
+- `instructions/exposure/exposure-religionism.md` — научное объяснение → מָשָׁל — притча (машал, מָשָׁל) религионизмов
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - `content/teachings/existentialism.md` — экзистенциализм
 - `content/teachings/nihilism.md` — нигилизм
 

@@ -8,7 +8,11 @@
 - **Тема:** Сравнительный анализ иврита с основными языками мира. Почему иврит — единственный язык без падежей, без линейного времени, без грамматического рабства. И почему Яхве избрал именно его.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE-SHIFTS.md`, `content/researches/language/cases-as-control.md`, `content/hebrew/why-hebrew.md`
+=======
+- **Связанные файлы:** `instructions/exposure/exposure-language-shifts.md`, `content/researches/language/cases-as-control.md`, `content/hebrew/why-hebrew.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** ожидает
 - **Достоверность:** средняя
 

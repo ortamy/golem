@@ -1,7 +1,11 @@
 # МАНИФЕСТ ПРОЕКТА «ГОЛЕМ» v11.0
 
 **Метаданные файла**
+<<<<<<< HEAD
 - Файл: docs/00-START/MANIFEST.md
+=======
+- Файл: methodology/MANIFEST.md
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - Версия: 11.0
 - Дата создания: 2026-07-03
 - Последнее обновление: 2026-08-23
@@ -710,6 +714,7 @@
 
 Манифест — это **вход**. Остальные документы — **«как»**:
 
+<<<<<<< HEAD
 - `` — 33 принципа разоблачения.
 - `` — 40 методов разоблачения.
 - `` — 13 лингвистических методов.
@@ -725,6 +730,23 @@
 - `` — словарь разоблачений.
 - `` — словарь религионимов.
 - `docs/06-METHODOLOGY/STATES.md` — карта состояний (развёрнутая версия).
+=======
+- `docs/08-EXPOSURE/principles.md` — 33 принципа разоблачения.
+- `docs/08-EXPOSURE/methods.md` — 40 методов разоблачения.
+- `docs/08-EXPOSURE/linguistic-methods.md` — 13 лингвистических методов.
+- `docs/08-EXPOSURE/distortions.md` — типы искажений.
+- `docs/08-EXPOSURE/mechanisms.md` — механизмы подмены.
+- `docs/08-EXPOSURE/cultural-matrices.md` — культурные матрицы подмены.
+- `docs/08-EXPOSURE/exposure-greek-philosophemes.md` — греческие философемы.
+- `docs/08-EXPOSURE/ritual-chain.md` — ритуальная цепочка.
+- `docs/08-EXPOSURE/system-architecture.md` — архитектура системы.
+- `docs/08-EXPOSURE/protocol.md` — общий протокол разоблачения.
+- `docs/08-EXPOSURE/template.md` — шаблон разоблачения.
+- `docs/08-EXPOSURE/evidence.md` — критерии доказательности.
+- `docs/07-DICTIONARIES/dictionary-exposures.md` — словарь разоблачений.
+- `docs/07-DICTIONARIES/religionisms.md` — словарь религионимов.
+- `methodology/states.md` — карта состояний (развёрнутая версия).
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - `products/website/researchlab/data/roots.json` — основной словарь корней.
 
 ---

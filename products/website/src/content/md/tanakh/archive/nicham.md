@@ -9,7 +9,11 @@
 - **Тема:** Возвращение библейского машмаут слова נִחָם. Разоблачение религиозной подмены «раскаяния».
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-MECHANISMS.md`, `docs/06-METHODOLOGY/EXPOSURE-METHODS.md`, `docs/06-METHODOLOGY/EXPOSURE-TECHNIQUES.md`, `docs/06-METHODOLOGY/HEBREW-RECONSTRUCTION.md`, `docs/06-METHODOLOGY/TRANSLATION-METHODOLOGY.md`
+=======
+- **Связанные файлы:** `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 911ae71f
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

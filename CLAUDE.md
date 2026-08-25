@@ -97,7 +97,11 @@ golem/
   products/website/researchlab/data/roots.json — 127 корней с палео-образами
   products/website/researchlab/data/dictionaries.json — 1913 терминов (21 словарь)
   analysis/ — 41 методичка (dictionaries, exposure, methodology)
+<<<<<<< HEAD
   docs/00-START/MANIFEST.md — манифест проекта v5.0
+=======
+  methodology/MANIFEST.md — манифест проекта v5.0
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
   products/agents/server.py — Flask API (порт 8000)
 
 ## ПРИОРИТЕТНЫЕ ЗАДАЧИ

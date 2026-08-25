@@ -10,7 +10,11 @@
 - **Тема:** Пошаговый процесс создания нового исследования — от идеи до публикации
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/WORKFLOW-NEW-RESEARCH.md`, `docs/12-TEMPLATES/RESEARCH-TEMPLATE.md`, `instructions/checkers/`
+=======
+- **Связанные файлы:** `docs/WORKFLOW-NEW-RESEARCH.md`, `instructions/templates/research-template.md`, `instructions/checkers/`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** ожидает
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-11
@@ -45,7 +49,11 @@ python tools/utils/search.py "ключевое слово"
 
 Создать файл в `drafts/` с временным названием.
 
+<<<<<<< HEAD
 Использовать шаблон: `docs/12-TEMPLATES/RESEARCH-TEMPLATE.md`
+=======
+Использовать шаблон: `instructions/templates/research-template.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 
 Обязательно заполнить:
 - Заголовок H1 (эмоджи + КАПС)
@@ -143,7 +151,11 @@ git push
 ---
 
 ## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
+<<<<<<< HEAD
 - `docs/12-TEMPLATES/RESEARCH-TEMPLATE.md`
+=======
+- `instructions/templates/research-template.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - `instructions/checkers/check-bdikah.md`
 - `instructions/checkers/check-mivdak.md`
 - `docs/IDEAS.md`

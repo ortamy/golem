@@ -10,7 +10,11 @@
 - **Тема:** Разоблачение Meta (Facebook) через призму ТаНаХ. Социальные сети как инструмент контроля тодаа. Алгоритмы, метавселенная, идолопоклонство через лайки.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/companies/meta.md`, `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE-CONTROL.md`, `docs/06-METHODOLOGY/EXPOSURE-MECHANISMS.md`, `docs/06-METHODOLOGY/EXPOSURE-METHODS.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`
+=======
+- **Связанные файлы:** `researches/companies/meta.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 6c9e0ca6
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

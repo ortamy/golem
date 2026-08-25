@@ -10,7 +10,11 @@
 - **Тема:** Греческая философская свобода (ἐλευθερία) как подмена библейского понятия дрор (דְּרוֹר) и хофеш (חוֹפֶשׁ)
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/teachings/greek-freedom-distortion.md`, `terminology/nefesh.md`, `terminology/ruach.md`, `terminology/chesed.md`, `docs/06-METHODOLOGY/EXPOSURE-TECHNIQUES.md`, `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE.md`
+=======
+- **Связанные файлы:** `researches/teachings/greek-freedom-distortion.md`, `terminology/nefesh.md`, `terminology/ruach.md`, `terminology/chesed.md`, `instructions/exposure/exposure-techniques.md`, `instructions/exposure/exposure-language.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 4507ca97
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-11

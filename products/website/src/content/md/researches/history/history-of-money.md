@@ -10,7 +10,11 @@
 - **Тема:** Как конкретная мера веса превратилась в абстракцию контроля
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/history/history-of-money.md`, `docs/06-METHODOLOGY/EXPOSURE-MECHANISMS.md`, `docs/06-METHODOLOGY/EXPOSURE-PRINCIPLES.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `docs/06-METHODOLOGY/EXPOSURE-TECHNIQUES.md`
+=======
+- **Связанные файлы:** `researches/history/history-of-money.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-principles.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 791fa552
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

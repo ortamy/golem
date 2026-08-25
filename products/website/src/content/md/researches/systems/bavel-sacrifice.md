@@ -308,8 +308,13 @@ Cur Deus Homo — «Почему Бог стал человеком». Ансе�
 - `content/terminology/asham.md` — разбор אָשָׁם
 - `content/terminology/chatat.md` — разбор חַטָּאת
 - `content/terminology/zevah.md` — разбор זֶבַח
+<<<<<<< HEAD
 - `docs/06-METHODOLOGY/EXPOSURE-DISTORTIONS.md` — типы искажений
 - `docs/06-METHODOLOGY/EXPOSURE-MECHANISMS.md` — механизмы подмены
+=======
+- `instructions/exposure/exposure-distortions.md` — типы искажений
+- `instructions/exposure/exposure-mechanisms.md` — механизмы подмены
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 
 ---
 

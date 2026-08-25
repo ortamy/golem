@@ -10,7 +10,11 @@
 - **Тема:** Исследование механизма, при котором религиозная власть посылает своих последователей на смерть. Бар-Кохба, крестовые походы, джихад, современные войны. Архитектура жреца, приносящего паству в жертву.
 - **Аудит:** bdikah  | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `docs/06-METHODOLOGY/EXPOSURE-BAVEL.md`, `content/researches/bavel-sacrifice.md`
+=======
+- **Связанные файлы:** `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-bavel.md`, `content/researches/bavel-sacrifice.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** ожидает
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-17
@@ -207,8 +211,13 @@
 
 ## СВЯЗАННЫЕ ФАЙЛЫ
 
+<<<<<<< HEAD
 - `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md` — 10 компонентов системы, включая вавилонского жреца
 - `docs/06-METHODOLOGY/EXPOSURE-BAVEL.md` — вавилонский слой как действующая матрица
+=======
+- `instructions/exposure/exposure-system-architecture.md` — 10 компонентов системы, включая вавилонского жреца
+- `instructions/exposure/exposure-bavel.md` — вавилонский слой как действующая матрица
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - `content/researches/bavel-sacrifice.md` — вавилонская жертва: от Мардука до синодального перевода
 
 ---

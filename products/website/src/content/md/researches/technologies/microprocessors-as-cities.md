@@ -10,7 +10,11 @@
 - **Тема:** Разоблачение планировки городов как древних энергетических схем, идентичных архитектуре микропроцессоров
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `content/researches/technology/microprocessors-as-temples.md`, `content/researches/technology/bluetooth.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`
+=======
+- **Связанные файлы:** `content/researches/technology/microprocessors-as-temples.md`, `content/researches/technology/bluetooth.md`, `instructions/exposure/exposure-system-architecture.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** de7d7008
 - **Достоверность:** средняя (гипотеза)
 - **Последний аудит:** 2026-06-13

@@ -10,7 +10,11 @@
 - **Тема:** Количественная и качественная оценка искажений. Что потеряно, что добавлено, что убрано. Полный свод.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/language/loss-in-translation.md`, `docs/06-METHODOLOGY/EXPOSURE-DISTORTIONS.md`, `docs/06-METHODOLOGY/EXPOSURE-MECHANISMS.md`, `docs/06-METHODOLOGY/EXPOSURE-TECHNIQUES.md`, `docs/06-METHODOLOGY/HEBREW-RECONSTRUCTION.md`
+=======
+- **Связанные файлы:** `researches/language/loss-in-translation.md`, `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/hebrew-reconstruction.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 2722a425
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

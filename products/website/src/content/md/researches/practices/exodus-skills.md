@@ -11,7 +11,11 @@
 - **Тема:** Навыки для автономной жизни вне системы. Земля, скот, выживание, инструменты, цифровая хофеш, обучение. Связь с исходом из Мицраима.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE-CONTROL.md`, `docs/06-METHODOLOGY/EXPOSURE-METHODS.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `docs/06-METHODOLOGY/ARCHEOLOGY-METHODOLOGY.md`, `docs/06-METHODOLOGY/HEBREW-RECONSTRUCTION.md`
+=======
+- **Связанные файлы:** `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/archeology-methodology.md`, `instructions/methodology/hebrew-reconstruction.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 5e3c204f
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

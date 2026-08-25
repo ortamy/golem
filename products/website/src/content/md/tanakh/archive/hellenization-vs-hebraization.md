@@ -10,7 +10,11 @@
 - **Тема:** Сравнение двух путей мышления: греческого (эллинизация) и ивритского (ивритизация) — их влияние на понимание ТаНаХа, веры и жизни
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/teachings/hellenization-vs-hebraization.md`, `terminology/nefesh.md`, `terminology/ruach.md`, `terminology/emet.md`, `terminology/brit.md`, `terminology/torah.md`, `terminology/kehillah.md`, `terminology/mishpat.md`, `docs/06-METHODOLOGY/EXPOSURE-TECHNIQUES.md`, `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE.md`
+=======
+- **Связанные файлы:** `researches/teachings/hellenization-vs-hebraization.md`, `terminology/nefesh.md`, `terminology/ruach.md`, `terminology/emet.md`, `terminology/brit.md`, `terminology/torah.md`, `terminology/kehillah.md`, `terminology/mishpat.md`, `instructions/exposure/exposure-techniques.md`, `instructions/exposure/exposure-language.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 98b2e4a7
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-11

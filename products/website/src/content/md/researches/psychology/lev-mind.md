@@ -10,7 +10,11 @@
 - **Тема:** Научное открытие «мозга в сердце» как подтверждение библейской антропологии. Лев — не насос, а центр мышления и кабала решений. Ивритское לֵב против греческого пилуг на разум и чувства.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/psychology/lev-mind.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `docs/06-METHODOLOGY/HEBREW-RECONSTRUCTION.md`, `docs/06-METHODOLOGY/TRANSLATION-METHODOLOGY.md`, `terminology/el.md`
+=======
+- **Связанные файлы:** `researches/psychology/lev-mind.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `terminology/el.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 5ae1cdb6
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

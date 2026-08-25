@@ -10,7 +10,11 @@
 - **Тема:** Требует уточнения
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/man-as-rose-and-tree.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `docs/06-METHODOLOGY/TREE-METHOD.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`, `researches/slavery/economic-slavery.md`
+=======
+- **Связанные файлы:** `researches/man-as-rose-and-tree.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/methodology/tree-method.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`, `researches/slavery/economic-slavery.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 4faa98f2
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

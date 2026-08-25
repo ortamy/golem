@@ -136,6 +136,10 @@ python ed-agent/agent.py
 
 ## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
 - `docs/NEURAL.md`
+<<<<<<< HEAD
 - `docs/11-PRODUCTS/AGENT.md`
+=======
+- `docs/ED-AGENT.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - `web/README.md`
 - `ed-neural/README.md`

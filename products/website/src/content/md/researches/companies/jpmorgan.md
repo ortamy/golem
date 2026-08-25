@@ -10,7 +10,11 @@
 - **Тема:** Разоблачение JPMorgan Chase через призму ТаНаХа. Финансовая империя, кредитное рабство, концентрация власти. Деньги как инструмент контроля.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/companies/jpmorgan.md`, `docs/06-METHODOLOGY/EXPOSURE-MECHANISMS.md`, `docs/06-METHODOLOGY/EXPOSURE-METHODS.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`
+=======
+- **Связанные файлы:** `researches/companies/jpmorgan.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/economy/polnoe-issledovanie-bankovskoy.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 5383be58
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

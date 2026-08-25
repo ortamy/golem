@@ -10,7 +10,11 @@
 - **Тема:** Как оригинальные ивритские названия книг ТаНаХа были подменены греческими, латинскими и английскими интерпретациями
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/tanakh/shmot-ha-sfarim.md`, `researches/language/grecheskaya-lovushka.md`, `researches/language/loss-in-translation.md`, `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE.md`
+=======
+- **Связанные файлы:** `researches/tanakh/shmot-ha-sfarim.md`, `researches/language/grecheskaya-lovushka.md`, `researches/language/loss-in-translation.md`, `instructions/exposure/exposure-language.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** e2a49392
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-11

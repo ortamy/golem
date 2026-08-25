@@ -9,7 +9,11 @@
 - **Тема:** Полный разбор всех стихов ТаНаХ о Машиах. Проверка соответствия Йехошуа критериям Машиах.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-TECHNIQUES.md`, `researches/tanakh/magen-david.md`, `terminology/mashiah-peshat.md`, `terminology/torah.md`, `terminology/yhwh.md`
+=======
+- **Связанные файлы:** `instructions/exposure/exposure-techniques.md`, `researches/tanakh/magen-david.md`, `terminology/mashiah-peshat.md`, `terminology/torah.md`, `terminology/yhwh.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** dc19f63a
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

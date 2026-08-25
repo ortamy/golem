@@ -10,7 +10,11 @@
 - **Тема:** История polity от Месопотамии до цифровой эпохи через призму ТаНаХ. Власть как авода, а не господство. Мелех Израиля vs фараон vs кесарь. Разоблачение подмены авода на власть.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-METHODS.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `researches/tanakh/magen-david.md`, `terminology/torah.md`, `terminology/yhwh.md`
+=======
+- **Связанные файлы:** `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `researches/tanakh/magen-david.md`, `terminology/torah.md`, `terminology/yhwh.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** a07c6be6
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

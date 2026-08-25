@@ -9,7 +9,11 @@
 - **Тема:** Разоблачение религиозной лжи о «потопе» как о каре. Событие мабуль — это отмена нежизнеспособного порядка и пересоздание мира.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-METHODS.md`, `docs/06-METHODOLOGY/EXPOSURE-PRINCIPLES.md`, `docs/06-METHODOLOGY/HEBREW-RECONSTRUCTION.md`, `docs/06-METHODOLOGY/TRANSLATION-METHODOLOGY.md`, `docs/06-METHODOLOGY/TRANSLITERATION-DISTORTIONS.md`
+=======
+- **Связанные файлы:** `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-principles.md`, `instructions/methodology/hebrew-reconstruction.md`, `instructions/methodology/translation-methodology.md`, `instructions/methodology/transliteration-distortions.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** f9c1d4d4
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

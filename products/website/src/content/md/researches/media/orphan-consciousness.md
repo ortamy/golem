@@ -10,7 +10,11 @@
 - **Тема:** Разоблачение системной атомизации через культуру — как масс-медиа формируют сиротское сознание
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `content/researches/systems/mitzraim-system.md`, `content/researches/society/mental-slavery.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`
+=======
+- **Связанные файлы:** `content/researches/systems/mitzraim-system.md`, `content/researches/society/mental-slavery.md`, `instructions/exposure/exposure-system-architecture.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 5bf0ce5f
 - **Достоверность:** высокая
 - **Последний аудит:** 2026-06-15

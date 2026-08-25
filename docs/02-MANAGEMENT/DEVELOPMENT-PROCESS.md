@@ -255,4 +255,8 @@
 
 - `README.md` — введение в проект.
 - `docs/01-ARCHITECTURE/ARCHITECTURE.md` — архитектура проекта.
+<<<<<<< HEAD
 - `docs/04-STANDARD/GLOSSARY-DEVELOPMENT.md` — глоссарий терминов.
+=======
+- `docs/03-CONTENT/GLOSSARY.md` — глоссарий терминов.
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621

@@ -10,7 +10,11 @@
 - **Тема:** Полное исследование Ватикана через призму ТаНаХ. Как Римская империя стала «церковью». Хронология от казни Кифы до создания государства в 1929 году. Кровавая история, банк, мафия, масоны, йешуа...
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/systems/vatican.md`, `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE-CONTROL.md`, `docs/06-METHODOLOGY/EXPOSURE-MECHANISMS.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `docs/06-METHODOLOGY/EXPOSURE-TECHNIQUES.md`
+=======
+- **Связанные файлы:** `researches/systems/vatican.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** c7581d39
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

@@ -10,7 +10,11 @@
 - **Тема:** История языков от Вавилонской башни до цифровой эпохи через призму ТаНаХ. Как языки формируют мышление. Иврит как ключ, греческий и латынь как инструменты системы.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-DISTORTIONS.md`, `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE-CONTROL.md`, `docs/06-METHODOLOGY/EXPOSURE-MECHANISMS.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `docs/06-METHODOLOGY/EXPOSURE-TECHNIQUES.md`
+=======
+- **Связанные файлы:** `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-language-control.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-system-architecture.md`, `instructions/exposure/exposure-techniques.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** af492286
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

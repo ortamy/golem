@@ -9,7 +9,11 @@
 - **Тема:** Единый дэрех Яхве через всю историю Израиля. От Исхода из Египта до грядущего Нового Йерушалаима. Каждый этап — hитгалут верности Яхве и разоблачение римских подмен.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `docs/06-METHODOLOGY/EXPOSURE-DISTORTIONS.md`, `docs/06-METHODOLOGY/EXPOSURE-MECHANISMS.md`, `docs/06-METHODOLOGY/EXPOSURE-METHODS.md`, `docs/06-METHODOLOGY/EXPOSURE-TECHNIQUES.md`, `docs/06-METHODOLOGY/TREE-METHOD.md`
+=======
+- **Связанные файлы:** `instructions/exposure/exposure-distortions.md`, `instructions/exposure/exposure-mechanisms.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-techniques.md`, `instructions/methodology/tree-method.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 4486351e
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09

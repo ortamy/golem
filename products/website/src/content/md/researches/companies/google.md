@@ -10,7 +10,11 @@
 - **Тема:** Разоблачение Google через призму ТаНаХ. Контроль над информацией, алгоритмическая манипуляция, цифровой оракул. Знание без мудрости.
 - **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
 - **Язык:** русский
+<<<<<<< HEAD
 - **Связанные файлы:** `researches/companies/google.md`, `docs/06-METHODOLOGY/EXPOSURE-METHODS.md`, `docs/06-METHODOLOGY/EXPOSURE-SYSTEM-ARCHITECTURE.md`, `terminology/torah.md`, `terminology/yhwh.md`
+=======
+- **Связанные файлы:** `researches/companies/google.md`, `instructions/exposure/exposure-methods.md`, `instructions/exposure/exposure-system-architecture.md`, `terminology/torah.md`, `terminology/yhwh.md`
+>>>>>>> b47f9d69e82aa9c49a83712cb02e065651c12621
 - **Хеш:** 06b1bd91
 - **Достоверность:** средняя
 - **Последний аудит:** 2026-06-09
