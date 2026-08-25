@@ -334,7 +334,7 @@ web
 > 34. `docs/06-METHODOLOGY/TRANSLITERATION.md`
 > 35. `docs/06-METHODOLOGY/EXPOSURE-LANGUAGE.md`
 > 36. `docs/06-METHODOLOGY/METHODS.md`
-> 37. `docs/06-METHODOLOGY/RELIGIONISM-THEORY.md`
+> 37. `docs/06-METHODOLOGY/RITUAL-CHAIN.md`
 > 38–41. `instructions/checkers/` — 4 файла
 > 42. `instructions/FORBIDDEN-WORDS.md`
 >
