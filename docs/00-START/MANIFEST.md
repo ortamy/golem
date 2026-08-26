@@ -710,20 +710,20 @@
 
 Манифест — это **вход**. Остальные документы — **«как»**:
 
-- `` — 33 принципа разоблачения.
-- `` — 40 методов разоблачения.
-- `` — 13 лингвистических методов.
-- `` — типы искажений.
-- `` — механизмы подмены.
-- `` — культурные матрицы подмены.
-- `` — греческие философемы.
-- `` — ритуальная цепочка.
-- `` — архитектура системы.
-- `` — общий протокол разоблачения.
-- `` — шаблон разоблачения.
-- `` — критерии доказательности.
-- `` — словарь разоблачений.
-- `` — словарь религионимов.
+- `docs/06-METHODOLOGY/PRINCIPLES.md` — 33 принципа разоблачения.
+- `docs/06-METHODOLOGY/METHODS.md` — 40 методов разоблачения.
+- `docs/06-METHODOLOGY/LINGUISTIC-METHODS.md` — 13 лингвистических методов.
+- `docs/06-METHODOLOGY/DISTORTIONS.md` — типы искажений.
+- `docs/06-METHODOLOGY/MECHANISMS.md` — механизмы подмены.
+- `docs/06-METHODOLOGY/CULTURAL-MATRICES.md` — культурные матрицы подмены.
+- `docs/06-METHODOLOGY/PHILOSOPHEMES.md` — греческие философемы.
+- `docs/06-METHODOLOGY/RITUAL-CHAIN.md` — ритуальная цепочка.
+- `docs/06-METHODOLOGY/SYSTEM-ARCHITECTURE.md` — архитектура системы.
+- `docs/06-METHODOLOGY/PROTOCOL.md` — общий протокол разоблачения.
+- `docs/06-METHODOLOGY/TEMPLATE.md` — шаблон разоблачения.
+- `docs/06-METHODOLOGY/EVIDENCE.md` — критерии доказательности.
+- `docs/05-DICTIONARIES/EXPOSURES.md` — словарь разоблачений.
+- `docs/05-DICTIONARIES/RELIGIONISMS.md` — словарь религионимов.
 - `docs/06-METHODOLOGY/STATES.md` — карта состояний (развёрнутая версия).
 - `products/website/researchlab/data/roots.json` — основной словарь корней.
 

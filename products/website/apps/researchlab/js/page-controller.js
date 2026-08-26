@@ -404,6 +404,7 @@ const PageController = (function() {
     var problem = acts.problem || {};
     var methodology = acts.methodology || {};
     var application = acts.application || {};
+    var practice = acts.practice || {};
     var paragraphs = function(items) {
       return (items || []).map(function(text) { return '<p>' + escapeHtml(text) + '</p>'; }).join('');
     };
@@ -500,16 +501,73 @@ const PageController = (function() {
         '</div>';
     }
 
-    // Карта пространств
-    var spaceCards = (story.spaces || []).map(function(space, index) {
-      return '<article class="lab-card manifest-space-card" style="animation-delay:' + (index * 40) + 'ms">' +
+    // История письменности
+    var wh = methodology.writingHistory || [];
+    var historyHtml = '';
+    if (wh.length) {
+      var historyItems = wh.map(function(h) {
+        return '<li class="manifest-history-item"><span class="manifest-history-period">' + escapeHtml(h.period) + '</span>' +
+          '<strong>' + escapeHtml(h.title) + '</strong><p>' + escapeHtml(h.text) + '</p></li>';
+      }).join('');
+      historyHtml = '<div class="manifest-history"><div class="manifest-section-heading"><div><span class="manifest-section-label">Слои письма</span><h3>' + escapeHtml(methodology.writingHistoryTitle || 'История письменности') + '</h3></div></div>' +
+        '<ol class="manifest-history-list">' + historyItems + '</ol></div>';
+    }
+
+    // Два слоя: прасемитский язык и протосинайская письменность
+    var tl = methodology.twoLayers || {};
+    var layersHtml = '';
+    if (tl.title) {
+      var layerCards = (tl.items || []).map(function(it) {
+        return '<div class="manifest-layer-card"><h4>' + escapeHtml(it.title) + '</h4><p>' + escapeHtml(it.text) + '</p></div>';
+      }).join('');
+      var layerSteps = (tl.steps || []).map(function(s, i) {
+        return '<li class="manifest-layer-step"><span class="manifest-layer-step-num">' + (i + 1) + '</span><span>' + escapeHtml(s) + '</span></li>';
+      }).join('');
+      layersHtml = '<div class="manifest-layers"><div class="manifest-section-heading"><div><span class="manifest-section-label">Два слоя</span><h3>' + escapeHtml(tl.title) + '</h3><p>' + escapeHtml(tl.lead || '') + '</p></div></div>' +
+        '<div class="manifest-layers-pair">' + layerCards + '</div>' +
+        ((tl.steps || []).length ? '<ol class="manifest-layers-steps">' + layerSteps + '</ol>' : '') + '</div>';
+    }
+
+    // ЙХВХ как последовательность действий
+    var yh = methodology.yhvh || {};
+    var yhvhHtml = '';
+    if (yh.title) {
+      var yhCells = (yh.letters || []).map(function(l, i, arr) {
+        return '<div class="manifest-yhvh-cell"><span class="manifest-yhvh-glyph paleo" lang="hbo">' + escapeHtml(l.glyph) + '</span>' +
+          '<span class="manifest-yhvh-name">' + escapeHtml(l.name) + '</span>' +
+          '<span class="manifest-yhvh-fn">' + escapeHtml(l.function) + '</span></div>' +
+          (i < arr.length - 1 ? '<span class="manifest-yhvh-arrow" aria-hidden="true">→</span>' : '');
+      }).join('');
+      yhvhHtml = '<div class="manifest-yhvh"><div class="manifest-section-heading"><div><span class="manifest-section-label">Последовательность</span><h3>' + escapeHtml(yh.title) + '</h3><p>' + escapeHtml(yh.lead || '') + '</p></div></div>' +
+        '<div class="manifest-yhvh-seq">' + yhCells + '</div>' +
+        '<p class="manifest-yhvh-assembly">' + escapeHtml(yh.assembly || '') + '</p></div>';
+    }
+
+    // Карта пространств — 16 состояний, сгруппированных по фазам потока
+    var pad2 = function(n) { return (n < 10 ? '0' : '') + n; };
+    var spaceGroups = [];
+    var spaceGroupIdx = {};
+    var spaceNum = 0;
+    (story.spaces || []).forEach(function(space) {
+      var gname = space.group || 'Состояния';
+      if (!(gname in spaceGroupIdx)) {
+        spaceGroupIdx[gname] = spaceGroups.length;
+        spaceGroups.push({ name: gname, items: [] });
+      }
+      spaceNum++;
+      var grp = spaceGroups[spaceGroupIdx[gname]];
+      grp.items.push('<article class="lab-card manifest-space-card" style="animation-delay:' + ((grp.items.length - 1) * 40) + 'ms">' +
         '<span class="manifest-space-glyph paleo" lang="hbo" aria-hidden="true">' + escapeHtml(space.glyph) + '</span>' +
-        '<span class="manifest-space-index">0' + (index + 1) + ' · ' + escapeHtml(space.name) + '</span>' +
+        '<span class="manifest-space-index">' + pad2(spaceNum) + ' · ' + escapeHtml(space.name) + '</span>' +
         '<h3>' + escapeHtml(space.title) + '</h3>' +
         '<p>' + escapeHtml(space.text) + '</p>' +
         '<p class="manifest-space-life"><strong>В жизни:</strong> ' + escapeHtml(space.life || '') + '</p>' +
         '<p class="manifest-space-examples"><strong>Примеры:</strong> ' + escapeHtml(space.examples || '') + '</p>' +
-        '</article>';
+        '</article>');
+    });
+    var spacesHtml = spaceGroups.map(function(grp) {
+      return '<div class="manifest-space-group"><h4 class="manifest-space-group-name">' + escapeHtml(grp.name) + '</h4>' +
+        '<div class="manifest-spaces">' + grp.items.join('') + '</div></div>';
     }).join('');
 
     // Палео-стандарт — 22 буквы
@@ -535,18 +593,78 @@ const PageController = (function() {
       return '<a href="' + escapeHtml(doc.path) + '" class="manifest-related-doc">' + escapeHtml(doc.title) + '</a>';
     }).join('');
 
+    // АКТ IV: блоки практики
+    var protoItems = (practice.protocol || []).map(function(p, i) {
+      var pqs = (p.questions || []).map(function(q) { return '<li>' + escapeHtml(q) + '</li>'; }).join('');
+      return '<li class="manifest-proto-item" style="animation-delay:' + (i * 50) + 'ms">' +
+        '<div class="manifest-proto-label">' + escapeHtml(p.label) + '</div>' +
+        '<p class="manifest-proto-text">' + escapeHtml(p.text || '') + '</p>' +
+        (pqs ? '<ul class="manifest-proto-questions">' + pqs + '</ul>' : '') + '</li>';
+    }).join('');
+    var protocolHtml = protoItems ? '<div class="manifest-practice-block manifest-proto"><div class="manifest-section-heading"><div><span class="manifest-section-label">Протокол</span><h3>' + escapeHtml(practice.protocolTitle || 'Ежедневный протокол') + '</h3></div></div>' +
+      '<ol class="manifest-proto-list">' + protoItems + '</ol></div>' : '';
+
+    var bt = practice.bodyTool || {};
+    var btParts = (bt.parts || []).map(function(part, i) {
+      return '<div class="manifest-body-part" style="animation-delay:' + (i * 50) + 'ms">' +
+        '<span class="manifest-body-glyph paleo" lang="hbo">' + escapeHtml(part.glyph) + '</span>' +
+        '<strong>' + escapeHtml(part.name) + '</strong>' +
+        '<span class="manifest-body-fn">' + escapeHtml(part.function) + '</span>' +
+        '<p>' + escapeHtml(part.text) + '</p></div>';
+    }).join('');
+    var bodyToolHtml = bt.title ? '<div class="manifest-practice-block manifest-body"><div class="manifest-section-heading"><div><span class="manifest-section-label">Живой алфавит</span><h3>' + escapeHtml(bt.title) + '</h3><p>' + escapeHtml(bt.lead || '') + '</p></div></div>' +
+      '<div class="manifest-body-grid">' + btParts + '</div>' +
+      (bt.rule ? '<p class="manifest-body-rule">' + escapeHtml(bt.rule) + '</p>' : '') + '</div>' : '';
+
+    var en = practice.enemy || {};
+    var trapItems = (en.traps || []).map(function(t, i) {
+      return '<li class="manifest-trap"><span class="manifest-trap-num">' + (i + 1) + '</span><div><strong>' + escapeHtml(t.name) + '</strong><p>' + escapeHtml(t.text) + '</p></div></li>';
+    }).join('');
+    var enemyChecks = (en.checks || []).map(function(c) { return '<li>' + escapeHtml(c) + '</li>'; }).join('');
+    var enemyHtml = en.title ? '<div class="manifest-practice-block manifest-enemy"><div class="manifest-section-heading"><div><span class="manifest-section-label">Пять ловушек</span><h3>' + escapeHtml(en.title) + '</h3><p>' + escapeHtml(en.lead || '') + '</p></div></div>' +
+      '<ul class="manifest-traps">' + trapItems + '</ul>' +
+      ((en.checks || []).length ? '<div class="manifest-enemy-checks"><strong>' + escapeHtml(en.checksTitle || 'Проверка') + '</strong><ul>' + enemyChecks + '</ul></div>' : '') + '</div>' : '';
+
+    var ss = practice.seedSoil || {};
+    var ssLetters = (ss.letters || []).map(function(l) {
+      return '<div class="manifest-seed-letter"><span class="manifest-seed-glyph paleo" lang="hbo">' + escapeHtml(l.glyph) + '</span><strong>' + escapeHtml(l.name) + '</strong><p>' + escapeHtml(l.text) + '</p></div>';
+    }).join('');
+    var ssBuilds = (ss.builds || []).map(function(b) { return '<li>' + escapeHtml(b) + '</li>'; }).join('');
+    var seedHtml = ss.title ? '<div class="manifest-practice-block manifest-seed"><div class="manifest-section-heading"><div><span class="manifest-section-label">Почва</span><h3>' + escapeHtml(ss.title) + '</h3><p>' + escapeHtml(ss.lead || '') + '</p></div></div>' +
+      '<div class="manifest-seed-letters">' + ssLetters + '</div>' +
+      ((ss.builds || []).length ? '<div class="manifest-seed-builds"><strong>' + escapeHtml(ss.buildsTitle || 'Что строить') + '</strong><ul>' + ssBuilds + '</ul></div>' : '') +
+      '<p class="manifest-practice-conclusion">' + escapeHtml(ss.conclusion || '') + '</p></div>' : '';
+
+    var mf = practice.moneyFlow || {};
+    var mfTerms = (mf.terms || []).map(function(t) {
+      return '<div class="manifest-money-term"><strong>' + escapeHtml(t.term) + '</strong><p>' + escapeHtml(t.text) + '</p></div>';
+    }).join('');
+    var mfRules = (mf.rules || []).map(function(r) { return '<li>' + escapeHtml(r) + '</li>'; }).join('');
+    var moneyHtml = mf.title ? '<div class="manifest-practice-block manifest-money"><div class="manifest-section-heading"><div><span class="manifest-section-label">Поток 𐤌</span><h3>' + escapeHtml(mf.title) + '</h3><p>' + escapeHtml(mf.lead || '') + '</p></div></div>' +
+      '<div class="manifest-money-grid">' + mfTerms + '</div>' +
+      ((mf.rules || []).length ? '<ul class="manifest-money-rules">' + mfRules + '</ul>' : '') +
+      '<p class="manifest-practice-conclusion">' + escapeHtml(mf.conclusion || '') + '</p></div>' : '';
+
+    var dl = practice.deathLegacy || {};
+    var dlQuestions = (dl.questions || []).map(function(q) { return '<li>' + escapeHtml(q) + '</li>'; }).join('');
+    var legacyHtml = dl.title ? '<div class="manifest-practice-block manifest-legacy"><div class="manifest-section-heading"><div><span class="manifest-section-label">Дверь 𐤃</span><h3>' + escapeHtml(dl.title) + '</h3><p>' + escapeHtml(dl.lead || '') + '</p></div></div>' +
+      (dl.body ? '<p class="manifest-legacy-body">' + escapeHtml(dl.body) + '</p>' : '') +
+      ((dl.questions || []).length ? '<ul class="manifest-legacy-questions">' + dlQuestions + '</ul>' : '') +
+      '<p class="manifest-practice-conclusion">' + escapeHtml(dl.conclusion || '') + '</p></div>' : '';
+
     container.innerHTML = '<div class="manifest-progress" aria-hidden="true"><span class="manifest-progress-bar" id="manifest-progress-bar"></span></div>' +
       '<div class="manifest-toc" id="manifest-toc" aria-label="Навигация по манифесту">' +
       '<div class="manifest-toc-acts">' +
       '<a href="#manifest-act-problem" class="manifest-toc-link" data-toc="manifest-act-problem">Акт I · Проблема</a>' +
       '<a href="#manifest-act-methodology" class="manifest-toc-link" data-toc="manifest-act-methodology">Акт II · Методология</a>' +
       '<a href="#manifest-act-application" class="manifest-toc-link" data-toc="manifest-act-application">Акт III · Применение</a>' +
+      '<a href="#manifest-act-practice" class="manifest-toc-link" data-toc="manifest-act-practice">Акт IV · Практика</a>' +
       '</div>' +
       '</div>' +
       '<div class="manifest-page">' +
       '<header class="manifest-hero">' +
       '<div class="manifest-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
-      '<div class="manifest-kicker">RESEARCHLAB · МАНИФЕСТ v' + escapeHtml(data.version || '8.0') + '</div>' +
+      '<div class="manifest-kicker">RESEARCHLAB · МАНИФЕСТ v' + escapeHtml(data.version || '11.0') + '</div>' +
       '<h1>' + escapeHtml(story.title || data.title || 'Манифест проекта') + '</h1>' +
       '<p class="manifest-lead">' + escapeHtml(story.lead || data.description || '') + '</p>' +
       '</header><div class="manifest-hero-divider" aria-hidden="true"></div>' +
@@ -563,6 +681,10 @@ const PageController = (function() {
       '<div class="manifest-act-heading"><span class="manifest-act-number">II</span><div><span class="manifest-section-label">Акт II · методология</span><h2 id="manifest-methodology-title">' + escapeHtml(methodology.title || 'Методология') + '</h2></div></div>' +
       '<div class="manifest-story-copy">' + paragraphs(methodology.paragraphs) + '</div>' +
 
+      // История письменности + два слоя
+      historyHtml +
+      layersHtml +
+
       // Разбор Мицраим
       '<div class="manifest-mizraim"><div class="manifest-section-heading"><div><span class="manifest-section-label">Разбор слова</span><h3>Мицраим</h3><p>' + escapeHtml(methodology.mizraimLead || '') + '</p></div></div><ol class="manifest-mizraim-list">' + mizraimSteps + '</ol><p class="manifest-mizraim-conclusion">' + escapeHtml(methodology.mizraimConclusion || '') + '</p></div>' +
 
@@ -575,8 +697,11 @@ const PageController = (function() {
       // Давар
       davarHtml +
 
+      // ЙХВХ как последовательность действий
+      yhvhHtml +
+
       // Карта пространств
-      '<section class="manifest-spaces-section" aria-labelledby="manifest-spaces-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Семь моделей среды</span><h3 id="manifest-spaces-title">Карта пространств</h3><p>Семь состояний, через которые проходит поток.</p></div></div><div class="manifest-spaces">' + spaceCards + '</div></section>' +
+      '<section class="manifest-spaces-section" aria-labelledby="manifest-spaces-title"><div class="manifest-section-heading"><div><span class="manifest-section-label">Шестнадцать состояний среды</span><h3 id="manifest-spaces-title">Карта пространств</h3><p>Шестнадцать состояний и переходы между ними: от Тоху до Олама.</p></div></div>' + spacesHtml + '</section>' +
 
       // Палео-стандарт — интерактивная сетка 22 букв
       '<section class="manifest-paleo-section" aria-labelledby="manifest-paleo-title">' +
@@ -601,6 +726,18 @@ const PageController = (function() {
       '<div class="manifest-story-copy">' + paragraphs(application.paragraphs) + '</div>' +
       (appSteps ? '<ol class="manifest-app-steps">' + appSteps + '</ol>' : '') +
       (relatedDocs ? '<div class="manifest-related"><div class="manifest-section-heading"><div><span class="manifest-section-label">Связанные документы</span><h3>Иди дальше</h3><p>Манифест говорит «что и зачем». Остальные документы — «как».</p></div></div><div class="manifest-related-list">' + relatedDocs + '</div></div>' : '') +
+      '</section>' +
+
+      // АКТ IV: ПРАКТИКА
+      '<section class="manifest-act manifest-act-practice" id="manifest-act-practice" aria-labelledby="manifest-practice-title">' +
+      '<div class="manifest-act-heading"><span class="manifest-act-number">IV</span><div><span class="manifest-section-label">Акт IV · практика</span><h2 id="manifest-practice-title">' + escapeHtml(practice.title || 'Практика') + '</h2></div></div>' +
+      '<div class="manifest-story-copy manifest-practice-copy">' + paragraphs(practice.paragraphs) + '</div>' +
+      protocolHtml +
+      bodyToolHtml +
+      enemyHtml +
+      seedHtml +
+      moneyHtml +
+      legacyHtml +
       '<div class="manifest-cta-wrap"><a class="lab-btn lab-btn-primary manifest-cta" href="#dashboard">Начать исследование <span aria-hidden="true">→</span></a>' +
       '<a class="lab-btn lab-btn-secondary manifest-cta manifest-cta-secondary" href="#root-dictionary">Открыть корневой словарь</a></div>' +
       '</section>' +
@@ -621,7 +758,7 @@ const PageController = (function() {
   function initManifestNav(container) {
     var toc = container.querySelector('#manifest-toc');
     var progressBar = container.querySelector('#manifest-progress-bar');
-    var actIds = ['manifest-act-problem', 'manifest-act-methodology', 'manifest-act-application'];
+    var actIds = ['manifest-act-problem', 'manifest-act-methodology', 'manifest-act-application', 'manifest-act-practice'];
 
     if (progressBar) {
       var doc = container;

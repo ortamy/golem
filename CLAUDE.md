@@ -6,18 +6,23 @@
 
 ## СТРУКТУРА
 golem/
-├── products/website/researchlab/   # Исследовательская лаборатория (SPA, 53+ модуля)
-│   ├── index.html                  # Точка входа, LabRenderer, хеш-роутинг
-│   ├── css/lab.css                 # Дизайн-система (пергамент, золото, тени)
-│   ├── js/                         # Модули (router, root-dictionary, paleo-keyboard…)
-│   └── data/                       # roots.json (127 корней), dictionaries.json (1913 терминов)
-├── analysis/                       # 41 методичка (dictionaries, exposure, methodology)
-├── methodology/                    # MANIFEST.md, RESEARCH-PRINCIPLES.md, ARCHITECTURE.md
-├── content/                        # Исследования, терминология, БаШаХ
-├── products/agents/                # CrewAI агенты + Flask server.py (порт 8000)
-├── tools/                          # Python утилиты, генераторы JSON
-├── tasks/                          # current.md, backlog.md, prompts.md
-└── docs/                           # ARCHITECTURE.md, ROADMAP.md
+├── products/website/
+│   ├── apps/researchlab/            # Исследовательская лаборатория (SPA, 53+ модуля)
+│   │   ├── index.html               # Точка входа, LabRenderer, хеш-роутинг
+│   │   ├── css/lab.css              # Дизайн-система (пергамент, золото, тени)
+│   │   ├── js/                      # Модули (router, page-controller, root-dictionary…)
+│   │   └── data/                    # roots/roots.json (127 корней), dictionaries.json (1913 терминов)
+│   ├── src/                         # Контент сайта (БаШаХ html, страницы)
+│   └── docs/                        # Структура и сборка сайта
+├── docs/                            # Методология проекта
+│   ├── 00-START/MANIFEST.md         # Манифест проекта (v11.0) — входная точка
+│   ├── 05-DICTIONARIES/             # 22 словаря подмен и религионимов
+│   ├── 06-METHODOLOGY/              # Методички (principles, methods, mechanisms…)
+│   └── 10-DESIGN/DESIGN-SYSTEM.md   # Дизайн-система ResearchLab
+├── products/agents/                 # CrewAI агенты + Flask server.py (порт 8000)
+├── tools/                           # Python утилиты, генераторы JSON
+├── tasks/                           # current.md, backlog.md, prompts.md
+└── archive/                         # Отработанные материалы
 
 ## ВНЕШНИЕ СЕРВИСЫ
   Dify — мульти-агентная платформа (localhost:3000)
@@ -92,12 +97,13 @@ golem/
   7. Функциональное опознание 8. Образное картирование 9. Разрыв цепочки перевода 10. Смихут-диагностика
 
 ## КЛЮЧЕВЫЕ ФАЙЛЫ
-  products/website/researchlab/index.html — SPA лаборатория
-  products/website/researchlab/js/router.js — хеш-роутинг
-  products/website/researchlab/data/roots.json — 127 корней с палео-образами
-  products/website/researchlab/data/dictionaries.json — 1913 терминов (21 словарь)
-  analysis/ — 41 методичка (dictionaries, exposure, methodology)
-  docs/00-START/MANIFEST.md — манифест проекта v5.0
+  products/website/apps/researchlab/index.html — SPA лаборатория
+  products/website/apps/researchlab/js/router.js — хеш-роутинг
+  products/website/apps/researchlab/js/page-controller.js — контроллер страниц SPA
+  products/website/apps/researchlab/data/roots/roots.json — 127 корней с палео-образами
+  products/website/apps/researchlab/data/dictionaries.json — 1913 терминов (21 словарь)
+  docs/06-METHODOLOGY/ — методички (principles, methods, mechanisms…)
+  docs/00-START/MANIFEST.md — манифест проекта v11.0
   products/agents/server.py — Flask API (порт 8000)
 
 ## ПРИОРИТЕТНЫЕ ЗАДАЧИ
@@ -108,7 +114,7 @@ golem/
   5. БаШаХ на палео-иврите (начать с Матитьяhу)
 
 ## РАБОТА С CLAUDE
-  Уточняй файл: «Проверь researchlab/js/root-dictionary.js»
+  Уточняй файл: «Проверь products/website/apps/researchlab/js/root-dictionary.js»
   /compact сжимает контекст без потерь
   Этот файл читается при старте
 
