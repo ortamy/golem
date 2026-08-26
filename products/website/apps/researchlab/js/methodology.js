@@ -9,17 +9,20 @@
   var PAGE_PATH = 'pages/methodology.html';
   var DATA_PATH = 'data/methodology/cards.json';
   var MECHANISMS_DATA_PATH = 'data/methodology/mechanisms.json';
+  var MATRICES_DATA_PATH = 'data/methodology/cultural-matrices.json';
+  var METHODS_DATA_PATH = 'data/methodology/methods.json';
   var API_URL = 'http://localhost:8000/api/methodology/cards';
   var STORAGE_KEY = 'golem_methodology_cards_v1';
 
   var CATEGORIES = [
     { key: 'principles', label: 'Принципы разоблачения' },
-    { key: 'methods', label: 'Методы разоблачения', source: 'language' },
+    { key: 'methods', label: 'Методы разоблачения' },
     { key: 'mechanisms', label: 'Механизмы подмены' },
     { key: 'shifts', label: 'Языковые сдвиги', source: 'language-shifts' },
     { key: 'techniques', label: 'Приёмы подмены', source: 'techniques' },
     { key: 'philosophemes', label: 'Греческие философемы', source: 'philosophemes' },
     { key: 'distortions', label: 'Типы искажений', source: 'distortions' },
+    { key: 'matrices', label: 'Культурные матрицы' },
     { key: 'paleo-translation', label: 'Принципы палео-перевода' }
   ];
 
@@ -51,6 +54,10 @@
     distortions: {
       kicker: 'ГОЛЕМ · ТИПЫ ИСКАЖЕНИЙ',
       description: 'Девять диагностических моделей, показывающих, как понятие теряет исходную физику в цепочке перевода.'
+    },
+    matrices: {
+      kicker: 'ГОЛЕМ · КУЛЬТУРНЫЕ МАТРИЦЫ',
+      description: 'Пять слоёв — вавилонский, египетский, греческий, римский и славянский, — через которые текст прошёл до современного читателя.'
     },
     'paleo-translation': {
       kicker: 'ГОЛЕМ · ПРИНЦИПЫ ПАЛЕО-ПЕРЕВОДА',
@@ -373,21 +380,27 @@
   }
 
   function loadStore(container) {
-    Promise.all([fetch(DATA_PATH), fetch(MECHANISMS_DATA_PATH)]).then(function(responses) {
+    var paths = [DATA_PATH, MECHANISMS_DATA_PATH, MATRICES_DATA_PATH, METHODS_DATA_PATH];
+    Promise.all(paths.map(function(path) { return fetch(path); })).then(function(responses) {
       responses.forEach(function(response, index) {
-        var path = index === 0 ? DATA_PATH : MECHANISMS_DATA_PATH;
-        if (!response.ok) throw new Error('HTTP ' + response.status + ' for ' + path);
+        if (!response.ok) throw new Error('HTTP ' + response.status + ' for ' + paths[index]);
       });
       return Promise.all(responses.map(function(response) { return response.json(); }));
     }).then(function(dataSets) {
       var principleCards = Array.isArray(dataSets[0]) ? dataSets[0] : (dataSets[0].cards || []);
       var mechanismCards = Array.isArray(dataSets[1]) ? dataSets[1] : (dataSets[1].cards || []);
+      var matrixCards = Array.isArray(dataSets[2]) ? dataSets[2] : (dataSets[2].cards || []);
+      var methodCards = Array.isArray(dataSets[3]) ? dataSets[3].cards : [];
       store = {
         categories: (dataSets[0] && dataSets[0].categories) || {},
         cards: principleCards.map(function(card, index) {
           return normalizeExternalCard(card, 'principles', index);
         }).concat(mechanismCards.map(function(card, index) {
           return normalizeExternalCard(card, 'mechanisms', index);
+        })).concat(matrixCards.map(function(card, index) {
+          return normalizeExternalCard(card, 'matrices', index);
+        })).concat(methodCards.map(function(card, index) {
+          return normalizeExternalCard(card, 'methods', index);
         }))
       };
       saveLocalStore(store);
@@ -425,7 +438,7 @@
       summary: card.summary || card.text || '',
       text: card.text || card.summary || '',
       icon: card.icon || '../../assets/icons/32/ui/book.png',
-      document: category === 'mechanisms' ? 'mechanism-card' : 'principle-card'
+      document: category === 'mechanisms' ? 'mechanism-card' : (category === 'matrices' ? 'matrix-card' : (category === 'methods' ? 'method-card' : 'principle-card'))
     };
   }
 
@@ -600,22 +613,6 @@
     var catInfo = (store.categories || {})[key] || {};
 
     var cards = (store.cards || []).filter(function(c) { return c.category === key; });
-    if (key === 'methods' && exposureDocuments && exposureDocuments.language) {
-      var languageSections = exposureDocuments.language.sections || [];
-      cards = languageSections.filter(function(section) {
-        return /^Подмена\s+\d+$/i.test(section.title || '');
-      }).slice(0, 10).map(function(section, index) {
-        return {
-          id: 'exposure-methods-language-' + index,
-          category: key,
-          title: cleanMethodTitle(LANGUAGE_TECHNIQUE_TITLES[index] || section.title),
-          summary: methodEssence(section.content, LANGUAGE_TECHNIQUE_SUMMARIES[index]),
-          text: section.content,
-          icon: '../../assets/icons/32/' + LANGUAGE_SHIFT_ICONS[index],
-          document: 'language-technique'
-        };
-      });
-    }
     if (key === 'paleo-translation') {
       cards = paleoTranslationCards;
     }
@@ -634,22 +631,6 @@
             text: section.content,
             icon: '../../assets/icons/32/' + LANGUAGE_SHIFT_ICONS[index],
             document: 'language-shift',
-            sourceIndex: index
-          };
-        });
-      } else if (key === 'methods') {
-        var techniqueSections = (documentData.sections || []).filter(function(section) {
-          return /^Подмена\s+\d+$/i.test(section.title || '');
-        });
-        cards = techniqueSections.slice(0, 10).map(function(section, index) {
-          return {
-            id: 'exposure-methods-language-' + index,
-            category: key,
-            title: cleanMethodTitle(LANGUAGE_TECHNIQUE_TITLES[index] || section.title),
-            summary: methodEssence(section.content, LANGUAGE_TECHNIQUE_SUMMARIES[index]),
-            text: section.content,
-            icon: '../../assets/icons/32/' + LANGUAGE_SHIFT_ICONS[index],
-            document: 'language-technique',
             sourceIndex: index
           };
         });

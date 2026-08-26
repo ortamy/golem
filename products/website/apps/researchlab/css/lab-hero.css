@@ -18,11 +18,12 @@
   position: absolute;
   top: -10px;
   right: -10px;
-  color: rgba(255, 215, 0, .06);
+  color: var(--accent-gold);
   font-family: var(--font-paleo, serif);
-  font-size: 100px;
+  font-size: clamp(30px, 6vw, 70px);
   letter-spacing: .08em;
   line-height: 1;
+  opacity: .12;
   pointer-events: none;
   user-select: none;
 }
