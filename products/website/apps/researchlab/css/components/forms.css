@@ -1,0 +1,90 @@
+/* =============================================
+   components/forms.css - Golem Research Lab layer
+   Layer of lab.css (split). Do not edit by hand -
+   regenerate from lab.css source sections.
+   ============================================= */
+
+/* ===== FORMS ===== */
+.lab-input, .lab-textarea, .lab-select {
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-serif); font-size: var(--text-base);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm); background: var(--bg-card);
+  color: var(--text-primary); outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.lab-input:focus, .lab-textarea:focus, .lab-select:focus {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 2px rgba(184,134,11,0.15);
+}
+[data-theme="dark"] .lab-input:focus, [data-theme="dark"] .lab-textarea:focus, [data-theme="dark"] .lab-select:focus {
+  box-shadow: 0 0 0 2px rgba(212,160,48,0.20);
+}
+.lab-input { width: 100%; }
+.lab-textarea { width: 100%; resize: vertical; }
+.lab-select { cursor: pointer; }
+
+.lab-btn {
+  padding: var(--space-3) var(--space-6); font-family: var(--font-heading);
+  font-size: var(--text-base); font-weight: 700; border: none;
+  border-radius: var(--radius-sm); cursor: pointer;
+  transition: all var(--transition); letter-spacing: 1px;
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  position: relative;
+  box-shadow: var(--shadow-card);
+}
+.lab-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.lab-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px var(--shadow-card-color);
+}
+.lab-btn-primary {
+  background: var(--accent-gold);
+  color: #2c1810;
+}
+.lab-btn-primary:hover { background: var(--accent-gold-hover); }
+.lab-btn-primary:disabled { background: var(--border-light); cursor: not-allowed; color: var(--text-muted); box-shadow: none; transform: none; }
+.lab-btn-primary-orange {
+  background: var(--accent-red);
+  color: #faf3e0;
+}
+.lab-btn-primary-orange:hover { background: var(--accent-red-hover); }
+.lab-btn-primary-orange:disabled { background: var(--border-light); cursor: not-allowed; color: var(--text-muted); box-shadow: none; transform: none; }
+.lab-btn-secondary {
+  background: transparent;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  box-shadow: none;
+}
+.lab-btn-secondary:hover {
+  background: rgba(184,134,11,0.06);
+  border-color: var(--accent-gold-hover);
+  color: var(--accent-gold-hover);
+  box-shadow: 0 2px 8px var(--shadow-card-hover-color);
+}
+.lab-btn-secondary:active {
+  background: rgba(184,134,11,0.12);
+}
+.lab-btn-secondary-orange {
+  background: transparent;
+  color: var(--accent-red);
+  border: 1px solid var(--accent-red);
+  box-shadow: none;
+}
+.lab-btn-secondary-orange:hover {
+  background: rgba(192, 57, 43, 0.06);
+  border-color: var(--accent-red-hover);
+  color: var(--accent-red-hover);
+  box-shadow: 0 2px 8px rgba(192, 57, 43, 0.12);
+}
+.lab-btn-secondary-orange:active {
+  background: rgba(192, 57, 43, 0.12);
+}
+.lab-btn-danger { background: var(--accent-red); color: #faf3e0; }
+.lab-btn-danger:hover { background: var(--accent-red-hover); }
+.lab-btn-danger:active { background: #8a2a1e; }
+.lab-btn-sm { padding: var(--space-2) var(--space-4); font-size: var(--text-sm); }
+.lab-btn-compact { padding: var(--space-2) var(--space-4); font-size: var(--text-sm); font-weight: 600; }

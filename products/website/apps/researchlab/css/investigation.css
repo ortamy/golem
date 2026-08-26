@@ -1,4 +1,4 @@
-/* Investigation dossier: archival surfaces, gold evidence threads, gold markers. */
+﻿/* Investigation dossier: archival surfaces, gold evidence threads, gold markers. */
 .investigation-module { max-width: 1060px; }
 .investigation-heading { display:flex; justify-content:space-between; gap:24px; align-items:flex-start; margin-bottom:22px; }
 .investigation-kicker { color:var(--accent-gold); font:600 11px/1.2 var(--font-mono); letter-spacing:2px; margin-bottom:4px; }
@@ -33,7 +33,7 @@
 .investigation-translit { display:block; color:var(--text-gold); font:600 13px var(--font-mono); margin-top:4px; }
 .investigation-paleo-row { display:flex; justify-content:center; flex-wrap:wrap; gap:8px; }
 .investigation-letter { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; width:66px; min-height:90px; color:var(--text-primary); background:var(--bg-secondary); border:1px solid var(--border-light); cursor:help; transition:transform var(--transition), border-color var(--transition), box-shadow var(--transition); }
-.investigation-letter:hover, .investigation-letter:focus-visible { transform:translateY(-4px); border-color:var(--accent-gold); box-shadow:0 8px 18px var(--shadow-card-hover); outline:none; }
+.investigation-letter:hover, .investigation-letter:focus-visible { transform:translateY(-4px); border-color:var(--accent-gold); box-shadow: 0 8px 18px var(--shadow-card-hover-color); outline:none; }
 .investigation-letter-paleo { font:40px/1 var(--font-hebrew); color:var(--accent-gold); }
 .investigation-letter-hebrew { font-size:17px; margin-top:7px; }
 .investigation-letter-tooltip { position:absolute; z-index:5; left:50%; bottom:calc(100% + 9px); width:170px; padding:9px 10px; transform:translate(-50%, 4px); opacity:0; pointer-events:none; color:#faf3e0; background:var(--bg-dark); border:1px solid var(--accent-gold); font-size:13px; line-height:1.35; text-align:left; transition:opacity var(--transition), transform var(--transition); }

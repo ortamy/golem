@@ -1,6 +1,6 @@
-/* ===== МАНИФЕСТ: ТОЧКА ВХОДА ===== */
+﻿/* ===== РњРђРќРР¤Р•РЎРў: РўРћР§РљРђ Р’РҐРћР”Рђ ===== */
 
-/* Прогресс чтения */
+/* РџСЂРѕРіСЂРµСЃСЃ С‡С‚РµРЅРёСЏ */
 .manifest-progress {
   position: sticky;
   top: 0;
@@ -16,7 +16,7 @@
   transition: width .1s linear;
 }
 
-/* Оглавление */
+/* РћРіР»Р°РІР»РµРЅРёРµ */
 .manifest-toc {
   position: sticky;
   top: 3px;
@@ -55,7 +55,7 @@
   border-bottom-color: var(--accent-gold);
 }
 
-/* Chevron карты утрат */
+/* Chevron РєР°СЂС‚С‹ СѓС‚СЂР°С‚ */
 .manifest-loss-card-chevron {
   grid-column: 3;
   grid-row: 1 / span 2;
@@ -148,7 +148,7 @@
   background: var(--bg-card);
   box-shadow: var(--shadow-card);
 }
-.manifest-principle:hover { border-color: var(--border-gold); box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+.manifest-principle:hover { border-color: var(--border-gold); box-shadow: var(--shadow-card-hover-color); transform: translateY(-2px); }
 .manifest-icon, .manifest-section-icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; margin-bottom: 16px; border: 1px solid var(--border-gold); background: var(--bg-tertiary); }
 .manifest-principle h3 { font-family: var(--font-heading); font-size: 22px; line-height: 1.15; }
 .manifest-principle p { margin-top: 10px; color: var(--text-secondary); font-size: 16px; line-height: 1.45; }
@@ -163,7 +163,7 @@
 
 .manifest-section-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .manifest-section-card { display: flex; min-height: 154px; flex-direction: column; padding: 18px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-primary); text-decoration: none; box-shadow: var(--shadow-card); }
-.manifest-section-card:hover, .manifest-section-card:focus-visible { border-color: var(--border-gold); box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+.manifest-section-card:hover, .manifest-section-card:focus-visible { border-color: var(--border-gold); box-shadow: var(--shadow-card-hover-color); transform: translateY(-2px); }
 .manifest-section-icon { width: 42px; height: 42px; margin-bottom: 12px; }
 .manifest-section-copy { display: flex; flex: 1; flex-direction: column; }
 .manifest-section-copy strong { font-family: var(--font-heading); font-size: 22px; line-height: 1.1; }
@@ -201,7 +201,7 @@
   .manifest-principle, .manifest-section-card { transition: none; }
 }
 
-/* ===== ОБНОВЛЁННАЯ СТРУКТУРА МАНИФЕСТА ===== */
+/* ===== РћР‘РќРћР’Р›РЃРќРќРђРЇ РЎРўР РЈРљРўРЈР Рђ РњРђРќРР¤Р•РЎРўРђ ===== */
 .manifest-hero {
   min-height: 360px;
   border-color: var(--border-light);
@@ -280,7 +280,7 @@
   box-shadow: var(--shadow-card);
   animation: manifest-rise .35s ease both;
 }
-.manifest-space-card:hover { border-color: var(--border-gold); box-shadow: var(--shadow-card-hover); transform: translateY(-3px); }
+.manifest-space-card:hover { border-color: var(--border-gold); box-shadow: var(--shadow-card-hover-color); transform: translateY(-3px); }
 .manifest-space-glyph { display: block; margin-bottom: 12px; color: var(--accent-gold); font-size: 38px; line-height: 1; }
 .manifest-space-index { display: block; margin-bottom: 8px; color: var(--text-muted); font: 11px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
 .manifest-space-card h3 { font: 600 22px/1.1 var(--font-heading); }
@@ -305,7 +305,7 @@
   .manifest-support-card, .manifest-space-card { animation: none; }
 }
 
-/* ===== СТОРИТЕЛЛИНГ v6.4 ===== */
+/* ===== РЎРўРћР РРўР•Р›Р›РРќР“ v6.4 ===== */
 .manifest-page { max-width: 1080px; }
 .manifest-hero { min-height: 320px; padding: 64px clamp(24px, 7vw, 88px); background: var(--bg-dark); border-color: var(--border-dark); color: var(--text-light); }
 .manifest-kicker { display: block; margin-bottom: 18px; color: var(--accent-gold); font: 600 11px/1.2 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; }
@@ -370,7 +370,7 @@
   .manifest-story-copy { font-size: 17px; }
 }
 
-/* ===== ПРИНЦИП ПОТОКА ===== */
+/* ===== РџР РРќР¦РРџ РџРћРўРћРљРђ ===== */
 .manifest-flow {
   max-width: 920px;
   margin-top: 52px;
@@ -400,7 +400,7 @@
   color: var(--text-secondary);
 }
 
-/* ===== ЭМЕТ / ШЕКЕР ===== */
+/* ===== Р­РњР•Рў / РЁР•РљР•Р  ===== */
 .manifest-es {
   max-width: 920px;
   margin-top: 52px;
@@ -469,7 +469,7 @@
   border-radius: 50%;
 }
 
-/* ===== ДАВАР ===== */
+/* ===== Р”РђР’РђР  ===== */
 .manifest-davar {
   max-width: 920px;
   margin-top: 52px;
@@ -576,7 +576,7 @@
   border-radius: 50%;
 }
 
-/* ===== ПАЛЕО-СТАНДАРТ — ИНТЕРАКТИВНАЯ СЕТКА ===== */
+/* ===== РџРђР›Р•Рћ-РЎРўРђРќР”РђР Рў вЂ” РРќРўР•Р РђРљРўРР’РќРђРЇ РЎР•РўРљРђ ===== */
 .manifest-paleo-section { padding: 56px 0 0; }
 .manifest-paleo-grid {
   display: grid;
@@ -604,13 +604,13 @@
 .manifest-paleo-card:hover,
 .manifest-paleo-card.is-hovered {
   border-color: var(--accent-gold);
-  box-shadow: 0 4px 16px var(--shadow-card-hover);
+  box-shadow: 0 4px 16px var(--shadow-card-hover-color);
   transform: translateY(-3px);
 }
 .manifest-paleo-card.is-active {
   border-color: var(--accent-gold);
   background: var(--bg-tertiary);
-  box-shadow: 0 0 0 2px var(--accent-gold), var(--shadow-card-hover);
+  box-shadow: 0 0 0 2px var(--accent-gold),var(--shadow-card-hover-color);
 }
 .manifest-paleo-glyph {
   font-size: 36px;
@@ -677,7 +677,7 @@
   margin: 0;
 }
 
-/* ===== ШАГИ ПРИМЕНЕНИЯ ===== */
+/* ===== РЁРђР“Р РџР РРњР•РќР•РќРРЇ ===== */
 .manifest-app-steps {
   list-style: none;
   padding: 0;
@@ -715,7 +715,7 @@
 }
 .manifest-app-step p { margin: 0; color: var(--text-secondary); font-size: 15px; line-height: 1.5; }
 
-/* ===== СВЯЗАННЫЕ ДОКУМЕНТЫ ===== */
+/* ===== РЎР’РЇР—РђРќРќР«Р• Р”РћРљРЈРњР•РќРўР« ===== */
 .manifest-related { margin-top: 48px; }
 .manifest-related-list {
   display: grid;
@@ -740,10 +740,10 @@
   border-color: var(--accent-gold);
   color: var(--accent-gold);
   transform: translateX(4px);
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: var(--shadow-card-hover-color);
 }
 
-/* ===== АДАПТИВНОСТЬ НОВЫХ СЕКЦИЙ ===== */
+/* ===== РђР”РђРџРўРР’РќРћРЎРўР¬ РќРћР’Р«РҐ РЎР•РљР¦РР™ ===== */
 @media (max-width: 900px) {
   .manifest-paleo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .manifest-es-pair { grid-template-columns: 1fr; }
@@ -772,7 +772,7 @@
   .manifest-paleo-card, .manifest-paleo-detail, .manifest-app-step { transition: none; animation: none; }
 }
 
-/* ===== КАРТА УТРАТ — КАРТОЧКИ v8 ===== */
+/* ===== РљРђР РўРђ РЈРўР РђРў вЂ” РљРђР РўРћР§РљР v8 ===== */
 .manifest-loss-map { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .manifest-loss-card {
   position: relative;
@@ -795,14 +795,14 @@
 }
 .manifest-loss-card:hover {
   border-color: var(--border-gold);
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: var(--shadow-card-hover-color);
   transform: translateY(-2px);
 }
 .manifest-loss-card:focus-visible {
   outline: 2px solid var(--accent-gold);
   outline-offset: 2px;
   border-color: var(--border-gold);
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: var(--shadow-card-hover-color);
 }
 .manifest-loss-card-head {
   display: flex;
@@ -836,7 +836,7 @@
 .manifest-loss-card.is-expanded {
   border-color: var(--border-gold);
   background: var(--bg-tertiary);
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: var(--shadow-card-hover-color);
 }
 .manifest-loss-card-detail {
   grid-column: 1 / -1;
@@ -891,7 +891,7 @@
   .manifest-loss-card { transition: none; animation: none; }
 }
 
-/* ===== v11: ИСТОРИЯ ПИСЬМЕННОСТИ ===== */
+/* ===== v11: РРЎРўРћР РРЇ РџРРЎР¬РњР•РќРќРћРЎРўР ===== */
 .manifest-history { max-width: 920px; margin-top: 52px; }
 .manifest-history-list {
   display: grid;
@@ -925,7 +925,7 @@
 }
 .manifest-history-item p { margin: 0; color: var(--text-secondary); font-size: 14px; line-height: 1.5; }
 
-/* ===== v11: ДВА СЛОЯ ===== */
+/* ===== v11: Р”Р’Рђ РЎР›РћРЇ ===== */
 .manifest-layers { max-width: 920px; margin-top: 44px; }
 .manifest-layers-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .manifest-layer-card {
@@ -957,7 +957,7 @@
 }
 .manifest-layer-step-num { flex: 0 0 auto; color: var(--accent-gold); font: 700 14px/1 var(--font-mono); }
 
-/* ===== v11: ГРУППЫ КАРТЫ ПРОСТРАНСТВ ===== */
+/* ===== v11: Р“Р РЈРџРџР« РљРђР РўР« РџР РћРЎРўР РђРќРЎРўР’ ===== */
 .manifest-space-group { margin-top: 36px; }
 .manifest-spaces-section .manifest-space-group:first-of-type { margin-top: 26px; }
 .manifest-space-group-name {
@@ -972,7 +972,7 @@
 }
 .manifest-space-group-name::after { content: ''; flex: 1; height: 1px; background: var(--border-light); }
 
-/* ===== v11: ЙХВХ — ПОСЛЕДОВАТЕЛЬНОСТЬ ДЕЙСТВИЙ ===== */
+/* ===== v11: Р™РҐР’РҐ вЂ” РџРћРЎР›Р•Р”РћР’РђРўР•Р›Р¬РќРћРЎРўР¬ Р”Р•Р™РЎРўР’РР™ ===== */
 .manifest-yhvh {
   max-width: 920px;
   margin-top: 44px;
@@ -1010,7 +1010,7 @@
 .manifest-yhvh-arrow { align-self: center; color: var(--accent-gold); font-size: 22px; }
 .manifest-yhvh-assembly { margin: 22px 0 0; text-align: center; color: var(--text-primary); font-size: 17px; line-height: 1.55; }
 
-/* ===== АКТ IV: ПРАКТИКА ===== */
+/* ===== РђРљРў IV: РџР РђРљРўРРљРђ ===== */
 .manifest-practice-copy { max-width: 700px; }
 .manifest-practice-block {
   max-width: 920px;
@@ -1023,7 +1023,7 @@
 }
 .manifest-practice-conclusion { margin: 20px 0 0; color: var(--text-primary); font-weight: 600; font-size: 16px; line-height: 1.5; }
 
-/* Протокол дня */
+/* РџСЂРѕС‚РѕРєРѕР» РґРЅСЏ */
 .manifest-proto-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .manifest-proto-item {
   padding: 18px 20px;
@@ -1049,7 +1049,7 @@
 }
 .manifest-proto-questions li { color: var(--text-secondary); font-size: 14px; line-height: 1.5; }
 
-/* Тело как инструмент */
+/* РўРµР»Рѕ РєР°Рє РёРЅСЃС‚СЂСѓРјРµРЅС‚ */
 .manifest-body-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
 .manifest-body-part {
   padding: 16px 14px;
@@ -1071,7 +1071,7 @@
 .manifest-body-part p { margin: 8px 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.45; }
 .manifest-body-rule { margin: 16px 0 0; color: var(--text-primary); font-weight: 600; line-height: 1.5; }
 
-/* Враг палео-инженера */
+/* Р’СЂР°Рі РїР°Р»РµРѕ-РёРЅР¶РµРЅРµСЂР° */
 .manifest-traps { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .manifest-trap {
   display: flex;
@@ -1096,7 +1096,7 @@
 .manifest-trap strong { color: var(--text-primary); font: 600 16px/1.2 var(--font-heading); }
 .manifest-trap p { margin: 4px 0 0; color: var(--text-secondary); font-size: 14px; line-height: 1.5; }
 
-/* Проверка врага и постройки семени — общий блок-вставка */
+/* РџСЂРѕРІРµСЂРєР° РІСЂР°РіР° Рё РїРѕСЃС‚СЂРѕР№РєРё СЃРµРјРµРЅРё вЂ” РѕР±С‰РёР№ Р±Р»РѕРє-РІСЃС‚Р°РІРєР° */
 .manifest-enemy-checks,
 .manifest-seed-builds {
   margin-top: 18px;
@@ -1122,7 +1122,7 @@
 .manifest-seed-builds li,
 .manifest-money-rules li { color: var(--text-primary); font-size: 15px; line-height: 1.5; }
 
-/* Семя и почва */
+/* РЎРµРјСЏ Рё РїРѕС‡РІР° */
 .manifest-seed-letters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .manifest-seed-letter {
   padding: 16px;
@@ -1135,7 +1135,7 @@
 .manifest-seed-letter strong { display: block; margin-top: 8px; color: var(--text-primary); font: 600 16px/1.1 var(--font-heading); }
 .manifest-seed-letter p { margin: 6px 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.45; }
 
-/* Деньги и поток */
+/* Р”РµРЅСЊРіРё Рё РїРѕС‚РѕРє */
 .manifest-money-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .manifest-money-term {
   padding: 16px 18px;
@@ -1147,7 +1147,7 @@
 .manifest-money-term p { margin: 6px 0 0; color: var(--text-secondary); font-size: 14px; line-height: 1.5; }
 .manifest-money-rules { margin: 18px 0 0; padding-left: 20px; }
 
-/* Смерть и наследие */
+/* РЎРјРµСЂС‚СЊ Рё РЅР°СЃР»РµРґРёРµ */
 .manifest-legacy-body { margin: 0; color: var(--text-primary); font-size: 16px; line-height: 1.6; }
 .manifest-legacy-questions {
   display: grid;
@@ -1159,7 +1159,7 @@
 }
 .manifest-legacy-questions li { color: var(--text-primary); font-size: 15px; line-height: 1.5; }
 
-/* ===== v11: АДАПТИВНОСТЬ НОВЫХ СЕКЦИЙ ===== */
+/* ===== v11: РђР”РђРџРўРР’РќРћРЎРўР¬ РќРћР’Р«РҐ РЎР•РљР¦РР™ ===== */
 @media (max-width: 900px) {
   .manifest-history-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .manifest-body-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }

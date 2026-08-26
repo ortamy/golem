@@ -1,0 +1,23 @@
+/* =============================================
+   components/cards.css - Golem Research Lab layer
+   Layer of lab.css (split). Do not edit by hand -
+   regenerate from lab.css source sections.
+   ============================================= */
+
+/* ===== CARDS ===== */
+.lab-card {
+  background: var(--bg-card); border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm); padding: var(--space-5); margin-bottom: var(--space-5);
+  box-shadow: var(--shadow-card);
+  transition: background var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+.lab-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+.lab-card-header {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg); font-weight: 600; font-style: normal;
+  color: var(--accent-gold); margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2); border-bottom: 1px solid var(--border-light);
+}
+.lab-card-body { font-size: var(--text-base); color: var(--text-primary); line-height: 1.7; }

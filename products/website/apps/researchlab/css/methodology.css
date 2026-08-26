@@ -1,4 +1,4 @@
-/* methodology.css — раздел «Методология»: выпадающий список + карточки */
+﻿/* methodology.css вЂ” СЂР°Р·РґРµР» В«РњРµС‚РѕРґРѕР»РѕРіРёСЏВ»: РІС‹РїР°РґР°СЋС‰РёР№ СЃРїРёСЃРѕРє + РєР°СЂС‚РѕС‡РєРё */
 .methodology-shell {
   max-width: 1180px;
   margin: 0 auto;
@@ -89,7 +89,7 @@
   transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
 }
 
-/* Принципы и механизмы используют белую поверхность карточек. */
+/* РџСЂРёРЅС†РёРїС‹ Рё РјРµС…Р°РЅРёР·РјС‹ РёСЃРїРѕР»СЊР·СѓСЋС‚ Р±РµР»СѓСЋ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ РєР°СЂС‚РѕС‡РµРє. */
 .methodology-card[data-id^="principles-"],
 .methodology-card[data-id^="mechanisms-"] {
   background: #fff;
@@ -122,7 +122,7 @@
 
 .methodology-card:hover {
   border-color: var(--accent-gold);
-  box-shadow: 0 8px 22px var(--shadow-card-hover);
+  box-shadow: 0 8px 22px var(--shadow-card-hover-color);
   transform: translateY(-2px);
 }
 
@@ -285,7 +285,7 @@
   min-height: 160px;
 }
 
-/* Тёмный слой сохраняет единое поле для форм, кнопок и карточек. */
+/* РўС‘РјРЅС‹Р№ СЃР»РѕР№ СЃРѕС…СЂР°РЅСЏРµС‚ РµРґРёРЅРѕРµ РїРѕР»Рµ РґР»СЏ С„РѕСЂРј, РєРЅРѕРїРѕРє Рё РєР°СЂС‚РѕС‡РµРє. */
 html[data-theme="dark"] .methodology-toolbar,
 html[data-theme="dark"] .methodology-card,
 html[data-theme="dark"] .methodology-card[data-id^="principles-"],
@@ -303,7 +303,7 @@ html[data-theme="dark"] .methodology-select-label .lab-input option {
 }
 
 html[data-theme="dark"] .methodology-card:hover {
-  box-shadow: 0 8px 22px var(--shadow-card-hover);
+  box-shadow: 0 8px 22px var(--shadow-card-hover-color);
 }
 
 html[data-theme="dark"] .methodology-icon-btn {

@@ -1,4 +1,4 @@
-/* Стили диагностики живых языков в палитре ResearchLab. */
+﻿/* РЎС‚РёР»Рё РґРёР°РіРЅРѕСЃС‚РёРєРё Р¶РёРІС‹С… СЏР·С‹РєРѕРІ РІ РїР°Р»РёС‚СЂРµ ResearchLab. */
 .language-map-shell {
   color: var(--text-primary);
   padding: clamp(20px, 4vw, 36px);
@@ -74,7 +74,7 @@
   cursor: pointer;
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
-.language-map-card:hover { transform: translateY(-2px); border-color: var(--accent-gold); box-shadow: var(--shadow-card-hover); }
+.language-map-card:hover { transform: translateY(-2px); border-color: var(--accent-gold); box-shadow: var(--shadow-card-hover-color); }
 .language-map-card-head { margin-bottom: 16px; }
 .language-map-card h2 { color: var(--text-primary); font-size: 25px; line-height: 1.2; margin-bottom: 4px; }
 .language-map-type { color: var(--text-secondary); font-size: 13px; }

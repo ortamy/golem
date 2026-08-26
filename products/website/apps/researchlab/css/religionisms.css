@@ -1,4 +1,4 @@
-/* ===== RELIGIONISMS MODULE ===== */
+﻿/* ===== RELIGIONISMS MODULE ===== */
 .rel-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -21,7 +21,7 @@
 }
 .rel-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 20px var(--shadow-card-hover);
+  box-shadow: 0 6px 20px var(--shadow-card-hover-color);
   border-color: var(--accent-gold);
 }
 .rel-card:focus-visible {

@@ -1,9 +1,9 @@
-/* =============================================
-   exposure-editor.css — Форма «Рабочий стол исследователя»
-   Стиль: пергаментный, лабораторный
+﻿/* =============================================
+   exposure-editor.css вЂ” Р¤РѕСЂРјР° В«Р Р°Р±РѕС‡РёР№ СЃС‚РѕР» РёСЃСЃР»РµРґРѕРІР°С‚РµР»СЏВ»
+   РЎС‚РёР»СЊ: РїРµСЂРіР°РјРµРЅС‚РЅС‹Р№, Р»Р°Р±РѕСЂР°С‚РѕСЂРЅС‹Р№
    ============================================= */
 
-/* ===== КОНТЕЙНЕР ФОРМЫ ===== */
+/* ===== РљРћРќРўР•Р™РќР•Р  Р¤РћР РњР« ===== */
 .exposure-editor-wrap {
   max-width: 1400px;
   margin: 0 auto;
@@ -40,7 +40,7 @@
   height: 32px;
 }
 
-/* ===== ТРЁХКОЛОНЧНЫЙ МАКЕТ ===== */
+/* ===== РўР РЃРҐРљРћР›РћРќР§РќР«Р™ РњРђРљР•Рў ===== */
 .exposure-editor-layout {
   display: grid;
   grid-template-columns: 220px 1fr 320px;
@@ -54,7 +54,7 @@
   }
 }
 
-/* ===== ЛЕВАЯ КОЛОНКА — МИНИ-ОГЛАВЛЕНИЕ ===== */
+/* ===== Р›Р•Р’РђРЇ РљРћР›РћРќРљРђ вЂ” РњРРќР-РћР“Р›РђР’Р›Р•РќРР• ===== */
 .exposure-editor-toc {
   position: sticky;
   top: 76px;
@@ -108,12 +108,12 @@
   color: #faf3e0;
 }
 
-/* ===== ЦЕНТРАЛЬНАЯ КОЛОНКА — ФОРМА ===== */
+/* ===== Р¦Р•РќРўР РђР›Р¬РќРђРЇ РљРћР›РћРќРљРђ вЂ” Р¤РћР РњРђ ===== */
 .exposure-editor-main {
   min-width: 0;
 }
 
-/* Блоки формы */
+/* Р‘Р»РѕРєРё С„РѕСЂРјС‹ */
 .exposure-form-block {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
@@ -138,7 +138,7 @@
   gap: 8px;
 }
 
-/* Поля */
+/* РџРѕР»СЏ */
 .exposure-field {
   margin-bottom: 16px;
 }
@@ -164,7 +164,7 @@
   resize: vertical;
 }
 
-/* Секции */
+/* РЎРµРєС†РёРё */
 .exposure-sections-list {
   margin-top: 8px;
 }
@@ -221,7 +221,7 @@
   min-height: 60px;
 }
 
-/* ===== ПРАВАЯ КОЛОНКА — ПРЕВЬЮ ===== */
+/* ===== РџР РђР’РђРЇ РљРћР›РћРќРљРђ вЂ” РџР Р•Р’Р¬Р® ===== */
 .exposure-editor-preview {
   position: sticky;
   top: 76px;
@@ -313,7 +313,7 @@
   color: var(--text-gold);
 }
 
-/* ===== КНОПКИ ДЕЙСТВИЙ ===== */
+/* ===== РљРќРћРџРљР Р”Р•Р™РЎРўР’РР™ ===== */
 .exposure-editor-actions {
   display: flex;
   gap: 12px;
@@ -323,7 +323,7 @@
   border-top: 1px solid var(--border-light);
 }
 
-/* ===== ДОСКА ОБЪЯВЛЕНИЙ (сохранённые черновики) ===== */
+/* ===== Р”РћРЎРљРђ РћР‘РЄРЇР’Р›Р•РќРР™ (СЃРѕС…СЂР°РЅС‘РЅРЅС‹Рµ С‡РµСЂРЅРѕРІРёРєРё) ===== */
 .exposure-drafts-board {
   margin-top: 32px;
 }
@@ -351,7 +351,7 @@
   transition: box-shadow var(--transition), transform var(--transition);
 }
 .exposure-draft-card:hover {
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: var(--shadow-card-hover-color);
   transform: translateY(-2px);
 }
 .exposure-draft-card .draft-title {
@@ -382,7 +382,7 @@
   padding: 4px 10px;
 }
 
-/* ===== TOAST УВЕДОМЛЕНИЯ ===== */
+/* ===== TOAST РЈР’Р•Р”РћРњР›Р•РќРРЇ ===== */
 .exposure-toast {
   position: fixed;
   bottom: 24px;
@@ -405,7 +405,7 @@
   transform: translateY(0);
 }
 
-/* ===== АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ ===== */
+/* ===== РђР”РђРџРўРђР¦РРЇ Р”Р›РЇ РњРћР‘РР›Р¬РќР«РҐ ===== */
 @media (max-width: 768px) {
   .exposure-editor-wrap {
     padding: 12px;

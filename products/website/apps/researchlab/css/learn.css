@@ -1,4 +1,4 @@
-/* Обучение: палео-карточки, уроки и игра. */
+﻿/* РћР±СѓС‡РµРЅРёРµ: РїР°Р»РµРѕ-РєР°СЂС‚РѕС‡РєРё, СѓСЂРѕРєРё Рё РёРіСЂР°. */
 .learn-module { max-width: 1120px; }
 .learn-hero { display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin-bottom:28px; }
 .learn-hero h1 { margin-bottom:4px; }
@@ -9,7 +9,7 @@
 .learn-stat-value { display:block; color:var(--text-primary); font:600 28px/1.1 var(--font-heading); margin-top:4px; }
 .learn-mode-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
 .learn-mode-card { display:flex; flex-direction:column; min-height:230px; padding:26px; border:1px solid var(--border-light); border-top:3px solid var(--accent-gold); border-radius:10px; background:var(--bg-card); box-shadow:var(--shadow-soft); cursor:pointer; text-decoration:none; color:inherit; transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease; }
-.learn-mode-card:hover,.learn-mode-card:focus-visible { transform:translateY(-3px); border-color:var(--accent-gold); box-shadow:var(--shadow-card-hover); outline:none; }
+.learn-mode-card:hover,.learn-mode-card:focus-visible { transform:translateY(-3px); border-color:var(--accent-gold); box-shadow: var(--shadow-card-hover-color); outline:none; }
 .learn-mode-icon { color:var(--accent-gold); font:48px/1 var(--font-paleo); margin-bottom:16px; }
 .learn-mode-card h2 { font:600 28px/1.15 var(--font-heading); margin-bottom:8px; }
 .learn-mode-card p { color:var(--text-secondary); margin-bottom:16px; }
@@ -21,7 +21,7 @@
 .learn-back { margin-bottom:20px; }
 .learn-letter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
 .learn-letter-card { position:relative; padding:18px 14px; min-height:190px; text-align:center; border:1px solid var(--border-light); border-left:4px solid var(--text-muted); border-radius:8px; background:var(--bg-card); cursor:pointer; transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease; animation:learn-card-in .3s ease both; }
-.learn-letter-card:hover,.learn-letter-card:focus-visible { transform:translateY(-3px); border-color:var(--accent-gold); box-shadow:var(--shadow-card-hover); outline:none; }
+.learn-letter-card:hover,.learn-letter-card:focus-visible { transform:translateY(-3px); border-color:var(--accent-gold); box-shadow: var(--shadow-card-hover-color); outline:none; }
 .learn-letter-card.is-progress { border-left-color:var(--accent-gold); }
 .learn-letter-card.is-complete { border-left-color:var(--accent-green); }
 .learn-letter-status { position:absolute; top:10px; right:10px; width:10px; height:10px; border-radius:50%; background:var(--text-muted); }

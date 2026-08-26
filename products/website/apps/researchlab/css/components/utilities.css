@@ -1,0 +1,30 @@
+/* =============================================
+   components/utilities.css - Golem Research Lab layer
+   Layer of lab.css (split). Do not edit by hand -
+   regenerate from lab.css source sections.
+   ============================================= */
+
+/* ===== MISC ===== */
+.text-muted { color: var(--text-muted); }
+.text-gold { color: var(--accent-gold); }
+.text-red { color: var(--accent-red); }
+.text-small { font-size: 13px; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-8 { gap: 8px; }
+.gap-12 { gap: 12px; }
+.gap-16 { gap: 16px; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.flex-1 { flex: 1; }
+
+.lab-icon { width: 20px; height: 20px; vertical-align: middle; margin-right: 10px; flex-shrink: 0; }
+.lab-icon-sm { width: 18px; height: 18px; vertical-align: middle; margin-right: 4px; flex-shrink: 0; }
+.sidebar-item .lab-icon { width: 20px; height: 20px; margin-right: 0; }
+.sidebar-item .icon img { width: 20px; height: 20px; vertical-align: middle; margin-right: 0; }

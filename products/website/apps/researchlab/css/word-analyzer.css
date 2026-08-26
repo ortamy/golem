@@ -1,6 +1,6 @@
-/* =============================================
-   word-analyzer.css — Разбор слов
-   Стиль: пергамент, золото, карточки с тенями
+﻿/* =============================================
+   word-analyzer.css вЂ” Р Р°Р·Р±РѕСЂ СЃР»РѕРІ
+   РЎС‚РёР»СЊ: РїРµСЂРіР°РјРµРЅС‚, Р·РѕР»РѕС‚Рѕ, РєР°СЂС‚РѕС‡РєРё СЃ С‚РµРЅСЏРјРё
    ============================================= */
 
 /* ===== GRID ===== */
@@ -23,7 +23,7 @@
   flex-direction: column;
 }
 .wa-card:hover {
-  box-shadow: 0 4px 16px var(--shadow-card-hover);
+  box-shadow: 0 4px 16px var(--shadow-card-hover-color);
   border-color: var(--accent-gold);
 }
 .wa-card-missing {

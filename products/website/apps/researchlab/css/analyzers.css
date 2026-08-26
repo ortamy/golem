@@ -1,12 +1,12 @@
-/*
- * analyzers.css — интерфейс модуля «Анализаторы» Research Lab
- * Метаданные: заголовок — Анализаторы; описание — экраны послойной,
- * ИИ- и диалект-диагностики; версия — 1.0.0; дата создания — 2026-08-02.
+﻿/*
+ * analyzers.css вЂ” РёРЅС‚РµСЂС„РµР№СЃ РјРѕРґСѓР»СЏ В«РђРЅР°Р»РёР·Р°С‚РѕСЂС‹В» Research Lab
+ * РњРµС‚Р°РґР°РЅРЅС‹Рµ: Р·Р°РіРѕР»РѕРІРѕРє вЂ” РђРЅР°Р»РёР·Р°С‚РѕСЂС‹; РѕРїРёСЃР°РЅРёРµ вЂ” СЌРєСЂР°РЅС‹ РїРѕСЃР»РѕР№РЅРѕР№,
+ * РР- Рё РґРёР°Р»РµРєС‚-РґРёР°РіРЅРѕСЃС‚РёРєРё; РІРµСЂСЃРёСЏ вЂ” 1.0.0; РґР°С‚Р° СЃРѕР·РґР°РЅРёСЏ вЂ” 2026-08-02.
  */
 
 .analyzers-shell { max-width: 1180px; margin: 0 auto; }
 .analyzers-hero { position: relative; overflow: hidden; margin-bottom: 24px; padding: 32px; color: var(--text-light); background: var(--bg-dark); border: 1px solid var(--border-dark); border-radius: 12px; box-shadow: var(--shadow-soft); }
-.analyzers-hero::after { content: '𐤃 𐤁 𐤓 𐤎 𐤁 𐤁 𐤄'; position: absolute; right: 24px; bottom: -20px; color: rgba(255,215,0,.08); font-family: var(--font-paleo); font-size: clamp(48px, 9vw, 112px); letter-spacing: .12em; pointer-events: none; }
+.analyzers-hero::after { content: 'рђ¤ѓ рђ¤Ѓ рђ¤“ рђ¤Ћ рђ¤Ѓ рђ¤Ѓ рђ¤„'; position: absolute; right: 24px; bottom: -20px; color: rgba(255,215,0,.08); font-family: var(--font-paleo); font-size: clamp(48px, 9vw, 112px); letter-spacing: .12em; pointer-events: none; }
 .analyzers-kicker { position: relative; z-index: 1; margin: 0 0 8px; color: var(--accent-gold); font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
 .analyzers-hero h1 { position: relative; z-index: 1; margin: 0 0 10px; color: var(--accent-gold); font-family: var(--font-heading); font-size: clamp(30px, 5vw, 46px); line-height: 1.1; }
 .analyzers-hero p { position: relative; z-index: 1; max-width: 760px; margin: 0; color: var(--text-muted); line-height: 1.6; }
@@ -14,7 +14,7 @@
 .analyzers-chip { display: inline-flex; align-items: center; min-height: 30px; padding: 4px 10px; color: var(--text-light); border: 1px solid var(--border-dark); border-radius: 999px; font-family: var(--font-mono); font-size: 12px; }
 .analyzers-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .analyzer-card { display: flex; min-height: 260px; flex-direction: column; padding: 22px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; box-shadow: var(--shadow-soft); }
-.analyzer-card:hover { border-color: var(--accent-gold); box-shadow: 0 8px 22px var(--shadow-card-hover); transform: translateY(-2px); }
+.analyzer-card:hover { border-color: var(--accent-gold); box-shadow: 0 8px 22px var(--shadow-card-hover-color); transform: translateY(-2px); }
 .analyzer-card__icon { width: 42px; height: 42px; margin-bottom: 18px; object-fit: contain; }
 .analyzer-card h2 { margin: 0 0 9px; color: var(--text-primary); font-family: var(--font-heading); font-size: 21px; line-height: 1.2; }
 .analyzer-card p { margin: 0; color: var(--text-secondary); font-size: 15px; line-height: 1.55; }

@@ -1,15 +1,15 @@
-/* Root Dictionary Styles */
+﻿/* Root Dictionary Styles */
 
 .rd-stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
 .rd-stat { flex: 1; min-width: 120px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 12px 16px; text-align: center; }
 .rd-stat .num { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--accent-gold); }
 .rd-stat .label { font-size: 12px; color: var(--text-muted); margin-top: 2px; letter-spacing: 1px; text-transform: uppercase; }
 
-/* Сетка корней: одна колонка на мобильном, две на планшете, три на десктопе. */
+/* РЎРµС‚РєР° РєРѕСЂРЅРµР№: РѕРґРЅР° РєРѕР»РѕРЅРєР° РЅР° РјРѕР±РёР»СЊРЅРѕРј, РґРІРµ РЅР° РїР»Р°РЅС€РµС‚Рµ, С‚СЂРё РЅР° РґРµСЃРєС‚РѕРїРµ. */
 #rd-list { display: grid; grid-template-columns: 1fr; gap: 16px; }
 
 .rd-card { min-width: 0; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 20px; transition: all 0.2s; overflow-wrap: anywhere; }
-.rd-card:hover { border-color: var(--accent-gold); box-shadow: 2px 2px 12px var(--shadow-card-hover); }
+.rd-card:hover { border-color: var(--accent-gold); box-shadow: 2px 2px 12px var(--shadow-card-hover-color); }
 .rd-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
 .rd-card-header .root-heb { font-size: 32px; font-family: var(--font-hebrew); line-height: 1; direction: rtl; }
 .rd-card-header .root-translit { font-family: var(--font-mono); font-size: 14px; color: var(--text-muted); }
