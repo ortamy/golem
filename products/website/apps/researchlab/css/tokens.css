@@ -19,9 +19,10 @@
   --text-muted: #8a7a6a;
   --text-light: #ede0c8;
   --text-gold: #b8860b;
+  --accent-gold-rgb: 184 134 11;
   --border-light: #d4c4a8;
   --border-dark: #4a3020;
-  --border-gold: #b8860b;
+  --border-gold: var(--accent-gold);
   --accent-gold: #b8860b;
   --accent-gold-hover: #8b6508;
   --accent-red: #c0392b;
@@ -69,7 +70,7 @@
   --tracking-caps: 0.08em; /* капитель: секционные заголовки, оверлайны */
 
   /* ===== FOCUS RING (золото = семантика фокуса) ===== */
-  --ring-focus: 0 0 0 2px rgba(184,134,11,0.40);
+  --ring-focus: 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.40);
 
   /* ===== SHADOW SCALE ===== */
   --shadow-card: 0 1px 3px rgba(44,24,16,0.10), 0 2px 8px rgba(44,24,16,0.06);
@@ -105,7 +106,11 @@
   /* ===== MOTION (быстрые микровзаимодействия) ===== */
   --dur-1: 120ms;          /* hover: color, border-color, shadow */
   --dur-2: 180ms;          /* входы: модалки, дропдауны, раскрытия */
-  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+    --ease-out: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Motion combo-токены: duration + easing в паре (Этап 7) */
+  --motion-fast: var(--dur-1) var(--ease-out);
+  --motion-base: var(--dur-2) var(--ease-out);
 
   /* --- легаси-алиасы переходов (deprecated; в новых правилах не использовать,
          будут заменены на --dur-* / --ease-out этапом кодемода) --- */
@@ -125,12 +130,13 @@
   --text-muted: #8a7a6a;
   --text-light: #e8dcc8;
   --text-gold: #d4a030;
+  --accent-gold-rgb: 212 160 48;
   --border-light: #4a382a;
   --border-dark: #5c3a2a;
-  --border-gold: #b8860b;
+  --border-gold: var(--accent-gold);
   --accent-gold: #d4a030;
   --accent-gold-hover: #b8860b;
-  --ring-focus: 0 0 0 2px rgba(212,160,48,0.45);
+  --ring-focus: 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.45);
   --shadow-card: 0 1px 3px rgba(0,0,0,0.30), 0 2px 8px rgba(0,0,0,0.20);
   --shadow-hover: 0 4px 12px rgba(0,0,0,0.45), 0 2px 4px rgba(0,0,0,0.25);
   --shadow-card-hover: var(--shadow-hover);
@@ -166,15 +172,16 @@
   --text-muted: #777777;
   --text-light: #1a1a1a;
   --text-gold: #666666;
+  --accent-gold-rgb: 85 85 85;
   --border-light: #e0e0e0;
   --border-dark: #d6d6d6;
-  --border-gold: #bdbdbd;
+  --border-gold: var(--accent-gold);
   --accent-gold: #555555;
   --accent-gold-hover: #333333;
   --accent-red: #b83226;
   --accent-red-hover: #92251d;
   --accent-green: #286828;
-  --ring-focus: 0 0 0 2px rgba(138,101,8,0.38);
+  --ring-focus: 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.38);
   --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
   --shadow-hover: 0 4px 12px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.06);
   --shadow-card-hover: var(--shadow-hover);

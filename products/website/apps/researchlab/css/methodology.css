@@ -1,4 +1,4 @@
-﻿/* methodology.css вЂ” СЂР°Р·РґРµР» В«РњРµС‚РѕРґРѕР»РѕРіРёСЏВ»: РІС‹РїР°РґР°СЋС‰РёР№ СЃРїРёСЃРѕРє + РєР°СЂС‚РѕС‡РєРё */
+/* methodology.css вЂ” СЂР°Р·РґРµР» В«РњРµС‚РѕРґРѕР»РѕРіРёСЏВ»: РІС‹РїР°РґР°СЋС‰РёР№ СЃРїРёСЃРѕРє + РєР°СЂС‚РѕС‡РєРё */
 .methodology-shell {
   max-width: var(--shell-page);
   margin: 0 auto;
@@ -86,7 +86,7 @@
   border-radius: 8px;
   background: var(--bg-card);
   box-shadow: var(--shadow-soft);
-  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition-fast);
+  transition: box-shadow var(--motion-base), border-color var(--motion-base), transform var(--motion-fast);
 }
 
 /* РџСЂРёРЅС†РёРїС‹ Рё РјРµС…Р°РЅРёР·РјС‹ РёСЃРїРѕР»СЊР·СѓСЋС‚ Р±РµР»СѓСЋ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ РєР°СЂС‚РѕС‡РµРє. */
@@ -189,13 +189,13 @@
   background: var(--bg-primary);
   color: var(--text-muted);
   cursor: pointer;
-  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  transition: color var(--motion-base), border-color var(--motion-base), background var(--motion-base);
 }
 
 .methodology-icon-btn:hover {
   color: var(--accent-gold);
   border-color: var(--accent-gold);
-  background: rgba(184, 134, 11, 0.12);
+  background: rgb(var(--accent-gold-rgb) / 0.12);
 }
 
 .methodology-icon-btn svg {
@@ -226,7 +226,7 @@
 
 .methodology-info-btn:hover {
   border-color: var(--accent-gold);
-  background: rgba(184, 134, 11, 0.12);
+  background: rgb(var(--accent-gold-rgb) / 0.12);
 }
 
 .methodology-delete-btn:hover {
@@ -244,7 +244,7 @@
 .methodology-edit-btn.is-active {
   color: var(--accent-gold);
   border-color: var(--accent-gold);
-  background: rgba(184, 134, 11, 0.16);
+  background: rgb(var(--accent-gold-rgb) / 0.16);
 }
 
 .methodology-card.is-editing {
@@ -322,7 +322,7 @@ html[data-theme="dark"] .methodology-toolbar .lab-btn-primary {
 
 html[data-theme="dark"] .methodology-toolbar .lab-btn-secondary:hover,
 html[data-theme="dark"] .methodology-toolbar .lab-btn-secondary:active {
-  background: rgba(212, 160, 48, .14);
+  background: rgb(var(--accent-gold-rgb) / );
 }
 
 @media (max-width: 640px) {

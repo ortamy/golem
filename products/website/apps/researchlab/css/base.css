@@ -13,12 +13,12 @@ body {
   background: var(--bg-primary); color: var(--text-primary);
   min-height: 100vh;
   display: flex; flex-direction: column;
-  transition: background-color var(--transition), color var(--transition);
+  transition: background-color var(--motion-base), color var(--motion-base);
 }
 body, .lab-sidebar, .lab-header, .lab-card, .tool-card, .module,
 .lab-footer, .sidebar-item, .lab-input, .lab-textarea, .lab-select,
 .lab-btn, .export-bar, .research-preview, .lab-alert {
-  transition: background-color var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+  transition: background-color var(--motion-base), color var(--motion-base), border-color var(--motion-base), box-shadow var(--motion-base), transform var(--motion-base);
 }
 ::selection { background: var(--accent-gold); color: #faf3e0; }
 ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -37,7 +37,7 @@ body::before {
     radial-gradient(ellipse at 80% 70%, rgba(210,180,140,0.15) 0%, transparent 50%),
     repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(210,180,140,0.06) 2px, rgba(210,180,140,0.06) 4px);
   opacity: 1;
-  transition: opacity var(--transition);
+  transition: opacity var(--motion-base);
 }
 [data-theme="dark"] body::before { opacity: 0.15; }
 

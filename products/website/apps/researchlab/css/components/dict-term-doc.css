@@ -23,7 +23,7 @@
   border-radius: var(--radius-sm);
   text-decoration: none;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: all var(--motion-base);
   box-shadow: var(--shadow-card);
 }
 .dict-card:hover {
@@ -65,7 +65,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
-  transition: all var(--transition);
+  transition: all var(--motion-base);
   box-shadow: var(--shadow-card);
 }
 .term-card:hover {
@@ -78,7 +78,7 @@
   color: var(--accent-gold);
   text-align: right;
   direction: rtl;
-  transition: font-size var(--transition);
+  transition: font-size var(--motion-base);
 }
 .term-card:hover .term-paleo {
   font-size: 1.6rem;
@@ -109,7 +109,7 @@
   border-radius: var(--radius-sm);
   text-decoration: none;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: all var(--motion-base);
   box-shadow: var(--shadow-card);
 }
 .doc-card:hover {

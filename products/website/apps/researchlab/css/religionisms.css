@@ -13,7 +13,7 @@
   border-radius: var(--radius-sm);
   padding: 18px;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: all var(--motion-base);
   box-shadow: var(--shadow-soft);
   color: var(--text-primary);
   font: inherit;

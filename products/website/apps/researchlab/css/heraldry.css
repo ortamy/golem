@@ -43,8 +43,8 @@
   border-radius: 7px;
   padding: var(--space-6);
   cursor: pointer;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-  animation: heraldryFadeIn 0.4s ease both;
+  transition: transform var(--motion-base), box-shadow var(--motion-base), border-color var(--motion-base);
+  animation: heraldryFadeIn var(--dur-2) ease both;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
@@ -54,7 +54,7 @@
 .heraldry-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
 }
 
 @keyframes heraldryFadeIn {
@@ -169,7 +169,7 @@
   font-family: 'Times New Roman', serif;
   font-size: 2.5rem;
   line-height: 1;
-  color: var(--accent-gold, #9d7210);
+  color: var(--accent-gold);
   margin-top: 3px;
   direction: rtl;
   white-space: nowrap;
@@ -179,7 +179,7 @@
 
 .heraldry-card-symbol {
   padding: 5px var(--space-2);
-  border-inline-start: 3px solid var(--accent-gold, #b8860b);
+  border-inline-start: 3px solid var(--accent-gold);
   background: var(--bg-subtle, #f5f0e8);
   color: var(--text-primary, #2c1810);
   font-size: var(--text-sm);
@@ -238,15 +238,15 @@
   width: 100%;
   min-height: 44px;
   padding: var(--space-2) 14px;
-  border: 1px solid var(--accent-gold, #b8860b);
+  border: 1px solid var(--accent-gold);
   background: transparent;
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
   text-align: center;
   margin-top: auto;
 }
 
 .heraldry-detail-btn:hover {
-  background: rgba(184, 134, 11, 0.12);
+  background: rgb(var(--accent-gold-rgb) / 0.12);
   color: var(--text-primary, #2c1810);
 }
 
@@ -341,7 +341,7 @@
   }
 }
 .heraldry-card:focus-visible {
-  outline: 2px solid var(--accent-gold, #b8860b);
+  outline: 2px solid var(--accent-gold);
   outline-offset: 2px;
 }
 
@@ -445,7 +445,7 @@
 .heraldry-paleo-text {
   font-family: 'Times New Roman', serif;
   font-size: 14px;
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
 }
 
 /* Вывод большой */
@@ -473,7 +473,7 @@
   padding: var(--space-2) var(--space-3);
   background: var(--bg-subtle, #f5f0e8);
   border-radius: var(--radius-xs);
-  border-left: 3px solid var(--accent-gold, #b8860b);
+  border-left: 3px solid var(--accent-gold);
 }
 
 .heraldry-loss-label {
@@ -515,7 +515,7 @@
 .heraldry-symbol-detail-paleo {
   font-family: 'Times New Roman', serif;
   font-size: var(--text-base);
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
   direction: rtl;
 }
 
@@ -625,7 +625,7 @@
   inset-block: 0.75rem;
   inset-inline-start: 0.34rem;
   width: 2px;
-  background: var(--accent-gold, #b8860b);
+  background: var(--accent-gold);
   opacity: 0.55;
 }
 
@@ -636,7 +636,7 @@
   flex-direction: column;
   gap: 2px;
   padding: 0.75rem 0.9rem;
-  border-inline-start: 3px solid var(--accent-gold, #b8860b);
+  border-inline-start: 3px solid var(--accent-gold);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   background: var(--bg-subtle, #f5f0e8);
 }
@@ -650,8 +650,8 @@
   height: 0.6rem;
   border: 2px solid var(--bg-primary, #fffaf0);
   border-radius: 50%;
-  background: var(--accent-gold, #b8860b);
-  box-shadow: 0 0 0 1px var(--accent-gold, #b8860b);
+  background: var(--accent-gold);
+  box-shadow: 0 0 0 1px var(--accent-gold);
 }
 
 html[data-theme="dark"] .heraldry-loss-item {

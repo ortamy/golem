@@ -1,4 +1,4 @@
-﻿/* =============================================
+/* =============================================
    components/dashboard.css - Golem Research Lab layer
    Layer of lab.css (split). Do not edit by hand -
    regenerate from lab.css source sections.
@@ -16,7 +16,7 @@
   background: var(--bg-card); border: 1px solid var(--border-light);
   border-radius: var(--radius-sm); padding: 24px 20px;
   text-decoration: none; cursor: pointer;
-  transition: all var(--transition);
+  transition: all var(--motion-base);
   box-shadow: var(--shadow-soft);
   display: flex; flex-direction: column; align-items: center; text-align: center;
 }
@@ -85,12 +85,12 @@
   background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
 }
 .agent-grid .agent-card-orchestrator {
-  background: linear-gradient(180deg, rgba(184, 134, 11, 0.32) 0%, rgba(92, 62, 8, 0.22) 100%);
+  background: linear-gradient(180deg, rgb(var(--accent-gold-rgb) / 0.32) 0%, rgba(92, 62, 8, 0.22) 100%);
   border: 2px solid var(--accent-gold);
-  box-shadow: 0 0 0 1px rgba(212, 160, 48, 0.28), var(--shadow-soft);
+  box-shadow: 0 0 0 1px rgb(var(--accent-gold-rgb) / ), var(--shadow-soft);
 }
 .agent-grid .agent-card-orchestrator:hover {
-  background: linear-gradient(180deg, rgba(212, 160, 48, 0.42) 0%, rgba(108, 72, 8, 0.30) 100%);
+  background: linear-gradient(180deg, rgb(var(--accent-gold-rgb) / ) 0%, rgba(108, 72, 8, 0.30) 100%);
   border-color: var(--accent-gold);
 }
 .agent-grid .tool-icon {
@@ -116,8 +116,8 @@
   white-space: nowrap;
 }
 .agent-grid .badge-dev-active {
-  color: var(--accent-gold, #b8860b);
-  background: rgba(184, 134, 11, 0.12);
+  color: var(--accent-gold);
+  background: rgb(var(--accent-gold-rgb) / 0.12);
 }
 .agent-grid .badge-dev-progress,
 .agent-grid .badge-dev-placeholder {
@@ -209,7 +209,7 @@
 .pipeline-card-title > img { width: 28px; height: 28px; flex: 0 0 28px; }
 .agent-pipeline-card h3 { margin: 0; color: var(--text-primary); font-size: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pipeline-status-badge { flex: 0 1 auto; padding: 3px 9px; border: 1px solid var(--text-muted); border-radius: 999px; color: var(--text-muted); background: rgba(138,122,106,.1); font: 700 11px/1.2 var(--font-heading); white-space: nowrap; }
-.pipeline-status-badge[data-status="running"] { color: var(--accent-gold); border-color: var(--accent-gold); background: rgba(184,134,11,.12); }
+.pipeline-status-badge[data-status="running"] { color: var(--accent-gold); border-color: var(--accent-gold); background: rgb(var(--accent-gold-rgb) / .12); }
 .pipeline-status-badge[data-status="done"] { color: var(--accent-green); border-color: var(--accent-green); background: rgba(42,106,42,.1); }
 .pipeline-status-badge[data-status="error"] { color: var(--accent-red); border-color: var(--accent-red); background: rgba(192,57,43,.1); }
 .agent-pipeline-route { color: var(--accent-gold); font: 600 12px var(--font-mono); }
@@ -224,7 +224,7 @@
 .pipeline-timeline-step small { position: absolute; z-index: 2; top: 76px; left: 50%; display: none; width: 190px; padding: 7px 9px; transform: translateX(-50%); color: var(--text-light); background: var(--bg-dark); border: 1px solid var(--border-gold); border-radius: 4px; box-shadow: var(--shadow-soft); font-size: 12px; line-height: 1.35; }
 .pipeline-timeline-step:hover small, .pipeline-timeline-step:focus small { display: block; }
 .pipeline-timeline-step:focus { outline: 2px solid var(--accent-gold); outline-offset: 3px; border-radius: 3px; }
-.pipeline-timeline-step[data-status="running"] .pipeline-status-dot { border-color: var(--accent-gold); background: var(--accent-gold); box-shadow: 0 0 0 4px rgba(184,134,11,.18); }
+.pipeline-timeline-step[data-status="running"] .pipeline-status-dot { border-color: var(--accent-gold); background: var(--accent-gold); box-shadow: 0 0 0 4px rgb(var(--accent-gold-rgb) / .18); }
 .pipeline-timeline-step[data-status="done"] .pipeline-status-dot { border-color: var(--accent-green); background: var(--accent-green); }
 .pipeline-timeline-step[data-status="error"] .pipeline-status-dot { border-color: var(--accent-red); background: var(--accent-red); }
 .pipeline-timeline-step[data-status="running"] > img, .pipeline-timeline-step[data-status="done"] > img { opacity: 1; }
@@ -287,7 +287,7 @@
 .agent-detail-page {
   max-width: 1120px;
   margin: 0 auto;
-  animation: fadeIn 0.3s ease both;
+  animation: fadeIn var(--dur-2) ease both;
 }
 .agent-detail-hero {
   display: flex;
@@ -309,7 +309,7 @@
   flex: 0 0 88px;
   border: 1px solid var(--accent-gold);
   border-radius: 50%;
-  background: rgba(184,134,11,0.16);
+  background: rgb(var(--accent-gold-rgb) / 0.16);
 }
 .agent-detail-icon img { width: 48px; height: 48px; }
 .agent-detail-kicker {

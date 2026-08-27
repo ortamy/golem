@@ -7,7 +7,7 @@
 .el-input-section .el-examples .example-chip:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
 
 .el-result { display: none; }
-.el-result.show { display: block; animation: elFadeIn 0.3s ease; }
+.el-result.show { display: block; animation: elFadeIn var(--dur-2) ease; }
 @keyframes elFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
 .el-word-header { background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 6px; padding: 24px; margin-bottom: 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }

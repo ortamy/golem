@@ -1,4 +1,4 @@
-﻿/* Investigation dossier: archival surfaces, gold evidence threads, gold markers. */
+/* Investigation dossier: archival surfaces, gold evidence threads, gold markers. */
 .investigation-module { max-width: var(--shell-page); }
 .investigation-heading { display:flex; justify-content:space-between; gap:24px; align-items:flex-start; margin-bottom:22px; }
 .investigation-kicker { color:var(--accent-gold); font:600 11px/1.2 var(--font-mono); letter-spacing:2px; margin-bottom:4px; }
@@ -17,7 +17,7 @@
 .investigation-result { position:relative; display:none; padding-top:20px; }
 .investigation-result.is-visible { display:block; }
 .investigation-case-meta { display:flex; justify-content:space-between; gap:16px; color:var(--text-muted); font:600 11px/1.4 var(--font-mono); letter-spacing:1px; text-transform:uppercase; border-bottom:1px solid var(--border-light); padding-bottom:9px; margin-bottom:10px; }
-.investigation-section { position:relative; margin:20px 0 0; padding:22px; background:var(--bg-card); border:1px solid var(--border-light); box-shadow:var(--shadow-soft); opacity:0; transform:translateY(10px); animation:investigationFadeIn .48s ease-out forwards; animation-delay:var(--section-delay); }
+.investigation-section { position:relative; margin:20px 0 0; padding:22px; background:var(--bg-card); border:1px solid var(--border-light); box-shadow:var(--shadow-soft); opacity:0; transform:translateY(10px); animation:investigationFadeIn var(--dur-2) ease-out forwards; animation-delay:var(--section-delay); }
 .investigation-section::before { content:''; position:absolute; left:-7px; top:28px; width:11px; height:11px; background:var(--accent-gold); border-radius:50%; box-shadow:0 0 0 3px var(--bg-primary); }
 .investigation-section::after { content:''; position:absolute; left:-2px; top:39px; height:calc(100% + 20px); border-left:1px solid var(--accent-gold); opacity:.6; z-index:0; }
 .investigation-section:last-child::after { display:none; }
@@ -32,11 +32,11 @@
 .investigation-hebrew { display:block; font-size:31px; margin-top:6px; }
 .investigation-translit { display:block; color:var(--text-gold); font:600 13px var(--font-mono); margin-top:4px; }
 .investigation-paleo-row { display:flex; justify-content:center; flex-wrap:wrap; gap:8px; }
-.investigation-letter { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; width:66px; min-height:90px; color:var(--text-primary); background:var(--bg-secondary); border:1px solid var(--border-light); cursor:help; transition:transform var(--transition), border-color var(--transition), box-shadow var(--transition); }
+.investigation-letter { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; width:66px; min-height:90px; color:var(--text-primary); background:var(--bg-secondary); border:1px solid var(--border-light); cursor:help; transition:transform var(--motion-base), border-color var(--motion-base), box-shadow var(--motion-base); }
 .investigation-letter:hover, .investigation-letter:focus-visible { border-color:var(--accent-gold); box-shadow: 0 8px 18px var(--shadow-card-hover-color); outline:none; }
 .investigation-letter-paleo { font:40px/1 var(--font-hebrew); color:var(--accent-gold); }
 .investigation-letter-hebrew { font-size:17px; margin-top:7px; }
-.investigation-letter-tooltip { position:absolute; z-index:5; left:50%; bottom:calc(100% + 9px); width:170px; padding:9px 10px; transform:translate(-50%, 4px); opacity:0; pointer-events:none; color:#faf3e0; background:var(--bg-dark); border:1px solid var(--accent-gold); font-size:13px; line-height:1.35; text-align:left; transition:opacity var(--transition), transform var(--transition); }
+.investigation-letter-tooltip { position:absolute; z-index:5; left:50%; bottom:calc(100% + 9px); width:170px; padding:9px 10px; transform:translate(-50%, 4px); opacity:0; pointer-events:none; color:#faf3e0; background:var(--bg-dark); border:1px solid var(--accent-gold); font-size:13px; line-height:1.35; text-align:left; transition:opacity var(--motion-base), transform var(--motion-base); }
 .investigation-letter-tooltip::after { content:''; position:absolute; left:50%; top:100%; border:5px solid transparent; border-top-color:var(--accent-gold); transform:translateX(-50%); }
 .investigation-letter:hover .investigation-letter-tooltip, .investigation-letter:focus-visible .investigation-letter-tooltip { opacity:1; transform:translate(-50%, 0); }
 .investigation-origin-note { margin-top:18px; padding:12px 14px; border-left:2px solid var(--accent-gold); background:var(--bg-secondary); line-height:1.45; }
@@ -44,23 +44,23 @@
 .investigation-timeline::before { content:''; position:absolute; top:39px; left:8%; right:8%; height:2px; background:var(--accent-gold); opacity:.7; }
 .investigation-timeline-point { position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:4px; min-height:87px; padding:0 4px; border:0; background:transparent; color:#bba98d; cursor:pointer; font-family:var(--font-serif); }
 .investigation-timeline-point:hover, .investigation-timeline-point:focus-visible { color:#fff1c9; outline:none; }
-.investigation-timeline-point:focus-visible .investigation-timeline-dot { box-shadow:0 0 0 4px rgba(212,160,48,.35); }
-.investigation-timeline-dot { display:block; width:17px; height:17px; border:3px solid #211812; border-radius:50%; background:var(--accent-gold); box-shadow:0 0 0 1px var(--accent-gold); transition:transform var(--transition), box-shadow var(--transition); }
-.investigation-timeline-point.is-active .investigation-timeline-dot { transform:scale(1.25); box-shadow:0 0 0 4px rgba(212,160,48,.23); }
-.investigation-timeline-tag { color:#b8860b; font:10px var(--font-mono); text-transform:uppercase; letter-spacing:1px; margin-top:5px; }
+.investigation-timeline-point:focus-visible .investigation-timeline-dot { box-shadow:0 0 0 4px rgb(var(--accent-gold-rgb) / ); }
+.investigation-timeline-dot { display:block; width:17px; height:17px; border:3px solid #211812; border-radius:50%; background:var(--accent-gold); box-shadow:0 0 0 1px var(--accent-gold); transition:transform var(--motion-base), box-shadow var(--motion-base); }
+.investigation-timeline-point.is-active .investigation-timeline-dot { transform:scale(1.25); box-shadow:0 0 0 4px rgb(var(--accent-gold-rgb) / ); }
+.investigation-timeline-tag { color:var(--accent-gold); font:10px var(--font-mono); text-transform:uppercase; letter-spacing:1px; margin-top:5px; }
 .investigation-timeline-point strong { font:600 17px var(--font-heading); }
 .investigation-timeline-details { padding:14px 16px; background:#2b211b; color:#eadcc2; border:1px solid #4b3022; border-top:0; min-height:77px; }
 .investigation-timeline-detail p { margin:0; line-height:1.45; }
 .investigation-timeline-detail[hidden], .investigation-evidence-detail[hidden] { display:none; }
 .investigation-creators-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; }
-.investigation-creator { position:relative; display:grid; grid-template-columns:45px 1fr 20px; align-items:center; gap:10px; min-height:76px; padding:11px; text-align:left; color:var(--text-primary); background:var(--bg-secondary); border:1px solid var(--border-light); cursor:pointer; font-family:var(--font-serif); transition:border-color var(--transition), transform var(--transition), background var(--transition); }
+.investigation-creator { position:relative; display:grid; grid-template-columns:45px 1fr 20px; align-items:center; gap:10px; min-height:76px; padding:11px; text-align:left; color:var(--text-primary); background:var(--bg-secondary); border:1px solid var(--border-light); cursor:pointer; font-family:var(--font-serif); transition:border-color var(--motion-base), transform var(--motion-base), background var(--motion-base); }
 .investigation-creator:hover, .investigation-creator:focus-visible, .investigation-creator.is-open { border-color:var(--accent-gold); background:var(--bg-tertiary); outline:none; }
 .investigation-portrait { display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; background:#2b211b; border:1px solid var(--accent-gold); }
 .investigation-portrait img { width:27px; height:27px; object-fit:contain; }
 .investigation-creator strong, .investigation-creator small { display:block; }
 .investigation-creator strong { font:600 17px/1.1 var(--font-heading); }
 .investigation-creator small { color:var(--text-muted); font-size:12px; margin-top:4px; line-height:1.25; }
-.investigation-creator-chevron { color:var(--accent-gold); font-size:20px; transition:transform var(--transition); }
+.investigation-creator-chevron { color:var(--accent-gold); font-size:20px; transition:transform var(--motion-base); }
 .investigation-creator.is-open .investigation-creator-chevron { transform:rotate(45deg); }
 .investigation-creator-detail { grid-column:1 / -1; display:none; color:var(--text-secondary); font-size:14px; line-height:1.4; padding-top:9px; border-top:1px solid var(--border-light); }
 .investigation-creator.is-open .investigation-creator-detail { display:block; }
@@ -87,7 +87,7 @@
 .investigation-evidence-trigger:hover, .investigation-evidence-trigger:focus-visible { background:var(--bg-tertiary); outline:none; }
 .investigation-evidence-ref { font:600 16px var(--font-heading); }
 .investigation-evidence-note { color:var(--text-secondary); font-size:14px; line-height:1.3; }
-.investigation-evidence-plus { color:var(--accent-gold); font-size:22px; text-align:center; transition:transform var(--transition); }
+.investigation-evidence-plus { color:var(--accent-gold); font-size:22px; text-align:center; transition:transform var(--motion-base); }
 .investigation-evidence-row.is-open .investigation-evidence-plus { transform:rotate(45deg); }
 .investigation-evidence-detail { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; padding:14px 12px 16px; background:var(--bg-secondary); border-top:1px dashed var(--border-light); }
 .investigation-evidence-detail div { min-width:0; }
@@ -115,5 +115,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .investigation-section, .investigation-loss-arrow span, .investigation-loss-arrow b { animation:none; opacity:1; transform:none; }
-  .investigation-letter:hover, .investigation-creator:hover { transform:none; }
+  
+/* (Этап 7) investigation-creator hover: никакого transform — только цвет/тень */
+
 }

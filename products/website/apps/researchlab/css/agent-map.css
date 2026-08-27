@@ -72,7 +72,7 @@
   fill: none;
   marker-end: url(#agent-map-arrow);
   pointer-events: stroke;
-  stroke: var(--accent-gold, #a57932);
+  stroke: var(--accent-gold);
   stroke-width: 2;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .agent-map-node.is-selected {
-  border-color: var(--accent-gold, #a57932);
+  border-color: var(--accent-gold);
   box-shadow: 0 0 0 2px rgba(165, 121, 50, .2), var(--shadow-soft, 0 3px 12px rgba(60, 45, 25, .12));
 }
 
@@ -150,7 +150,7 @@
 }
 
 .agent-map-node-status {
-  color: var(--accent-gold, #a57932);
+  color: var(--accent-gold);
   font-size: 10px;
   margin-top: 7px;
 }

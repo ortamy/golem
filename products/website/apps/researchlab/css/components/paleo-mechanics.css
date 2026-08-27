@@ -72,7 +72,7 @@
 .paleo-module-comparison {
   grid-column: 1 / -1;
   border-left: 4px solid var(--accent-red);
-  background: linear-gradient(90deg, rgba(184, 134, 11, 0.08), rgba(158, 54, 54, 0.08));
+  background: linear-gradient(90deg, rgb(var(--accent-gold-rgb) / 0.08), rgba(158, 54, 54, 0.08));
 }
 
 .paleo-module-lead {
@@ -117,7 +117,7 @@
   gap: var(--space-3);
   padding: 10px var(--space-3);
   margin-bottom: 14px;
-  background: rgba(184, 134, 11, 0.10);
+  background: rgb(var(--accent-gold-rgb) / 0.10);
   border: 1px solid var(--border-gold);
   border-radius: var(--radius-sm);
 }

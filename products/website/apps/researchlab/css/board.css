@@ -43,7 +43,7 @@
 .board-modal { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: 20px; }
 .board-modal[hidden], .board-inspector[hidden], .board-empty[hidden] { display: none; }
 .board-modal-backdrop { position: absolute; inset: 0; background: rgba(4,3,2,.78); }
-.board-dialog { position: relative; width: min(620px, 100%); max-height: 90vh; overflow: auto; display: flex; flex-direction: column; gap: 14px; padding: 22px; border: 1px solid #b8860b; border-radius: 7px; background: #211b14; box-shadow: 0 20px 70px #000b; }
+.board-dialog { position: relative; width: min(620px, 100%); max-height: 90vh; overflow: auto; display: flex; flex-direction: column; gap: 14px; padding: 22px; border: 1px solid var(--accent-gold); border-radius: 7px; background: #211b14; box-shadow: 0 20px 70px #000b; }
 .board-dialog h2 { margin: 3px 0 0; color: #f5e2b7; font: 600 30px 'Cormorant Garamond', Georgia, serif; }
 .board-dialog-header, .board-dialog-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .board-dialog-close { font-size: 28px; }

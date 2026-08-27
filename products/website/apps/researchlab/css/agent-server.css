@@ -20,13 +20,13 @@
 
 .agent-server-heading h2 {
   margin: 0 0 var(--space-2);
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
   font-family: var(--font-heading, Georgia, serif);
   font-size: 30px;
 }
 
 .agent-server-heading img { width: 42px; height: 42px; object-fit: contain; }
-.agent-server-kicker { margin: 0 0 8px; color: var(--accent-gold, #b8860b); font-size: 11px; letter-spacing: .15em; font-weight: 700; }
+.agent-server-kicker { margin: 0 0 8px; color: var(--accent-gold); font-size: 11px; letter-spacing: .15em; font-weight: 700; }
 .agent-server-intro { max-width: 720px; margin: 0; color: var(--text-muted, #b8a995); line-height: 1.5; }
 
 .agent-server-form,
@@ -44,10 +44,10 @@
 .agent-server-form label { display: flex; flex-direction: column; gap: 6px; color: var(--text-primary, #2c1810); font-weight: 600; }
 .agent-server-form .lab-input { width: 100%; box-sizing: border-box; }
 .agent-server-check { align-self: end; flex-direction: row !important; align-items: center; min-height: 42px; font-weight: 500 !important; }
-.agent-server-check input { width: 17px; height: 17px; accent-color: var(--accent-gold, #b8860b); }
+.agent-server-check input { width: 17px; height: 17px; accent-color: var(--accent-gold); }
 
 .agent-server-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.agent-server-status { padding: 12px 14px; margin-top: 14px; border-left: 3px solid var(--accent-gold, #b8860b); background: var(--bg-card, #f7f1e5); color: var(--text-primary, #2c1810); }
+.agent-server-status { padding: 12px 14px; margin-top: 14px; border-left: 3px solid var(--accent-gold); background: var(--bg-card, #f7f1e5); color: var(--text-primary, #2c1810); }
 .agent-server-status.success { border-color: #557a4d; }
 .agent-server-status.error { border-color: #a34d3f; }
 

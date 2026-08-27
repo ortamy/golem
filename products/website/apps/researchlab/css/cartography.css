@@ -35,7 +35,7 @@
 }
 
 .cartography-intro p { margin: 0; color: var(--text-muted, #6b5b4e); }
-.cartography-intro-mark { color: var(--accent-gold, #b8860b); font-family: 'Times New Roman', serif; font-size: 44px; }
+.cartography-intro-mark { color: var(--accent-gold); font-family: 'Times New Roman', serif; font-size: 44px; }
 
 .cartography-theme-grid {
   display: grid;
@@ -53,7 +53,7 @@
   border: 1px solid var(--border-light, #d4c4a8);
   border-radius: 8px;
   box-shadow: 0 7px 18px rgba(44, 24, 16, .08);
-  animation: cartographyFadeIn .42s ease both;
+  animation: cartographyFadeIn var(--dur-2) ease both;
 }
 
 .cartography-theme-preview {
@@ -70,10 +70,10 @@
 .cartography-theme-body { display: flex; flex: 1; flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px; }
 .cartography-theme-body .cartography-card-summary { flex: 1; width: 100%; min-height: 0; margin: 0; background: transparent; padding: 0; }
 .cartography-open-map { margin-top: 5px; }
-.cartography-world-launch { display: flex; align-items: center; gap: 14px; width: 100%; margin: 0 0 24px; padding: 14px 18px; border: 1px solid var(--accent-gold, #b8860b); border-radius: 8px; background: #fffdf8; color: var(--text-primary, #2c1810); cursor: pointer; text-align: left; box-shadow: 0 4px 12px rgba(44, 24, 16, .06); }
+.cartography-world-launch { display: flex; align-items: center; gap: 14px; width: 100%; margin: 0 0 24px; padding: 14px 18px; border: 1px solid var(--accent-gold); border-radius: 8px; background: #fffdf8; color: var(--text-primary, #2c1810); cursor: pointer; text-align: left; box-shadow: 0 4px 12px rgba(44, 24, 16, .06); }
 .cartography-world-launch:hover { background: #f7efd9; }
-.cartography-world-launch > span:first-child { color: var(--accent-gold, #b8860b); font: 28px 'Times New Roman', serif; }
-.cartography-world-launch > span:last-child { margin-left: auto; color: var(--accent-gold, #b8860b); font-size: 22px; }
+.cartography-world-launch > span:first-child { color: var(--accent-gold); font: 28px 'Times New Roman', serif; }
+.cartography-world-launch > span:last-child { margin-left: auto; color: var(--accent-gold); font-size: 22px; }
 .cartography-world-launch strong, .cartography-world-launch small { display: block; }
 .cartography-world-launch small { margin-top: 2px; color: var(--text-muted, #6b5b4e); }
 .cartography-map-shell { min-height: calc(100vh - 100px); padding: 0; background: transparent; }
@@ -86,7 +86,7 @@
 .cartography-map-canvas { position: relative; overflow: hidden; border-radius: 8px; }
 .cartography-map-controls { position: absolute; top: 12px; right: 12px; z-index: 2; display: flex; align-items: center; gap: 4px; padding: 4px; border: 1px solid rgba(74, 48, 32, .24); border-radius: 6px; background: rgba(255, 253, 248, .9); box-shadow: 0 3px 8px rgba(44, 24, 16, .12); }
 .cartography-map-controls button { min-width: 28px; min-height: 28px; padding: 3px 7px; border: 1px solid var(--border-light, #d4c4a8); border-radius: 4px; background: #fffdf8; color: var(--text-primary, #2c1810); cursor: pointer; font: inherit; line-height: 1; }
-.cartography-map-controls button:hover { border-color: var(--accent-gold, #b8860b); color: var(--accent-gold, #b8860b); }
+.cartography-map-controls button:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
 .cartography-map-controls button:first-child, .cartography-map-controls button:nth-child(2) { font-size: 20px; }
 .cartography-world-svg { touch-action: none; cursor: grab; }
 .cartography-world-svg.is-dragging { cursor: grabbing; }
@@ -104,13 +104,13 @@
 .cartography-state-search label { display: block; margin-bottom: 6px; color: var(--text-secondary, #4a3728); font-size: 13px; font-weight: 700; }
 .cartography-state-search input { width: 100%; padding: 10px 12px; border: 1px solid var(--border-light, #d4c4a8); border-radius: 7px; background: #fffdf8; color: var(--text-primary, #2c1810); font: inherit; font-size: 15px; outline: none; }
 .cartography-state-search input::placeholder { color: var(--text-muted, #8a7a6a); }
-.cartography-state-search input:focus { border-color: var(--accent-gold, #b8860b); box-shadow: 0 0 0 3px rgba(184, 134, 11, .14); }
+.cartography-state-search input:focus { border-color: var(--accent-gold); box-shadow: 0 0 0 3px rgb(var(--accent-gold-rgb) / .14); }
 .cartography-state-page-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
 .cartography-state-page-head h2 { margin: 4px 0; color: var(--text-primary, #2c1810); font-family: var(--font-heading, Georgia, serif); font-size: 28px; }
 .cartography-state-page-head p { margin: 0; color: var(--text-muted, #6b5b4e); }
 .cartography-state-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
-.cartography-state-card { min-width: 0; padding: 16px; background: #fffdf8; border: 1px solid var(--border-light, #d4c4a8); border-radius: 8px; box-shadow: 0 6px 16px rgba(44, 24, 16, .08); cursor: pointer; animation: cartographyFadeIn .35s ease both; }
-.cartography-state-card:hover, .cartography-state-card:focus-visible { border-color: var(--accent-gold, #b8860b); box-shadow: 0 8px 20px rgba(44, 24, 16, .14); outline: none; }
+.cartography-state-card { min-width: 0; padding: 16px; background: #fffdf8; border: 1px solid var(--border-light, #d4c4a8); border-radius: 8px; box-shadow: 0 6px 16px rgba(44, 24, 16, .08); cursor: pointer; animation: cartographyFadeIn var(--dur-2) ease both; }
+.cartography-state-card:hover, .cartography-state-card:focus-visible { border-color: var(--accent-gold); box-shadow: 0 8px 20px rgba(44, 24, 16, .14); outline: none; }
 .cartography-state-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .cartography-state-card h2 { margin: 0 0 6px; color: var(--text-primary, #2c1810); font-family: var(--font-heading, Georgia, serif); font-size: 20px; }
 .cartography-state-card p { margin: 0; color: var(--text-secondary, #4a3728); font-size: 14px; line-height: 1.45; }
@@ -125,7 +125,7 @@
 }
 
 .cartography-world-kicker {
-  color: var(--accent-gold, #9d7210);
+  color: var(--accent-gold);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .14em;
@@ -145,7 +145,7 @@
 }
 
 .cartography-world-mark {
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
   font-family: var(--font-paleo, 'Times New Roman', serif);
   font-size: 42px;
   line-height: 1;
@@ -177,7 +177,7 @@
 .gender-zone-lost { fill: #b85b4c; }
 .gender-zone-unknown { fill: #a9a9a4; }
 .world-country { cursor: pointer; outline: none; transition: fill .16s ease, stroke .16s ease, stroke-width .16s ease; }
-.world-country:hover, .world-country:focus-visible { fill: #70462f; stroke: #b8860b; stroke-width: 1.4; }
+.world-country:hover, .world-country:focus-visible { fill: #70462f; stroke: var(--accent-gold); stroke-width: 1.4; }
 .world-country:focus-visible { outline: none; }
 
 .gender-map-legend { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 0 0 14px; color: var(--text-secondary, #4a3728); font-size: 13px; }
@@ -251,16 +251,16 @@
   color: var(--text-secondary, #4a3728);
   font-size: var(--text-sm);
   cursor: pointer;
-  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  transition: background var(--motion-fast), color var(--motion-fast), border-color var(--motion-fast);
 }
 
 .cartography-filter-btn:hover {
-  border-color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
 }
 
 .cartography-filter-btn.active {
-  background: var(--accent-gold, #b8860b);
-  border-color: var(--accent-gold, #b8860b);
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
   color: #faf3e0;
   font-weight: 600;
 }
@@ -284,8 +284,8 @@
   border-radius: 7px;
   padding: 14px;
   cursor: pointer;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-  animation: cartographyFadeIn 0.4s ease both;
+  transition: transform var(--motion-base), box-shadow var(--motion-base), border-color var(--motion-base);
+  animation: cartographyFadeIn var(--dur-2) ease both;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
@@ -296,7 +296,7 @@
 .cartography-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
 }
 
 @keyframes cartographyFadeIn {
@@ -342,7 +342,7 @@
 .cartography-card-paleo {
   font-family: 'Times New Roman', serif;
   font-size: var(--text-base);
-  color: var(--accent-gold, #9d7210);
+  color: var(--accent-gold);
   direction: rtl;
   min-width: 0;
   overflow-wrap: anywhere;
@@ -399,7 +399,7 @@
 .cartography-detail-paleo {
   font-family: 'Times New Roman', serif;
   font-size: var(--text-lg);
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
   margin-top: var(--space-1);
   direction: rtl;
 }
@@ -452,8 +452,8 @@
 }
 
 .cartography-related-tag:hover {
-  border-color: var(--accent-gold, #b8860b);
-  color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
 }
 
 .cartography-related-tag:focus-visible {

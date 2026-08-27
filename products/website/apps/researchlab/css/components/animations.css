@@ -18,5 +18,5 @@
 }
 .fade-in-stagger {
   opacity: 0;
-  animation: fadeInStagger 0.3s ease forwards;
+  animation: fadeInStagger var(--dur-2) ease forwards;
 }

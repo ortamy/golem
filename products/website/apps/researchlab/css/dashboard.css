@@ -49,14 +49,14 @@
   outline: none;
   transform-box: fill-box;
   transform-origin: center;
-  transition: transform var(--transition), filter var(--transition);
+  transition: transform var(--motion-base), filter var(--motion-base);
 }
 .dw-map-node rect {
   fill: var(--bg-card);
   stroke: var(--accent-gold);
   stroke-width: 1;
   filter: drop-shadow(0 2px 4px rgba(44,24,16,0.10));
-  transition: fill var(--transition), stroke-width var(--transition), filter var(--transition);
+  transition: fill var(--motion-base), stroke-width var(--motion-base), filter var(--motion-base);
 }
 .dw-map-node:hover,
 .dw-map-node:focus-visible {
@@ -66,7 +66,7 @@
 .dw-map-node:focus-visible rect {
   fill: var(--bg-secondary);
   stroke-width: 1.5;
-  filter: drop-shadow(0 0 7px rgba(184,134,11,0.42));
+  filter: drop-shadow(0 0 7px rgb(var(--accent-gold-rgb) / 0.42));
 }
 .dw-map-node text {
   font-family: var(--font-serif); font-size: 11px; fill: var(--text-gold);
@@ -103,9 +103,9 @@
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: var(--space-2) 0; border-bottom: 1px solid var(--border-light);
   background: var(--bg-tertiary); text-decoration: none; color: var(--text-primary);
-  transition: background var(--transition), color var(--transition);
+  transition: background var(--motion-base), color var(--motion-base);
 }
-.dw-list-item:hover { background: rgba(184,134,11,0.10); color: var(--accent-gold); }
+.dw-list-item:hover { background: rgb(var(--accent-gold-rgb) / 0.10); color: var(--accent-gold); }
 .dw-list-title { min-width: 0; flex: 1; font-weight: 600; font-size: 15px; }
 .dw-list-meta { flex-shrink: 0; font-size: 12px; color: var(--text-muted); margin-top: 0; text-align: right; }
 
@@ -119,13 +119,13 @@
   min-width: 0; min-height: 148px; padding: 14px 12px 12px;
   border: 1px solid var(--border-light); border-radius: 8px;
   box-shadow: var(--shadow-soft); color: var(--text-primary); text-align: center;
-  cursor: pointer; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  cursor: pointer; transition: transform var(--motion-base), box-shadow var(--motion-base), border-color var(--motion-base);
 }
 .book-card:hover, .book-card:focus-visible {
   transform: translateY(-2px); border-color: var(--accent-gold);
-  box-shadow: 0 5px 14px rgba(184,134,11,0.2); outline: none;
+  box-shadow: 0 5px 14px rgb(var(--accent-gold-rgb) / 0.2); outline: none;
 }
-.book-card--completed { background: rgba(184,134,11,0.18); }
+.book-card--completed { background: rgb(var(--accent-gold-rgb) / 0.18); }
 .book-card--in-progress { background: #fff7d6; }
 .book-card--not-started, .book-card--loading { background: var(--bg-tertiary); }
 .book-card-icon {

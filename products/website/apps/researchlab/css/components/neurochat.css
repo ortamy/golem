@@ -46,7 +46,7 @@
 #ed-chat .ec-message-user {
   margin-left: auto;
   border-color: var(--accent-gold);
-  background: rgba(184, 134, 11, 0.08);
+  background: rgb(var(--accent-gold-rgb) / 0.08);
 }
 
 #ed-chat .ec-message-assistant { margin-right: auto; }

@@ -72,7 +72,7 @@
   padding: 18px;
   text-align: left;
   cursor: pointer;
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--motion-fast), border-color var(--motion-fast), box-shadow var(--motion-fast);
 }
 .language-map-card:hover { border-color: var(--accent-gold); box-shadow: var(--shadow-card-hover-color); }
 /* Страховка transform:none снята Этапом 7: базовый ховер более не двигает */

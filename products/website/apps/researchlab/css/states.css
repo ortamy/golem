@@ -59,7 +59,7 @@
 
 .state-link-line:hover {
   opacity: 0.8;
-  stroke: var(--accent-gold, #b8860b);
+  stroke: var(--accent-gold);
 }
 
 .state-link-label {
@@ -91,7 +91,7 @@
   padding: var(--space-5);
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  animation: stateCardFadeIn 0.5s ease both;
+  animation: stateCardFadeIn var(--dur-2) ease both;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -106,7 +106,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--state-color, var(--accent-gold, #b8860b));
+  background: var(--state-color, var(--accent-gold));
   opacity: 0.6;
   transition: opacity 0.3s, height 0.3s;
 }
@@ -119,7 +119,7 @@
 .state-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-  border-color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
 }
 
 @keyframes stateCardFadeIn {
@@ -130,7 +130,7 @@
 .state-card-paleo {
   font-size: 36px;
   line-height: 1;
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
   font-family: 'Times New Roman', serif;
   transition: transform 0.3s;
 }
@@ -167,7 +167,7 @@
 .state-card-olam {
   font-size: var(--text-sm);
   line-height: 1.45;
-  color: var(--accent-gold, #8b6508);
+  color: var(--accent-gold);
   font-style: normal;
 }
 
@@ -196,7 +196,7 @@
 .state-intensity-fill {
   height: 100%;
   border-radius: 2px;
-  background: var(--state-color, var(--accent-gold, #b8860b));
+  background: var(--state-color, var(--accent-gold));
   transition: width 0.5s ease;
 }
 
@@ -223,7 +223,7 @@
 .state-detail-hero-paleo {
   font-size: 64px;
   line-height: 1;
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
   margin-bottom: var(--space-4);
   display: block;
 }
@@ -309,7 +309,7 @@
 
 .paleo-breakdown-item .paleo-char {
   font-size: var(--text-2xl);
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
   font-family: 'Times New Roman', serif;
 }
 
@@ -362,11 +362,11 @@
   border: 1px solid var(--border-light, #d4c4a8);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: border-color var(--transition), background var(--transition);
+  transition: border-color var(--motion-base), background var(--motion-base);
 }
 
 .transition-item:hover {
-  border-color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
   background: var(--bg-card, #faf3e0);
 }
 
@@ -375,7 +375,7 @@
   place-items: center;
   flex: 0 0 1.75rem;
   font-size: 20px;
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
   flex-shrink: 0;
 }
 
@@ -519,17 +519,17 @@
   background: var(--bg-subtle, #f5f0e8);
   border: 1px solid var(--border-light, #d4c4a8);
   border-radius: var(--radius-sm);
-  transition: border-color var(--transition);
+  transition: border-color var(--motion-base);
   cursor: pointer;
 }
 
 .state-city-card:hover {
-  border-color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
 }
 
 .state-city-card:focus-visible,
 .transition-item:focus-visible {
-  outline: 2px solid var(--accent-gold, #b8860b);
+  outline: 2px solid var(--accent-gold);
   outline-offset: 3px;
 }
 
@@ -594,7 +594,7 @@
 
 .diagnostic-progress-fill {
   height: 100%;
-  background: var(--accent-gold, #b8860b);
+  background: var(--accent-gold);
   border-radius: 2px;
   transition: width 0.4s ease;
 }
@@ -644,17 +644,17 @@
   border: 1px solid var(--border-light, #d4c4a8);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: border-color var(--transition), background var(--transition);
+  transition: border-color var(--motion-base), background var(--motion-base);
 }
 
 .question-option:hover {
-  border-color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
   background: var(--bg-card, #faf3e0);
 }
 
 .question-option.selected {
-  border-color: var(--accent-gold, #b8860b);
-  background: rgba(184, 134, 11, 0.08);
+  border-color: var(--accent-gold);
+  background: rgb(var(--accent-gold-rgb) / 0.08);
 }
 
 .question-option input[type="radio"] {
@@ -666,11 +666,11 @@
   border-radius: 50%;
   flex-shrink: 0;
   position: relative;
-  transition: border-color var(--transition);
+  transition: border-color var(--motion-base);
 }
 
 .question-option input[type="radio"]:checked {
-  border-color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
 }
 
 .question-option input[type="radio"]:checked::after {
@@ -680,7 +680,7 @@
   left: 3px;
   width: 8px;
   height: 8px;
-  background: var(--accent-gold, #b8860b);
+  background: var(--accent-gold);
   border-radius: 50%;
 }
 
@@ -706,17 +706,17 @@
   border: 1px solid var(--border-light, #d4c4a8);
   border-radius: var(--radius-sm);
   background: var(--bg-subtle, #f5f0e8);
-  transition: border-color var(--transition), background var(--transition);
+  transition: border-color var(--motion-base), background var(--motion-base);
   min-width: 60px;
 }
 
 .scale-option:hover {
-  border-color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
 }
 
 .scale-option.selected {
-  border-color: var(--accent-gold, #b8860b);
-  background: rgba(184, 134, 11, 0.08);
+  border-color: var(--accent-gold);
+  background: rgb(var(--accent-gold-rgb) / 0.08);
 }
 
 .scale-option .scale-label {
@@ -751,14 +751,14 @@
 }
 
 .btn-diagnostic-next {
-  background: var(--accent-gold, #b8860b);
+  background: var(--accent-gold);
   color: #faf3e0;
-  border: 1px solid var(--accent-gold, #b8860b);
+  border: 1px solid var(--accent-gold);
 }
 
 .btn-diagnostic-next:hover {
-  background: #8b6508;
-  border-color: #8b6508;
+  background: var(--accent-gold-hover);
+  border-color: var(--accent-gold-hover);
 }
 
 .btn-diagnostic-next:disabled {
@@ -773,14 +773,14 @@
 }
 
 .btn-diagnostic-prev:hover {
-  border-color: var(--accent-gold, #b8860b);
-  color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
 }
 
 /* Результат диагностики */
 .diagnostic-result {
   text-align: center;
-  animation: resultFadeIn 0.6s ease both;
+  animation: resultFadeIn var(--dur-2) ease both;
 }
 
 @keyframes resultFadeIn {
@@ -790,7 +790,7 @@
 
 .diagnostic-result-paleo {
   font-size: 72px;
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
   display: block;
   margin-bottom: var(--space-4);
   font-family: 'Times New Roman', serif;
@@ -823,7 +823,7 @@
   font-family: var(--font-body, 'EB Garamond', Georgia, serif);
   font-size: var(--text-lg);
   line-height: 1.45;
-  color: var(--accent-gold, #8b6508);
+  color: var(--accent-gold);
   font-style: normal;
 }
 
@@ -840,7 +840,7 @@
 
 .result-transition .arrow {
   font-size: 24px;
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
 }
 
 .result-transition .to-state {
@@ -876,13 +876,13 @@
 }
 
 .btn-result-state {
-  background: var(--accent-gold, #b8860b);
+  background: var(--accent-gold);
   color: #faf3e0;
-  border: 1px solid var(--accent-gold, #b8860b);
+  border: 1px solid var(--accent-gold);
 }
 
 .btn-result-state:hover {
-  background: #8b6508;
+  background: var(--accent-gold-hover);
 }
 
 .btn-result-restart {
@@ -892,8 +892,8 @@
 }
 
 .btn-result-restart:hover {
-  border-color: var(--accent-gold, #b8860b);
-  color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
 }
 
 .btn-result-share {
@@ -903,8 +903,8 @@
 }
 
 .btn-result-share:hover {
-  border-color: var(--accent-gold, #b8860b);
-  color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
 }
 
 /* ===== ПАНЕЛЬ УПРАВЛЕНИЯ СОСТОЯНИЯМИ ===== */
@@ -939,7 +939,7 @@
   font-weight: 600;
   border-radius: var(--radius-xs);
   cursor: pointer;
-  transition: all var(--transition);
+  transition: all var(--motion-base);
   border: 1px solid var(--border-light, #d4c4a8);
   background: var(--bg-card, #faf3e0);
   color: var(--text-primary, #2c1810);
@@ -949,13 +949,13 @@
 }
 
 .states-controls .states-nav-btn:hover {
-  border-color: var(--accent-gold, #b8860b);
-  color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
 }
 
 .states-controls .states-nav-btn.active {
-  background: var(--accent-gold, #b8860b);
-  border-color: var(--accent-gold, #b8860b);
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
   color: #faf3e0;
 }
 

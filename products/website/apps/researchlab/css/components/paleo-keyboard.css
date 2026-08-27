@@ -50,11 +50,11 @@
   border-radius: 2px;
   box-shadow: none;
   cursor: pointer;
-  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  transition: color var(--motion-base), border-color var(--motion-base), background var(--motion-base);
 }
 .pk-key.is-active { outline: 2px solid var(--accent-gold); outline-offset: 2px; }
-.pk-key:hover { border-color: var(--accent-gold); background: rgba(184,134,11,0.06); }
-.pk-key:active { color: var(--accent-gold); background: rgba(184,134,11,0.12); }
+.pk-key:hover { border-color: var(--accent-gold); background: rgb(var(--accent-gold-rgb) / 0.06); }
+.pk-key:active { color: var(--accent-gold); background: rgb(var(--accent-gold-rgb) / 0.12); }
 .pk-key-symbol, .pk-output-symbol { font-family: 'Noto Sans Phoenician', 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif; font-size: 24px; line-height: 1; }
 .paleo-fallback .pk-key-symbol, .paleo-fallback .pk-output-symbol, .pk-modal-glyph-fallback { font-size: 0; }
 .paleo-fallback .pk-key-symbol::before, .paleo-fallback .pk-output-symbol::before, .pk-modal-glyph-fallback::before { content: attr(data-fallback); font-family: var(--font-serif); font-size: 24px; }
@@ -74,7 +74,7 @@
   direction: ltr;
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition), height var(--transition), visibility 0s linear 0.2s;
+  transition: opacity var(--motion-base), height var(--motion-base), visibility 0s linear 0.2s;
 }
 .pk-analyzer.show {
   height: 28px;
@@ -86,7 +86,7 @@
 .pk-key-name, .pk-key-translit, .pk-modal-symbol, .pk-modal-reference, .pk-toast { display: none; }
 .pk-modal-symbol { margin: 0 auto 16px; color: var(--text-primary); font-family: 'Noto Sans Phoenician', 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif; font-size: 92px; line-height: 1; text-align: center; }
 .pk-modal-glyph-fallback::before { font-size: 92px; }
-.pk-toast { position: fixed; top: 24px; left: 50%; z-index: 9999; padding: 10px 24px; background: var(--bg-dark); color: var(--text-light); border: 1px solid var(--accent-gold); border-radius: 4px; opacity: 0; pointer-events: none; transform: translateX(-50%); transition: opacity var(--transition); }
+.pk-toast { position: fixed; top: 24px; left: 50%; z-index: 9999; padding: 10px 24px; background: var(--bg-dark); color: var(--text-light); border: 1px solid var(--accent-gold); border-radius: 4px; opacity: 0; pointer-events: none; transform: translateX(-50%); transition: opacity var(--motion-base); }
 .pk-toast.show { opacity: 1; }
 
 @media (max-width: 768px) {

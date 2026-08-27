@@ -24,7 +24,7 @@
   font-size: var(--text-md); font-weight: 600; color: var(--text-muted);
   cursor: pointer; border: 1px solid transparent;
   border-bottom: none; border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  transition: all var(--transition); background: transparent;
+  transition: all var(--motion-base); background: transparent;
 }
 .lab-tab:hover { color: var(--accent-gold); }
 .lab-tab.active { color: var(--accent-gold); background: var(--bg-card); border-color: var(--border-light); }

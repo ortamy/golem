@@ -246,7 +246,8 @@
     if (!document.querySelector('.lab-sidebar')) return;
     INDEX = collectItems();
     installFilter();
-    installIcons();
+            installIcons();
+    installCrumbs();
     installKeys();
   }
 
@@ -256,5 +257,48 @@
     init();
   }
 
+      /* ===== Хлебные крошки (Этап 7) =====
+     Одноуровневая крошка: «Главная / <Текущий>». Роутер подменяет
+     .lab-content после DOMContentLoaded, поэтому рендер привязан к
+     hashchange + наблюдателю за DOM-сменой модуля + повторному рендеру. */
+  function installCrumbs() {
+    var root = document.querySelector('main') || document.body;
+    var slot = null, current = null;
+
+    function render() {
+      var h = root.querySelector('h1');
+      if (slot && slot.parentNode) { slot.parentNode.removeChild(slot); slot = null; }
+      if (!h || !h.parentElement) return;
+
+      var wrap = document.createElement('div');
+      wrap.className = 'lab-crumb-slot';
+      wrap.innerHTML = (
+        '<nav class="lab-crumbs" aria-label="Хлебные крошки">' +
+          '<a href="#dashboard" class="lab-crumb">Главная</a>' +
+          '<span class="lab-crumb-sep" aria-hidden="true">›</span>' +
+          '<span class="lab-crumb-current"></span>' +
+        '</nav>'
+      );
+      current = wrap.querySelector('.lab-crumb-current');
+      var hash = location.hash || '#';
+      var hit = INDEX && INDEX.find ? INDEX.find(function (it) { return it.hash === hash; }) : null;
+      current.textContent = hit && hit.name ? hit.name : (h.textContent.trim() || 'Страница');
+      h.parentElement.insertBefore(wrap, h);
+      slot = wrap;
+    }
+
+    // роутер подменяет .lab-content после DOMContentLoaded — перерисовать после него
+    var locked = false, pending = false;
+    function schedule() {
+      if (pending || locked) return;
+      pending = true;
+      setTimeout(function () { pending = false; if (!locked) render(); }, 60);
+    }
+
+    render();
+    setTimeout(render, 0);                  // после синхронного роутера
+    window.addEventListener('hashchange', schedule);
+    new MutationObserver(schedule).observe(root, { childList: true, subtree: true });
+  }
   window.LabNav = { openPalette: openPalette, closePalette: closePalette };
 })();

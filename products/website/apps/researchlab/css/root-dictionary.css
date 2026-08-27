@@ -1,4 +1,4 @@
-﻿/* Root Dictionary Styles */
+/* Root Dictionary Styles */
 
 .rd-stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
 .rd-stat { flex: 1; min-width: 120px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 12px 16px; text-align: center; }
@@ -16,7 +16,7 @@
 .rd-card-header .root-paleo { font-size: 24px; color: var(--accent-gold); letter-spacing: 2px; display: flex; gap: 4px; }
 
 /* Paleo chars in cards */
-.rd-paleo-char { cursor: help; transition: color var(--transition); }
+.rd-paleo-char { cursor: help; transition: color var(--motion-base); }
 .rd-paleo-char:hover { color: var(--accent-gold-hover); }
 
 .rd-card .meaning { font-size: 16px; line-height: 1.6; margin-bottom: 8px; }
@@ -25,7 +25,7 @@
 .rd-image { font-style: normal; color: var(--text-secondary); line-height: 1.5; padding: 6px 10px; background: var(--bg-tertiary); border-radius: 4px; border-left: 3px solid var(--accent-gold); }
 
 /* Substitutions */
-.rd-subs { padding: 6px 10px; background: rgba(184,134,11,0.06); border-radius: 4px; border-left: 3px solid var(--accent-red); font-size: 14px; line-height: 1.6; }
+.rd-subs { padding: 6px 10px; background: rgb(var(--accent-gold-rgb) / 0.06); border-radius: 4px; border-left: 3px solid var(--accent-red); font-size: 14px; line-height: 1.6; }
 .rd-subs-label { font-weight: 600; color: var(--accent-red); }
 .rd-sub-item { color: var(--text-primary); }
 
@@ -41,14 +41,14 @@
 .rd-count { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
 
 .rd-pagination { display: flex; gap: 8px; justify-content: center; margin-top: 20px; }
-.rd-page-btn { padding: 6px 14px; border: 1px solid var(--border-light); border-radius: 4px; background: var(--bg-card); color: var(--text-primary); cursor: pointer; font-family: var(--font-serif); font-size: 14px; transition: all var(--transition); }
+.rd-page-btn { padding: 6px 14px; border: 1px solid var(--border-light); border-radius: 4px; background: var(--bg-card); color: var(--text-primary); cursor: pointer; font-family: var(--font-serif); font-size: 14px; transition: all var(--motion-base); }
 .rd-page-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
 .rd-page-btn.active { background: var(--accent-gold); color: #faf3e0; border-color: var(--accent-gold); }
 .rd-page-btn:disabled { opacity: 0.4; cursor: default; }
 
 /* Dark theme adjustments */
 [data-theme="dark"] .rd-image { background: var(--bg-tertiary); }
-[data-theme="dark"] .rd-subs { background: rgba(212,160,48,0.08); }
+[data-theme="dark"] .rd-subs { background: rgb(var(--accent-gold-rgb) / ); }
 
 @media (min-width: 768px) {
   #rd-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }

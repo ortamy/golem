@@ -1,6 +1,6 @@
 /* Визуальные блоки Markdown: пергаментная поверхность, короткий радиус. */
 .block-renderer {
-  --br-accent: var(--accent-gold, #b18a45);
+  --br-accent: var(--accent-gold);
   color: var(--text-primary, #2c241c);
 }
 

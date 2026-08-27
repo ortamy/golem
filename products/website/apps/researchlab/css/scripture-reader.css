@@ -70,8 +70,8 @@
 }
 
 .book-status-ready {
-  color: var(--accent-gold, #b8860b);
-  background: rgba(184, 134, 11, 0.12);
+  color: var(--accent-gold);
+  background: rgb(var(--accent-gold-rgb) / 0.12);
 }
 
 .book-status-pending {
@@ -118,7 +118,7 @@
   color: var(--text-muted);
   cursor: pointer;
   font: 600 13px/1 var(--font-heading);
-  transition: color var(--transition), background var(--transition), border-color var(--transition);
+  transition: color var(--motion-base), background var(--motion-base), border-color var(--motion-base);
 }
 
 .verse-num:hover,
@@ -144,7 +144,7 @@
 
 .scripture-copy-verse:hover:not(:disabled),
 .scripture-copy-selection:hover:not(:disabled) {
-  background: rgba(184, 134, 11, 0.12);
+  background: rgb(var(--accent-gold-rgb) / 0.12);
   border-color: var(--accent-gold);
   color: var(--accent-gold);
 }
@@ -195,7 +195,7 @@
 
 .scripture-word {
   border-radius: 3px;
-  transition: color var(--transition), background-color var(--transition), box-shadow var(--transition);
+  transition: color var(--motion-base), background-color var(--motion-base), box-shadow var(--motion-base);
 }
 
 .scripture-paleo-word,
@@ -223,20 +223,20 @@
   border-radius: 3px;
   cursor: pointer;
   user-select: none;
-  transition: color var(--transition), background-color var(--transition), border-color var(--transition);
+  transition: color var(--motion-base), background-color var(--motion-base), border-color var(--motion-base);
 }
 
 .scripture-paleo-letter:hover,
 .scripture-paleo-letter:focus-visible {
   outline: none;
   border-color: var(--accent-gold);
-  background: rgba(212, 160, 48, 0.12);
+  background: rgb(var(--accent-gold-rgb) / );
 }
 
 .scripture-paleo-letter.is-selected {
-  color: #d4a030;
-  border-color: #d4a030;
-  background: rgba(212, 160, 48, 0.16);
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  background: rgb(var(--accent-gold-rgb) / );
 }
 
 .scripture-hebrew {
@@ -271,7 +271,7 @@
 
 .scripture-reading-toggle:hover,
 .scripture-reading-toggle:focus-visible {
-  background: rgba(212, 160, 48, 0.12);
+  background: rgb(var(--accent-gold-rgb) / );
   outline: none;
 }
 
@@ -280,7 +280,7 @@
   padding: var(--space-4) 18px;
   border: 1px solid var(--accent-gold);
   border-radius: var(--radius-xs);
-  background: rgba(212, 160, 48, 0.08);
+  background: rgb(var(--accent-gold-rgb) / );
   text-align: left;
 }
 
@@ -393,7 +393,7 @@
 }
 
 .scripture-analysis-paleo {
-  color: #d4a030;
+  color: var(--accent-gold);
   font-family: 'Noto Sans Phoenician', sans-serif;
   font-size: 30px;
 }
@@ -413,7 +413,7 @@
 }
 
 .scripture-selection-paleo {
-  color: #d4a030;
+  color: var(--accent-gold);
   font-family: 'Noto Sans Phoenician', sans-serif;
   font-size: 24px;
 }
@@ -471,7 +471,7 @@
 
 .scripture-physics-trigger:hover,
 .scripture-physics-trigger:focus-visible {
-  background: rgba(212, 160, 48, 0.1);
+  background: rgb(var(--accent-gold-rgb) / );
 }
 
 .scripture-physics-trigger:focus-visible,
@@ -563,7 +563,7 @@
   padding: 15px;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xs);
-  background: rgba(184, 134, 11, 0.07);
+  background: rgb(var(--accent-gold-rgb) / 0.07);
 }
 
 .scripture-state-card h3 {
@@ -646,7 +646,7 @@
   overflow: hidden;
   opacity: 0;
   white-space: nowrap;
-  transition: max-width var(--transition), opacity var(--transition);
+  transition: max-width var(--motion-base), opacity var(--motion-base);
 }
 
 .scripture-tool:hover span,
@@ -822,14 +822,14 @@
   cursor: pointer;
   padding: 2px var(--space-2);
   border-radius: var(--radius-xs);
-  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: background-color var(--motion-fast), box-shadow var(--motion-fast);
   line-height: 2.1;
 }
 
 .scripture-paleo-word.scripture-fourline {
   font-size: 40px;
   letter-spacing: 0.06em;
-  color: var(--accent-gold, #b8860b);
+  color: var(--accent-gold);
   font-family: var(--font-paleo, "Times New Roman", serif);
   text-transform: uppercase;
   white-space: nowrap;
@@ -855,9 +855,9 @@
 
 /* Синхронизация при наведении: одно слово во всех строках */
 .scripture-fourline.is-word-hovered {
-  background: rgba(184, 134, 11, 0.16);
-  color: var(--accent-gold, #b8860b);
-  box-shadow: 0 0 0 1px rgba(184, 134, 11, 0.35);
+  background: rgb(var(--accent-gold-rgb) / 0.16);
+  color: var(--accent-gold);
+  box-shadow: 0 0 0 1px rgb(var(--accent-gold-rgb) / 0.35);
 }
 
 /* Плавающая навигация между стихами (sticky внизу) */
@@ -902,7 +902,7 @@
 
 .scripture-nav-label {
   margin: 0 0 var(--space-2);
-  color: var(--text-gold, #b8860b);
+  color: var(--text-gold);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -932,15 +932,15 @@
   color: var(--text-secondary, #675848);
   cursor: pointer;
   font: 600 13px/1 var(--font-heading, Georgia, serif);
-  transition: border-color var(--transition, 0.2s ease), background var(--transition, 0.2s ease), color var(--transition, 0.2s ease), box-shadow var(--transition, 0.2s ease);
+  transition: border-color var(--motion-base, 0.2s ease), background var(--motion-base, 0.2s ease), color var(--motion-base, 0.2s ease), box-shadow var(--motion-base, 0.2s ease);
 }
 
 .chapter-btn:hover,
 .chapter-btn:focus-visible,
 .scripture-verse-buttons .verse-num:hover,
 .scripture-verse-buttons .verse-num:focus-visible {
-  border-color: var(--accent-gold, #b8860b);
-  color: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
   outline: none;
 }
 
@@ -950,10 +950,10 @@
 .scripture-verse-buttons .verse-num.active,
 .scripture-verse-buttons .verse-num.active:hover,
 .scripture-verse-buttons .verse-num.active:focus-visible {
-  border-color: var(--accent-gold, #b8860b);
-  background: var(--accent-gold, #b8860b);
+  border-color: var(--accent-gold);
+  background: var(--accent-gold);
   color: #fff;
-  box-shadow: 0 2px 8px rgba(184, 134, 11, 0.3);
+  box-shadow: 0 2px 8px rgb(var(--accent-gold-rgb) / 0.3);
 }
 
 html[data-theme="dark"] .scripture-verse-nav {
