@@ -33,6 +33,8 @@
     });
   }
 
+  function coursesCount() { return (root.GolemCourses && root.GolemCourses.list) ? root.GolemCourses.list.length : 0; }
+
   function statsMarkup() {
     var p = progress(), completed = letters.filter(function(item) { return p.letters[item.hebrew] && p.letters[item.hebrew].status === 'complete'; }).length;
     var last = p.lastActivity ? new Date(p.lastActivity).toLocaleDateString('ru-RU') : 'Пока нет';
@@ -41,7 +43,26 @@
 
   function renderHome() {
     var p = progress(), completed = letters.filter(function(item) { return p.letters[item.hebrew] && p.letters[item.hebrew].status === 'complete'; }).length;
-    return '<div class="learn-hero"><div><h1>Обучение</h1><p class="subtitle">Верните глазу древнего читателя предметный образ буквы: от знака к действию.</p></div><div class="learn-hero-mark" aria-hidden="true">𐤀𐤁𐤂</div></div>' + statsMarkup() + '<div class="learn-mode-grid"><button class="learn-mode-card" type="button" onclick="LearnLab.openLessons()"><span class="learn-mode-icon" aria-hidden="true">𐤀</span><h2>Изучение иврита</h2><p>22 урока по буквам: название, образ, значение и обратное узнавание символа.</p><div class="learn-mode-meta"><span>' + completed + '/22 уроков</span><span>→</span></div><div class="learn-progress-bar" aria-label="Прогресс ' + completed + ' из 22"><span style="width:' + (completed / 22 * 100) + '%"></span></div></button><button class="learn-mode-card" type="button" onclick="LearnLab.openGame()"><span class="learn-mode-icon" aria-hidden="true">𐤔</span><h2>Угадай образ</h2><p>Игровой раунд на скорость: увидьте знак, выберите предметный образ и соберите серию.</p><div class="learn-mode-meta"><span>Рекорд: ' + record() + ' очков</span><span>→</span></div></button></div><div class="learn-section-head" style="margin-top:32px"><h2>Состояние Свивы</h2><button type="button" class="lab-btn lab-btn-secondary learn-danger" onclick="LearnLab.reset()">Сбросить прогресс</button></div><p class="text-muted">Результаты уроков и рекорд сохраняются только в этом браузере.</p>';
+    return '<div class="learn-hero"><div><h1>Обучение</h1><p class="subtitle">Верните глазу древнего читателя предметный образ буквы: от знака к действию.</p></div><div class="learn-hero-mark" aria-hidden="true">𐤀𐤁𐤂</div></div>' + statsMarkup() + '<div class="learn-mode-grid"><button class="learn-mode-card" type="button" onclick="LearnLab.openLessons()"><span class="learn-mode-icon" aria-hidden="true">𐤀</span><h2>Изучение иврита</h2><p>22 урока по буквам: название, образ, значение и обратное узнавание символа.</p><div class="learn-mode-meta"><span>' + completed + '/22 уроков</span><span>→</span></div><div class="learn-progress-bar" aria-label="Прогресс ' + completed + ' из 22"><span style="width:' + (completed / 22 * 100) + '%"></span></div></button><button class="learn-mode-card" type="button" onclick="LearnLab.openGame()"><span class="learn-mode-icon" aria-hidden="true">𐤔</span><h2>Угадай образ</h2><p>Игровой раунд на скорость: увидьте знак, выберите предметный образ и соберите серию.</p><div class="learn-mode-meta"><span>Рекорд: ' + record() + ' очков</span><span>→</span></div></button><button class="learn-mode-card" type="button" onclick="LearnLab.openCourses()"><span class="learn-mode-icon" aria-hidden="true">𐤅</span><h2>Курсы</h2><p>Практические курсы: палео-механика, без воды, результат после каждого модуля.</p><div class="learn-mode-meta"><span>' + coursesCount() + ' курсов</span><span>→</span></div></button></div><div class="learn-section-head" style="margin-top:32px"><h2>Состояние Свивы</h2><button type="button" class="lab-btn lab-btn-secondary learn-danger" onclick="LearnLab.reset()">Сбросить прогресс</button></div><p class="text-muted">Результаты уроков и рекорд сохраняются только в этом браузере.</p>';
+  }
+
+  function courseCard(course, index) {
+    var levelLabel = course.levelKey === 'from-zero' ? 'с нуля' : course.levelKey === 'advanced' ? 'продвинутый' : 'базовый';
+    return '<article class="course-card" style="animation-delay:' + index * 60 + 'ms">' +
+      '<div class="course-card-head"><h2>' + esc(course.title) + '</h2>' +
+      '<span class="course-status is-' + (course.status === 'скоро' ? 'soon' : 'draft') + '">' + esc(course.status) + '</span></div>' +
+      '<p class="course-desc">' + esc(course.description) + '</p>' +
+      '<div class="course-card-meta">' +
+        '<span class="course-tag level">' + esc(levelLabel) + '</span>' +
+        '<span class="course-tag">' + course.modules + ' модуля</span>' +
+      '</div>' +
+    '</article>';
+  }
+  function renderCourses() {
+    var courses = (root.GolemCourses && root.GolemCourses.list) || [];
+    return '<button type="button" class="lab-btn lab-btn-secondary learn-back" onclick="LearnLab.home()">← К обучению</button>' +
+      '<div class="learn-section-head"><div><h1>Курсы</h1><p class="subtitle">Практические курсы: без воды, от простого к глубокому, с результатом после каждого модуля.</p></div></div>' +
+      '<div class="course-grid">' + courses.map(courseCard).join('') + '</div>';
   }
 
   function renderLessons() {
@@ -63,7 +84,7 @@
     var choices = game.choices; return '<div class="learn-game"><button type="button" class="lab-btn lab-btn-secondary learn-back" onclick="LearnLab.home()">← К обучению</button><div class="learn-game-bar"><div class="learn-game-metric">Раунд <strong>' + game.round + '/10</strong></div><div class="learn-game-metric">Счёт <strong>' + game.score + '</strong></div><div class="learn-game-metric learn-timer ' + (game.time <= 8 ? 'is-low' : '') + '">Время <strong>' + game.time + 'с</strong></div></div><div class="learn-game-symbol"><small>Какой образ несёт этот знак?</small><span class="symbol" lang="hbo">' + game.item.paleo + '</span></div><div class="learn-options learn-game-options">' + choices.map(function(option) { return '<button type="button" class="learn-option" data-answer="' + esc(option.hebrew) + '" onclick="LearnLab.gameAnswer(\'' + option.hebrew + '\')">' + esc(option.image) + '</button>'; }).join('') + '</div><div id="learn-game-feedback" class="learn-game-feedback" role="status" aria-live="polite"></div></div>';
   }
 
-  function render() { var container = getContainer(); if (!container || !letters.length) return; if (state.view === 'lessons') container.innerHTML = renderLessons(); else if (state.view === 'lesson') container.innerHTML = renderLesson(); else if (state.view === 'game') container.innerHTML = renderGame(); else container.innerHTML = renderHome(); }
+  function render() { var container = getContainer(); if (!container || !letters.length) return; if (state.view === 'lessons') container.innerHTML = renderLessons(); else if (state.view === 'lesson') container.innerHTML = renderLesson(); else if (state.view === 'game') container.innerHTML = renderGame(); else if (state.view === 'courses') container.innerHTML = renderCourses(); else container.innerHTML = renderHome(); }
   function markStarted(item) { var p = progress(); if (!p.letters[item.hebrew] || p.letters[item.hebrew].status !== 'complete') p.letters[item.hebrew] = {status:'progress',score:0}; touch(p); }
   function feedback(text, ok) { var el = document.getElementById('learn-feedback'); if (el) { el.textContent = text; el.className = 'learn-feedback ' + (ok ? 'is-correct' : 'is-wrong'); } }
   function advance(ok) { if (!ok) return; state.lesson.score++; if (state.lesson.step < 4) { state.lesson.step++; render(); } else { var p = progress(); p.letters[state.lesson.item.hebrew] = {status:'complete',score:state.lesson.score,attempts:(p.letters[state.lesson.item.hebrew] && p.letters[state.lesson.item.hebrew].attempts || 0) + 1,lastActivity:now()}; touch(p); state.view = 'lesson'; state.lesson.done = true; render(); } }
@@ -76,6 +97,7 @@
     submitText: function() { var input = document.getElementById('learn-answer'), step = state.lesson.step, expected = step === 1 ? state.lesson.item.name : state.lesson.item.meaning; if (!input) return; var ok = inputMatch(input.value, expected); if (ok) advance(true); else feedback('Пока не совпало. Попробуйте ещё раз.', false); },
     answer: function(key) { var ok = key === state.lesson.item.hebrew; if (ok) advance(true); else feedback('Это другой образ. Попробуйте ещё раз.', false); },
     openGame: function() { stopTimer(); state.view='game'; state.game={round:1,score:0,streak:0,time:30,done:false}; nextRound(); startTimer(); },
+    openCourses: function() { state.view='courses'; stopTimer(); render(); },
     gameAnswer: function(key) { var game=state.game; if (!game || game.locked) return; game.locked=true; var ok=key===game.item.hebrew, earned=0; if(ok){game.streak++; earned=10*(game.streak >= 3 ? 3 : game.streak === 2 ? 2 : 1); game.score+=earned;} else {game.streak=0; game.score=Math.max(0,game.score-5);} render(); var feedbackEl=document.getElementById('learn-game-feedback'); if(feedbackEl){feedbackEl.textContent=ok ? 'Верно! +' + earned + ' очков' : 'Неверно. Правильный образ: ' + game.item.image; feedbackEl.className='learn-game-feedback ' + (ok?'correct':'wrong');} setTimeout(function(){ if(!state.game || state.game !== game) return; if(game.round >= 10) finishGame(); else {game.round++; nextRound();} },700); },
     reset: function() { if (!window.confirm('Сбросить весь прогресс обучения и рекорд игры?')) return; localStorage.removeItem(PROGRESS_KEY); localStorage.removeItem(RECORD_KEY); state.view='home'; render(); }
   };

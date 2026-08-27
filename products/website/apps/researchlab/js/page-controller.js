@@ -87,15 +87,19 @@ const PageController = (function() {
     if (!state.key) {
       var specialCards = [
         '<a href="#" class="dict-card" data-key="__root_dictionary" style="animation-delay: 0ms">' +
-          '<img src="../../assets/icons/32/ui/book.png" class="dict-icon" alt="">' +
-          '<div class="dict-name">Корневой словарь</div>' +
-          '<div class="dict-count">150 корней</div>' +
+          '<div class="dict-card-top">' +
+            '<img src="../../assets/icons/32/ui/book.png" class="dict-icon" alt="">' +
+            '<div class="dict-name">Корневой словарь</div>' +
+            '<div class="dict-count">150 корней</div>' +
+          '</div>' +
           '<div class="dict-desc">Поиск по корням иврита. Введите корень, слово или значение.</div>' +
           '</a>',
         '<a href="#" class="dict-card" data-key="__paleo_glossary" style="animation-delay: 50ms">' +
-          '<img src="../../assets/icons/32/paleo/track.png" class="dict-icon" alt="">' +
-          '<div class="dict-name">Палео-глоссарий</div>' +
-          '<div class="dict-count">100 слов</div>' +
+          '<div class="dict-card-top">' +
+            '<img src="../../assets/icons/32/paleo/track.png" class="dict-icon" alt="">' +
+            '<div class="dict-name">Палео-глоссарий</div>' +
+            '<div class="dict-count">100 слов</div>' +
+          '</div>' +
           '<div class="dict-desc">Первая партия: 100 слов как русла потока — палео-форма, квадратное письмо, функция и корень.</div>' +
           '</a>'
       ].join('');
@@ -103,9 +107,11 @@ const PageController = (function() {
         var dict = data[key];
         var count = (dict.terms || []).length;
         return '<a href="#" class="dict-card" data-key="' + escapeHtml(key) + '" style="animation-delay: ' + ((index + 2) * 50) + 'ms">' +
-          '<img src="../../assets/icons/32/ui/book.png" class="dict-icon" alt="">' +
-          '<div class="dict-name">' + escapeHtml(dict.title || key) + '</div>' +
-          '<div class="dict-count">' + count + ' терминов</div>' +
+          '<div class="dict-card-top">' +
+            '<img src="../../assets/icons/32/ui/book.png" class="dict-icon" alt="">' +
+            '<div class="dict-name">' + escapeHtml(dict.title || key) + '</div>' +
+            '<div class="dict-count">' + count + ' терминов</div>' +
+          '</div>' +
           '<div class="dict-desc">' + escapeHtml((dict.description || '').split('---')[0].trim().substring(0, 100) + (dict.description && dict.description.length > 100 ? '...' : '')) + '</div>' +
           '</a>';
       }).join('');

@@ -14,9 +14,8 @@
 
 /* ===== DICT CARD ===== */
 .dict-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+  display: grid;
+  gap: var(--space-2);
   padding: var(--space-5);
   background: var(--bg-card);
   border: 1px solid var(--border-light);
@@ -25,6 +24,13 @@
   cursor: pointer;
   transition: all var(--motion-base);
   box-shadow: var(--shadow-card);
+}
+.dict-card-top {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
 }
 .dict-card:hover {
   transform: translateY(-2px);
@@ -35,22 +41,27 @@
   transform: translateY(-1px);
 }
 .dict-card .dict-icon {
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   display: block;
-  margin-bottom: var(--space-1);
 }
 .dict-card .dict-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-family: var(--font-heading);
   font-size: var(--text-lg);
   font-weight: 600;
   color: var(--text-primary);
 }
 .dict-card .dict-count {
+  white-space: nowrap;
   font-size: var(--text-sm);
   color: var(--text-muted);
 }
 .dict-card .dict-desc {
+  grid-column: 1 / -1;
   font-size: var(--text-sm);
   color: var(--text-secondary);
   line-height: var(--leading-ui);
