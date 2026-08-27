@@ -29,7 +29,7 @@
   padding: 14px var(--space-4);
   border: 1px solid var(--border-light);
   border-radius: 8px;
-  background: #fff;
+   background: var(--bg-card);
   box-shadow: var(--shadow-soft);
 }
 
@@ -92,11 +92,11 @@
 /* РџСЂРёРЅС†РёРїС‹ Рё РјРµС…Р°РЅРёР·РјС‹ РёСЃРїРѕР»СЊР·СѓСЋС‚ Р±РµР»СѓСЋ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ РєР°СЂС‚РѕС‡РµРє. */
 .methodology-card[data-id^="principles-"],
 .methodology-card[data-id^="mechanisms-"] {
-  background: #fff;
+   background: var(--bg-secondary, #f7f1e5);
 }
 
 .methodology-shift-card {
-  background: #fff;
+  background: var(--bg-secondary, #f7f1e5);
   cursor: pointer;
 }
 
