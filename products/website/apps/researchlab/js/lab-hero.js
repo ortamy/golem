@@ -2,6 +2,37 @@
   'use strict';
 
   var ROOT_SELECTOR = '#labContent';
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function metaChips(chips) {
+    if (!chips || !chips.length) return '';
+    return '<div class="lab-hero__meta">' + chips.map(function (c) {
+      return '<span class="lab-hero__chip">' + esc(c) + '</span>';
+    }).join('') + '</div>';
+  }
+
+  /* Единая шапка разделов (эталон — «Анализаторы»).
+     config: { kicker, title, subtitle, icon, meta:[] } */
+  function heroHtml(config) {
+    var titleId = config.titleId ? ' id="' + config.titleId + '"' : '';
+    return (
+      '<div class="lab-hero__body">' +
+        (config.kicker ? '<p class="lab-hero__kicker">' + esc(config.kicker) + '</p>' : '') +
+        '<h1 class="lab-hero__title"' + titleId + '>' +
+          (config.icon ? '<img class="lab-hero__icon" src="../../assets/icons/32/' + config.icon + '" alt="" aria-hidden="true">' : '') +
+          esc(config.title) +
+        '</h1>' +
+        (config.subtitle ? '<p class="lab-hero__subtitle">' + esc(config.subtitle) + '</p>' : '') +
+        metaChips(config.meta) +
+      '</div>'
+    );
+  }
+
   var TARGETS = {
     'dashboard': {
       kicker: 'ГОЛЕМ · РАБОЧИЙ СТОЛ',
@@ -230,6 +261,13 @@
       title: 'Чекер имени',
       subtitle: 'Соберите имя как последовательность букв, образов и возможных направлений действия.',
       icon: 'paleo/track.png'
+    },
+    'analyzers': {
+      kicker: 'GOLEM · RESEARCH LAB',
+      title: 'Анализаторы',
+      subtitle: 'Вертикальные инструменты для диагностики текста: увидеть слой, проверить смысловой сдвиг и найти слова, которые требуют палео-восстановления.',
+      icon: 'archaeology/testtube.png',
+      meta: ['8 слоёв', 'локальный mock', 'эмет / шекер']
     }
   };
 
@@ -248,27 +286,8 @@
     var hero = createElement('section', 'lab-hero', '');
     hero.setAttribute('aria-labelledby', 'lab-hero-title-' + moduleId);
     hero.setAttribute('data-lab-hero', moduleId);
-
-    var watermark = createElement('div', 'lab-hero__watermark', '𐤀 𐤁 𐤂 𐤃 𐤄 𐤅');
-    watermark.setAttribute('aria-hidden', 'true');
-    hero.appendChild(watermark);
-
-    var icon = document.createElement('img');
-    icon.className = 'lab-hero__icon';
-    icon.src = '../../assets/icons/32/' + config.icon;
-    icon.alt = '';
-    icon.setAttribute('aria-hidden', 'true');
-
-    var body = createElement('div', 'lab-hero__body hero-text-group', '');
-    body.appendChild(createElement('p', 'lab-hero__kicker', config.kicker));
-
-    var title = createElement('h1', 'lab-hero__title', config.title);
-    title.id = 'lab-hero-title-' + moduleId;
-    body.appendChild(title);
-    body.appendChild(createElement('p', 'lab-hero__subtitle', config.subtitle));
-
-    hero.appendChild(icon);
-    hero.appendChild(body);
+    var cfg = Object.assign({}, config, { titleId: 'lab-hero-title-' + moduleId });
+    hero.innerHTML = heroHtml(cfg);
     return hero;
   }
 
@@ -322,6 +341,7 @@
 
   window.LabHero = {
     targets: TARGETS,
+    render: function (config) { return heroHtml(config || {}); },
     mount: mount,
     mountAll: scan,
     observe: function() {

@@ -80,7 +80,18 @@
     }
   };
 
-  function hero(kicker, title, description) { return '<div class="analyzers-hero"><div class="analyzers-kicker">' + esc(kicker) + '</div><h1>' + esc(title) + '</h1><p>' + esc(description) + '</p><div class="analyzers-hero-meta"><span class="analyzers-chip">8 слоёв</span><span class="analyzers-chip">локальный mock</span><span class="analyzers-chip">эмет / шекер</span></div></div>'; }
+  function hero(kicker, title, description, meta) {
+    if (window.LabHero && window.LabHero.render) {
+      return window.LabHero.render({
+        kicker: kicker,
+        title: title,
+        subtitle: description,
+        icon: 'archaeology/testtube.png',
+        meta: meta || ['8 слоёв', 'локальный mock', 'эмет / шекер']
+      });
+    }
+    return '<div class="analyzers-hero">' + esc(kicker) + '</div><div><h1>' + esc(title) + '</h1><p>' + esc(description) + '</p></div>';
+  }
   function pageHead(icon, title, description) { return '<a class="lab-btn lab-btn-secondary lab-btn-sm analyzer-back" href="#analyzers">← Все анализаторы</a><div class="analyzer-page-head"><img class="analyzer-page-head__icon" src="' + icon + '" alt=""><div><h1>' + esc(title) + '</h1><p>' + esc(description) + '</p></div></div>'; }
   function card(icon, title, description, route, tag) { return '<article class="analyzer-card"><img class="analyzer-card__icon" src="' + icon + '" alt=""><h2>' + esc(title) + '</h2><p>' + esc(description) + '</p><div class="analyzer-card__footer"><span class="analyzer-card__tag">' + esc(tag) + '</span><a class="lab-btn lab-btn-primary lab-btn-sm" href="#' + route + '">Открыть</a></div></article>'; }
 
