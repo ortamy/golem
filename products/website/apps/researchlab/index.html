@@ -70,8 +70,8 @@
   .name-decoder-purpose small { color: var(--text-muted); line-height: 1.5; }
   @media (max-width: 640px) { .name-decoder-form-row { flex-direction: column; } .name-decoder-hero { padding: 22px 20px; } }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<script src="js/libs/marked.min.js" defer></script>
+<script src="js/libs/purify.min.js" defer></script>
 <!-- Embed mode styles -->
 <style>
   .lab-header.is-embed, .lab-sidebar.is-embed, .lab-footer.is-embed,
@@ -178,7 +178,7 @@
       </div>
       <div class="sidebar-section-content" id="section-system">
         <a href="#admin-settings" class="sidebar-item" data-module="admin-settings"><img src="../../assets/icons/32/ui/settings.png" class="lab-icon" alt="">Настройки</a>
-        <a href="#settings" class="sidebar-item" data-module="settings" style="display:none;"><img src="../../assets/icons/32/ui/settings.png" class="lab-icon" alt="">Настройки (alias)</a>
+        
       </div>
     </div>
   </div>
@@ -252,6 +252,7 @@
 <script src="js/page-controller.js"></script>
 <script src="js/router.js"></script>
 <script src="js/access-gate.js"></script>
+<script src="js/nav-enhance.js"></script>
 <script src="js/lab-hero.js"></script>
 <script src="js/root-dictionary.js"></script>
 <script src="js/paleo-glossary.js"></script>

@@ -1,7 +1,7 @@
 .agent-server-view[hidden] { display: none; }
 
 .agent-server-shell {
-  max-width: 1040px;
+  max-width: var(--shell-page);
   margin: 0 auto;
 }
 
@@ -9,9 +9,9 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
+  gap: var(--space-6);
   margin-bottom: 22px;
-  padding: 24px 28px;
+  padding: var(--space-6) 28px;
   background: var(--bg-dark, #2c1810);
   border: 1px solid var(--border-dark, #5b3a29);
   border-radius: 8px;
@@ -19,7 +19,7 @@
 }
 
 .agent-server-heading h2 {
-  margin: 0 0 8px;
+  margin: 0 0 var(--space-2);
   color: var(--accent-gold, #b8860b);
   font-family: var(--font-heading, Georgia, serif);
   font-size: 30px;

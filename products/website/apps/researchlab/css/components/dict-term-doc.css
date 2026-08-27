@@ -53,7 +53,7 @@
 .dict-card .dict-desc {
   font-size: var(--text-sm);
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: var(--leading-ui);
 }
 
 /* ===== TERM CARD ===== */
@@ -135,6 +135,6 @@
 .doc-card .doc-desc {
   font-size: var(--text-sm);
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: var(--leading-ui);
 }
 

@@ -28,3 +28,63 @@
 .lab-icon-sm { width: 18px; height: 18px; vertical-align: middle; margin-right: 4px; flex-shrink: 0; }
 .sidebar-item .lab-icon { width: 20px; height: 20px; margin-right: 0; }
 .sidebar-item .icon img { width: 20px; height: 20px; vertical-align: middle; margin-right: 0; }
+
+/* ===== ЭТАП 6: НАВИГАЦИЯ (SVG-иконки, фильтр, палитра Ctrl+K) =====
+   Иконки — инлайн-SVG с stroke: currentColor, наследуют цвет пункта
+   (в т.ч. золотой активный) во всех трёх темах без доп. правил. */
+.lab-sidebar .lab-icon { flex-shrink: 0; }
+
+/* Фильтр навигации вверху сайдбара */
+.lab-nav-filter { padding: var(--space-2) var(--space-5) var(--space-3); }
+.lab-nav-filter input {
+  width: 100%; box-sizing: border-box;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm); color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light); border-radius: var(--radius-xs);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.lab-nav-filter input:focus {
+  outline: none; border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px var(--ring-focus);
+}
+.lab-nav-filter input::placeholder { color: var(--text-muted); }
+
+/* Палитра команд (Ctrl/Cmd+K) */
+.lab-palette-backdrop {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(44, 24, 16, 0.40);
+}
+.lab-palette {
+  position: absolute; left: 50%; top: 14vh; transform: translateX(-50%);
+  width: min(520px, 92vw);
+  background: var(--bg-card); border: 1px solid var(--border-light);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-modal);
+  overflow: hidden;
+}
+.lab-palette input {
+  display: block; width: 100%; box-sizing: border-box;
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-md); color: var(--text-primary);
+  background: transparent;
+  border: 0; border-bottom: 1px solid var(--border-light);
+}
+.lab-palette input:focus { outline: none; }
+.lab-palette-list { max-height: 340px; overflow-y: auto; padding: var(--space-2); }
+.lab-palette-item {
+  display: flex; align-items: center; gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-xs); cursor: pointer;
+  font-size: var(--text-sm); color: var(--text-primary);
+}
+.lab-palette-item[aria-selected='true'] {
+  background: var(--bg-tertiary); color: var(--accent-gold); font-weight: 600;
+}
+.lab-palette-item kbd {
+  margin-left: auto; font-size: var(--text-xs); font-style: normal;
+  color: var(--text-muted);
+}
+.lab-palette-empty {
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-sm); color: var(--text-muted); font-style: italic;
+}

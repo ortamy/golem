@@ -17,10 +17,10 @@
 .language-map-kicker {
   color: var(--text-gold);
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-caps);
   line-height: 1.4;
-  margin-bottom: 8px;
+  margin-bottom: var(--space-2);
 }
 .language-map-head h1,
 .language-map-detail h1 { color: var(--text-primary); line-height: 1.15; margin-bottom: 10px; }
@@ -46,8 +46,8 @@
   background: var(--bg-card);
   color: var(--text-primary);
   border: 1px solid var(--border-light);
-  border-radius: 6px;
-  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
   font: inherit;
   cursor: pointer;
 }
@@ -59,7 +59,7 @@
 .language-map-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 16px;
+  gap: var(--space-4);
 }
 .language-map-card {
   display: flex;
@@ -68,13 +68,14 @@
   background: var(--bg-card);
   color: var(--text-primary);
   border: 1px solid var(--border-light);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   padding: 18px;
   text-align: left;
   cursor: pointer;
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
-.language-map-card:hover { transform: translateY(-2px); border-color: var(--accent-gold); box-shadow: var(--shadow-card-hover-color); }
+.language-map-card:hover { border-color: var(--accent-gold); box-shadow: var(--shadow-card-hover-color); }
+/* Страховка transform:none снята Этапом 7: базовый ховер более не двигает */
 .language-map-card-head { margin-bottom: 16px; }
 .language-map-card h2 { color: var(--text-primary); font-size: 25px; line-height: 1.2; margin-bottom: 4px; }
 .language-map-type { color: var(--text-secondary); font-size: 13px; }

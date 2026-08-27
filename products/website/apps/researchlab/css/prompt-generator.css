@@ -1,21 +1,21 @@
 /* Конструктор промптов — тёмный скрипторий со светом янтаря. */
 .prompt-generator-shell {
-  max-width: 1240px;
+  max-width: var(--shell-page);
   margin: 0 auto;
-  padding: 12px 0 48px;
+  padding: var(--space-3) 0 var(--space-8);
 }
 
 .prompt-generator-heading {
   display: flex;
   justify-content: space-between;
-  gap: 24px;
+  gap: var(--space-6);
   align-items: flex-start;
   margin-bottom: 30px;
   padding: 26px 30px;
   color: #eadfc9;
   background: #211610;
   border: 1px solid #624224;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   box-shadow: 0 12px 30px rgba(30, 16, 8, .24);
 }
 .prompt-generator-heading h1 { margin: 0 0 8px; color: #e0a83a; }

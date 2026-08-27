@@ -9,7 +9,7 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-serif);
-  font-size: 18px; line-height: 1.8;
+  font-size: var(--text-lg); line-height: 1.8;
   background: var(--bg-primary); color: var(--text-primary);
   min-height: 100vh;
   display: flex; flex-direction: column;

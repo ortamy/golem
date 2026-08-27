@@ -12,6 +12,7 @@
   transition: background var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 .lab-card:hover {
+  border-color: var(--border-gold);
   box-shadow: var(--shadow-hover);
 }
 .lab-card-header {
@@ -21,3 +22,41 @@
   padding-bottom: var(--space-2); border-bottom: 1px solid var(--border-light);
 }
 .lab-card-body { font-size: var(--text-base); color: var(--text-primary); line-height: 1.7; }
+
+/* ===== CARD STATES API (Этап 4) =====
+   Состояние навешивается классом/атрибутом на ту же ноду, что и класс карточки
+   (.lab-card, .tool-card или карточная компонента модуля).
+   Политика отклика: наведение НЕ перемещает контент — только рамка + тень.
+   Движение зарезервировано за выбором (см. .board-card.is-selected).
+   Баннеры обратной связи — feedback.css (.lab-alert-info/warn/error/success).
+   Индикатор загрузки — feedback.css (.lab-spinner.show) внутри is-loading карточки. */
+
+/* Выбранность: золотая рамка + фокусное кольцо (--ring-focus уже несёт полную
+   геометрию кольца, добавлять размеры к токену нельзя — IACVT обнулит тень) */
+.lab-card.is-selected,
+.tool-card.is-selected {
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-hover), var(--ring-focus);
+}
+
+/* Отключённость: мёртвый вес без тени, курсор запрещён на стороне базового стиля */
+.lab-card.is-disabled,
+.lab-card[aria-disabled='true'],
+.tool-card.is-disabled,
+.tool-card[aria-disabled='true'] {
+  pointer-events: none;
+  opacity: 0.55;
+  box-shadow: none;
+}
+
+/* Загрузка: содержимое приглушено, ввод заблокирован;
+   спиннер добавляется разметкой и исключён из приглушения */
+.lab-card.is-loading,
+.tool-card.is-loading {
+  pointer-events: none;
+}
+.lab-card.is-loading > :not(.lab-spinner),
+.tool-card.is-loading > :not(.lab-spinner) {
+  opacity: 0.45;
+}
+

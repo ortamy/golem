@@ -1,8 +1,8 @@
 ﻿/* methodology.css вЂ” СЂР°Р·РґРµР» В«РњРµС‚РѕРґРѕР»РѕРіРёСЏВ»: РІС‹РїР°РґР°СЋС‰РёР№ СЃРїРёСЃРѕРє + РєР°СЂС‚РѕС‡РєРё */
 .methodology-shell {
-  max-width: 1180px;
+  max-width: var(--shell-page);
   margin: 0 auto;
-  padding: 12px 0 48px;
+  padding: var(--space-3) 0 var(--space-8);
 }
 
 .methodology-heading {
@@ -11,7 +11,7 @@
   color: var(--text-light);
   background: var(--bg-dark);
   border: 1px solid var(--border-dark);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
 }
 .methodology-heading h1 { margin: 0 0 8px; color: var(--accent-gold); }
@@ -24,9 +24,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--space-3);
   margin-bottom: 18px;
-  padding: 14px 16px;
+  padding: 14px var(--space-4);
   border: 1px solid var(--border-light);
   border-radius: 8px;
   background: #fff;
@@ -66,7 +66,7 @@
 .methodology-panel {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: var(--space-4);
   opacity: 1;
   transition: opacity 0.25s ease;
 }
@@ -81,12 +81,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 18px 18px 16px;
+  padding: 18px 18px var(--space-4);
   border: 1px solid var(--border-light);
   border-radius: 8px;
   background: var(--bg-card);
   box-shadow: var(--shadow-soft);
-  transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition-fast);
 }
 
 /* РџСЂРёРЅС†РёРїС‹ Рё РјРµС…Р°РЅРёР·РјС‹ РёСЃРїРѕР»СЊР·СѓСЋС‚ Р±РµР»СѓСЋ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ РєР°СЂС‚РѕС‡РµРє. */
@@ -160,7 +160,7 @@
   margin: 0;
   color: var(--text-gold);
   font: 700 17px/1.3 var(--font-heading);
-  padding-right: 4px;
+  padding-right: var(--space-1);
 }
 
 .methodology-card-text {
@@ -189,7 +189,7 @@
   background: var(--bg-primary);
   color: var(--text-muted);
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
 
 .methodology-icon-btn:hover {
@@ -255,9 +255,9 @@
   width: 100%;
   box-sizing: border-box;
   margin: 0;
-  padding: 8px 10px;
+  padding: var(--space-2) 10px;
   border: 1px solid var(--border-light);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   background: var(--bg-primary);
   color: var(--text-secondary);
   font: inherit;
@@ -278,7 +278,7 @@
 
 .methodology-form .admin-input,
 .methodology-form .admin-textarea {
-  margin-bottom: 16px;
+  margin-bottom: var(--space-4);
 }
 
 .methodology-form .admin-textarea {
@@ -338,7 +338,7 @@ html[data-theme="dark"] .methodology-toolbar .lab-btn-secondary:active {
     box-sizing: border-box;
     min-height: 0;
     height: auto;
-    padding: 12px 14px;
+    padding: var(--space-3) 14px;
     margin-bottom: 14px;
     align-content: start;
   }

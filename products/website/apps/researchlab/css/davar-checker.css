@@ -8,15 +8,15 @@
 }
 
 .davar-checker-kicker {
-  margin: 0 0 8px;
+  margin: 0 0 var(--space-2);
   color: var(--accent-gold);
-  font-size: 12px;
+  font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: .16em;
 }
 
 .davar-checker-form {
-  padding: 24px;
+  padding: var(--space-6);
   border: 1px solid var(--border-light);
   border-radius: 8px;
   background: var(--bg-dark);
@@ -25,14 +25,14 @@
 
 .davar-checker-form label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: var(--space-2);
   color: var(--text-primary);
   font-weight: 700;
 }
 
 .davar-checker-form-row {
   display: flex;
-  gap: 12px;
+  gap: var(--space-3);
   align-items: stretch;
 }
 
@@ -48,8 +48,8 @@
 }
 
 .davar-checker-result {
-  margin-top: 20px;
-  padding: 22px 24px;
+  margin-top: var(--space-5);
+  padding: 22px var(--space-6);
   border: 1px solid var(--border-light);
   border-left: 4px solid var(--accent-gold);
   border-radius: 8px;

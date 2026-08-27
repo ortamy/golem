@@ -10,11 +10,11 @@
 .tool-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  gap: var(--space-5);
 }
 .tool-card {
   background: var(--bg-card); border: 1px solid var(--border-light);
-  border-radius: 6px; padding: 24px 20px;
+  border-radius: var(--radius-sm); padding: 24px 20px;
   text-decoration: none; cursor: pointer;
   transition: all var(--transition);
   box-shadow: var(--shadow-soft);
@@ -31,7 +31,7 @@
 .tool-card .tool-icon {
   font-size: 48px;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: var(--space-3);
   width: 48px;
   height: 48px;
   line-height: 48px;
@@ -56,7 +56,7 @@
 .agent-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: var(--space-5);
 }
 @media (max-width: 1024px) {
   .agent-grid { grid-template-columns: repeat(2, 1fr); }
@@ -66,7 +66,7 @@
 }
 .agent-grid .tool-card {
   position: relative;
-  padding: 24px 20px 18px;
+  padding: var(--space-6) var(--space-5) 18px;
   align-items: center;
   background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   border-color: var(--border-dark);
@@ -107,9 +107,9 @@
   position: static;
   display: inline-block;
   margin: 12px auto 0;
-  padding: 4px 9px;
+  padding: var(--space-1) 9px;
   border: 1px solid currentColor;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 11px;
   font-weight: 700;
   line-height: 1.2;
@@ -132,7 +132,7 @@
 }
 .badge-category {
   display: inline-block;
-  margin-top: 8px;
+  margin-top: var(--space-2);
   padding: 2px 10px;
   border-radius: 3px;
   font-size: 11px;
@@ -149,11 +149,11 @@
   display: flex;
   gap: 14px;
   align-items: center;
-  padding: 16px 20px;
-  margin: 0 0 24px;
+  padding: var(--space-4) var(--space-5);
+  margin: 0 0 var(--space-6);
   background: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-soft);
 }
 .agent-control-button {
@@ -168,10 +168,10 @@
 .agent-pipelines-view {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 24px;
+  padding: var(--space-6);
   background: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-soft);
 }
 .agent-pipelines-view[hidden] { display: none; }
@@ -192,12 +192,12 @@
 .agent-pipelines-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: var(--space-4);
 }
 .agent-pipeline-card {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: var(--space-5);
   background: var(--bg-secondary);
   border: 1px solid var(--border-light);
   border-top: 3px solid var(--accent-gold);
@@ -292,9 +292,9 @@
 .agent-detail-hero {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: var(--space-6);
   padding: clamp(24px, 5vw, 48px);
-  margin-bottom: 24px;
+  margin-bottom: var(--space-6);
   background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark-hover) 100%);
   color: var(--text-light);
   border: 1px solid var(--border-gold);
@@ -326,10 +326,10 @@
 .agent-detail-meta .agent-detail-status { color: #9ed18a; border-color: rgba(158,209,138,0.5); }
 .agent-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .agent-detail-section {
-  padding: 24px;
+  padding: var(--space-6);
   background: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-soft);
 }
 .agent-detail-section h2 { margin-bottom: 16px; }

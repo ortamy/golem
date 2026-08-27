@@ -1,0 +1,15 @@
+{
+  "name": "golem-design-baseline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Скриншот-базлайн Research Lab для аудита дизайна (Этап 0). Без визуальных регрессий.",
+  "scripts": {
+    "baseline": "node screenshot.mjs"
+  },
+  "dependencies": {
+    "pixelmatch": "^7.2.0",
+    "playwright-core": "1.62.1",
+    "pngjs": "^7.0.0"
+  }
+}

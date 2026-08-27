@@ -1,7 +1,7 @@
 /* Стили точечного сравнения языков. */
-.tensor-shell { max-width: 1120px; margin: 0 auto; padding: clamp(20px, 4vw, 38px); color: var(--text-primary); }
+.tensor-shell { max-width: var(--shell-page); margin: 0 auto; padding: clamp(20px, 4vw, 38px); color: var(--text-primary); }
 .tensor-head { max-width: 760px; margin-bottom: 28px; }
-.tensor-kicker { margin: 0 0 8px; color: var(--text-gold); font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; line-height: 1.4; }
+.tensor-kicker { margin: 0 0 8px; color: var(--text-gold); font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--tracking-caps); line-height: 1.4; }
 .tensor-head h1, .tensor-results h2 { color: var(--text-primary); line-height: 1.15; margin: 0 0 10px; }
 .tensor-controls { display: grid; grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr) auto; align-items: end; gap: 14px; padding: 20px; margin-bottom: 12px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; box-shadow: var(--shadow-soft); }
 .tensor-field { display: flex; flex-direction: column; gap: 7px; }

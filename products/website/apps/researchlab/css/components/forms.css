@@ -24,6 +24,19 @@
 .lab-textarea { width: 100%; resize: vertical; }
 .lab-select { cursor: pointer; }
 
+/* ---- КНОПКА: API модификаторов (канон единственный, копировать в модули запрещено) ----
+   Базовая форма   : .lab-btn
+   Варианты цвета  : -primary (золото) | -primary-orange | -secondary (контур золото) |
+                     -secondary-orange | -danger
+   Размеры         : -sm | -compact
+   Состояния       : :hover / :active / :disabled — заданы здесь; hover-театр подлежит
+                     пересмотру в этапе 7 (только color/border/shadow, без transform)
+   Контекстные расширения (layout внутри контейнера: flex/min-width/margin) живут
+   ТОЛЬКО в css модуля и не повторяют свойства канона. Реестр контекстов:
+   board, davar-checker, etymology-lab, exposure-editor, investigation,
+   methodology (+dark), paleo-builder, prompt-generator, research-library,
+   scripture-reader, translation-comparator, tree-checker, responsive(mobile).
+*/
 .lab-btn {
   padding: var(--space-3) var(--space-6); font-family: var(--font-heading);
   font-size: var(--text-base); font-weight: 700; border: none;
@@ -34,7 +47,6 @@
   box-shadow: var(--shadow-card);
 }
 .lab-btn:hover {
-  transform: translateY(-1px);
   box-shadow: var(--shadow-hover);
 }
 .lab-btn:active {

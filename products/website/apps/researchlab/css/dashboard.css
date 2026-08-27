@@ -5,12 +5,12 @@
 .dw-counters {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 .dw-counter {
   background: var(--bg-card); border: 1px solid var(--border-light);
-  border-radius: 6px; padding: 18px 16px; text-align: center;
+  border-radius: var(--radius-sm); padding: 18px 16px; text-align: center;
   box-shadow: var(--shadow-soft);
 }
 .dw-counter .dw-num {
@@ -18,23 +18,23 @@
   color: var(--accent-gold); line-height: 1;
 }
 .dw-counter .dw-label {
-  font-size: 12px; color: var(--text-muted); margin-top: 6px;
+  font-size: var(--text-xs); color: var(--text-muted); margin-top: 6px;
   letter-spacing: 1px; text-transform: uppercase;
 }
 
 .dw-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
+  gap: var(--space-5);
 }
 .dw-widget {
   background: var(--bg-card); border: 1px solid var(--border-light);
-  border-radius: 6px; padding: 20px; box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-sm); padding: 20px; box-shadow: var(--shadow-soft);
 }
 .dw-widget h3 {
   font-family: var(--font-heading); font-size: 20px; font-weight: 600;
   font-style: normal; color: var(--text-primary); margin-bottom: 14px;
-  padding-bottom: 8px; border-bottom: 1px solid var(--border-light);
+  padding-bottom: var(--space-2); border-bottom: 1px solid var(--border-light);
 }
 .dw-widget-wide { grid-column: 1 / -1; }
 
@@ -82,7 +82,7 @@
 .dw-bars { display: flex; flex-direction: column; gap: 10px; }
 .dw-bar-row {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 8px 0; border-bottom: 1px solid var(--border-light);
+  padding: var(--space-2) 0; border-bottom: 1px solid var(--border-light);
 }
 .dw-bar-label {
   width: 130px; flex-shrink: 0; font-size: 13px; color: var(--text-secondary);
@@ -101,7 +101,7 @@
 .dw-list { display: flex; flex-direction: column; gap: 10px; }
 .dw-list-item {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 8px 0; border-bottom: 1px solid var(--border-light);
+  padding: var(--space-2) 0; border-bottom: 1px solid var(--border-light);
   background: var(--bg-tertiary); text-decoration: none; color: var(--text-primary);
   transition: background var(--transition), color var(--transition);
 }
@@ -112,7 +112,7 @@
 /* Древо Книг: компактная библиотечная сетка */
 .book-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
+  gap: var(--space-3);
 }
 .book-card {
   display: flex; flex-direction: column; align-items: center; gap: 9px;
@@ -142,11 +142,11 @@
 }
 .book-card-fill {
   display: block; height: 100%; background: var(--accent-gold);
-  border-radius: 4px; transition: width 0.6s ease;
+  border-radius: var(--radius-xs); transition: width 0.6s ease;
 }
 .book-card-status {
   display: block; width: 100%; margin-top: auto; color: var(--text-secondary);
-  font-size: 12px; line-height: 1.2; white-space: nowrap;
+  font-size: var(--text-xs); line-height: 1.2; white-space: nowrap;
 }
 .book-card--not-started .book-card-fill, .book-card--loading .book-card-fill { background: var(--border-light); }
 

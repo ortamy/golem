@@ -6,12 +6,12 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 24px;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
 }
 
 .paleo-builder-header h1 {
-  margin: 0 0 8px;
+  margin: 0 0 var(--space-2);
   font-family: var(--font-heading);
 }
 
@@ -19,12 +19,12 @@
 .zone-index {
   color: var(--accent-gold);
   font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
 }
 
 .paleo-builder-kicker {
-  margin: 0 0 8px;
+  margin: 0 0 var(--space-2);
 }
 
 .paleo-builder-mark {
@@ -39,7 +39,7 @@
   display: grid;
   grid-template-columns: minmax(260px, 1fr) minmax(300px, 1.15fr) minmax(250px, 0.9fr);
   align-items: start;
-  gap: 16px;
+  gap: var(--space-4);
 }
 
 .paleo-builder-layout > .lab-card {
@@ -51,8 +51,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 .zone-heading h2 {
@@ -64,7 +64,7 @@
 .zone-count,
 .workspace-count {
   min-width: 30px;
-  padding: 4px 8px;
+  padding: var(--space-1) var(--space-2);
   border: 1px solid var(--accent-gold);
   color: var(--accent-gold);
   text-align: center;
@@ -73,7 +73,7 @@
 
 .zone-note,
 .drop-status {
-  margin: 0 0 16px;
+  margin: 0 0 var(--space-4);
   color: var(--text-secondary);
   font-size: 0.9rem;
 }
@@ -81,7 +81,7 @@
 .palette-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .paleo-letter-card {
@@ -90,9 +90,9 @@
   gap: 9px;
   min-width: 0;
   min-height: 76px;
-  padding: 8px;
+  padding: var(--space-2);
   border: 1px solid var(--accent-gold);
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
   background: var(--bg-card);
   color: var(--text-primary);
   cursor: grab;
@@ -165,7 +165,7 @@
 .workspace-empty {
   display: grid;
   justify-items: center;
-  gap: 8px;
+  gap: var(--space-2);
   color: var(--text-muted);
   text-align: center;
 }
@@ -193,7 +193,7 @@
   justify-items: center;
   gap: 3px;
   min-width: 62px;
-  padding: 8px 6px;
+  padding: var(--space-2) 6px;
   border-bottom: 2px solid var(--accent-gold);
   animation: paleo-letter-in 180ms ease both;
 }
@@ -213,13 +213,13 @@
 }
 
 .drop-status {
-  margin: 12px 0 0;
+  margin: var(--space-3) 0 0;
   font-size: 0.78rem;
 }
 
 .assembly-word {
   min-height: 48px;
-  margin: 8px 0;
+  margin: var(--space-2) 0;
   color: var(--text-primary);
   font-family: var(--font-paleo);
   font-size: 2rem;
@@ -228,12 +228,12 @@
 
 .assembly-paleo {
   min-height: 28px;
-  padding: 8px;
+  padding: var(--space-2);
   border-block: 1px solid var(--border-light);
   color: var(--accent-gold);
   font-family: var(--font-paleo);
   font-size: 1.3rem;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-caps);
   text-align: center;
 }
 
@@ -270,7 +270,7 @@
 
 .assembly-actions {
   display: grid;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .assembly-actions .lab-btn {
@@ -288,7 +288,7 @@
 }
 
 .dictionary-match {
-  padding-top: 12px;
+  padding-top: var(--space-3);
   border-top: 1px solid var(--accent-gold);
 }
 
@@ -310,7 +310,7 @@
 }
 
 .dictionary-examples {
-  margin: 8px 0 0;
+  margin: var(--space-2) 0 0;
   padding-left: 18px;
   color: var(--text-muted);
   font-size: 0.78rem;
@@ -337,7 +337,7 @@
 
 @media (max-width: 700px) {
   .paleo-builder-header {
-    gap: 12px;
+    gap: var(--space-3);
   }
 
   .paleo-builder-mark {

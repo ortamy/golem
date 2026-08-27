@@ -19,7 +19,9 @@
 .board-line-handle { cursor: grab; pointer-events: all; filter: drop-shadow(0 0 5px rgba(217,164,65,.7)); }
 .board-line-handle:active { cursor: grabbing; }
 .board-card { position: absolute; width: 230px; min-height: 150px; padding: 12px 14px 14px; box-sizing: border-box; border: 1px solid rgba(217,164,65,.38); border-top: 4px solid var(--card-accent); border-radius: 5px; color: #eee2cf; background: linear-gradient(145deg, #29231b, #1d1914); box-shadow: 0 8px 22px rgba(0,0,0,.34); cursor: grab; user-select: none; transition: box-shadow .15s, transform .15s; }
-.board-card:hover, .board-card.is-selected { box-shadow: 0 0 0 2px rgba(217,164,65,.42), 0 12px 28px rgba(0,0,0,.48); transform: translateY(-2px); }
+/* Этап 4: наведение не перемещает контент; подъём оставлен только состоянию выбора */
+.board-card:hover { box-shadow: 0 0 0 2px rgba(217,164,65,.42), 0 12px 28px rgba(0,0,0,.48); }
+.board-card.is-selected { box-shadow: 0 0 0 2px rgba(217,164,65,.42), 0 12px 28px rgba(0,0,0,.48); transform: translateY(-2px); }
 .board-card:active { cursor: grabbing; }
 .board-card-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
 .board-card-check input { accent-color: #d9a441; }

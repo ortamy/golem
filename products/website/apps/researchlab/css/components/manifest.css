@@ -92,7 +92,7 @@
 .lab-content .module p,
 .lab-content .module .methodology-document-content p,
 .lab-content .module .research-section-content p {
-  margin-bottom: 20px;
+  margin-bottom: var(--space-5);
 }
 
 .paleo-highlight {
@@ -140,7 +140,7 @@
   .manifest-loss-section.lab-card { padding: 22px 16px; }
   .manifest-loss-layer {
     grid-template-columns: 34px minmax(0, 1fr);
-    gap: 10px 12px;
+    gap: 10px var(--space-3);
     padding: 15px 14px;
   }
   .manifest-loss-layer-percent {

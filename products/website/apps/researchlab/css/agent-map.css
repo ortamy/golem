@@ -10,8 +10,8 @@
 .agent-page-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-left: 24px;
+  gap: var(--space-2);
+  margin-left: var(--space-6);
 }
 
 .agent-map-view[hidden] {
@@ -26,15 +26,15 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--space-3);
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: var(--space-4);
 }
 
 .agent-map-toolbar-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .agent-map-hint {
@@ -88,7 +88,7 @@
   box-shadow: var(--shadow-soft, 0 3px 12px rgba(60, 45, 25, .12));
   cursor: grab;
   left: 0;
-  padding: 12px;
+  padding: var(--space-3);
   position: absolute;
   touch-action: none;
   top: 0;
@@ -120,7 +120,7 @@
 .agent-map-node-head {
   align-items: center;
   display: flex;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .agent-map-node-icon {
@@ -132,7 +132,7 @@
 
 .agent-map-node-name {
   font-family: var(--font-heading, Georgia, serif);
-  font-size: 15px;
+  font-size: var(--text-md);
   font-weight: 600;
   line-height: 1.2;
 }
@@ -162,7 +162,7 @@
   box-shadow: var(--shadow-soft, 0 3px 12px rgba(60, 45, 25, .12));
   display: none;
   max-width: 280px;
-  padding: 16px;
+  padding: var(--space-4);
   position: absolute;
   right: 16px;
   top: 16px;
@@ -180,8 +180,8 @@
 
 .agent-map-field {
   display: block;
-  font-size: 12px;
-  margin-bottom: 12px;
+  font-size: var(--text-xs);
+  margin-bottom: var(--space-3);
 }
 
 .agent-map-field span {
@@ -193,18 +193,18 @@
 .agent-map-field select {
   background: var(--bg-card, #f6f0e2);
   border: 1px solid var(--border-light, #d8cdbb);
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
   box-sizing: border-box;
   color: inherit;
   font: inherit;
-  padding: 7px 8px;
+  padding: 7px var(--space-2);
   width: 100%;
 }
 
 .agent-map-toggle {
   align-items: center;
   display: flex;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .agent-map-toggle input {
@@ -213,9 +213,9 @@
 
 .agent-map-form-actions {
   display: flex;
-  gap: 8px;
+  gap: var(--space-2);
   justify-content: flex-end;
-  margin-top: 16px;
+  margin-top: var(--space-4);
 }
 
 .agent-list-card.is-inactive {
@@ -228,7 +228,7 @@
   }
 
   .agent-page-actions {
-    margin: 16px 0 0;
+    margin: var(--space-4) 0 0;
   }
 
   .agent-map-stage {

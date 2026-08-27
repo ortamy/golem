@@ -1,7 +1,9 @@
 /* =============================================
-   tokens.css - Golem Research Lab layer
-   Layer of lab.css (split). Do not edit by hand -
-   regenerate from lab.css source sections.
+   tokens.css — ЕДИНЫЙ ИСТОЧНИК ТОКЕНОВ Research Lab
+   Подключается первым из lab.css (@import url('tokens.css')).
+   Все шкалы ниже — канон; сырые значения в модулях
+   мигрируются на токены этапом кодемода (Этап 2).
+   Темы: light (:root) -> dark -> white. Gold = единственный акцент.
    ============================================= */
 
 /* ===== CSS CUSTOM PROPERTIES — ТЁМНАЯ ТЕМА ===== */
@@ -36,11 +38,20 @@
   --space-7: 32px;
   --space-8: 48px;
 
-  /* ===== RADIUS SCALE ===== */
+  /* ===== SHELLS (каркасы страниц, Этап 5) =====
+   Три яруса ширины + читалка; консолидация была: 1000..1240 -> --shell-page */
+--shell-frame: 1400px; /* каркас приложения (.lab-layout) */
+--shell-wide: 1480px;  /* широкие полотна: картография, геральдика, витрина состояний */
+--shell-page: 1120px;  /* документная / инструментальная страница (медиана былых 15 значений) */
+--shell-read: 1000px;  /* читалка (scripture-reader), режим долгого чтения */
+
+/* ===== RADIUS SCALE ===== */
+  --radius-xs: 4px;     /* мелкие контролы, бейджи (точный захват массового 4px) */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
   --radius-xl: 20px;
+  --radius-pill: 999px; /* чипы, тумблеры, круглые кнопки */
 
   /* ===== TYPE SCALE ===== */
   --text-xs: 12px;
@@ -51,6 +62,14 @@
   --text-xl: 22px;
   --text-2xl: 28px;
   --text-3xl: 38px;
+
+  /* ===== LEADING / TRACKING (два режима плотности) ===== */
+  --leading-ui: 1.5;       /* рабочий инструмент: словари, чекеры, генераторы */
+  --leading-read: 1.8;     /* читалка: манифест, писания, исследования */
+  --tracking-caps: 0.08em; /* капитель: секционные заголовки, оверлайны */
+
+  /* ===== FOCUS RING (золото = семантика фокуса) ===== */
+  --ring-focus: 0 0 0 2px rgba(184,134,11,0.40);
 
   /* ===== SHADOW SCALE ===== */
   --shadow-card: 0 1px 3px rgba(44,24,16,0.10), 0 2px 8px rgba(44,24,16,0.06);
@@ -83,6 +102,13 @@
   --font-hebrew: 'Noto Serif Hebrew', 'Times New Roman', serif;
   --font-paleo: 'Noto Sans Phoenician', 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif;
   --font-mono: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  /* ===== MOTION (быстрые микровзаимодействия) ===== */
+  --dur-1: 120ms;          /* hover: color, border-color, shadow */
+  --dur-2: 180ms;          /* входы: модалки, дропдауны, раскрытия */
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+
+  /* --- легаси-алиасы переходов (deprecated; в новых правилах не использовать,
+         будут заменены на --dur-* / --ease-out этапом кодемода) --- */
   --transition: 0.2s ease;
   --transition-fast: 0.15s ease;
 }
@@ -104,6 +130,7 @@
   --border-gold: #b8860b;
   --accent-gold: #d4a030;
   --accent-gold-hover: #b8860b;
+  --ring-focus: 0 0 0 2px rgba(212,160,48,0.45);
   --shadow-card: 0 1px 3px rgba(0,0,0,0.30), 0 2px 8px rgba(0,0,0,0.20);
   --shadow-hover: 0 4px 12px rgba(0,0,0,0.45), 0 2px 4px rgba(0,0,0,0.25);
   --shadow-card-hover: var(--shadow-hover);
@@ -147,6 +174,7 @@
   --accent-red: #b83226;
   --accent-red-hover: #92251d;
   --accent-green: #286828;
+  --ring-focus: 0 0 0 2px rgba(138,101,8,0.38);
   --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
   --shadow-hover: 0 4px 12px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.06);
   --shadow-card-hover: var(--shadow-hover);
