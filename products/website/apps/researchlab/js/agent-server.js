@@ -131,11 +131,6 @@
   function render() {
     var values = state || readState();
     container.innerHTML = '<div class="agent-server-shell">' +
-      '<div class="agent-server-heading"><div>' +
-        '<p class="agent-server-kicker">ХОШЕХ · ЛОКАЛЬНЫЙ КОНТУР</p>' +
-        '<h2>Запуск сервера агентов</h2>' +
-        '<p class="agent-server-intro">Заполните параметры процесса. Лаборатория сохранит конфигурацию и подготовит команду; сам процесс запускается в терминале на вашем компьютере.</p>' +
-      '</div><img src="../../assets/icons/32/ui/arrows.png" alt="" aria-hidden="true"></div>' +
       '<form class="agent-server-form" data-agent-server-form>' +
         '<fieldset><legend>Среда запуска</legend>' +
           '<label>Интерпретатор Python<input name="python" class="lab-input" value="' + escapeHtml(values.python) + '" placeholder="python или путь к python.exe"></label>' +
@@ -149,7 +144,7 @@
         '</fieldset>' +
         '<div class="agent-server-actions"><button type="submit" class="lab-btn lab-btn-primary">Сохранить и подготовить</button>' +
           '<button type="button" class="lab-btn lab-btn-secondary" data-agent-server-copy>Копировать команду</button>' +
-          '<button type="button" class="lab-btn lab-btn-secondary" data-agent-server-back>← Назад к списку агентов</button></div>' +
+          '<button type="button" class="lab-btn lab-btn-secondary" data-agent-server-back>← К агентам</button></div>' +
       '</form>' +
       '<div class="agent-server-status info" data-agent-server-status role="status" aria-live="polite">Конфигурация загружена из локального хранилища.</div>' +
       '<div class="agent-server-output-grid"><section class="agent-server-output"><h3>Команда запуска</h3><pre data-agent-server-command></pre></section>' +
@@ -168,27 +163,14 @@
   }
 
   function close() {
-    if (!container) return;
-    saveFromForm(false);
-    var list = container.querySelector('.agent-list-view');
-    var mapView = container.querySelector('.agent-map-view');
-    var serverView = container.querySelector('.agent-server-view');
-    if (serverView) serverView.hidden = true;
-    if (mapView) mapView.hidden = true;
-    if (list) list.hidden = false;
+    if (container) saveFromForm(false);
+    if (window.LabRouter) window.LabRouter.navigate('ai-agents');
   }
 
-  function open() {
-    container = document.getElementById('ai-agents');
+  function open(target) {
+    container = target || document.getElementById('agent-server');
     if (!container) return;
-    var list = container.querySelector('.agent-list-view');
-    var mapView = container.querySelector('.agent-map-view');
-    var serverView = container.querySelector('.agent-server-view');
-    if (!list || !serverView) return;
     state = readState();
-    list.hidden = true;
-    if (mapView) mapView.hidden = true;
-    serverView.hidden = false;
     render();
   }
 

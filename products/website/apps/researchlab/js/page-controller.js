@@ -57,6 +57,30 @@ const PageController = (function() {
     return '<div class="lab-alert lab-alert-error">Сервер AI-Агентов недоступен. Запустите из корня проекта: <code>python products/agents/server.py</code></div>';
   }
 
+  function getAgentMapData() {
+    var agents = [
+      { icon: 'ui/arrows', name: 'Оркестратор', desc: 'Оркестратор — получает запрос, разбивает его на подзадачи и распределяет их между агентами.', model: 'GOLEM', cat: 'Оркестрация', featured: true },
+      { icon: 'archaeology/testtube', name: 'Исследователь', desc: 'Разбирает корни, стихи, термины.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
+      { icon: 'ui/question', name: 'Разоблачитель', desc: 'Ищет подмены в переводах, сравнивает LXX и Синодальный.', model: 'GPT-4o', cat: 'Исследователь' },
+      { icon: 'scribe/scrolls', name: 'Сборщик', desc: 'Объединяет результаты в единый отчёт.', model: 'Claude Haiku 3.5', cat: 'Оркестрация' },
+      { icon: 'ui/scales', name: 'Критик', desc: 'Проверяет разбор на соответствие методологии.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
+      { icon: 'seals/ring', name: 'Семитолог', desc: 'Ищет параллели в аккадском, угаритском и арамейском.', model: 'GPT-4o', cat: 'Исследователь' },
+      { icon: 'scribe/scroll', name: 'Компаратор', desc: 'Трёхстороннее сравнение масоретского текста, Септуагинты и кумранских свитков.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
+      { icon: 'ui/keyboard', name: 'Редактор', desc: 'Приводит черновик к стилю проекта.', model: 'Claude Haiku 3.5', cat: 'Документация' },
+      { icon: 'scribe/scroll', name: 'Переводчик палео-иврита', desc: 'Переводит букву через палео-образ к физическому смыслу.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
+      { icon: 'crafts/hammer-and-chisel', name: 'Фронтенд-разработчик', desc: 'Создаёт интерфейсы Лаборатории на Vanilla JS, CSS и SVG.', model: 'Claude Sonnet 4', cat: 'Разработчик' },
+      { icon: 'ui/settings', name: 'AI-инженер', desc: 'Разрабатывает нейросетевые модули на PyTorch и Flask API.', model: 'Claude Sonnet 4', cat: 'Разработчик' },
+      { icon: 'ui/scales', name: 'Проверяющий', desc: 'Валидирует код, данные и исследовательские гипотезы.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
+      { icon: 'scribe/scroll', name: 'Технический писатель', desc: 'Оформляет документацию в Markdown.', model: 'Claude Haiku 3.5', cat: 'Документация' },
+      { icon: 'ui/scales', name: 'Ревьюер кода', desc: 'Проверяет код на соответствие MANIFEST.md.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
+      { icon: 'paleo/track', name: 'Архитектор потока', desc: 'Проектирует порядок вызова агентов.', model: 'Claude Sonnet 4', cat: 'Оркестрация' },
+      { icon: 'ui/link', name: 'Связной', desc: 'Связывает разрозненные исследования в единую сеть.', model: 'Claude Sonnet 4', cat: 'Оркестрация' }
+    ];
+    var agentSlugs = ['orchestrator', 'researcher', 'exposer', 'collector', 'critic', 'semitologist', 'comparator', 'editor', 'paleo-translator', 'frontend-developer', 'ai-engineer', 'verifier', 'technical-writer', 'code-reviewer', 'flow-architect', 'liaison'];
+    agents.forEach(function(agent, index) { agent.id = agentSlugs[index] || ('agent-' + index); });
+    return agents;
+  }
+
   // ===== JSON-СТРАНИЦЫ (словари, методология, палео-механика) =====
 
   var jsonCache = {};
@@ -951,10 +975,10 @@ const PageController = (function() {
   }
 
   function openAgentPipelines(container) {
+    if (!agentMapData) agentMapData = getAgentMapData();
     var list = container.querySelector('.agent-list-view');
     var detail = container.querySelector('#agent-detail-view');
     var mapView = container.querySelector('.agent-map-view');
-    var serverView = container.querySelector('.agent-server-view');
     var pipelines = container.querySelector('.agent-pipelines-view');
     if (!pipelines) {
       pipelines = document.createElement('section');
@@ -964,11 +988,10 @@ const PageController = (function() {
     if (list) list.hidden = true;
     if (detail) detail.hidden = true;
     if (mapView) mapView.hidden = true;
-    if (serverView) serverView.hidden = true;
     pipelines.hidden = false;
-    pipelines.innerHTML = '<div class="agent-pipelines-head"><div><p class="agent-detail-kicker">GOLEM · ОРКЕСТРАЦИЯ</p><h2>Пайплайны</h2><p>Готовые цепочки передачи контекста между агентами.</p><div class="pipeline-server-status" data-pipeline-server-status data-status="checking"><span class="pipeline-server-dot" aria-hidden="true"></span><span>Проверка сервера…</span></div></div><div class="pipeline-page-actions"><button type="button" class="lab-btn lab-btn-primary pipeline-create-btn" data-pipeline-create>+ Создать пайплайн</button><button type="button" class="lab-btn lab-btn-secondary" data-pipelines-back>← К списку агентов</button></div></div><div class="agent-pipelines-status lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка локальных пайплайнов…</div></div>';
+    pipelines.innerHTML = '<div class="agent-pipelines-head"><div><p class="agent-detail-kicker">GOLEM · ОРКЕСТРАЦИЯ</p><h2>Пайплайны</h2><p>Готовые цепочки передачи контекста между агентами.</p><div class="pipeline-server-status" data-pipeline-server-status data-status="checking"><span class="pipeline-server-dot" aria-hidden="true"></span><span>Проверка сервера…</span></div></div><div class="pipeline-page-actions"><button type="button" class="lab-btn lab-btn-primary pipeline-create-btn" data-pipeline-create>+ Создать пайплайн</button><button type="button" class="lab-btn lab-btn-secondary" data-pipelines-back>← К агентам</button></div></div><div class="agent-pipelines-status lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка локальных пайплайнов…</div></div>';
     pipelines.querySelector('[data-pipelines-back]').addEventListener('click', function() {
-      showAgentList(container);
+      LabRouter.navigate('ai-agents');
     });
     checkAgentServer().then(function() {
       updatePipelineServerStatus(pipelines, true);
@@ -1099,6 +1122,8 @@ const PageController = (function() {
         renderAgentDetail(container, parsed.segments[1]);
       } else if (moduleId === 'ai-agents') {
         showAgentList(container);
+      } else if (moduleId === 'pipelines') {
+        openAgentPipelines(container);
       }
       return;
     }
@@ -1422,26 +1447,7 @@ const PageController = (function() {
         break;
 
       case 'ai-agents':
-        var agents = [
-          { icon: 'ui/arrows', name: 'Оркестратор', desc: 'Оркестратор — получает запрос, разбивает его на подзадачи и распределяет их между агентами.', model: 'GOLEM', cat: 'Оркестрация', featured: true },
-          { icon: 'archaeology/testtube', name: 'Исследователь', desc: 'Разбирает корни, стихи, термины.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
-          { icon: 'ui/question', name: 'Разоблачитель', desc: 'Ищет подмены в переводах, сравнивает LXX и Синодальный.', model: 'GPT-4o', cat: 'Исследователь' },
-          { icon: 'scribe/scrolls', name: 'Сборщик', desc: 'Объединяет результаты в единый отчёт.', model: 'Claude Haiku 3.5', cat: 'Оркестрация' },
-          { icon: 'ui/scales', name: 'Критик', desc: 'Проверяет разбор на соответствие методологии.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
-          { icon: 'seals/ring', name: 'Семитолог', desc: 'Ищет параллели в аккадском, угаритском и арамейском.', model: 'GPT-4o', cat: 'Исследователь' },
-          { icon: 'scribe/scroll', name: 'Компаратор', desc: 'Трёхстороннее сравнение масоретского текста, Септуагинты и кумранских свитков.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
-          { icon: 'ui/keyboard', name: 'Редактор', desc: 'Приводит черновик к стилю проекта.', model: 'Claude Haiku 3.5', cat: 'Документация' },
-          { icon: 'scribe/scroll', name: 'Переводчик палео-иврита', desc: 'Переводит букву через палео-образ к физическому смыслу.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
-          { icon: 'crafts/hammer-and-chisel', name: 'Фронтенд-разработчик', desc: 'Создаёт интерфейсы Лаборатории на Vanilla JS, CSS и SVG.', model: 'Claude Sonnet 4', cat: 'Разработчик' },
-          { icon: 'ui/settings', name: 'AI-инженер', desc: 'Разрабатывает нейросетевые модули на PyTorch и Flask API.', model: 'Claude Sonnet 4', cat: 'Разработчик' },
-          { icon: 'ui/scales', name: 'Проверяющий', desc: 'Валидирует код, данные и исследовательские гипотезы.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
-          { icon: 'scribe/scroll', name: 'Технический писатель', desc: 'Оформляет документацию в Markdown.', model: 'Claude Haiku 3.5', cat: 'Документация' },
-          { icon: 'ui/scales', name: 'Ревьюер кода', desc: 'Проверяет код на соответствие MANIFEST.md.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
-          { icon: 'paleo/track', name: 'Архитектор потока', desc: 'Проектирует порядок вызова агентов.', model: 'Claude Sonnet 4', cat: 'Оркестрация' },
-          { icon: 'ui/link', name: 'Связной', desc: 'Связывает разрозненные исследования в единую сеть.', model: 'Claude Sonnet 4', cat: 'Оркестрация' }
-        ];
-        var agentSlugs = ['orchestrator', 'researcher', 'exposer', 'collector', 'critic', 'semitologist', 'comparator', 'editor', 'paleo-translator', 'frontend-developer', 'ai-engineer', 'verifier', 'technical-writer', 'code-reviewer', 'flow-architect', 'liaison'];
-        agents.forEach(function(a, i) { a.id = agentSlugs[i] || ('agent-' + i); });
+        var agents = getAgentMapData();
         agentMapData = agents;
         var cards = agents.map(function(a) {
           return '<button type="button" class="tool-card agent-card agent-list-card' + (a.featured ? ' agent-card-orchestrator' : '') + '" data-agent-id="' + a.id + '" onclick="LabRouter.navigate(\'ai-agents\',[\'' + a.id + '\'])" aria-label="Открыть страницу агента: ' + a.name + '"><span class="tool-icon"><img src="../../assets/icons/32/' + a.icon + '.png" width="32" height="32" alt="' + a.name + '"></span>' +
@@ -1454,29 +1460,29 @@ const PageController = (function() {
         }).join('');
         container.innerHTML = '<div class="agent-list-view"><div class="agent-grid">' + cards + '</div></div>' +
           '<div id="agent-detail-view" class="agent-detail-view" hidden></div>' +
-          '<div id="agent-map-view" class="agent-map-view" hidden></div>' +
-          '<div id="agent-server-view" class="agent-server-view" hidden></div>' +
-          '<div class="agent-pipelines-view" hidden></div>';
+          '<div id="agent-map-view" class="agent-map-view" hidden></div>';
         var agentControls = document.createElement('section');
         agentControls.className = 'agent-controls-panel';
         agentControls.setAttribute('aria-label', 'Управление агентами');
-        agentControls.innerHTML = '<button type="button" class="lab-btn lab-btn-primary agent-control-button" data-agent-map-open><img src="../../assets/icons/32/ui/web.png" alt="" aria-hidden="true"><span>Карта агентов</span></button>' +
-          '<button type="button" class="lab-btn lab-btn-secondary agent-control-button" data-agent-pipelines-open><img src="../../assets/icons/32/paleo/track.png" alt="" aria-hidden="true"><span>Пайплайны</span></button>' +
-          '<button type="button" class="lab-btn lab-btn-secondary agent-control-button" data-agent-server-open><img src="../../assets/icons/32/ui/settings.png" alt="" aria-hidden="true"><span>Запустить сервер</span></button>';
+        agentControls.innerHTML = '<button type="button" class="lab-btn lab-btn-primary agent-control-button" data-agent-map-open><img src="../../assets/icons/32/ui/web.png" alt="" aria-hidden="true"><span>Карта агентов</span></button>';
         container.insertBefore(agentControls, container.querySelector('.agent-list-view'));
         agentControls.querySelector('[data-agent-map-open]').addEventListener('click', function() {
           if (window.AgentMap) window.AgentMap.open();
-        });
-        agentControls.querySelector('[data-agent-pipelines-open]').addEventListener('click', function() {
-          openAgentPipelines(container);
-        });
-        agentControls.querySelector('[data-agent-server-open]').addEventListener('click', function() {
-          if (window.AgentServer) window.AgentServer.open();
         });
         container.dataset.loaded = '1';
         if (parsed && parsed.segments && parsed.segments[1]) {
           renderAgentDetail(container, parsed.segments[1]);
         }
+        break;
+
+      case 'pipelines':
+        openAgentPipelines(container);
+        container.dataset.loaded = '1';
+        break;
+
+      case 'agent-server':
+        if (window.AgentServer) window.AgentServer.open(container);
+        container.dataset.loaded = '1';
         break;
 
       case 'ed-chat':
