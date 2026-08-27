@@ -1,6 +1,0 @@
-200 /pages/methodology.html
-200 /js/methodology.js
-200 /data/methodology/cards.json
-200 /data/methodology/mechanisms.json
-200 /data/methodology/cultural-matrices.json
-200 /data/methodology/methods.json
