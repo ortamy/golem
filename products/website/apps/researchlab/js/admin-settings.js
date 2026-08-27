@@ -63,6 +63,8 @@ const AdminSettings = (function() {
   function defaultModelConfig() {
     return {
       defaultModel: 'claude-sonnet-4',
+      ollamaModel: 'qwen2.5-coder:1.5b',
+      ollamaTemperature: 0.2,
       temperature: 0.7,
       maxTokens: 4096,
       topP: 0.95,
@@ -239,6 +241,15 @@ const AdminSettings = (function() {
           '<select id="settings-model-select" class="admin-input">' + modelOpts + '</select>' +
         '</div>' +
         '<div class="settings-field">' +
+          '<label class="admin-label">Модель Ollama</label>' +
+          '<input id="settings-ollama-model" class="admin-input" value="' + escapeHtml(mc.ollamaModel) + '" placeholder="qwen2.5-coder:1.5b" style="max-width:360px;">' +
+          '<p class="settings-hint">Имя модели должно совпадать с установленной моделью Ollama.</p>' +
+        '</div>' +
+        '<div class="settings-field">' +
+          '<label class="admin-label">Температура Ollama: <span id="settings-ollama-temp-value">' + mc.ollamaTemperature + '</span></label>' +
+          '<input type="range" id="settings-ollama-temperature" min="0" max="1" step="0.05" value="' + mc.ollamaTemperature + '" class="settings-range">' +
+        '</div>' +
+        '<div class="settings-field">' +
           '<label class="admin-label">Температура: <span id="settings-temp-value">' + mc.temperature + '</span></label>' +
           '<input type="range" id="settings-temperature" min="0" max="2" step="0.05" value="' + mc.temperature + '" class="settings-range">' +
           '<div class="settings-range-labels"><span>0 — точность</span><span>2 — креативность</span></div>' +
@@ -279,6 +290,8 @@ const AdminSettings = (function() {
     var toppVal = document.getElementById('settings-topp-value');
     var freqVal = document.getElementById('settings-freq-value');
     var presVal = document.getElementById('settings-pres-value');
+    var ollamaTempInput = document.getElementById('settings-ollama-temperature');
+    var ollamaTempVal = document.getElementById('settings-ollama-temp-value');
 
     if (tempInput && tempVal) {
       tempInput.addEventListener('input', function() { tempVal.textContent = this.value; });
@@ -292,12 +305,17 @@ const AdminSettings = (function() {
     if (presInput && presVal) {
       presInput.addEventListener('input', function() { presVal.textContent = this.value; });
     }
+    if (ollamaTempInput && ollamaTempVal) {
+      ollamaTempInput.addEventListener('input', function() { ollamaTempVal.textContent = this.value; });
+    }
 
     var saveBtn = document.getElementById('settings-model-save');
     if (saveBtn) {
       saveBtn.addEventListener('click', function() {
         var mc = {
           defaultModel: document.getElementById('settings-model-select').value,
+          ollamaModel: document.getElementById('settings-ollama-model').value.trim() || 'qwen2.5-coder:1.5b',
+          ollamaTemperature: parseFloat(document.getElementById('settings-ollama-temperature').value),
           temperature: parseFloat(document.getElementById('settings-temperature').value),
           maxTokens: parseInt(document.getElementById('settings-max-tokens').value) || 4096,
           topP: parseFloat(document.getElementById('settings-topp').value),

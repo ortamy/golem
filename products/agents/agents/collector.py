@@ -7,5 +7,5 @@ def collect(data):
         "title": f"Исследование: {data.get('term', data['query'])}",
         "summary": data.get("critique") or data.get("editorial_note", "Материал собран."),
         "trace": data.get("trace", []),
-        "data": {key: value for key, value in data.items() if key not in ("result", "trace")},
+        "data": {key: value for key, value in data.items() if key not in ("result", "trace", "agentTrace")},
     })

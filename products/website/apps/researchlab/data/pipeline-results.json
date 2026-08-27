@@ -1,0 +1,44 @@
+[
+  {
+    "id": "result-word-bereshit",
+    "pipelineId": "word_analyzer",
+    "title": "Исследование: Берешит",
+    "query": "разбери слово Берешит",
+    "createdAt": "2026-08-27T00:00:00Z",
+    "source": "verified-local",
+    "status": "ready",
+    "trace": ["researcher", "semitologist", "exposer", "editor", "collector"],
+    "result": {
+      "summary": "Готовая локальная сборка показывает маршрут: источник → палео-образ → проверка. Автоматические параллели и выводы требуют сверки с корпусом.",
+      "limitations": "Это демонстрационный результат. Он не заменяет проверку корня и источников."
+    }
+  },
+  {
+    "id": "result-verse-bereshit-1-1",
+    "pipelineId": "verse_comparator",
+    "title": "Сравнение: Берешит 1:1",
+    "query": "сравни стих Берешит 1:1",
+    "createdAt": "2026-08-27T00:00:00Z",
+    "source": "verified-local",
+    "status": "ready",
+    "trace": ["comparator", "critic", "editor", "collector"],
+    "result": {
+      "summary": "Маршрут сравнения готов: свидетель → расхождение → проверка. Локальный корпус необходимо пополнить до окончательных сопоставлений.",
+      "limitations": "Готовый результат фиксирует метод исследования, а не окончательный вывод о свидетелях."
+    }
+  },
+  {
+    "id": "result-research-davar",
+    "pipelineId": "research_builder",
+    "title": "Исследование: образ Давар",
+    "query": "собери исследование образа Давар",
+    "createdAt": "2026-08-27T00:00:00Z",
+    "source": "verified-local",
+    "status": "ready",
+    "trace": ["flow_architect", "liaison", "writer", "collector"],
+    "result": {
+      "summary": "Готова последовательность сборки: вопрос → улики → палео-образ → критика → отчёт.",
+      "limitations": "Каждая гипотеза в отчёте требует связи с наблюдаемым источником."
+    }
+  }
+]

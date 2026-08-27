@@ -28,8 +28,8 @@
 .agent-server-output-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; margin-top: 14px; }
 .agent-server-output h3 { margin: 0 0 10px; color: var(--text-primary, #2c1810); font-family: var(--font-heading, Georgia, serif); font-size: 20px; }
 .agent-server-output pre { min-height: 74px; margin: 0; padding: 12px; overflow: auto; white-space: pre-wrap; word-break: break-word; background: var(--bg-primary, #efe5d2); color: var(--text-primary, #2c1810); font: 13px/1.5 var(--font-mono, Consolas, monospace); }
-.agent-server-note { margin: 14px 2px 0; color: var(--text-muted, #75685c); line-height: 1.5; }
-.agent-server-note code, .agent-server-note kbd { padding: 2px 5px; background: var(--bg-primary, #efe5d2); border: 1px solid var(--border-light, #d7c7ad); font-family: var(--font-mono, Consolas, monospace); }
+.agent-server-alert { margin-top: 14px; }
+.agent-server-alert code, .agent-server-alert kbd { padding: 2px 5px; background: var(--bg-primary, #efe5d2); border: 1px solid var(--border-light, #d7c7ad); font-family: var(--font-mono, Consolas, monospace); }
 
 @media (max-width: 760px) {
   .agent-server-form fieldset, .agent-server-output-grid { grid-template-columns: 1fr; }

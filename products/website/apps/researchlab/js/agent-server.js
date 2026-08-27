@@ -149,7 +149,7 @@
       '<div class="agent-server-status info" data-agent-server-status role="status" aria-live="polite">Конфигурация загружена из локального хранилища.</div>' +
       '<div class="agent-server-output-grid"><section class="agent-server-output"><h3>Команда запуска</h3><pre data-agent-server-command></pre></section>' +
         '<section class="agent-server-output"><h3>Конфигурация</h3><pre data-agent-server-config></pre></section></div>' +
-      '<p class="agent-server-note">После копирования откройте терминал в корне проекта и выполните команду. Проверка доступности: <code>http://localhost:' + escapeHtml(values.port) + '/api/run</code>. Закрытие — <kbd>Ctrl+C</kbd>.</p>' +
+      '<div class="lab-alert lab-alert-info agent-server-alert">После копирования откройте терминал в корне проекта и выполните команду. Проверка доступности: <code>http://localhost:' + escapeHtml(values.port) + '/api/run</code>. Закрытие — <kbd>Ctrl+C</kbd>.</div>' +
     '</div>';
     renderOutput(values);
     container.querySelector('[data-agent-server-form]').addEventListener('submit', function(event) {

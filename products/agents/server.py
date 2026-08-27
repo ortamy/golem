@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """Минимальная Flask API-точка входа для оркестратора."""
 import json
+import math
+from datetime import datetime, timezone
 from pathlib import Path
 
 from flask import Flask, jsonify, request
-from orchestrator import dispatch
+from orchestrator import dispatch, run_pipeline as execute_named_pipeline
+from ollama_adapter import OllamaError, status as ollama_status, summarize as ollama_summarize
 
 app = Flask(__name__)
 PIPELINES_PATH = Path(__file__).resolve().parents[2] / "products" / "website" / "apps" / "researchlab" / "data" / "pipelines.json"
+RESULTS_PATH = PIPELINES_PATH.with_name("pipeline-results.json")
 
 
 def read_pipelines():
@@ -22,6 +26,21 @@ def write_pipelines(pipelines):
     PIPELINES_PATH.parent.mkdir(parents=True, exist_ok=True)
     with PIPELINES_PATH.open("w", encoding="utf-8") as handle:
         json.dump(pipelines, handle, ensure_ascii=False, indent=2)
+        handle.write("\n")
+
+
+def read_results():
+    if not RESULTS_PATH.exists():
+        return []
+    with RESULTS_PATH.open(encoding="utf-8") as handle:
+        payload = json.load(handle)
+    return payload if isinstance(payload, list) else []
+
+
+def write_results(results):
+    RESULTS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with RESULTS_PATH.open("w", encoding="utf-8") as handle:
+        json.dump(results, handle, ensure_ascii=False, indent=2)
         handle.write("\n")
 
 
@@ -57,9 +76,79 @@ def health():
     return jsonify({"status": "ok", "service": "golem-agents"})
 
 
+@app.get("/api/ollama/status")
+def get_ollama_status():
+    return jsonify(ollama_status())
+
+
 @app.get("/api/pipelines")
 def list_pipelines():
     return jsonify(read_pipelines())
+
+
+@app.get("/api/pipeline-results")
+def list_pipeline_results():
+    return jsonify(read_results())
+
+
+@app.post("/api/pipelines/<pipeline_id>/run")
+def run_named_pipeline(pipeline_id):
+    payload = request.get_json(silent=True) or {}
+    query = (payload.get("query") or "").strip()
+    use_ollama = bool(payload.get("useOllama"))
+    ollama_model = str(payload.get("model") or "").strip() or None
+    ollama_temperature = payload.get("temperature", 0.2)
+    try:
+        ollama_temperature = float(ollama_temperature)
+        if not math.isfinite(ollama_temperature):
+            ollama_temperature = 0.2
+    except (TypeError, ValueError):
+        ollama_temperature = 0.2
+    pipeline = next((item for item in read_pipelines() if item.get("id") == pipeline_id), None)
+    if pipeline is None:
+        return jsonify({"error": "pipeline not found"}), 404
+    if not query:
+        query = str(pipeline.get("defaultQuery") or "").strip()
+    if not query:
+        return jsonify({"error": "query is required"}), 400
+    try:
+        output = execute_named_pipeline(str(pipeline.get("runner") or pipeline_id), query)
+    except ValueError as error:
+        return jsonify({"error": str(error)}), 400
+    created_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    result = {
+        "id": pipeline_id + "-" + datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S"),
+        "pipelineId": pipeline_id,
+        "title": output.get("result", {}).get("title", pipeline.get("name", pipeline_id)),
+        "query": query,
+        "createdAt": created_at,
+        "source": "local-agents",
+        "status": "ready",
+        "trace": output.get("trace", []),
+        "agentTrace": output.get("agentTrace", []),
+        "result": output.get("result", {}),
+    }
+    if use_ollama:
+        try:
+            result["ollama"] = ollama_summarize(query, result["result"], ollama_model, ollama_temperature)
+            result["result"]["aiSummary"] = result["ollama"]["text"]
+        except OllamaError as error:
+            # Ошибка редакторского слоя не отменяет результат агентов.
+            result["ollama"] = {
+                "status": "error",
+                "model": ollama_model,
+                "error": str(error),
+            }
+    results = read_results()
+    results.insert(0, result)
+    write_results(results)
+    return jsonify(result), 201
+
+
+@app.get("/api/pipelines/<pipeline_id>/results")
+def list_pipeline_history(pipeline_id):
+    results = [item for item in read_results() if item.get("pipelineId") == pipeline_id]
+    return jsonify(results)
 
 
 @app.post("/api/pipelines")
