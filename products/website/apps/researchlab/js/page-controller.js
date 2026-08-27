@@ -980,6 +980,8 @@ const PageController = (function() {
     var detail = container.querySelector('#agent-detail-view');
     var mapView = container.querySelector('.agent-map-view');
     var pipelines = container.querySelector('.agent-pipelines-view');
+    var pipelineDetail = container.querySelector('.pipeline-detail-page');
+    if (pipelineDetail) pipelineDetail.remove();
     if (!pipelines) {
       pipelines = document.createElement('section');
       pipelines.className = 'agent-pipelines-view';
@@ -990,7 +992,7 @@ const PageController = (function() {
     if (mapView) mapView.hidden = true;
     pipelines.hidden = false;
     pipelines.innerHTML = '<div class="agent-pipelines-head"><div><p class="agent-detail-kicker">GOLEM · ОРКЕСТРАЦИЯ</p><h2>Пайплайны</h2><p>Готовые цепочки передачи контекста между агентами.</p></div></div>' +
-      '<div class="pipeline-control-panel"><div><div class="pipeline-server-status" data-pipeline-server-status data-status="checking"><span class="pipeline-server-dot" aria-hidden="true"></span><span>Проверка сервера…</span></div><label class="pipeline-ollama-toggle"><input type="checkbox" data-pipeline-ollama> Сводка Ollama</label></div><div class="pipeline-page-actions"><button type="button" class="lab-btn lab-btn-primary pipeline-create-btn" data-pipeline-create>+ Создать пайплайн</button><button type="button" class="lab-btn lab-btn-secondary" data-pipelines-back>← К агентам</button></div></div>' +
+      '<div class="pipeline-control-panel"><div><div class="pipeline-server-status" data-pipeline-server-status data-status="checking"><span class="pipeline-server-dot" aria-hidden="true"></span><span>Проверка сервера…</span></div></div><div class="pipeline-page-actions"><button type="button" class="lab-btn lab-btn-primary pipeline-create-btn" data-pipeline-create>+ Создать пайплайн</button><button type="button" class="lab-btn lab-btn-secondary" data-pipelines-back>← К агентам</button></div></div>' +
       '<div class="agent-pipelines-status lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка локальных пайплайнов…</div></div>';
     pipelines.querySelector('[data-pipelines-back]').addEventListener('click', function() {
       LabRouter.navigate('ai-agents');
@@ -1047,10 +1049,6 @@ const PageController = (function() {
     }).join('');
     pipelines.querySelector('.agent-pipelines-status').outerHTML = '<div class="agent-pipelines-grid">' + (cards || '<div class="lab-alert lab-alert-info">Пайплайны пока не созданы.</div>') + '</div>';
     pipelines.querySelector('[data-pipeline-create]').addEventListener('click', function() { openPipelineModal(container, pipelines, null); });
-    fetch(AGENT_API_URL + '/api/ollama/status').then(function(response) { return response.json(); }).then(function(info) {
-      var toggle = pipelines.querySelector('[data-pipeline-ollama]');
-      if (toggle) { toggle.disabled = !info.available; toggle.title = info.available ? 'Модель: ' + (info.models[0] || info.defaultModel) : 'Ollama недоступна'; }
-    }).catch(function() {});
     pipelines.querySelectorAll('[data-pipeline-edit]').forEach(function(button) {
       button.addEventListener('click', function() { openPipelineModal(container, pipelines, findPipeline(data, this.closest('[data-pipeline-id]').dataset.pipelineId)); });
     });
@@ -1077,10 +1075,7 @@ const PageController = (function() {
     steps.forEach(function(step) { step.dataset.status = 'pending'; });
     status.textContent = 'Запуск локальной цепочки…';
     status.dataset.status = 'running';
-    var ollamaToggle = card.closest('.agent-pipelines-view').querySelector('[data-pipeline-ollama]');
-    var modelConfig = {};
-    try { modelConfig = JSON.parse(localStorage.getItem('golem_settings_model') || '{}'); } catch (ignore) {}
-    fetch(AGENT_API_URL + '/api/pipelines/' + encodeURIComponent(pipeline.id) + '/run', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: pipeline.defaultQuery || '', useOllama: !!(ollamaToggle && ollamaToggle.checked), model: modelConfig.ollamaModel || 'qwen2.5-coder:1.5b', temperature: Number(modelConfig.ollamaTemperature) }) }).then(function(response) {
+    fetch(AGENT_API_URL + '/api/pipelines/' + encodeURIComponent(pipeline.id) + '/run', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: pipeline.defaultQuery || '' }) }).then(function(response) {
       if (!response.ok) return response.json().then(function(error) { throw new Error(error.error || 'HTTP ' + response.status); });
       return response.json();
     }).then(function(result) {
@@ -1153,8 +1148,9 @@ const PageController = (function() {
         var evidence = detail ? '<details><summary>Доступный срез этапа</summary><pre>' + escapeHtml(JSON.stringify(detail, null, 2)) + '</pre></details>' : '';
         return '<li class="pipeline-process-step" data-status="' + (trace ? 'done' : 'pending') + '"><span>' + (index + 1) + '</span><div><strong>' + escapeHtml(agent) + '</strong><p>' + (trace ? 'Этап в сохранённом следе: <code>' + escapeHtml(trace) + '</code>.' : 'нет сохранённого факта выполнения.') + '</p>' + evidence + '</div></li>';
       }).join('');
-      container.innerHTML = '<article class="pipeline-detail-page"><a class="pipeline-back-link" href="#pipelines">← К пайплайнам</a><header class="pipeline-detail-head"><p class="agent-detail-kicker">GOLEM · ПРОЦЕСС И РЕЗУЛЬТАТ</p><h1>' + escapeHtml(pipeline.name) + '</h1><p>' + escapeHtml(pipeline.description || 'Цепочка передачи контекста') + '</p><span class="pipeline-status-badge" data-status="' + (latest ? 'done' : 'pending') + '">' + (latest ? 'Есть сохранённый запуск' : 'Ожидание запуска') + '</span></header><section class="pipeline-detail-card"><h2>Запуск</h2><label>Запрос<textarea class="lab-input" data-pipeline-query rows="3">' + escapeHtml(latest && latest.query || pipeline.defaultQuery || '') + '</textarea></label><div class="pipeline-card-buttons"><button class="lab-btn lab-btn-primary" data-pipeline-detail-run>Запустить локально</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-copy>Копировать результат</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-json>Экспорт JSON</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-markdown>Экспорт Markdown</button></div><p class="pipeline-run-status" data-pipeline-detail-status>Последний запуск: ' + escapeHtml(latest ? formatPipelineDate(latest.createdAt) : 'нет') + '</p></section><div class="pipeline-detail-grid"><section class="pipeline-detail-card"><h2>Цепочка процесса</h2><p class="pipeline-detail-note">Показаны доступные факты выполнения. Скрытые рассуждения не отображаются.</p><ol class="pipeline-process-list">' + steps + '</ol></section><section class="pipeline-detail-card"><h2>Результат</h2><p>' + escapeHtml(body.aiSummary || body.summary || 'Запустите локальный пайплайн, чтобы получить результат.') + '</p>' + (body.limitations ? '<p class="pipeline-result-limitations"><strong>Ограничения:</strong> ' + escapeHtml(body.limitations) + '</p>' : '') + '</section></div><section class="pipeline-detail-card"><h2>История запусков</h2><ul class="pipeline-detail-history">' + (history.map(function(item) { return '<li><strong>' + escapeHtml(item.title || pipeline.name) + '</strong><span>' + escapeHtml(formatPipelineDate(item.createdAt)) + '</span><p>' + escapeHtml(item.query || '') + '</p></li>'; }).join('') || '<li>Сохранённых запусков пока нет.</li>') + '</ul></section></article>';
+      container.innerHTML = '<article class="pipeline-detail-page"><div class="pipeline-back-container"><button type="button" class="lab-btn lab-btn-secondary" data-pipeline-back>← К пайплайнам</button></div><header class="pipeline-detail-head"><p class="agent-detail-kicker">GOLEM · ПРОЦЕСС И РЕЗУЛЬТАТ</p><h1>' + escapeHtml(pipeline.name) + '</h1><p>' + escapeHtml(pipeline.description || 'Цепочка передачи контекста') + '</p><span class="pipeline-status-badge" data-status="' + (latest ? 'done' : 'pending') + '">' + (latest ? 'Есть сохранённый запуск' : 'Ожидание запуска') + '</span></header><section class="pipeline-detail-card"><h2>Запуск</h2><label>Запрос<textarea class="lab-input" data-pipeline-query rows="3">' + escapeHtml(latest && latest.query || pipeline.defaultQuery || '') + '</textarea></label><div class="pipeline-card-buttons"><button class="lab-btn lab-btn-primary" data-pipeline-detail-run>Запустить локально</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-copy>Копировать результат</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-json>Экспорт JSON</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-markdown>Экспорт Markdown</button></div><p class="pipeline-run-status" data-pipeline-detail-status>Последний запуск: ' + escapeHtml(latest ? formatPipelineDate(latest.createdAt) : 'нет') + '</p></section><div class="pipeline-detail-grid"><section class="pipeline-detail-card"><h2>Цепочка процесса</h2><p class="pipeline-detail-note">Показаны доступные факты выполнения. Скрытые рассуждения не отображаются.</p><ol class="pipeline-process-list">' + steps + '</ol></section><section class="pipeline-detail-card"><h2>Результат</h2><p>' + escapeHtml(body.aiSummary || body.summary || 'Запустите локальный пайплайн, чтобы получить результат.') + '</p>' + (body.limitations ? '<p class="pipeline-result-limitations"><strong>Ограничения:</strong> ' + escapeHtml(body.limitations) + '</p>' : '') + '</section></div><section class="pipeline-detail-card"><h2>История запусков</h2><ul class="pipeline-detail-history">' + (history.map(function(item) { return '<li><strong>' + escapeHtml(item.title || pipeline.name) + '</strong><span>' + escapeHtml(formatPipelineDate(item.createdAt)) + '</span><p>' + escapeHtml(item.query || '') + '</p></li>'; }).join('') || '<li>Сохранённых запусков пока нет.</li>') + '</ul></section></article>';
       var status = container.querySelector('[data-pipeline-detail-status]');
+      container.querySelector('[data-pipeline-back]').addEventListener('click', function() { window.location.hash = 'pipelines'; });
       container.querySelector('[data-pipeline-detail-run]').addEventListener('click', function() {
         var button = this;
         button.disabled = true;
