@@ -69,8 +69,7 @@
   }
   function renderCourses() {
     var courses = (root.GolemCourses && root.GolemCourses.list) || [];
-    return '<button type="button" class="lab-btn lab-btn-secondary learn-back" onclick="LearnLab.home()">← К обучению</button>' +
-      '<div class="course-grid">' + courses.map(courseCard).join('') + '</div>';
+    return '<div class="course-grid">' + courses.map(courseCard).join('') + '</div>';
   }
 
   function courseProgress() { var value = read(COURSE_KEY, { lessons: {} }); if (!value.lessons) value.lessons = {}; return value; }
@@ -96,8 +95,7 @@
         '</div>' +
       '</article>';
     }).join('');
-    return '<button type="button" class="lab-btn lab-btn-secondary learn-back" onclick="LearnLab.openCourses()">← К курсам</button>' +
-      '<div class="course-progress-line" role="progressbar" aria-valuemin="0" aria-valuemax="' + lessons.length + '" aria-valuenow="' + done + '" aria-label="Пройдено уроков"><span style="width:' + (lessons.length ? done / lessons.length * 100 : 0) + '%"></span></div>' +
+    return '<div class="course-progress-line" role="progressbar" aria-valuemin="0" aria-valuemax="' + lessons.length + '" aria-valuenow="' + done + '" aria-label="Пройдено уроков"><span style="width:' + (lessons.length ? done / lessons.length * 100 : 0) + '%"></span></div>' +
       '<p class="course-progress-label">Пройдено ' + done + ' из ' + lessons.length + '</p>' +
       '<div class="lesson-list">' + cards + '</div>';
   }
@@ -112,21 +110,26 @@
     var item = state.lesson.item, step = state.lesson.step, choices, prompt, body;
     if (step === 1 || step === 3) { prompt = step === 1 ? 'Введите название буквы' : 'Введите значение образа'; body = '<label for="learn-answer">' + prompt + '</label><input id="learn-answer" class="learn-answer-input" autocomplete="off" autofocus placeholder="Ваш ответ">'; }
     else { choices = distractors(item); prompt = step === 2 ? 'Выберите правильный образ' : 'Выберите правильный символ'; body = '<div class="learn-options">' + choices.map(function(option) { var label = step === 2 ? option.image : option.paleo; var value = step === 2 ? option.hebrew : option.hebrew; return '<button type="button" class="learn-option" data-answer="' + esc(value) + '" onclick="LearnLab.answer(\'' + esc(value).replace(/'/g,"\\'") + '\')">' + esc(label) + '</button>'; }).join('') + '</div>'; }
-    return '<div class="learn-lesson"><button type="button" class="lab-btn lab-btn-secondary learn-back" onclick="LearnLab.openLessons()">← К буквам</button><div class="learn-lesson-top"><h1>' + esc(item.name) + '</h1><span class="learn-step-label">Шаг ' + step + ' из 4</span></div><div class="learn-step-track">' + [1,2,3,4].map(function(n) { return '<span class="' + (n <= step ? 'active' : '') + '"></span>'; }).join('') + '</div><section class="learn-question"><div class="learn-question-symbol" lang="hbo">' + item.paleo + '</div><p>' + prompt + '</p><div class="learn-question-body">' + body + '</div><div id="learn-feedback" class="learn-feedback" role="status" aria-live="polite"></div>' + ((step === 1 || step === 3) ? '<div class="learn-answer-actions"><button type="button" class="lab-btn lab-btn-primary" onclick="LearnLab.submitText()">Проверить</button></div>' : '') + '</section></div>';
+    return '<div class="learn-lesson"><div class="learn-lesson-top"><div class="learn-lesson-title">' + esc(item.name) + '</div><span class="learn-step-label">Шаг ' + step + ' из 4</span></div><div class="learn-step-track">' + [1,2,3,4].map(function(n) { return '<span class="' + (n <= step ? 'active' : '') + '"></span>'; }).join('') + '</div><section class="learn-question"><div class="learn-question-symbol" lang="hbo">' + item.paleo + '</div><p>' + prompt + '</p><div class="learn-question-body">' + body + '</div><div id="learn-feedback" class="learn-feedback" role="status" aria-live="polite"></div>' + ((step === 1 || step === 3) ? '<div class="learn-answer-actions"><button type="button" class="lab-btn lab-btn-primary" onclick="LearnLab.submitText()">Проверить</button></div>' : '') + '</section></div>';
   }
 
   function renderGame() {
     var game = state.game;
-    if (game.done) return '<div class="learn-game"><button type="button" class="lab-btn lab-btn-secondary learn-back" onclick="LearnLab.home()">← К обучению</button><div class="learn-result"><h1>Раунд завершён</h1><div class="learn-result-score">' + game.score + '</div><p>Очков набрано. Рекорд: <strong>' + record() + '</strong>.</p><button type="button" class="lab-btn lab-btn-primary" onclick="LearnLab.openGame()">Играть снова</button></div></div>';
-    var choices = game.choices; return '<div class="learn-game"><button type="button" class="lab-btn lab-btn-secondary learn-back" onclick="LearnLab.home()">← К обучению</button><div class="learn-game-bar"><div class="learn-game-metric">Раунд <strong>' + game.round + '/10</strong></div><div class="learn-game-metric">Счёт <strong>' + game.score + '</strong></div><div class="learn-game-metric learn-timer ' + (game.time <= 8 ? 'is-low' : '') + '">Время <strong>' + game.time + 'с</strong></div></div><div class="learn-game-symbol"><small>Какой образ несёт этот знак?</small><span class="symbol" lang="hbo">' + game.item.paleo + '</span></div><div class="learn-options learn-game-options">' + choices.map(function(option) { return '<button type="button" class="learn-option" data-answer="' + esc(option.hebrew) + '" onclick="LearnLab.gameAnswer(\'' + option.hebrew + '\')">' + esc(option.image) + '</button>'; }).join('') + '</div><div id="learn-game-feedback" class="learn-game-feedback" role="status" aria-live="polite"></div></div>';
+    if (game.done) return '<div class="learn-game"><div class="learn-result"><h1>Раунд завершён</h1><div class="learn-result-score">' + game.score + '</div><p>Очков набрано. Рекорд: <strong>' + record() + '</strong>.</p><button type="button" class="lab-btn lab-btn-primary" onclick="LearnLab.openGame()">Играть снова</button></div></div>';
+    var choices = game.choices; return '<div class="learn-game"><div class="learn-game-bar"><div class="learn-game-metric">Раунд <strong>' + game.round + '/10</strong></div><div class="learn-game-metric">Счёт <strong>' + game.score + '</strong></div><div class="learn-game-metric learn-timer ' + (game.time <= 8 ? 'is-low' : '') + '">Время <strong>' + game.time + 'с</strong></div></div><div class="learn-game-symbol"><small>Какой образ несёт этот знак?</small><span class="symbol" lang="hbo">' + game.item.paleo + '</span></div><div class="learn-options learn-game-options">' + choices.map(function(option) { return '<button type="button" class="learn-option" data-answer="' + esc(option.hebrew) + '" onclick="LearnLab.gameAnswer(\'' + option.hebrew + '\')">' + esc(option.image) + '</button>'; }).join('') + '</div><div id="learn-game-feedback" class="learn-game-feedback" role="status" aria-live="polite"></div></div>';
   }
 
   /* Шапка модуля следует за внутренним экраном (реестр LabHero.views). */
-  function applyHero() {
+    function applyHero() {
     if (!root.LabHero || !root.LabHero.setView) return;
     if (state.view === 'course' && state.course) {
       var course = state.course, lessons = course.lessons || [];
       root.LabHero.setView('learn', 'course', { title: course.title, subtitle: course.description, meta: [course.level + ' · ' + lessons.length + ' уроков'] });
+    } else if (state.view === 'lesson' && state.lesson) {
+      var item = state.lesson.item;
+      root.LabHero.setView('learn', 'lesson', { title: item.name, subtitle: item.image + ' · ' + item.meaning });
+    } else if (state.view === 'game' && state.game) {
+      root.LabHero.setView('learn', 'game');
     } else if (state.view === 'lessons' || state.view === 'courses') {
       root.LabHero.setView('learn', state.view);
     } else {

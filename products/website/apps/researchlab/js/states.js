@@ -236,9 +236,19 @@ const GolemStates = (function() {
   }
 
   // ===== РЕНДЕР СТРАНИЦЫ СОСТОЯНИЯ =====
-  function renderStateDetail(id) {
+    function renderStateDetail(id) {
     var s = statesById[id];
     if (!s) return '<div class="lab-alert lab-alert-error">Состояние не найдено</div>';
+
+        // Шапка модуля подменяется на название состояния
+    if (window.LabHero && window.LabHero.setView) {
+      window.LabHero.setView('states', 'detail', {
+        kicker: 'ГОЛЕМ · КАРТА СОСТОЯНИЙ',
+        title: s.name,
+        subtitle: s.physics || '',
+        icon: 'ui/web.png'
+      });
+    }
 
     var color = s.color || '#b8860b';
 
@@ -315,7 +325,6 @@ const GolemStates = (function() {
 
     return '<div class="states-page">' +
       '<div class="states-controls">' +
-        '<button class="states-nav-btn states-nav-back" onclick="GolemStates.openGrid()"><img src="../../assets/icons/32/nav/home.png" class="lab-icon" alt=""> Назад к карте</button>' +
       '</div>' +
       '<div class="state-detail">' +
         '<div class="state-detail-hero" style="border-bottom-color: ' + color + '33;">' +
@@ -422,7 +431,6 @@ const GolemStates = (function() {
 
     return '<div class="states-page">' +
       '<div class="states-controls">' +
-        '<button class="states-nav-btn states-nav-back" onclick="GolemStates.openGrid()"><img src="../../assets/icons/32/nav/home.png" class="lab-icon" alt=""> Назад к карте</button>' +
       '</div>' +
       '<div class="diagnostic-page">' +
         '<div class="diagnostic-header">' +
@@ -507,7 +515,6 @@ const GolemStates = (function() {
 
     return '<div class="states-page">' +
       '<div class="states-controls">' +
-        '<button class="states-nav-btn states-nav-back" onclick="GolemStates.openGrid()"><img src="../../assets/icons/32/nav/home.png" class="lab-icon" alt=""> Назад к карте</button>' +
       '</div>' +
       '<div class="diagnostic-page">' +
         '<div class="diagnostic-result">' +

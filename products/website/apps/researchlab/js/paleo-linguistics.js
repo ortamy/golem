@@ -1,4 +1,4 @@
-/**
+﻿/**
  * paleo-linguistics.js — Модуль «Палео-лингвистика»
  *
  * Эволюция алфавита: прото-ханаанский → палео-иврит → финикийский.
@@ -153,6 +153,15 @@ const PaleoLinguistics = (function() {
       currentLang = lang;
       currentTab = 'alphabet';
       container.innerHTML = renderLangPage(lang);
+      // РЁР°РїРєР° РјРѕРґСѓР»СЏ РїРѕРґРјРµРЅСЏРµС‚СЃСЏ РЅР° СЏР·С‹Рє
+      if (window.LabHero && window.LabHero.setView) {
+        window.LabHero.setView('paleo-linguistics', 'detail', {
+          kicker: 'Р“РћР›Р•Рњ В· РџРђР›Р•Рћ-Р›РРќР“Р’РРЎРўРРљРђ',
+          title: lang.name,
+          subtitle: lang.role || '',
+          icon: 'scribe/scroll.png'
+        });
+      }
       bindLangPageEvents(container, lang);
       var back = container.querySelector('.pl-back-btn');
       if (back) back.addEventListener('click', function(event) {
@@ -169,7 +178,7 @@ const PaleoLinguistics = (function() {
     return '<div class="pl-lang-page">' +
       '<button class="lab-btn lab-btn-secondary lab-btn-sm pl-back-btn" onclick="LabRouter.navigate(\'paleo-linguistics\')">← Назад к языкам</button>' +
       '<div class="pl-lang-head">' +
-        '<h1><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">' + escapeHtml(lang.name) + '</h1>' +
+        '<div class="pl-lang-title-wrap"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">' + escapeHtml(lang.name) + '</div>' +
         '<p class="subtitle">' + escapeHtml(lang.role) + '</p>' +
         '<div class="pl-lang-meta">' + escapeHtml(lang.period) + ' · ' + escapeHtml(lang.script) + '</div>' +
       '</div>' +

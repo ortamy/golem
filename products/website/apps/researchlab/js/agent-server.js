@@ -144,7 +144,7 @@
         '</fieldset>' +
         '<div class="agent-server-actions"><button type="submit" class="lab-btn lab-btn-primary">Сохранить и подготовить</button>' +
           '<button type="button" class="lab-btn lab-btn-secondary" data-agent-server-copy>Копировать команду</button>' +
-          '<button type="button" class="lab-btn lab-btn-secondary" data-agent-server-back>← К агентам</button></div>' +
+          '</div>' +
       '</form>' +
       '<div class="agent-server-status info" data-agent-server-status role="status" aria-live="polite">Конфигурация загружена из локального хранилища.</div>' +
       '<div class="agent-server-output-grid"><section class="agent-server-output"><h3>Команда запуска</h3><pre data-agent-server-command></pre></section>' +
@@ -159,7 +159,6 @@
     container.querySelector('[data-agent-server-copy]').addEventListener('click', function() {
       if (saveFromForm(false)) copyText(makeCommand(state));
     });
-    container.querySelector('[data-agent-server-back]').addEventListener('click', close);
   }
 
   function close() {

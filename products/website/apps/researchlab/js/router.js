@@ -13,6 +13,48 @@ const LabRouter = (function() {
   let modules = {};
   let onModuleChange = null;
 
+  function escapeHtml(text) {
+    var el = document.createElement('div');
+    el.textContent = text == null ? '' : String(text);
+    return el.innerHTML;
+  }
+
+  function fallbackTitle(segment) {
+    return decodeURIComponent(segment).replace(/[-_]+/g, ' ').replace(/\b\S/g, function(letter) {
+      return letter.toLocaleUpperCase('ru-RU');
+    });
+  }
+
+  function routeTitle(route) {
+    if (route === 'dashboard') return 'ГОЛЕМ';
+    if (window.LabHero && window.LabHero.getTitle) {
+      var title = window.LabHero.getTitle(route);
+      if (title) return title;
+    }
+    var segment = route.split('/').pop();
+    return fallbackTitle(segment);
+  }
+
+  function renderBreadcrumbs(moduleId, parsed) {
+    var container = modules[moduleId] || document.getElementById(moduleId);
+    if (!container || moduleId === 'dashboard') return;
+
+    var segments = (parsed && parsed.segments && parsed.segments.length ? parsed.segments : [moduleId]).slice();
+    var routes = ['dashboard'];
+    for (var i = 0; i < segments.length; i++) routes.push(segments.slice(0, i + 1).join('/'));
+
+    var crumb = container.querySelector('.lab-hero__kicker');
+    if (!crumb) return;
+
+    crumb.innerHTML = routes.map(function(route, index) {
+      var current = index === routes.length - 1;
+      var label = escapeHtml(routeTitle(route));
+      return (index ? '<span class="lab-hero__kicker-separator" aria-hidden="true">·</span>' : '') +
+        '<a class="lab-hero__kicker-link' + (current ? ' is-current' : '') + '" href="#' + escapeHtml(route) + '"' +
+        (current ? ' aria-current="page"' : '') + '>' + label + '</a>';
+    }).join('');
+  }
+
   // ===== ИНИЦИАЛИЗАЦИЯ =====
   function init() {
     // Регистрируем все модули
@@ -236,6 +278,7 @@ const LabRouter = (function() {
     if (onModuleChange) {
       onModuleChange(moduleId, parsed);
     }
+    renderBreadcrumbs(moduleId, parsed);
 
     // Прокрутка вверх
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -252,6 +295,7 @@ const LabRouter = (function() {
     navigate: navigate,
     show: showModule,
     parseHash: parseHash,
+    renderBreadcrumbs: renderBreadcrumbs,
     current: function() { return currentModule; },
     onChange: onChange
   };
