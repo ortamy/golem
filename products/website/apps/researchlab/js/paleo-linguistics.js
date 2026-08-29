@@ -166,7 +166,8 @@ const PaleoLinguistics = (function() {
   }
 
   function renderLangPage(lang) {
-    return '<button class="lab-btn lab-btn-secondary lab-btn-sm pl-back-btn" onclick="LabRouter.navigate(\'paleo-linguistics\')">← Назад к языкам</button>' +
+    return '<div class="pl-lang-page">' +
+      '<button class="lab-btn lab-btn-secondary lab-btn-sm pl-back-btn" onclick="LabRouter.navigate(\'paleo-linguistics\')">← Назад к языкам</button>' +
       '<div class="pl-lang-head">' +
         '<h1><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">' + escapeHtml(lang.name) + '</h1>' +
         '<p class="subtitle">' + escapeHtml(lang.role) + '</p>' +
@@ -181,7 +182,8 @@ const PaleoLinguistics = (function() {
       '<div id="pl-tab-alphabet" class="pl-tab-panel">' + renderAlphabetTab() + '</div>' +
       '<div id="pl-tab-roots" class="pl-tab-panel" style="display:none;">' + renderRootsTab(lang) + '</div>' +
       '<div id="pl-tab-texts" class="pl-tab-panel" style="display:none;">' + renderTextsTab(lang) + '</div>' +
-      '<div id="pl-tab-grammar" class="pl-tab-panel" style="display:none;">' + renderGrammarTab(lang) + '</div>';
+      '<div id="pl-tab-grammar" class="pl-tab-panel" style="display:none;">' + renderGrammarTab(lang) + '</div>' +
+    '</div>';
   }
 
   function stageKey(langId) {

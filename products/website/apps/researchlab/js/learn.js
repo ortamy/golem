@@ -4,12 +4,13 @@
 
   var PROGRESS_KEY = 'golem_learn_progress';
   var RECORD_KEY = 'golem_guess_record';
+  var COURSE_KEY = 'golem_course_progress';
   var LETTER_KEYS = ['א','ב','ג','ד','ה','ו','ז','ח','ט','י','כ','ל','מ','נ','ס','ע','פ','צ','ק','ר','ש','ת'];
   var fallback = [
     ['א','𐤀','Алеф','бык','сила'],['ב','𐤁','Бет','дом','вместилище'],['ג','𐤂','Гимель','верблюд','движение'],['ד','𐤃','Далет','дверь','вход'],['ה','𐤄','Хе','дыхание','откровение'],['ו','𐤅','Вав','крюк','соединение'],['ז','𐤆','Заин','оружие','инструмент'],['ח','𐤇','Хет','ограда','отделение'],['ט','𐤈','Тет','змея','оборачивание'],['י','𐤉','Йод','рука','действие'],['כ','𐤊','Каф','ладонь','удержание'],['ל','𐤋','Ламед','посох','направление'],['מ','𐤌','Мем','вода','течение'],['נ','𐤍','Нун','рыба','жизнь'],['ס','𐤎','Самех','опора','поддержка'],['ע','𐤏','Аин','глаз','видение'],['פ','𐤐','Пе','рот','речь'],['צ','𐤑','Цаде','крюк','цель'],['ק','𐤒','Коф','игла','окружение'],['ר','𐤓','Реш','голова','начало'],['ש','𐤔','Шин','зуб','разрушение'],['ת','𐤕','Тав','знак','печать']
   ];
   var letters = [];
-  var state = { view:'home', lesson:null, game:null, timer:null };
+  var state = { view:'home', lesson:null, game:null, timer:null, course:null };
 
   function esc(value) { var div = document.createElement('div'); div.textContent = String(value == null ? '' : value); return div.innerHTML; }
   function now() { return new Date().toISOString(); }
@@ -50,21 +51,57 @@
 
   function courseCard(course, index) {
     var levelLabel = course.levelKey === 'from-zero' ? 'с нуля' : course.levelKey === 'advanced' ? 'продвинутый' : 'базовый';
-    return '<article class="course-card" style="animation-delay:' + index * 60 + 'ms">' +
+    var statusClass = course.status === 'скоро' ? 'soon' : course.status === 'открыт' ? 'open' : 'draft';
+    var hasLessons = !!(course.lessons && course.lessons.length);
+    var click = hasLessons ? ' onclick="LearnLab.openCourse(\'' + course.id + '\')"' : '';
+    var tagOpen = hasLessons ? '<button type="button"' : '<article';
+    var tagClose = hasLessons ? '</button>' : '</article>';
+    return tagOpen + ' class="course-card' + (hasLessons ? ' is-open' : '') + '" style="animation-delay:' + index * 60 + 'ms"' + click + '>' +
       '<div class="course-card-head"><h2>' + esc(course.title) + '</h2>' +
-      '<span class="course-status is-' + (course.status === 'скоро' ? 'soon' : 'draft') + '">' + esc(course.status) + '</span></div>' +
+      '<span class="course-status is-' + statusClass + '">' + esc(course.status) + '</span></div>' +
       '<p class="course-desc">' + esc(course.description) + '</p>' +
       '<div class="course-card-meta">' +
         '<span class="course-tag level">' + esc(levelLabel) + '</span>' +
-        '<span class="course-tag">' + course.modules + ' модуля</span>' +
+        '<span class="course-tag">' + course.modules + ' ' + (course.modules === 1 ? 'модуль' : course.modules < 5 ? 'модуля' : 'модулей') + '</span>' +
       '</div>' +
-    '</article>';
+      (hasLessons ? '<div class="course-card-hint"><span>' + course.lessons.length + ' уроков-карточек</span><span aria-hidden="true">→</span></div>' : '') +
+    tagClose;
   }
   function renderCourses() {
     var courses = (root.GolemCourses && root.GolemCourses.list) || [];
     return '<button type="button" class="lab-btn lab-btn-secondary learn-back" onclick="LearnLab.home()">← К обучению</button>' +
       '<div class="learn-section-head"><div><h1>Курсы</h1><p class="subtitle">Практические курсы: без воды, от простого к глубокому, с результатом после каждого модуля.</p></div></div>' +
       '<div class="course-grid">' + courses.map(courseCard).join('') + '</div>';
+  }
+
+  function courseProgress() { var value = read(COURSE_KEY, { lessons: {} }); if (!value.lessons) value.lessons = {}; return value; }
+
+  function renderCourse() {
+    var course = state.course;
+    if (!course) { state.view = 'courses'; return renderCourses(); }
+    var p = courseProgress();
+    var lessons = course.lessons || [];
+    var done = lessons.filter(function(lesson) { return p.lessons[lesson.id]; }).length;
+    var cards = lessons.map(function(lesson, index) {
+      var isDone = !!p.lessons[lesson.id];
+      return '<article class="lesson-scroll' + (isDone ? ' is-done' : '') + '" style="animation-delay:' + index * 70 + 'ms">' +
+        '<div class="lesson-scroll-side"><span class="lesson-paleo" lang="hbo" aria-hidden="true">' + esc(lesson.letter) + '</span><span class="lesson-number">' + lesson.number + '/' + lessons.length + '</span></div>' +
+        '<div class="lesson-scroll-body">' +
+          '<header class="lesson-scroll-head"><h2>' + esc(lesson.title) + '</h2><span class="lesson-letter-name">' + esc(lesson.letterName) + '</span></header>' +
+          '<span class="lesson-paleo-word" lang="hbo">' + esc(lesson.paleo) + '</span>' +
+          '<p class="lesson-meaning">' + esc(lesson.meaning) + '</p>' +
+          '<blockquote class="lesson-quote">' + esc(lesson.quote) + '</blockquote>' +
+          '<div class="lesson-ask"><h3>Вопрос</h3><p>' + esc(lesson.question) + '</p></div>' +
+          '<div class="lesson-practice"><h3>Практика</h3><p>' + esc(lesson.practice) + '</p></div>' +
+          '<button type="button" class="lab-btn ' + (isDone ? 'lab-btn-secondary' : 'lab-btn-primary') + ' lesson-done-btn" onclick="LearnLab.toggleLesson(\'' + course.id + '\',\'' + lesson.id + '\')">' + (isDone ? 'Пройдено — снять отметку' : 'Отметить пройденным') + '</button>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+    return '<button type="button" class="lab-btn lab-btn-secondary learn-back" onclick="LearnLab.openCourses()">← К курсам</button>' +
+      '<div class="course-hero"><div><span class="course-hero-level">' + esc(course.level) + ' · ' + lessons.length + ' уроков</span><h1>' + esc(course.title) + '</h1><p class="subtitle">' + esc(course.description) + '</p></div><div class="learn-hero-mark course-hero-mark" aria-hidden="true">' + esc(course.mark || lessons[0].letter) + '</div></div>' +
+      '<div class="course-progress-line" role="progressbar" aria-valuemin="0" aria-valuemax="' + lessons.length + '" aria-valuenow="' + done + '" aria-label="Пройдено уроков"><span style="width:' + (lessons.length ? done / lessons.length * 100 : 0) + '%"></span></div>' +
+      '<p class="course-progress-label">Пройдено ' + done + ' из ' + lessons.length + '</p>' +
+      '<div class="lesson-list">' + cards + '</div>';
   }
 
   function renderLessons() {
@@ -86,20 +123,22 @@
     var choices = game.choices; return '<div class="learn-game"><button type="button" class="lab-btn lab-btn-secondary learn-back" onclick="LearnLab.home()">← К обучению</button><div class="learn-game-bar"><div class="learn-game-metric">Раунд <strong>' + game.round + '/10</strong></div><div class="learn-game-metric">Счёт <strong>' + game.score + '</strong></div><div class="learn-game-metric learn-timer ' + (game.time <= 8 ? 'is-low' : '') + '">Время <strong>' + game.time + 'с</strong></div></div><div class="learn-game-symbol"><small>Какой образ несёт этот знак?</small><span class="symbol" lang="hbo">' + game.item.paleo + '</span></div><div class="learn-options learn-game-options">' + choices.map(function(option) { return '<button type="button" class="learn-option" data-answer="' + esc(option.hebrew) + '" onclick="LearnLab.gameAnswer(\'' + option.hebrew + '\')">' + esc(option.image) + '</button>'; }).join('') + '</div><div id="learn-game-feedback" class="learn-game-feedback" role="status" aria-live="polite"></div></div>';
   }
 
-  function render() { var container = getContainer(); if (!container || !letters.length) return; if (state.view === 'lessons') container.innerHTML = renderLessons(); else if (state.view === 'lesson') container.innerHTML = renderLesson(); else if (state.view === 'game') container.innerHTML = renderGame(); else if (state.view === 'courses') container.innerHTML = renderCourses(); else container.innerHTML = renderHome(); }
+  function render() { var container = getContainer(); if (!container || !letters.length) return; if (state.view === 'lessons') container.innerHTML = renderLessons(); else if (state.view === 'lesson') container.innerHTML = renderLesson(); else if (state.view === 'game') container.innerHTML = renderGame(); else if (state.view === 'courses') container.innerHTML = renderCourses(); else if (state.view === 'course') container.innerHTML = renderCourse(); else container.innerHTML = renderHome(); }
   function markStarted(item) { var p = progress(); if (!p.letters[item.hebrew] || p.letters[item.hebrew].status !== 'complete') p.letters[item.hebrew] = {status:'progress',score:0}; touch(p); }
   function feedback(text, ok) { var el = document.getElementById('learn-feedback'); if (el) { el.textContent = text; el.className = 'learn-feedback ' + (ok ? 'is-correct' : 'is-wrong'); } }
   function advance(ok) { if (!ok) return; state.lesson.score++; if (state.lesson.step < 4) { state.lesson.step++; render(); } else { var p = progress(); p.letters[state.lesson.item.hebrew] = {status:'complete',score:state.lesson.score,attempts:(p.letters[state.lesson.item.hebrew] && p.letters[state.lesson.item.hebrew].attempts || 0) + 1,lastActivity:now()}; touch(p); state.view = 'lesson'; state.lesson.done = true; render(); } }
 
   var api = {
     init: function() { if (!letters.length) loadLetters(); render(); },
-    home: function() { state.view='home'; state.lesson=null; stopTimer(); render(); },
+    home: function() { state.view='home'; state.lesson=null; state.course=null; stopTimer(); render(); },
     openLessons: function() { state.view='lessons'; stopTimer(); render(); },
     openLesson: function(key) { var item = byKey(key); if (!item) return; markStarted(item); state.lesson={item:item,step:1,score:0,done:false}; state.view='lesson'; render(); },
     submitText: function() { var input = document.getElementById('learn-answer'), step = state.lesson.step, expected = step === 1 ? state.lesson.item.name : state.lesson.item.meaning; if (!input) return; var ok = inputMatch(input.value, expected); if (ok) advance(true); else feedback('Пока не совпало. Попробуйте ещё раз.', false); },
     answer: function(key) { var ok = key === state.lesson.item.hebrew; if (ok) advance(true); else feedback('Это другой образ. Попробуйте ещё раз.', false); },
     openGame: function() { stopTimer(); state.view='game'; state.game={round:1,score:0,streak:0,time:30,done:false}; nextRound(); startTimer(); },
-    openCourses: function() { state.view='courses'; stopTimer(); render(); },
+    openCourses: function() { state.view='courses'; state.course=null; stopTimer(); render(); },
+    openCourse: function(id) { var course = ((root.GolemCourses && root.GolemCourses.list) || []).filter(function(c) { return c.id === id && c.lessons && c.lessons.length; })[0]; if (!course) return; stopTimer(); state.course = course; state.view = 'course'; render(); window.scrollTo(0, 0); },
+    toggleLesson: function(courseId, lessonId) { var p = courseProgress(); if (p.lessons[lessonId]) delete p.lessons[lessonId]; else p.lessons[lessonId] = { course: courseId, done: true, at: now() }; write(COURSE_KEY, p); render(); },
     gameAnswer: function(key) { var game=state.game; if (!game || game.locked) return; game.locked=true; var ok=key===game.item.hebrew, earned=0; if(ok){game.streak++; earned=10*(game.streak >= 3 ? 3 : game.streak === 2 ? 2 : 1); game.score+=earned;} else {game.streak=0; game.score=Math.max(0,game.score-5);} render(); var feedbackEl=document.getElementById('learn-game-feedback'); if(feedbackEl){feedbackEl.textContent=ok ? 'Верно! +' + earned + ' очков' : 'Неверно. Правильный образ: ' + game.item.image; feedbackEl.className='learn-game-feedback ' + (ok?'correct':'wrong');} setTimeout(function(){ if(!state.game || state.game !== game) return; if(game.round >= 10) finishGame(); else {game.round++; nextRound();} },700); },
     reset: function() { if (!window.confirm('Сбросить весь прогресс обучения и рекорд игры?')) return; localStorage.removeItem(PROGRESS_KEY); localStorage.removeItem(RECORD_KEY); state.view='home'; render(); }
   };

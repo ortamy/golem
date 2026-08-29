@@ -30,9 +30,17 @@
 .language-map-future { color: var(--text-secondary); }
 .language-map-context { font-size: 15px; margin-top: 8px; line-height: 1.55; }
 
+/* Поиск над фильтрами: компактное поле в едином стиле с фильтрами */
+#language-map .language-map-search { margin-bottom: var(--space-4); }
+#language-map .language-map-search input { min-height: 44px; }
+#language-map .language-map-search input:focus-visible {
+  outline: 3px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+
 .language-map-filters {
   display: grid;
-  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 14px;
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
@@ -90,15 +98,29 @@
 .language-map-card-action { color: var(--text-gold); font-size: 13px; margin-top: auto; }
 .language-map-empty { color: var(--text-secondary); padding: 24px 0; }
 
-.language-map-detail { max-width: 760px; }
+/* Детальный экран: на всю ширину контейнера, метрики — полный ряд плиток */
+.language-map-detail { max-width: none; }
 .language-map-back { margin-bottom: 28px; min-height: 44px; }
 .language-map-detail h1 { font-size: clamp(30px, 5vw, 46px); }
-.language-map-detail-metrics { max-width: 520px; margin: 26px 0; }
+.language-map-detail-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  max-width: none;
+  margin: 26px 0;
+}
+.language-map-detail-metrics .language-map-metric {
+  border-top: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
 .language-map-detail-notes { max-width: 680px; font-size: 18px; line-height: 1.6; margin-bottom: 22px; }
 
 @media (max-width: 640px) {
-  .language-map-filters { grid-template-columns: 1fr; }
-  .language-map-grid { grid-template-columns: 1fr; }
+  #language-map .language-map-filters { grid-template-columns: 1fr; }
+  #language-map .language-map-grid { grid-template-columns: 1fr; }
   .language-map-card { min-height: 0; }
 }
 
@@ -106,3 +128,12 @@
   .language-map-card { transition: none; }
   .language-map-card:hover { transform: none; }
 }
+
+/* ===== Единый контейнер как на других страницах модулей ===== */
+/* Шелл не добавляет своих полей: контент совпадает с внутренними отступами пастельного контейнера */
+#language-map .language-map-shell { padding: 0; }
+
+/* Фильтры и поиск растягиваются на ширину контейнера: базовые правила выше */
+
+/* Сетка карточек сбалансирована на широком экране */
+#language-map .language-map-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }

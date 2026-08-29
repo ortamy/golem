@@ -125,9 +125,11 @@
     var type = normalize((container.querySelector('#language-map-type') || {}).value || 'all');
     var davar = normalize((container.querySelector('#language-map-davar') || {}).value || 'all');
     var sort = (container.querySelector('#language-map-sort') || {}).value || state.sort;
+    var query = normalize((container.querySelector('#language-map-query') || {}).value || '');
     state.sort = sort;
     return state.languages.filter(function(language) {
-      return (type === 'all' || normalize(language.type) === type) &&
+      return (!query || normalize(language.name).indexOf(query) !== -1 || normalize(language.type).indexOf(query) !== -1) &&
+        (type === 'all' || normalize(language.type) === type) &&
         (davar === 'all' || normalize(language.has_davar) === davar);
     }).sort(function(left, right) {
       var result = String(left.name || '').localeCompare(String(right.name || ''), 'ru', { sensitivity: 'base' });
@@ -158,6 +160,7 @@
     var type = container.querySelector('#language-map-type');
     var davar = container.querySelector('#language-map-davar');
     var sort = container.querySelector('#language-map-sort');
+    var query = container.querySelector('#language-map-query');
     if (!grid || grid.dataset.bound === '1') return;
 
     grid.addEventListener('click', function(event) {
@@ -174,6 +177,7 @@
     if (type) type.addEventListener('change', function() { renderCards(container); });
     if (davar) davar.addEventListener('change', function() { renderCards(container); });
     if (sort) sort.addEventListener('change', function() { renderCards(container); });
+    if (query) query.addEventListener('input', function() { renderCards(container); });
     grid.dataset.bound = '1';
   }
 

@@ -292,7 +292,18 @@
 
 .lab-content {
   flex: 1; padding: var(--space-7) var(--space-8);
-  overflow-y: auto; min-height: calc(100vh - 56px);
+  overflow-y: auto; min-height: calc(100vh - 100px);
+  /* Пастельно-бежевый контейнер под шапкой: светлее фона страницы, темнее внутренних карточек */
+  margin: var(--space-5) var(--space-6) var(--space-6) var(--space-5);
+  background: var(--bg-secondary);
+  background: color-mix(in srgb, var(--bg-primary) 42%, var(--bg-secondary));
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  transition: background-color var(--motion-base), border-color var(--motion-base), box-shadow var(--motion-base);
+}
+body.is-embed .lab-content {
+  margin: 0; border: none; border-radius: 0; box-shadow: none; background: transparent;
 }
 
 /* ===== FOOTER ===== */
