@@ -571,11 +571,40 @@ html[data-theme="dark"] .substitution-step {
 .exposure-card-foot {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: auto;
   padding-top: var(--space-2);
   border-top: 1px solid var(--border-light, #d4c4a8);
   color: var(--text-muted, #897866);
   font-size: .78rem;
+}
+
+.exposure-card-status-tag {
+  display: inline-block;
+  margin: 0;
+  padding: 3px 9px;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill, 999px);
+  color: var(--accent-gold);
+  background: rgb(var(--accent-gold-rgb) / 0.12);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+.exposure-card-status-tag--archive {
+  color: var(--text-muted, #8a7a6a);
+  background: rgba(138, 122, 106, 0.1);
+}
+
+.exposure-card-foot-date {
+  margin-left: auto;
+  padding-left: var(--space-2);
+  color: var(--text-muted, #897866);
+  font-size: .75rem;
 }
 
 .exposure-badge {

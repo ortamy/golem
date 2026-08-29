@@ -129,11 +129,16 @@ const ExposureCase = (function() {
       return '<span class="exposure-card-related-item">' + esc(id) + '</span>';
     }).join('');
     var sourcesCount = (item.sources || []).length;
+    var archiveTag = (item.status === 'archive' || String(item.category || '').toLowerCase() === 'архив' || String(item.updatedAt || '').indexOf('archive') !== -1)
+      ? 'Архив'
+      : (item.category || '');
+    var statusTag = archiveTag
+      ? '<span class="exposure-card-status-tag' + (archiveTag === 'Архив' ? ' exposure-card-status-tag--archive' : '') + '">' + esc(archiveTag) + '</span>'
+      : '';
     return '<a class="exposure-card" href="#researches/case/' + encodeURIComponent(item.slug) + '" data-slug="' + esc(item.slug) + '">' +
       '<div class="exposure-card-top">' +
         '<span class="exposure-card-icon-wrap">' + renderIcon(cardIcon, item.title, 'exposure-card-icon') + '</span>' +
         '<span class="exposure-card-status">' + confidenceBadge(item.confidence) + '</span>' +
-        '<span class="exposure-card-category">' + esc(item.category || '') + '</span>' +
       '</div>' +
       '<div class="exposure-card-body">' +
         '<div class="exposure-card-title">' + esc(item.title || '') + '</div>' +
@@ -142,8 +147,8 @@ const ExposureCase = (function() {
         (related ? '<div class="exposure-card-related"><span class="exposure-card-label">Связано</span>' + related + '</div>' : '') +
       '</div>' +
       '<div class="exposure-card-foot">' +
-        '<span>' + sourcesCount + ' источник' + (sourcesCount === 1 ? '' : (sourcesCount >= 2 && sourcesCount <= 4 ? 'а' : 'ов')) + '</span>' +
-        '<span>' + esc(item.updatedAt || '') + '</span>' +
+        statusTag +
+        '<span class="exposure-card-foot-date">' + esc(item.updatedAt || '') + '</span>' +
       '</div>' +
     '</a>';
   }
