@@ -38,46 +38,6 @@
 }
 .dw-widget-wide { grid-column: 1 / -1; }
 
-/* Карта подмен: радиальный граф с адаптивными баджами */
-.dw-map { display: flex; justify-content: center; overflow: hidden; }
-.dw-map svg {
-  display: block; width: 100%; height: auto; max-width: 460px;
-  aspect-ratio: 400 / 360;
-}
-.dw-map-node {
-  cursor: pointer;
-  outline: none;
-  transform-box: fill-box;
-  transform-origin: center;
-  transition: transform var(--motion-base), filter var(--motion-base);
-}
-.dw-map-node rect {
-  fill: var(--bg-card);
-  stroke: var(--accent-gold);
-  stroke-width: 1;
-  filter: drop-shadow(0 2px 4px rgba(44,24,16,0.10));
-  transition: fill var(--motion-base), stroke-width var(--motion-base), filter var(--motion-base);
-}
-.dw-map-node:hover,
-.dw-map-node:focus-visible {
-  transform: scale(1.05);
-}
-.dw-map-node:hover rect,
-.dw-map-node:focus-visible rect {
-  fill: var(--bg-secondary);
-  stroke-width: 1.5;
-  filter: drop-shadow(0 0 7px rgb(var(--accent-gold-rgb) / 0.42));
-}
-.dw-map-node text {
-  font-family: var(--font-serif); font-size: 11px; fill: var(--text-gold);
-  text-anchor: middle; pointer-events: none;
-}
-.dw-map-node:hover text,
-.dw-map-node:focus-visible text { fill: var(--accent-gold-hover); font-weight: 600; }
-.dw-map-center circle { fill: var(--bg-dark); stroke: var(--accent-gold); stroke-width: 2; }
-.dw-map-center image { display: block; pointer-events: none; }
-.dw-map-line { stroke: var(--border-gold); stroke-width: 1; opacity: 0.5; }
-
 /* Гистограмма механизмов подмены */
 .dw-bars { display: flex; flex-direction: column; gap: 10px; }
 .dw-bar-row {
@@ -109,16 +69,20 @@
 .dw-list-title { min-width: 0; flex: 1; font-weight: 600; font-size: 15px; }
 .dw-list-meta { flex-shrink: 0; font-size: 12px; color: var(--text-muted); margin-top: 0; text-align: right; }
 
-/* Древо Книг: компактная библиотечная сетка */
+/* Древо Книг: сетка 3 колонки, компактные карточки */
 .book-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: var(--space-3);
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
 }
 .book-card {
-  display: flex; flex-direction: column; align-items: center; gap: 9px;
-  min-width: 0; min-height: 148px; padding: 14px 12px 12px;
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "icon name name"
+    "track track status";
+  gap: 4px 12px; align-items: center;
+  min-width: 0; min-height: 0; padding: 10px 12px;
   border: 1px solid var(--border-light); border-radius: 8px;
-  box-shadow: var(--shadow-soft); color: var(--text-primary); text-align: center;
+  box-shadow: var(--shadow-soft); color: var(--text-primary); text-align: left;
   cursor: pointer; transition: transform var(--motion-base), box-shadow var(--motion-base), border-color var(--motion-base);
 }
 .book-card:hover, .book-card:focus-visible {
@@ -129,15 +93,16 @@
 .book-card--in-progress { background: #fff7d6; }
 .book-card--not-started, .book-card--loading { background: var(--bg-tertiary); }
 .book-card-icon {
-  color: var(--text-gold); font-family: var(--font-paleo); font-size: 36px;
-  line-height: 1; min-height: 38px;
+  grid-area: icon;
+  color: var(--text-gold); font-family: var(--font-paleo); font-size: 28px;
+  line-height: 1;
 }
 .book-card-name {
-  display: block; width: 100%; overflow: hidden; text-overflow: ellipsis;
+  grid-area: name; min-width: 0; overflow: hidden; text-overflow: ellipsis;
   font-family: var(--font-serif); font-size: 15px; font-weight: 600; white-space: nowrap;
 }
 .book-card-track {
-  display: block; width: 100%; height: 7px; overflow: hidden;
+  grid-area: track; display: block; width: auto; height: 7px; overflow: hidden;
   background: var(--bg-tertiary); border-radius: 4px;
 }
 .book-card-fill {
@@ -145,15 +110,17 @@
   border-radius: var(--radius-xs); transition: width 0.6s ease;
 }
 .book-card-status {
-  display: block; width: 100%; margin-top: auto; color: var(--text-secondary);
-  font-size: var(--text-xs); line-height: 1.2; white-space: nowrap;
+  grid-area: status; min-width: 0; overflow: hidden; text-overflow: ellipsis; text-align: right;
+  color: var(--text-secondary); font-size: var(--text-xs); line-height: 1.2; white-space: nowrap;
 }
 .book-card--not-started .book-card-fill, .book-card--loading .book-card-fill { background: var(--border-light); }
 
 @media (max-width: 720px) {
   .dw-grid { grid-template-columns: 1fr; }
   .dw-bar-label { width: 96px; font-size: 12px; }
-  .dw-map svg { max-width: 400px; }
   .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .book-card { min-height: 142px; }
+  .book-card { padding: 10px 12px; }
+}
+@media (max-width: 520px) {
+  .book-grid { grid-template-columns: 1fr; }
 }

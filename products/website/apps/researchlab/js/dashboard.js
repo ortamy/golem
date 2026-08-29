@@ -118,13 +118,12 @@ const Dashboard = (function() {
     container.innerHTML =
       renderCounters(data, dictEntries, totalTerms) +
       '<div class="dw-grid">' +
-        renderSubstitutionMap(dictEntries) +
         renderMechanismsBars(dictEntries) +
         renderLatestResearches(data.researches) +
         renderBooksProgress(data.qumranBooks, data.bookProgress) +
       '</div>';
 
-    bindMapClicks(container);
+    bindDictClicks(container);
     bindBookClicks(container);
   }
 
@@ -139,45 +138,6 @@ const Dashboard = (function() {
     return '<div class="dw-counters">' + items.map(function(item) {
       return '<div class="dw-counter"><div class="dw-num">' + esc(item.num) + '</div><div class="dw-label">' + esc(item.label) + '</div></div>';
     }).join('') + '</div>';
-  }
-
-  function renderSubstitutionMap(dictEntries) {
-    var top = dictEntries.slice(0, 6);
-    var cx = 200, cy = 180;
-    // Фиксированная геометрия сохраняет карту цельной при любом ресайзе SVG.
-    var nodePositions = [
-      { x: 200, y: 42 },
-      { x: 300, y: 111 },
-      { x: 300, y: 249 },
-      { x: 200, y: 318 },
-      { x: 100, y: 249 },
-      { x: 100, y: 111 }
-    ];
-    var lines = '', nodes = '';
-
-    top.forEach(function(d, i) {
-      var position = nodePositions[i];
-      var x = position.x;
-      var y = position.y;
-      var label = String(d.title || d.key);
-      var nodeWidth = Math.min(180, Math.max(94, label.length * 7 + 42));
-      lines += '<line class="dw-map-line" x1="' + cx + '" y1="' + cy + '" x2="' + x + '" y2="' + y + '"></line>';
-      nodes += '<g class="dw-map-node" data-dict-key="' + esc(d.key) + '" role="button" tabindex="0" aria-label="Открыть словарь: ' + esc(label) + '" transform="translate(' + x.toFixed(1) + ',' + y.toFixed(1) + ')">' +
-        '<rect x="-' + (nodeWidth / 2).toFixed(1) + '" y="-20" width="' + nodeWidth.toFixed(1) + '" height="40" rx="24"></rect>' +
-        '<text dy="4">' + esc(label) + '</text>' +
-      '</g>';
-    });
-
-    var svg = '<svg viewBox="0 0 400 360" role="img" aria-label="Карта подмен">' +
-      lines +
-      '<g class="dw-map-center" transform="translate(' + cx + ',' + cy + ')"><circle r="34"></circle><image href="../../assets/icons/32/ui/book.png" x="-15" y="-15" width="30" height="30" preserveAspectRatio="xMidYMid meet" role="presentation"></image></g>' +
-      nodes +
-    '</svg>';
-
-    return '<div class="dw-widget dw-widget-wide">' +
-      '<h3>Карта подмен</h3>' +
-      '<div class="dw-map">' + svg + '</div>' +
-    '</div>';
   }
 
   function renderMechanismsBars(dictEntries) {
@@ -244,13 +204,13 @@ const Dashboard = (function() {
         '<span class="book-card-status">' + esc(status) + '</span>' +
       '</button>';
     }).join('');
-    return '<div class="dw-widget">' +
+    return '<div class="dw-widget dw-widget-wide">' +
       '<h3>Древо Книг</h3>' +
       '<div class="book-grid" role="list">' + (cards || '<div class="lab-alert lab-alert-info">Данные загружаются…</div>') + '</div>' +
     '</div>';
   }
 
-  function bindMapClicks(container) {
+  function bindDictClicks(container) {
     container.querySelectorAll('[data-dict-key]').forEach(function(el) {
       var go = function() {
         var key = el.getAttribute('data-dict-key');
