@@ -1,0 +1,207 @@
+/* =============================================
+   tokens.css — ЕДИНЫЙ ИСТОЧНИК ТОКЕНОВ Research Lab
+   Подключается первым из lab.css (@import url('tokens.css')).
+   Все шкалы ниже — канон; сырые значения в модулях
+   мигрируются на токены этапом кодемода (Этап 2).
+   Темы: light (:root) -> dark -> white. Gold = единственный акцент.
+   ============================================= */
+
+/* ===== CSS CUSTOM PROPERTIES — ТЁМНАЯ ТЕМА ===== */
+:root {
+  --bg-primary: #ede0c8;
+  --bg-secondary: #faf3e0;
+  --bg-tertiary: #f5edd5;
+  --bg-dark: #2c1810;
+  --bg-dark-hover: #3a2215;
+  --bg-card: #faf3e0;
+  --text-primary: #2c1810;
+  --text-secondary: #5c4a3a;
+  --text-muted: #8a7a6a;
+  --text-light: #ede0c8;
+  --text-gold: #b8860b;
+  --accent-gold-rgb: 184 134 11;
+  --border-light: #d4c4a8;
+  --border-dark: #4a3020;
+  --border-gold: var(--accent-gold);
+  --accent-gold: #b8860b;
+  --accent-gold-hover: #8b6508;
+  --accent-red: #c0392b;
+  --accent-red-hover: #a93226;
+  --accent-green: #2a6a2a;
+
+  /* ===== SPACING SCALE (4px base) ===== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 48px;
+
+  /* ===== SHELLS (каркасы страниц, Этап 5) =====
+   Три яруса ширины + читалка; консолидация была: 1000..1240 -> --shell-page */
+--shell-frame: 1400px; /* каркас приложения (.lab-layout) */
+--shell-wide: 1480px;  /* широкие полотна: картография, геральдика, витрина состояний */
+--shell-page: 1120px;  /* документная / инструментальная страница (медиана былых 15 значений) */
+--shell-read: 1000px;  /* читалка (scripture-reader), режим долгого чтения */
+
+/* ===== RADIUS SCALE ===== */
+  --radius-xs: 4px;     /* мелкие контролы, бейджи (точный захват массового 4px) */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 999px; /* чипы, тумблеры, круглые кнопки */
+
+  /* ===== TYPE SCALE ===== */
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-md: 15px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+  --text-3xl: 38px;
+
+  /* ===== LEADING / TRACKING (два режима плотности) ===== */
+  --leading-ui: 1.5;       /* рабочий инструмент: словари, чекеры, генераторы */
+  --leading-read: 1.8;     /* читалка: манифест, писания, исследования */
+  --tracking-caps: 0.08em; /* капитель: секционные заголовки, оверлайны */
+
+  /* ===== FOCUS RING (золото = семантика фокуса) ===== */
+  --ring-focus: 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.40);
+
+  /* ===== SHADOW SCALE ===== */
+  --shadow-card: 0 1px 3px rgba(44,24,16,0.10), 0 2px 8px rgba(44,24,16,0.06);
+  --shadow-hover: 0 4px 12px rgba(44,24,16,0.14), 0 2px 4px rgba(44,24,16,0.08);
+  --shadow-card-hover: var(--shadow-hover);
+  --shadow-modal: 0 8px 24px rgba(44,24,16,0.20), 0 2px 8px rgba(44,24,16,0.10);
+  --shadow-floating: 0 12px 32px rgba(44,24,16,0.24), 0 4px 12px rgba(44,24,16,0.12);
+  --shadow-soft: 0 2px 12px rgba(44,24,16,0.10);
+  /* Цветовые компоненты для обратной совместимости модулей */
+  --shadow-card-color: rgba(44,24,16,0.08);
+  --shadow-card-hover-color: rgba(44,24,16,0.15);
+
+  /* ===== ALERTS ===== */
+  --info-bg: #e8f0e0;
+  --info-border: #b8d0a0;
+  --info-text: #2c4a1a;
+  --warn-bg: #fff5e0;
+  --warn-border: #e0c8a0;
+  --warn-text: #6a4a1a;
+  --error-bg: #fff0f0;
+  --error-border: #e0a0a0;
+  --error-text: #5c2a2a;
+  --success-bg: #e8f5e0;
+  --success-border: #a0d0a0;
+  --success-text: #2a5c2a;
+
+  --font-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-hand: 'Caveat', cursive;
+  --font-hebrew: 'Noto Serif Hebrew', 'Times New Roman', serif;
+  --font-paleo: 'Noto Sans Phoenician', 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  /* ===== MOTION (быстрые микровзаимодействия) ===== */
+  --dur-1: 120ms;          /* hover: color, border-color, shadow */
+  --dur-2: 180ms;          /* входы: модалки, дропдауны, раскрытия */
+    --ease-out: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Motion combo-токены: duration + easing в паре (Этап 7) */
+  --motion-fast: var(--dur-1) var(--ease-out);
+  --motion-base: var(--dur-2) var(--ease-out);
+
+  /* --- легаси-алиасы переходов (deprecated; в новых правилах не использовать,
+         будут заменены на --dur-* / --ease-out этапом кодемода) --- */
+  --transition: 0.2s ease;
+  --transition-fast: 0.15s ease;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #2a1f18;
+  --bg-secondary: #33261e;
+  --bg-tertiary: #3d2e24;
+  --bg-dark: #1e1611;
+  --bg-dark-hover: #2a1f18;
+  --bg-card: #33261e;
+  --text-primary: #e8dcc8;
+  --text-secondary: #bfae96;
+  --text-muted: #8a7a6a;
+  --text-light: #e8dcc8;
+  --text-gold: #d4a030;
+  --accent-gold-rgb: 212 160 48;
+  --border-light: #4a382a;
+  --border-dark: #5c3a2a;
+  --border-gold: var(--accent-gold);
+  --accent-gold: #d4a030;
+  --accent-gold-hover: #b8860b;
+  --ring-focus: 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.45);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.30), 0 2px 8px rgba(0,0,0,0.20);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.45), 0 2px 4px rgba(0,0,0,0.25);
+  --shadow-card-hover: var(--shadow-hover);
+  --shadow-modal: 0 8px 24px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.30);
+  --shadow-floating: 0 12px 32px rgba(0,0,0,0.60), 0 4px 12px rgba(0,0,0,0.35);
+  --shadow-soft: 0 2px 12px rgba(0,0,0,0.35);
+  --shadow-card-color: rgba(0,0,0,0.3);
+  --shadow-card-hover-color: rgba(0,0,0,0.5);
+  --info-bg: #2e3a28;
+  --info-border: #4a6a3a;
+  --info-text: #c8e0b8;
+  --warn-bg: #3a3226;
+  --warn-border: #7a6434;
+  --warn-text: #f0d8a0;
+  --error-bg: #3a2826;
+  --error-border: #8a4a3a;
+  --error-text: #f0b8a8;
+  --success-bg: #2a3a2e;
+  --success-border: #4a7a4a;
+  --success-text: #b8e0b8;
+}
+
+/* ===== WHITE THEME ===== */
+[data-theme="white"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #fafafa;
+  --bg-dark: #fafafa;
+  --bg-dark-hover: #f0f0f0;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #333333;
+  --text-muted: #777777;
+  --text-light: #1a1a1a;
+  --text-gold: #666666;
+  --accent-gold-rgb: 85 85 85;
+  --border-light: #e0e0e0;
+  --border-dark: #d6d6d6;
+  --border-gold: var(--accent-gold);
+  --accent-gold: #555555;
+  --accent-gold-hover: #333333;
+  --accent-red: #b83226;
+  --accent-red-hover: #92251d;
+  --accent-green: #286828;
+  --ring-focus: 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.38);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-card-hover: var(--shadow-hover);
+  --shadow-modal: 0 8px 24px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-floating: 0 12px 32px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.10);
+  --shadow-soft: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-card-color: rgba(0,0,0,0.04);
+  --shadow-card-hover-color: rgba(0,0,0,0.10);
+  --info-bg: #f0f5ec;
+  --info-border: #d0dec8;
+  --info-text: #33501f;
+  --warn-bg: #faf6ea;
+  --warn-border: #e8d8b0;
+  --warn-text: #6a4e1e;
+  --error-bg: #faf0f0;
+  --error-border: #e4b0b0;
+  --error-text: #6e2a2a;
+  --success-bg: #eef6ee;
+  --success-border: #bfdcc0;
+  --success-text: #2a5c2a;
+}
+[data-theme="white"] body::before,
+[data-theme="white"] body::after { opacity: 0; }

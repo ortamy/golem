@@ -1,0 +1,29 @@
+.tree-checker-shell { max-width: 980px; margin: 0 auto; }
+.tree-checker-intro { margin-bottom: 20px; }
+.tree-checker-kicker { margin: 0 0 8px; color: var(--accent-gold); font-size: .78rem; font-weight: 700; letter-spacing: .14em; }
+.tree-checker-toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+.tree-checker-toolbar-label { color: var(--text-muted); font-size: .9rem; }
+.tree-checker-progress { height: 6px; margin-bottom: 18px; overflow: hidden; background: var(--border-light); border-radius: 99px; }
+.tree-checker-progress span { display: block; width: 16.666%; height: 100%; background: var(--accent-gold); transition: width .2s ease; }
+.tree-checker-form { padding: 24px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; }
+.tree-checker-level-kicker { color: var(--accent-gold); font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.tree-checker-level h2 { margin: 6px 0; }
+.tree-checker-level-description { margin: 0 0 18px; color: var(--text-muted); line-height: 1.5; }
+.tree-checker-question { margin: 0 0 16px; color: var(--text-secondary); font-weight: 700; }
+.tree-checker-form textarea { width: 100%; min-height: 130px; resize: vertical; box-sizing: border-box; }
+.tree-checker-rating { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.tree-checker-rating label { display: flex; align-items: center; gap: 7px; padding: 9px 12px; border: 1px solid var(--border-light); border-radius: 6px; cursor: pointer; }
+.tree-checker-rating input { accent-color: var(--accent-gold); }
+.tree-checker-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 22px; }
+.tree-checker-result { margin-top: 22px; padding: 22px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; }
+.tree-checker-result h2 { margin-top: 0; }
+.tree-checker-verdict { padding: 12px 14px; border-left: 4px solid var(--accent-gold); background: var(--bg-primary); font-weight: 700; }
+.tree-checker-verdict.is-healthy { border-left-color: #4d8b52; color: #4d8b52; }
+.tree-checker-verdict.is-rotten { border-left-color: var(--accent-red); color: var(--accent-red); }
+.tree-checker-svg-wrap { margin: 20px auto; max-width: 700px; overflow: auto; background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: 6px; }
+.tree-checker-svg { display: block; width: 100%; min-width: 560px; height: auto; }
+.tree-checker-svg text { font-family: 'EB Garamond', Georgia, serif; fill: var(--text-primary); }
+.tree-checker-summary { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.tree-checker-summary li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--border-light); }
+.tree-checker-summary strong { color: var(--text-primary); }
+@media (max-width: 640px) { .tree-checker-form { padding: 18px; } .tree-checker-rating { flex-direction: column; } .tree-checker-actions .lab-btn { flex: 1; } }

@@ -1,0 +1,29 @@
+/* =============================================
+   components/feedback.css - Golem Research Lab layer
+   Layer of lab.css (split). Do not edit by hand -
+   regenerate from lab.css source sections.
+   ============================================= */
+
+/* ===== ALERTS ===== */
+.lab-alert {
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+  font-size: var(--text-md);
+  line-height: 1.6;
+}
+.lab-alert-info { background: var(--info-bg); border: 1px solid var(--info-border); color: var(--info-text); }
+.lab-alert-warn { background: var(--warn-bg); border: 1px solid var(--warn-border); color: var(--warn-text); }
+.lab-alert-error { background: var(--error-bg); border: 1px solid var(--error-border); color: var(--error-text); }
+.lab-alert-success { background: var(--success-bg); border: 1px solid var(--success-border); color: var(--success-text); }
+
+/* ===== SPINNER ===== */
+.lab-spinner { display: none; text-align: center; padding: var(--space-7); }
+.lab-spinner.show { display: block; }
+.lab-spinner .loader {
+  border: 4px solid var(--border-light); border-top: 4px solid var(--accent-gold);
+  border-radius: 50%; width: 36px; height: 36px;
+  animation: spin 1s linear infinite; margin: 0 auto 10px;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.lab-spinner .spinner-text { font-size: var(--text-md); color: var(--text-muted); font-style: normal; }

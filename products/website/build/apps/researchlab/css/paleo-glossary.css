@@ -1,0 +1,24 @@
+/* Палео-глоссарий: компактный каркас для будущего словаря. */
+.paleo-glossary-page { max-width: var(--shell-page); margin: 0 auto; }
+.paleo-glossary-head { display: flex; align-items: center; gap: 18px; padding: 24px; margin-bottom: 22px; background: var(--bg-dark); border: 1px solid var(--border-dark); border-radius: 10px; }
+.paleo-glossary-head h1 { margin: 0 0 6px; color: var(--accent-gold); }
+.paleo-glossary-head .subtitle { margin: 0; color: var(--text-muted); }
+.paleo-glossary-icon { display: grid; place-items: center; width: 64px; height: 64px; flex: 0 0 64px; color: var(--accent-gold); border: 1px solid var(--accent-gold); border-radius: 50%; font-size: 38px; }
+.paleo-glossary-kicker { margin: 0 0 6px; color: var(--accent-gold); font-size: 12px; font-weight: 700; letter-spacing: .14em; }
+.paleo-glossary-controls { display: flex; gap: 14px; align-items: end; margin-bottom: 14px; padding: 16px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; }
+.paleo-glossary-controls label { display: grid; gap: 6px; min-width: 190px; color: var(--text-secondary); font-weight: 700; }
+.paleo-glossary-controls .paleo-glossary-search { flex: 1; }
+.paleo-glossary-meta { margin-bottom: 14px; color: var(--text-muted); font-size: 14px; }
+.paleo-glossary-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.paleo-glossary-card { display: flex; min-height: 220px; flex-direction: column; padding: 20px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; transition: border-color .2s, transform .2s; }
+.paleo-glossary-card:hover { border-color: var(--accent-gold); }
+.paleo-glossary-card-paleo { margin-bottom: 14px; color: var(--accent-gold); font-size: clamp(42px, 5vw, 64px); line-height: 1.15; letter-spacing: var(--tracking-caps); }
+.paleo-glossary-card-translit { margin-bottom: 10px; color: var(--text-primary); font-family: var(--font-heading); font-size: 24px; }
+.paleo-glossary-card-function { min-height: 48px; margin: 0 0 18px; color: var(--text-secondary); line-height: 1.5; }
+.paleo-glossary-details { align-self: flex-start; margin-top: auto; }
+.paleo-glossary-pagination { display: flex; justify-content: center; gap: 8px; margin-top: 22px; }
+.paleo-glossary-page-btn { padding: 6px 13px; color: var(--text-primary); background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; cursor: pointer; }
+.paleo-glossary-page-btn:hover, .paleo-glossary-page-btn.active { color: #faf3e0; background: var(--accent-gold); border-color: var(--accent-gold); }
+.paleo-glossary-detail-paleo { margin-bottom: 12px; color: var(--accent-gold); font-size: 52px; text-align: center; }
+@media (max-width: 900px) { .paleo-glossary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .paleo-glossary-head, .paleo-glossary-controls { align-items: stretch; flex-direction: column; } .paleo-glossary-grid { grid-template-columns: 1fr; } .paleo-glossary-icon { align-self: flex-start; } }

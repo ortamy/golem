@@ -1,0 +1,15 @@
+/* =============================================
+   components/buttons.css - общий слой кнопок Research Lab
+   Подключается последним, чтобы правило действовало и на CSS-модули.
+   ============================================= */
+
+/* Все интерактивные кнопки используют единый радиус дизайн-системы. */
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+[role='button'],
+a[class*='btn'],
+a[class*='button'] {
+  border-radius: var(--radius-sm);
+}

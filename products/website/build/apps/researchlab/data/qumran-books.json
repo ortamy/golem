@@ -1,0 +1,29 @@
+{
+  "books": [
+    {"id": "bereshit", "ru": "Берешит", "paleo": "В ГОЛОВЕ / В НАЧАЛЕ", "dataFile": "bereshit-1"},
+    {"id": "shmot", "ru": "Шмот", "paleo": "ИМЕНА / ВЫХОД"},
+    {"id": "vayikra", "ru": "Ваикра", "paleo": "И ВОЗЗВАЛ"},
+    {"id": "bemidbar", "ru": "Бемидбар", "paleo": "В ПУСТЫНЕ"},
+    {"id": "dvarim", "ru": "Дварим", "paleo": "СЛОВА"},
+    {"id": "yehoshua", "ru": "Йеошуа", "paleo": "ЯХВЕ ОСВОБОЖДАЕТ"},
+    {"id": "shoftim", "ru": "Шофтим", "paleo": "СУДЬИ"},
+    {"id": "shmuel-alef", "ru": "Шмуэль I", "paleo": "УСЛЫШАННЫЙ I"},
+    {"id": "shmuel-bet", "ru": "Шмуэль II", "paleo": "УСЛЫШАННЫЙ II"},
+    {"id": "melachim-alef", "ru": "Млахим I", "paleo": "ЦАРИ I"},
+    {"id": "melachim-bet", "ru": "Млахим II", "paleo": "ЦАРИ II"},
+    {"id": "yeshayahu", "ru": "Йешаяу", "paleo": "ЯХВЕ ОСВОБОЖДАЕТ"},
+    {"id": "yirmeyahu", "ru": "Йирмеяу", "paleo": "ЯХВЕ ПОДНИМАЕТ"},
+    {"id": "yehezkel", "ru": "Йехэцель", "paleo": "ЭЛОХИМ УКРЕПЛЯЕТ"},
+    {"id": "the-twelve", "ru": "Двенадцать малых пророков", "paleo": "ДВЕНАДЦАТЬ"},
+    {"id": "tehillim", "ru": "Тегилим", "paleo": "ВОСПЕВАНИЯ"},
+    {"id": "mishlei", "ru": "Мишлей", "paleo": "СРАВНЕНИЯ"},
+    {"id": "iyov", "ru": "Иов", "paleo": "ПРЕСЛЕДУЕМЫЙ"},
+    {"id": "shir-hashirim", "ru": "Шир ха-Ширим", "paleo": "ПЕСНЬ ПЕСЕН"},
+    {"id": "rut", "ru": "Рут", "paleo": "ПОДРУГА"},
+    {"id": "eikhah", "ru": "Эйха", "paleo": "КАК?"},
+    {"id": "kohelet", "ru": "Коэлет", "paleo": "СОБИРАТЕЛЬ"},
+    {"id": "daniel", "ru": "Даниэль", "paleo": "ЭЛОХИМ — МОЙ СУДЬЯ"},
+    {"id": "ezra-nechemyah", "ru": "Эзра-Нехемья", "paleo": "ПОМОЩЬ / ЯХВЕ УТЕШАЕТ"},
+    {"id": "divrei-hayamim", "ru": "Диврей ха-Ямим", "paleo": "ДЕЛА ДНЕЙ"}
+  ]
+}

@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Исследовательская лаборатория — Golem</title>
+<meta name="description" content="Полноценная исследовательская лаборатория проекта Голем">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="css/lab.css">
+<link rel="stylesheet" href="css/agent-map.css">
+<link rel="stylesheet" href="css/agent-server.css">
+<link rel="stylesheet" href="css/root-dictionary.css">
+<link rel="stylesheet" href="css/paleo-glossary.css">
+<link rel="stylesheet" href="css/paleo-builder.css">
+<link rel="stylesheet" href="css/etymology-lab.css">
+<link rel="stylesheet" href="css/board-generator.css">
+<link rel="stylesheet" href="css/board.css">
+<link rel="stylesheet" href="css/word-analyzer.css">
+<link rel="stylesheet" href="css/investigation.css">
+<link rel="stylesheet" href="css/research-library.css">
+<link rel="stylesheet" href="css/block-renderer.css">
+<link rel="stylesheet" href="css/section-renderer.css">
+<link rel="stylesheet" href="css/scripture-reader.css">
+<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="css/religionisms.css">
+<link rel="stylesheet" href="css/learn.css">
+<link rel="stylesheet" href="css/exposure-editor.css">
+<link rel="stylesheet" href="css/heraldry.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/cartography.css">
+<link rel="stylesheet" href="css/states.css">
+<link rel="stylesheet" href="css/translation-comparator.css">
+<link rel="stylesheet" href="css/prompt-generator.css">
+<link rel="stylesheet" href="css/davar-checker.css">
+<link rel="stylesheet" href="css/tree-checker.css">
+<link rel="stylesheet" href="css/generators-checkers.css">
+<link rel="stylesheet" href="css/clue-generator.css">
+<link rel="stylesheet" href="css/paleo-linguistics.css">
+<link rel="stylesheet" href="css/language-map.css">
+<link rel="stylesheet" href="css/linguistic-tensor.css">
+<link rel="stylesheet" href="css/methodology.css">
+<link rel="stylesheet" href="css/lab-hero.css">
+<link rel="stylesheet" href="css/manifest.css">
+<link rel="stylesheet" href="css/theme-white.css">
+<link rel="stylesheet" href="css/timeline.css">
+<link rel="stylesheet" href="css/analyzers.css">
+<link rel="stylesheet" href="css/components/buttons.css">
+<style>
+  .name-decoder-shell { max-width: 980px; margin: 0 auto; }
+  .name-decoder-hero { padding: 28px 30px; margin-bottom: 22px; background: var(--bg-dark); border: 1px solid var(--border-dark); border-radius: 10px; box-shadow: var(--shadow-soft); }
+  .name-decoder-kicker { margin: 0 0 8px; color: var(--accent-gold); font-size: 12px; font-weight: 700; letter-spacing: .16em; }
+  .name-decoder-hero h1 { margin: 0 0 8px; color: var(--accent-gold); }
+  .name-decoder-hero .subtitle { margin: 0; color: var(--text-muted); }
+  .name-decoder-form { padding: 20px; margin-bottom: 22px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; }
+  .name-decoder-form label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-weight: 700; }
+  .name-decoder-form-row { display: flex; gap: 10px; }
+  .name-decoder-form-row .lab-input { flex: 1; }
+  .name-decoder-hint { margin: 10px 0 0; color: var(--text-muted); font-size: 13px; }
+  .name-decoder-result { display: grid; gap: 16px; }
+  .name-decoder-paleo-card { text-align: center; }
+  .name-decoder-paleo { color: var(--accent-gold); font-family: var(--font-paleo, serif); font-size: clamp(42px, 8vw, 76px); line-height: 1.2; letter-spacing: .12em; }
+  .name-decoder-hebrew { margin-top: 8px; color: var(--text-secondary); font-size: 26px; }
+  .name-decoder-transliteration { margin: 12px 0 0; color: var(--text-muted); }
+  .name-decoder-letter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .name-decoder-letter-card { position: relative; padding: 16px; }
+  .name-decoder-letter-index { color: var(--accent-gold); font-size: 12px; font-weight: 700; }
+  .name-decoder-letter-paleo { display: block; margin: 8px 0; color: var(--accent-gold); font-size: 42px; line-height: 1; }
+  .name-decoder-letter-card h3 { margin: 0 0 5px; color: var(--text-primary); font-family: var(--font-heading); }
+  .name-decoder-letter-card p { margin: 0; color: var(--text-secondary); line-height: 1.45; }
+  .name-decoder-purpose .lab-card-body p { margin-top: 0; color: var(--accent-gold); font-size: 18px; line-height: 1.6; }
+  .name-decoder-purpose small { color: var(--text-muted); line-height: 1.5; }
+  @media (max-width: 640px) { .name-decoder-form-row { flex-direction: column; } .name-decoder-hero { padding: 22px 20px; } }
+</style>
+<script src="js/libs/marked.min.js" defer></script>
+      <script src="js/libs/purify.min.js" defer></script>
+
+<!-- Embed mode styles -->
+<style>
+  .lab-header.is-embed, .lab-sidebar.is-embed, .lab-footer.is-embed,
+  .lab-sidebar-overlay.is-embed, .lab-hamburger.is-embed,
+  .lab-header-mobile-links.is-embed, .hotkey-hint.is-embed,
+  #labSidebarToggle.is-embed { display: none !important; }
+  .is-embed .lab-layout { flex-direction: row !important; }
+  .is-embed .lab-layout > .lab-sidebar { display: none !important; }
+  .is-embed .lab-content { padding: 0 !important; min-height: 100vh; }
+  .is-embed .lab-header { display: none !important; }
+  .is-embed .lab-footer { display: none !important; }
+  body.is-embed { padding-top: 0; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="lab-header" id="labHeader">
+  <a href="#dashboard" class="logo"><img src="../../assets/images/golem-logo-2.png" alt="ГОЛЕМ" style="height: 40px; width: auto;"></a>
+  
+  <!-- Global Search -->
+  <div class="header-search" id="globalSearch">
+    <span class="search-icon"><img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Поиск" style="vertical-align: middle; margin-right: 6px;"></span>
+    <input type="text" id="gs-input" placeholder="Поиск по лаборатории..." oninput="LabSearch.search(this.value)" onkeydown="if(event.key==='Escape')LabSearch.hide()" />
+    <div class="search-results" id="gs-results"></div>
+  </div>
+  
+  <nav>
+    <button class="theme-toggle" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn"><img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема"></button>
+    <a href="../../"><img src="../../assets/icons/32/ui/web.png" width="24" height="24" alt="Сайт" style="vertical-align: middle; margin-right: 6px;"> Сайт</a>
+    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener"><img src="../../assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub" style="vertical-align: middle; margin-right: 6px;"> GitHub</a>
+  </nav>
+  <div class="lab-header-mobile-links">
+    <button class="mobile-icon-link" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtnMobile"><img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема"></button>
+    <a href="../../" class="mobile-icon-link" title="Сайт"><img src="../../assets/icons/32/ui/web.png" width="24" height="24" alt="Сайт"></a>
+    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub"><img src="../../assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub"></a>
+  </div>
+  <button class="lab-hamburger hamburger-btn" id="labSidebarToggle" aria-label="Открыть меню" aria-controls="labSidebar" aria-expanded="false" onclick="LabSidebar.toggle()" style="display:none;">
+    <img src="../../assets/icons/32/ui/burger-menu.png" width="24" height="24" alt="">
+  </button>
+</header>
+
+<!-- LAYOUT -->
+<div class="lab-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="lab-sidebar" id="labSidebar">
+  <div class="sidebar-items">
+    <a href="#manifest" class="sidebar-item sidebar-item-top" data-module="manifest"><img src="../../assets/icons/32/ui/scroll.png" class="lab-icon" alt="">Манифест</a>
+    <a href="#dashboard" class="sidebar-item sidebar-item-top" data-module="dashboard"><img src="../../assets/icons/32/ui/grid.png" class="lab-icon" alt="">Рабочий стол</a>
+    <div class="sidebar-section">
+      <div class="sidebar-section-header" data-section="data">
+        <img src="../../assets/icons/32/ui/book.png" class="icon" alt="">
+        <span>Данные</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="sidebar-section-content" id="section-data">
+        <a href="#learn" class="sidebar-item" data-module="learn"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Обучение</a>
+        <a href="#dictionaries" class="sidebar-item" data-module="dictionaries"><img src="../../assets/icons/32/ui/markbook.png" class="lab-icon" alt="">Словари</a>
+        <a href="#researches" class="sidebar-item" data-module="researches"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Исследования</a>
+        <a href="#methodology" class="sidebar-item" data-module="methodology"><img src="../../assets/icons/32/ui/scales.png" class="lab-icon" alt="">Методология</a>
+        <a href="#paleo-mechanics" class="sidebar-item" data-module="paleo-mechanics"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Палео-механика</a>
+        <a href="#paleo-linguistics" class="sidebar-item" data-module="paleo-linguistics"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Палео-лингвистика</a>
+        <a href="#language-map" class="sidebar-item" data-module="language-map"><img src="../../assets/icons/32/ui/map.png" class="lab-icon" alt="">Карта языков</a>
+        <a href="#cartography" class="sidebar-item" data-module="cartography"><img src="../../assets/icons/32/ui/compass.png" class="lab-icon" alt="">Картография</a>
+        <a href="#states" class="sidebar-item" data-module="states"><img src="../../assets/icons/32/ui/flag.png" class="lab-icon" alt="">Карта состояний</a>
+        <a href="#timeline" class="sidebar-item" data-module="timeline"><img src="../../assets/icons/32/ui/clock.png" class="lab-icon" alt="">Палео-таймлайн</a>
+        <a href="#religionisms" class="sidebar-item" data-module="religionisms"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="Религионизмы">Религионизмы</a>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-header" data-section="tools">
+        <img src="../../assets/icons/32/archaeology/testtube.png" class="icon" alt="">
+        <span>Инструменты</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="sidebar-section-content" id="section-tools">
+        <a href="#paleo-builder" class="sidebar-item" data-module="paleo-builder"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Палео-конструктор</a>
+        <a href="#scripture-reader" class="sidebar-item" data-module="scripture-reader"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Книгочтение</a>
+        <a href="#generators" class="sidebar-item" data-module="generators"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генераторы</a>
+        <a href="#checkers" class="sidebar-item" data-module="checkers"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Чекеры</a>
+        <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="Компаратор">Компаратор</a>
+          <a href="#analyzers" class="sidebar-item" data-module="analyzers"><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Анализаторы</a>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-header" data-section="ai">
+        <img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="icon" alt="">
+        <span>AI</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="sidebar-section-content" id="section-ai">
+        <a href="#ai-agents" class="sidebar-item" data-module="ai-agents"><img src="../../assets/icons/32/ui/user.png" class="lab-icon" alt="">Агенты</a>
+        <a href="#pipelines" class="sidebar-item" data-module="pipelines"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Пайплайны</a>
+        <a href="#agent-server" class="sidebar-item" data-module="agent-server"><img src="../../assets/icons/32/ui/settings.png" class="lab-icon" alt="">Запуск сервера</a>
+        <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><img src="../../assets/icons/32/ui/bell.png" class="lab-icon" alt="Нейрочат">Нейрочат</a>
+        <a href="#vision" class="sidebar-item" data-module="vision"><img src="../../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Анализ изображений</a>
+        <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><img src="../../assets/icons/32/ui/keyboard.png" class="lab-icon" alt="Палео-клавиатура">Палео-клавиатура</a>
+      </div>
+    </div>
+    <div class="sidebar-section" id="sidebar-admin-section">
+      <div class="sidebar-section-header" data-section="system">
+        <img src="../../assets/icons/32/ui/settings.png" class="icon" alt="">
+        <span>Система</span>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="sidebar-section-content" id="section-system">
+        <a href="#admin-settings" class="sidebar-item" data-module="admin-settings"><img src="../../assets/icons/32/ui/settings.png" class="lab-icon" alt="">Настройки</a>
+        
+      </div>
+    </div>
+  </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="lab-content" id="labContent"></main>
+
+</div>
+
+<div class="lab-sidebar-overlay" id="labSidebarOverlay" onclick="LabSidebar.close()" style="display:none;"></div>
+
+<!-- FOOTER -->
+<footer class="lab-footer">
+  <a href="../pages/index.html">Проект «Голем»</a> — восстановление истины.
+  <span class="sep">|</span>
+  <a href="https://github.com/ortamy/golem">GitHub</a>
+  <span class="sep">|</span>
+  <span id="lab-version">v0.2.0</span>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="labModal" onclick="if(event.target===this)LabModal.close()">
+  <div class="modal-window">
+    <div class="modal-header">
+      <h3 id="modalTitle">Просмотр</h3>
+<button class="modal-close" onclick="LabModal.close()"><img src="../../assets/icons/32/ui/close.png" width="32" height="32" alt="Закрыть" style="vertical-align: middle; margin-right: 6px;"></button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+<!-- HOTKEY HINT -->
+<div class="hotkey-hint" onclick="LabHotkeys.showHelp()" title="Горячие клавиши">
+  <kbd>⌨</kbd> ?
+</div>
+
+<!-- Общие данные и рендереры должны загрузиться до PageController. -->
+<script src="js/paleo-letters.js"></script>
+<script src="js/paleo-highlight.js"></script>
+<script src="js/modules/exposure-case.js"></script>
+<script src="js/modules/section-renderer.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/learn-courses.js"></script>
+<script src="js/learn.js"></script>
+<script src="js/load-researches.js"></script>
+<script src="js/methodology.js?v=20260804-2"></script>
+<script src="js/name-decoder.js"></script>
+<script src="js/paleo-linguistics.js"></script>
+<script src="js/language-map.js"></script>
+<script src="js/linguistic-tensor.js"></script>
+<script src="js/states.js"></script>
+<script src="js/scripture-reader.js"></script>
+<script src="js/translation-comparator.js"></script>
+<script src="js/investigation.js"></script>
+<script src="js/religionism-checker.js"></script>
+<script src="js/modules/religionisms.js"></script>
+<script src="js/board-library.js"></script>
+<script src="js/board.js"></script>
+<script src="js/ed-chat.js"></script>
+<script src="js/vision-ui.js"></script>
+<script src="js/paleo-keyboard.js"></script>
+<script src="js/admin-settings.js"></script>
+<script src="js/etymology-lab.js"></script>
+<script src="js/prompt-generator.js"></script>
+<script src="js/davar-checker.js"></script>
+<script src="js/tree-checker.js"></script>
+<script src="js/clue-generator.js"></script>
+<script src="js/agent-map.js"></script>
+<script src="js/agent-server.js"></script>
+<script src="js/page-controller.js"></script>
+<script src="js/router.js"></script>
+<script src="js/access-gate.js"></script>
+<script src="js/nav-enhance.js"></script>
+<script src="js/lab-hero.js"></script>
+<script src="js/root-dictionary.js"></script>
+<script src="js/paleo-glossary.js"></script>
+<script src="js/state-checker.js"></script>
+<script src="js/exposure-editor.js"></script>
+<script src="js/video-lab.js"></script>
+<script src="js/cartography.js"></script>
+<script src="js/heraldry.js"></script>
+<script src="js/timeline.js"></script>
+<script src="js/paleo-builder.js"></script>
+<script src="js/analyzers.js"></script>
+<script>
+// ===== LAB SIDEBAR (mobile only) =====
+const LabSidebar = {
+  toggle: function() {
+    var sidebar = document.getElementById('labSidebar');
+    var overlay = document.getElementById('labSidebarOverlay');
+    var btn = document.getElementById('labSidebarToggle');
+    if (!sidebar || !overlay || !btn) return;
+    var isOpen = sidebar.classList.toggle('open');
+    overlay.classList.toggle('show', isOpen);
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  },
+  close: function() {
+    var sidebar = document.getElementById('labSidebar');
+    var overlay = document.getElementById('labSidebarOverlay');
+    var btn = document.getElementById('labSidebarToggle');
+    if (!sidebar || !overlay || !btn) return;
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+};
+
+// ===== LAB THEME =====
+const LabTheme = {
+  themes: ['light', 'white', 'dark'],
+  init: function() {
+    var saved = localStorage.getItem('golem_theme') || 'light';
+    this.set(this.themes.indexOf(saved) >= 0 ? saved : 'light');
+  },
+  set: function(theme) {
+    if (this.themes.indexOf(theme) < 0) theme = 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('golem_theme', theme);
+    var icon = theme === 'dark'
+      ? '<img src="../../assets/icons/32/ui/sun.png" width="24" height="24" alt="Светлая тема">'
+      : theme === 'white'
+        ? '<img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема">'
+        : '<img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема">';
+    var btn = document.getElementById('themeBtn');
+    if (btn) btn.innerHTML = icon;
+    var btnMobile = document.getElementById('themeBtnMobile');
+    if (btnMobile) btnMobile.innerHTML = icon;
+  },
+  toggle: function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'light';
+    var index = this.themes.indexOf(current);
+    this.set(this.themes[(index + 1) % this.themes.length]);
+  }
+};
+
+// ===== LAB MODAL =====
+const LabModal = {
+  show: function(title, body, footerHTML) {
+    document.getElementById('modalTitle').innerHTML = title;
+    document.getElementById('modalBody').innerHTML = body;
+    var footer = document.getElementById('modalFooter');
+    footer.innerHTML = footerHTML || '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabModal.close()">Закрыть</button>';
+    document.getElementById('labModal').classList.add('show');
+  },
+  close: function() {
+    document.getElementById('labModal').classList.remove('show');
+  }
+};
+
+// ===== LAB EXPORT =====
+const LabExport = {
+  exportTXT: function(filename, content) {
+    var blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename + '.txt';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  },
+  exportMarkdown: function(filename, content) {
+    var blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename + '.md';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  },
+  copyText: function(text) {
+    navigator.clipboard.writeText(text).then(function() {
+      LabToast.show('Скопировано в буфер');
+    }).catch(function() {
+      // fallback
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      LabToast.show('Скопировано в буфер');
+    });
+  }
+};
+
+// ===== LAB TOAST =====
+const LabToast = {
+  show: function(msg) {
+    var t = document.getElementById('lab-toast');
+    if (!t) {
+      t = document.createElement('div');
+      t.id = 'lab-toast';
+      t.style.cssText = 'position:fixed;top:24px;left:50%;transform:translateX(-50%);background:var(--bg-dark);color:var(--text-light);padding:10px 24px;font-size:14px;font-family:"EB Garamond",serif;opacity:0;pointer-events:none;z-index:9999;border-radius:4px;border:1px solid var(--border-gold);transition:opacity 0.4s;';
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.style.opacity = '1';
+    setTimeout(function() { t.style.opacity = '0'; }, 2000);
+  }
+};
+
+// ===== LAB SEARCH (Global Paleo) =====
+const LabSearch = {
+  MAX_TOTAL: 30,
+
+  search: function(query) {
+    var results = document.getElementById('gs-results');
+    query = query.trim().toLowerCase();
+    if (!query || query.length < 2) {
+      results.classList.remove('show');
+      return;
+    }
+
+    // ===== Подгрузка данных разделов при первом поиске =====
+    if (!LabSearch._dataLoaded) {
+      LabSearch._dataLoaded = true;
+      // Методология — карточки
+      fetch('data/methodology/cards.json').then(function(response) {
+        return response.json();
+      }).then(function(data) {
+        LabSearch._methodCards = (data && data.cards) || [];
+        RequireReSearch();
+      }).catch(function() {});
+      // Картография
+      if (window.Cartography) {
+        var cartContainer = document.createElement('div');
+        window.Cartography.loadData(cartContainer).catch(function() {});
+      }
+      // Книгочтение — книги
+      fetch('data/qumran-books.json').then(function(response) {
+        return response.json();
+      }).then(function(data) {
+        LabSearch._scriptureBooks = (data && data.books) || [];
+        RequireReSearch();
+      }).catch(function() {});
+    }
+    function RequireReSearch() {
+      var input = document.getElementById('gs-input');
+      if (!input) return;
+      var q = input.value.trim();
+      if (q.length >= 2) LabSearch.search(q);
+    }
+
+    var grouped = [
+      { key: 'roots', label: 'Корни и словари', icon: '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Корни" style="vertical-align: middle; margin-right: 6px;">', items: [] },
+      { key: 'methodology', label: 'Методология', icon: '<img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Методология" style="vertical-align: middle; margin-right: 6px;">', items: [] },
+      { key: 'cartography', label: 'Картография', icon: '<img src="../../assets/icons/32/ui/web.png" width="32" height="32" alt="Картография" style="vertical-align: middle; margin-right: 6px;">', items: [] },
+      { key: 'scripture', label: 'Книгочтение', icon: '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Книгочтение" style="vertical-align: middle; margin-right: 6px;">', items: [] },
+      { key: 'religionisms', label: 'Религионизмы', icon: '<img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Религионизмы" style="vertical-align: middle; margin-right: 6px;">', items: [] },
+      { key: 'translations', label: 'Компаратор', icon: '<img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Компаратор" style="vertical-align: middle; margin-right: 6px;">', items: [] }
+    ];
+
+    var byKey = {};
+    grouped.forEach(function(g) { byKey[g.key] = g; });
+
+    function push(key, icon, text, module, moduleName, params) {
+      var group = byKey[key];
+      if (!group) return;
+      group.items.push({ icon: icon, text: text, module: module, moduleName: moduleName, params: params || null });
+    }
+
+    // ===== КОРНИ И СЛОВАРИ =====
+    if (window.RootDict && window._roots) {
+      window._roots.forEach(function(r) {
+        if (r.root.indexOf(query) !== -1 || r.translit.toLowerCase().indexOf(query) !== -1 || r.meaning.toLowerCase().indexOf(query) !== -1) {
+          push('roots', '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Корневой словарь" style="vertical-align: middle; margin-right: 6px;">', r.root + ' — ' + r.meaning.substring(0, 60), 'root-dictionary', 'Корневой словарь');
+        }
+      });
+    }
+
+    // ===== МЕТОДОЛОГИЯ (карточки и табы) =====
+    var methodCards = (window.MethodologyLab && window.MethodologyLab.getCards) ? window.MethodologyLab.getCards() : (LabSearch._methodCards || []);
+    if (window.MethodologyLab) {
+      methodCards.forEach(function(c) {
+        var title = String(c.title || '').toLowerCase();
+        var text = String(c.text || '').toLowerCase();
+        var summary = String(c.summary || '').toLowerCase();
+        if (title.indexOf(query) !== -1 || text.indexOf(query) !== -1 || summary.indexOf(query) !== -1) {
+          var catKey = c.category;
+          var catLabel = catKey;
+          (window.MethodologyLab.getCategories() || []).forEach(function(cat) {
+            if (cat.key === catKey) catLabel = cat.label;
+          });
+          push('methodology', '<img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Методология" style="vertical-align: middle; margin-right: 6px;">', (c.title || '') + ' — ' + String(c.summary || c.text || '').substring(0, 60), 'methodology', 'Методология · ' + catLabel, { category: catKey });
+        }
+      });
+      // Табы методологии
+      (window.MethodologyLab.getCategories() || []).forEach(function(cat) {
+        if (cat.label.toLowerCase().indexOf(query) !== -1) {
+          push('methodology', '<img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Методология" style="vertical-align: middle; margin-right: 6px;">', cat.label, 'methodology', 'Методология · ' + cat.label, { category: cat.key });
+        }
+      });
+    }
+
+    // ===== КАРТОГРАФИЯ (страны, города, регионы) =====
+    if (window.Cartography && window.Cartography.getEntries) {
+      window.Cartography.getEntries().forEach(function(e) {
+        if (e.name.toLowerCase().indexOf(query) !== -1 || (e.hebrew || '').toLowerCase().indexOf(query) !== -1 || (e.meaning || '').toLowerCase().indexOf(query) !== -1) {
+          push('cartography', '<img src="../../assets/icons/32/ui/web.png" width="32" height="32" alt="Картография" style="vertical-align: middle; margin-right: 6px;">', e.name + ' — ' + String(e.meaning || '').substring(0, 60), 'cartography', 'Картография · ' + (e.type || ''));
+        }
+      });
+    }
+
+    // ===== КНИГОЧТЕНИЕ (книги) =====
+    var books = (window.ScriptureReader && window.ScriptureReader.getBooks && window.ScriptureReader.getBooks().length) ? window.ScriptureReader.getBooks() : (LabSearch._scriptureBooks || []);
+    books.forEach(function(b) {
+      if (String(b.ru || '').toLowerCase().indexOf(query) !== -1 || String(b.he || '').toLowerCase().indexOf(query) !== -1) {
+        push('scripture', '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Книгочтение" style="vertical-align: middle; margin-right: 6px;">', b.ru + (b.paleo ? ' (' + b.paleo + ')' : ''), 'scripture-reader', 'Книгочтение · Книга', { book: b.id });
+      }
+    });
+
+    // ===== РЕЛИГИОНИЗМЫ =====
+    if (window.RelChecker && window._relDict) {
+      window._relDict.forEach(function(d) {
+        if (d[0].toLowerCase().indexOf(query) !== -1 || d[1].toLowerCase().indexOf(query) !== -1) {
+          push('religionisms', '<img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Чекер религионимов" style="vertical-align: middle; margin-right: 6px;">', d[0] + ' → ' + d[1], 'religionism-checker', 'Чекер религионимов');
+        }
+      });
+    }
+
+    // ===== СРАВНЕНИЕ ПЕРЕВОДОВ =====
+    if (window.TransComp && window._tcData) {
+      Object.keys(window._tcData).forEach(function(key) {
+        if (key.toLowerCase().indexOf(query) !== -1) {
+          push('translations', '<img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Компаратор" style="vertical-align: middle; margin-right: 6px;">', key, 'translation-comparator', 'Компаратор');
+        }
+      });
+    }
+
+    // ===== СБОРКА =====
+    var total = 0;
+    var hasAny = false;
+    grouped.forEach(function(g) { if (g.items.length) hasAny = true; });
+
+    if (!hasAny) {
+      results.innerHTML = '<div class="search-result-item" style="color:var(--text-muted);cursor:default;">Ничего не найдено</div>';
+      results.classList.add('show');
+      return;
+    }
+
+    var html = '';
+    grouped.forEach(function(g) {
+      if (!g.items.length) return;
+      var items = g.items.slice(0, 6);
+      total += items.length;
+      if (total > LabSearch.MAX_TOTAL) {
+        items = items.slice(0, LabSearch.MAX_TOTAL - (total - items.length));
+        if (!items.length) return;
+      }
+      html += '<div class="sr-group"><div class="sr-group-head">' + g.icon + ' <span class="sr-group-label">' + g.label + '</span><span class="sr-group-count">' + items.length + '</span></div>';
+      items.forEach(function(item) {
+        html += '<div class="search-result-item sr-item" onclick="LabSearch.goTo(\'' + item.module + '\', \'' + (item.params ? JSON.stringify(item.params).replace(/'/g, '&#39;') : '') + '\')">' +
+          '<span class="sr-text">' + escapeHtml(item.text) + '</span>' +
+          '<span class="sr-module">' + item.moduleName + '</span></div>';
+      });
+      html += '</div>';
+    });
+
+    results.innerHTML = html;
+    results.classList.add('show');
+  },
+
+  goTo: function(module, paramsJson) {
+    this.hide();
+    var segments = null;
+    var params = null;
+    if (paramsJson) {
+      try { params = JSON.parse(paramsJson); } catch(e) {}
+    }
+    if (module === 'scripture-reader' && params && params.book) {
+      segments = null;
+    }
+    LabRouter.navigate(module, segments, params);
+  },
+
+  hide: function() {
+    var res = document.getElementById('gs-results');
+    var input = document.getElementById('gs-input');
+    if (res) res.classList.remove('show');
+    if (input) input.value = '';
+  }
+};
+
+// ===== LAB HOTKEYS =====
+const LabHotkeys = {
+  modules: ['dashboard', 'root-dictionary', 'word-analyzer', 'religionism-checker', 'translation-comparator', 'board-library', 'vision', 'ed-chat', 'paleo-keyboard', 'admin-settings'],
+  
+  init: function() {
+    document.addEventListener('keydown', function(e) {
+      // Ctrl+1..9 — переход по модулям
+      if (e.ctrlKey && e.key >= '1' && e.key <= '9') {
+        e.preventDefault();
+        var idx = parseInt(e.key) - 1;
+        if (idx < LabHotkeys.modules.length) {
+          LabRouter.navigate(LabHotkeys.modules[idx]);
+        }
+      }
+      // Ctrl+F — фокус на поиск
+      if (e.ctrlKey && e.key === 'f') {
+        e.preventDefault();
+        document.getElementById('gs-input').focus();
+      }
+      // Escape — закрыть поиск/модалку
+      if (e.key === 'Escape') {
+        LabSearch.hide();
+        LabModal.close();
+      }
+      // ? — показать помощь
+      if (e.key === '?' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+        var active = document.activeElement;
+        if (!active || active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA' && !active.isContentEditable) {
+          LabHotkeys.showHelp();
+        }
+      }
+    });
+  },
+  
+  showHelp: function() {
+    var html = '<table class="lab-table">' +
+      '<tr><th>Клавиши</th><th>Действие</th></tr>' +
+      '<tr><td><kbd>Ctrl+1</kbd>..<kbd>9</kbd></td><td>Переход к модулю</td></tr>' +
+      '<tr><td><kbd>Ctrl+F</kbd></td><td>Поиск по лаборатории</td></tr>' +
+      '<tr><td><kbd>Esc</kbd></td><td>Закрыть поиск / модалку</td></tr>' +
+      '<tr><td><kbd>?</kbd></td><td>Показать эту справку</td></tr>' +
+      '</table>' +
+      '<div class="text-small text-muted mt-8">Модули: 1-Рабочий стол, 2-Словарь, 3-Разбор слов, 4-Чекер, 5-Переводы, 6-Архив досок, 7-Анализ, 8-Нейрочат, 9-Клавиатура</div>';
+    LabModal.show('<img src="../../assets/icons/32/paleo/track.png" width="32" height="32" alt="Горячие клавиши" style="vertical-align: middle; margin-right: 6px;"> Горячие клавиши', html);
+  }
+};
+
+function escapeHtml(text) {
+  var d = document.createElement('div');
+  d.textContent = text;
+  return d.innerHTML;
+}
+
+function toggleSection(id) {
+  var el = document.getElementById(id);
+  if (el) {
+    if (el.style.display === 'none' || el.style.display === '') {
+      el.style.display = 'block';
+    } else {
+      el.style.display = 'none';
+    }
+  }
+}
+
+// ===== WORD ANALYZER =====
+const WordAnalyzer = {
+  PALEO: {
+    'א': { paleo: '𐤀', name: 'Алеф', meaning: 'сила, бык, начало' },
+    'ב': { paleo: '𐤁', name: 'Бет', meaning: 'дом, семья' },
+    'ג': { paleo: '𐤂', name: 'Гимель', meaning: 'движение, верблюд' },
+    'ד': { paleo: '𐤃', name: 'Далет', meaning: 'дверь, выбор' },
+    'ה': { paleo: '𐤄', name: 'Хе', meaning: 'откровение, окно' },
+    'ו': { paleo: '𐤅', name: 'Вав', meaning: 'соединение, крюк' },
+    'ז': { paleo: '𐤆', name: 'Заин', meaning: 'оружие, защита' },
+    'ח': { paleo: '𐤇', name: 'Хет', meaning: 'ограда, жизнь' },
+    'ט': { paleo: '𐤈', name: 'Тет', meaning: 'скрытое благо' },
+    'י': { paleo: '𐤉', name: 'Йод', meaning: 'рука, действие' },
+    'כ': { paleo: '𐤊', name: 'Каф', meaning: 'ладонь, власть' },
+    'ך': { paleo: '𐤊', name: 'Каф (софит)', meaning: 'ладонь, власть' },
+    'ל': { paleo: '𐤋', name: 'Ламед', meaning: 'посох, учение' },
+    'מ': { paleo: '𐤌', name: 'Мем', meaning: 'вода, народ' },
+    'ם': { paleo: '𐤌', name: 'Мем (софит)', meaning: 'вода, народ' },
+    'נ': { paleo: '𐤍', name: 'Нун', meaning: 'рыба, потомство' },
+    'ן': { paleo: '𐤍', name: 'Нун (софит)', meaning: 'рыба, потомство' },
+    'ס': { paleo: '𐤎', name: 'Самех', meaning: 'поддержка, основа' },
+    'ע': { paleo: '𐤏', name: 'Аин', meaning: 'глаз, источник' },
+    'פ': { paleo: '𐤐', name: 'Пе', meaning: 'рот, речь' },
+    'ף': { paleo: '𐤐', name: 'Пе (софит)', meaning: 'рот, речь' },
+    'צ': { paleo: '𐤑', name: 'Цаде', meaning: 'праведность, цель' },
+    'ץ': { paleo: '𐤑', name: 'Цаде (софит)', meaning: 'праведность, цель' },
+    'ק': { paleo: '𐤒', name: 'Коф', meaning: 'святость, окружение' },
+    'ר': { paleo: '𐤓', name: 'Реш', meaning: 'голова, начало' },
+    'ש': { paleo: '𐤔', name: 'Шин', meaning: 'мир, разрушение' },
+    'ת': { paleo: '𐤕', name: 'Тав', meaning: 'знак, завет, истина' }
+  },
+
+  WORD_DATA: {
+    'אמת': { translit: 'эмет', meaning: 'истина, верность, правда', root: 'אמן', rootMeaning: 'верить, быть верным', subs: [['истина', 'эмет (אמת)', 'Греч. αλήθεια. В иврите אמת состоит из первой, средней и последней букв алфавита.']] },
+    'תורה': { translit: 'тора', meaning: 'учение, наставление', root: 'ירה', rootMeaning: 'направлять, учить', subs: [['закон', 'тора (תורה)', 'Греч. νόμος. Тора от корня ירה — направлять, а не закон.']] },
+    'משיח': { translit: 'машиах', meaning: 'помазанник', root: 'משח', rootMeaning: 'мазать, помазывать', subs: [['Христос', 'Машиах (משיח)', 'Греч. Χριστός. Машиах — функция, не имя.']] },
+    'יהוה': { translit: 'Яхве', meaning: 'Сущий (личное имя)', root: 'היה', rootMeaning: 'быть, существовать', subs: [['Господь', 'Яхве (יהוה)', 'Греч. κύριος. Замена имени на титул.']] },
+    'שלום': { translit: 'шалом', meaning: 'мир, целостность', root: 'שלם', rootMeaning: 'быть целым', subs: [['мир', 'шалом (שלום)', 'Греч. ειρήνη. Шалом — полнота, не просто отсутствие войны.']] },
+    'צדק': { translit: 'цедек', meaning: 'правда, справедливость', root: 'צדק', rootMeaning: 'быть праведным', subs: [['правда', 'цедек (צדק)', 'Цедек — действие справедливости. Цдака — не милостыня.']] },
+    'בראשית': { translit: 'берешит', meaning: 'в начале', root: 'ראש', rootMeaning: 'голова, начало', subs: [['в начале', 'берешит (בראשית)', 'От корня ראש — голова. Берешит — в голове, в начале.']] },
+    'נביא': { translit: 'нави', meaning: 'пророк', root: 'נבא', rootMeaning: 'провозвещать', subs: [['пророк', 'нави (נביא)', 'Греч. προφήτης. Нави — видящий скрытое.']] },
+    'כהן': { translit: 'коhен', meaning: 'служитель', root: 'כה', rootMeaning: 'стоять перед', subs: [['священник', 'коhен (כהן)', 'От корня כון — стоять. Тот, кто стоит перед Яхве.']] },
+    'קדוש': { translit: 'кадош', meaning: 'отделённый', root: 'קדש', rootMeaning: 'отделять', subs: [['святой', 'кадош (קדוש)', 'Кадош — статус отделённости, не моральное качество.']] },
+    'חסד': { translit: 'хесед', meaning: 'преданная любовь', root: 'חסד', rootMeaning: 'быть верным', subs: [['милость', 'хесед (חסד)', 'Хесед — действие верности завету, не эмоция.']] },
+    'תשובה': { translit: 'тшува', meaning: 'возвращение', root: 'שוב', rootMeaning: 'возвращаться', subs: [['покаяние', 'тшува (תשובה)', 'От корня שוב — возвращаться. Не чувство вины.']] },
+    'ברית': { translit: 'брит', meaning: 'союз', root: 'בר', rootMeaning: 'чистый', subs: [['завет', 'брит (ברית)', 'От בר — чистый. Брит — союз, основанный на очищении.']] }
+  },
+
+  CACHE_KEY: 'golem_wa_cache',
+
+  analyze: function() {
+    var input = document.getElementById('wa-input');
+    var grid = document.getElementById('wa-grid');
+    var status = document.getElementById('wa-status');
+    var exportBar = document.getElementById('wa-export');
+    if (!input || !grid || !status) return;
+
+    var raw = input.value.trim();
+    if (!raw) {
+      status.className = 'lab-alert lab-alert-warn';
+      status.textContent = 'Введите слова для разбора.';
+      return;
+    }
+
+    // Split into words
+    var words = raw.split(/[,\n\r]+/).map(function(w) { return w.trim(); }).filter(function(w) { return w.length > 0; });
+    if (words.length === 0) {
+      status.className = 'lab-alert lab-alert-warn';
+      status.textContent = 'Не найдено ни одного слова.';
+      return;
+    }
+
+    status.className = 'lab-alert lab-alert-info';
+    status.textContent = 'Разбираю ' + words.length + ' слов…';
+    if (exportBar) exportBar.style.display = 'none';
+    grid.innerHTML = '';
+
+    var cache = this.loadCache();
+    var results = [];
+    var found = 0, notFound = 0;
+
+    words.forEach(function(word) {
+      var cached = cache[word];
+      if (cached) {
+        results.push({ word: word, data: cached, cached: true });
+        if (cached) found++; else notFound++;
+        return;
+      }
+
+      // Search in WORD_DATA by Hebrew or translit
+      var match = null;
+      var clean = word.replace(/[\u0591-\u05C7]/g, '');
+      if (WordAnalyzer.WORD_DATA[clean]) {
+        match = WordAnalyzer.WORD_DATA[clean];
+      } else {
+        // Search by translit
+        for (var key in WordAnalyzer.WORD_DATA) {
+          if (WordAnalyzer.WORD_DATA[key].translit === word.toLowerCase()) {
+            match = WordAnalyzer.WORD_DATA[key];
+            clean = key;
+            break;
+          }
+        }
+      }
+
+      // Also search in roots.json data
+      var rootMatch = null;
+      if (window._roots) {
+        var searchWord = word.toLowerCase();
+        for (var ri = 0; ri < window._roots.length; ri++) {
+          var r = window._roots[ri];
+          if (r.root === clean || r.translit.toLowerCase() === searchWord || r.meaning.toLowerCase().indexOf(searchWord) !== -1) {
+            rootMatch = r;
+            break;
+          }
+        }
+      }
+
+      if (match || rootMatch) {
+        var combinedData = match ? { found: true, hebrew: clean, data: match, rootData: rootMatch } : { found: true, hebrew: rootMatch.root, data: { translit: rootMatch.translit, meaning: rootMatch.meaning, root: rootMatch.root, rootMeaning: rootMatch.meaning, subs: rootMatch.substitutions ? rootMatch.substitutions.map(function(s) { return ['подмена', s, '']; }) : [] }, rootData: rootMatch };
+        cache[word] = combinedData;
+        results.push({ word: word, data: combinedData, cached: false });
+        found++;
+      } else {
+        cache[word] = { found: false };
+        results.push({ word: word, data: { found: false }, cached: false });
+        notFound++;
+      }
+    });
+
+    this.saveCache(cache);
+
+    // Render
+    var html = '';
+    results.forEach(function(r) {
+      html += WordAnalyzer.renderCard(r.word, r.data);
+    });
+    grid.innerHTML = html;
+
+    status.className = 'lab-alert lab-alert-success';
+    status.textContent = 'Разобрано: ' + found + ' найдено, ' + notFound + ' не найдено.';
+    if (exportBar) exportBar.style.display = 'flex';
+  },
+
+  renderCard: function(word, data) {
+    if (!data.found) {
+      return '<div class="wa-card wa-card-missing">' +
+        '<div class="wa-card-header">' +
+          '<span class="wa-word">' + escapeHtml(word) + '</span>' +
+          '<span class="wa-badge wa-badge-missing">Не найдено</span>' +
+        '</div>' +
+        '<div class="wa-card-body">' +
+          '<p class="text-muted">Слово отсутствует в базе данных.</p>' +
+        '</div>' +
+        '<div class="wa-card-footer">' +
+          '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="WordAnalyzer.askAI(\'' + escapeHtml(word) + '\')">Спросить AI</button>' +
+        '</div>' +
+      '</div>';
+    }
+
+    var d = data.data;
+    var subsHTML = '';
+    if (d.subs && d.subs.length > 0) {
+      subsHTML = '<div class="wa-subs">';
+      d.subs.forEach(function(s) {
+        subsHTML += '<div class="wa-sub-item"><span class="wa-sub-from">' + escapeHtml(s[0]) + '</span> → <span class="wa-sub-to">' + escapeHtml(s[1]) + '</span><div class="wa-sub-note text-small text-muted">' + escapeHtml(s[2]) + '</div></div>';
+      });
+      subsHTML += '</div>';
+    }
+
+    var paleoHTML = '';
+    var clean = d.hebrew || data.hebrew || '';
+    if (clean) {
+      var chars = [];
+      for (var i = 0; i < clean.length; i++) {
+        var ch = clean[i];
+        var p = WordAnalyzer.PALEO[ch];
+        if (p) {
+          chars.push('<span class="wa-paleo-char" title="' + p.name + ': ' + p.meaning + '">' + p.paleo + '</span>');
+        } else {
+          chars.push('<span class="wa-paleo-char">' + escapeHtml(ch) + '</span>');
+        }
+      }
+      paleoHTML = '<div class="wa-paleo-row">' + chars.join('') + '</div>';
+    }
+
+    var detailId = 'wa-detail-' + Date.now() + '-' + Math.random().toString(36).substr(2, 4);
+
+    return '<div class="wa-card">' +
+      '<div class="wa-card-header">' +
+        '<div class="wa-card-title">' +
+          (clean ? '<span class="wa-hebrew hebrew">' + clean + '</span>' : '') +
+          '<span class="wa-word">' + escapeHtml(word) + '</span>' +
+        '</div>' +
+        '<span class="wa-badge wa-badge-found">Найдено</span>' +
+      '</div>' +
+      '<div class="wa-card-body">' +
+        (paleoHTML ? '<div class="wa-section"><div class="wa-section-title">Палео-образы</div>' + paleoHTML + '</div>' : '') +
+        '<div class="wa-section"><div class="wa-section-title">Значение</div><div class="wa-meaning">' + escapeHtml(d.meaning) + '</div></div>' +
+        '<div class="wa-section"><div class="wa-section-title">Транслитерация</div><div class="wa-translit mono">' + escapeHtml(d.translit) + '</div></div>' +
+        '<div class="wa-section"><div class="wa-section-title">Корень</div><div class="wa-root"><span class="wa-root-heb hebrew">' + escapeHtml(d.root) + '</span> — ' + escapeHtml(d.rootMeaning) + '</div></div>' +
+        (subsHTML ? '<div class="wa-section"><div class="wa-section-title">Подмены</div>' + subsHTML + '</div>' : '') +
+      '</div>' +
+      '<div class="wa-card-footer">' +
+        '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="WordAnalyzer.showDetail(\'' + escapeHtml(word) + '\')">Подробнее</button>' +
+      '</div>' +
+    '</div>';
+  },
+
+  showDetail: function(word) {
+    var cache = this.loadCache();
+    var entry = cache[word];
+    if (!entry || !entry.found) {
+      LabToast.show('Нет данных для детального просмотра.');
+      return;
+    }
+
+    var d = entry.data;
+    var html = '<div class="wa-detail">' +
+      '<div class="wa-detail-word hebrew" style="font-size:36px;text-align:center;margin-bottom:16px;">' + d.hebrew + '</div>' +
+      '<table class="lab-table">' +
+        '<tr><th>Поле</th><th>Значение</th></tr>' +
+        '<tr><td>Слово</td><td>' + escapeHtml(word) + '</td></tr>' +
+        '<tr><td>Транслитерация</td><td class="mono">' + escapeHtml(d.translit) + '</td></tr>' +
+        '<tr><td>Значение</td><td>' + escapeHtml(d.meaning) + '</td></tr>' +
+        '<tr><td>Корень</td><td class="hebrew">' + escapeHtml(d.root) + '</td></tr>' +
+        '<tr><td>Смысл корня</td><td>' + escapeHtml(d.rootMeaning) + '</td></tr>' +
+      '</table>';
+
+    if (d.subs && d.subs.length > 0) {
+      html += '<h3 style="margin-top:16px;font-family:var(--font-heading);font-size:18px;">Подмены</h3>';
+      d.subs.forEach(function(s) {
+        html += '<div class="lab-card" style="margin-top:8px;"><div class="wa-sub-from highlight-red">' + escapeHtml(s[0]) + '</div><div class="wa-sub-to highlight-green" style="margin-top:4px;">' + escapeHtml(s[1]) + '</div><div class="text-small text-muted" style="margin-top:4px;">' + escapeHtml(s[2]) + '</div></div>';
+      });
+    }
+
+    html += '</div>';
+    LabModal.show('Детальный разбор: ' + escapeHtml(word), html);
+  },
+
+  askAI: function(word) {
+    LabRouter.navigate('ed-chat');
+    setTimeout(function() {
+      var input = document.getElementById('ec-input');
+      if (input) {
+        input.value = 'Разбери слово "' + word + '": корень, палео-образы, цепочка подмен, этимология.';
+        if (window.EdChat) EdChat.send();
+      }
+    }, 300);
+  },
+
+  copyMarkdown: function() {
+    var md = this.generateMarkdown();
+    LabExport.copyText(md);
+  },
+
+  downloadTxt: function() {
+    var md = this.generateMarkdown();
+    var words = Object.keys(this.loadCache());
+    var filename = 'razbor-slov-' + new Date().toISOString().slice(0, 10);
+    LabExport.exportTXT(filename, md);
+  },
+
+  generateMarkdown: function() {
+    var cache = this.loadCache();
+    var lines = ['# Разбор слов', '', 'Дата: ' + new Date().toLocaleString('ru-RU'), '', '---', ''];
+    for (var word in cache) {
+      var entry = cache[word];
+      if (entry.found) {
+        var d = entry.data;
+        lines.push('## ' + word + ' (' + d.hebrew + ')');
+        lines.push('- **Транслитерация:** ' + d.translit);
+        lines.push('- **Значение:** ' + d.meaning);
+        lines.push('- **Корень:** ' + d.root + ' — ' + d.rootMeaning);
+        if (d.subs && d.subs.length > 0) {
+          lines.push('- **Подмены:**');
+          d.subs.forEach(function(s) {
+            lines.push('  - "' + s[0] + '" → "' + s[1] + '": ' + s[2]);
+          });
+        }
+      } else {
+        lines.push('## ' + word);
+        lines.push('- **Статус:** не найдено в базе');
+      }
+      lines.push('');
+    }
+    return lines.join('\n');
+  },
+
+  loadCache: function() {
+    try {
+      return JSON.parse(localStorage.getItem(WordAnalyzer.CACHE_KEY)) || {};
+    } catch(e) {
+      return {};
+    }
+  },
+
+  saveCache: function(cache) {
+    try {
+      localStorage.setItem(WordAnalyzer.CACHE_KEY, JSON.stringify(cache));
+    } catch(e) {}
+  }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+  AccessGate.init(function(role) {
+    // Инициализация через PageController
+    if (window.PageController) {
+      window.PageController.init();
+    }
+    applyLabConfig(role);
+    
+    // Accordion menu handlers
+    document.querySelectorAll('.sidebar-section-header').forEach(function(header) {
+      header.addEventListener('click', function() {
+        var section = this.getAttribute('data-section');
+        var content = document.getElementById('section-' + section);
+        if (content) {
+          this.classList.toggle('collapsed');
+          content.classList.toggle('collapsed');
+        }
+      });
+    });
+    
+    document.querySelectorAll('.lab-sidebar .sidebar-item, .lab-sidebar a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) LabSidebar.close();
+      });
+    });
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) LabSidebar.close();
+    });
+  });
+});
+
+function applyLabConfig(role) {
+  var config = AccessGate.getConfig() || {};
+
+  if (config.accentColor) {
+    document.documentElement.style.setProperty('--accent-gold', config.accentColor);
+  }
+
+  if (role === 'admin') {
+    var adminSection = document.getElementById('sidebar-admin-section');
+    if (adminSection) adminSection.style.display = '';
+  } else {
+    (config.hiddenSectionsForGuests || []).forEach(function(key) {
+      var item = document.querySelector('.sidebar-item[data-module="' + key + '"]');
+      if (item) item.style.display = 'none';
+    });
+  }
+
+  if (config.defaultModule && config.defaultModule !== 'dashboard' && !window.location.hash) {
+    window.location.hash = config.defaultModule;
+  }
+}
+
+// ===== EMBED MODE: hide chrome when loaded in iframe with ?embed=1 =====
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('embed') === '1') {
+    document.documentElement.classList.add('is-embed');
+    document.body.classList.add('is-embed');
+    var els = [
+      'labHeader', 'labSidebar', 'labSidebarOverlay',
+      'labSidebarToggle', 'labSidebar'
+    ];
+    els.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.classList.add('is-embed');
+    });
+    document.querySelector('.lab-footer')?.classList.add('is-embed');
+    document.querySelector('.lab-header-mobile-links')?.classList.add('is-embed');
+    document.querySelector('.hotkey-hint')?.classList.add('is-embed');
+    // Remove sidebar from layout
+    var layout = document.querySelector('.lab-layout');
+    if (layout) layout.classList.add('is-embed');
+  }
+})();
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').catch(function(error) {
+      console.warn('[ResearchLab] ServiceWorker недоступен:', error);
+    });
+  }
+</script>
+</body>
+</html>

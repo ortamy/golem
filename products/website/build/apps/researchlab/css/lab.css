@@ -1,0 +1,30 @@
+/* =============================================
+   lab.css - Golem Research Lab Design System v2.1
+   Manifest: layers (tokens -> base -> layout -> components -> responsive).
+   Font stack per DESIGN-SYSTEM.md.
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:wght@500;600;700&family=Caveat:wght@400;600&family=Noto+Serif+Hebrew:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Phoenician:wght@400&display=swap');
+
+/* Layers (cascade order == original section order of lab.css) */
+@import url('tokens.css');
+@import url('base.css');
+@import url('layout.css');
+@import url('components/dashboard.css');
+@import url('components/forms.css');
+@import url('components/cards.css');
+@import url('components/feedback.css');
+@import url('components/data.css');
+@import url('components/highlight-export.css');
+@import url('components/research.css');
+@import url('components/paleo-keyboard.css');
+@import url('components/modal.css');
+@import url('components/dict-term-doc.css');
+@import url('components/animations.css');
+@import url('components/utilities.css');
+@import url('components/research-json.css');
+@import url('components/paleo-mechanics.css');
+@import url('responsive.css');
+@import url('components/neurochat.css');
+@import url('components/manifest.css');
+@import url('components/buttons.css');

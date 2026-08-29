@@ -1,0 +1,106 @@
+/* =============================================
+   components/paleo-keyboard.css - Golem Research Lab layer
+   Layer of lab.css (split). Do not edit by hand -
+   regenerate from lab.css source sections.
+   ============================================= */
+
+/* ===== PALEO-HEBREW KEYBOARD ===== */
+.pk-output {
+  min-height: 64px;
+  width: 100%;
+  resize: vertical;
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-hebrew);
+  font-size: var(--text-2xl);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-xs);
+  box-shadow: inset 0 0 0 3px var(--bg-tertiary), var(--shadow-soft);
+  outline: none;
+}
+.pk-output:focus { border-color: var(--accent-gold); }
+.pk-keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.pk-row { display: flex; justify-content: center; gap: 8px; }
+.pk-key {
+  position: relative;
+  display: flex;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: 2px;
+  box-shadow: none;
+  cursor: pointer;
+  transition: color var(--motion-base), border-color var(--motion-base), background var(--motion-base);
+}
+.pk-key.is-active { outline: 2px solid var(--accent-gold); outline-offset: 2px; }
+.pk-key:hover { border-color: var(--accent-gold); background: rgb(var(--accent-gold-rgb) / 0.06); }
+.pk-key:active { color: var(--accent-gold); background: rgb(var(--accent-gold-rgb) / 0.12); }
+.pk-key-symbol, .pk-output-symbol { font-family: 'Noto Sans Phoenician', 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif; font-size: 24px; line-height: 1; }
+.paleo-fallback .pk-key-symbol, .paleo-fallback .pk-output-symbol, .pk-modal-glyph-fallback { font-size: 0; }
+.paleo-fallback .pk-key-symbol::before, .paleo-fallback .pk-output-symbol::before, .pk-modal-glyph-fallback::before { content: attr(data-fallback); font-family: var(--font-serif); font-size: 24px; }
+.pk-analyzer {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  padding: 0 10px;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid transparent;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: normal;
+  line-height: 26px;
+  text-align: left;
+  direction: ltr;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--motion-base), height var(--motion-base), visibility 0s linear 0.2s;
+}
+.pk-analyzer.show {
+  height: 28px;
+  border-color: var(--border-light);
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.pk-key-name, .pk-key-translit, .pk-modal-symbol, .pk-modal-reference, .pk-toast { display: none; }
+.pk-modal-symbol { margin: 0 auto 16px; color: var(--text-primary); font-family: 'Noto Sans Phoenician', 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif; font-size: 92px; line-height: 1; text-align: center; }
+.pk-modal-glyph-fallback::before { font-size: 92px; }
+.pk-toast { position: fixed; top: 24px; left: 50%; z-index: 9999; padding: 10px 24px; background: var(--bg-dark); color: var(--text-light); border: 1px solid var(--accent-gold); border-radius: 4px; opacity: 0; pointer-events: none; transform: translateX(-50%); transition: opacity var(--motion-base); }
+.pk-toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .pk-keyboard { padding: 8px 0; gap: 8px; }
+  .pk-key { width: 56px; height: 56px; flex-basis: 56px; }
+  .pk-key-symbol { font-size: 30px; }
+  .pk-actions { flex-wrap: wrap; }
+}
+
+@media print {
+  .lab-sidebar, .lab-header, .lab-footer, .hotkey-hint { display: none; }
+  .lab-content { padding: 0; }
+  body { background: #ede0c8; }
+  .research-generator-form, #rg-status, .research-generator-export, .research-preview-wrap > h2 { display: none !important; }
+  .research-preview-wrap { margin: 0; }
+  .research-preview { max-width: none; padding: 0; border: none; box-shadow: none; }
+}

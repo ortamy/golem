@@ -1,0 +1,119 @@
+/* =============================================
+   components/neurochat.css - Golem Research Lab layer
+   Layer of lab.css (split). Do not edit by hand -
+   regenerate from lab.css source sections.
+   ============================================= */
+
+/* ===== NEUROCHAT ===== */
+#ed-chat .ec-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 320px);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+#ed-chat .ec-main { min-width: 0; }
+
+#ed-chat .ec-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--space-4);
+}
+
+#ed-chat .ec-toolbar label { font-weight: 600; }
+#ed-chat .ec-model-label { flex: 1; color: var(--text-muted); font-size: 14px; }
+#ed-chat .ec-tokens { color: var(--accent-green); font: 12px var(--font-mono); }
+
+#ed-chat .ec-messages {
+  min-height: 360px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+#ed-chat .ec-welcome { padding: 72px 20px; text-align: center; }
+
+#ed-chat .ec-message {
+  max-width: 86%;
+  margin: 0 0 14px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+}
+
+#ed-chat .ec-message-user {
+  margin-left: auto;
+  border-color: var(--accent-gold);
+  background: rgb(var(--accent-gold-rgb) / 0.08);
+}
+
+#ed-chat .ec-message-assistant { margin-right: auto; }
+
+#ed-chat .ec-message-meta {
+  margin-bottom: var(--space-1);
+  color: var(--accent-gold);
+  font: 600 12px var(--font-mono);
+}
+
+#ed-chat .ec-message-body { white-space: pre-wrap; line-height: 1.6; }
+#ed-chat .ec-composer { margin-top: 16px; }
+
+#ed-chat .ec-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: 10px;
+}
+
+#ed-chat .ec-sidebar { display: grid; gap: 16px; }
+
+#ed-chat .ec-panel {
+  padding: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-soft);
+}
+
+#ed-chat .ec-panel h2 { margin-bottom: 12px; font-size: 22px; }
+#ed-chat .ec-panel h3 { margin: 12px 0 6px; color: var(--accent-gold); font: 600 16px var(--font-heading); }
+
+#ed-chat .ec-document-list {
+  padding-left: var(--space-5);
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+#ed-chat .ec-prompt { font-size: 14px; line-height: 1.45; }
+#ed-chat .ec-history { display: grid; gap: 6px; color: var(--text-muted); font-size: 14px; }
+
+#ed-chat .ec-history-item {
+  width: 100%;
+  padding: var(--space-2) 10px;
+  text-align: left;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  font: 14px var(--font-serif);
+}
+
+#ed-chat .ec-history-item:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+@media (max-width: 900px) {
+  #ed-chat .ec-layout { grid-template-columns: 1fr; }
+  #ed-chat .ec-sidebar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  #ed-chat .ec-sidebar { grid-template-columns: 1fr; }
+  #ed-chat .ec-message { max-width: 100%; }
+  #ed-chat .ec-toolbar { align-items: stretch; }
+  #ed-chat .ec-toolbar .lab-select { flex: 1; }
+}
