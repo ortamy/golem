@@ -26,6 +26,21 @@
   height: 40px;
   width: auto;
 }
+.golem-beta {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  margin-left: var(--space-2);
+  padding: 0 var(--space-1);
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius-sm);
+  color: var(--accent-gold);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+}
 .lab-header .logo:hover { opacity: 0.8; }
 .lab-header .header-subtitle {
   color: var(--text-muted); font-size: var(--text-sm); margin-left: var(--space-2);
