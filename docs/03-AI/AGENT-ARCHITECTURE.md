@@ -129,13 +129,30 @@
 
 7. API-СЕРВЕР (server.py)
 
-Сервер написан на Flask. Он принимает POST-запросы на эндпоинт /run.
+Сервер написан на Flask. Он принимает POST-запросы на эндпоинт /run и раздаёт интерфейс ResearchLab.
 
-Запрос должен содержать JSON-тело с полем query. Например: {"query": "разбери слово Берешит"}.
+**Запуск (одна команда):**
+cd products/agents
+python server.py                # http://127.0.0.1:5000 — откроет Лабораторию в браузере
+python server.py --port 9000    # другой порт
+python server.py --no-cors      # без CORS-заголовков
+python server.py --no-browser   # без автооткрытия браузера
 
-Сервер передаёт строку запроса в orchestrator.run(), получает результат и возвращает его в формате JSON.
+**Запуск из интерфейса:** раздел «AI → Запуск сервера» в Лаборатории — статус сервера
+(поллинг /api/health + /api/info), кнопки «Остановить» / «Перезапустить» (POST /api/lab/shutdown,
+POST /api/lab/restart), «Открыть лабораторию» и генерация start-server.bat / stop-server.bat
+для первого запуска. Также в products/agents лежат готовые start-server.bat и stop-server.bat.
 
-Запуск сервера производится командой python server.py в папке products/agents/. Сервер по умолчанию слушает порт 5000.
+**Эндпоинты управления процессом:**
+GET  /api/health             — статус;
+GET  /api/info               — pid, python, cwd, uptime;
+POST /api/lab/shutdown       — остановка сервера;
+POST /api/lab/restart        — перезапуск в новом окне (Windows).
+GET  /apps/researchlab/      — интерфейс Лаборатории.
+
+Запрос на /run содержит JSON-тело с полем query. Например: {"query": "разбери слово Берешит"}.
+
+Сервер передаёт строку запроса в orchestrator.dispatch(), получает результат и возвращает его в формате JSON.
 
 ---
 

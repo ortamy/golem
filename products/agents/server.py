@@ -1,11 +1,28 @@
 #!/usr/bin/env python3
-"""Минимальная Flask API-точка входа для оркестратора."""
+"""Flask API сервер агентов + раздача Лаборатории ResearchLab.
+
+Запуск (одна команда):
+    python server.py [--host 127.0.0.1] [--port 5000] [--no-cors] [--no-browser]
+
+Сервер:
+    /api/*          — REST API агентной системы;
+    /apps/researchlab/ — интерфейс ResearchLab (из products/website);
+    POST /api/lab/shutdown — остановка сервера;
+    POST /api/lab/restart  — перезапуск сервера (Windows: новое окно).
+"""
+import argparse
 import json
 import math
+import os
+import subprocess
+import sys
+import threading
+import time
+import webbrowser
 from datetime import datetime, timezone
 from pathlib import Path
 
-from flask import Flask, jsonify, request
+from flask import Flask, abort, jsonify, redirect, request, send_from_directory
 from orchestrator import dispatch, run_pipeline as execute_named_pipeline
 from pipelines.core import run_steps
 from agents.common import packet
@@ -16,6 +33,8 @@ from ollama_adapter import OllamaError, status as ollama_status, summarize as ol
 app = Flask(__name__)
 PIPELINES_PATH = Path(__file__).resolve().parents[2] / "products" / "website" / "apps" / "researchlab" / "data" / "pipelines.json"
 RESULTS_PATH = PIPELINES_PATH.with_name("pipeline-results.json")
+WEB_ROOT = Path(__file__).resolve().parents[2] / "products" / "website"
+SERVER_START = time.time()
 
 # Русские имена агентов из UI (getAgentMapData) → их функции.
 # Позволяет исполнять кастомные пайплайны, созданные в Research Lab,
@@ -71,10 +90,14 @@ def write_results(results):
 
 @app.after_request
 def add_cors_headers(response):
-    """Разрешает Research Lab, открытой на другом локальном порту, вызвать API."""
-    response.headers["Access-Control-Allow-Origin"] = "*"
-    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
-    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+    """Разрешает Research Lab, открытой на другом локальном порту, вызвать API.
+
+    Заголовки добавляются только если не передан флаг --no-cors.
+    """
+    if app.config.get("CORS_ENABLED", True):
+        response.headers["Access-Control-Allow-Origin"] = "*"
+        response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
     return response
 
 
@@ -99,6 +122,87 @@ def run_pipeline():
 @app.get("/api/health")
 def health():
     return jsonify({"status": "ok", "service": "golem-agents"})
+
+
+@app.get("/api/info")
+def api_info():
+    """Метаданные процесса: нужны панели «Запуск сервера» в интерфейсе."""
+    return jsonify({
+        "status": "ok",
+        "service": "golem-agents",
+        "host": app.config.get("SERVER_HOST", "127.0.0.1"),
+        "port": app.config.get("SERVER_PORT", 5000),
+        "pid": os.getpid(),
+        "python": ".".join(str(part) for part in sys.version_info[:3]),
+        "executable": sys.executable,
+        "cwd": str(Path.cwd()),
+        "uptime": round(time.time() - SERVER_START, 1),
+    })
+
+
+def _serve_lab_file(filename):
+    """Отдаёт файлы Лаборатории из products/website, не выпуская за пределы корня."""
+    if not filename:
+        filename = "index.html"
+    target = (WEB_ROOT / filename).resolve()
+    if target != WEB_ROOT and WEB_ROOT not in target.parents:
+        abort(404)
+    return send_from_directory(WEB_ROOT, filename)
+
+
+@app.get("/")
+def lab_home():
+    return send_from_directory(WEB_ROOT, "index.html")
+
+
+@app.get("/apps/researchlab")
+def lab_index_no_slash():
+    return redirect("/apps/researchlab/")
+
+
+@app.get("/apps/researchlab/")
+def lab_index():
+    return send_from_directory(WEB_ROOT, "apps/researchlab/index.html")
+
+
+@app.get("/<path:filename>")
+def lab_static(filename):
+    return _serve_lab_file(filename)
+
+
+@app.post("/api/lab/shutdown")
+def lab_shutdown():
+    """Остановка сервера из интерфейса. В тестовом режиме процесс не гасим."""
+    if app.config.get("TESTING"):
+        return jsonify({"stopped": False, "testing": True, "pid": os.getpid()})
+    threading.Timer(0.4, lambda: os._exit(0)).start()
+    return jsonify({"stopped": True, "pid": os.getpid()})
+
+
+@app.post("/api/lab/restart")
+def lab_restart():
+    """Перезапуск сервера: стартует новый процесс и гасит текущий.
+
+    В тестовом режиме процесс не трогаем.
+    """
+    if app.config.get("TESTING"):
+        return jsonify({"restarted": False, "testing": True, "pid": os.getpid()})
+    args = [
+        sys.executable, str(Path(__file__).resolve()),
+        "--host", app.config.get("SERVER_HOST", "127.0.0.1"),
+        "--port", str(app.config.get("SERVER_PORT", 5000)),
+    ]
+    if not app.config.get("CORS_ENABLED", True):
+        args.append("--no-cors")
+    if os.name == "nt":
+        flags = subprocess.CREATE_NEW_CONSOLE | subprocess.CREATE_NEW_PROCESS_GROUP
+        subprocess.Popen(args, cwd=str(Path(__file__).resolve().parent),
+                         creationflags=flags, close_fds=True)
+    else:
+        subprocess.Popen(args, cwd=str(Path(__file__).resolve().parent),
+                         start_new_session=True, close_fds=True)
+    threading.Timer(0.6, lambda: os._exit(0)).start()
+    return jsonify({"restarted": True, "pid": os.getpid()})
 
 
 @app.get("/api/ollama/status")
@@ -255,5 +359,38 @@ def make_pipeline_id(pipelines, name):
     return candidate
 
 
+def _http_host(host):
+    """Для автооткрытия браузера 0.0.0.0/:: превращаем в 127.0.0.1."""
+    return host if host not in ("0.0.0.0", "::") else "127.0.0.1"
+
+
+def main():
+    parser = argparse.ArgumentParser(description="GOLEM: агентный сервер + Лаборатория ResearchLab")
+    parser.add_argument("--host", default="127.0.0.1", help="Адрес прослушивания (по умолчанию 127.0.0.1)")
+    parser.add_argument("--port", type=int, default=5000, help="Порт (по умолчанию 5000)")
+    parser.add_argument("--no-cors", action="store_true", help="Не добавлять CORS-заголовки")
+    parser.add_argument("--no-browser", action="store_true", help="Не открывать Лабораторию в браузере")
+    args = parser.parse_args()
+
+    app.config["SERVER_HOST"] = args.host
+    app.config["SERVER_PORT"] = args.port
+    app.config["CORS_ENABLED"] = not args.no_cors
+    app.config["TESTING"] = False
+
+    http_host = _http_host(args.host)
+    lab_url = "http://{0}:{1}/apps/researchlab/".format(http_host, args.port)
+    print("=" * 64)
+    print("GOLEM · сервер агентов")
+    print("  Лаборатория: " + lab_url)
+    print("  API health : http://{0}:{1}/api/health".format(http_host, args.port))
+    print("  Python     : " + sys.executable)
+    print("  PID        : " + str(os.getpid()))
+    print("  CORS       : " + ("вкл" if app.config["CORS_ENABLED"] else "выкл"))
+    print("=" * 64)
+    if not args.no_browser:
+        threading.Timer(0.9, lambda: webbrowser.open(lab_url)).start()
+    app.run(host=args.host, port=args.port, debug=False, use_reloader=False)
+
+
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000)
+    main()

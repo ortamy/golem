@@ -79,6 +79,46 @@ class PipelineApiTest(unittest.TestCase):
         self.assertEqual(response.get_json()["ollama"]["status"], "error")
         write_results.assert_called_once()
 
+    def test_api_info_returns_process_meta(self):
+        response = self.client.get("/api/info")
+
+        self.assertEqual(response.status_code, 200)
+        body = response.get_json()
+        self.assertEqual(body["service"], "golem-agents")
+        self.assertIn("pid", body)
+        self.assertIn("python", body)
+        self.assertIn("uptime", body)
+
+    def test_lab_index_is_served(self):
+        response = self.client.get("/apps/researchlab/")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"researchlab", response.data.lower())
+
+    def test_lab_static_asset_is_served(self):
+        response = self.client.get("/apps/researchlab/js/agent-server.js")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"AgentServer", response.data)
+
+    def test_lab_path_traversal_blocked(self):
+        response = self.client.get("/../../CLAUDE.md")
+        self.assertEqual(response.status_code, 404)
+
+    def test_lab_shutdown_noop_in_testing(self):
+        response = self.client.post("/api/lab/shutdown")
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.get_json()["testing"])
+
+    def test_lab_restart_noop_in_testing(self):
+        response = self.client.post("/api/lab/restart")
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.get_json()["testing"])
+
+    def test_cors_headers_present_by_default(self):
+        response = self.client.get("/api/health")
+        self.assertEqual(response.headers.get("Access-Control-Allow-Origin"), "*")
+
 
     @patch("server.write_results")
     @patch("server.read_results", return_value=[])

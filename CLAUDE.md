@@ -19,7 +19,7 @@ golem/
 │   ├── 05-DICTIONARIES/             # 22 словаря подмен и религионимов
 │   ├── 06-METHODOLOGY/              # Методички (principles, methods, mechanisms…)
 │   └── 10-DESIGN/DESIGN-SYSTEM.md   # Дизайн-система ResearchLab
-├── products/agents/                 # CrewAI агенты + Flask server.py (порт 8000)
+├── products/agents/                 # CrewAI агенты + Flask server.py (порт 5000, раздаёт Лабораторию)
 ├── tools/                           # Python утилиты, генераторы JSON
 ├── tasks/                           # current.md, backlog.md, prompts.md
 └── archive/                         # Отработанные материалы
@@ -122,6 +122,8 @@ golem/
 
 Проект использует только один сервер:
 - Flask: products/agents/server.py
-- Порт: 8000
+- Порт: 5000
+- Лаборатория ResearchLab раздаётся этим же сервером: http://127.0.0.1:5000/apps/researchlab/
 
-Запрещено создавать другие серверы (Node.js, Express, дополнительные Flask-приложения, локальные HTTP-серверы). Все API-запросы идут через порт 8000. Новый сервер создаётся только по прямому указанию.
+Запуск: `python products/agents/server.py` (или `start-server.bat`).
+Запрещено создавать другие серверы (Node.js, Express, дополнительные Flask-приложения, локальные HTTP-серверы). Все API-запросы идут через порт 5000. Новый сервер создаётся только по прямому указанию.
