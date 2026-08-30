@@ -27,6 +27,10 @@ const LabRouter = (function() {
 
   function routeTitle(route) {
     if (route === 'dashboard') return 'ГОЛЕМ';
+    if (route.indexOf('learn') === 0 && window.LearnLab && window.LearnLab.routeTitle) {
+      var learnTitle = window.LearnLab.routeTitle(route);
+      if (learnTitle) return learnTitle;
+    }
     if (window.LabHero && window.LabHero.getTitle) {
       var title = window.LabHero.getTitle(route);
       if (title) return title;
@@ -49,8 +53,9 @@ const LabRouter = (function() {
     crumb.innerHTML = routes.map(function(route, index) {
       var current = index === routes.length - 1;
       var label = escapeHtml(routeTitle(route));
+      var href = route.split('/').map(function(segment) { return encodeURIComponent(segment); }).join('/');
       return (index ? '<span class="lab-hero__kicker-separator" aria-hidden="true">·</span>' : '') +
-        '<a class="lab-hero__kicker-link' + (current ? ' is-current' : '') + '" href="#' + escapeHtml(route) + '"' +
+        '<a class="lab-hero__kicker-link' + (current ? ' is-current' : '') + '" href="#' + escapeHtml(href) + '"' +
         (current ? ' aria-current="page"' : '') + '>' + label + '</a>';
     }).join('');
   }

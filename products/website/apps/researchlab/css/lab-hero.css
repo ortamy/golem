@@ -76,6 +76,7 @@
 }
 
 .lab-hero__subtitle {
+  text-align: left;
   position: relative;
   z-index: 1;
   max-width: 760px;

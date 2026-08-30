@@ -26,6 +26,69 @@
   function getContainer() { return document.getElementById('learn-app'); }
   function setView(view) { state.view = view; render(); }
 
+  function navigate(segments) {
+    if (root.LabRouter) root.LabRouter.navigate('learn', segments);
+  }
+
+  function findCourse(id) {
+    id = decodeURIComponent(String(id || ''));
+    return ((root.GolemCourses && root.GolemCourses.list) || []).filter(function(course) {
+      return course.id === id && course.lessons && course.lessons.length;
+    })[0] || null;
+  }
+
+  function routeTitle(route) {
+    var segments = String(route || '').split('/');
+    var item, course;
+    if (route === 'learn') return 'Обучение';
+    if (route === 'learn/lessons') return 'Изучение иврита';
+    if (route === 'learn/game') return 'Угадай образ';
+    if (route === 'learn/courses') return 'Курсы';
+    if (segments[1] === 'lessons' && segments[2]) {
+      item = byKey(decodeURIComponent(segments[2]));
+      return item ? item.name : 'Урок';
+    }
+    if (segments[1] === 'courses' && segments[2]) {
+      course = findCourse(segments[2]);
+      return course ? course.title : 'Курс';
+    }
+    return '';
+  }
+
+  function applyRoute(parsed) {
+    var segments = parsed && parsed.segments ? parsed.segments.slice(1) : [];
+    var target = segments[0] || 'home';
+    var item, course;
+
+    stopTimer();
+    if (target === 'lessons') {
+      state.view = segments[1] ? 'lesson' : 'lessons';
+      if (state.view === 'lesson') {
+        item = byKey(decodeURIComponent(segments[1]));
+        if (!item) state.view = 'lessons';
+        else state.lesson = state.lesson && state.lesson.item.hebrew === item.hebrew ? state.lesson : {item:item,step:1,score:0,done:false};
+      }
+      state.course = null;
+    } else if (target === 'game') {
+      state.view = 'game';
+      if (!state.game || state.game.done) {
+        state.game = {round:1,score:0,streak:0,time:30,done:false};
+        nextRound();
+      }
+      startTimer();
+    } else if (target === 'courses') {
+      course = segments[1] ? findCourse(segments[1]) : null;
+      state.view = course ? 'course' : 'courses';
+      state.course = course;
+    } else {
+      state.view = 'home';
+      state.lesson = null;
+      state.course = null;
+      state.game = null;
+    }
+    render();
+  }
+
   function loadLetters() {
     var source = root.PaleoLetters && root.PaleoLetters.byHebrew;
     LETTER_KEYS.forEach(function(key, index) {
@@ -57,14 +120,14 @@
     var tagOpen = hasLessons ? '<button type="button"' : '<article';
     var tagClose = hasLessons ? '</button>' : '</article>';
     return tagOpen + ' class="course-card' + (hasLessons ? ' is-open' : '') + '" style="animation-delay:' + index * 60 + 'ms"' + click + '>' +
-      '<div class="course-card-head"><h2>' + esc(course.title) + '</h2>' +
-      '<span class="course-status is-' + statusClass + '">' + esc(course.status) + '</span></div>' +
+      '<div class="course-card-head"><span class="course-status is-' + statusClass + '">' + esc(course.status) + '</span>' +
+      '<h2>' + esc(course.title) + '</h2></div>' +
       '<p class="course-desc">' + esc(course.description) + '</p>' +
       '<div class="course-card-meta">' +
         '<span class="course-tag level">' + esc(levelLabel) + '</span>' +
         '<span class="course-tag">' + course.modules + ' ' + (course.modules === 1 ? 'модуль' : course.modules < 5 ? 'модуля' : 'модулей') + '</span>' +
       '</div>' +
-      (hasLessons ? '<div class="course-card-hint"><span>' + course.lessons.length + ' уроков-карточек</span><span aria-hidden="true">→</span></div>' : '') +
+      (hasLessons ? '<span class="course-card-action">Пройти курс</span>' : '') +
     tagClose;
   }
   function renderCourses() {
@@ -143,17 +206,19 @@
 
   var api = {
     init: function() { if (!letters.length) loadLetters(); render(); },
-    home: function() { state.view='home'; state.lesson=null; state.course=null; stopTimer(); render(); },
-    openLessons: function() { state.view='lessons'; stopTimer(); render(); },
-    openLesson: function(key) { var item = byKey(key); if (!item) return; markStarted(item); state.lesson={item:item,step:1,score:0,done:false}; state.view='lesson'; render(); },
+    home: function() { navigate([]); },
+    openLessons: function() { navigate(['lessons']); },
+    openLesson: function(key) { var item = byKey(key); if (!item) return; markStarted(item); navigate(['lessons', encodeURIComponent(key)]); },
     submitText: function() { var input = document.getElementById('learn-answer'), step = state.lesson.step, expected = step === 1 ? state.lesson.item.name : state.lesson.item.meaning; if (!input) return; var ok = inputMatch(input.value, expected); if (ok) advance(true); else feedback('Пока не совпало. Попробуйте ещё раз.', false); },
     answer: function(key) { var ok = key === state.lesson.item.hebrew; if (ok) advance(true); else feedback('Это другой образ. Попробуйте ещё раз.', false); },
-    openGame: function() { stopTimer(); state.view='game'; state.game={round:1,score:0,streak:0,time:30,done:false}; nextRound(); startTimer(); },
-    openCourses: function() { state.view='courses'; state.course=null; stopTimer(); render(); },
-    openCourse: function(id) { var course = ((root.GolemCourses && root.GolemCourses.list) || []).filter(function(c) { return c.id === id && c.lessons && c.lessons.length; })[0]; if (!course) return; stopTimer(); state.course = course; state.view = 'course'; render(); window.scrollTo(0, 0); },
+    openGame: function() { navigate(['game']); },
+    openCourses: function() { navigate(['courses']); },
+    openCourse: function(id) { if (findCourse(id)) navigate(['courses', encodeURIComponent(id)]); },
+    applyRoute: applyRoute,
+    routeTitle: routeTitle,
     toggleLesson: function(courseId, lessonId) { var p = courseProgress(); if (p.lessons[lessonId]) delete p.lessons[lessonId]; else p.lessons[lessonId] = { course: courseId, done: true, at: now() }; write(COURSE_KEY, p); render(); },
     gameAnswer: function(key) { var game=state.game; if (!game || game.locked) return; game.locked=true; var ok=key===game.item.hebrew, earned=0; if(ok){game.streak++; earned=10*(game.streak >= 3 ? 3 : game.streak === 2 ? 2 : 1); game.score+=earned;} else {game.streak=0; game.score=Math.max(0,game.score-5);} render(); var feedbackEl=document.getElementById('learn-game-feedback'); if(feedbackEl){feedbackEl.textContent=ok ? 'Верно! +' + earned + ' очков' : 'Неверно. Правильный образ: ' + game.item.image; feedbackEl.className='learn-game-feedback ' + (ok?'correct':'wrong');} setTimeout(function(){ if(!state.game || state.game !== game) return; if(game.round >= 10) finishGame(); else {game.round++; nextRound();} },700); },
-    reset: function() { if (!window.confirm('Сбросить весь прогресс обучения и рекорд игры?')) return; localStorage.removeItem(PROGRESS_KEY); localStorage.removeItem(RECORD_KEY); state.view='home'; render(); }
+    reset: function() { if (!window.confirm('Сбросить весь прогресс обучения и рекорд игры?')) return; localStorage.removeItem(PROGRESS_KEY); localStorage.removeItem(RECORD_KEY); navigate([]); }
   };
   function nextRound() { var item=letters[Math.floor(Math.random()*letters.length)]; state.game.item=item; state.game.choices=distractors(item); state.game.locked=false; render(); }
   function finishGame() { stopTimer(); state.game.done=true; var best=Math.max(record(),state.game.score); localStorage.setItem(RECORD_KEY,String(best)); render(); }

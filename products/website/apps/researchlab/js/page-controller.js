@@ -1221,6 +1221,9 @@ const PageController = (function() {
       if (moduleId === 'states' && window.GolemStates) {
         window.GolemStates.init(parsed);
       }
+      if (moduleId === 'learn' && window.LearnLab) {
+        window.LearnLab.applyRoute(parsed);
+      }
       if (moduleId === 'ai-agents' && parsed && parsed.segments && parsed.segments[1]) {
         renderAgentDetail(container, parsed.segments[1]);
       } else if (moduleId === 'ai-agents') {
@@ -1319,6 +1322,7 @@ const PageController = (function() {
         container.innerHTML = '<div id="learn-app" aria-live="polite"></div>';
         container.dataset.loaded = '1';
         if (window.LearnLab) window.LearnLab.init();
+        if (window.LearnLab) window.LearnLab.applyRoute(parsed);
         break;
 
       case 'etymology-checker':
@@ -1896,11 +1900,16 @@ const PageController = (function() {
   function resolveHeroView(moduleId, parsed) {
     var viewId = null, override = null;
     if (moduleId === 'learn') {
-      // view определяется внутри LearnLab; здесь читаем хеш-сегменты.
       var seg = parsed && parsed.segments;
-      // LearnLab хранит view внутри, но PageController не имеет к ней доступа.
-      // Шапка «Обучения» подменяется в learn.js через LabHero.setView.
-      // Здесь только гарантируем базовую шапку.
+      if (seg && seg[1] === 'lessons') viewId = seg[2] ? 'lesson' : 'lessons';
+      else if (seg && seg[1] === 'game') viewId = 'game';
+      else if (seg && seg[1] === 'courses') {
+        viewId = seg[2] ? 'course' : 'courses';
+        if (seg[2] && window.GolemCourses && window.GolemCourses.list) {
+          var course = window.GolemCourses.list.filter(function(item) { return item.id === decodeURIComponent(seg[2]); })[0];
+          if (course) override = { title: course.title, subtitle: course.description, meta: [course.level + ' · ' + course.lessons.length + ' уроков'] };
+        }
+      }
     } else if (moduleId === 'states') {
       var params = (parsed && parsed.params) || {};
       if (params.diagnostic === 'true') viewId = 'diagnostic';
