@@ -13,6 +13,74 @@ const LabRouter = (function() {
   let modules = {};
   let onModuleChange = null;
 
+  function escapeHtml(text) {
+    var el = document.createElement('div');
+    el.textContent = text == null ? '' : String(text);
+    return el.innerHTML;
+  }
+
+  function fallbackTitle(segment) {
+    return decodeURIComponent(segment).replace(/[-_]+/g, ' ').replace(/\b\S/g, function(letter) {
+      return letter.toLocaleUpperCase('ru-RU');
+    });
+  }
+
+  function routeTitle(route) {
+    if (route === 'dashboard') return 'ГОЛЕМ';
+    if (route.indexOf('learn') === 0 && window.LearnLab && window.LearnLab.routeTitle) {
+      var learnTitle = window.LearnLab.routeTitle(route);
+      if (learnTitle) return learnTitle;
+    }
+    // #workbench — титулы внутренних экранов берутся из реестра конвейеров и проектов.
+    if (route.indexOf('workbench') === 0 && window.Workbench && window.Workbench.routeTitle) {
+      var workbenchTitle = window.Workbench.routeTitle(route);
+      if (workbenchTitle) return workbenchTitle;
+    }
+    if (route === 'root-dictionary') return 'Корневой словарь';
+    if (route === 'root-dictionary/search') return 'Поиск';
+    if (route.indexOf('root-dictionary/search/') === 0) {
+      var dictionarySegments = route.split('/');
+      if (dictionarySegments[3] === 'page') return 'Страница ' + dictionarySegments[4];
+      return dictionarySegments[2] ? 'Поиск: ' + decodeURIComponent(dictionarySegments[2]) : 'Поиск';
+    }
+    if (route.indexOf('root-dictionary/page/') === 0) return 'Страница ' + route.split('/').pop();
+    if (route === 'dictionaries') return 'Словари';
+    if (route === 'dictionaries/root-dictionary') return 'Корневой словарь';
+    if (route === 'dictionaries/paleo-glossary') return 'Палео-глоссарий';
+    if (route.indexOf('dictionaries/') === 0 && window.PageController && PageController.jsonCache.dictionaries) {
+      var dictionaryKey = decodeURIComponent(route.split('/')[1]);
+      var dictionary = PageController.jsonCache.dictionaries[dictionaryKey];
+      if (dictionary && dictionary.title) return dictionary.title;
+    }
+    if (window.LabHero && window.LabHero.getTitle) {
+      var title = window.LabHero.getTitle(route);
+      if (title) return title;
+    }
+    var segment = route.split('/').pop();
+    return fallbackTitle(segment);
+  }
+
+  function renderBreadcrumbs(moduleId, parsed) {
+    var container = modules[moduleId] || document.getElementById(moduleId);
+    if (!container || moduleId === 'dashboard') return;
+
+    var segments = (parsed && parsed.segments && parsed.segments.length ? parsed.segments : [moduleId]).slice();
+    var routes = ['dashboard'];
+    for (var i = 0; i < segments.length; i++) routes.push(segments.slice(0, i + 1).join('/'));
+
+    var crumb = container.querySelector('.lab-hero__kicker');
+    if (!crumb) return;
+
+    crumb.innerHTML = routes.map(function(route, index) {
+      var current = index === routes.length - 1;
+      var label = escapeHtml(routeTitle(route));
+      var href = route.split('/').map(function(segment) { return encodeURIComponent(decodeURIComponent(segment)); }).join('/');
+      return (index ? '<span class="lab-hero__kicker-separator" aria-hidden="true">·</span>' : '') +
+        '<a class="lab-hero__kicker-link' + (current ? ' is-current' : '') + '" href="#' + escapeHtml(href) + '"' +
+        (current ? ' aria-current="page"' : '') + '>' + label + '</a>';
+    }).join('');
+  }
+
   // ===== ИНИЦИАЛИЗАЦИЯ =====
   function init() {
     // Регистрируем все модули
@@ -71,7 +139,7 @@ const LabRouter = (function() {
     var parsed = parseHash();
     var hash = parsed.module;
     var routedModules = [
-      'manifest', 'dashboard', 'learn', 'dictionaries', 'researches',
+      'manifest', 'dashboard', 'workbench', 'learn', 'dictionaries', 'researches',
       'methodology', 'paleo-mechanics', 'paleo-linguistics',
       'language-map', 'religionisms', 'root-dictionary', 'paleo-glossary', 'paleo-builder',
       'word-analyzer', 'scripture-reader', 'generators',
@@ -236,6 +304,7 @@ const LabRouter = (function() {
     if (onModuleChange) {
       onModuleChange(moduleId, parsed);
     }
+    renderBreadcrumbs(moduleId, parsed);
 
     // Прокрутка вверх
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -252,6 +321,7 @@ const LabRouter = (function() {
     navigate: navigate,
     show: showModule,
     parseHash: parseHash,
+    renderBreadcrumbs: renderBreadcrumbs,
     current: function() { return currentModule; },
     onChange: onChange
   };

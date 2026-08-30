@@ -78,12 +78,12 @@
   overflow: hidden;
 }
 
-/* Акт — отдельный белый контейнер */
+/* Акт — отдельный тёплый пергаментный контейнер */
 .manifest-act {
   margin-top: 24px;
   padding: 42px 5vw 48px;
   border: 1px solid var(--border-light);
-  background: #fff;
+  background: var(--bg-secondary);
   box-shadow: var(--shadow-card);
   color: var(--text-primary);
 }

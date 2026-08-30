@@ -40,6 +40,12 @@
       subtitle: 'Сводка текущего поля: корни, дела, словари и переходы между слоями исследования.',
       icon: 'archaeology/testtube.png'
     },
+    'workbench': {
+      kicker: 'ГОЛЕМ · МАСТЕРСКАЯ',
+      title: 'Мастерская',
+      subtitle: 'Хаб действий: каталог конвейеров, запуски, прогресс и результаты работ.',
+      icon: 'crafts/hammer-and-chisel.png'
+    },
     'learn': {
       kicker: 'ГОЛЕМ · ОБУЧЕНИЕ',
       title: 'Обучение',
@@ -211,7 +217,7 @@
     'agent-server': {
       kicker: 'ГОЛЕМ · ЛОКАЛЬНЫЙ КОНТУР',
       title: 'Запуск сервера',
-      subtitle: 'Настройте команду запуска AI-сервера и сохраните конфигурацию для локального терминала.',
+      subtitle: 'Статус, остановка и перезапуск агентного сервера; первый запуск — через start-server.bat.',
       icon: 'ui/settings.png'
     },
     'ed-chat': {
@@ -282,10 +288,24 @@
       meta: ['8 слоёв', 'локальный mock', 'эмет / шекер']
     }
   };
-  /* Внутренние экраны модулей: '<moduleId>/<view>' → шапка экрана.
+    /* Внутренние экраны модулей: '<moduleId>/<view>' → шапка экрана.
      Новая внутренняя страница регистрируется здесь одной записью,
-     общая логика подмены не меняется. */
+     общая логика подмены не меняется.
+     Экраны с динамическим заголовком (из данных) задаются через override
+     в LabHero.setView(..., 'detail', { title, subtitle }). */
   var VIEWS = {
+    'workbench/run': {
+      kicker: 'ГОЛЕМ · МАСТЕРСКАЯ',
+      title: 'Запуск конвейера',
+      subtitle: 'Вход, смета и движение по этапам конвейера.',
+      icon: 'crafts/hammer-and-chisel.png'
+    },
+    'workbench/project': {
+      kicker: 'ГОЛЕМ · МАСТЕРСКАЯ',
+      title: 'Проект',
+      subtitle: 'Результат конвейера в специализированном взоре.',
+      icon: 'scribe/scrolls.png'
+    },
     'learn/lessons': {
       kicker: 'ГОЛЕМ · ОБУЧЕНИЕ',
       title: 'Изучение иврита',
@@ -297,10 +317,54 @@
       title: 'Курсы',
       subtitle: 'Практические курсы: без воды, от простого к глубокому, с результатом после каждого модуля.',
       icon: 'ui/book.png'
-    }
+    },
+    'learn/lesson': {
+      kicker: 'ГОЛЕМ · ОБУЧЕНИЕ',
+      title: 'Урок',
+      subtitle: 'Возвращение к предметному образу буквы: от знака к действию, от наблюдения к собранному смыслу.',
+      icon: 'ui/book.png'
+    },
+    'learn/game': {
+      kicker: 'ГОЛЕМ · ОБУЧЕНИЕ',
+      title: 'Игра «Угадай образ»',
+      subtitle: 'Угадайте букву по палео-образу, соблюдая цепочку знак → действие.',
+      icon: 'ui/book.png'
+    },
+    'states/diagnostic': {
+      kicker: 'ГОЛЕМ · КАРТА СОСТОЯНИЙ',
+      title: 'Диагностика состояния',
+      subtitle: 'Ответь на 7 вопросов, чтобы определить своё текущее пространство.',
+      icon: 'archaeology/testtube.png'
+    },
+    'states/detail': {
+      kicker: 'ГОЛЕМ · КАРТА СОСТОЯНИЙ',
+      title: 'Состояние',
+      subtitle: 'Палео-физика состояния: образ, переходы и города.',
+      icon: 'ui/web.png'
+    },
+    'timeline/catalog': {},
+    'timeline/detail': {
+      kicker: 'ГОЛЕМ · ПАЛЕО-ТАЙМЛАЙН',
+      title: 'Хронологический слой',
+      subtitle: 'События таймлайна: от палео-ивритского письма до цифровых инструментов восстановления.',
+      icon: 'paleo/track.png'
+    },
+    'paleo-linguistics/detail': {
+      kicker: 'ГОЛЕМ · ПАЛЕО-ЛИНГВИСТИКА',
+      title: 'Язык',
+      subtitle: 'Эволюция алфавита: прото-ханаанский → палео-иврит → финикийский.',
+      icon: 'scribe/scroll.png'
+    },
+    'language-map/detail': {
+      kicker: 'ГОЛЕМ · КАРТА ЯЗЫКОВ',
+      title: 'Язык',
+      subtitle: 'Диагностика языка через палео-механику: Давар, переходы, близость к реальности.',
+      icon: 'paleo/track.png'
+    },
+    'ai-agents/detail': {},
+    'pipelines/detail': {},
+    'researches/detail': {}
   };
-
-  var observedContainers = [];
 
   var observedContainers = [];
   var documentObserver = null;
@@ -311,6 +375,17 @@
     element.className = className;
     if (text) element.textContent = text;
     return element;
+  }
+
+  // Для модулей без статической записи шапка собирается по подписи сайдбара.
+  function fallbackConfig(moduleId) {
+    var navItem = document.querySelector('.sidebar-item[data-module="' + moduleId + '"]');
+    var title = navItem ? navItem.textContent.trim().replace(/\s+/g, ' ') : moduleId.replace(/[-_]+/g, ' ');
+    return {
+      kicker: 'ГОЛЕМ',
+      title: title,
+      subtitle: ''
+    };
   }
 
   function createHero(moduleId, config) {
@@ -353,8 +428,7 @@
      viewId = null возвращает базовую шапку модуля.
      override уточняет конфиг для экрана с динамическим заголовком. */
   function setView(moduleId, viewId, override) {
-    var base = TARGETS[moduleId];
-    if (!base) return;
+    var base = TARGETS[moduleId] || fallbackConfig(moduleId);
     var container = document.getElementById(moduleId);
     if (!container) return;
     var config = Object.assign({}, base, (viewId && VIEWS[moduleId + '/' + viewId]) || {}, override || {});
@@ -364,6 +438,12 @@
       hero.setAttribute('data-lab-hero-view', signature);
       hero.innerHTML = heroHtml(Object.assign({}, config, { titleId: 'lab-hero-title-' + moduleId }));
     }
+  }
+
+  /* Единый источник подписей для шапки и хлебных крошек. */
+  function getTitle(route) {
+    var config = TARGETS[route] || VIEWS[route];
+    return config && config.title ? config.title : '';
   }
 
   function scan() {
@@ -401,6 +481,7 @@
     mount: mount,
     mountAll: scan,
     setView: setView,
+    getTitle: getTitle,
     observe: function() {
       scan();
       return this;

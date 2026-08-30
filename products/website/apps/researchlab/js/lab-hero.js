@@ -40,6 +40,12 @@
       subtitle: 'Сводка текущего поля: корни, дела, словари и переходы между слоями исследования.',
       icon: 'archaeology/testtube.png'
     },
+    'workbench': {
+      kicker: 'ГОЛЕМ · МАСТЕРСКАЯ',
+      title: 'Мастерская',
+      subtitle: 'Хаб действий: каталог конвейеров, запуски, прогресс и результаты работ.',
+      icon: 'crafts/hammer-and-chisel.png'
+    },
     'learn': {
       kicker: 'ГОЛЕМ · ОБУЧЕНИЕ',
       title: 'Обучение',
@@ -288,6 +294,18 @@
      Экраны с динамическим заголовком (из данных) задаются через override
      в LabHero.setView(..., 'detail', { title, subtitle }). */
   var VIEWS = {
+    'workbench/run': {
+      kicker: 'ГОЛЕМ · МАСТЕРСКАЯ',
+      title: 'Запуск конвейера',
+      subtitle: 'Вход, смета и движение по этапам конвейера.',
+      icon: 'crafts/hammer-and-chisel.png'
+    },
+    'workbench/project': {
+      kicker: 'ГОЛЕМ · МАСТЕРСКАЯ',
+      title: 'Проект',
+      subtitle: 'Результат конвейера в специализированном взоре.',
+      icon: 'scribe/scrolls.png'
+    },
     'learn/lessons': {
       kicker: 'ГОЛЕМ · ОБУЧЕНИЕ',
       title: 'Изучение иврита',

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * timeline.js — Палео-таймлайн (каталог контейнеров)
  *
  * Каждый таймлайн — отдельный белый контейнер с палео-иконкой,
@@ -148,6 +148,16 @@ const Timeline = (function() {
     })[0];
     if (!timeline || !timelineContainer) return;
 
+    // Шапка модуля подменяется на динамический заголовок таймлайна
+    if (window.LabHero && window.LabHero.setView) {
+      window.LabHero.setView('timeline', 'detail', {
+        kicker: 'ГОЛЕМ · ПАЛЕО-ТАЙМЛАЙН',
+        title: timeline.title,
+        subtitle: timeline.description || '',
+        icon: 'paleo/track.png'
+      });
+    }
+
     var eventsHtml = (timeline.events || []).map(function(event, index) {
       return '<article class="tl-detail-event" style="--tl-event-index:' + index + '" role="listitem">' +
         '<div class="tl-detail-event-date">' + escapeHtml(event.date) + '</div>' +
@@ -158,11 +168,10 @@ const Timeline = (function() {
 
     timelineContainer.innerHTML =
       '<section class="tl-detail" aria-labelledby="tl-detail-title">' +
-        '<button class="tl-detail-back" type="button">← Назад к каталогу</button>' +
         '<header class="tl-detail-hero">' +
           '<div class="tl-detail-icon" lang="hbo" aria-hidden="true">' + escapeHtml(timeline.paleoIcon) + '</div>' +
           '<div class="tl-kicker">ПАЛЕО-ТАЙМЛАЙН · ДЕТАЛЬНЫЙ СЛОЙ</div>' +
-          '<h1 id="tl-detail-title">' + escapeHtml(timeline.title) + '</h1>' +
+          '<div class="tl-detail-title">' + escapeHtml(timeline.title) + '</div>' +
           '<p class="tl-lead">' + escapeHtml(timeline.description || '') + '</p>' +
         '</header>' +
         '<div class="tl-detail-meta">' + (timeline.events || []).length + ' ' + pluralize((timeline.events || []).length, 'событие', 'события', 'событий') + '</div>' +

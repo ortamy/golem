@@ -45,6 +45,7 @@
 <link rel="stylesheet" href="css/timeline.css">
 <link rel="stylesheet" href="css/analyzers.css">
 <link rel="stylesheet" href="css/components/buttons.css">
+<link rel="stylesheet" href="css/workbench.css">
 <style>
   .name-decoder-shell { max-width: 980px; margin: 0 auto; }
   .name-decoder-hero { padding: 28px 30px; margin-bottom: 22px; background: var(--bg-dark); border: 1px solid var(--border-dark); border-radius: 10px; box-shadow: var(--shadow-soft); }
@@ -92,7 +93,7 @@
 
 <!-- HEADER -->
 <header class="lab-header" id="labHeader">
-  <a href="#dashboard" class="logo"><img src="../../assets/images/golem-logo-2.png" alt="ГОЛЕМ" style="height: 40px; width: auto;"></a>
+  <a href="#dashboard" class="logo"><img src="../../assets/images/golem-logo-2.png" alt="ГОЛЕМ" style="height: 40px; width: auto;"><span class="golem-beta" aria-label="Бета-версия">BETA</span></a>
   
   <!-- Global Search -->
   <div class="header-search" id="globalSearch">
@@ -102,12 +103,12 @@
   </div>
   
   <nav>
-    <button class="theme-toggle" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn"><img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема"></button>
+    <button class="theme-toggle" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn"><img src="../../assets/icons/32/ui/month.png" width="24" height="24" alt="Тёмная тема"></button>
     <a href="../../"><img src="../../assets/icons/32/ui/web.png" width="24" height="24" alt="Сайт" style="vertical-align: middle; margin-right: 6px;"> Сайт</a>
     <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener"><img src="../../assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub" style="vertical-align: middle; margin-right: 6px;"> GitHub</a>
   </nav>
   <div class="lab-header-mobile-links">
-    <button class="mobile-icon-link" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtnMobile"><img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема"></button>
+    <button class="mobile-icon-link" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtnMobile"><img src="../../assets/icons/32/ui/month.png" width="24" height="24" alt="Тёмная тема"></button>
     <a href="../../" class="mobile-icon-link" title="Сайт"><img src="../../assets/icons/32/ui/web.png" width="24" height="24" alt="Сайт"></a>
     <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub"><img src="../../assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub"></a>
   </div>
@@ -124,6 +125,7 @@
   <div class="sidebar-items">
     <a href="#manifest" class="sidebar-item sidebar-item-top" data-module="manifest"><img src="../../assets/icons/32/ui/scroll.png" class="lab-icon" alt="">Манифест</a>
     <a href="#dashboard" class="sidebar-item sidebar-item-top" data-module="dashboard"><img src="../../assets/icons/32/ui/grid.png" class="lab-icon" alt="">Рабочий стол</a>
+    <a href="#workbench" class="sidebar-item sidebar-item-top" data-module="workbench"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Мастерская</a>
     <div class="sidebar-section">
       <div class="sidebar-section-header" data-section="data">
         <img src="../../assets/icons/32/ui/book.png" class="icon" alt="">
@@ -254,6 +256,8 @@
 <script src="js/clue-generator.js"></script>
 <script src="js/agent-map.js"></script>
 <script src="js/agent-server.js"></script>
+<script src="js/workbench-pipelines.js"></script>
+<script src="js/workbench.js"></script>
 <script src="js/page-controller.js"></script>
 <script src="js/router.js"></script>
 <script src="js/access-gate.js"></script>
@@ -307,7 +311,7 @@ const LabTheme = {
       ? '<img src="../../assets/icons/32/ui/sun.png" width="24" height="24" alt="Светлая тема">'
       : theme === 'white'
         ? '<img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема">'
-        : '<img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема">';
+        : '<img src="../../assets/icons/32/ui/month.png" width="24" height="24" alt="Тёмная тема">';
     var btn = document.getElementById('themeBtn');
     if (btn) btn.innerHTML = icon;
     var btnMobile = document.getElementById('themeBtnMobile');

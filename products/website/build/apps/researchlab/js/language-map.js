@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Карта языков — диагностика живых языков через палео-механику.
  */
 (function(window, document) {
@@ -182,10 +182,17 @@
   }
 
   function renderDetail(container, language) {
+    if (window.LabHero && window.LabHero.setView) {
+      window.LabHero.setView('language-map', 'detail', {
+        kicker: 'ГОЛЕМ · КАРТА ЯЗЫКОВ',
+        title: language.name,
+        subtitle: language.type || '',
+        icon: 'paleo/track.png'
+      });
+    }
     container.innerHTML = '<section class="language-map-detail" aria-labelledby="language-map-detail-title">' +
-      '<button type="button" class="lab-btn lab-btn-secondary language-map-back">Назад к карте</button>' +
       '<p class="language-map-kicker">АНАЛИЗ ЯЗЫКА</p>' +
-      '<h1 id="language-map-detail-title">' + escapeHtml(language.name) + '</h1>' +
+      '<div id="language-map-detail-title">' + escapeHtml(language.name) + '</div>' +
       '<p class="language-map-detail-type">' + escapeHtml(language.type) + '</p>' +
       '<dl class="language-map-metrics language-map-detail-metrics">' +
       renderMetric('Давар', language.has_davar) +
@@ -195,10 +202,6 @@
       '<p class="language-map-detail-notes">' + escapeHtml(language.notes) + '</p>' +
       '<p class="language-map-future">Полный анализ языка будет добавлен в следующем слое исследования.</p>' +
       '</section>';
-    container.querySelector('.language-map-back').addEventListener('click', function() {
-      if (window.LabRouter) window.LabRouter.navigate('language-map');
-      render(container, { segments: ['language-map'] });
-    });
   }
 
   function render(container, parsed) {

@@ -349,6 +349,15 @@ const LoadResearches = (function() {
     container.innerHTML = ExposureCase.renderCase(item, { relatedItems: itemIndex() });
     ExposureCase.bindCase(container, item);
 
+    // Шапка модуля подменяется на название дела
+    if (window.LabHero && window.LabHero.setView) {
+      window.LabHero.setView('researches', 'detail', {
+        kicker: 'ГОЛЕМ · ИССЛЕДОВАНИЯ',
+        title: item.title || '',
+        subtitle: (item.category || ''),
+        icon: 'scribe/scroll.png'
+      });
+    }
     var back = container.querySelector('[data-exposure-back]');
     if (back) back.addEventListener('click', function(e) {
       e.preventDefault();

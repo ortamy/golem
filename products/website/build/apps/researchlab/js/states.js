@@ -21,8 +21,9 @@ const GolemStates = (function() {
   let dataPromise = null;
 
   // Состояние модуля
-  let currentView = 'grid'; // 'grid' | 'detail' | 'diagnostic'
+  let currentView = 'grid'; // 'grid' | 'landscape' | 'detail' | 'diagnostic'
   let currentStateId = null;
+  let selectedLandscapeTransitionId = null;
   // Состояние диагностики хранится отдельно от маршрута карты.
   let diagnosticState = {
     currentQuestion: 0,
@@ -116,6 +117,9 @@ const GolemStates = (function() {
     if (params.diagnostic === 'true') {
       currentView = 'diagnostic';
       currentStateId = null;
+    } else if (params.map === 'landscape') {
+      currentView = 'landscape';
+      currentStateId = null;
     } else if (params.state && statesById[params.state]) {
       currentView = 'detail';
       currentStateId = params.state;
@@ -136,6 +140,8 @@ const GolemStates = (function() {
 
     if (currentView === 'detail' && currentStateId) {
       html = renderStateDetail(currentStateId);
+    } else if (currentView === 'landscape') {
+      html = renderLandscapePage();
     } else if (currentView === 'diagnostic') {
       html = renderDiagnostic();
     } else {
@@ -147,6 +153,8 @@ const GolemStates = (function() {
   }
 
   function attachHandlers(container) {
+    attachLandscapeHandlers(container);
+
     // Клики по карточкам состояний
     container.querySelectorAll('.state-card').forEach(function(card) {
       card.addEventListener('click', function() {
@@ -194,6 +202,23 @@ const GolemStates = (function() {
     });
   }
 
+  function attachLandscapeHandlers(container) {
+    // Выбор маршрута в ландшафте состояния.
+    container.querySelectorAll('.state-landscape-route').forEach(function(route) {
+      route.addEventListener('click', function() {
+        var targetId = this.getAttribute('data-to');
+        if (targetId) selectLandscapeTransition(container, targetId);
+      });
+    });
+
+    container.querySelectorAll('.state-landscape-open').forEach(function(button) {
+      button.addEventListener('click', function() {
+        var targetId = this.getAttribute('data-to');
+        if (targetId) openState(targetId);
+      });
+    });
+  }
+
   // ===== РЕНДЕР СЕТКИ КАРТОЧЕК =====
   function renderGrid() {
     // Сортируем: сначала сжатые, потом открытые
@@ -219,12 +244,11 @@ const GolemStates = (function() {
     }).join('');
 
     return '<div class="states-page">' +
-      '<div class="states-controls states-toolbar">' +
-        '<span class="states-nav-back"></span>' +
-        '<button class="states-nav-btn active" onclick="GolemStates.openGrid()">' +
-          '<img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt=""> Карта' +
-        '</button>' +
-      '</div>' +
+      '<button type="button" class="cartography-world-launch states-map-launch" onclick="GolemStates.openLandscape()">' +
+        '<span aria-hidden="true">𐤌</span>' +
+        '<span><strong>Карта состояний</strong><small>Открыть полный слой состояний</small></span>' +
+        '<span aria-hidden="true">→</span>' +
+      '</button>' +
       '<div class="states-head">' +
         '<h1><img src="../../assets/icons/32/ui/web.png" class="lab-icon" alt=""> Карта состояний</h1>' +
         '<p class="subtitle">Семь пространств палео-механики — от запертости (Тоху) до завершённости (Эден). Каждое состояние — это не метафора, а физика: степень сжатости или открытости твоего пространства.</p>' +
@@ -236,11 +260,22 @@ const GolemStates = (function() {
   }
 
   // ===== РЕНДЕР СТРАНИЦЫ СОСТОЯНИЯ =====
-  function renderStateDetail(id) {
+    function renderStateDetail(id) {
     var s = statesById[id];
     if (!s) return '<div class="lab-alert lab-alert-error">Состояние не найдено</div>';
 
+        // Шапка модуля подменяется на название состояния
+    if (window.LabHero && window.LabHero.setView) {
+      window.LabHero.setView('states', 'detail', {
+        kicker: 'ГОЛЕМ · КАРТА СОСТОЯНИЙ',
+        title: s.name,
+        subtitle: s.physics || '',
+        icon: 'ui/web.png'
+      });
+    }
+
     var color = s.color || '#b8860b';
+    var landscapeHtml = renderStateLandscape(s);
 
     // Палео-разбор
     var paleoHtml = '';
@@ -315,7 +350,6 @@ const GolemStates = (function() {
 
     return '<div class="states-page">' +
       '<div class="states-controls">' +
-        '<button class="states-nav-btn states-nav-back" onclick="GolemStates.openGrid()"><img src="../../assets/icons/32/nav/home.png" class="lab-icon" alt=""> Назад к карте</button>' +
       '</div>' +
       '<div class="state-detail">' +
         '<div class="state-detail-hero" style="border-bottom-color: ' + color + '33;">' +
@@ -325,6 +359,7 @@ const GolemStates = (function() {
           '<div class="physics">' + escapeHtml(s.physics || '') + '</div>' +
           '<div class="state-detail-olam"><span>Олам:</span> ' + escapeHtml(s.olam || '') + '</div>' +
         '</div>' +
+        landscapeHtml +
         intensityHtml +
         paleoHtml +
         meaningHtml +
@@ -333,6 +368,90 @@ const GolemStates = (function() {
         citiesHtml +
       '</div>' +
     '</div>';
+  }
+
+  function renderLandscapePage() {
+    var firstState = states.slice().sort(function(a, b) {
+      return (Number(a.intensity) || 0) - (Number(b.intensity) || 0);
+    })[0];
+    if (!firstState) return '<div class="lab-alert lab-alert-info">Карта состояний пока пуста.</div>';
+    currentStateId = firstState.id;
+
+    if (window.LabHero && window.LabHero.setView) {
+      window.LabHero.setView('states', 'landscape', {
+        kicker: 'ГОЛЕМ · КАРТА СОСТОЯНИЙ',
+        title: 'Визуальная карта',
+        subtitle: 'Ландшафт переходов между состояниями',
+        icon: 'ui/web.png'
+      });
+    }
+
+    return '<div class="states-page states-landscape-page">' +
+      '<div class="states-controls"><button type="button" class="states-nav-btn states-nav-back" onclick="GolemStates.openGrid()"><span aria-hidden="true">←</span> Все состояния</button></div>' +
+      renderStateLandscape(firstState) +
+    '</div>';
+  }
+
+  // ===== ЛАНДШАФТ СОСТОЯНИЯ =====
+  function renderStateLandscape(state) {
+    var transitions = (state.transitions || []).filter(function(transition) {
+      return statesById[transition.to];
+    });
+    var landscapeTransitionId = transitions.some(function(transition) {
+      return transition.to === selectedLandscapeTransitionId;
+    }) ? selectedLandscapeTransitionId : (transitions[0] ? transitions[0].to : null);
+    var selectedTransition = transitions.find(function(transition) {
+      return transition.to === landscapeTransitionId;
+    });
+    var target = selectedTransition && statesById[selectedTransition.to];
+    var openness = Math.round((Number(state.intensity) || 0) * 100);
+    var contour = states.slice().sort(function(a, b) {
+      return (Number(a.intensity) || 0) - (Number(b.intensity) || 0);
+    });
+
+    var routesHtml = transitions.map(function(transition, index) {
+      var routeTarget = statesById[transition.to];
+      var active = transition.to === landscapeTransitionId ? ' is-active' : '';
+      return '<button type="button" class="state-landscape-route' + active + '" data-to="' + escapeHtml(transition.to) + '" aria-pressed="' + (transition.to === landscapeTransitionId ? 'true' : 'false') + '">' +
+        '<span class="state-landscape-route-line" aria-hidden="true"><i></i></span>' +
+        '<span class="state-landscape-route-index">0' + (index + 1) + '</span>' +
+        '<span class="state-landscape-route-paleo" aria-hidden="true">' + escapeHtml(routeTarget.paleo || '') + '</span>' +
+        '<span class="state-landscape-route-copy"><strong>' + escapeHtml(routeTarget.name) + '</strong><small>' + escapeHtml(transition.label || 'Открыть маршрут') + '</small></span>' +
+      '</button>';
+    }).join('');
+
+    var routeDetailHtml = target ? '<div class="state-landscape-route-detail" aria-live="polite">' +
+      '<span class="state-landscape-route-kicker">Выбранный маршрут</span>' +
+      '<div><strong>' + escapeHtml(state.name) + ' → ' + escapeHtml(target.name) + '</strong>' +
+      (selectedTransition.label ? '<span class="state-landscape-route-label">' + escapeHtml(selectedTransition.label) + '</span>' : '') + '</div>' +
+      (selectedTransition.action ? '<p><b>Хук:</b> ' + escapeHtml(selectedTransition.action) + '</p>' : '') +
+      '<button type="button" class="state-landscape-open" data-to="' + escapeHtml(target.id) + '">Открыть состояние <span aria-hidden="true">→</span></button>' +
+    '</div>' : '<div class="state-landscape-route-detail is-empty">Для этого состояния пока не задан маршрут перехода.</div>';
+
+    return '<section class="state-landscape" style="--landscape-color: ' + escapeHtml(state.color || '#b8860b') + '; --landscape-openness: ' + openness + '%;" aria-labelledby="state-landscape-title">' +
+      '<div class="state-landscape-head"><div><span class="state-landscape-kicker">ЛАНДШАФТ СОСТОЯНИЯ</span><h3 id="state-landscape-title">Пространство и доступные переходы</h3></div><span class="state-landscape-level">Открытость <b>' + openness + '%</b></span></div>' +
+      '<div class="state-landscape-stage">' +
+        '<div class="state-landscape-terrain" aria-hidden="true"><i></i><i></i><i></i></div>' +
+        '<div class="state-landscape-current"><span class="state-landscape-current-paleo" aria-hidden="true">' + escapeHtml(state.paleo || '') + '</span><span class="state-landscape-current-label">Текущее состояние</span><strong>' + escapeHtml(state.name) + '</strong><small>' + escapeHtml(state.intensity_label || '') + '</small></div>' +
+        '<div class="state-landscape-routes" aria-label="Маршруты из состояния ' + escapeHtml(state.name) + '">' + routesHtml + '</div>' +
+      '</div>' +
+      routeDetailHtml +
+      '<div class="state-landscape-contour" aria-label="Полный контур состояний">' + contour.map(function(item) {
+        var current = item.id === state.id ? ' is-current' : '';
+        return '<span class="state-landscape-contour-node' + current + '" title="' + escapeHtml(item.name) + '" style="--node-color: ' + escapeHtml(item.color || '#b8860b') + '"><i></i><small>' + escapeHtml(item.name) + '</small></span>';
+      }).join('') + '</div>' +
+    '</section>';
+  }
+
+  function selectLandscapeTransition(container, targetId) {
+    selectedLandscapeTransitionId = targetId;
+    var current = statesById[currentStateId];
+    var landscape = container.querySelector('.state-landscape');
+    if (!current || !landscape) return;
+    var replacement = document.createElement('div');
+    replacement.innerHTML = renderStateLandscape(current);
+    landscape.replaceWith(replacement.firstChild);
+    attachLandscapeHandlers(container);
   }
 
   // ===== ГОРОДА ДЛЯ СОСТОЯНИЯ =====
@@ -422,7 +541,6 @@ const GolemStates = (function() {
 
     return '<div class="states-page">' +
       '<div class="states-controls">' +
-        '<button class="states-nav-btn states-nav-back" onclick="GolemStates.openGrid()"><img src="../../assets/icons/32/nav/home.png" class="lab-icon" alt=""> Назад к карте</button>' +
       '</div>' +
       '<div class="diagnostic-page">' +
         '<div class="diagnostic-header">' +
@@ -507,7 +625,6 @@ const GolemStates = (function() {
 
     return '<div class="states-page">' +
       '<div class="states-controls">' +
-        '<button class="states-nav-btn states-nav-back" onclick="GolemStates.openGrid()"><img src="../../assets/icons/32/nav/home.png" class="lab-icon" alt=""> Назад к карте</button>' +
       '</div>' +
       '<div class="diagnostic-page">' +
         '<div class="diagnostic-result">' +
@@ -584,12 +701,32 @@ const GolemStates = (function() {
     currentView = 'grid';
     currentStateId = null;
     diagnosticState.completed = false;
+    selectedLandscapeTransitionId = null;
+    var container = document.getElementById('states');
+    // Если уже на странице состояний, hashchange не возникает — рисуем сразу.
+    if (container && states.length) {
+      renderView(container);
+      return;
+    }
     LabRouter.navigate('states');
+  }
+
+  function openLandscape() {
+    currentView = 'landscape';
+    currentStateId = null;
+    selectedLandscapeTransitionId = null;
+    var container = document.getElementById('states');
+    if (container && states.length) {
+      renderView(container);
+      return;
+    }
+    LabRouter.navigate('states', null, { map: 'landscape' });
   }
 
   function openState(id) {
     currentView = 'detail';
     currentStateId = id;
+    selectedLandscapeTransitionId = null;
     LabRouter.navigate('states', null, { state: id });
   }
 
@@ -633,6 +770,7 @@ const GolemStates = (function() {
     init: init,
     loadData: loadData,
     openGrid: openGrid,
+    openLandscape: openLandscape,
     openState: openState,
     openDiagnostic: openDiagnostic,
     selectAnswer: selectAnswer,

@@ -31,6 +31,11 @@ const LabRouter = (function() {
       var learnTitle = window.LearnLab.routeTitle(route);
       if (learnTitle) return learnTitle;
     }
+    // #workbench — титулы внутренних экранов берутся из реестра конвейеров и проектов.
+    if (route.indexOf('workbench') === 0 && window.Workbench && window.Workbench.routeTitle) {
+      var workbenchTitle = window.Workbench.routeTitle(route);
+      if (workbenchTitle) return workbenchTitle;
+    }
     if (route === 'root-dictionary') return 'Корневой словарь';
     if (route === 'root-dictionary/search') return 'Поиск';
     if (route.indexOf('root-dictionary/search/') === 0) {
@@ -134,7 +139,7 @@ const LabRouter = (function() {
     var parsed = parseHash();
     var hash = parsed.module;
     var routedModules = [
-      'manifest', 'dashboard', 'learn', 'dictionaries', 'researches',
+      'manifest', 'dashboard', 'workbench', 'learn', 'dictionaries', 'researches',
       'methodology', 'paleo-mechanics', 'paleo-linguistics',
       'language-map', 'religionisms', 'root-dictionary', 'paleo-glossary', 'paleo-builder',
       'word-analyzer', 'scripture-reader', 'generators',

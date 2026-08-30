@@ -92,7 +92,7 @@
     }
     return '<div class="analyzers-hero">' + esc(kicker) + '</div><div><h1>' + esc(title) + '</h1><p>' + esc(description) + '</p></div>';
   }
-  function pageHead(icon, title, description) { return '<a class="lab-btn lab-btn-secondary lab-btn-sm analyzer-back" href="#analyzers">← Все анализаторы</a><div class="analyzer-page-head"><img class="analyzer-page-head__icon" src="' + icon + '" alt=""><div><h1>' + esc(title) + '</h1><p>' + esc(description) + '</p></div></div>'; }
+  function pageHead(icon, title, description) { return '<div class="analyzer-page-head"><img class="analyzer-page-head__icon" src="' + icon + '" alt=""><div><h1>' + esc(title) + '</h1><p>' + esc(description) + '</p></div></div>'; }
   function card(icon, title, description, route, tag) { return '<article class="analyzer-card"><img class="analyzer-card__icon" src="' + icon + '" alt=""><h2>' + esc(title) + '</h2><p>' + esc(description) + '</p><div class="analyzer-card__footer"><span class="analyzer-card__tag">' + esc(tag) + '</span><a class="lab-btn lab-btn-primary lab-btn-sm" href="#' + route + '">Открыть</a></div></article>'; }
 
   function renderOverview(container) {

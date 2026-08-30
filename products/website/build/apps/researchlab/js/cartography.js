@@ -47,7 +47,22 @@ const Cartography = (function() {
     { id: 'ancient-routes', title: 'Древние маршруты', description: 'Регионы, города и коридоры, через которые двигался Давар.', mark: '𐤃' },
     { id: 'modern-states', title: 'Современные государства', description: 'Глобальный слой диагностики по матрице состояний стран.', mark: '𐤔' },
     { id: 'state-matrix', title: 'Матрица состояний', description: 'Поле Хошех и Ор: сравнение доминирующих состояний на одной карте.', mark: '𐤏' },
-    { id: 'gender-images', title: 'Эшет хаиль и Иш хаиль', topic: 'Карта сохранённых образов', description: 'В каких культурах женщина-строитель (эшет хаиль) и мужчина-созидатель (иш хаиль) сохранили свою палео-функцию? Греко-римский слой vs естественная среда', mark: '𐤀' }
+    { id: 'gender-images', title: 'Эшет хаиль и Иш хаиль', topic: 'Карта сохранённых образов', description: 'В каких культурах женщина-строитель (эшет хаиль) и мужчина-созидатель (иш хаиль) сохранили свою палео-функцию? Греко-римский слой vs естественная среда', mark: '𐤀' },
+    { id: 'obelisks', title: 'Обелиски', topic: 'Карта городских доминант', description: 'Страны и города, где стоят крупные обелиски — вертикальные знаки, собранные в один исследовательский слой.', mark: '𐤋' }
+  ];
+
+  // Рабочий реестр: обелиски от 18 м и крупные городские доминанты той же формы.
+  const OBELISKS = [
+    { country: 'Египет', city: 'Каир', name: 'Обелиск Гелиополя', height: '20,7 м', x: 557, y: 302, note: 'Древний монолит в аэропорту Каира; единственный сохранившийся обелиск Гелиополя.' },
+    { country: 'Италия', city: 'Рим', name: 'Латеранский обелиск', height: '32,18 м', x: 674, y: 272, note: 'Крупнейший древнеегипетский обелиск, установленный в Риме.' },
+    { country: 'Франция', city: 'Париж', name: 'Луксорский обелиск', height: '22,84 м', x: 681, y: 260, note: 'Монолит на площади Согласия, перенесённый из Луксора.' },
+    { country: 'Великобритания', city: 'Лондон', name: 'Игла Клеопатры', height: '21 м', x: 686, y: 248, note: 'Древнеегипетский обелиск на набережной Виктории.' },
+    { country: 'США', city: 'Вашингтон', name: 'Вашингтонский монумент', height: '169,3 м', x: 350, y: 270, note: 'Монументальный обелиск XIX века, городская доминанта столицы.' },
+    { country: 'Аргентина', city: 'Буэнос-Айрес', name: 'Обелиск Буэнос-Айреса', height: '67,5 м', x: 404, y: 448, note: 'Современный городской обелиск на площади Республики.' },
+    { country: 'Бразилия', city: 'Сан-Паулу', name: 'Обелиск Ибирапуэра', height: '72 м', x: 449, y: 389, note: 'Крупный городской обелиск в парке Ибирапуэра.' },
+    { country: 'Россия', city: 'Москва', name: 'Обелиск покорителям космоса', height: '107 м', x: 697, y: 190, note: 'Монументальный обелиск на проспекте Мира.' },
+    { country: 'Турция', city: 'Стамбул', name: 'Обелиск Феодосия', height: '18,45 м', x: 718, y: 270, note: 'Древнеегипетский обелиск на ипподроме Константинополя.' },
+    { country: 'Эфиопия', city: 'Аксум', name: 'Аксумский обелиск', height: '24 м', x: 534, y: 335, note: 'Стела Аксума, возвращённая из Рима и вновь установленная в городе.' }
   ];
 
   const MAP_INFO = {
@@ -324,19 +339,22 @@ const Cartography = (function() {
   }
 
   function renderWorldMap(fullscreen, gender) {
+    var obeliskMap = fullscreen && mapView === 'obelisks';
     var mapMarkup = gender ? genderMapMarkup : worldMapMarkup;
-    var title = gender ? 'Эшет хаиль и Иш хаиль' : 'Карта мира';
-    var kicker = gender ? 'КАРТА СОХРАНЁННЫХ ОБРАЗОВ' : 'RESEARCH LAB · КАРТА СОСТОЯНИЙ';
-    var legend = gender ? '<div class="gender-map-legend"><span class="gender-legend-direct">Образ сохранён напрямую</span><span class="gender-legend-indirect">Сохранён косвенно</span><span class="gender-legend-lost">Образ утрачен</span><span class="gender-legend-unknown">Нет данных</span></div>' : '<div class="cartography-map-legend" aria-label="Легенда состояний">' + [['tohu', 'Тоху'], ['hoshekh', 'Хошех'], ['mizraim', 'Мицраим'], ['rakia', 'Ракиа'], ['shamaim', 'Шамаим'], ['midbar', 'Мидбар'], ['erets', 'Эрец'], ['eden', 'Эден']].map(function(item) { return '<span><i class="world-state-' + item[0] + '" aria-hidden="true"></i>' + item[1] + '</span>'; }).join('') + '</div>';
+    var title = obeliskMap ? 'Обелиски' : (gender ? 'Эшет хаиль и Иш хаиль' : 'Карта мира');
+    var kicker = obeliskMap ? 'КАРТА ГОРОДСКИХ ДОМИНАНТ' : (gender ? 'КАРТА СОХРАНЁННЫХ ОБРАЗОВ' : 'RESEARCH LAB · КАРТА СОСТОЯНИЙ');
+    var legend = obeliskMap ? '<div class="cartography-map-legend" aria-label="Легенда обелисков"><span><i class="obelisk-map-marker" aria-hidden="true"></i>Город с крупным обелиском</span></div>' : (gender ? '<div class="gender-map-legend"><span class="gender-legend-direct">Образ сохранён напрямую</span><span class="gender-legend-indirect">Сохранён косвенно</span><span class="gender-legend-lost">Образ утрачен</span><span class="gender-legend-unknown">Нет данных</span></div>' : '<div class="cartography-map-legend" aria-label="Легенда состояний">' + [['tohu', 'Тоху'], ['hoshekh', 'Хошех'], ['mizraim', 'Мицраим'], ['rakia', 'Ракиа'], ['shamaim', 'Шамаим'], ['midbar', 'Мидбар'], ['erets', 'Эрец'], ['eden', 'Эден']].map(function(item) { return '<span><i class="world-state-' + item[0] + '" aria-hidden="true"></i>' + item[1] + '</span>'; }).join('') + '</div>');
     var controls = gender ? '' : '<div class="cartography-map-controls" role="group" aria-label="Управление масштабом карты"><button type="button" class="cartography-map-zoom-in" title="Увеличить масштаб">+</button><button type="button" class="cartography-map-zoom-out" title="Уменьшить масштаб">−</button><button type="button" class="cartography-map-zoom-reset">Сбросить масштаб</button></div>';
+    var description = obeliskMap ? 'Маркеры показывают города из рабочего реестра. Нажмите на маркер, чтобы увидеть название и высоту.' : (gender ? 'Зоны показывают, где палео-функция образа сохранилась, сместилась или утрачена.' : 'Наведите на страну, чтобы открыть диагноз по state-matrix.json.');
+    var markers = obeliskMap ? '<g class="obelisk-map-markers">' + OBELISKS.map(function(item, index) { return '<g class="obelisk-map-marker" data-obelisk-index="' + index + '" tabindex="0" role="button" aria-label="' + escapeHtml(item.city + ': ' + item.name) + '"><circle cx="' + item.x + '" cy="' + item.y + '" r="7"></circle><path d="M' + item.x + ' ' + (item.y - 5) + 'v-13"></path></g>'; }).join('') + '</g>' : '';
     return '<section class="cartography-world' + (fullscreen ? ' cartography-world-fullscreen' : '') + '" aria-labelledby="cartography-world-title">' +
-      '<div class="cartography-world-head"><div><span class="cartography-world-kicker">' + kicker + '</span><h2 id="cartography-world-title">' + title + '</h2><p>' + (gender ? 'Зоны показывают, где палео-функция образа сохранилась, сместилась или утрачена.' : 'Наведите на страну, чтобы открыть диагноз по state-matrix.json.') + '</p></div>' +
+      '<div class="cartography-world-head"><div><span class="cartography-world-kicker">' + kicker + '</span><h2 id="cartography-world-title">' + title + '</h2><p>' + description + '</p></div>' +
       (fullscreen ? '<button type="button" class="lab-btn lab-btn-secondary cartography-back">Назад к темам</button>' : '') + '</div>' +
       '<div class="cartography-map-canvas"><svg class="cartography-world-svg" viewBox="0 0 950 620" role="img" aria-label="Интерактивная карта мира" focusable="false">' +
         '<rect class="world-sea" x="0" y="0" width="950" height="620"></rect>' +
-        '<g class="world-map-viewport" transform="translate(' + mapPan.x + ' ' + mapPan.y + ') scale(' + mapZoom + ')"><g class="world-countries">' + mapMarkup + '</g></g>' +
+        '<g class="world-map-viewport" transform="translate(' + mapPan.x + ' ' + mapPan.y + ') scale(' + mapZoom + ')"><g class="world-countries">' + mapMarkup + '</g>' + markers + '</g>' +
       '</svg>' + controls + '</div>' +
-      legend +
+      legend + (obeliskMap ? '<div class="obelisk-registry"><h3>Страны и города в реестре</h3><div class="obelisk-registry-grid">' + OBELISKS.map(function(item) { return '<article><strong>' + escapeHtml(item.country) + '</strong><span>' + escapeHtml(item.city) + ' · ' + escapeHtml(item.height) + '</span></article>'; }).join('') + '</div><p class="obelisk-note">Рабочая выборка, не полный мировой каталог. Высота указана для самого обелиска или стелы; состав реестра можно расширять.</p></div>' : '') +
     '</section>';
   }
 
@@ -409,7 +427,7 @@ const Cartography = (function() {
       '<div class="cartography-theme-grid">' + MAP_THEMES.map(renderThemeCard).join('') + '</div>';
 
     container.querySelectorAll('.cartography-open-map, .cartography-world-launch').forEach(function(button) {
-      button.addEventListener('click', function() { mapView = this.hasAttribute('data-open-map') ? 'states' : (this.getAttribute('data-theme-id') === 'gender-images' ? 'gender' : true); renderPage(container); });
+      button.addEventListener('click', function() { var themeId = this.getAttribute('data-theme-id'); mapView = this.hasAttribute('data-open-map') ? 'states' : (themeId === 'gender-images' ? 'gender' : (themeId === 'obelisks' ? 'obelisks' : true)); renderPage(container); });
     });
     bindMapInteractions(container);
   }
@@ -437,6 +455,17 @@ const Cartography = (function() {
         if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showCountryDetail(this.getAttribute('data-country-id')); }
       });
     });
+    container.querySelectorAll('.obelisk-map-marker').forEach(function(marker) {
+      var open = function() { showObeliskDetail(OBELISKS[Number(marker.getAttribute('data-obelisk-index'))]); };
+      marker.addEventListener('click', open);
+      marker.addEventListener('keydown', function(event) { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); } });
+    });
+  }
+
+  function showObeliskDetail(item) {
+    if (!item || typeof LabModal === 'undefined') return;
+    var html = '<div class="cartography-detail cartography-map-detail"><div class="cartography-detail-section cartography-callout"><p><strong>Город:</strong> ' + escapeHtml(item.city + ', ' + item.country) + '</p><p><strong>Высота:</strong> ' + escapeHtml(item.height) + '</p><p>' + escapeHtml(item.note) + '</p></div></div>';
+    LabModal.show(escapeHtml(item.name), html, '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabModal.close()">Закрыть</button>');
   }
 
   function showCountryDetail(countryId) {

@@ -2,6 +2,7 @@
   {
     "id": "word_analyzer",
     "runner": "word_analyzer",
+    "type": "linear",
     "name": "Разбор слова",
     "description": "Корень → палео-механика → диагностика подмен",
     "agents": ["Исследователь", "Семитолог", "Разоблачитель", "Редактор", "Сборщик"],
@@ -10,6 +11,7 @@
   {
     "id": "verse_comparator",
     "runner": "verse_comparator",
+    "type": "linear",
     "name": "Сравнение стиха",
     "description": "Источники → переводы → карта расхождений",
     "agents": ["Компаратор", "Критик", "Редактор", "Сборщик"],
@@ -18,9 +20,106 @@
   {
     "id": "research_builder",
     "runner": "research_builder",
+    "type": "linear",
     "name": "Сборка исследования",
     "description": "Улики → проверка → единый исследовательский отчёт",
     "agents": ["Архитектор потока", "Связной", "Технический писатель", "Сборщик"],
     "defaultQuery": "собери исследование образа Давар"
+  },
+  {
+    "id": "paleo_translation",
+    "runner": "paleo_translation",
+    "type": "linear",
+    "name": "Обратный перевод",
+    "description": "Термин → палео-образ → семитские параллели → проверка",
+    "agents": ["Исследователь", "Переводчик палео-иврита", "Семитолог", "Проверяющий", "Редактор", "Сборщик"],
+    "defaultQuery": "обратный перевод Слово"
+  },
+  {
+    "id": "research_audit",
+    "runner": "research_audit",
+    "type": "linear",
+    "name": "Аудит исследования",
+    "description": "Ревьюер → критик → проверяющий: карта эмет / шекер",
+    "agents": ["Ревьюер кода", "Критик", "Проверяющий", "Редактор", "Сборщик"],
+    "defaultQuery": "проверь отчёт о слове Давар"
+  },
+  {
+    "id": "mechanism_scanner",
+    "runner": "mechanism_scanner",
+    "type": "linear",
+    "name": "Сканер подмен",
+    "description": "Корень → разоблачение → критик: тип искажения и механизм",
+    "agents": ["Исследователь", "Разоблачитель", "Критик", "Сборщик"],
+    "defaultQuery": "сканер подмен"
+  },
+  {
+    "id": "verse_reconstruction",
+    "runner": "verse_reconstruction",
+    "type": "linear",
+    "name": "Реконструкция стиха",
+    "description": "Свидетели → палео-смысл → проверка полноты",
+    "agents": ["Компаратор", "Переводчик палео-иврита", "Разоблачитель", "Проверяющий", "Сборщик"],
+    "defaultQuery": "реконструируй стих Берешит 1:1"
+  },
+  {
+    "id": "critique_loop",
+    "runner": "critique_loop",
+    "type": "loop",
+    "name": "Самокритика",
+    "description": "Цикл: редактор → критик → проверяющий до валидности (Шаббат)",
+    "agents": ["Редактор", "Критик", "Проверяющий"],
+    "maxIterations": 5,
+    "defaultQuery": "самокритика слова Давар"
+  },
+  {
+    "id": "gap_cycle",
+    "runner": "gap_cycle",
+    "type": "loop",
+    "name": "Карантин пропусков",
+    "description": "Цикл: пропуски корпуса копятся в честную карту до сатурации",
+    "agents": ["Исследователь", "Разоблачитель", "Проверяющий"],
+    "maxIterations": 4,
+    "defaultQuery": "карантин пропусков Слово"
+  },
+  {
+    "id": "spiral_swiva",
+    "runner": "spiral_swiva",
+    "type": "spiral",
+    "name": "Хук Свива",
+    "description": "Спираль: связной расширяет горизонт до сатурации",
+    "agents": ["Связной", "Исследователь", "Переводчик палео-иврита", "Проверяющий"],
+    "maxIterations": 6,
+    "defaultQuery": "хук свива образа Давар"
+  },
+  {
+    "id": "dialectic_loop",
+    "runner": "dialectic_loop",
+    "type": "loop",
+    "name": "Диалектическая петля",
+    "description": "Тезис компаратора против критика до эмета или чёткого Шеола",
+    "agents": ["Компаратор", "Критик", "Проверяющий"],
+    "maxIterations": 4,
+    "defaultQuery": "диалектика стиха Берешит 1:1"
+  },
+  {
+    "id": "midrash_recursion",
+    "runner": "midrash_recursion",
+    "type": "loop",
+    "name": "Мидраш-рекурсия",
+    "description": "Переводчик входит в собственный вывод до стабилизации образа",
+    "agents": ["Исследователь", "Переводчик палео-иврита", "Проверяющий"],
+    "maxIterations": 4,
+    "defaultQuery": "мидраш слова Берешит"
+  },
+  {
+    "id": "shmita_loop",
+    "runner": "shmita_loop",
+    "type": "loop",
+    "name": "Шмита-сброс",
+    "description": "Цикл с прощением шума каждые 2 витка (циклы освобождения)",
+    "agents": ["Редактор", "Критик", "Проверяющий"],
+    "maxIterations": 6,
+    "defaultQuery": "шмита слова Давар"
   }
 ]

@@ -5,13 +5,30 @@ const RootDict = (function() {
   let filtered = [];
   let currentPage = 1;
   let loading = false;
+  let currentQuery = '';
+
+  function navigate(segments) {
+    if (window.LabRouter) window.LabRouter.navigate('root-dictionary', segments);
+  }
+
+  function applyRoute(parsed) {
+    var segments = parsed && parsed.segments ? parsed.segments.slice(1) : [];
+    currentQuery = segments[0] === 'search' ? decodeURIComponent(segments[1] || '') : '';
+    currentPage = segments[0] === 'search' && segments[2] === 'page'
+      ? Math.max(1, parseInt(segments[3], 10) || 1)
+      : segments[0] === 'page' ? Math.max(1, parseInt(segments[1], 10) || 1) : 1;
+    if (roots.length) {
+      var searchInput = document.getElementById('rd-search');
+      if (searchInput) searchInput.value = currentQuery;
+      filter(currentQuery, true);
+    }
+  }
 
   function init() {
     if (roots.length) {
       var readySpinner = document.getElementById('rd-spinner');
       if (readySpinner) readySpinner.classList.remove('show');
-      filtered = roots.slice();
-      render();
+      applyRoute(window.LabRouter && window.LabRouter.parseHash ? window.LabRouter.parseHash() : null);
       return;
     }
     if (loading) return;
@@ -27,14 +44,13 @@ const RootDict = (function() {
         loading = false;
         roots = Array.isArray(data) ? data : [];
         window._roots = data;
-        filtered = roots.slice();
         var totalEl = document.getElementById('rd-total');
         var spinnerEl = document.getElementById('rd-spinner');
         if (totalEl) totalEl.textContent = roots.length;
         var foundEl = document.getElementById('rd-found');
         if (foundEl) foundEl.textContent = roots.length;
         if (spinnerEl) spinnerEl.classList.remove('show');
-        render();
+        applyRoute(window.LabRouter && window.LabRouter.parseHash ? window.LabRouter.parseHash() : null);
       })
       .catch(err => {
         loading = false;
@@ -44,12 +60,13 @@ const RootDict = (function() {
       });
   }
 
-  function filter(query) {
+  function filter(query, keepPage) {
     query = query.trim().toLowerCase();
+    currentQuery = query;
     filtered = query
       ? roots.filter(r => r.root.indexOf(query) !== -1 || r.translit.toLowerCase().indexOf(query) !== -1 || r.meaning.toLowerCase().indexOf(query) !== -1 || (r.image && r.image.toLowerCase().indexOf(query) !== -1) || (r.substitutions && r.substitutions.some(function(s) { return s.toLowerCase().indexOf(query) !== -1; })))
       : roots.slice();
-    currentPage = 1;
+    if (!keepPage) currentPage = 1;
     var foundEl = document.getElementById('rd-found');
     if (foundEl) foundEl.textContent = filtered.length;
     render();
@@ -68,6 +85,7 @@ const RootDict = (function() {
     }
     if (empty) empty.style.display = 'none';
     var totalPages = Math.ceil(filtered.length / PER_PAGE);
+    if (currentPage > totalPages) currentPage = totalPages;
     var start = (currentPage - 1) * PER_PAGE;
     var pageItems = filtered.slice(start, start + PER_PAGE);
     var html = '';
@@ -127,8 +145,7 @@ const RootDict = (function() {
   function goTo(page) {
     var totalPages = Math.ceil(filtered.length / PER_PAGE);
     if (page < 1 || page > totalPages) return;
-    currentPage = page;
-    render();
+    navigate(currentQuery ? ['search', encodeURIComponent(currentQuery), 'page', String(page)] : ['page', String(page)]);
     var list = document.getElementById('rd-list');
     if (list) list.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -139,7 +156,7 @@ const RootDict = (function() {
     return d.innerHTML;
   }
 
-  window.RootsSearch = { filter: filter, goTo: goTo };
-  window.RootDict = { init: init };
+  window.RootsSearch = { filter: function(query) { navigate(query.trim() ? ['search', encodeURIComponent(query.trim())] : []); }, goTo: goTo };
+  window.RootDict = { init: init, applyRoute: applyRoute };
   return window.RootDict;
 })();

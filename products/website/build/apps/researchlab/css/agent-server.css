@@ -21,9 +21,15 @@
 .agent-server-check input { width: 17px; height: 17px; accent-color: var(--accent-gold); }
 
 .agent-server-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.agent-server-status { padding: 12px 14px; margin-top: 14px; border-left: 3px solid var(--accent-gold); background: var(--bg-card, #f7f1e5); color: var(--text-primary, #2c1810); }
+.agent-server-status { display: flex; align-items: center; gap: 10px; padding: 12px 14px; margin-top: 14px; border-left: 3px solid var(--accent-gold); background: var(--bg-card, #f7f1e5); color: var(--text-primary, #2c1810); }
+.agent-server-status small { flex-basis: 100%; color: var(--text-secondary, #6b5b45); font: 12px/1.4 var(--font-mono, Consolas, monospace); }
+.agent-server-status-dot { flex: 0 0 auto; width: 12px; height: 12px; border-radius: 50%; background: var(--accent-gold, #b8860b); box-shadow: 0 0 0 3px rgb(184 134 11 / .16); }
+.agent-server-status-dot[data-state="success"] { background: #557a4d; box-shadow: 0 0 0 3px rgb(85 122 77 / .18); }
+.agent-server-status-dot[data-state="error"] { background: #a34d3f; box-shadow: 0 0 0 3px rgb(163 77 63 / .18); }
 .agent-server-status.success { border-color: #557a4d; }
 .agent-server-status.error { border-color: #a34d3f; }
+.agent-server-stop { color: #a34d3f !important; border-color: #a34d3f !important; }
+.agent-server-actions a.lab-btn { text-decoration: none; justify-content: center; }
 
 .agent-server-output-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; margin-top: 14px; }
 .agent-server-output h3 { margin: 0 0 10px; color: var(--text-primary, #2c1810); font-family: var(--font-heading, Georgia, serif); font-size: 20px; }

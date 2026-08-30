@@ -1249,6 +1249,9 @@ const PageController = (function() {
         if (parsed && parsed.segments && parsed.segments[1]) renderPipelineDetail(container, parsed.segments[1]);
         else openAgentPipelines(container);
       }
+      if (moduleId === 'workbench' && window.Workbench) {
+        window.Workbench.applyRoute(parsed);
+      }
       // Шапка должна обновиться и при перерисовке уже загруженного модуля
       applyModuleHero(moduleId, container, parsed);
       if (window.LabRouter) LabRouter.renderBreadcrumbs(moduleId, parsed);
@@ -1278,6 +1281,12 @@ const PageController = (function() {
         container.dataset.loaded = '1';
         if (parsed && parsed.segments && parsed.segments[1]) renderPipelineDetail(container, parsed.segments[1]);
         else openAgentPipelines(container);
+        break;
+
+      case 'workbench':
+        container.innerHTML = '<div id="workbench-app" aria-live="polite"></div>';
+        container.dataset.loaded = '1';
+        if (window.Workbench) window.Workbench.applyRoute(parsed);
         break;
 
       case 'root-dictionary':
@@ -1954,6 +1963,11 @@ const PageController = (function() {
     } else if (moduleId === 'researches') {
       var seg7 = parsed && parsed.segments;
       if (seg7 && seg7[1] === 'case' && seg7[2]) viewId = 'detail'; // override задаётся в load-researches.js
+    } else if (moduleId === 'workbench') {
+      var segWb = parsed && parsed.segments;
+      if (segWb && segWb[1] === 'run') viewId = 'run';
+      else if (segWb && segWb[1] === 'project') viewId = 'project';
+      // override задаётся в workbench.js (title конвейера / имя проекта)
     }
     return [viewId, override];
   }
