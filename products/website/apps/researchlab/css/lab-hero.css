@@ -247,6 +247,13 @@
     text-align: center;
   }
 
+  .lab-hero__title {
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
   .lab-hero__action {
     align-self: center;
   }
