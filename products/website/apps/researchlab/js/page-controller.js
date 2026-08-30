@@ -1936,7 +1936,7 @@ const PageController = (function() {
 
   function applyModuleHero(moduleId, container, parsed) {
     if (!container || !window.LabHero || !window.LabHero.setView) return;
-    if (!container.id || !LabHero.targets[moduleId]) return;
+    if (!container.id) return;
     var resolved = resolveHeroView(moduleId, parsed);
     var viewId = resolved[0], override = resolved[1];
     // Динамические override могут быть установлены модулем после асинхронной загрузки

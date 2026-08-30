@@ -359,6 +359,17 @@
     return element;
   }
 
+  // Для модулей без статической записи шапка собирается по подписи сайдбара.
+  function fallbackConfig(moduleId) {
+    var navItem = document.querySelector('.sidebar-item[data-module="' + moduleId + '"]');
+    var title = navItem ? navItem.textContent.trim().replace(/\s+/g, ' ') : moduleId.replace(/[-_]+/g, ' ');
+    return {
+      kicker: 'ГОЛЕМ',
+      title: title,
+      subtitle: ''
+    };
+  }
+
   function createHero(moduleId, config) {
     var hero = createElement('section', 'lab-hero', '');
     hero.setAttribute('aria-labelledby', 'lab-hero-title-' + moduleId);
@@ -399,8 +410,7 @@
      viewId = null возвращает базовую шапку модуля.
      override уточняет конфиг для экрана с динамическим заголовком. */
   function setView(moduleId, viewId, override) {
-    var base = TARGETS[moduleId];
-    if (!base) return;
+    var base = TARGETS[moduleId] || fallbackConfig(moduleId);
     var container = document.getElementById(moduleId);
     if (!container) return;
     var config = Object.assign({}, base, (viewId && VIEWS[moduleId + '/' + viewId]) || {}, override || {});

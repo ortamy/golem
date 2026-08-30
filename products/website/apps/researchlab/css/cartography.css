@@ -188,12 +188,26 @@
 .gender-legend-lost::before { background: #b85b4c; }
 .gender-legend-unknown::before { background: #a9a9a4; }
 
+.obelisk-map-markers { pointer-events: none; }
+.obelisk-map-marker { pointer-events: auto; cursor: pointer; outline: none; }
+.obelisk-map-marker circle { fill: #b85b4c; stroke: #fffdf8; stroke-width: 2; }
+.obelisk-map-marker path { stroke: #70462f; stroke-width: 3; stroke-linecap: round; }
+.obelisk-map-marker:hover circle, .obelisk-map-marker:focus circle { fill: var(--accent-gold); }
+.obelisk-registry { margin-top: 18px; padding: 16px; border: 1px solid var(--border-light, #d4c4a8); border-radius: 8px; background: var(--bg-secondary, #f7f1e5); }
+.obelisk-registry h3 { margin: 0 0 12px; color: var(--text-primary, #2c1810); font-family: var(--font-heading, Georgia, serif); font-size: 21px; }
+.obelisk-registry-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.obelisk-registry-grid article { display: flex; flex-direction: column; gap: 3px; padding: 9px 10px; border-left: 3px solid var(--accent-gold); background: var(--bg-card, #fffdf8); }
+.obelisk-registry-grid strong { color: var(--text-primary, #2c1810); }
+.obelisk-registry-grid span, .obelisk-note { color: var(--text-muted, #6b5b4e); font-size: 13px; }
+.obelisk-note { margin: 14px 0 0; line-height: 1.45; }
+
 @media (max-width: 640px) {
   .cartography-world { padding: 14px; }
   .cartography-map-shell .cartography-world-head { padding-left: 14px; padding-right: 14px; }
   .cartography-world-head h2 { font-size: 22px; }
   .cartography-world-head p { font-size: 14px; }
   .world-labels { font-size: 13px; }
+  .obelisk-registry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 .cartography-head {
