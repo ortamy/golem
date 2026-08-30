@@ -439,6 +439,16 @@ const PageController = (function() {
   function renderManifestPage(container, data) {
     document.title = 'Манифест — Golem';
     var story = data.story || {};
+    // Общая шапка LabHero — единственная шапка манифеста.
+    // Крошки добавляет router.js, подзаголовок берём из данных манифеста.
+    container._labHeroOverride = {
+      title: story.title || data.title || 'Манифест проекта',
+      subtitle: story.lead || data.description || ''
+    };
+    if (window.LabHero && LabHero.setView) {
+      LabHero.setView('manifest', null, container._labHeroOverride);
+      if (window.LabRouter) LabRouter.renderBreadcrumbs('manifest', LabRouter.parseHash());
+    }
     var acts = story.acts || {};
     var problem = acts.problem || {};
     var methodology = acts.methodology || {};
@@ -701,12 +711,6 @@ const PageController = (function() {
       '</div>' +
       '</div>' +
       '<div class="manifest-page">' +
-      '<header class="manifest-hero">' +
-      '<div class="manifest-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
-      '<div class="manifest-kicker">RESEARCHLAB · МАНИФЕСТ v' + escapeHtml(data.version || '11.0') + '</div>' +
-      '<h1>' + escapeHtml(story.title || data.title || 'Манифест проекта') + '</h1>' +
-      '<p class="manifest-lead">' + escapeHtml(story.lead || data.description || '') + '</p>' +
-      '</header><div class="manifest-hero-divider" aria-hidden="true"></div>' +
 
       // АКТ I: ПРОБЛЕМА
       '<section class="manifest-act manifest-act-problem" id="manifest-act-problem" aria-labelledby="manifest-problem-title">' +
