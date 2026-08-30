@@ -7,11 +7,36 @@ from pathlib import Path
 
 from flask import Flask, jsonify, request
 from orchestrator import dispatch, run_pipeline as execute_named_pipeline
+from pipelines.core import run_steps
+from agents.common import packet
+from agents import ai_engineer, code_reviewer, collector, comparator, critic, editor, exposer, \
+    flow_architect, frontend, liaison, paleo_translator, researcher, semitologist, verifier, writer
 from ollama_adapter import OllamaError, status as ollama_status, summarize as ollama_summarize
 
 app = Flask(__name__)
 PIPELINES_PATH = Path(__file__).resolve().parents[2] / "products" / "website" / "apps" / "researchlab" / "data" / "pipelines.json"
 RESULTS_PATH = PIPELINES_PATH.with_name("pipeline-results.json")
+
+# Русские имена агентов из UI (getAgentMapData) → их функции.
+# Позволяет исполнять кастомные пайплайны, созданные в Research Lab,
+# даже если для них не зарегистрирован Python-раннер.
+AGENT_FUNCTIONS = {
+    "Исследователь": researcher.research,
+    "Семитолог": semitologist.compare,
+    "Разоблачитель": exposer.expose,
+    "Редактор": editor.edit,
+    "Сборщик": collector.collect,
+    "Компаратор": comparator.compare,
+    "Критик": critic.critique,
+    "Проверяющий": verifier.verify,
+    "Переводчик палео-иврита": paleo_translator.translate,
+    "Архитектор потока": flow_architect.design,
+    "Связной": liaison.relay,
+    "Технический писатель": writer.write,
+    "Ревьюер кода": code_reviewer.review,
+    "AI-инженер": ai_engineer.prepare,
+    "Фронтенд-разработчик": frontend.prepare,
+}
 
 
 def read_pipelines():
@@ -114,7 +139,12 @@ def run_named_pipeline(pipeline_id):
     try:
         output = execute_named_pipeline(str(pipeline.get("runner") or pipeline_id), query)
     except ValueError as error:
-        return jsonify({"error": str(error)}), 400
+        # Для пайплайнов, созданных в UI и не имеющих Python-раннера,
+        # собираем линейную цепочку из русских имён агентов.
+        steps = [AGENT_FUNCTIONS[name] for name in pipeline.get("agents", []) if name in AGENT_FUNCTIONS]
+        if not steps:
+            return jsonify({"error": str(error)}), 400
+        output = run_steps(packet(query), steps)
     created_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     result = {
         "id": pipeline_id + "-" + datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S"),
@@ -159,6 +189,7 @@ def create_pipeline():
         return jsonify({"error": error[0]}), error[1]
     pipelines = read_pipelines()
     pipeline["id"] = make_pipeline_id(pipelines, pipeline["name"])
+    pipeline.setdefault("runner", pipeline["id"])
     pipelines.append(pipeline)
     write_pipelines(pipelines)
     return jsonify(pipeline), 201
@@ -198,7 +229,18 @@ def validate_pipeline(payload):
         return None, ("name is required", 400)
     if not isinstance(agents, list) or not agents or not all(str(agent).strip() for agent in agents):
         return None, ("at least one agent is required", 400)
-    return {"name": name, "description": description, "agents": [str(agent).strip() for agent in agents]}, None
+    pipeline_type = str(payload.get("type") or "linear").strip().lower()
+    if pipeline_type not in ("linear", "loop", "spiral"):
+        pipeline_type = "linear"
+    pipeline = {"name": name, "description": description, "agents": [str(agent).strip() for agent in agents],
+                "type": pipeline_type}
+    try:
+        max_iterations = int(payload.get("maxIterations") or 0)
+    except (TypeError, ValueError):
+        max_iterations = 0
+    if max_iterations > 0:
+        pipeline["maxIterations"] = max_iterations
+    return pipeline, None
 
 
 def make_pipeline_id(pipelines, name):

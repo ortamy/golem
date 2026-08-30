@@ -31,6 +31,22 @@ const LabRouter = (function() {
       var learnTitle = window.LearnLab.routeTitle(route);
       if (learnTitle) return learnTitle;
     }
+    if (route === 'root-dictionary') return 'Корневой словарь';
+    if (route === 'root-dictionary/search') return 'Поиск';
+    if (route.indexOf('root-dictionary/search/') === 0) {
+      var dictionarySegments = route.split('/');
+      if (dictionarySegments[3] === 'page') return 'Страница ' + dictionarySegments[4];
+      return dictionarySegments[2] ? 'Поиск: ' + decodeURIComponent(dictionarySegments[2]) : 'Поиск';
+    }
+    if (route.indexOf('root-dictionary/page/') === 0) return 'Страница ' + route.split('/').pop();
+    if (route === 'dictionaries') return 'Словари';
+    if (route === 'dictionaries/root-dictionary') return 'Корневой словарь';
+    if (route === 'dictionaries/paleo-glossary') return 'Палео-глоссарий';
+    if (route.indexOf('dictionaries/') === 0 && window.PageController && PageController.jsonCache.dictionaries) {
+      var dictionaryKey = decodeURIComponent(route.split('/')[1]);
+      var dictionary = PageController.jsonCache.dictionaries[dictionaryKey];
+      if (dictionary && dictionary.title) return dictionary.title;
+    }
     if (window.LabHero && window.LabHero.getTitle) {
       var title = window.LabHero.getTitle(route);
       if (title) return title;
@@ -53,7 +69,7 @@ const LabRouter = (function() {
     crumb.innerHTML = routes.map(function(route, index) {
       var current = index === routes.length - 1;
       var label = escapeHtml(routeTitle(route));
-      var href = route.split('/').map(function(segment) { return encodeURIComponent(segment); }).join('/');
+      var href = route.split('/').map(function(segment) { return encodeURIComponent(decodeURIComponent(segment)); }).join('/');
       return (index ? '<span class="lab-hero__kicker-separator" aria-hidden="true">·</span>' : '') +
         '<a class="lab-hero__kicker-link' + (current ? ' is-current' : '') + '" href="#' + escapeHtml(href) + '"' +
         (current ? ' aria-current="page"' : '') + '>' + label + '</a>';

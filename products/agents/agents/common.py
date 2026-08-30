@@ -15,6 +15,7 @@ def record(data: Dict[str, Any], agent: str, **values: Any) -> Dict[str, Any]:
     data.setdefault("trace", []).append(agent)
     data.setdefault("agentTrace", []).append({
         "agentId": agent,
+        "iteration": data.get("iteration", 0),  # номер витка: 0 — линейная цепочка, 1..N — цикл
         "status": "done",
         "input": deepcopy(input_data),
         "observations": [{"field": key, "value": deepcopy(value)} for key, value in values.items()],

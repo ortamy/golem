@@ -23,7 +23,11 @@ def main():
     parser = argparse.ArgumentParser(description="Оркестратор пайплайнов Голема")
     parser.add_argument("query", nargs="+", help="Запрос на русском языке")
     args = parser.parse_args()
-    result = dispatch(" ".join(args.query))
+    try:
+        result = dispatch(" ".join(args.query))
+    except ValueError as error:
+        print(json.dumps({"error": str(error)}, ensure_ascii=False, indent=2), file=sys.stderr)
+        return 1
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0
 

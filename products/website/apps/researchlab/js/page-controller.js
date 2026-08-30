@@ -103,6 +103,16 @@ const PageController = (function() {
 
   function renderDictionaries(container, data) {
     var state = pageState.dictionaries;
+    var parsed = window.LabRouter && LabRouter.parseHash ? LabRouter.parseHash() : null;
+    var routeKey = parsed && parsed.module === 'dictionaries' && parsed.segments[1]
+      ? decodeURIComponent(parsed.segments[1])
+      : '';
+    if (routeKey === 'root-dictionary') routeKey = '__root_dictionary';
+    if (routeKey === 'paleo-glossary') routeKey = '__paleo_glossary';
+    if (parsed && parsed.module === 'dictionaries') {
+      state.key = routeKey;
+      state.query = (parsed.params && parsed.params.q) || '';
+    }
     var keys = Object.keys(data);
     if (!keys.length) {
       container.innerHTML = '<div class="lab-alert lab-alert-info">Словари пока не заполнены.</div>';
@@ -149,9 +159,10 @@ const PageController = (function() {
         dictGrid.querySelectorAll('.dict-card').forEach(function(card) {
           card.addEventListener('click', function(e) {
             e.preventDefault();
-            state.key = this.getAttribute('data-key');
-            state.query = '';
-            renderDictionaries(container, data);
+            var key = this.getAttribute('data-key');
+            var route = key === '__root_dictionary' ? 'root-dictionary' :
+              (key === '__paleo_glossary' ? 'paleo-glossary' : key);
+            if (window.LabRouter) LabRouter.navigate('dictionaries', [encodeURIComponent(route)]);
           });
         });
       }
@@ -173,7 +184,7 @@ const PageController = (function() {
         return String(value || '').toLowerCase().indexOf(query) !== -1;
       })
     });
-    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState.dictionaries.key=\'\';PageController.renderDictionaries(document.getElementById(\'dictionaries\'), PageController.jsonCache.dictionaries)">← Назад к словарям</button>';
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'dictionaries\')">← Назад к словарям</button>';
     var options = keys.map(function(key) {
       return '<option value="' + escapeHtml(key) + '"' + (key === state.key ? ' selected' : '') + '>' +
         escapeHtml(data[key].title || key) + '</option>';
@@ -203,9 +214,7 @@ const PageController = (function() {
     var select = document.getElementById('research-dictionary-select');
     var search = document.getElementById('research-dictionary-search');
     if (select) select.addEventListener('change', function() {
-      state.key = this.value;
-      state.query = '';
-      renderDictionaries(container, data);
+      if (window.LabRouter) LabRouter.navigate('dictionaries', [encodeURIComponent(this.value)]);
     });
     if (search) search.addEventListener('input', function() {
       state.query = this.value;
@@ -216,7 +225,7 @@ const PageController = (function() {
   }
 
   function renderRootDictionaryModule(container, data) {
-    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState.dictionaries.key=\'\';PageController.renderDictionaries(document.getElementById(\'dictionaries\'), PageController.jsonCache.dictionaries)">← Назад к словарям</button>';
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'dictionaries\')">← Назад к словарям</button>';
     container.innerHTML = '<div class="research-page-head">' +
       '<h1><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Корневой словарь</h1>' +
       '<p class="subtitle">Поиск по корням иврита. Введите корень, слово или значение.</p>' + backBtn +
@@ -230,7 +239,7 @@ const PageController = (function() {
   }
 
   function renderPaleoGlossaryModule(container, data) {
-    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState.dictionaries.key=\'\';PageController.renderDictionaries(document.getElementById(\'dictionaries\'), PageController.jsonCache.dictionaries)">← Назад к словарям</button>';
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'dictionaries\')">← Назад к словарям</button>';
     container.innerHTML = '<div class="research-page-head">' +
       '<div class="paleo-glossary-head">' +
       '<div class="paleo-glossary-icon" aria-hidden="true">𐤌</div>' +
@@ -1047,9 +1056,12 @@ const PageController = (function() {
         var agent = (agentMapData || []).filter(function(item) { return item.name === agentName; })[0] || { name: agentName, desc: 'Участник цепочки передачи контекста.', icon: 'paleo/track' };
         return (agentIndex ? '<span class="pipeline-flow-arrow" aria-hidden="true">→</span>' : '') + '<li class="pipeline-timeline-step" tabindex="0" title="' + escapeHtml(agent.desc) + '" data-agent-name="' + escapeHtml(agent.name) + '" data-status="pending"><img src="../../assets/icons/32/' + escapeHtml(agent.icon) + '.png" alt=""><span class="pipeline-status-dot" aria-hidden="true"></span><div><strong>' + escapeHtml(agent.name) + '</strong><small>' + escapeHtml(agent.desc) + '</small></div></li>';
       }).join('');
+      var isLoop = pipeline.type === 'loop' || pipeline.type === 'spiral';
+      var loopBadge = isLoop ? '<span class="pipeline-loop-badge" title="' + (pipeline.type === 'spiral' ? 'Спираль: каждый виток расширяет горизонт (Хук Свива)' : 'Цикл: обратная связь до сходимости') + '">' + (pipeline.type === 'spiral' ? '↺ спираль' : '↺ цикл') + '</span>' : '';
+      var loopClose = isLoop ? '<li class="pipeline-loop-close" title="Возврат в начало витка">↺ в начало</li>' : '';
       var resultMarkup = result ? '<section class="pipeline-result-preview"><strong>Готовый результат</strong><p>' + escapeHtml(result.result && (result.result.aiSummary || result.result.summary) || result.title) + '</p></section>' : '<p class="pipeline-result-empty">Готовый результат пока не сохранён.</p>';
       var resultButton = result ? '<button type="button" class="lab-btn lab-btn-secondary pipeline-view-btn" data-pipeline-view-result>Открыть результат</button>' : '';
-      return '<article class="agent-pipeline-card" data-pipeline-id="' + escapeHtml(pipeline.id) + '"><div class="pipeline-card-head"><div class="pipeline-card-title"><img src="../../assets/icons/32/paleo/track.png" alt=""><h3>' + escapeHtml(pipeline.name) + '</h3><span class="pipeline-status-badge" data-pipeline-run-status data-status="' + (result ? 'done' : 'pending') + '">' + (result ? 'Готовый результат' : 'Ожидание запуска') + '</span></div><div class="agent-pipeline-actions"><button type="button" class="pipeline-icon-btn" data-pipeline-edit aria-label="Редактировать пайплайн">✎</button><button type="button" class="pipeline-icon-btn pipeline-delete" data-pipeline-delete aria-label="Удалить пайплайн">✕</button></div></div><p class="agent-pipeline-route">' + escapeHtml(pipeline.description || 'Цепочка передачи контекста') + '</p><ol class="pipeline-timeline" aria-label="Этапы пайплайна">' + agents + '</ol>' + resultMarkup + '<div class="pipeline-card-buttons"><button type="button" class="lab-btn lab-btn-primary pipeline-run-btn" data-pipeline-run>Запустить локально</button>' + resultButton + '<button type="button" class="lab-btn lab-btn-secondary pipeline-detail-btn" data-pipeline-details>Подробнее</button></div></article>';
+      return '<article class="agent-pipeline-card" data-pipeline-id="' + escapeHtml(pipeline.id) + '"><div class="pipeline-card-head"><div class="pipeline-card-title"><img src="../../assets/icons/32/paleo/track.png" alt=""><h3>' + escapeHtml(pipeline.name) + '</h3>' + loopBadge + '<span class="pipeline-status-badge" data-pipeline-run-status data-status="' + (result ? 'done' : 'pending') + '">' + (result ? 'Готовый результат' : 'Ожидание запуска') + '</span></div><div class="agent-pipeline-actions"><button type="button" class="pipeline-icon-btn" data-pipeline-edit aria-label="Редактировать пайплайн">✎</button><button type="button" class="pipeline-icon-btn pipeline-delete" data-pipeline-delete aria-label="Удалить пайплайн">✕</button></div></div><p class="agent-pipeline-route">' + escapeHtml(pipeline.description || 'Цепочка передачи контекста') + '</p><ol class="pipeline-timeline" aria-label="Этапы пайплайна">' + agents + loopClose + '</ol>' + resultMarkup + '<div class="pipeline-card-buttons"><button type="button" class="lab-btn lab-btn-primary pipeline-run-btn" data-pipeline-run>Запустить локально</button>' + resultButton + '<button type="button" class="lab-btn lab-btn-secondary pipeline-detail-btn" data-pipeline-details>Подробнее</button></div></article>';
     }).join('');
     pipelines.querySelector('.agent-pipelines-status').outerHTML = '<div class="agent-pipelines-grid">' + (cards || '<div class="lab-alert lab-alert-info">Пайплайны пока не созданы.</div>') + '</div>';
     pipelines.querySelector('[data-pipeline-create]').addEventListener('click', function() { openPipelineModal(container, pipelines, null); });
@@ -1185,16 +1197,18 @@ const PageController = (function() {
   function openPipelineModal(container, pipelines, pipeline) {
     var modal = document.createElement('div');
     modal.className = 'pipeline-modal';
-    modal.innerHTML = '<div class="pipeline-modal-backdrop" data-pipeline-close></div><form class="pipeline-dialog"><div class="modal-header"><h3>' + (pipeline ? 'Редактировать пайплайн' : 'Новый пайплайн') + '</h3><button type="button" class="modal-close" data-pipeline-close aria-label="Закрыть">×</button></div><div class="pipeline-form-body"><label>Название<input name="name" class="lab-input" required maxlength="100" value="' + escapeHtml(pipeline ? pipeline.name : '') + '"></label><label>Краткое описание<textarea name="description" class="lab-textarea" rows="3" maxlength="240">' + escapeHtml(pipeline ? pipeline.description : '') + '</textarea></label><fieldset><legend>Агенты по порядку</legend><div class="pipeline-agent-list" data-pipeline-agent-list></div><div class="pipeline-agent-add"><select class="lab-select" data-pipeline-agent-select><option value="">Выберите агента</option>' + agentMapData.map(function(agent) { return '<option value="' + escapeHtml(agent.name) + '">' + escapeHtml(agent.name) + '</option>'; }).join('') + '</select><button type="button" class="lab-btn lab-btn-secondary" data-pipeline-agent-add>Добавить</button></div></fieldset></div><div class="modal-footer"><button type="button" class="lab-btn lab-btn-secondary" data-pipeline-close>Отмена</button><button type="submit" class="lab-btn lab-btn-primary">Сохранить</button></div></form>';
+    modal.innerHTML = '<div class="pipeline-modal-backdrop" data-pipeline-close></div><form class="pipeline-dialog"><div class="modal-header"><h3>' + (pipeline ? 'Редактировать пайплайн' : 'Новый пайплайн') + '</h3><button type="button" class="modal-close" data-pipeline-close aria-label="Закрыть">×</button></div><div class="pipeline-form-body"><label>Название<input name="name" class="lab-input" required maxlength="100" value="' + escapeHtml(pipeline ? pipeline.name : '') + '"></label><label>Краткое описание<textarea name="description" class="lab-textarea" rows="3" maxlength="240">' + escapeHtml(pipeline ? pipeline.description : '') + '</textarea></label><label>Тип<select name="type" class="lab-select" data-pipeline-type><option value="linear">Линейный</option><option value="loop">Цикл</option><option value="spiral">Спираль</option></select></label><label>Максимум итераций<input name="maxIterations" type="number" class="lab-input" min="1" max="30" value="' + (pipeline && pipeline.maxIterations ? pipeline.maxIterations : 5) + '"></label><fieldset><legend>Агенты по порядку</legend><div class="pipeline-agent-list" data-pipeline-agent-list></div><div class="pipeline-agent-add"><select class="lab-select" data-pipeline-agent-select><option value="">Выберите агента</option>' + agentMapData.map(function(agent) { return '<option value="' + escapeHtml(agent.name) + '">' + escapeHtml(agent.name) + '</option>'; }).join('') + '</select><button type="button" class="lab-btn lab-btn-secondary" data-pipeline-agent-add>Добавить</button></div></fieldset></div><div class="modal-footer"><button type="button" class="lab-btn lab-btn-secondary" data-pipeline-close>Отмена</button><button type="submit" class="lab-btn lab-btn-primary">Сохранить</button></div></form>';
     document.body.appendChild(modal);
     var list = modal.querySelector('[data-pipeline-agent-list]');
+    var typeSelect = modal.querySelector('[data-pipeline-type]');
+    if (typeSelect) typeSelect.value = (pipeline && pipeline.type) || 'linear';
     var selected = (pipeline && pipeline.agents || []).slice();
     function renderSelected() { list.innerHTML = selected.map(function(agent, index) { return '<div class="pipeline-agent-row"><span>' + (index + 1) + '. ' + escapeHtml(agent) + '</span><button type="button" data-agent-up aria-label="Поднять">↑</button><button type="button" data-agent-down aria-label="Опустить">↓</button><button type="button" data-agent-remove aria-label="Удалить">✕</button></div>'; }).join('') || '<span class="text-muted">Добавьте хотя бы одного агента.</span>'; }
     renderSelected();
     modal.querySelector('[data-pipeline-agent-add]').addEventListener('click', function() { var value = modal.querySelector('[data-pipeline-agent-select]').value; if (value && selected.indexOf(value) === -1) { selected.push(value); renderSelected(); } });
     list.addEventListener('click', function(event) { var row = event.target.closest('.pipeline-agent-row'); if (!row) return; var index = Array.prototype.indexOf.call(list.children, row); if (event.target.hasAttribute('data-agent-up') && index > 0) { var item = selected.splice(index, 1)[0]; selected.splice(index - 1, 0, item); } if (event.target.hasAttribute('data-agent-down') && index < selected.length - 1) { var next = selected.splice(index, 1)[0]; selected.splice(index + 1, 0, next); } if (event.target.hasAttribute('data-agent-remove')) selected.splice(index, 1); renderSelected(); });
     modal.querySelectorAll('[data-pipeline-close]').forEach(function(button) { button.addEventListener('click', function() { modal.remove(); }); });
-    modal.querySelector('form').addEventListener('submit', function(event) { event.preventDefault(); var form = new FormData(event.target); if (!selected.length) { alert('Добавьте хотя бы одного агента.'); return; } savePipeline(container, pipelines, pipeline, { name: form.get('name'), description: form.get('description'), agents: selected }).then(function() { modal.remove(); }); });
+    modal.querySelector('form').addEventListener('submit', function(event) { event.preventDefault(); var form = new FormData(event.target); if (!selected.length) { alert('Добавьте хотя бы одного агента.'); return; } savePipeline(container, pipelines, pipeline, { name: form.get('name'), description: form.get('description'), agents: selected, type: form.get('type') || 'linear', maxIterations: parseInt(form.get('maxIterations'), 10) || 5 }).then(function() { modal.remove(); }); });
   }
 
   function savePipeline(container, pipelines, pipeline, payload) {
@@ -1223,6 +1237,9 @@ const PageController = (function() {
       }
       if (moduleId === 'learn' && window.LearnLab) {
         window.LearnLab.applyRoute(parsed);
+      }
+      if (moduleId === 'dictionaries' && jsonCache.dictionaries) {
+        renderDictionaries(container, jsonCache.dictionaries);
       }
       if (moduleId === 'ai-agents' && parsed && parsed.segments && parsed.segments[1]) {
         renderAgentDetail(container, parsed.segments[1]);
@@ -1275,7 +1292,10 @@ const PageController = (function() {
         applyQueryParam(parsed, 'rd-search',
           function() { return !!window._roots; },
           function(query) { RootsSearch.filter(query); });
-        if (window.RootDict) RootDict.init();
+        if (window.RootDict) {
+          RootDict.init();
+          RootDict.applyRoute(parsed);
+        }
         break;
 
       case 'paleo-glossary':

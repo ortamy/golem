@@ -1,19 +1,57 @@
-"""Оркестратор: маршрутизирует запрос в один из трёх пайплайнов."""
+"""Оркестратор: маршрутизирует запрос в один из пайплайнов.
+
+Неизвестный тип запроса — явная ошибка (ValueError), а не молчаливый
+дефолт: система не должна подменять запрос исследователя.
+"""
 from pipelines.word_analyzer import run as run_word_analyzer
 from pipelines.verse_comparator import run as run_verse_comparator
 from pipelines.research_builder import run as run_research_builder
+from pipelines.paleo_translation import run as run_paleo_translation
+from pipelines.research_audit import run as run_research_audit
+from pipelines.mechanism_scanner import run as run_mechanism_scanner
+from pipelines.verse_reconstruction import run as run_verse_reconstruction
+from pipelines.critique_loop import run as run_critique_loop
+from pipelines.gap_cycle import run as run_gap_cycle
+from pipelines.spiral_swiva import run as run_spiral_swiva
+from pipelines.dialectic_loop import run as run_dialectic_loop
+from pipelines.midrash_recursion import run as run_midrash_recursion
+from pipelines.shmita_loop import run as run_shmita_loop
 
 
 ROUTES = {
     "разбери слово": run_word_analyzer,
     "сравни стих": run_verse_comparator,
     "собери исследование": run_research_builder,
+    "обратный перевод": run_paleo_translation,
+    "переведи обратно": run_paleo_translation,
+    "проверь отчёт": run_research_audit,
+    "аудит исследования": run_research_audit,
+    "сканер подмен": run_mechanism_scanner,
+    "сканируй подмены": run_mechanism_scanner,
+    "реконструируй стих": run_verse_reconstruction,
+    "самокритика": run_critique_loop,
+    "карантин пропусков": run_gap_cycle,
+    "хук свива": run_spiral_swiva,
+    "спираль": run_spiral_swiva,
+    "диалектика": run_dialectic_loop,
+    "мидраш": run_midrash_recursion,
+    "шмита": run_shmita_loop,
 }
 
 PIPELINES = {
     "word_analyzer": run_word_analyzer,
     "verse_comparator": run_verse_comparator,
     "research_builder": run_research_builder,
+    "paleo_translation": run_paleo_translation,
+    "research_audit": run_research_audit,
+    "mechanism_scanner": run_mechanism_scanner,
+    "verse_reconstruction": run_verse_reconstruction,
+    "critique_loop": run_critique_loop,
+    "gap_cycle": run_gap_cycle,
+    "spiral_swiva": run_spiral_swiva,
+    "dialectic_loop": run_dialectic_loop,
+    "midrash_recursion": run_midrash_recursion,
+    "shmita_loop": run_shmita_loop,
 }
 
 
@@ -22,7 +60,9 @@ def select_pipeline(query: str):
     for phrase, pipeline in ROUTES.items():
         if normalized.startswith(phrase):
             return pipeline
-    return run_research_builder
+    raise ValueError(
+        "Неизвестный тип запроса. Доступные команды: " + ", ".join(sorted(ROUTES)) + "."
+    )
 
 
 def dispatch(query: str):

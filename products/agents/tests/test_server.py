@@ -80,5 +80,27 @@ class PipelineApiTest(unittest.TestCase):
         write_results.assert_called_once()
 
 
+    @patch("server.write_results")
+    @patch("server.read_results", return_value=[])
+    @patch("server.execute_named_pipeline", side_effect=ValueError("Неизвестный пайплайн: custom"))
+    @patch("server.read_pipelines")
+    def test_custom_pipeline_without_runner_falls_back_to_agent_names(self, read_pipelines, execute, _read_results, write_results):
+        """Кастомный пайплайн из UI (без Python-раннера) исполняется по русским именам."""
+        read_pipelines.return_value = [{
+            "id": "custom-ui",
+            "runner": "custom-ui",
+            "name": "Кастомный",
+            "agents": ["Исследователь", "Критик", "Сборщик"],
+        }]
+
+        response = self.client.post("/api/pipelines/custom-ui/run", json={"query": "разбор Давар"})
+
+        self.assertEqual(response.status_code, 201)
+        body = response.get_json()
+        self.assertEqual(body["trace"][0], "researcher")
+        self.assertIn("collector", body["trace"])
+        write_results.assert_called_once()
+
+
 if __name__ == "__main__":
     unittest.main()
