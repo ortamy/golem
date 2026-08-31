@@ -749,15 +749,15 @@
       return '<article class="methodology-card' + documentClass + shiftClass + '" data-id="' + escapeHtml(card.id) + '" style="animation-delay:' + (index * 30) + 'ms">' +
         '<div class="methodology-card-head">' +
           '<div class="methodology-card-heading">' + cardIcon + '<h3 class="methodology-card-title">' + escapeHtml(cardTitle) + '</h3></div>' +
-          '<div class="methodology-card-actions">' +
-            infoButton +
-            '<button type="button" class="methodology-icon-btn methodology-copy-btn" data-id="' + escapeHtml(card.id) + '" title="Копировать" aria-label="Копировать карточку">' + COPY_ICON + '</button>' +
-            '<button type="button" class="methodology-icon-btn methodology-prompt-btn" data-id="' + escapeHtml(card.id) + '" title="В конструктор промптов" aria-label="Отправить в конструктор промптов">' + WAND_ICON + '</button>' +
-            '<button type="button" class="methodology-icon-btn methodology-edit-btn" data-id="' + escapeHtml(card.id) + '" title="Редактировать" aria-label="Редактировать карточку">' + EDIT_ICON + '</button>' +
-            '<button type="button" class="methodology-icon-btn methodology-delete-btn" data-id="' + escapeHtml(card.id) + '" title="Удалить" aria-label="Удалить карточку">' + DELETE_ICON + '</button>' +
-          '</div>' +
         '</div>' +
         '<p class="methodology-card-text">' + escapeHtml(cardText) + '</p>' +
+        '<div class="methodology-card-actions">' +
+          infoButton +
+          '<button type="button" class="methodology-icon-btn methodology-copy-btn" data-id="' + escapeHtml(card.id) + '" title="Копировать" aria-label="Копировать карточку">' + COPY_ICON + '</button>' +
+          '<button type="button" class="methodology-icon-btn methodology-prompt-btn" data-id="' + escapeHtml(card.id) + '" title="В конструктор промптов" aria-label="Отправить в конструктор промптов">' + WAND_ICON + '</button>' +
+          '<button type="button" class="methodology-icon-btn methodology-edit-btn" data-id="' + escapeHtml(card.id) + '" title="Редактировать" aria-label="Редактировать карточку">' + EDIT_ICON + '</button>' +
+          '<button type="button" class="methodology-icon-btn methodology-delete-btn" data-id="' + escapeHtml(card.id) + '" title="Удалить" aria-label="Удалить карточку">' + DELETE_ICON + '</button>' +
+        '</div>' +
       '</article>';
     }).join('');
 
