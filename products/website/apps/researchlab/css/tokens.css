@@ -159,25 +159,25 @@
   --success-text: #b8e0b8;
 }
 
-/* ===== WHITE THEME ===== */
+/* ===== СВЕТЛАЯ ПАСТЕЛЬНАЯ ТЕМА ===== */
 [data-theme="white"] {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f5f5f5;
-  --bg-tertiary: #fafafa;
-  --bg-dark: #fafafa;
-  --bg-dark-hover: #f0f0f0;
-  --bg-card: #ffffff;
-  --text-primary: #1a1a1a;
-  --text-secondary: #333333;
-  --text-muted: #777777;
-  --text-light: #1a1a1a;
-  --text-gold: #666666;
-  --accent-gold-rgb: 85 85 85;
-  --border-light: #e0e0e0;
-  --border-dark: #d6d6d6;
+  --bg-primary: #ede0c8;
+  --bg-secondary: #faf3e0;
+  --bg-tertiary: #f5edd5;
+  --bg-dark: #f5edd5;
+  --bg-dark-hover: #eadfc8;
+  --bg-card: #faf3e0;
+  --text-primary: #2c1810;
+  --text-secondary: #5c4a3a;
+  --text-muted: #8a7a6a;
+  --text-light: #2c1810;
+  --text-gold: #8b6508;
+  --accent-gold-rgb: 139 101 8;
+  --border-light: #d4c4a8;
+  --border-dark: #c8b694;
   --border-gold: var(--accent-gold);
-  --accent-gold: #555555;
-  --accent-gold-hover: #333333;
+  --accent-gold: #8b6508;
+  --accent-gold-hover: #6f5006;
   --accent-red: #b83226;
   --accent-red-hover: #92251d;
   --accent-green: #286828;

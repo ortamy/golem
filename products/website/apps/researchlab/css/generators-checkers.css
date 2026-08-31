@@ -46,7 +46,7 @@
 .stc-hero .stc-subtitle { margin: 0; color: var(--text-muted); }
 .stc-form-row { display: flex; gap: 10px; margin-bottom: 22px; }
 .stc-form-row .lab-input { flex: 1; }
-.stc-result-card { background: #fff; border: 1px solid var(--border-light); border-radius: 10px; box-shadow: 0 2px 12px rgba(44, 24, 16, 0.08); padding: 24px; }
+.stc-result-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; box-shadow: 0 2px 12px rgba(44, 24, 16, 0.08); padding: 24px; }
 .stc-result-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--border-light); }
 .stc-result-head h2 { margin: 0; color: var(--text-primary); font-family: var(--font-heading); }
 .stc-dom-badge { display: inline-block; border-radius: 999px; background: rgb(var(--accent-gold-rgb) / 0.14); color: var(--accent-gold); font-size: 0.82rem; font-weight: 600; padding: 5px 14px; }

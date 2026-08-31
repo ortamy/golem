@@ -479,7 +479,7 @@
   border: 1px solid var(--cartography-border, rgba(90, 70, 45, 0.22));
   border-inline-start: 3px solid var(--cartography-accent, #8a5a2b);
   border-radius: var(--radius-sm);
-  background: var(--cartography-callout-bg, rgba(255, 255, 255, 0.4));
+  background: var(--cartography-callout-bg, var(--bg-secondary));
   padding: 1rem 1.1rem;
 }
 
@@ -514,7 +514,7 @@
   min-width: 0;
   border: 1px solid var(--cartography-border, rgba(90, 70, 45, 0.2));
   border-radius: var(--radius-sm);
-  background: var(--cartography-card-bg, rgba(255, 255, 255, 0.4));
+  background: var(--cartography-card-bg, var(--bg-secondary));
   padding: 0.7rem 0.85rem 0.7rem 0.45rem;
 }
 
@@ -525,7 +525,7 @@
   height: 1.7rem;
   border: 1px solid var(--cartography-accent, #8a5a2b);
   border-radius: 50%;
-  background: var(--cartography-card-bg, rgba(255, 255, 255, 0.9));
+  background: var(--cartography-card-bg, var(--bg-tertiary));
   color: var(--cartography-accent, #8a5a2b);
   font-size: 0.75rem;
   font-weight: 700;
@@ -545,7 +545,7 @@
   .cartography-callout,
   .cartography-event,
   .cartography-event-number {
-    background: var(--cartography-card-bg, rgba(255, 255, 255, 0.06));
+    background: var(--cartography-card-bg, var(--bg-secondary));
   }
 }
 

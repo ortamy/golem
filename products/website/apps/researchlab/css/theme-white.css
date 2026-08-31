@@ -1,11 +1,11 @@
-/* ===== БЕЛАЯ ТЕМА: финальные серые переопределения ===== */
+/* ===== СВЕТЛАЯ ТЕМА: пастельные пергаментные переопределения ===== */
 html[data-theme="white"] {
-  --bg-hover: #f3f3f3;
-  --bg-subtle: #f7f7f7;
-  --bg-paper: #ffffff;
+  --bg-hover: #f5edd5;
+  --bg-subtle: #faf3e0;
+  --bg-paper: #faf3e0;
 }
 
-/* Общие hover/active-фоны без бежевого оттенка. */
+/* Общие hover/active-фоны в пергаментной шкале. */
 html[data-theme="white"] .lab-header nav a:hover,
 html[data-theme="white"] .lab-header nav button:hover,
 html[data-theme="white"] .lab-btn-secondary:hover,
@@ -20,7 +20,7 @@ html[data-theme="white"] .investigation-creator.is-open,
 html[data-theme="white"] .dw-list-item:hover,
 html[data-theme="white"] .admin-btn-secondary:hover,
 html[data-theme="white"] .settings-nav-btn:hover {
-  background: #f3f3f3;
+  background: var(--bg-tertiary);
 }
 
 html[data-theme="white"] .lab-btn-secondary:active,
@@ -32,10 +32,10 @@ html[data-theme="white"] .rd-subs,
 html[data-theme="white"] .clue-conclusion,
 html[data-theme="white"] .methodology-icon-btn:hover,
 html[data-theme="white"] .methodology-info-btn:hover {
-  background: #eeeeee;
+  background: #eadfc8;
 }
 
-/* Акцентные поверхности в белом режиме также нейтрально-серые. */
+/* Акцентные поверхности сохраняют золото пергаментной темы. */
 html[data-theme="white"] .lab-btn-primary,
 html[data-theme="white"] .lab-btn-primary-orange,
 html[data-theme="white"] .lab-btn-danger,
@@ -47,15 +47,15 @@ html[data-theme="white"] .admin-btn-primary,
 html[data-theme="white"] .admin-btn-danger,
 html[data-theme="white"] .btn-diagnostic-next,
 html[data-theme="white"] .btn-result-state {
-  background: #555555;
-  border-color: #555555;
-  color: #ffffff;
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: var(--bg-secondary);
 }
 
 html[data-theme="white"] .sidebar-section-title,
 html[data-theme="white"] .investigation-timeline-tag,
 html[data-theme="white"] .agent-server-kicker {
-  color: #666666;
+  color: var(--text-secondary);
 }
 
 /* Карточки и служебные панели модулей. */
@@ -112,7 +112,7 @@ html[data-theme="white"] .board-dialog textarea {
   color: var(--text-primary);
 }
 
-/* Жёстко заданные статусы и подсветки переводим в серую шкалу. */
+/* Жёстко заданные статусы и подсветки переводим в бежевую шкалу. */
 html[data-theme="white"] .book-card--completed,
 html[data-theme="white"] .book-card--in-progress,
 html[data-theme="white"] .agent-server-status,
@@ -122,7 +122,7 @@ html[data-theme="white"] .agent-server-note kbd,
 html[data-theme="white"] .vl-synthesis,
 html[data-theme="white"] .br-callout,
 html[data-theme="white"] .br-text-card {
-  background: #f5f5f5;
+  background: var(--bg-secondary);
 }
 
 html[data-theme="white"] .book-card:hover,
@@ -135,24 +135,24 @@ html[data-theme="white"] .state-city-card:hover,
 html[data-theme="white"] .question-option:hover,
 html[data-theme="white"] .scale-option:hover {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  background: #f8f8f8;
+  background: var(--bg-tertiary);
 }
 
 html[data-theme="white"] .agent-grid .agent-card-orchestrator,
 html[data-theme="white"] .agent-grid .agent-card-orchestrator:hover {
-  background: #f5f5f5;
+  background: var(--bg-secondary);
   box-shadow: var(--shadow-soft);
 }
 
 html[data-theme="white"] .sidebar-item.active,
 html[data-theme="white"] .exposure-toc-item.active {
-  background: #eeeeee;
+  background: #eadfc8;
   color: var(--accent-gold);
 }
 
 html[data-theme="white"] .admin-notice-success,
 html[data-theme="white"] .admin-notice-error {
-  background: #f5f5f5;
+  background: var(--bg-secondary);
   color: var(--text-primary);
   border-color: var(--border-light);
 }
@@ -160,15 +160,15 @@ html[data-theme="white"] .admin-notice-error {
 html[data-theme="white"] .settings-range,
 html[data-theme="white"] .settings-toggle-slider,
 html[data-theme="white"] .metrics-progress-bar {
-  background: #dcdcdc;
+  background: #d4c4a8;
 }
 
 html[data-theme="white"] .highlight,
 html[data-theme="white"] .highlight-gold,
 html[data-theme="white"] .exposure-chip.active {
-  background: #f1f1f1;
+  background: #f5edd5;
 }
 
-/* Inline-стили модулей не должны возвращать бежевые значения. */
-html[data-theme="white"] #vi-img { border-color: #d6d6d6 !important; }
-html[data-theme="white"] #vi-placeholder > div { color: #333333 !important; }
+/* Inline-стили модулей остаются в пергаментной шкале. */
+html[data-theme="white"] #vi-img { border-color: var(--border-light) !important; }
+html[data-theme="white"] #vi-placeholder > div { color: var(--text-secondary) !important; }
