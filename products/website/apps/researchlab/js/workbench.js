@@ -14,6 +14,7 @@ const Workbench = (function() {
   'use strict';
 
   var STORE_KEY = 'golem.workbench.projects';
+  var AGENT_API_URL = 'http://127.0.0.1:5000';
 
   function esc(text) {
     var d = document.createElement('div');
@@ -163,7 +164,7 @@ const Workbench = (function() {
     } else if (meta.status === 'done') {
       actions += '<a class="lab-btn lab-btn-secondary lab-btn-sm" href="#workbench/project/' + esc(meta.runId) + '">Открыть</a>';
       if (runtime.results[meta.runId]) {
-        actions += '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-wb-action="download" data-runid="' + esc(meta.runId) + '">Скачать</button>';
+        actions += '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-wb-action="export" data-runid="' + esc(meta.runId) + '">Экспорт</button>';
       }
     }
     actions += '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-wb-action="delete" data-runid="' + esc(meta.runId) + '">Удалить</button>';
@@ -197,8 +198,8 @@ const Workbench = (function() {
           delete runtime.live[runId];
           renderHub(container);
         }
-      } else if (target.getAttribute('data-wb-action') === 'download') {
-        downloadResult(runId);
+      } else if (target.getAttribute('data-wb-action') === 'export') {
+        openExportModal(runId);
       }
     });
   }
@@ -246,6 +247,12 @@ const Workbench = (function() {
             (field.accept ? ' accept="' + esc(field.accept) + '"' : '') + required + '>' +
           hint +
           '<div class="wb-file-status" id="' + id + '-status" role="status">Файл не выбран</div>' +
+           '<div class="wb-file-progress" id="' + id + '-progress" hidden>' +
+             '<div class="wb-file-progress-track" role="progressbar" aria-label="Чтение файла" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">' +
+               '<span class="wb-file-progress-fill"></span>' +
+             '</div>' +
+             '<span class="wb-file-progress-label">0%</span>' +
+           '</div>' +
         '</div>';
     }
     if (field.type === 'text') {
@@ -355,12 +362,69 @@ const Workbench = (function() {
       input.addEventListener('change', function() {
         var file = input.files && input.files[0];
         var status = document.getElementById('wb-field-' + field.key + '-status');
+        var progress = document.getElementById('wb-field-' + field.key + '-progress');
+        var progressTrack = progress && progress.querySelector('.wb-file-progress-track');
+        var progressFill = progress && progress.querySelector('.wb-file-progress-fill');
+        var progressLabel = progress && progress.querySelector('.wb-file-progress-label');
+        function setProgress(value, label) {
+          if (!progress) return;
+          progress.hidden = false;
+          if (progressTrack) progressTrack.setAttribute('aria-valuenow', value);
+          if (progressFill) progressFill.style.width = value + '%';
+          if (progressLabel) progressLabel.textContent = label || (value + '%');
+        }
         if (!file) {
           runtime.form = { fileText: '', fileChars: 0, fileName: '' };
           if (status) status.textContent = 'Файл не выбран';
+          if (progress) progress.hidden = true;
           return;
         }
+        runtime.form = { fileText: '', fileChars: 0, fileName: file.name };
         if (status) status.textContent = 'Читаю «' + file.name + '»…';
+        if (/\.pdf$/i.test(file.name)) {
+          setProgress(0, 'Загрузка 0%');
+          var request = new XMLHttpRequest();
+          request.open('POST', AGENT_API_URL + '/api/workbench/pdf-text', true);
+          request.upload.onprogress = function(event) {
+            if (!event.lengthComputable) return;
+            setProgress(Math.min(80, Math.round(event.loaded / event.total * 80)), 'Загрузка ' + Math.round(event.loaded / event.total * 100) + '%');
+          };
+          request.upload.onload = function() {
+            setProgress(85, 'Извлекаю текстовый слой…');
+          };
+          request.onload = function() {
+            var payload = {};
+            try { payload = request.responseText ? JSON.parse(request.responseText) : {}; } catch (error) {}
+            if (request.status < 200 || request.status >= 300) {
+              runtime.form.fileText = '';
+              runtime.form.fileChars = 0;
+              if (status) status.textContent = 'Не удалось извлечь текст из PDF: ' + (payload.error || ('сервер вернул HTTP ' + request.status + '. Запустите сервер агентов на порту 5000.'));
+              setProgress(0, 'Ошибка');
+              return;
+            }
+            if (!payload.text) {
+              runtime.form.fileText = '';
+              runtime.form.fileChars = 0;
+              if (status) status.textContent = 'PDF не содержит доступного текстового слоя.';
+              setProgress(0, 'Нет текста');
+              return;
+            }
+              runtime.form.fileText = String(payload.text || '');
+              runtime.form.fileChars = runtime.form.fileText.length;
+              if (status) status.textContent = '«' + file.name + '» — ' + runtime.form.fileChars + ' знаков, ' + (payload.pages || 0) + ' стр.';
+              setProgress(100, 'Прочитано ' + runtime.form.fileChars + ' знаков');
+          };
+          request.onerror = function() {
+            runtime.form.fileText = '';
+            runtime.form.fileChars = 0;
+            if (status) status.textContent = 'Не удалось связаться с сервером извлечения PDF. Запустите products/agents/server.py на порту 5000.';
+            setProgress(0, 'Сервер недоступен');
+          };
+          var formData = new FormData();
+          formData.append('file', file);
+          request.send(formData);
+          return;
+        }
         var reader = new FileReader();
         reader.onload = function() {
           runtime.form.fileText = String(reader.result || '');
@@ -665,13 +729,18 @@ const Workbench = (function() {
         '<p><a class="lab-btn lab-btn-primary lab-btn-sm" href="#workbench/run/' + esc(meta.pipelineId) + '?run=' + esc(runId) + '">К запуску</a></p>';
     }
 
-    var downloadBtn = result ? '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-wb-action="download" data-runid="' + esc(runId) + '">Скачать</button>' : '';
+    var exportBtn = result ? '<div class="wb-export-actions">' +
+      '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-wb-action="export-pdf" data-runid="' + esc(runId) + '">PDF</button>' +
+      '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-wb-action="export-md" data-runid="' + esc(runId) + '">Markdown</button>' +
+      '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-wb-action="export-txt" data-runid="' + esc(runId) + '">TXT</button>' +
+      '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-wb-action="export-json" data-runid="' + esc(runId) + '">JSON</button>' +
+      '</div>' : '';
 
     container.innerHTML =
       '<div class="wb-project">' +
         '<div class="wb-project-toolbar">' +
           '<a class="lab-btn lab-btn-secondary lab-btn-sm" href="#workbench">К конвейерам</a>' +
-          downloadBtn +
+          exportBtn +
           '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-wb-action="delete" data-runid="' + esc(runId) + '">Удалить</button>' +
         '</div>' +
         body +
@@ -682,7 +751,8 @@ const Workbench = (function() {
       if (!target) return;
       var action = target.getAttribute('data-wb-action');
       var id = target.getAttribute('data-runid') || runId;
-      if (action === 'download') downloadResult(id);
+      if (action === 'export') openExportModal(id);
+      else if (action.indexOf('export-') === 0) exportResult(id, action.substring('export-'.length));
       else if (action === 'delete') {
         if (window.confirm('Удалить проект? Метаданные будут стёрты.')) {
           removeProject(id);
@@ -781,20 +851,67 @@ const Workbench = (function() {
     return lines.join('\n');
   }
 
-  function downloadResult(runId) {
+  function exportBaseName(meta) {
+    return String(meta.name || 'project').replace(/[^\wа-яёА-ЯЁ\- ]+/gi, '').trim().replace(/\s+/g, '-') || 'project';
+  }
+
+  function buildTranslationText(result, meta, pipelineTitle) {
+    return buildTranslationMarkdown(result, meta, pipelineTitle)
+      .replace(/^#\s+/gm, '')
+      .replace(/^##\s+/gm, '')
+      .replace(/\*\*/g, '');
+  }
+
+  function buildExportReport(result, meta, pipelineTitle) {
+    return {
+      project: meta.name,
+      pipeline: pipelineTitle,
+      input: meta.input || {},
+      generatedAt: new Date().toISOString(),
+      result: result
+    };
+  }
+
+  function printTranslationPdf(result, meta, pipelineTitle) {
+    var popup = window.open('', '_blank', 'noopener,noreferrer');
+    if (!popup) {
+      window.alert('Разрешите всплывающие окна, чтобы сохранить результат в PDF.');
+      return;
+    }
+    var sections = (result.segments || []).map(function(segment) {
+      return '<section><h2>' + esc(segment.title) + '</h2><div class="pair"><article><h3>Оригинал</h3><pre>' + esc(segment.original) + '</pre></article><article><h3>Перевод (' + esc(result.meta.targetLang || 'ru') + ')</h3><pre>' + esc(segment.translated) + '</pre></article></div></section>';
+    }).join('');
+    popup.document.open();
+    popup.document.write('<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>' + esc(meta.name) + '</title><style>body{margin:32px;color:#2c1810;font:14px/1.55 Georgia,serif}h1,h2,h3{color:#5c3b18}h1{font-size:28px}h2{margin:26px 0 10px;border-bottom:1px solid #d4c4a8;padding-bottom:6px;font-size:19px}.meta{color:#675848}.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}.pair article{border:1px solid #d4c4a8;border-radius:6px;padding:12px}h3{margin:0 0 8px;font-size:13px;text-transform:uppercase}pre{margin:0;white-space:pre-wrap;font:13px/1.55 "Times New Roman",serif}@media print{body{margin:16mm}.pair{break-inside:avoid}}</style></head><body><h1>' + esc(meta.name) + '</h1><p class="meta">Конвейер: ' + esc(pipelineTitle) + '<br>Вход: ' + esc((meta.input && meta.input.name) || '—') + ' · ' + ((meta.input && meta.input.chars) || 0) + ' знаков</p>' + sections + '<script>window.onload=function(){window.print();};<\/script></body></html>');
+    popup.document.close();
+  }
+
+  function openExportModal(runId) {
+    var result = runtime.results[runId];
+    var meta = getProject(runId);
+    if (!result || !meta || !window.LabModal) return;
+    LabModal.show('Экспорт результата', '<p>Выберите формат для «' + esc(meta.name) + '».</p>',
+      '<button type="button" class="lab-btn lab-btn-primary" onclick="Workbench.exportResult(\'' + esc(runId) + '\',\'pdf\')">PDF</button>' +
+      '<button type="button" class="lab-btn lab-btn-secondary" onclick="Workbench.exportResult(\'' + esc(runId) + '\',\'md\')">Markdown</button>' +
+      '<button type="button" class="lab-btn lab-btn-secondary" onclick="Workbench.exportResult(\'' + esc(runId) + '\',\'txt\')">TXT</button>' +
+      '<button type="button" class="lab-btn lab-btn-secondary" onclick="Workbench.exportResult(\'' + esc(runId) + '\',\'json\')">JSON</button>');
+  }
+
+  function exportResult(runId, format) {
     var result = runtime.results[runId];
     var meta = getProject(runId);
     if (!result || !meta) return;
     var pipeline = window.WorkbenchPipelines ? WorkbenchPipelines.get(meta.pipelineId) : null;
     var pipelineTitle = pipeline ? pipeline.title : meta.pipelineId;
-    var base = String(meta.name || 'project').replace(/[^\wа-яёА-ЯЁ\- ]+/gi, '').trim().replace(/\s+/g, '-') || 'project';
-    if (result.kind === 'translation' && !result.placeholder) {
-      downloadText(base + '-translation.md', buildTranslationMarkdown(result, meta, pipelineTitle), 'text/markdown');
-    } else {
-      // Заглушки: скачиваем метаданные проекта как JSON.
-      var report = { project: meta, pipeline: pipelineTitle, resultMeta: result.meta, note: result.note || '' };
-      downloadText(base + '-meta.json', JSON.stringify(report, null, 2), 'application/json');
-    }
+    var base = exportBaseName(meta);
+    var markdown = result.kind === 'translation' && !result.placeholder
+      ? buildTranslationMarkdown(result, meta, pipelineTitle)
+      : JSON.stringify(buildExportReport(result, meta, pipelineTitle), null, 2);
+    if (format === 'pdf') printTranslationPdf(result, meta, pipelineTitle);
+    else if (format === 'txt') downloadText(base + '-result.txt', result.kind === 'translation' ? buildTranslationText(result, meta, pipelineTitle) : markdown, 'text/plain');
+    else if (format === 'json') downloadText(base + '-result.json', JSON.stringify(buildExportReport(result, meta, pipelineTitle), null, 2), 'application/json');
+    else downloadText(base + '-result.md', markdown, 'text/markdown');
+    if (window.LabModal) LabModal.close();
   }
 
   // ===== ПУБЛИЧНЫЙ API =====
@@ -802,7 +919,8 @@ const Workbench = (function() {
     applyRoute: applyRoute,
     routeTitle: routeTitle,
     getProject: getProject,
-    removeProject: removeProject
+    removeProject: removeProject,
+    exportResult: exportResult
   };
 })();
 

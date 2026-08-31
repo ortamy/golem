@@ -5,6 +5,8 @@
 
 const assert = require('assert');
 const WorkbenchPipelines = require('../js/workbench-pipelines.js');
+const fs = require('fs');
+const path = require('path');
 
 const KNOWN_VIEWERS = ['translation', 'exposure', 'roots'];
 
@@ -23,6 +25,29 @@ function testRegistry() {
     assert.ok(pipeline.cost && pipeline.cost.pricePer1kTokens > 0, 'Константы стоимости заданы: ' + pipeline.id);
   });
   console.log('OK  реестр: 3 конвейера, поля, вьюверы, движки, стоимость');
+}
+
+function testBookTranslationInputs() {
+  const pipeline = WorkbenchPipelines.get('book-translation');
+  const file = pipeline.inputs.filter(function(input) { return input.key === 'file'; })[0];
+  const sourceLang = pipeline.inputs.filter(function(input) { return input.key === 'sourceLang'; })[0];
+  const languages = sourceLang.options.map(function(option) { return option.value; });
+
+  assert.ok(file.accept.includes('.pdf'), 'Конвейер принимает PDF');
+  assert.ok(file.accept.includes('.txt') && file.accept.includes('.md'), 'Текстовые форматы остаются доступны');
+  assert.ok(languages.includes('phoenician'), 'Доступно финикийское письмо');
+  assert.ok(languages.includes('paleo-hebrew'), 'Доступен палео-иврит');
+  console.log('OK  перевод книги: PDF и палео-языки доступны');
+}
+
+function testExportFormats() {
+  const source = fs.readFileSync(path.join(__dirname, '..', 'js', 'workbench.js'), 'utf8');
+  ['export-pdf', 'export-md', 'export-txt', 'export-json'].forEach(function(action) {
+    assert.ok(source.includes(action), 'Доступен экспорт: ' + action);
+  });
+  assert.ok(source.includes('window.print()'), 'PDF открывает печатное представление');
+  assert.ok(source.includes('openExportModal(runId)'), 'Экспорт доступен из списка проектов');
+  console.log('OK  экспорт: PDF, Markdown, TXT и JSON');
 }
 
 function testEstimate() {
@@ -127,6 +152,8 @@ async function testPassThrough() {
 
 (async function run() {
   testRegistry();
+  testBookTranslationInputs();
+  testExportFormats();
   testEstimate();
   await testMockBookTranslation();
   await testCancel();

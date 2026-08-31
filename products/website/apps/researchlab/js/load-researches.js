@@ -278,6 +278,7 @@ const LoadResearches = (function() {
   }
 
   function renderList(container) {
+    container._labHeroOverride = null;
     var categories = getCategories();
     var options = categories.map(function(cat) {
       return '<option value="' + escapeHtml(cat) + '"' + (cat === state.category ? ' selected' : '') + '>' + escapeHtml(cat) + '</option>';
@@ -289,8 +290,10 @@ const LoadResearches = (function() {
       '<label>Категория<select id="researches-category" class="lab-input"><option value="all">Все категории</option>' + options + '</select></label>' +
       '<button type="button" class="lab-btn lab-btn-primary exposure-new-btn" id="researches-new-btn">+ Новое дело</button>' +
       '</div>' +
+      '<div class="research-confidence-bar">' +
       renderConfidenceChips() +
-      '<div class="research-meta"><strong>' + filtered.length + ' из ' + items.length + '</strong><span>Материалы библиотеки проекта «Голем»</span></div>' +
+      '<div class="research-meta"><strong>' + filtered.length + ' из ' + items.length + '</strong></div>' +
+      '</div>' +
       '<div id="researches-results">' + renderCards(filtered) + '</div>';
 
     bindListEvents(container);
@@ -341,32 +344,39 @@ const LoadResearches = (function() {
   function renderDetail(container) {
     var item = items.filter(function(i) { return i.slug === state.activeSlug; })[0];
     if (!item) {
-      container.innerHTML = '<div class="lab-alert lab-alert-error">Дело «' + escapeHtml(state.activeSlug) + '» не найдено.</div>' +
-        '<a class="research-back-link" href="#researches">← Назад к архиву</a>';
+      container._labHeroOverride = null;
+      container.innerHTML = '<div class="lab-alert lab-alert-error">Дело «' + escapeHtml(state.activeSlug) + '» не найдено.</div>';
       return;
     }
     history.replaceState(null, '', '#researches/case/' + encodeURIComponent(item.slug));
     container.innerHTML = ExposureCase.renderCase(item, { relatedItems: itemIndex() });
     ExposureCase.bindCase(container, item);
 
-    // Шапка модуля подменяется на название дела
+    // Шапка модуля собирается из данных активного дела.
     if (window.LabHero && window.LabHero.setView) {
-      window.LabHero.setView('researches', 'detail', {
+      var confidence = ExposureCase.confidenceMeta(item.confidence);
+      container._labHeroOverride = {
         kicker: 'ГОЛЕМ · ИССЛЕДОВАНИЯ',
         title: item.title || '',
         subtitle: (item.category || ''),
-        icon: 'scribe/scroll.png'
-      });
+        icon: 'scribe/scroll.png',
+        meta: [{ label: confidence.label, className: confidence.className }]
+      };
+      window.LabHero.setView('researches', 'detail', container._labHeroOverride);
+      if (window.LabRouter) LabRouter.renderBreadcrumbs('researches', LabRouter.parseHash());
     }
-    var back = container.querySelector('[data-exposure-back]');
-    if (back) back.addEventListener('click', function(e) {
-      e.preventDefault();
-      state.activeSlug = '';
-      history.replaceState(null, '', '#researches');
-      renderList(container);
-    });
   }
 
-  window.LoadResearches = { render: render };
+  function routeTitle(route) {
+    var segments = String(route || '').split('/');
+    if (route === 'researches') return 'Исследования';
+    if (segments[0] === 'researches' && segments[1] === 'case' && segments[2]) {
+      var item = items.filter(function(entry) { return entry.slug === decodeURIComponent(segments[2]); })[0];
+      return item ? item.title : 'Исследование';
+    }
+    return '';
+  }
+
+  window.LoadResearches = { render: render, routeTitle: routeTitle };
   return window.LoadResearches;
 })();

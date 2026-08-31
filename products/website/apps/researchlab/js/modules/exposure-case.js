@@ -246,9 +246,7 @@ const ExposureCase = (function() {
     return '<div class="exposure-case-page">' +
       '<div class="exposure-case-container">' +
         '<header class="research-detail-header">' +
-          '<div class="exposure-detail-title-row">' + renderIcon(item.icon || 'scroll', item.title, 'exposure-detail-icon') + '<div>' + confidenceBadge(item.confidence) + '<div class="exposure-detail-title">' + esc(item.title || '') + '</div></div></div>' +
           '<div class="research-detail-tags">' + tags + '</div>' +
-          '<a class="lab-btn lab-btn-secondary lab-btn-sm research-back-link" href="#researches" data-exposure-back>← Назад к архиву</a>' +
           '<div class="exposure-progress-wrap"><div class="exposure-progress-track"><div class="exposure-progress-bar" data-exposure-progress></div></div>' +
             '<span class="exposure-progress-label" data-exposure-progress-label">0 из ' + blocks.length + ' секций</span></div>' +
         '</header>' +

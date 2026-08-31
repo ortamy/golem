@@ -140,6 +140,29 @@ def api_info():
     })
 
 
+@app.post("/api/workbench/pdf-text")
+def extract_workbench_pdf_text():
+    """Извлекает текстовый слой PDF для конвейера перевода книги."""
+    uploaded = request.files.get("file")
+    if not uploaded or not uploaded.filename:
+        return jsonify({"error": "file is required"}), 400
+    if not uploaded.filename.lower().endswith(".pdf"):
+        return jsonify({"error": "PDF file is required"}), 400
+
+    try:
+        from pypdf import PdfReader
+
+        reader = PdfReader(uploaded.stream)
+        pages = [page.extract_text() or "" for page in reader.pages]
+        text = "\n\n".join(page for page in pages if page.strip()).strip()
+    except Exception as error:
+        return jsonify({"error": f"PDF reading failed: {error}"}), 422
+
+    if not text:
+        return jsonify({"error": "PDF does not contain an accessible text layer"}), 422
+    return jsonify({"text": text, "pages": len(pages), "chars": len(text)})
+
+
 def _serve_lab_file(filename):
     """Отдаёт файлы Лаборатории из products/website, не выпуская за пределы корня."""
     if not filename:

@@ -34,14 +34,16 @@
       title: 'Перевод книги',
       icon: 'scribe/scrolls.png',
       description: 'Разбор книги на фрагменты и перевод с удержанием палео-образов. Результат — параллельный вид «оригинал ↔ перевод».',
-      tags: ['файл', 'txt/md', 'языки'],
+      tags: ['файл', 'txt/md/pdf', 'языки'],
       inputs: [
-        { key: 'file', type: 'file', label: 'Файл книги', accept: '.txt,.md', hint: 'TXT или Markdown, читается локально', required: true },
+        { key: 'file', type: 'file', label: 'Файл книги', accept: '.txt,.md,.pdf,text/plain,text/markdown,application/pdf', hint: 'TXT и Markdown читаются локально; из PDF извлекается текстовый слой', required: true },
         { key: 'sourceLang', type: 'select', label: 'Язык оригинала', default: 'auto', options: [
           { value: 'auto', label: 'Определить автоматически' },
           { value: 'ru', label: 'Русский' },
           { value: 'en', label: 'English' },
-          { value: 'he', label: 'עברית' }
+          { value: 'he', label: 'עברית' },
+          { value: 'phoenician', label: '𐤐𐤍𐤊𐤉 · Финикийское письмо' },
+          { value: 'paleo-hebrew', label: '𐤏𐤁𐤓𐤉𐤕 · Палео-иврит' }
         ] },
         { key: 'targetLang', type: 'select', label: 'Язык перевода', default: 'ru', required: true, options: [
           { value: 'ru', label: 'Русский' },

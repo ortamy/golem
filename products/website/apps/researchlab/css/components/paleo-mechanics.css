@@ -5,8 +5,8 @@
    ============================================= */
 
 /* ===== PALEO-MECHANICS MODULES ===== */
-.paleo-mechanics-head h1 {
-  margin-bottom: var(--space-2);
+.paleo-mechanics-actions {
+  margin-bottom: var(--space-4);
 }
 
 .paleo-mechanics-modules {

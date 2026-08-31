@@ -404,6 +404,19 @@ html[data-theme="dark"] .substitution-step {
   margin-bottom: var(--space-4);
 }
 
+.research-confidence-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.research-confidence-bar .research-meta {
+  display: block;
+  margin: 0;
+  white-space: nowrap;
+}
+
 .exposure-chip {
   border: 1px solid var(--border-light, #d4c4a8);
   border-radius: var(--radius-pill);
@@ -430,6 +443,8 @@ html[data-theme="dark"] .substitution-step {
 @media (max-width: 640px) {
   .exposure-filters { grid-template-columns: 1fr; }
   .exposure-filters .exposure-new-btn { width: 100%; }
+  .research-confidence-bar { align-items: flex-start; flex-direction: column; }
+  .research-confidence-bar .exposure-chips { margin-bottom: 0; }
 }
 
 .exposure-card {

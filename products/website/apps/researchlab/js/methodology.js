@@ -390,7 +390,7 @@
       var principleCards = Array.isArray(dataSets[0]) ? dataSets[0] : (dataSets[0].cards || []);
       var mechanismCards = Array.isArray(dataSets[1]) ? dataSets[1] : (dataSets[1].cards || []);
       var matrixCards = Array.isArray(dataSets[2]) ? dataSets[2] : (dataSets[2].cards || []);
-      var methodCards = Array.isArray(dataSets[3]) ? dataSets[3].cards : [];
+      var methodCards = Array.isArray(dataSets[3]) ? dataSets[3] : (dataSets[3].cards || []);
       store = {
         categories: (dataSets[0] && dataSets[0].categories) || {},
         cards: principleCards.map(function(card, index) {
@@ -435,7 +435,9 @@
       id: card.id || category + '-' + (index + 1),
       category: category,
       title: card.title || 'Карточка методологии',
-      summary: card.summary || card.text || '',
+      summary: category === 'methods'
+        ? String(card.summary || card.text || '').replace(/^\s*\*\s*/, '')
+        : (card.summary || card.text || ''),
       text: card.text || card.summary || '',
       icon: card.icon || '../../assets/icons/32/ui/book.png',
       document: category === 'mechanisms' ? 'mechanism-card' : (category === 'matrices' ? 'matrix-card' : (category === 'methods' ? 'method-card' : 'principle-card'))
