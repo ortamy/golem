@@ -889,12 +889,12 @@
   margin-top: 0;
 }
 
-/* ==== НАВИГАЦИЯ ГЛАВЫ → СТИХИ (белый контейнер) ==== */
+/* ==== НАВИГАЦИЯ ГЛАВЫ → СТИХИ ==== */
 .scripture-verse-nav {
   display: block;
   margin: 0 0 22px;
   padding: 18px var(--space-5);
-  background: #fff;
+  background: var(--bg-secondary, #f7f1e5);
   border: 1px solid var(--border-light, #d8c8a8);
   border-radius: var(--radius-md);
   box-shadow: 0 2px 12px rgba(44, 24, 16, 0.08);

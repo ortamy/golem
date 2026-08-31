@@ -390,7 +390,9 @@ const ScriptureReader = (function() {
   // Рендер 4-строчного формата для Берешит 1:1 (палео, иврит, транслит, перевод).
   function renderFourLineVerse(verse) {
     var words = (verse.words && verse.words.length) ? verse.words : [];
-    if (!words.length) return false;
+    if (!words.length || !words.every(function(word) {
+      return word.hebrew && word.paleo && word.translit && word.literal;
+    })) return false;
 
     var paleo = get('scripture-paleo');
     var hebrew = get('scripture-hebrew');
