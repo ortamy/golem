@@ -17,11 +17,16 @@ const ScriptureReader = (function() {
     pendingBookId: null,
     pendingVerse: null,
     readingMode: 'assembly',
-    boundRoot: null
+    boundRoot: null,
+    glyphEscapeBound: false
   };
 
   var PALEO = window.PaleoLetters;
   var WEAVER = window.PaleoWeaver;
+  var glyphPopover = null;
+  var glyphPopoverTimer = null;
+  var activeGlyphChip = null;
+  var glyphPointerType = '';
   // Функциональная лексика по PALEO-STANDARD.md.
   var PALEO_UI_FUNCTIONS = {
     'א': 'СИЛА', 'ב': 'ВМЕСТИЛИЩЕ', 'ג': 'ДВИЖЕНИЕ', 'ד': 'ПРОХОД',
@@ -39,6 +44,62 @@ const ScriptureReader = (function() {
 
   function get(id) {
     return document.getElementById(id);
+  }
+
+  var GLYPH_FALLBACK = {
+    '𐤀': ['Алеф', 'бык', 'сила'], '𐤁': ['Бет', 'дом', 'вместилище'], '𐤂': ['Гимель', 'верблюд', 'перемещение'], '𐤃': ['Далет', 'дверь', 'проход'],
+    '𐤄': ['Хе', 'окно', 'проявление'], '𐤅': ['Вав', 'крюк', 'связка'], '𐤆': ['Зайн', 'оружие', 'отсечение'], '𐤇': ['Хет', 'ограда', 'граница'],
+    '𐤈': ['Тет', 'змея', 'свёртывание'], '𐤉': ['Йод', 'рука', 'действие'], '𐤊': ['Каф', 'ладонь', 'удержание'], '𐤋': ['Ламед', 'посох', 'направление'],
+    '𐤌': ['Мем', 'вода', 'поток'], '𐤍': ['Нун', 'рыба', 'движение жизни'], '𐤎': ['Самех', 'опора', 'поддержка'], '𐤏': ['Айн', 'глаз', 'наблюдение'],
+    '𐤐': ['Пе', 'рот', 'произнесение'], '𐤑': ['Цади', 'ловушка', 'захват'], '𐤒': ['Коф', 'игла', 'пронзание'], '𐤓': ['Реш', 'голова', 'вершина'],
+    '𐤔': ['Шин', 'зуб', 'огонь'], '𐤕': ['Тав', 'знак', 'фиксация']
+  };
+
+  function ensureGlyphPopover() {
+    if (glyphPopover) return glyphPopover;
+    glyphPopover = document.createElement('div');
+    glyphPopover.id = 'scripture-glyph-popover';
+    glyphPopover.className = 'scripture-glyph-popover';
+    glyphPopover.setAttribute('role', 'tooltip');
+    glyphPopover.hidden = true;
+    document.body.appendChild(glyphPopover);
+    return glyphPopover;
+  }
+
+  function hideGlyphPopover() {
+    if (glyphPopoverTimer) window.clearTimeout(glyphPopoverTimer);
+    if (glyphPopover) glyphPopover.hidden = true;
+    if (activeGlyphChip) {
+      activeGlyphChip.removeAttribute('aria-expanded');
+      activeGlyphChip.removeAttribute('aria-describedby');
+    }
+    activeGlyphChip = null;
+  }
+
+  function showGlyphPopover(chip) {
+    if (!chip) return;
+    if (glyphPopoverTimer) window.clearTimeout(glyphPopoverTimer);
+    var popover = ensureGlyphPopover();
+    var glyph = chip.dataset.glyph || '';
+    var fallback = GLYPH_FALLBACK[glyph] || [];
+    var name = chip.dataset.name || fallback[0] || 'Буква';
+    var image = chip.dataset.image || fallback[1] || 'образ не указан';
+    var meaning = chip.dataset.meaning || fallback[2] || 'функция не указана';
+    popover.innerHTML = '<div class="scripture-glyph-popover-glyph" lang="hbo">' + escapeHtml(glyph) + '</div>' +
+      '<div><strong>' + escapeHtml(name) + '</strong><span>Образ: ' + escapeHtml(image) + '</span><span>Функция: ' + escapeHtml(meaning) + '</span><span>Палео-образ: ' + escapeHtml(image) + ' как предметный носитель функции.</span></div>';
+    popover.hidden = false;
+    activeGlyphChip = chip;
+    chip.setAttribute('aria-expanded', 'true');
+    chip.setAttribute('aria-describedby', 'scripture-glyph-popover');
+    var rect = chip.getBoundingClientRect();
+    var popRect = popover.getBoundingClientRect();
+    var left = rect.left + rect.width / 2 - popRect.width / 2;
+    left = Math.max(8, Math.min(left, window.innerWidth - popRect.width - 8));
+    var top = rect.top - popRect.height - 10;
+    popover.classList.toggle('is-below', top < 8);
+    if (top < 8) top = rect.bottom + 10;
+    popover.style.left = Math.round(left) + 'px';
+    popover.style.top = Math.round(top) + 'px';
   }
 
   function setLoading(message) {
@@ -226,6 +287,7 @@ const ScriptureReader = (function() {
   function renderReadingLayers(verse) {
     var layers = ensureReadingLayers();
     if (!layers) return;
+    hideGlyphPopover();
     var words = String(verse.hebrew || '').split(/\s+/).filter(Boolean).map(function(word, index) {
       return wordDataFor(verse, index, word, String(verse.paleo || '').split(/\s+/)[index] || '');
     });
@@ -234,27 +296,39 @@ const ScriptureReader = (function() {
     var chains = words.map(function(word) {
       return Array.from(word.paleo || '').map(function(_, index) { return paleoFunction(Array.from(cleanHebrewWord(word.hebrew || ''))[index] || '').toLocaleLowerCase('ru-RU'); });
     });
+    var pendingParticle = '';
     var wordBlocks = words.map(function(word, wordIndex) {
       var meaningWord = meaningWords[wordIndex] || {};
       var hebrewLetters = Array.from(cleanHebrewWord(word.hebrew || ''));
       var paleoLetters = Array.from(word.paleo || '');
       var chain = Array.isArray(meaningWord.chain) && meaningWord.chain.length === paleoLetters.length
         ? meaningWord.chain : paleoLetters.map(function(_, index) { return paleoFunction(hebrewLetters[index] || ''); });
+      var normalizedChain = chain.map(function(value) { return String(value || '').toLocaleLowerCase('ru-RU'); });
+      if (WEAVER && WEAVER.isParticle(normalizedChain)) {
+        pendingParticle = WEAVER.particleText(normalizedChain) || pendingParticle;
+        return '';
+      }
       var chips = paleoLetters.map(function(glyph, index) {
         var letter = PALEO.byHebrew[hebrewLetters[index]] || {};
-        var tooltipId = 'scripture-glyph-tip-' + state.currentVerse + '-' + wordIndex + '-' + index;
-        return '<span class="scripture-glyph-chip" tabindex="0" aria-describedby="' + tooltipId + '">' +
-          '<b lang="hbo">' + escapeHtml(glyph) + '</b><small>' + escapeHtml(chain[index] || '') + '</small>' +
-          '<span class="scripture-glyph-tooltip" id="' + tooltipId + '" role="tooltip">' + escapeHtml(letter.image || 'образ не указан') + '</span></span>' +
-          (index < paleoLetters.length - 1 ? '<span class="scripture-glyph-arrow" aria-hidden="true">→</span>' : '');
+        return '<button type="button" class="scripture-glyph-chip" data-glyph="' + escapeHtml(glyph) + '" data-name="' + escapeHtml(letter.name || '') + '" data-image="' + escapeHtml(letter.image || '') + '" data-meaning="' + escapeHtml(letter.meaning || chain[index] || '') + '" aria-haspopup="true" aria-expanded="false">' +
+          '<b lang="hbo">' + escapeHtml(glyph) + '</b><small>' + escapeHtml(chain[index] || '') + '</small></button>' +
+          (index < paleoLetters.length - 1 ? '<span class="scripture-glyph-arrow" aria-hidden="true"></span>' : '');
       }).join('');
-      return '<article class="scripture-constructor-word">' +
+      var wordReading = meaningWord.reading || (WEAVER && WEAVER.wordReading(normalizedChain)) || '';
+      if (pendingParticle) {
+        wordReading = pendingParticle + ' ' + wordReading;
+        pendingParticle = '';
+      }
+      var translit = word.translit || (WEAVER && WEAVER.transliterate(word.hebrew)) || '';
+      return '<article class="scripture-constructor-word scripture-word-row">' +
         '<span class="scripture-constructor-index" aria-hidden="true">' + (wordIndex + 1) + '</span>' +
-        '<div class="scripture-constructor-chips">' + chips + '</div>' +
+        '<div class="scripture-constructor-label scripture-word-head"><b lang="he" dir="rtl">' + escapeHtml(cleanHebrewWord(word.hebrew)) + '</b><small>' + escapeHtml(translit) + '</small></div>' +
+        '<div class="scripture-constructor-chips scripture-chips' + (paleoLetters.length <= 7 ? ' is-fit' : '') + '">' + chips + '</div>' +
+        '<em class="scripture-constructor-reading scripture-word-reading">' + escapeHtml(wordReading) + '</em>' +
         '</article>';
-    }).join('');
+    }).join('') || '<p class="text-muted">Слова конструктора требуют проверки.</p>';
     var translationStatus = verse.paleo_translation_status === 'verified' ? 'Проверенная рабочая сборка' : (verse.paleo_translation_status === 'review' ? 'Требует проверки' : 'Черновая рабочая сборка');
-    var verseReading = meaningPass.verse_reading || (WEAVER && WEAVER.readVerse(chains)) || 'Смысловая сборка требует проверки.';
+    var verseReading = meaningPass.verse_reading || (WEAVER && WEAVER.verseReading(chains)) || 'Смысловая сборка требует проверки.';
     var verseFunction = meaningPass.verse_function || (WEAVER && WEAVER.verseFunction(chains)) || 'Функция стиха требует проверки.';
     var verseHref = '#scripture-reader?book=' + encodeURIComponent((state.currentBook && state.currentBook.id) || '') + '&verse=' + encodeURIComponent(verse.verse || '');
     layers.assembly.innerHTML = '<section class="scripture-meaning-card scripture-meaning-card--' + escapeHtml(verse.paleo_translation_status || 'draft') + '">' +
@@ -267,6 +341,7 @@ const ScriptureReader = (function() {
       '<section class="scripture-constructor"><div class="scripture-layer-label">Палео-конструктор</div><div class="scripture-constructor-words">' + wordBlocks + '</div></section>' +
       '<details class="scripture-assembly-details"><summary>Механика</summary>' +
       '<div class="scripture-assembly-words">' + words.map(function(word, index) { return '<p>' + escapeHtml(word.paleo || '') + ' · ' + escapeHtml(chains[index].join(' → ')) + '</p>'; }).join('') + '</div></details>';
+    updateConstructorOverflow(layers.assembly);
     animateConstructor(layers.assembly);
   }
 
@@ -274,6 +349,13 @@ const ScriptureReader = (function() {
     if (!container || !window.Element || !Element.prototype.animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     container.querySelectorAll('.scripture-glyph-chip').forEach(function(chip, index) {
       chip.animate([{ opacity: 0, transform: 'translateX(-6px)' }, { opacity: 1, transform: 'translateX(0)' }], { duration: 220, delay: Math.min(index * 28, 420), easing: 'ease-out', fill: 'both' });
+    });
+  }
+
+  function updateConstructorOverflow(container) {
+    if (!container) return;
+    container.querySelectorAll('.scripture-constructor-chips').forEach(function(row) {
+      row.classList.toggle('is-scrollable', !row.classList.contains('is-fit') && row.scrollWidth > row.clientWidth + 1);
     });
   }
 
@@ -815,6 +897,42 @@ const ScriptureReader = (function() {
     if (next) next.addEventListener('click', function() { moveVerse(1); });
     if (paleo) paleo.addEventListener('click', handleLetterClick);
     if (paleo) paleo.addEventListener('keydown', handlePaleoKeydown);
+    if (reader) {
+      reader.addEventListener('pointerdown', function(event) {
+        glyphPointerType = event.pointerType || 'mouse';
+      });
+      reader.addEventListener('pointerover', function(event) {
+        var chip = event.target.closest('.scripture-glyph-chip');
+        if (!chip || event.pointerType === 'touch') return;
+        glyphPopoverTimer = window.setTimeout(function() { showGlyphPopover(chip); }, 150);
+      });
+      reader.addEventListener('pointerout', function(event) {
+        var chip = event.target.closest('.scripture-glyph-chip');
+        if (!chip || chip.contains(event.relatedTarget)) return;
+        glyphPopoverTimer = window.setTimeout(hideGlyphPopover, 150);
+      });
+      reader.addEventListener('focusin', function(event) {
+        var chip = event.target.closest('.scripture-glyph-chip');
+        if (chip) showGlyphPopover(chip);
+      });
+      reader.addEventListener('focusout', function(event) {
+        if (!event.target.closest('.scripture-glyph-chip')) return;
+        glyphPopoverTimer = window.setTimeout(hideGlyphPopover, 150);
+      });
+      reader.addEventListener('click', function(event) {
+        var chip = event.target.closest('.scripture-glyph-chip');
+        if (!chip) return;
+        event.preventDefault();
+        if (glyphPointerType === 'touch' && activeGlyphChip === chip && glyphPopover && !glyphPopover.hidden) hideGlyphPopover();
+        else showGlyphPopover(chip);
+      });
+    }
+    if (!state.glyphEscapeBound) {
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') hideGlyphPopover();
+      });
+      state.glyphEscapeBound = true;
+    }
     // Клики по словам в строках иврита и транслитерации открывают палео-сборку.
     ['scripture-hebrew', 'scripture-translit'].forEach(function(id) {
       var layer = get(id);
