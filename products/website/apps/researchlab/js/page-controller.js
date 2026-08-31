@@ -1395,19 +1395,17 @@ const PageController = (function() {
           '<h1><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Книгочтение</h1>' +
           '<p class="subtitle">Книги Танаха, засвидетельствованные в кумранских свитках. Чтение на палео-иврите с последовательным просмотром стихов.</p>' +
           '</div>' +
+          '<div id="scripture-verse-nav" class="scripture-verse-nav" style="display:none;" aria-label="Выбор главы и стиха"></div>' +
           '<div class="scripture-reader-layout"><main class="scripture-main">' +
           '<div id="scripture-book-grid" class="scripture-book-grid"></div>' +
           '<article class="scripture-verse" id="scripture-verse-article" style="display:none;" aria-labelledby="scripture-verse-title">' +
-          '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm scripture-back-btn" id="scripture-back-btn">← К списку книг</button>' +
           '<div class="scripture-verse-meta" id="scripture-verse-title">Берешит 1:1</div>' +
-          '<div id="scripture-verse-nav" class="scripture-verse-nav" aria-label="Выбор стиха"></div>' +
           '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm scripture-copy-button scripture-copy-verse" id="scripture-copy-verse" aria-label="Копировать стих" title="Копировать стих">' +
           '<svg class="scripture-copy-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="11" height="11" rx="1.5"></rect><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"></path></svg>' +
           '</button>' +
           '<div id="scripture-paleo" class="scripture-paleo" dir="rtl" lang="hbo" aria-label="Палео-иврит"></div>' +
           '<div id="scripture-hebrew" class="scripture-hebrew" dir="rtl" lang="he"></div>' +
           '<div id="scripture-translit" class="scripture-translit"></div>' +
-          '<div id="scripture-literal" class="scripture-literal"></div>' +
           '</article>' +
           '<nav class="scripture-navigation" id="scripture-navigation" style="display:none;" aria-label="Навигация по стихам">' +
           '<button type="button" class="lab-btn lab-btn-secondary" id="scripture-prev">← Предыдущий стих</button>' +

@@ -9,6 +9,10 @@ const rootsPath = path.join(__dirname, '..', 'data', 'roots', 'roots.json');
 const roots = JSON.parse(fs.readFileSync(rootsPath, 'utf8'));
 const bereshitPath = path.join(__dirname, '..', 'data', 'scripture', 'bereshit-1.json');
 const bereshit = JSON.parse(fs.readFileSync(bereshitPath, 'utf8'));
+const booksPath = path.join(__dirname, '..', 'data', 'qumran-books.json');
+const books = JSON.parse(fs.readFileSync(booksPath, 'utf8')).books;
+const readerSource = fs.readFileSync(path.join(__dirname, '..', 'js', 'scripture-reader.js'), 'utf8');
+const PaleoWeaver = require('../js/paleo-weaver.js');
 
 function findRoot(value) {
   const normalized = PaleoLetters.normalizeHebrew(value);
@@ -55,6 +59,15 @@ assert.strictEqual(findRoot('𐤀𐤁'), undefined);
 assert.strictEqual(findRoot('א ב'), av);
 assert.strictEqual(findRoot('ך'), undefined);
 
+assert.strictEqual(
+  PaleoWeaver.readWord(['вместилище', 'вершина', 'сила', 'разрушение', 'действие', 'фиксация']),
+  'вместилище, которое направляет силу к вершине через разрушение и действие, фиксируя ход.'
+);
+assert.strictEqual(
+  PaleoWeaver.verseFunction([['вместилище', 'вершина', 'сила', 'разрушение']]),
+  'направление силы через вершину.'
+);
+
 assert.doesNotThrow(function() { assertContiguous([4, 5, 6, 7]); });
 assert.throws(function() { assertContiguous([4, 6]); }, /последовательный диапазон/);
 assert.doesNotThrow(function() { assertContiguous([1, 2, 3, 4, 5]); });
@@ -69,5 +82,31 @@ assert.ok(bereshit.every(function(verse) {
 assert.ok(bereshit.every(function(verse) {
   return PaleoLetters.toPaleo(PaleoLetters.normalizeHebrew(verse.hebrew)) === verse.paleo.replace(/\s/g, '');
 }), 'Палео-строка механически соответствует согласному квадратному слою');
+
+books.forEach(function(book) {
+  assert.ok(book.dataFile, 'Для книги подключён файл данных: ' + book.id);
+  const file = path.join(__dirname, '..', 'data', 'scripture', book.dataFile + '.json');
+  assert.ok(fs.existsSync(file), 'Файл данных существует: ' + book.dataFile);
+  const verses = JSON.parse(fs.readFileSync(file, 'utf8'));
+  assert.ok(verses.length > 0, 'Книга содержит стихи: ' + book.id);
+  assert.ok(verses.every(function(verse) {
+    return verse.hebrew && verse.paleo && Array.isArray(verse.words) && verse.words.length;
+  }), 'Нет пропусков в слоях книги: ' + book.id);
+  assert.ok(verses.every(function(verse) {
+    return PaleoLetters.toPaleo(PaleoLetters.normalizeHebrew(verse.hebrew)) === verse.paleo.replace(/\s/g, '');
+  }), 'Палео-графика синхронизирована: ' + book.id);
+  assert.ok(verses.every(function(verse) {
+    return verse.paleo_translation && ['draft', 'review', 'verified'].includes(verse.paleo_translation_status);
+  }), 'У каждого стиха есть маркированная палео-сборка: ' + book.id);
+});
+
+assert.ok(readerSource.includes('scripture-meaning-card'), 'Смысловая сборка выводится отдельной карточкой');
+assert.ok(readerSource.includes('scripture-assembly-details'), 'Технический след сворачивается в details');
+assert.ok(readerSource.includes('scripture-constructor-chips'), 'Палео-конструктор выводит глиф-чипы');
+assert.ok(readerSource.includes('scripture-glyph-tooltip'), 'У глиф-чипов есть тултипы образов');
+assert.ok(readerSource.includes('meaningPass.verse_reading'), 'Meaning-pass имеет приоритет для связного образа');
+assert.ok(readerSource.includes('meaningPass.verse_function'), 'Meaning-pass имеет отдельную функцию стиха');
+assert.ok(!readerSource.includes('escapeHtml(verseTranslation.toUpperCase())'), 'Смысловая сборка не переводится в верхний регистр');
+assert.ok(!readerSource.includes('escapeHtml(verseFunction.toUpperCase())'), 'Функция стиха не переводится в верхний регистр');
 
 console.log('OK: PaleoLetters and Scripture Reader core scenarios passed');

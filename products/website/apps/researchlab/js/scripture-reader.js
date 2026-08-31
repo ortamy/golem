@@ -21,6 +21,7 @@ const ScriptureReader = (function() {
   };
 
   var PALEO = window.PaleoLetters;
+  var WEAVER = window.PaleoWeaver;
   // Функциональная лексика по PALEO-STANDARD.md.
   var PALEO_UI_FUNCTIONS = {
     'א': 'СИЛА', 'ב': 'ВМЕСТИЛИЩЕ', 'ג': 'ДВИЖЕНИЕ', 'ד': 'ПРОХОД',
@@ -210,28 +211,16 @@ const ScriptureReader = (function() {
   }
 
   function ensureReadingLayers() {
-    var literal = get('scripture-literal');
-    if (!literal || !literal.parentNode) return null;
-    var article = literal.parentNode;
+    var article = get('scripture-verse-article');
+    if (!article) return null;
     var assembly = get('scripture-assembly-view');
     if (!assembly) {
       assembly = document.createElement('section');
       assembly.id = 'scripture-assembly-view';
       assembly.className = 'scripture-reading-layer scripture-assembly-view';
-      literal.parentNode.insertBefore(assembly, literal);
+      article.appendChild(assembly);
     }
-    var toggle = get('scripture-reading-toggle');
-    if (!toggle) {
-      toggle = document.createElement('button');
-      toggle.type = 'button';
-      toggle.id = 'scripture-reading-toggle';
-      toggle.className = 'lab-btn lab-btn-secondary scripture-reading-toggle';
-      toggle.setAttribute('aria-pressed', 'false');
-      literal.parentNode.insertBefore(toggle, assembly);
-    }
-    literal.classList.add('scripture-reading-layer', 'scripture-translation-view');
-    literal.setAttribute('aria-label', 'Синодальный перевод');
-    return { article: article, assembly: assembly, literal: literal, toggle: toggle };
+    return { article: article, assembly: assembly };
   }
 
   function renderReadingLayers(verse) {
@@ -240,33 +229,52 @@ const ScriptureReader = (function() {
     var words = String(verse.hebrew || '').split(/\s+/).filter(Boolean).map(function(word, index) {
       return wordDataFor(verse, index, word, String(verse.paleo || '').split(/\s+/)[index] || '');
     });
-    var wordBlocks = words.map(function(word) {
-      var paleoSequence = Array.from(word.paleo || '').join(' → ');
-      return '<article class="scripture-assembly-word">' +
-        '<div class="scripture-assembly-word-paleo" lang="hbo">' + escapeHtml(paleoSequence) + '</div>' +
-        '<p>' + escapeHtml(String(word.assembly || word.function || '').toUpperCase()) + '</p>' +
+    var meaningPass = verse.meaning_pass || {};
+    var meaningWords = Array.isArray(meaningPass.words) && meaningPass.words.length === words.length ? meaningPass.words : [];
+    var chains = words.map(function(word) {
+      return Array.from(word.paleo || '').map(function(_, index) { return paleoFunction(Array.from(cleanHebrewWord(word.hebrew || ''))[index] || '').toLocaleLowerCase('ru-RU'); });
+    });
+    var wordBlocks = words.map(function(word, wordIndex) {
+      var meaningWord = meaningWords[wordIndex] || {};
+      var hebrewLetters = Array.from(cleanHebrewWord(word.hebrew || ''));
+      var paleoLetters = Array.from(word.paleo || '');
+      var chain = Array.isArray(meaningWord.chain) && meaningWord.chain.length === paleoLetters.length
+        ? meaningWord.chain : paleoLetters.map(function(_, index) { return paleoFunction(hebrewLetters[index] || ''); });
+      var chips = paleoLetters.map(function(glyph, index) {
+        var letter = PALEO.byHebrew[hebrewLetters[index]] || {};
+        var tooltipId = 'scripture-glyph-tip-' + state.currentVerse + '-' + wordIndex + '-' + index;
+        return '<span class="scripture-glyph-chip" tabindex="0" aria-describedby="' + tooltipId + '">' +
+          '<b lang="hbo">' + escapeHtml(glyph) + '</b><small>' + escapeHtml(chain[index] || '') + '</small>' +
+          '<span class="scripture-glyph-tooltip" id="' + tooltipId + '" role="tooltip">' + escapeHtml(letter.image || 'образ не указан') + '</span></span>' +
+          (index < paleoLetters.length - 1 ? '<span class="scripture-glyph-arrow" aria-hidden="true">→</span>' : '');
+      }).join('');
+      return '<article class="scripture-constructor-word">' +
+        '<span class="scripture-constructor-index" aria-hidden="true">' + (wordIndex + 1) + '</span>' +
+        '<div class="scripture-constructor-chips">' + chips + '</div>' +
         '</article>';
     }).join('');
-    var verseTranslation = verse.paleo_translation || 'ПАЛЕО-ПЕРЕВОД НЕ ЗАГРУЖЕН.';
-    var verseFunction = verse.paleo_function || verse.verse_function || 'Стих разворачивает следующий шаг движения и фиксации пространства.';
-    layers.assembly.innerHTML = '<div class="scripture-layer-label">Визуальная сборка стиха</div>' +
-      '<div class="scripture-assembly-words">' + wordBlocks + '</div>' +
-      '<div class="scripture-layer-label">Достоверный перевод с палео-иврита</div>' +
-      '<p class="scripture-paleo-translation-line">' + escapeHtml(verseTranslation.toUpperCase()) + '</p>' +
-      '<div class="scripture-layer-label">Функция стиха</div>' +
-      '<p class="scripture-function-line">' + escapeHtml(verseFunction.toUpperCase()) + '</p>';
-    layers.literal.innerHTML = '<div class="scripture-layer-label">Синодальный перевод</div>' +
-      '<div class="scripture-translation-text">' + escapeHtml(verse.literal || '') + '</div>';
-    var translationVisible = state.readingMode === 'translation';
-    layers.assembly.hidden = translationVisible;
-    layers.literal.hidden = !translationVisible;
-    layers.toggle.textContent = translationVisible ? 'ПОКАЗАТЬ СБОРКУ' : 'ПОКАЗАТЬ ПЕРЕВОД';
-    layers.toggle.setAttribute('aria-pressed', translationVisible ? 'true' : 'false');
+    var translationStatus = verse.paleo_translation_status === 'verified' ? 'Проверенная рабочая сборка' : (verse.paleo_translation_status === 'review' ? 'Требует проверки' : 'Черновая рабочая сборка');
+    var verseReading = meaningPass.verse_reading || (WEAVER && WEAVER.readVerse(chains)) || 'Смысловая сборка требует проверки.';
+    var verseFunction = meaningPass.verse_function || (WEAVER && WEAVER.verseFunction(chains)) || 'Функция стиха требует проверки.';
+    var verseHref = '#scripture-reader?book=' + encodeURIComponent((state.currentBook && state.currentBook.id) || '') + '&verse=' + encodeURIComponent(verse.verse || '');
+    layers.assembly.innerHTML = '<section class="scripture-meaning-card scripture-meaning-card--' + escapeHtml(verse.paleo_translation_status || 'draft') + '">' +
+      '<div class="scripture-meaning-head"><a href="' + verseHref + '" class="scripture-verse-link">' + escapeHtml((state.currentBook && state.currentBook.ru) || 'Книга') + ' ' + escapeHtml(verse.chapter || 1) + ':' + escapeHtml(verse.verse || '') + '</a><span class="scripture-translation-status">' + escapeHtml(translationStatus) + '</span></div>' +
+      '<h2 class="scripture-meaning-reading">' + escapeHtml(verseReading) + '</h2>' +
+      '<p class="scripture-translation-note">' + escapeHtml(meaningPass.verse_reading ? (verse.paleo_translation_note || '') : 'Детерминированная палео-сборка: связность требует проверки.') + '</p>' +
+      '</section>' +
+      '<section class="scripture-function-card"><div class="scripture-layer-label">Функция стиха</div>' +
+      '<p class="scripture-function-line">' + escapeHtml(verseFunction) + '</p></section>' +
+      '<section class="scripture-constructor"><div class="scripture-layer-label">Палео-конструктор</div><div class="scripture-constructor-words">' + wordBlocks + '</div></section>' +
+      '<details class="scripture-assembly-details"><summary>Механика</summary>' +
+      '<div class="scripture-assembly-words">' + words.map(function(word, index) { return '<p>' + escapeHtml(word.paleo || '') + ' · ' + escapeHtml(chains[index].join(' → ')) + '</p>'; }).join('') + '</div></details>';
+    animateConstructor(layers.assembly);
   }
 
-  function toggleReadingMode() {
-    state.readingMode = state.readingMode === 'assembly' ? 'translation' : 'assembly';
-    renderReadingLayers(state.verses[state.currentVerse] || {});
+  function animateConstructor(container) {
+    if (!container || !window.Element || !Element.prototype.animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    container.querySelectorAll('.scripture-glyph-chip').forEach(function(chip, index) {
+      chip.animate([{ opacity: 0, transform: 'translateX(-6px)' }, { opacity: 1, transform: 'translateX(0)' }], { duration: 220, delay: Math.min(index * 28, 420), easing: 'ease-out', fill: 'both' });
+    });
   }
 
   function renderWordAnalysis(wordIndex) {
@@ -311,12 +319,14 @@ const ScriptureReader = (function() {
   function showBookGrid() {
     var grid = get('scripture-book-grid');
     var article = get('scripture-verse-article');
+    var verseNav = get('scripture-verse-nav');
     var nav = get('scripture-navigation');
     var topNav = get('scripture-navigation-top');
     var analysis = get('scripture-analysis');
     var tools = get('scripture-tools');
     if (grid) grid.style.display = 'grid';
     if (article) article.style.display = 'none';
+    if (verseNav) verseNav.style.display = 'none';
     if (nav) nav.style.display = 'none';
     if (topNav) topNav.style.display = 'none';
     if (analysis) analysis.style.display = 'none';
@@ -327,12 +337,14 @@ const ScriptureReader = (function() {
   function showVerseView() {
     var grid = get('scripture-book-grid');
     var article = get('scripture-verse-article');
+    var verseNav = get('scripture-verse-nav');
     var nav = get('scripture-navigation');
     var topNav = get('scripture-navigation-top');
     var analysis = get('scripture-analysis');
     var tools = get('scripture-tools');
     if (grid) grid.style.display = 'none';
     if (article) article.style.display = '';
+    if (verseNav) verseNav.style.display = '';
     if (nav) nav.style.display = '';
     if (topNav) topNav.style.display = '';
     if (analysis) analysis.style.display = '';
@@ -397,7 +409,6 @@ const ScriptureReader = (function() {
     var paleo = get('scripture-paleo');
     var hebrew = get('scripture-hebrew');
     var translit = get('scripture-translit');
-    var literal = get('scripture-literal');
 
     function line(words, field, className, wordClass) {
       return words.map(function(word, index) {
@@ -411,7 +422,6 @@ const ScriptureReader = (function() {
     if (paleo) paleo.innerHTML = line(words, 'paleo', 'scripture-word', 'scripture-paleo-word scripture-fourline');
     if (hebrew) hebrew.innerHTML = line(words, 'hebrew', 'scripture-word', 'scripture-hebrew-word scripture-fourline');
     if (translit) translit.innerHTML = line(words, 'translit', 'scripture-word', 'scripture-translit-word scripture-fourline');
-    if (literal) literal.innerHTML = line(words, 'literal', 'scripture-word', 'scripture-literal-word scripture-fourline');
     return true;
   }
 
@@ -423,7 +433,6 @@ const ScriptureReader = (function() {
     var paleo = get('scripture-paleo');
     var hebrew = get('scripture-hebrew');
     var translit = get('scripture-translit');
-    var literal = get('scripture-literal');
     var previous = get('scripture-prev');
     var next = get('scripture-next');
     var analysis = get('scripture-analysis');
@@ -443,7 +452,6 @@ const ScriptureReader = (function() {
       if (paleo) paleo.innerHTML = renderPaleo(verse.paleo, verse.hebrew);
       if (hebrew) hebrew.innerHTML = renderWordLayer(verse.hebrew, 'scripture-word', 'scripture-hebrew-word');
       if (translit) translit.innerHTML = renderWordLayer(verse.translit, 'scripture-word', 'scripture-translit-word');
-      if (literal) literal.innerHTML = renderWordLayer(verse.literal, 'scripture-word', 'scripture-literal-word');
     }
     renderReadingLayers(verse);
     if (previous) previous.disabled = state.currentVerse === 0;
@@ -460,16 +468,19 @@ const ScriptureReader = (function() {
   function verseChapters() {
     var chapters = [];
     state.verses.forEach(function(v) {
-      if (chapters.indexOf(v.chapter) === -1) chapters.push(v.chapter);
+      var sourceBook = v.source_book || '';
+      var exists = chapters.some(function(item) { return item.sourceBook === sourceBook && item.chapter === v.chapter; });
+      if (!exists) chapters.push({ sourceBook: sourceBook, chapter: v.chapter });
     });
-    return chapters.sort(function(a, b) { return a - b; });
+    return chapters;
   }
 
-  function chapterVerses(chapter) {
+  function chapterVerses(sourceBook, chapter) {
     return state.verses.map(function(v, i) {
       return { verse: v.verse, index: i };
     }).filter(function(item) {
-      return state.verses[item.index].chapter === chapter;
+      var verse = state.verses[item.index];
+      return verse.chapter === chapter && (verse.source_book || '') === sourceBook;
     });
   }
 
@@ -479,15 +490,19 @@ const ScriptureReader = (function() {
     if (!navigation) return;
     var currentVerse = state.verses[state.currentVerse];
     var currentChapter = currentVerse ? currentVerse.chapter : 1;
+    var currentSourceBook = currentVerse ? (currentVerse.source_book || '') : '';
 
     var chapters = verseChapters();
-    var chapterButtons = chapters.map(function(ch) {
-      return '<button type="button" class="chapter-btn' + (ch === currentChapter ? ' active' : '') + '" data-chapter="' + ch + '"' +
-        (ch === currentChapter ? ' aria-current="true"' : '') + ' aria-label="Открыть главу ' + ch + '">' +
-        escapeHtml(ch) + '</button>';
+    var hasMultipleSourceBooks = chapters.some(function(item) { return item.sourceBook !== currentSourceBook; });
+    var chapterButtons = chapters.map(function(item) {
+      var active = item.chapter === currentChapter && item.sourceBook === currentSourceBook;
+      var label = (hasMultipleSourceBooks ? item.sourceBook + ' ' : '') + item.chapter;
+      return '<button type="button" class="chapter-btn' + (active ? ' active' : '') + '" data-chapter="' + item.chapter + '" data-source-book="' + escapeHtml(item.sourceBook) + '"' +
+        (active ? ' aria-current="true"' : '') + ' aria-label="Открыть главу ' + escapeHtml(label) + '">' +
+        escapeHtml(label) + '</button>';
     }).join('');
 
-    var verses = chapterVerses(currentChapter);
+    var verses = chapterVerses(currentSourceBook, currentChapter);
     var verseButtons = verses.map(function(item) {
       var active = item.index === state.currentVerse;
       return '<button type="button" class="verse-num' + (active ? ' active' : '') + '" data-verse-index="' + item.index + '"' +
@@ -795,14 +810,13 @@ const ScriptureReader = (function() {
     var paleo = get('scripture-paleo');
     var reader = get('scripture-reader');
     var grid = get('scripture-book-grid');
-    var back = get('scripture-back-btn');
 
     if (previous) previous.addEventListener('click', function() { moveVerse(-1); });
     if (next) next.addEventListener('click', function() { moveVerse(1); });
     if (paleo) paleo.addEventListener('click', handleLetterClick);
     if (paleo) paleo.addEventListener('keydown', handlePaleoKeydown);
-    // Клики по словам в 4-строчном формате (иврит, транслит, перевод) открывают палео-сборку.
-    ['scripture-hebrew', 'scripture-translit', 'scripture-literal'].forEach(function(id) {
+    // Клики по словам в строках иврита и транслитерации открывают палео-сборку.
+    ['scripture-hebrew', 'scripture-translit'].forEach(function(id) {
       var layer = get(id);
       if (layer) layer.addEventListener('click', function(event) {
         var word = event.target.closest('.scripture-fourline');
@@ -816,9 +830,6 @@ const ScriptureReader = (function() {
     var analysis = get('scripture-analysis');
     if (analysis) analysis.addEventListener('click', function(event) {
       if (event.target.closest('.scripture-copy-selection')) copySelection();
-    });
-    if (reader) reader.addEventListener('click', function(event) {
-      if (event.target.closest('.scripture-reading-toggle')) toggleReadingMode();
     });
     var physicsTrigger = get('scripture-physics-trigger');
     if (physicsTrigger) physicsTrigger.addEventListener('click', function() {
@@ -849,15 +860,12 @@ const ScriptureReader = (function() {
       event.preventDefault();
       openBook(card.getAttribute('data-book-id'));
     });
-    if (back) back.addEventListener('click', function() {
-      showBookGrid();
-    });
     var verseNavigation = get('scripture-verse-nav');
     if (verseNavigation) verseNavigation.addEventListener('click', function(event) {
       var chapterBtn = event.target.closest('.chapter-btn');
       if (chapterBtn) {
         var chapter = Number(chapterBtn.getAttribute('data-chapter'));
-        var first = chapterVerses(chapter)[0];
+        var first = chapterVerses(chapterBtn.getAttribute('data-source-book') || '', chapter)[0];
         if (first) {
           state.currentVerse = first.index;
           renderVerse();
