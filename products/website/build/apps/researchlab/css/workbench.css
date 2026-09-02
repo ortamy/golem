@@ -4,6 +4,7 @@
    ============================================= */
 
 .wb-section { margin-bottom: 34px; }
+.wb-hub, #workbench { width: 100%; max-width: 100%; min-width: 0; }
 .wb-section-title { margin: 0; color: var(--accent-gold); font-size: 24px; }
 .wb-section-sub { margin: 4px 0 16px; color: var(--text-muted); }
 .wb-section-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
@@ -13,9 +14,10 @@
 .wb-pipeline-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 14px; min-width: 0; }
 .wb-pipeline-card {
   display: flex; flex-direction: column; gap: 10px;
+  width: 100%;
   padding: 16px; background: var(--bg-card);
   border: 1px solid var(--border-light); border-radius: 10px;
-  box-shadow: var(--shadow-soft); min-width: 0; max-width: 100%;
+  box-shadow: var(--shadow-soft); box-sizing: border-box; min-width: 0; max-width: 100%;
 }
 .wb-pipeline-head { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .wb-pipeline-icon { width: 28px; height: 28px; object-fit: contain; }
@@ -115,8 +117,19 @@
 .wb-export-actions { display: flex; flex-wrap: wrap; gap: 6px; }
 
 @media (max-width: 720px) {
+  #workbench, .wb-hub, .wb-section, .wb-pipeline-grid, .wb-pipeline-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
   .wb-pipeline-grid { grid-template-columns: minmax(0, 1fr); }
-  .wb-pipeline-foot { min-width: 0; gap: 10px; }
+  .wb-pipeline-foot {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+  }
+  .wb-pipeline-foot .lab-btn { width: 100%; max-width: 100%; }
   .wb-project-row { grid-template-columns: 1fr; }
   .wb-pair-cols, .wb-bilingual-head { grid-template-columns: 1fr; }
   .wb-bilingual-head { display: none; }

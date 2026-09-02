@@ -191,6 +191,7 @@
 .pipeline-server-status[data-status="online"] .pipeline-server-dot { background: var(--accent-green); box-shadow: 0 0 0 3px rgba(42,106,42,.14); }
 .pipeline-server-status[data-status="offline"] .pipeline-server-dot { background: var(--text-muted); }
 .pipeline-page-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px; flex: 0 0 auto; }
+.agent-pipelines-view, #pipelines { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; overflow-x: hidden; }
 .agent-pipelines-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -205,6 +206,7 @@
   border-top: 3px solid var(--accent-gold);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
+  width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box;
 }
 .pipeline-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .pipeline-card-title { display: flex; align-items: center; min-width: 0; gap: 9px; }
@@ -218,7 +220,7 @@
 .pipeline-loop-close { display: inline-flex; align-items: center; flex: 0 0 auto; margin: 18px 0 0 2px; padding: 4px 9px; color: var(--accent-gold); border: 1px dashed var(--accent-gold); border-radius: var(--radius-pill); background: rgb(var(--accent-gold-rgb) / .06); font: 700 11px/1.2 var(--font-heading); white-space: nowrap; }
 .agent-pipeline-route { color: var(--accent-gold); font: 600 12px var(--font-mono); }
 .agent-pipeline-card ol { margin: 14px 0 0; padding: 0; list-style: none; }
-.pipeline-timeline { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; width: 100%; margin-top: 20px; padding: 0 8px 8px; }
+.pipeline-timeline { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; width: 100%; max-width: 100%; min-width: 0; margin-top: 20px; padding: 0 8px 8px; box-sizing: border-box; }
 .pipeline-timeline::before { content: ''; position: absolute; top: 42px; left: 48px; right: 48px; height: 2px; background: var(--border-light); }
 .pipeline-flow-arrow { position: relative; z-index: 2; align-self: center; margin-top: 18px; color: var(--accent-gold); font-size: 20px; line-height: 1; }
 .pipeline-timeline-step { position: relative; z-index: 1; display: grid; grid-template-rows: 32px 20px auto; justify-items: center; gap: 5px; min-width: 82px; flex: 1 1 0; color: var(--text-secondary); text-align: center; }
@@ -235,7 +237,7 @@
 .agent-pipeline-card { overflow: visible; width: 100%; }
 .pipeline-run-footer { margin-top: auto; padding-top: 14px; }
 .pipeline-run-status { min-height: 26px; margin: 0 0 10px; color: var(--text-secondary); font: 600 13px var(--font-mono); }
-.pipeline-card-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.pipeline-card-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; min-width: 0; }
 .pipeline-card-buttons .lab-btn { flex: 1 1 150px; justify-content: center; }
 .pipeline-card-footer { display: flex; justify-content: flex-end; margin-top: 8px; }
 .pipeline-result-preview { margin-top: 18px; padding: 13px 14px; border-left: 3px solid var(--accent-green); border-radius: var(--radius-sm); background: var(--bg-card); }
@@ -315,7 +317,25 @@
   .pipeline-timeline { justify-content: center; flex-wrap: wrap; }
   .pipeline-timeline::before { display: none; }
   .pipeline-flow-arrow { margin-top: 18px; }
-  .pipeline-timeline-step { flex: 0 1 82px; }
+  .pipeline-timeline-step { min-width: 0; flex: 1 1 120px; }
+}
+
+@media (max-width: 720px) {
+  .pipeline-page-actions,
+  .pipeline-card-buttons {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+  .pipeline-page-actions .lab-btn,
+  .pipeline-card-buttons .lab-btn {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+  .pipeline-card-title { flex-wrap: wrap; }
+  .pipeline-timeline { flex-wrap: wrap; justify-content: center; overflow-x: hidden; }
+  .pipeline-flow-arrow { flex: 0 0 auto; }
 }
 .agent-detail-view[hidden] { display: none; }
 .agent-detail-page {
