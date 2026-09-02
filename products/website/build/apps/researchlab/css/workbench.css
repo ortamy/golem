@@ -4,6 +4,33 @@
    ============================================= */
 
 .wb-section { margin-bottom: 34px; }
+
+.wb-pipeline-section, .wb-project-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+.wb-pipeline-section .wb-section-head, .wb-project-section .wb-section-head {
+  margin-bottom: var(--space-4);
+}
+
+.wb-pipeline-section .wb-pipeline-grid {
+  gap: var(--space-3);
+}
+
+.wb-project-section .wb-projects {
+  gap: var(--space-3);
+}
+
+@media (max-width: 720px) {
+  .wb-pipeline-section, .wb-project-section {
+    padding: var(--space-4);
+    border-radius: var(--radius-sm);
+  }
+}
 .wb-hub, #workbench { width: 100%; max-width: 100%; min-width: 0; }
 .wb-section-title { margin: 0; color: var(--accent-gold); font-size: 24px; }
 .wb-section-sub { margin: 4px 0 16px; color: var(--text-muted); }

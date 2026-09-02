@@ -138,12 +138,12 @@ const Workbench = (function() {
 
     container.innerHTML =
       '<div class="wb-hub">' +
-        '<section class="wb-section" aria-labelledby="wb-pipelines-heading">' +
+        '<section class="wb-pipeline-section" aria-labelledby="wb-pipelines-heading">' +
           '<h2 class="wb-section-title" id="wb-pipelines-heading">Конвейеры</h2>' +
           '<p class="wb-section-sub">Подключаемые цепочки действий: вход → смета → этапы → результат.</p>' +
           '<div class="wb-pipeline-grid">' + cards + '</div>' +
         '</section>' +
-        '<section class="wb-section" aria-labelledby="wb-projects-heading">' +
+        '<section class="wb-project-section" aria-labelledby="wb-projects-heading">' +
           '<div class="wb-section-head">' +
             '<h2 class="wb-section-title" id="wb-projects-heading">Мои проекты</h2>' +
             (projects.length ? '<span class="wb-count">' + projects.length + '</span>' : '') +
