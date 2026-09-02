@@ -8,6 +8,15 @@
   <meta name="description" content="Golem — исследовательская платформа для реконструкции палео-образного мышления и возвращения тексту его физики.">
   <link rel="canonical" href="https://ortamy.github.io/golem/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>
+    // Тема до первой отрисовки: общий с лабом ключ golem_theme.
+    try {
+      var __golemTheme = localStorage.getItem('golem_theme');
+      if (__golemTheme === 'white' || __golemTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', __golemTheme);
+      }
+    } catch (e) {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
@@ -32,8 +41,22 @@
       --muted: #756656;
       --serif: 'EB Garamond', Georgia, serif;
       --sans: 'DM Sans', Arial, sans-serif;
+      --radius: 14px;
+      --radius-lg: 18px;
+      --radius-xl: 20px;
+      --bronze: #6b4a10;
       --shadow: 0 18px 45px rgba(45, 31, 20, .10);
       --max: 1180px;
+    }
+    /* Белая тема — молочный пергамент (слой как theme-white.css лаба: #faf3e0).
+       Тёмные поверхности (--chocolate) остаются тёмными, светлеет только бумага. */
+    [data-theme="white"] {
+      --paper: #faf3e0;
+      --paper-deep: #f0e6cc;
+      --paper-light: #fdf9ee;
+      --line: rgba(45, 31, 20, .13);
+      --muted: #7b6c59;
+      --shadow: 0 18px 45px rgba(45, 31, 20, .08);
     }
     [data-theme="dark"] {
       --paper: #2D1F14;
@@ -45,6 +68,19 @@
       --muted: #c9b89d;
       --shadow: 0 18px 45px rgba(0, 0, 0, .22);
     }
+    /* Белая тема — светлая пастель, аналог theme-white.css лаба.
+       Золото не переопределяем: тёмные карточки (клуб, футер) остаются тёмными. */
+    [data-theme="white"] {
+      --paper: #fbf8f1;
+      --paper-deep: #f5f0e6;
+      --paper-light: #fffdf6;
+      --chocolate: #2c1810;
+      --chocolate-soft: #5c4a3a;
+      --muted: #8a7a67;
+      --line: rgba(45, 31, 20, .16);
+      --shadow: 0 18px 45px rgba(45, 31, 20, .07);
+    }
+    [data-theme="white"] body::before { opacity: 0; }
     *, *::before, *::after { box-sizing: border-box; }
     html { min-width: 320px; scroll-behavior: smooth; }
     body {
@@ -134,7 +170,7 @@
       gap: 9px;
       padding: 12px 20px;
       border: 1px solid var(--gold);
-      border-radius: 2px;
+      border-radius: var(--radius);
       background: var(--gold);
       color: var(--chocolate);
       font-size: .84rem;
@@ -149,7 +185,7 @@
     .button-outline:hover { background: rgba(200, 155, 60, .12); }
     .eyebrow {
       margin: 0 0 12px;
-      color: var(--gold-deep);
+      color: var(--bronze);
       font-size: .72rem;
       font-weight: 700;
       letter-spacing: .18em;
@@ -201,6 +237,7 @@
       padding: 12px 16px;
       border: 1px solid var(--gold);
       border-left-width: 5px;
+      border-radius: var(--radius);
       background: color-mix(in srgb, var(--plate) 12%, var(--paper-light));
       color: var(--chocolate);
     }
@@ -214,21 +251,21 @@
     .mechanics-intro { color: var(--muted); font-size: 1rem; }
     .analysis-card, .audience-card, .preview-card {
       border: 1px solid var(--gold);
-      border-radius: 2px;
+      border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
     }
-    .analysis-card { position: relative; padding: 22px; background: var(--paper-light); }
+    .analysis-card { position: relative; min-width: 0; padding: 22px; background: var(--paper-light); }
     .analysis-card::before, .analysis-card::after {
       position: absolute;
       border: 1px solid var(--gold);
       content: '';
       pointer-events: none;
     }
-    .analysis-card::before { inset: 5px; }
-    .analysis-card::after { inset: 9px; border-color: rgba(200, 155, 60, .35); }
-    .analysis-inner { position: relative; z-index: 1; padding: 18px 12px 8px; }
+    .analysis-card::before { inset: 5px; border-radius: var(--radius-lg); }
+    .analysis-card::after { inset: 9px; border-color: rgba(200, 155, 60, .35); border-radius: var(--radius-lg); }
+    .analysis-inner { position: relative; z-index: 1; min-width: 0; padding: 18px 12px 8px; }
     .word-label { margin-bottom: 4px; color: var(--muted); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
-    .word { margin-bottom: 20px; color: var(--gold-deep); font-family: var(--serif); font-size: 2.7rem; line-height: 1; }
+    .word { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 20px; color: var(--gold-deep); font-family: var(--serif); font-size: 2.7rem; line-height: 1; }
     .word span { color: var(--chocolate); }
     .sequence { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
     .sequence li { display: grid; grid-template-columns: 42px 1fr; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); }
@@ -236,25 +273,21 @@
     .sequence-letter { color: var(--gold-deep); font-family: var(--serif); font-size: 1.7rem; text-align: center; }
     .sequence small { display: block; color: var(--muted); font-size: .72rem; }
     .sequence strong { font-size: .9rem; }
+    .analysis-cta { margin-top: 18px; }
     .audience-grid, .preview-grid { display: grid; gap: 16px; }
-    .audience-card { min-height: 210px; padding: 26px; background: var(--paper-light); }
-    .card-index { display: block; margin-bottom: 25px; color: var(--gold-deep); font-family: var(--serif); font-size: 1.2rem; }
+    .audience-card { display: flex; flex-direction: column; min-height: 210px; padding: 26px; background: var(--paper-light); border: 1px solid var(--gold); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+    .card-index { display: block; margin-bottom: 25px; color: var(--bronze); font-family: var(--serif); font-size: 1.2rem; }
     .audience-card p { margin-bottom: 0; color: var(--muted); font-size: .9rem; }
+    .audience-card .text-link { margin-top: auto; padding-top: 16px; }
     .platform { background: var(--paper-deep); }
-    .preview-card { overflow: hidden; background: var(--paper-light); }
-    .preview-frame { display: block; width: 100%; height: 245px; border: 0; border-bottom: 1px solid var(--line); background: var(--paper-deep); }
-    .preview-copy { padding: 20px; }
-    .preview-copy h3 { margin-bottom: 5px; }
-    .preview-copy p { min-height: 48px; margin-bottom: 13px; color: var(--muted); font-size: .84rem; }
-    .text-link { color: var(--gold-deep); font-size: .8rem; font-weight: 700; text-decoration: none; }
+    .preview-card { display: flex; flex-direction: column; padding: 26px; background: var(--paper-light); border: 1px solid var(--gold); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+    .preview-copy { display: flex; flex: 1; flex-direction: column; }
+    .preview-copy h3 { margin-bottom: 8px; }
+    .preview-copy p { margin-bottom: 18px; color: var(--muted); font-size: .84rem; }
+    .preview-copy .button { margin-top: auto; align-self: flex-start; }
+    .text-link { color: var(--bronze); font-size: .8rem; font-weight: 700; text-decoration: none; }
     .text-link:hover { text-decoration: underline; }
-    .library { background: var(--paper-light); }
-    .library-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
-    .library-item { display: grid; gap: 6px; padding: 20px 0; border-bottom: 1px solid var(--line); }
-    .library-item a { color: var(--chocolate); font-family: var(--serif); font-size: 1.4rem; font-weight: 600; text-decoration: none; }
-    .library-item a:hover { color: var(--gold-deep); }
-    .library-meta { color: var(--muted); font-size: .77rem; }
-    .project-callout { display: grid; gap: 24px; align-items: end; padding: 30px; border: 1px solid var(--gold); background: var(--chocolate); color: var(--paper); }
+    .project-callout { display: grid; gap: 24px; align-items: end; padding: 34px; border: 1px solid var(--gold); border-radius: var(--radius-lg); background: var(--chocolate); color: var(--paper); }
     .project-callout h2 { margin-bottom: 0; color: var(--paper); }
     .project-callout p { max-width: 580px; margin-bottom: 0; color: #dbcbb2; }
     .project-callout .button-outline { border-color: var(--gold); color: var(--paper); }
@@ -276,11 +309,13 @@
       .footer-links { justify-content: flex-end; }
       .project-callout { grid-template-columns: 1fr auto; }
     }
+    @media (min-width: 641px) and (max-width: 979px) {
+      .preview-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (min-width: 980px) {
       .section { padding: 118px 0; }
       .hero-content { min-height: 680px; }
       .hero-note { margin-top: 70px; }
-      .preview-frame { height: 280px; }
     }
     @media (min-width: 1024px) {
       .hero h1 { margin-bottom: 24px; font-size: 52px; }
@@ -296,7 +331,14 @@
       .hero-note { justify-content: center; margin-right: auto; margin-left: auto; text-align: center; }
       .loss-detail { display: none; }
       .loss-plate { grid-template-columns: 42px 1fr auto; }
+      .analysis-card { padding: 16px; }
+      .analysis-inner { padding: 14px 8px 6px; }
+      .word { font-size: 2.1rem; }
+      .sequence li { grid-template-columns: 36px 1fr; gap: 8px; }
+      .sequence-letter { font-size: 1.4rem; }
       .project-callout .button { width: 100%; }
+      .preview-copy .button { width: 100%; }
+      .analysis-cta { width: 100%; }
     }
     /* ===== ПОРТАЛ ВХОДА ===== */
     body.portal-is-open { overflow: hidden; }
@@ -322,7 +364,7 @@
       position: relative;
       width: min(100%, 420px);
       padding: 44px 36px 36px;
-      border-radius: 20px;
+      border-radius: var(--radius-xl);
       background: var(--paper-light);
       box-shadow: 0 24px 60px rgba(45, 31, 20, .18);
       transform: translateY(20px) scale(.96);
@@ -448,7 +490,7 @@
       overflow: hidden;
       padding: 38px 34px;
       border: 1px solid var(--gold);
-      border-radius: 2px;
+      border-radius: var(--radius-lg);
       background: var(--chocolate);
       color: var(--paper);
       box-shadow: var(--shadow);
@@ -553,19 +595,19 @@
     <a href="./" class="logo" aria-label="Golem — на главную"><img src="assets/images/golem-logo-2.png" alt="ГОЛЕМ" style="height: 40px; width: auto;"><span class="golem-beta" aria-label="Бета-версия">BETA</span></a>
 
     <nav>
-      <button class="theme-toggle" type="button" title="Переключить тему" id="themeBtn" aria-label="Переключить тему" aria-pressed="false"><img src="assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема"></button>
-      <a href="apps/researchlab/index.html"><img src="assets/icons/32/archaeology/testtube.png" width="24" height="24" alt="Лаборатория" style="vertical-align: middle; margin-right: 6px;"> Лаборатория</a>
-      <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener"><img src="assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub" style="vertical-align: middle; margin-right: 6px;"> GitHub</a>
+      <button class="theme-toggle" type="button" title="Переключить тему" id="themeBtn" aria-label="Переключить тему"><img src="assets/icons/32/ui/month.png" width="24" height="24" alt="Белая тема"></button>
+      <a href="apps/researchlab/index.html" title="Лаборатория" aria-label="Лаборатория"><img src="assets/icons/32/archaeology/testtube.png" width="24" height="24" alt="Лаборатория"></a>
+      <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><img src="assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub"></a>
     </nav>
     <div class="lab-header-mobile-links">
-      <button class="mobile-icon-link" type="button" title="Переключить тему" id="themeBtnMobile" aria-label="Переключить тему" aria-pressed="false"><img src="assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема"></button>
+      <button class="mobile-icon-link" type="button" title="Переключить тему" id="themeBtnMobile" aria-label="Переключить тему"><img src="assets/icons/32/ui/month.png" width="24" height="24" alt="Белая тема"></button>
       <a href="apps/researchlab/index.html" class="mobile-icon-link" title="Лаборатория" aria-label="Лаборатория"><img src="assets/icons/32/archaeology/testtube.png" width="24" height="24" alt="Лаборатория"></a>
       <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub" aria-label="GitHub"><img src="assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub"></a>
     </div>
   </header>
 
   <main id="main-content">
-    <section class="section hero" aria-labelledby="hero-title">
+    <section class="section hero" id="hero" aria-labelledby="hero-title">
       <div class="container hero-content">
         <div class="hero-copy">
           <p class="eyebrow">Шаар / вход в исследование</p>
@@ -580,7 +622,7 @@
       </div>
     </section>
 
-    <section class="section loss-map" id="methodology" aria-labelledby="loss-title">
+    <section class="section loss-map" id="loss-map" aria-labelledby="loss-title">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Карта утрат</p>
@@ -598,88 +640,40 @@
       </div>
     </section>
 
-    <section class="section mechanics" aria-labelledby="davar-title">
+    <section class="section mechanics" id="mechanics" aria-labelledby="davar-title">
       <div class="container mechanics-grid">
         <div>
           <p class="eyebrow">Механика. Давар</p>
           <h2 id="davar-title">Каждое слово — это последовательность действий</h2>
-          <p class="mechanics-intro">Мы смотрим не на готовый перевод, а на Хошех букв: какую функцию выполняет каждый знак и как меняется состояние между шагами.</p>
+          <p class="mechanics-intro">Мы смотрим не на готовый перевод, а на сами буквы в палео-иврите: какую функцию выполняет каждый знак и как меняется состояние между шагами.</p>
         </div>
         <div class="analysis-card" aria-label="Пример палео-механического разбора слова Мицраим">
           <div class="analysis-inner">
             <p class="word-label">Пример последовательности</p>
-            <div class="word" style="display:flex;justify-content:space-between;"><span>Мицраим</span> מצרים</div>
+            <div class="word"><span>Мицраим</span> 𐤌𐤑𐤓𐤉𐤌</div>
             <ol class="sequence">
-              <li><span class="sequence-letter">מ</span><span><strong>Поток</strong><small>среда, в которой движение продолжается</small></span></li>
-              <li><span class="sequence-letter">צ</span><span><strong>Крюк</strong><small>захват и изменение направления</small></span></li>
-              <li><span class="sequence-letter">ר</span><span><strong>Вершина</strong><small>точка подъёма и обзора</small></span></li>
-              <li><span class="sequence-letter">י</span><span><strong>Рука</strong><small>действующий инструмент</small></span></li>
-              <li><span class="sequence-letter">ם</span><span><strong>Поток</strong><small>возвращение в среду, но уже изменённым</small></span></li>
+              <li><span class="sequence-letter">𐤌</span><span><strong>Поток</strong><small>среда, в которой движение продолжается</small></span></li>
+              <li><span class="sequence-letter">𐤑</span><span><strong>Крюк</strong><small>захват и изменение направления</small></span></li>
+              <li><span class="sequence-letter">𐤓</span><span><strong>Вершина</strong><small>точка подъёма и обзора</small></span></li>
+              <li><span class="sequence-letter">𐤉</span><span><strong>Рука</strong><small>действующий инструмент</small></span></li>
+              <li><span class="sequence-letter">𐤌</span><span><strong>Поток</strong><small>возвращение в среду, но уже изменённым</small></span></li>
             </ol>
+            <a class="button button-outline analysis-cta" href="apps/researchlab/index.html#paleo-builder">Разобрать в лаборатории <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section audience" aria-labelledby="audience-title">
+    <section class="section audience" id="sviva" aria-labelledby="audience-title">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Свива исследователей</p>
           <h2 id="audience-title">Для тех, кто ищет корни, а не переводы</h2>
         </div>
         <div class="audience-grid">
-          <article class="audience-card"><span class="card-index">01 / Ор</span><h3>Исследователь ТаНаХа</h3><p>Сверяйте слои текста, находите места сдвига и собирайте собственную карту улик.</p></article>
-          <article class="audience-card"><span class="card-index">02 / Хук</span><h3>Лингвист-реконструктор</h3><p>Разбирайте корни как механику: буква становится функцией, а слово — траекторией.</p></article>
-          <article class="audience-card"><span class="card-index">03 / Давар</span><h3>Искатель правды</h3><p>Выходите из готовых формулировок и проверяйте каждый переход по исходным данным.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section platform" aria-labelledby="platform-title">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Инструменты лаборатории</p>
-          <h2 id="platform-title">Не обещание — рабочая поверхность</h2>
-          <p>Ниже — живые виды канонической SPA-лаборатории. Откройте любой модуль и продолжите исследование внутри.</p>
-        </div>
-        <div class="preview-grid">
-          <article class="preview-card">
-            <iframe class="preview-frame" loading="lazy" title="Предпросмотр Карты Пространств" src="apps/researchlab/index.html?embed=1#cartography"></iframe>
-            <div class="preview-copy"><h3>Карта Пространств</h3><p>Собирайте переходы, границы и состояния в одной картографической поверхности.</p><a class="text-link" href="apps/researchlab/index.html#cartography">Открыть карту ↗</a></div>
-          </article>
-          <article class="preview-card">
-            <iframe class="preview-frame" loading="lazy" title="Предпросмотр Палео-клавиатуры" src="apps/researchlab/index.html?embed=1#paleo-keyboard"></iframe>
-            <div class="preview-copy"><h3>Палео-клавиатура</h3><p>Работайте с буквами как с функциями и составляйте последовательности образов.</p><a class="text-link" href="apps/researchlab/index.html#paleo-keyboard">Открыть клавиатуру ↗</a></div>
-          </article>
-          <article class="preview-card">
-            <iframe class="preview-frame" loading="lazy" title="Предпросмотр Генератора улик" src="apps/researchlab/index.html?embed=1#generators"></iframe>
-            <div class="preview-copy"><h3>Генератор улик</h3><p>Фиксируйте наблюдения, связывайте источники и удерживайте ход проверки.</p><a class="text-link" href="apps/researchlab/index.html#generators">Открыть генератор ↗</a></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section library" id="library" aria-labelledby="library-title">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Библиотека / эмет и шекер</p>
-          <h2 id="library-title">Десятки палео-словарей и научных работ</h2>
-          <p>Источники не прячутся за готовым выводом: каждый материал остаётся точкой входа для собственной проверки.</p>
-        </div>
-        <ul class="library-list">
-          <li class="library-item"><a href="apps/researchlab/index.html#manifest">MANIFEST.md v6.2</a><span class="library-meta">Методологическое ядро · образ, слой, переход</span></li>
-          <li class="library-item"><a href="apps/researchlab/index.html#research-library">Paleo-Hebrew Alphabet Chart</a><span class="library-meta">Палео-алфавит · функции букв · визуальная сверка</span></li>
-          <li class="library-item"><a href="apps/researchlab/index.html#research-library">Original Hebrew Bible · Genesis 1</a><span class="library-meta">Рабочий корпус · послойное чтение</span></li>
-          <li class="library-item"><a href="apps/researchlab/index.html#root-dictionary">Корневые словари и картотека улик</a><span class="library-meta">Данные Research Lab · корни, варианты, связи</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="project" aria-labelledby="project-title">
-      <div class="container">
-        <div class="project-callout">
-          <div><p class="eyebrow">О проекте Golem</p><h2 id="project-title">Сначала увидеть. Затем проверить.</h2><p>Golem соединяет методологию, корпус источников и инструменты так, чтобы исследование не зависело от чужого перевода.</p></div>
-          <a class="button button-outline" href="apps/researchlab/index.html#methodology">Смотреть методологию ↗</a>
+          <article class="audience-card"><span class="card-index">01 / Ор</span><h3>Исследователь ТаНаХа</h3><p>Сверяйте слои текста, находите места сдвига и собирайте собственную карту улик.</p><a class="text-link" href="apps/researchlab/index.html#scripture-reader">Книгочтение ТаНаХа ↗</a></article>
+          <article class="audience-card"><span class="card-index">02 / Хук</span><h3>Лингвист-реконструктор</h3><p>Разбирайте корни как механику: буква становится функцией, а слово — траекторией.</p><a class="text-link" href="apps/researchlab/index.html#root-dictionary">Корневой словарь ↗</a></article>
+          <article class="audience-card"><span class="card-index">03 / Давар</span><h3>Искатель правды</h3><p>Выходите из готовых формулировок и проверяйте каждый переход по исходным данным.</p><a class="text-link" href="apps/researchlab/index.html#manifest">Манифест v11.0 ↗</a></article>
         </div>
       </div>
     </section>
@@ -708,6 +702,37 @@
         </div>
       </div>
     </section>
+
+    <section class="section platform" id="tools" aria-labelledby="platform-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Инструменты лаборатории</p>
+          <h2 id="platform-title">Не обещание — рабочая поверхность</h2>
+          <p>Ниже — модули канонической SPA-лаборатории. Откройте любой инструмент и продолжите исследование внутри.</p>
+        </div>
+        <div class="preview-grid">
+          <article class="preview-card">
+            <div class="preview-copy"><h3>Карта Пространств</h3><p>Собирайте переходы, границы и состояния в одной картографической поверхности.</p><a class="button button-outline" href="apps/researchlab/index.html#cartography">Открыть карту <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="preview-card">
+            <div class="preview-copy"><h3>Палео-клавиатура</h3><p>Работайте с буквами как с функциями и составляйте последовательности образов.</p><a class="button button-outline" href="apps/researchlab/index.html#paleo-keyboard">Открыть клавиатуру <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="preview-card">
+            <div class="preview-copy"><h3>Генератор улик</h3><p>Фиксируйте наблюдения, связывайте источники и удерживайте ход проверки.</p><a class="button button-outline" href="apps/researchlab/index.html#generators">Открыть генератор <span aria-hidden="true">↗</span></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="methodology" aria-labelledby="project-title">
+      <div class="container">
+        <div class="project-callout">
+          <div><p class="eyebrow">О проекте Golem</p><h2 id="project-title">Сначала увидеть. Затем проверить.</h2><p>Golem соединяет методологию, корпус источников и инструменты так, чтобы исследование не зависело от чужого перевода.</p></div>
+          <a class="button button-outline" href="apps/researchlab/index.html#methodology">Смотреть методологию ↗</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Портал входа в лабораторию -->
@@ -755,7 +780,7 @@
       <a class="brand footer-brand" href="./"><span class="brand-mark" aria-hidden="true">ג</span><span>GOLEM</span></a>
       <div class="footer-top">
         <p class="footer-slogan">Путь из тесноты в открытое пространство</p>
-        <nav class="footer-links" aria-label="Навигация в подвале"><a href="apps/researchlab/index.html#manifest">Манифест</a><a href="apps/researchlab/index.html#research-library">Архив</a><a href="https://github.com/ortamy/golem" rel="noopener noreferrer">GitHub</a></nav>
+        <nav class="footer-links" aria-label="Навигация в подвале"><a href="apps/researchlab/index.html#manifest">Манифест v11.0</a><a href="apps/researchlab/index.html#research-library">Архив</a><a href="https://github.com/ortamy/golem" rel="noopener noreferrer">GitHub</a></nav>
       </div>
       <a class="button footer-cta" href="apps/researchlab/index.html#dashboard" data-portal-trigger>Исследовательская лаборатория <span aria-hidden="true">↗</span></a>
       <div class="footer-bottom"><span>© Golem Research Lab</span><span>Давар · Ор · Свива</span></div>
@@ -763,25 +788,30 @@
   </footer>
 
   <script>
-    // Локально синхронизирует тему landing и обе кнопки шапки.
+    // Тема сайта: цикл light → white → dark, как LabTheme в лабе. Общий ключ golem_theme.
     const themeButtons = [
       document.querySelector('#themeBtn'),
       document.querySelector('#themeBtnMobile')
     ].filter(Boolean);
     const themeIconPath = 'assets/icons/32/ui/';
+    const themeOrder = ['light', 'white', 'dark'];
+    // Иконка показывает тему, в которую ведёт клик (как в лабе).
+    const themeViews = {
+      light: { icon: 'month.png', alt: 'Белая тема', title: 'Переключить на белую тему' },
+      white: { icon: 'moon.png', alt: 'Тёмная тема', title: 'Переключить на тёмную тему' },
+      dark: { icon: 'sun.png', alt: 'Светлая тема', title: 'Переключить на светлую тему' }
+    };
 
     function updateThemeControls(theme) {
-      const isDark = theme === 'dark';
+      const view = themeViews[theme] || themeViews.light;
       themeButtons.forEach((button) => {
         const icon = button.querySelector('img');
-        const label = isDark ? 'Светлая тема' : 'Тёмная тема';
         if (icon) {
-          icon.src = `${themeIconPath}${isDark ? 'sun.png' : 'moon.png'}`;
-          icon.alt = label;
+          icon.src = `${themeIconPath}${view.icon}`;
+          icon.alt = view.alt;
         }
-        button.title = isDark ? 'Переключить на светлую тему' : 'Переключить на тёмную тему';
-        button.setAttribute('aria-label', button.title);
-        button.setAttribute('aria-pressed', String(isDark));
+        button.title = view.title;
+        button.setAttribute('aria-label', view.title);
       });
     }
 
@@ -791,12 +821,19 @@
           document.querySelector('#themeBtn')?.click();
           return;
         }
-        const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-        document.documentElement.dataset.theme = nextTheme;
-        updateThemeControls(nextTheme);
+        const current = document.documentElement.dataset.theme || 'light';
+        const next = themeOrder[(themeOrder.indexOf(current) + 1) % themeOrder.length] || 'light';
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem('golem_theme', next); } catch (e) {}
+        updateThemeControls(next);
       });
     });
-    updateThemeControls(document.documentElement.dataset.theme || 'light');
+
+    let savedTheme = 'light';
+    try { savedTheme = localStorage.getItem('golem_theme') || 'light'; } catch (e) {}
+    if (themeOrder.indexOf(savedTheme) < 0) savedTheme = 'light';
+    document.documentElement.dataset.theme = savedTheme;
+    updateThemeControls(savedTheme);
 
     // ===== ПОРТАЛ ВХОДА =====
     const portal = document.querySelector('#labPortal');
