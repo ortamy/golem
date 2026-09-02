@@ -1,6 +1,6 @@
 # ПОЛНЫЙ ПРОЦЕСС РАЗРАБОТКИ ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ (VIBE CODING → PRODUCTION)
 
-**Файл:** `docs/12-LIBRARY/DEVELOPMENT-PROCESS.md`
+**Файл:** `docs/02-MANAGEMENT/DEVELOPMENT-PROCESS.md`
 **Версия:** 1.0
 **Цель:** Описать полный жизненный цикл разработки от идеи до работающего продукта.
 **Область:** Backend, Frontend, DevOps, AI-интеграции.

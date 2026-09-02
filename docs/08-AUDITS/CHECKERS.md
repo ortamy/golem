@@ -98,7 +98,7 @@ python tools/checkers/check-code-quality.py --fix
 
 ### check-links.py — Проверка внутренних ссылок
 
-Проверяет все ссылки вида `[текст](путь)` в `.md` файлах.
+Проверяет все Markdown-ссылки вида `[текст](адрес)` в `.md` файлах.
 
 ```bash
 python tools/checkers/check-links.py

@@ -41,7 +41,7 @@
 - [ ] `` — карта всех модулей Research Lab.
 - [ ] `products/website/apps/researchlab/js/router.js` — маршрутизация модулей.
 - [ ] `products/website/apps/researchlab/js/page-controller.js` — управление страницами.
-- [ ] `products/website/apps/researchlab/js/LabRenderer.js` — рендеринг интерфейса.
+- [ ] `products/website/apps/researchlab/js/page-controller.js` — рендеринг интерфейса.
 - [ ] `products/website/apps/researchlab/css/lab.css` — стили интерфейса.
 
 ---

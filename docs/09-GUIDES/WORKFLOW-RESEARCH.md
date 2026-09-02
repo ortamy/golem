@@ -24,7 +24,7 @@
 Откуда берём тему:
 - Из личного изучения ТаНаХа
 - Из разговора с Эдом (нейросетью)
-- Из списка идей в `docs/IDEAS.md`
+ - Из списка идей в `docs/02-MANAGEMENT/IDEAS.md` или `docs/02-MANAGEMENT/LANDING-LAB-IDEAS.md`
 - Из незаполненных файлов (`check-empty-files.py`)
 
 Результат: одно предложение — о чём будет исследование.
@@ -76,7 +76,7 @@ python tools/checkers/check-religionisms.py --fix
 python tools/checkers/check-exposure.py
 
 # 3. Проверка фактов
-# Вручную по чек-листу: instructions/checkers/check-factcheck.md
+# Вручную по чек-листу: docs/08-AUDITS/CHECK-FACT.md
 
 # 4. Проверка согласованности
 python tools/checkers/check-consistency.py
@@ -144,6 +144,6 @@ git push
 
 ## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
 - `docs/12-TEMPLATES/RESEARCH-TEMPLATE.md`
-- `instructions/checkers/check-bdikah.md`
-- `instructions/checkers/check-mivdak.md`
-- `docs/IDEAS.md`
+- `docs/08-AUDITS/CHECK-BDIKAH.md`
+- `docs/08-AUDITS/CHECK-MIVDAK.md`
+- `docs/02-MANAGEMENT/IDEAS.md`

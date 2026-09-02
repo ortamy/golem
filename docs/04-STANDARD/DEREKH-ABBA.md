@@ -6,7 +6,7 @@
 - **Дата создания:** 2026-08-25
 - **Статус:** Активный
 - **Тема:** Древний путь отцов как ядро проекта «Голем». Не религия. Не методология. Направление.
-- **Связанные файлы:** `methodology/MANIFEST.md`, `methodology/states.md`, `docs/08-EXPOSURE/cultural-matrices.md`, `docs/08-EXPOSURE/distortions.md`
+- **Связанные файлы:** `docs/00-START/MANIFEST.md`, `docs/06-METHODOLOGY/STATES.md`, `docs/06-METHODOLOGY/CULTURAL-MATRICES.md`, `docs/06-METHODOLOGY/DISTORTIONS.md`
 - **Достоверность:** высокая (соответствует палео-механике и карте состояний)
 
 ---
@@ -249,11 +249,11 @@
 
 ## СВЯЗАННЫЕ ДОКУМЕНТЫ
 
-- `methodology/MANIFEST.md` — методология, карта состояний, Давар.
-- `methodology/states.md` — состояния и переходы.
-- `docs/08-EXPOSURE/cultural-matrices.md` — слои подмены.
-- `docs/08-EXPOSURE/distortions.md` — типы искажений.
-- `docs/08-EXPOSURE/linguistic-methods.md` — методы восстановления.
+- `docs/00-START/MANIFEST.md` — методология, карта состояний, Давар.
+- `docs/06-METHODOLOGY/STATES.md` — состояния и переходы.
+- `docs/06-METHODOLOGY/CULTURAL-MATRICES.md` — слои подмены.
+- `docs/06-METHODOLOGY/DISTORTIONS.md` — типы искажений.
+- `docs/06-METHODOLOGY/LINGUISTIC-METHODS.md` — методы восстановления.
 
 ---
 

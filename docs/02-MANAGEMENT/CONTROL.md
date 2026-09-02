@@ -67,26 +67,26 @@
 
 ### Управление
 - Пульт управления: `CONTROL.md` (этот файл)
-- Технический долг: `docs/TECHNICAL-DEBT.md`
-- Идеи: `docs/IDEAS.md`
-- Бэклог (сегодня): `docs/BACKLOG.md`
-- Дорожная карта: `docs/ROADMAP.md`
-- Журнал решений: `docs/DECISIONS.md`
-- Ретроспектива: `docs/RETROSPECTIVE.md`
+- Технический долг: `docs/02-MANAGEMENT/TECHNICAL-DEBT.md`
+- Идеи: `docs/02-MANAGEMENT/IDEAS.md`
+- Бэклог: `docs/02-MANAGEMENT/BACKLOG.md`
+- Дорожная карта: `docs/02-MANAGEMENT/ROADMAP.md`
+- Журнал решений: `docs/02-MANAGEMENT/DECISIONS.md`
+- Ретроспектива: `docs/02-MANAGEMENT/RETROSPECTIVE.md`
 
 ### Структура
-- Структура проекта: `STRUCTURE.md`
-- Архитектура: `docs/ARCHITECTURE.md`
+- Структура проекта: `docs/INDEX.md`
+- Архитектура: `docs/01-ARCHITECTURE/ARCHITECTURE.md`
 - Индекс файлов: `docs/INDEX.md`
-- Глоссарий: `docs/GLOSSARY.md`
-- Статистика: `docs/STATS.md`
+- Глоссарий: `docs/04-STANDARD/TERMINOLOGY.md`
+- Статистика: `docs/02-MANAGEMENT/STATS.md`
 
 ### Методология
-- Exposure-система: `instructions/exposure/`
-- Словари языковых подмен (20): `instructions/dictionaries/`
-- Принципы исследований: `instructions/RESEARCH-PRINCIPLES.md`
-- Манифест: `instructions/MANIFEST.md`
-- Запрещённые слова: `instructions/FORBIDDEN-WORDS.md`
+- Exposure-система: `docs/06-METHODOLOGY/`
+- Словари языковых подмен: `docs/05-DICTIONARIES/`
+- Принципы исследований: `docs/06-METHODOLOGY/RESEARCH-PRINCIPLES.md`
+- Манифест: `docs/00-START/MANIFEST.md`
+- Правила языка: `docs/04-STANDARD/TERMINOLOGY.md`
 
 ### Инструменты
 - Главное меню: `python tools/golem.py`

@@ -1,6 +1,6 @@
 # ONBOARDING-CHECKLIST.md — Полный чек-лист для передачи контекста в новый чат
 
-**Файл:** `docs/03-AI/ONBOARDING-CHECKLIST.MD.md`  
+**Файл:** `docs/03-AI/ONBOARDING-CHECKLIST.md`  
 **Версия:** 1.1  
 **Статус:** Активный  
 **Тема:** Список файлов, которые нужно передавать в новый чат для сохранения контекста проекта «Голем»
@@ -28,12 +28,12 @@
 
 1. `MANIFEST.md` — философия и методология проекта.
 2. `PALEO-TRANSLATION-PROTOCOL.md` — правила перевода палео-иврита.
-3. `docs/03-AI/AGENT-SYSTEM.MD.md` — описание всех агентов и их ролей.
-4. `docs/03-AI/ARCHITECTURE.MD.md` — техническая структура папок, файлов и вызовов.
-5. `docs/03-AI/AGENT-STATUS.MD.md` — текущий статус реализации каждого агента.
-6. `docs/TECHNICAL-DEBT.md` — список открытых задач и технического долга.
-7. `CLINE-ROUTINE.md` — ежедневный алгоритм работы ассистента.
-8. `RESEARCH-LAB-MAP.md` - архитектурная карта проекта.
+3. `docs/03-AI/AGENT-SYSTEM-INFO.md` — описание агентной системы и её ролей.
+4. `docs/01-ARCHITECTURE/ARCHITECTURE.md` — техническая структура папок, файлов и потоков.
+5. `docs/03-AI/AGENT-STATUS.md` — текущий статус реализации агентов.
+6. `docs/02-MANAGEMENT/TECHNICAL-DEBT.md` — список открытых задач и технического долга.
+7. `docs/03-AI/CLINE.md` — протокол работы Cline.
+8. `docs/11-PRODUCTS/RESEARCH-LAB-MAP.md` — архитектурная карта Research Lab.
 
 
 ---
@@ -42,13 +42,13 @@
 
 Для генерации и проверки контента новому чату понадобятся эти файлы.
 
-8. `` — основной словарь разоблачений (замены слов).
-9. `` — фразы, которые нужно заменять.
-10. `` — список греческих кальк и их замен.
-11. `` — список латинских кальк и их замен.
+8. `docs/05-DICTIONARIES/EXPOSURES.md` — основной словарь разоблачений.
+9. `docs/05-DICTIONARIES/PHRASISMS.md` — фразы, которые нужно проверять.
+10. `docs/05-DICTIONARIES/GRECISMS.md` — греческие кальки и их замены.
+11. `docs/05-DICTIONARIES/LATINISMS.md` — латинские кальки и их замены.
 12. `docs/04-STANDARD/PALEO-TRANSLATION-PRINCIPLES.md` — принципы палео-перевода (более глубокий вариант).
-13. `docs/06-METHODOLOGY/STATES.md` — карта 8 пространств (Тоху, Хошех, Мицраим...).
-14. `docs/06-METHODOLOGY/exposure-*.md` — все файлы разоблачений (принципы, методы, механизмы).
+13. `docs/06-METHODOLOGY/STATES.md` — карта 16 состояний.
+14. `docs/06-METHODOLOGY/` — принципы, методы, механизмы и протоколы.
 
 ---
 
@@ -58,8 +58,10 @@
 
 15. `products/website/apps/researchlab/js/router.js` — маршрутизация всех модулей.
 16. `products/website/apps/researchlab/js/page-controller.js` — управление страницами.
-17. `products/website/apps/researchlab/js/LabRenderer.js` — рендеринг интерфейса.
-18. `products/website/apps/researchlab/css/lab.css` — основные стили.
+17. `products/website/apps/researchlab/js/page-controller.js` — центральный рендеринг модулей.
+18. `products/website/apps/researchlab/js/lab-hero.js` — общая шапка и представления маршрутов.
+19. `products/website/apps/researchlab/css/lab.css` — базовые стили.
+20. `products/website/index.html` — публичный лендинг и его интерактивы.
 
 ---
 

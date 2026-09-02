@@ -2,8 +2,8 @@
 
 **Дата отчёта:** 2026-07-16  
 **Объект:** 13 документов `docs/06-METHODOLOGY/*.md`  
-**Канонический методологический источник:** [`docs/00-START/MANIFEST.md`](../docs/00-START/MANIFEST.md), v5.3  
-**Корневой словарь:** [`products/website/researchlab/data/roots.json`](../products/website/researchlab/data/roots.json)  
+**Канонический методологический источник:** [`docs/00-START/MANIFEST.md`](../00-START/MANIFEST.md), v11.0  
+**Корневой словарь:** [`products/website/apps/researchlab/data/roots/roots.json`](../../products/website/apps/researchlab/data/roots/roots.json)  
 **Статус аудита:** анализ завершён; исходные файлы не изменялись
 
 > Этот отчёт фиксирует состояние документов и предлагает правки. Автоматическое
