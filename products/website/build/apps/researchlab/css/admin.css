@@ -1,5 +1,14 @@
 /* admin.css — styles for admin-settings and access-gate modules */
 
+/* ─── THEME CONTAINER ──────────────────────────────────────────── */
+.admin-theme-container {
+  background: var(--bg-base);
+  min-height: calc(100vh - 60px);
+  padding: var(--space-6);
+  border-radius: var(--radius);
+  transition: background var(--motion-medium);
+}
+
 /* ─── BASE ADMIN STYLES ────────────────────────────────────────── */
 .admin-input,
 .admin-textarea {

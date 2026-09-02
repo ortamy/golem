@@ -9,6 +9,7 @@ const AccessGate = (function() {
   var ADMIN_LOGIN = 'admin';
   var DEFAULT_PASSWORD = 'Golem2026';
   var SESSION_ADMIN_KEY = 'golem_admin_session';
+  var SESSION_RESEARCHER_KEY = 'golem_researcher_session';
   var SESSION_GUEST_KEY = 'golem_guest_session';
   var PASSWORD_OVERRIDE_KEY = 'golem_admin_password_override';
   var CONFIG_PATH = 'data/lab-config.json';
@@ -23,8 +24,16 @@ const AccessGate = (function() {
     return sessionStorage.getItem(SESSION_GUEST_KEY) === '1';
   }
 
+  function isResearcher() {
+    return sessionStorage.getItem(SESSION_RESEARCHER_KEY) === '1';
+  }
+
+  function getRole() {
+    return isAdmin() ? 'admin' : isResearcher() ? 'researcher' : 'guest';
+  }
+
   function hasSession() {
-    return isAdmin() || isGuest();
+    return isAdmin() || isResearcher() || isGuest();
   }
 
   function currentPassword() {
@@ -42,7 +51,7 @@ const AccessGate = (function() {
         return r.json();
       })
       .catch(function() {
-        return { accentColor: '#b8860b', defaultModule: 'dashboard', hiddenSectionsForGuests: [], guestTokens: [] };
+        return { accentColor: '#b8860b', defaultModule: 'dashboard', hiddenSectionsForGuests: [], guestTokens: [], researcherTokens: [] };
       })
       .then(function(data) {
         config = data;
@@ -58,9 +67,10 @@ const AccessGate = (function() {
     var match = window.location.hash.match(/access=([^&]+)/);
     if (!match || !config) return false;
     var token = decodeURIComponent(match[1]);
-    var found = (config.guestTokens || []).some(function(t) { return t.token === token; });
-    if (found) {
-      sessionStorage.setItem(SESSION_GUEST_KEY, '1');
+    var researcher = (config.researcherTokens || []).some(function(t) { return t.token === token; });
+    var guest = (config.guestTokens || []).some(function(t) { return t.token === token; });
+    if (researcher || guest) {
+      sessionStorage.setItem(researcher ? SESSION_RESEARCHER_KEY : SESSION_GUEST_KEY, '1');
       return true;
     }
     return false;
@@ -72,7 +82,7 @@ const AccessGate = (function() {
         history.replaceState(null, '', window.location.pathname + window.location.search);
       }
       if (hasSession()) {
-        var role = isAdmin() ? 'admin' : 'guest';
+        var role = getRole();
         onReady(role);
       } else {
         sessionStorage.setItem(SESSION_GUEST_KEY, '1');
@@ -89,7 +99,7 @@ const AccessGate = (function() {
       '<div class="gate-card">' +
         '<div class="gate-logo">ГОЛЕМ</div>' +
         '<h1 class="gate-title">Исследовательская лаборатория</h1>' +
-        '<p class="gate-subtitle">Войдите как администратор или продолжите в гостевом режиме.</p>' +
+        '<p class="gate-subtitle">Войдите как администратор, исследователь или продолжите в гостевом режиме.</p>' +
         '<label class="gate-label" for="gate-login">Логин</label>' +
         '<input type="text" id="gate-login" class="admin-input" placeholder="admin" autocomplete="off">' +
         '<label class="gate-label" for="gate-pass">Пароль</label>' +
@@ -97,12 +107,17 @@ const AccessGate = (function() {
         '<button class="admin-btn admin-btn-primary gate-btn" id="gate-login-btn">Войти</button>' +
         '<div id="gate-error" class="admin-error" style="display:none;">Неверный логин или пароль.</div>' +
         '<div class="gate-divider">или</div>' +
+        '<label class="gate-label" for="gate-token">Токен исследователя</label>' +
+        '<input type="text" id="gate-token" class="admin-input" placeholder="Необязательно" autocomplete="off">' +
+        '<button class="admin-btn admin-btn-secondary gate-btn" id="gate-researcher-btn">Войти как исследователь</button>' +
+        '<div class="gate-divider">или</div>' +
         '<button class="admin-btn admin-btn-secondary gate-btn" id="gate-guest-btn">Гостевой режим</button>' +
       '</div>';
     document.body.appendChild(overlay);
 
     var loginInput = document.getElementById('gate-login');
     var passInput = document.getElementById('gate-pass');
+    var tokenInput = document.getElementById('gate-token');
     var errorBox = document.getElementById('gate-error');
 
     function tryLogin() {
@@ -120,6 +135,14 @@ const AccessGate = (function() {
     }
 
     document.getElementById('gate-login-btn').addEventListener('click', tryLogin);
+    document.getElementById('gate-researcher-btn').addEventListener('click', function() {
+      var token = tokenInput.value.trim();
+      var found = (config.researcherTokens || []).some(function(item) { return item.token === token; });
+      if (!found) { errorBox.textContent = 'Неверный токен исследователя.'; errorBox.style.display = 'block'; tokenInput.focus(); return; }
+      sessionStorage.setItem(SESSION_RESEARCHER_KEY, '1');
+      overlay.remove();
+      onReady('researcher');
+    });
     document.getElementById('gate-guest-btn').addEventListener('click', function() {
       sessionStorage.setItem(SESSION_GUEST_KEY, '1');
       overlay.remove();
@@ -136,6 +159,7 @@ const AccessGate = (function() {
 
   function logout() {
     sessionStorage.removeItem(SESSION_ADMIN_KEY);
+    sessionStorage.removeItem(SESSION_RESEARCHER_KEY);
     sessionStorage.removeItem(SESSION_GUEST_KEY);
     window.location.reload();
   }
@@ -143,6 +167,8 @@ const AccessGate = (function() {
   window.AccessGate = {
     init: init,
     isAdmin: isAdmin,
+    isResearcher: isResearcher,
+    getRole: getRole,
     isGuest: isGuest,
     getConfig: getConfig,
     currentPassword: currentPassword,

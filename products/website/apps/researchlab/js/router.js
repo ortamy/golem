@@ -85,9 +85,14 @@ const LabRouter = (function() {
       var label = escapeHtml(routeTitle(route));
       var href = route.split('/').map(function(segment) { return encodeURIComponent(decodeURIComponent(segment)); }).join('/');
       return (index ? '<span class="lab-hero__kicker-separator" aria-hidden="true">·</span>' : '') +
-        '<a class="lab-hero__kicker-link' + (current ? ' is-current' : '') + '" href="#' + escapeHtml(href) + '"' +
+        '<a class="lab-hero__kicker-link' + (current ? ' is-current' : '') + '" data-breadcrumb-route="' + escapeHtml(route) + '" href="#' + escapeHtml(href) + '"' +
         (current ? ' aria-current="page"' : '') + '>' + label + '</a>';
     }).join('');
+  }
+
+  function refreshBreadcrumbs(moduleId) {
+    if (!moduleId || moduleId !== currentModule) return;
+    renderBreadcrumbs(moduleId, parseHash());
   }
 
   // ===== ИНИЦИАЛИЗАЦИЯ =====
@@ -116,6 +121,17 @@ const LabRouter = (function() {
           navigate(module);
         }
       });
+    });
+
+    // Крошки живут внутри шапки, которую модули могут перерисовать.
+    document.addEventListener('click', function(event) {
+      var link = event.target.closest && event.target.closest('.lab-hero__kicker-link:not(.is-current)');
+      if (!link) return;
+      var route = link.getAttribute('data-breadcrumb-route');
+      if (!route) return;
+      event.preventDefault();
+      var parts = route.split('/');
+      navigate(parts.shift(), parts);
     });
 
     // Обрабатываем прямую ссылку сразу после регистрации колбэка.
@@ -314,6 +330,9 @@ const LabRouter = (function() {
       onModuleChange(moduleId, parsed);
     }
     renderBreadcrumbs(moduleId, parsed);
+    // PageController и LabHero могут обновить шапку асинхронно.
+    window.setTimeout(function() { renderBreadcrumbs(moduleId, parseHash()); }, 0);
+    window.setTimeout(function() { renderBreadcrumbs(moduleId, parseHash()); }, 80);
 
     // Прокрутка вверх
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -331,6 +350,7 @@ const LabRouter = (function() {
     show: showModule,
     parseHash: parseHash,
     renderBreadcrumbs: renderBreadcrumbs,
+    refreshBreadcrumbs: refreshBreadcrumbs,
     current: function() { return currentModule; },
     onChange: onChange
   };

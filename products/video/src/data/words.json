@@ -1,0 +1,80 @@
+[
+  {
+    "id": "torah",
+    "hebrew": "תורה",
+    "paleo": "𐤕𐤅𐤓𐤄",
+    "translit": "torah",
+    "gloss": "направление",
+    "letters": [
+      {"glyph": "𐤕", "name": "Тав", "picture": "знак", "meaning": "печать"},
+      {"glyph": "𐤅", "name": "Вав", "picture": "крюк", "meaning": "соединение"},
+      {"glyph": "𐤓", "name": "Реш", "picture": "голова", "meaning": "начало"},
+      {"glyph": "𐤄", "name": "Хе", "picture": "дыхание", "meaning": "откровение"}
+    ],
+    "synthesis": "знак соединяет начало с откровением",
+    "keywords": ["путь", "направление"],
+    "confidence": 0.92
+  },
+  {
+    "id": "emet",
+    "hebrew": "אמת",
+    "paleo": "𐤀𐤌𐤕",
+    "translit": "emet",
+    "gloss": "опора смысла",
+    "letters": [
+      {"glyph": "𐤀", "name": "Алеф", "picture": "бык", "meaning": "сила"},
+      {"glyph": "𐤌", "name": "Мем", "picture": "вода", "meaning": "течение"},
+      {"glyph": "𐤕", "name": "Тав", "picture": "знак", "meaning": "печать"}
+    ],
+    "synthesis": "сила течения становится знаком",
+    "keywords": ["цельность", "проверка"],
+    "confidence": 0.95
+  },
+  {
+    "id": "shabbat",
+    "hebrew": "שבת",
+    "paleo": "𐤔𐤁𐤕",
+    "translit": "shabbat",
+    "gloss": "остановка",
+    "letters": [
+      {"glyph": "𐤔", "name": "Шин", "picture": "зуб", "meaning": "разрушение"},
+      {"glyph": "𐤁", "name": "Бет", "picture": "дом", "meaning": "вместилище"},
+      {"glyph": "𐤕", "name": "Тав", "picture": "знак", "meaning": "печать"}
+    ],
+    "synthesis": "разрушение входит в дом и получает знак",
+    "keywords": ["покой", "граница"],
+    "confidence": 0.89
+  },
+  {
+    "id": "padah",
+    "hebrew": "פדה",
+    "paleo": "𐤐𐤃𐤄",
+    "translit": "padah",
+    "gloss": "выведение наружу",
+    "letters": [
+      {"glyph": "𐤐", "name": "Пе", "picture": "рот", "meaning": "речь"},
+      {"glyph": "𐤃", "name": "Далет", "picture": "дверь", "meaning": "вход"},
+      {"glyph": "𐤄", "name": "Хе", "picture": "дыхание", "meaning": "откровение"}
+    ],
+    "synthesis": "речь открывает дверь к откровению",
+    "keywords": ["выход", "освобождение"],
+    "confidence": 0.91
+  },
+  {
+    "id": "mitzrayim",
+    "hebrew": "מצרים",
+    "paleo": "𐤌𐤑𐤓𐤉𐤌",
+    "translit": "mitsrayim",
+    "gloss": "теснины",
+    "letters": [
+      {"glyph": "𐤌", "name": "Мем", "picture": "вода", "meaning": "течение"},
+      {"glyph": "𐤑", "name": "Цаде", "picture": "крюк", "meaning": "цель"},
+      {"glyph": "𐤓", "name": "Реш", "picture": "голова", "meaning": "начало"},
+      {"glyph": "𐤉", "name": "Йод", "picture": "рука", "meaning": "действие"},
+      {"glyph": "𐤌", "name": "Мем", "picture": "вода", "meaning": "течение"}
+    ],
+    "synthesis": "течение удерживает действие в теснине",
+    "keywords": ["граница", "сжатие"],
+    "confidence": 0.87
+  }
+]

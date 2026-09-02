@@ -169,11 +169,21 @@ const AdminSettings = (function() {
     var container = document.getElementById('admin-settings');
     if (!container) return;
 
-    if (!window.AccessGate || !AccessGate.isAdmin()) {
-      container.innerHTML = '<div class="lab-alert lab-alert-info">Доступ только для администратора.</div>';
+    if (!window.AccessGate) {
+      container.innerHTML = '<div class="lab-alert lab-alert-info">Система доступа не инициализирована.</div>';
       return;
     }
 
+    var role = AccessGate.getRole ? AccessGate.getRole() : 'guest';
+
+    if (role === 'admin') {
+      renderAdminPanel(container);
+    } else {
+      renderUserPanel(container, role);
+    }
+  }
+
+  function renderAdminPanel(container) {
     if (!draft) draft = cloneConfig();
     container.innerHTML = buildHTML();
     bindEvents(container);
@@ -185,8 +195,17 @@ const AdminSettings = (function() {
     initExportImport();
   }
 
+  function renderUserPanel(container, role) {
+    if (window.UserPreferences) {
+      UserPreferences.render(container, role);
+    } else {
+      container.innerHTML = '<div class="lab-alert lab-alert-info">Модуль настроек недоступен.</div>';
+    }
+  }
+
   function buildHTML() {
-    return '<div class="admin-panel">' +
+    return '<div class="admin-theme-container">' +
+      '<div class="admin-panel">' +
       '<div class="admin-panel-header">' +
         '<div>' +
           '<h1 class="admin-title">Настройки / Администрирование</h1>' +
@@ -209,6 +228,7 @@ const AdminSettings = (function() {
       '</div>' +
 
       '<div id="settings-notice" class="admin-notice" style="display:none;"></div>' +
+      '</div>' +
     '</div>';
   }
 

@@ -58,20 +58,16 @@
 
 .pl-back-btn { margin-bottom: 16px; }
 
-/* ===== ВНУТРЕННЯЯ СТРАНИЦА ЯЗЫКА: белый контейнер под шапкой ===== */
+/* ===== ВНУТРЕННЯЯ СТРАНИЦА ЯЗЫКА: контейнер в цвет темы ===== */
 .pl-lang-page {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 16px;
   padding: clamp(20px, 3vw, 32px);
   box-shadow: var(--shadow-soft);
-  /* Видимый зазор от пастельной подложки: лист светлее фона в светлых темах */
   margin-bottom: var(--space-5);
 }
-html:not([data-theme="dark"]) .pl-lang-page {
-  background: color-mix(in srgb, var(--bg-card) 62%, #ffffff);
-}
-/* Карточки букв и знаков внутри белого контейнера: чуть глубже фоном, чтобы не сливались */
+/* Карточки букв и знаков внутри контейнера: чуть глубже фоном, чтобы не сливались */
 .pl-lang-page .pl-letter-card,
 .pl-lang-page .pl-sign-card { background: var(--bg-tertiary); }
 

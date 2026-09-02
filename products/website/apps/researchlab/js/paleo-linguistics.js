@@ -15,6 +15,7 @@ const PaleoLinguistics = (function() {
   let dataPromise = null;
   let currentLang = null;
   let currentTab = 'alphabet';
+  let routeVersion = 0;
 
   function escapeHtml(text) {
     var d = document.createElement('div');
@@ -46,10 +47,12 @@ const PaleoLinguistics = (function() {
   function init(parsed) {
     var container = document.getElementById('paleo-linguistics');
     if (!container) return;
+    var version = ++routeVersion;
 
     loadCore().then(function() {
-      route(container, parsed);
+      route(container, parsed, version);
     }).catch(function(error) {
+      if (version !== routeVersion) return;
       container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки: ' + escapeHtml(error.message) + '</div>';
     });
   }
@@ -57,12 +60,18 @@ const PaleoLinguistics = (function() {
   // ===== МАРШРУТИЗАЦИЯ ВНУТРИ МОДУЛЯ =====
   // #paleo-linguistics — карточки языков
   // #paleo-linguistics/<lang-id> — страница языка (таб по умолчанию "Алфавит")
-  function route(container, parsed) {
+  function isCurrentRoute(langId) {
+    var hash = window.location.hash.replace(/^#/, '').split('?')[0].split('/');
+    return hash[0] === 'paleo-linguistics' && (langId ? hash[1] === langId : !hash[1]);
+  }
+
+  function route(container, parsed, version) {
+    version = version || ++routeVersion;
     var segId = parsed && parsed.segments && parsed.segments[1];
     if (segId) {
-      showLanguage(container, segId);
+      showLanguage(container, segId, version);
     } else {
-      renderLangGrid(container);
+      renderLangGrid(container, version);
     }
   }
 
@@ -104,8 +113,9 @@ const PaleoLinguistics = (function() {
   }
 
   // ===== СЕТКА КАРТОЧЕК ЯЗЫКОВ =====
-  function renderLangGrid(container) {
+  function renderLangGrid(container, version) {
     Promise.all(languages.map(loadLanguage)).then(function(metas) {
+      if (version !== routeVersion || !isCurrentRoute()) return;
       var cards = metas.map(function(lang, i) {
         return '<div class="lab-card pl-lang-card" data-id="' + escapeHtml(lang.id) + '" role="button" tabindex="0" aria-label="Открыть язык: ' + escapeHtml(cardLanguageName(lang.name)) + '" style="animation-delay:' + (i * 60) + 'ms">' +
           '<div class="pl-lang-card-icon"><img src="../../assets/icons/32/' + escapeHtml(languages[i].icon) + '.png" width="32" height="32" alt="" onerror="this.style.display=\'none\'"></div>' +
@@ -135,12 +145,13 @@ const PaleoLinguistics = (function() {
         });
       });
     }).catch(function(error) {
+      if (version !== routeVersion || !isCurrentRoute()) return;
       container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки языков: ' + escapeHtml(error.message) + '</div>';
     });
   }
 
   // ===== СТРАНИЦА ЯЗЫКА =====
-  function showLanguage(container, langId) {
+  function showLanguage(container, langId, version) {
     var meta = languages.filter(function(l) { return l.id === langId; })[0];
     if (!meta) {
       container.innerHTML = '<div class="lab-alert lab-alert-error">Язык «' + escapeHtml(langId) + '» не найден.</div>' +
@@ -149,6 +160,7 @@ const PaleoLinguistics = (function() {
     }
 
     loadLanguage(meta).then(function(lang) {
+      if (version !== routeVersion || !isCurrentRoute(langId)) return;
       currentLang = lang;
       currentTab = 'alphabet';
       container.innerHTML = renderLangPage(lang);
@@ -166,9 +178,9 @@ const PaleoLinguistics = (function() {
       if (back) back.addEventListener('click', function(event) {
         event.preventDefault();
         if (typeof LabRouter !== 'undefined') LabRouter.navigate('paleo-linguistics');
-        renderLangGrid(container);
       });
     }).catch(function(error) {
+      if (version !== routeVersion || !isCurrentRoute(langId)) return;
       container.innerHTML = '<div class="lab-alert lab-alert-error">Ошибка загрузки языка: ' + escapeHtml(error.message) + '</div>';
     });
   }

@@ -451,6 +451,10 @@
     if (hero.getAttribute('data-lab-hero-view') !== signature) {
       hero.setAttribute('data-lab-hero-view', signature);
       hero.innerHTML = heroHtml(Object.assign({}, config, { titleId: 'lab-hero-title-' + moduleId }));
+      // После обновления шапки router восстанавливает крошки текущего маршрута.
+      if (window.LabRouter && window.LabRouter.refreshBreadcrumbs) {
+        window.LabRouter.refreshBreadcrumbs(moduleId);
+      }
     }
   }
 
