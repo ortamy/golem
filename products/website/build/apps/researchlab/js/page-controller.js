@@ -1313,6 +1313,14 @@ const PageController = (function() {
         if (window.Workbench) window.Workbench.applyRoute(parsed);
         break;
 
+      case 'club':
+        container.innerHTML = '<div id="club-app"></div>';
+        container.dataset.loaded = '1';
+        if (window.ClubModule) {
+          window.ClubModule.render(container.querySelector('#club-app'));
+        }
+        break;
+
       case 'root-dictionary':
         container.innerHTML = '<h1><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Корневой словарь</h1>' +
           '<p class="subtitle">Поиск по корням иврита. Введите корень, слово или значение.</p>' +
@@ -1991,6 +1999,8 @@ const PageController = (function() {
       if (segWb && segWb[1] === 'run') viewId = 'run';
       else if (segWb && segWb[1] === 'project') viewId = 'project';
       // override задаётся в workbench.js (title конвейера / имя проекта)
+    } else if (moduleId === 'club') {
+      viewId = 'club';
     }
     return [viewId, override];
   }

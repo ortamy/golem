@@ -1,0 +1,160 @@
+/* club.css — стили для модуля «Палео-клуб» */
+
+.club-content {
+  max-width: var(--user-content-width, 980px);
+  margin: 0 auto;
+  padding: var(--space-6);
+}
+
+.club-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  width: 100%;
+}
+
+.club-feature {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+}
+
+.club-feature-icon {
+  color: var(--accent-gold);
+  font-size: var(--text-xl);
+  flex-shrink: 0;
+}
+
+.club-feature strong {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.club-feature p {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+.club-waitlist {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: var(--space-6);
+  text-align: center;
+}
+
+.club-waitlist h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2);
+}
+
+.club-waitlist-hint {
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-4);
+}
+
+.club-form {
+  display: flex;
+  gap: var(--space-3);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.club-input {
+  flex: 1;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--text-md);
+  padding: var(--space-2) var(--space-3);
+  outline: none;
+}
+
+.club-input:focus {
+  border-color: var(--accent-gold);
+}
+
+.club-btn {
+  background: var(--accent-gold);
+  color: #fff;
+  font-family: inherit;
+  font-size: var(--text-md);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity var(--motion-fast);
+}
+
+.club-btn:hover {
+  opacity: 0.85;
+}
+
+.club-notice {
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+}
+
+.club-notice-success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.club-notice-error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+@keyframes club-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.sidebar-badge {
+  display: inline-block;
+  background: var(--accent-gold);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: var(--radius-pill);
+  margin-left: var(--space-2);
+  vertical-align: middle;
+  animation: club-pulse 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-badge {
+    animation: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .club-content {
+    padding: var(--space-4);
+  }
+  .club-features {
+    grid-template-columns: 1fr;
+  }
+  .club-form {
+    flex-direction: column;
+  }
+  .club-btn {
+    width: 100%;
+  }
+}
