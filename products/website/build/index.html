@@ -441,6 +441,107 @@
     @media (max-width: 480px) {
       .portal-card { padding: 36px 24px 28px; border-radius: 16px; }
     }
+    /* ===== ПАЛЕО-КЛУБ ===== */
+    .club-body { position: relative; z-index: 1; display: grid; gap: 26px; }
+    .club-card {
+      position: relative;
+      overflow: hidden;
+      padding: 38px 34px;
+      border: 1px solid var(--gold);
+      border-radius: 2px;
+      background: var(--chocolate);
+      color: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .club-card::after {
+      position: absolute;
+      top: -24px;
+      right: -10px;
+      z-index: 0;
+      color: var(--gold);
+      content: '𐤒𐤋 𐤀';
+      font-family: var(--serif);
+      font-size: clamp(6rem, 14vw, 11rem);
+      line-height: 1;
+      opacity: .08;
+      pointer-events: none;
+      transform: rotate(-8deg);
+      white-space: nowrap;
+    }
+    .club-eyebrow { margin-bottom: 14px; color: var(--gold); }
+    .club-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      animation: club-pulse 2.6s ease-in-out infinite;
+    }
+    .club-badge::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      content: '';
+    }
+    @keyframes club-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(200, 155, 60, 0); opacity: .78; }
+      50% { box-shadow: 0 0 0 6px rgba(200, 155, 60, .16); opacity: 1; }
+    }
+    .club-title { margin-bottom: 12px; color: var(--paper); }
+    .club-lead { max-width: 640px; margin-bottom: 0; color: #dbcbb2; font-family: var(--serif); font-size: clamp(1.1rem, 2.4vw, 1.45rem); line-height: 1.3; }
+    .club-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 26px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .club-list li { display: flex; align-items: baseline; gap: 10px; color: #dbcbb2; font-size: .92rem; }
+    .club-list li::before { flex: 0 0 auto; color: var(--gold); font-family: var(--serif); font-size: 1.15rem; }
+    .club-list li:nth-child(1)::before { content: '𐤀'; }
+    .club-list li:nth-child(2)::before { content: '𐤁'; }
+    .club-list li:nth-child(3)::before { content: '𐤂'; }
+    .club-list li:nth-child(4)::before { content: '𐤃'; }
+    .club-action { display: grid; gap: 12px; justify-items: start; align-content: center; }
+    .club-action .button { min-width: 240px; }
+    .club-note { margin: 0; color: #b9a58b; font-size: .76rem; }
+    /* Тизер клуба — на базе .portal-overlay */
+    .club-modal-badge { display: flex; justify-content: center; margin-bottom: 14px; }
+    .club-teaser-list {
+      display: grid;
+      gap: 9px;
+      margin: 0 0 18px;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+    }
+    .club-teaser-list li { display: flex; align-items: baseline; gap: 10px; color: var(--chocolate-soft); font-size: .88rem; }
+    .club-teaser-list li::before { flex: 0 0 auto; color: var(--gold-deep); font-family: var(--serif); }
+    .club-teaser-list li:nth-child(1)::before { content: '𐤀'; }
+    .club-teaser-list li:nth-child(2)::before { content: '𐤁'; }
+    .club-teaser-list li:nth-child(3)::before { content: '𐤂'; }
+    .club-teaser-list li:nth-child(4)::before { content: '𐤃'; }
+    .club-teaser-note { margin: 0; color: var(--muted); font-size: .78rem; text-align: center; }
+    @media (min-width: 900px) {
+      .club-body { grid-template-columns: 1fr auto; align-items: center; }
+    }
+    @media (max-width: 767px) {
+      .club-card { padding: 30px 22px; }
+      .club-list { grid-template-columns: 1fr; }
+      .club-action { justify-items: stretch; }
+      .club-action .button { width: 100%; min-width: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .club-badge { animation: none; opacity: 1; }
+    }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
@@ -582,6 +683,31 @@
         </div>
       </div>
     </section>
+
+    <section class="section club" id="club" aria-labelledby="club-title">
+      <div class="container">
+        <div class="club-card">
+          <div class="club-body">
+            <div class="club-copy">
+              <p class="eyebrow club-eyebrow">ГОЛЕМ · КЛУБ</p>
+              <span class="club-badge">СКОРО</span>
+              <h2 class="club-title" id="club-title">Палео-клуб</h2>
+              <p class="club-lead">Живая кеhила: вместе читаем палео-поток, учимся собирать слова и проходим карту состояний.</p>
+              <ul class="club-list">
+                <li>Буква и корень дня</li>
+                <li>Живые сессии и маскиль-часы</li>
+                <li>Круги по ~10 человек</li>
+                <li>Практика палео-инженера (Акт IV)</li>
+              </ul>
+            </div>
+            <div class="club-action">
+              <a class="button" id="clubCta" href="#">В палео-клуб <span aria-hidden="true">→</span></a>
+              <p class="club-note">Анонс открытия — на сайте и в GitHub.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Портал входа в лабораторию -->
@@ -603,6 +729,24 @@
         <button class="portal-btn portal-btn-primary" type="submit">Войти</button>
         <a class="portal-btn portal-btn-ghost" href="apps/researchlab/index.html#dashboard">Гостевой режим</a>
       </form>
+    </div>
+  </div>
+
+  <!-- Палео-клуб: тизер открытия (заглушка) -->
+  <div class="portal-overlay" id="clubTeaser" hidden>
+    <div class="portal-card" role="dialog" aria-modal="true" aria-labelledby="clubTeaserTitle">
+      <button class="portal-close" type="button" aria-label="Закрыть" id="clubTeaserClose">×</button>
+      <div class="portal-brand">ГОЛЕМ · КЛУБ</div>
+      <p class="club-badge club-modal-badge">СКОРО</p>
+      <h2 class="portal-heading" id="clubTeaserTitle">Палео-клуб открывается скоро</h2>
+      <p class="portal-desc">Круг живого чтения и практики. Что будет внутри:</p>
+      <ul class="club-teaser-list">
+        <li>Буква и корень дня — короткая разметка смыслов</li>
+        <li>Живые сессии и маскиль-часы — вопросы и разбор</li>
+        <li>Круги по ~10 человек — удержание глубины</li>
+        <li>Практика палео-инженера (Акт IV)</li>
+      </ul>
+      <p class="club-teaser-note">Анонс открытия — на сайте и в GitHub.</p>
     </div>
   </div>
 
@@ -694,6 +838,52 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && portal && !portal.hidden) closePortal();
     });
+
+    // ===== ПАЛЕО-КЛУБ =====
+    // Ссылка на клуб. Пусто (сейчас) → режим заглушки: кнопка открывает тизер.
+    // Когда клуб откроется — вставить URL, и кнопка сама станет внешней ссылкой.
+    const CLUB_URL = '';
+    const clubCta = document.querySelector('#clubCta');
+    const clubTeaser = document.querySelector('#clubTeaser');
+    const clubTeaserClose = document.querySelector('#clubTeaserClose');
+    let clubReturnFocus = null;
+
+    function openClubTeaser(trigger) {
+      if (!clubTeaser) return;
+      clubReturnFocus = trigger;
+      clubTeaser.hidden = false;
+      clubTeaser.classList.add('is-open');
+      document.body.classList.add('portal-is-open');
+      setTimeout(() => clubTeaserClose?.focus(), 100);
+    }
+
+    function closeClubTeaser() {
+      if (!clubTeaser) return;
+      clubTeaser.classList.remove('is-open');
+      clubTeaser.hidden = true;
+      document.body.classList.remove('portal-is-open');
+      clubReturnFocus?.focus();
+      clubReturnFocus = null;
+    }
+
+    if (CLUB_URL) {
+      // Клуб открыт: кнопка ведёт наружу.
+      clubCta.href = CLUB_URL;
+      clubCta.target = '_blank';
+      clubCta.rel = 'noopener noreferrer';
+    } else {
+      // Заглушка: тизер вместо перехода.
+      clubCta.setAttribute('aria-haspopup', 'dialog');
+      clubCta.addEventListener('click', (e) => {
+        e.preventDefault();
+        openClubTeaser(clubCta);
+      });
+      clubTeaserClose?.addEventListener('click', closeClubTeaser);
+      clubTeaser?.addEventListener('click', (e) => { if (e.target === clubTeaser) closeClubTeaser(); });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && clubTeaser && !clubTeaser.hidden) closeClubTeaser();
+      });
+    }
   </script>
 </body>
 </html>

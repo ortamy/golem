@@ -96,6 +96,7 @@ const PageController = (function() {
       jsonCache[page] = data;
       if (page === 'dictionaries') renderDictionaries(container, data);
       else renderDocumentPage(container, page, data);
+      if (window.LabRouter) LabRouter.renderBreadcrumbs(page, LabRouter.parseHash());
     }).catch(function(error) {
       showError(container, 'Ошибка загрузки данных: ' + error.message);
     });
@@ -337,16 +338,16 @@ const PageController = (function() {
       '</article>'
     ].join('');
 
-    container.innerHTML = '<div class="research-page-head paleo-mechanics-head">' +
-      '<h1>' + escapeHtml(documentData.title || 'Палео-механика') + '</h1>' +
-      '<p class="subtitle text-muted">' + escapeHtml((documentData.description || '').replace(/---/g, '').trim()) + '</p>' +
-      backBtn +
-      '</div>' +
+    container.innerHTML = '<div class="paleo-mechanics-actions">' + backBtn + '</div>' +
       '<div class="research-controls"><label>Документ<select id="research-paleo-mechanics-select" class="lab-input">' + options + '</select></label></div>' +
       '<div class="paleo-mechanics-modules">' + cards + '</div>';
 
     var select = document.getElementById('research-paleo-mechanics-select');
     if (select) select.addEventListener('change', function() {
+      if (window.LabRouter) {
+        LabRouter.navigate('paleo-mechanics', [this.value]);
+        return;
+      }
       PageController.pageState['paleo-mechanics'].key = this.value;
       renderDocumentPage(container, 'paleo-mechanics', PageController.jsonCache['paleo-mechanics']);
     });
@@ -355,6 +356,11 @@ const PageController = (function() {
   function renderDocumentPage(container, page, data) {
     var state = pageState[page];
     var keys = Object.keys(data);
+    var parsed = window.LabRouter && LabRouter.parseHash ? LabRouter.parseHash() : null;
+    var routeKey = page === 'paleo-mechanics' && parsed && parsed.module === page && parsed.segments[1]
+      ? decodeURIComponent(parsed.segments[1])
+      : '';
+    if (page === 'paleo-mechanics') state.key = data[routeKey] ? routeKey : '';
     if (!keys.length) {
       container.innerHTML = '<div class="lab-alert lab-alert-info">Материалы пока не заполнены.</div>';
       return;
@@ -370,16 +376,22 @@ const PageController = (function() {
           '</a>';
       }).join('');
       var heading = page === 'paleo-mechanics' ? 'Палео-механика' : 'Методички';
-      container.innerHTML = '<div class="research-page-head">' +
-        '<h1><img src="' + iconPath + '" class="lab-icon" alt="">' + heading + '</h1>' +
-        '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p>' +
-        '</div>' +
-        '<div class="doc-grid" id="doc-grid">' + docCards + '</div>';
+      container.innerHTML = page === 'paleo-mechanics'
+        ? '<div class="doc-grid" id="doc-grid">' + docCards + '</div>'
+        : '<div class="research-page-head">' +
+          '<h1><img src="' + iconPath + '" class="lab-icon" alt="">' + heading + '</h1>' +
+          '<p class="subtitle">Материалы ResearchLab, собранные из исходных Markdown-документов.</p>' +
+          '</div>' +
+          '<div class="doc-grid" id="doc-grid">' + docCards + '</div>';
       var docGrid = document.getElementById('doc-grid');
       if (docGrid) {
         docGrid.querySelectorAll('.doc-card').forEach(function(card) {
           card.addEventListener('click', function(e) {
             e.preventDefault();
+            if (page === 'paleo-mechanics' && window.LabRouter) {
+              LabRouter.navigate(page, [this.getAttribute('data-key')]);
+              return;
+            }
             state.key = this.getAttribute('data-key');
             renderDocumentPage(container, page, data);
           });
@@ -392,7 +404,9 @@ const PageController = (function() {
       return '<option value="' + escapeHtml(key) + '"' + (key === state.key ? ' selected' : '') + '>' +
         escapeHtml(data[key].title || key) + '</option>';
     }).join('');
-    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState[\'' + page + '\'].key=\'\';PageController.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', PageController.jsonCache[\'' + page + '\'])">← Назад к списку</button>';
+    var backBtn = page === 'paleo-mechanics'
+      ? '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'paleo-mechanics\')">← Назад к списку</button>'
+      : '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState[\'' + page + '\'].key=\'\';PageController.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', PageController.jsonCache[\'' + page + '\'])">← Назад к списку</button>';
     if (page === 'paleo-mechanics') {
       renderPaleoMechanicsDocument(container, documentData, options, backBtn);
       return;
@@ -431,6 +445,10 @@ const PageController = (function() {
       '<div class="research-sections">' + sections + '</div>';
     var select = document.getElementById('research-' + page + '-select');
     if (select) select.addEventListener('change', function() {
+      if (page === 'paleo-mechanics' && window.LabRouter) {
+        LabRouter.navigate(page, [this.value]);
+        return;
+      }
       state.key = this.value;
       renderDocumentPage(container, page, data);
     });
@@ -439,6 +457,16 @@ const PageController = (function() {
   function renderManifestPage(container, data) {
     document.title = 'Манифест — Golem';
     var story = data.story || {};
+    // Общая шапка LabHero — единственная шапка манифеста.
+    // Крошки добавляет router.js, подзаголовок берём из данных манифеста.
+    container._labHeroOverride = {
+      title: story.title || data.title || 'Манифест проекта',
+      subtitle: story.lead || data.description || ''
+    };
+    if (window.LabHero && LabHero.setView) {
+      LabHero.setView('manifest', null, container._labHeroOverride);
+      if (window.LabRouter) LabRouter.renderBreadcrumbs('manifest', LabRouter.parseHash());
+    }
     var acts = story.acts || {};
     var problem = acts.problem || {};
     var methodology = acts.methodology || {};
@@ -701,12 +729,6 @@ const PageController = (function() {
       '</div>' +
       '</div>' +
       '<div class="manifest-page">' +
-      '<header class="manifest-hero">' +
-      '<div class="manifest-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
-      '<div class="manifest-kicker">RESEARCHLAB · МАНИФЕСТ v' + escapeHtml(data.version || '11.0') + '</div>' +
-      '<h1>' + escapeHtml(story.title || data.title || 'Манифест проекта') + '</h1>' +
-      '<p class="manifest-lead">' + escapeHtml(story.lead || data.description || '') + '</p>' +
-      '</header><div class="manifest-hero-divider" aria-hidden="true"></div>' +
 
       // АКТ I: ПРОБЛЕМА
       '<section class="manifest-act manifest-act-problem" id="manifest-act-problem" aria-labelledby="manifest-problem-title">' +
@@ -1238,8 +1260,14 @@ const PageController = (function() {
       if (moduleId === 'learn' && window.LearnLab) {
         window.LearnLab.applyRoute(parsed);
       }
+      if (moduleId === 'researches' && window.LoadResearches) {
+        window.LoadResearches.render(container, parsed);
+      }
       if (moduleId === 'dictionaries' && jsonCache.dictionaries) {
         renderDictionaries(container, jsonCache.dictionaries);
+      }
+      if (moduleId === 'paleo-mechanics' && jsonCache['paleo-mechanics']) {
+        renderDocumentPage(container, 'paleo-mechanics', jsonCache['paleo-mechanics']);
       }
       if (moduleId === 'ai-agents' && parsed && parsed.segments && parsed.segments[1]) {
         renderAgentDetail(container, parsed.segments[1]);
@@ -1367,19 +1395,17 @@ const PageController = (function() {
           '<h1><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Книгочтение</h1>' +
           '<p class="subtitle">Книги Танаха, засвидетельствованные в кумранских свитках. Чтение на палео-иврите с последовательным просмотром стихов.</p>' +
           '</div>' +
+          '<div id="scripture-verse-nav" class="scripture-verse-nav" style="display:none;" aria-label="Выбор главы и стиха"></div>' +
           '<div class="scripture-reader-layout"><main class="scripture-main">' +
           '<div id="scripture-book-grid" class="scripture-book-grid"></div>' +
           '<article class="scripture-verse" id="scripture-verse-article" style="display:none;" aria-labelledby="scripture-verse-title">' +
-          '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm scripture-back-btn" id="scripture-back-btn">← К списку книг</button>' +
           '<div class="scripture-verse-meta" id="scripture-verse-title">Берешит 1:1</div>' +
-          '<div id="scripture-verse-nav" class="scripture-verse-nav" aria-label="Выбор стиха"></div>' +
           '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm scripture-copy-button scripture-copy-verse" id="scripture-copy-verse" aria-label="Копировать стих" title="Копировать стих">' +
           '<svg class="scripture-copy-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="11" height="11" rx="1.5"></rect><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"></path></svg>' +
           '</button>' +
           '<div id="scripture-paleo" class="scripture-paleo" dir="rtl" lang="hbo" aria-label="Палео-иврит"></div>' +
           '<div id="scripture-hebrew" class="scripture-hebrew" dir="rtl" lang="he"></div>' +
           '<div id="scripture-translit" class="scripture-translit"></div>' +
-          '<div id="scripture-literal" class="scripture-literal"></div>' +
           '</article>' +
           '<nav class="scripture-navigation" id="scripture-navigation" style="display:none;" aria-label="Навигация по стихам">' +
           '<button type="button" class="lab-btn lab-btn-secondary" id="scripture-prev">← Предыдущий стих</button>' +

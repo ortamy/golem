@@ -290,8 +290,8 @@
 /* ===== БЕЛАЯ ТЕМА ===== */
 [data-theme="white"] .section-hero,
 [data-theme="white"] .tl-hero {
-  background: #fff;
-  border-color: #e0d8cc;
+  background: var(--bg-card);
+  border-color: var(--border-light);
 }
 
 [data-theme="white"] .section-hero h1,
@@ -305,8 +305,8 @@
 }
 
 [data-theme="white"] .tl-container {
-  background: #fff;
-  border-color: #e0d8cc;
+  background: var(--bg-card);
+  border-color: var(--border-light);
 }
 
 /* ===== АДАПТИВ ===== */

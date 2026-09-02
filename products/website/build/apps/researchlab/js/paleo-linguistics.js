@@ -110,7 +110,6 @@ const PaleoLinguistics = (function() {
         return '<div class="lab-card pl-lang-card" data-id="' + escapeHtml(lang.id) + '" role="button" tabindex="0" aria-label="Открыть язык: ' + escapeHtml(cardLanguageName(lang.name)) + '" style="animation-delay:' + (i * 60) + 'ms">' +
           '<div class="pl-lang-card-icon"><img src="../../assets/icons/32/' + escapeHtml(languages[i].icon) + '.png" width="32" height="32" alt="" onerror="this.style.display=\'none\'"></div>' +
           '<h2 class="pl-lang-title">' + escapeHtml(cardLanguageName(lang.name)) + '</h2>' +
-          '<div class="pl-lang-divider" aria-hidden="true"></div>' +
           '<div class="pl-lang-role">' + escapeHtml(lang.role) + '</div>' +
         '</div>';
       }).join('');

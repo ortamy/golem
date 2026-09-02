@@ -7,6 +7,12 @@ const PaleoLetters = require('../js/paleo-letters.js');
 
 const rootsPath = path.join(__dirname, '..', 'data', 'roots', 'roots.json');
 const roots = JSON.parse(fs.readFileSync(rootsPath, 'utf8'));
+const bereshitPath = path.join(__dirname, '..', 'data', 'scripture', 'bereshit-1.json');
+const bereshit = JSON.parse(fs.readFileSync(bereshitPath, 'utf8'));
+const booksPath = path.join(__dirname, '..', 'data', 'qumran-books.json');
+const books = JSON.parse(fs.readFileSync(booksPath, 'utf8')).books;
+const readerSource = fs.readFileSync(path.join(__dirname, '..', 'js', 'scripture-reader.js'), 'utf8');
+const PaleoWeaver = require('../js/paleo-weaver.js');
 
 function findRoot(value) {
   const normalized = PaleoLetters.normalizeHebrew(value);
@@ -53,8 +59,82 @@ assert.strictEqual(findRoot('𐤀𐤁'), undefined);
 assert.strictEqual(findRoot('א ב'), av);
 assert.strictEqual(findRoot('ך'), undefined);
 
+assert.strictEqual(
+  PaleoWeaver.wordReading(['вместилище', 'вершина', 'сила', 'разрушение', 'действие', 'фиксация']),
+  'вместилище, которое фиксирует вершину через разрушение'
+);
+assert.strictEqual(
+  PaleoWeaver.verseFunction([['вместилище', 'вершина', 'сила', 'разрушение']]),
+  'разрушение вместилища.'
+);
+assert.strictEqual(PaleoWeaver.wordReading(['сила', 'направление', 'действие']), 'сила, которая направляет через действие');
+assert.strictEqual(PaleoWeaver.wordReading(['поток', 'направление']), 'поток, который направляет');
+assert.ok(!PaleoWeaver.wordReading(['откровение', 'направление', 'откровение']).includes('к откровению'));
+assert.ok(!PaleoWeaver.wordReading(['поток', 'направление', 'поток']).includes('через поток'));
+assert.strictEqual(PaleoWeaver.isParticle(['связка']), true);
+assert.strictEqual(PaleoWeaver.particleText(['связка']), 'и');
+assert.ok(PaleoWeaver.verseReading([['связка'], ['сила', 'направление', 'действие']]).split(/\s+/).length <= 20);
+
 assert.doesNotThrow(function() { assertContiguous([4, 5, 6, 7]); });
 assert.throws(function() { assertContiguous([4, 6]); }, /последовательный диапазон/);
 assert.doesNotThrow(function() { assertContiguous([1, 2, 3, 4, 5]); });
+
+assert.strictEqual(bereshit.length, 1533, 'Берешит содержит полный корпус из 1533 стихов');
+assert.ok(bereshit.every(function(verse) {
+  return verse.hebrew && verse.paleo && Array.isArray(verse.words) && verse.words.length;
+}), 'У каждого стиха есть квадратный и палео-слой');
+assert.ok(bereshit.every(function(verse) {
+  return verse.words.every(function(word) { return word.hebrew && word.paleo; });
+}), 'У каждого слова есть квадратная и палео-графика');
+assert.ok(bereshit.every(function(verse) {
+  return PaleoLetters.toPaleo(PaleoLetters.normalizeHebrew(verse.hebrew)) === verse.paleo.replace(/\s/g, '');
+}), 'Палео-строка механически соответствует согласному квадратному слою');
+
+books.forEach(function(book) {
+  assert.ok(book.dataFile, 'Для книги подключён файл данных: ' + book.id);
+  const file = path.join(__dirname, '..', 'data', 'scripture', book.dataFile + '.json');
+  assert.ok(fs.existsSync(file), 'Файл данных существует: ' + book.dataFile);
+  const verses = JSON.parse(fs.readFileSync(file, 'utf8'));
+  assert.ok(verses.length > 0, 'Книга содержит стихи: ' + book.id);
+  assert.ok(verses.every(function(verse) {
+    return verse.hebrew && verse.paleo && Array.isArray(verse.words) && verse.words.length;
+  }), 'Нет пропусков в слоях книги: ' + book.id);
+  assert.ok(verses.every(function(verse) {
+    return PaleoLetters.toPaleo(PaleoLetters.normalizeHebrew(verse.hebrew)) === verse.paleo.replace(/\s/g, '');
+  }), 'Палео-графика синхронизирована: ' + book.id);
+  assert.ok(verses.every(function(verse) {
+    return verse.paleo_translation && ['draft', 'review', 'verified'].includes(verse.paleo_translation_status);
+  }), 'У каждого стиха есть маркированная палео-сборка: ' + book.id);
+});
+
+assert.ok(readerSource.includes('scripture-meaning-card'), 'Смысловая сборка выводится отдельной карточкой');
+assert.ok(readerSource.includes('scripture-assembly-details'), 'Технический след сворачивается в details');
+assert.ok(readerSource.includes('scripture-constructor-chips'), 'Палео-конструктор выводит глиф-чипы');
+assert.ok(readerSource.includes('scripture-glyph-popover'), 'Глифы используют управляемый popover');
+assert.ok(readerSource.includes('data-name='), 'Чипы передают имя буквы в popover');
+assert.ok(readerSource.includes('pointerover'), 'Hover показывает popover');
+assert.ok(readerSource.includes("glyphPointerType === 'touch'"), 'Повторный тап закрывает popover без закрытия при mouse-клике');
+assert.ok(readerSource.includes("event.key === 'Escape'"), 'Escape закрывает popover');
+assert.ok(readerSource.includes('aria-haspopup="true"'), 'Чипы доступны как интерактивные элементы');
+assert.ok(readerSource.includes("setAttribute('aria-describedby', 'scripture-glyph-popover')"), 'Открытый popover связан с чипом через aria-describedby');
+assert.ok(readerSource.includes('meaningPass.verse_reading'), 'Meaning-pass имеет приоритет для связного образа');
+assert.ok(readerSource.includes('meaningPass.verse_function'), 'Meaning-pass имеет отдельную функцию стиха');
+assert.ok(readerSource.includes('WEAVER.verseReading(chains)'), 'Fallback использует Weaver v2 для связного образа');
+assert.ok(readerSource.includes('WEAVER.isParticle(normalizedChain)'), 'Служебные частицы присоединяются к соседнему слову');
+assert.ok(readerSource.includes('scripture-word-row'), 'Конструктор использует строковую Grid-разметку');
+assert.ok(readerSource.includes('updateConstructorOverflow'), 'Scrollbar включается только для реально длинных рядов');
+assert.ok(readerSource.includes("paleoLetters.length <= 7 ? ' is-fit'"), 'Короткие слова растягиваются без scrollbar');
+assert.ok(!readerSource.includes('escapeHtml(verseTranslation.toUpperCase())'), 'Смысловая сборка не переводится в верхний регистр');
+assert.ok(!readerSource.includes('escapeHtml(verseFunction.toUpperCase())'), 'Функция стиха не переводится в верхний регистр');
+const readerCss = fs.readFileSync(path.join(__dirname, '..', 'css', 'scripture-reader.css'), 'utf8');
+assert.ok(readerCss.includes('flex-wrap: nowrap;') && readerCss.includes('overflow-x: auto;'), 'Чипы остаются горизонтальными на узкой ширине');
+assert.ok(readerCss.includes('flex: 1 1 auto;') && readerCss.includes('.scripture-glyph-arrow'), 'Коннекторы растягивают строку');
+assert.ok(readerCss.includes('.scripture-constructor-chips.is-scrollable'), 'Скролл активируется отдельным классом');
+assert.ok(readerCss.includes('.scripture-constructor-chips.is-fit'), 'Короткие строки растягиваются на ширину конструктора');
+assert.ok(readerCss.includes('@media (max-width: 720px)'), 'Есть отдельный мобильный брейкпоинт конструктора');
+assert.ok(readerCss.includes('flex-direction: column;') && readerCss.includes('.scripture-glyph-arrow::after'), 'Мобильный конструктор выводит чипы и стрелки вертикально');
+assert.ok(readerCss.includes('.scripture-navigation .lab-btn') && readerCss.includes('max-width: none;'), 'Мобильная навигация стихов не ограничивает кнопки по ширине');
+assert.ok(readerCss.includes('.scripture-physics-chevron') && readerCss.includes('grid-column: 2;'), 'Chevron физики слова закреплён справа');
+assert.ok(!readerCss.includes('.scripture-glyph-tooltip'), 'Старый CSS-tooltip удалён');
 
 console.log('OK: PaleoLetters and Scripture Reader core scenarios passed');

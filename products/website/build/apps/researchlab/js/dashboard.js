@@ -118,9 +118,14 @@ const Dashboard = (function() {
     container.innerHTML =
       renderCounters(data, dictEntries, totalTerms) +
       '<div class="dw-grid">' +
+        renderActivityTicker(data.researches) +
+        renderBooksProgress(data.qumranBooks, data.bookProgress) +
         renderMechanismsBars(dictEntries) +
         renderLatestResearches(data.researches) +
-        renderBooksProgress(data.qumranBooks, data.bookProgress) +
+        renderResearchActivity(data.researches) +
+        renderReliabilityContour(data.researches) +
+        renderCompletenessMap(data.researches) +
+        renderReviewQueue(data.researches) +
       '</div>';
 
     bindDictClicks(container);
@@ -128,16 +133,180 @@ const Dashboard = (function() {
   }
 
   function renderCounters(data, dictEntries, totalTerms) {
+    var deltas = calculateCounterDeltas(data.researches);
+    var researchMetrics = calculateResearchMetrics(data.researches);
     var items = [
-      { num: data.roots.length, label: 'Корней' },
-      { num: totalTerms, label: 'Терминов подмен' },
-      { num: data.researches.length, label: 'Исследований' },
-      { num: dictEntries.length, label: 'Словарей' },
-      { num: data.heraldry.length, label: 'Империй/гербов' }
+      { num: data.roots.length, label: 'Корней', delta: deltas.snapshot, href: '#root-dictionary' },
+      { num: totalTerms, label: 'Терминов подмен', delta: deltas.snapshot, href: '#dictionaries' },
+      { num: data.researches.length, label: 'Исследований', delta: deltas.researches, href: '#researches' },
+      { num: dictEntries.length, label: 'Словарей', delta: deltas.snapshot, href: '#dictionaries' },
+      { num: data.heraldry.length, label: 'Империй/гербов', delta: deltas.snapshot, href: '#heraldry' }
     ];
-    return '<div class="dw-counters">' + items.map(function(item) {
-      return '<div class="dw-counter"><div class="dw-num">' + esc(item.num) + '</div><div class="dw-label">' + esc(item.label) + '</div></div>';
-    }).join('') + '</div>';
+    return '<section class="dw-summary" aria-labelledby="dw-summary-title">' +
+      '<div class="dw-summary-heading"><div><span class="dw-summary-kicker">Срез корпуса</span><h2 id="dw-summary-title">Сводка исследований</h2></div>' +
+        '<span class="dw-summary-date">' + esc(researchMetrics.referenceDate ? 'Срез данных: ' + researchMetrics.referenceDate : 'Дата среза не указана') + '</span></div>' +
+      '<div class="dw-summary-grid">' + items.map(function(item) {
+        var tag = item.href ? 'a' : 'div';
+        var href = item.href ? ' href="' + item.href + '"' : '';
+        return '<' + tag + ' class="dw-summary-item' + (item.href ? ' dw-summary-item--link' : '') + '"' + href + '>' +
+          '<span class="dw-summary-value">' + esc(item.num) + '</span><span class="dw-summary-label">' + esc(item.label) + '</span>' +
+          renderCounterDelta(item.delta) + '</' + tag + '>';
+      }).join('') + '</div>' +
+    '</section>';
+  }
+
+  function parseDate(value) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value || ''))) return null;
+    var date = new Date(String(value) + 'T00:00:00Z');
+    return isNaN(date.getTime()) ? null : date;
+  }
+
+  function calculateCounterDeltas(researches) {
+    var records = Array.isArray(researches) ? researches : [];
+    var dates = records.map(function(item) { return parseDate(item.createdAt); }).filter(Boolean);
+    var anchor = dates.reduce(function(latest, date) { return !latest || date > latest ? date : latest; }, null);
+    var snapshot = { kind: 'neutral', text: 'срез данных' };
+    if (!anchor) return { researches: { kind: 'neutral', text: 'нет истории' }, snapshot: snapshot };
+    var boundary = new Date(anchor.getTime());
+    boundary.setUTCDate(boundary.getUTCDate() - 29);
+    var growth = records.filter(function(item) {
+      var date = parseDate(item.createdAt);
+      return date && date >= boundary && date <= anchor;
+    }).length;
+    return {
+      researches: growth ? { kind: 'up', text: '+' + growth + ' за 30 дней' } : { kind: 'neutral', text: 'без прироста · 30 дней' },
+      snapshot: snapshot
+    };
+  }
+
+  function renderCounterDelta(delta) {
+    return '<div class="dw-counter-delta dw-counter-delta--' + esc(delta.kind) + '">' +
+      (delta.kind === 'up' ? '<span aria-hidden="true">▲</span> ' : '') + esc(delta.text) +
+    '</div>';
+  }
+
+  function calculateResearchMetrics(researches) {
+    var records = Array.isArray(researches) ? researches : [];
+    var dates = [];
+    records.forEach(function(item) {
+      [item.createdAt, item.updatedAt].forEach(function(value) {
+        var date = parseDate(value);
+        if (date) dates.push(date);
+      });
+    });
+    var anchor = dates.reduce(function(latest, date) {
+      return !latest || date > latest ? date : latest;
+    }, null);
+
+    function countActivity(field, days, skipCreatedRecords) {
+      if (!anchor) return 0;
+      var boundary = new Date(anchor.getTime());
+      boundary.setUTCDate(boundary.getUTCDate() - days + 1);
+      return records.filter(function(item) {
+        var date = parseDate(item[field]);
+        return date && date >= boundary && date <= anchor &&
+          (!skipCreatedRecords || item.updatedAt !== item.createdAt);
+      }).length;
+    }
+
+    function countBy(field, value) {
+      return records.filter(function(item) { return item[field] === value; }).length;
+    }
+
+    return {
+      referenceDate: anchor ? anchor.toISOString().slice(0, 10) : '',
+      new7: countActivity('createdAt', 7, false),
+      new30: countActivity('createdAt', 30, false),
+      updated7: countActivity('updatedAt', 7, true),
+      updated30: countActivity('updatedAt', 30, true),
+      published: countBy('status', 'published'),
+      draft: countBy('status', 'draft'),
+      verified: countBy('confidence', 'verified'),
+      needsReview: countBy('confidence', 'needs-review'),
+      hypothesis: countBy('confidence', 'hypothesis')
+    };
+  }
+
+  function renderMetric(label, value, modifier) {
+    return '<div class="dw-metric' + (modifier ? ' dw-metric--' + modifier : '') + '">' +
+      '<span class="dw-metric-value">' + esc(value) + '</span>' +
+      '<span class="dw-metric-label">' + esc(label) + '</span>' +
+    '</div>';
+  }
+
+  function renderResearchActivity(researches) {
+    var metrics = calculateResearchMetrics(researches);
+    var reference = metrics.referenceDate ? 'Срез данных: ' + metrics.referenceDate : 'Даты материалов не указаны';
+    return '<div class="dw-widget">' +
+      '<h3>Движение исследований</h3>' +
+      '<div class="dw-metric-grid">' +
+        renderMetric('Новые · 7 дней', metrics.new7, 'new') +
+        renderMetric('Обновлённые · 7 дней', metrics.updated7, 'updated') +
+        renderMetric('Новые · 30 дней', metrics.new30, 'new') +
+        renderMetric('Обновлённые · 30 дней', metrics.updated30, 'updated') +
+      '</div>' +
+      '<p class="dw-widget-note">' + esc(reference) + '</p>' +
+    '</div>';
+  }
+
+  function renderReliabilityContour(researches) {
+    var metrics = calculateResearchMetrics(researches);
+    return '<div class="dw-widget">' +
+      '<h3>Контур надёжности</h3>' +
+      '<div class="dw-metric-grid">' +
+        renderMetric('Проверено', metrics.verified, 'verified') +
+        renderMetric('Требует проверки', metrics.needsReview, 'review') +
+        renderMetric('Гипотезы', metrics.hypothesis, 'hypothesis') +
+        renderMetric('Опубликовано', metrics.published, 'published') +
+      '</div>' +
+    '</div>';
+  }
+
+  function calculateCompletenessMap(researches) {
+    var records = Array.isArray(researches) ? researches : [];
+    var supportFields = [
+      { key: 'thesis', label: 'тезис' },
+      { key: 'original', label: 'исходный контур' },
+      { key: 'shift', label: 'сдвиг' },
+      { key: 'transmissionChain', label: 'цепочка передачи' },
+      { key: 'sources', label: 'источники' },
+      { key: 'roots', label: 'корни' },
+      { key: 'evidence', label: 'свидетельства' },
+      { key: 'reconstruction', label: 'реконструкция' }
+    ];
+    function hasSupport(item, field) {
+      var value = field.key === 'sources' || field.key === 'roots' ? item[field.key] : (item.sections || {})[field.key];
+      return Array.isArray(value) ? value.length > 0 : Boolean(value && String(value).trim());
+    }
+    var items = records.map(function(item) {
+      var missing = supportFields.filter(function(field) { return !hasSupport(item, field); });
+      return {
+        id: item.id || '', slug: item.slug || '', title: item.title || item.id || 'Без названия',
+        complete: supportFields.length - missing.length, total: supportFields.length,
+        percent: Math.round(((supportFields.length - missing.length) / supportFields.length) * 100),
+        missing: missing.map(function(field) { return field.label; }), updatedAt: parseDate(item.updatedAt) ? item.updatedAt : ''
+      };
+    }).sort(function(a, b) {
+      return a.percent - b.percent || String(b.updatedAt).localeCompare(String(a.updatedAt)) || String(a.title).localeCompare(String(b.title), 'ru');
+    });
+    var average = items.length ? Math.round(items.reduce(function(sum, item) { return sum + item.percent; }, 0) / items.length) : 0;
+    return { average: average, items: items };
+  }
+
+  function renderCompletenessMap(researches) {
+    var map = calculateCompletenessMap(researches);
+    var rows = map.items.slice(0, 5).map(function(item) {
+      var href = item.slug ? '#researches/case/' + encodeURIComponent(item.slug) : '#researches';
+      return '<a class="dw-completeness-item" href="' + href + '">' +
+        '<span class="dw-completeness-head"><span class="dw-completeness-title">' + esc(item.title) + '</span><span class="dw-completeness-value">' + esc(item.percent) + '% · ' + esc(item.complete) + '/' + esc(item.total) + '</span></span>' +
+        '<span class="dw-completeness-track" aria-hidden="true"><span class="dw-completeness-fill" style="width:' + item.percent + '%"></span></span>' +
+        '<span class="dw-completeness-missing">' + (item.missing.length ? 'Разрывы: ' + esc(item.missing.join(', ')) : 'Все опоры собраны') + '</span>' +
+      '</a>';
+    }).join('');
+    return '<div class="dw-widget dw-widget-wide">' +
+      '<div class="dw-widget-heading"><h3>Карта полноты материалов</h3><strong class="dw-completeness-average">' + esc(map.average) + '% <span>средняя полнота</span></strong></div>' +
+      '<div class="dw-completeness-list">' + (rows || '<div class="lab-alert lab-alert-info">Материалов пока нет.</div>') + '</div>' +
+    '</div>';
   }
 
   function renderMechanismsBars(dictEntries) {
@@ -170,6 +339,101 @@ const Dashboard = (function() {
     return '<div class="dw-widget">' +
       '<h3>Последние разборы</h3>' +
       '<div class="dw-list">' + (items || '<div class="lab-alert lab-alert-info">Пока пусто.</div>') + '</div>' +
+    '</div>';
+  }
+
+  function collectResearchActivity(researches) {
+    var events = [];
+    (Array.isArray(researches) ? researches : []).forEach(function(item) {
+      var hasChangelog = false;
+      (Array.isArray(item.changelog) ? item.changelog : []).forEach(function(change) {
+        if (!parseDate(change.date)) return;
+        hasChangelog = true;
+        events.push({
+          date: change.date,
+          type: 'change',
+          title: item.title || item.id || 'Материал без названия',
+          slug: item.slug || item.id || '',
+          note: change.note || 'Зафиксировано изменение материала'
+        });
+      });
+
+      if (hasChangelog) return;
+      if (parseDate(item.createdAt)) {
+        events.push({ date: item.createdAt, type: 'new', title: item.title || item.id || 'Материал без названия', slug: item.slug || item.id || '', note: 'Создан материал' });
+      }
+      if (parseDate(item.updatedAt) && item.updatedAt !== item.createdAt) {
+        events.push({ date: item.updatedAt, type: 'updated', title: item.title || item.id || 'Материал без названия', slug: item.slug || item.id || '', note: 'Обновлён материал' });
+      }
+    });
+    return events.sort(function(a, b) {
+      var dateOrder = String(b.date).localeCompare(String(a.date));
+      return dateOrder || String(a.title).localeCompare(String(b.title), 'ru');
+    }).slice(0, 8);
+  }
+
+  function renderActivityTicker(researches) {
+    var events = collectResearchActivity(researches);
+    if (!events.length) {
+      return '<div class="dw-widget dw-widget-wide"><h3>Живая лента активности</h3><div class="lab-alert lab-alert-info">Датированные события пока не зафиксированы.</div></div>';
+    }
+    var items = events.map(function(event) {
+      var href = event.slug ? '#researches/case/' + encodeURIComponent(event.slug) : '#researches';
+      return '<a class="dw-ticker-item" href="' + href + '">' +
+        '<span class="dw-ticker-date">' + esc(event.date) + '</span>' +
+        '<span class="dw-ticker-type dw-ticker-type--' + esc(event.type) + '">' + esc(event.type === 'new' ? 'Новое' : event.type === 'updated' ? 'Обновлено' : 'Запись') + '</span>' +
+        '<span class="dw-ticker-text"><strong>' + esc(event.title) + '</strong> — ' + esc(event.note) + '</span>' +
+      '</a>';
+    }).join('');
+    var copies = events.map(function(event) {
+      return '<span class="dw-ticker-item" aria-hidden="true"><span class="dw-ticker-date">' + esc(event.date) + '</span><span class="dw-ticker-type dw-ticker-type--' + esc(event.type) + '">' + esc(event.type === 'new' ? 'Новое' : event.type === 'updated' ? 'Обновлено' : 'Запись') + '</span><span class="dw-ticker-text"><strong>' + esc(event.title) + '</strong> — ' + esc(event.note) + '</span></span>';
+    }).join('');
+    return '<div class="dw-widget dw-widget-wide">' +
+      '<h3>Живая лента активности</h3>' +
+      '<div class="dw-ticker" aria-label="Последние изменения исследований"><div class="dw-ticker-track">' + items + copies + '</div></div>' +
+    '</div>';
+  }
+
+  function getReviewQueue(researches) {
+    var requirements = [
+      { label: 'тезис', hasValue: function(item) { return item.sections && item.sections.thesis; } },
+      { label: 'исходный контур', hasValue: function(item) { return item.sections && item.sections.original; } },
+      { label: 'сдвиг', hasValue: function(item) { return item.sections && item.sections.shift; } },
+      { label: 'цепочка', hasValue: function(item) { return item.sections && Array.isArray(item.sections.transmissionChain) && item.sections.transmissionChain.length; } },
+      { label: 'источники', hasValue: function(item) { return Array.isArray(item.sources) && item.sources.length; } },
+      { label: 'корни', hasValue: function(item) { return Array.isArray(item.roots) && item.roots.length; } },
+      { label: 'свидетельства', hasValue: function(item) { return item.sections && Array.isArray(item.sections.evidence) && item.sections.evidence.length; } },
+      { label: 'реконструкция', hasValue: function(item) { return item.sections && item.sections.reconstruction; } }
+    ];
+    return (Array.isArray(researches) ? researches : []).filter(function(item) {
+      return item.confidence === 'needs-review';
+    }).map(function(item) {
+      var missing = requirements.filter(function(requirement) { return !requirement.hasValue(item); }).map(function(requirement) { return requirement.label; });
+      return {
+        title: item.title || item.id || 'Материал без названия',
+        slug: item.slug || item.id || '',
+        updatedAt: parseDate(item.updatedAt) ? item.updatedAt : '',
+        missing: missing
+      };
+    }).sort(function(a, b) {
+      return b.missing.length - a.missing.length || String(b.updatedAt).localeCompare(String(a.updatedAt)) || String(a.title).localeCompare(String(b.title), 'ru');
+    }).slice(0, 6);
+  }
+
+  function renderReviewQueue(researches) {
+    var queue = getReviewQueue(researches);
+    var items = queue.map(function(item) {
+      var href = item.slug ? '#researches/case/' + encodeURIComponent(item.slug) : '#researches';
+      return '<a class="dw-review-item" href="' + href + '">' +
+        '<span class="dw-review-title">' + esc(item.title) + '</span>' +
+        '<span class="dw-review-meta">' + esc(item.missing.length) + ' разрывов' + (item.updatedAt ? ' · ' + esc(item.updatedAt) : '') + '</span>' +
+        '<span class="dw-review-missing">' + item.missing.map(function(label) { return '<span>' + esc(label) + '</span>'; }).join('') + '</span>' +
+      '</a>';
+    }).join('');
+    return '<div class="dw-widget dw-widget-wide">' +
+      '<h3>Очередь проверки</h3>' +
+      '<p class="dw-widget-note">Материалы со статусом «требует проверки», где разорваны опоры разбора.</p>' +
+      '<div class="dw-review-list">' + (items || '<div class="lab-alert lab-alert-info">Материалов, ожидающих проверки, нет.</div>') + '</div>' +
     '</div>';
   }
 
@@ -236,6 +500,15 @@ const Dashboard = (function() {
     });
   }
 
-  window.Dashboard = { init: init, reload: reload };
+  window.Dashboard = {
+    init: init,
+    reload: reload,
+    renderCounters: renderCounters,
+    getResearchMetrics: calculateResearchMetrics,
+    getResearchActivity: collectResearchActivity,
+    getReviewQueue: getReviewQueue,
+    getCounterDeltas: calculateCounterDeltas,
+    getCompletenessMap: calculateCompletenessMap
+  };
   return window.Dashboard;
 })();

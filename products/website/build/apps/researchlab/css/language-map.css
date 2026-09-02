@@ -95,7 +95,21 @@
 .language-map-level-medium,
 .language-map-level-low { color: var(--text-primary); }
 .language-map-notes { color: var(--text-primary); font-size: 15px; line-height: 1.5; margin: 18px 0 14px; }
-.language-map-card-action { color: var(--text-gold); font-size: 13px; margin-top: auto; }
+.language-map-card-action {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  background: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius-sm);
+  color: var(--bg-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
 .language-map-empty { color: var(--text-secondary); padding: 24px 0; }
 
 /* Детальный экран: на всю ширину контейнера, метрики — полный ряд плиток */

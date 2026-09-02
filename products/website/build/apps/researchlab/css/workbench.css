@@ -61,6 +61,10 @@
 .wb-label { display: block; margin-bottom: 6px; color: var(--text-secondary); font-weight: 700; }
 .wb-field-hint { display: block; margin-top: 3px; color: var(--text-muted); font-weight: 400; }
 .wb-file-status { margin-top: 6px; color: var(--text-muted); font-size: 13px; }
+.wb-file-progress { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.wb-file-progress-track { flex: 1; height: 7px; overflow: hidden; background: var(--border-light); border-radius: 999px; }
+.wb-file-progress-fill { display: block; width: 0; height: 100%; background: var(--accent-gold); transition: width var(--motion-base, 180ms); }
+.wb-file-progress-label { min-width: 78px; color: var(--text-muted); font-size: 12px; text-align: right; }
 .wb-toggle { display: flex; align-items: flex-start; gap: 8px; }
 .wb-toggle input { margin-top: 4px; }
 .wb-toggle label { color: var(--text-secondary); }
@@ -108,11 +112,13 @@
 .wb-viewer-stub p { color: var(--text-muted); max-width: 560px; margin: 0 auto 10px; }
 .wb-viewer-stub .wb-estimate-list { display: inline-block; text-align: left; }
 .wb-project-toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.wb-export-actions { display: flex; flex-wrap: wrap; gap: 6px; }
 
 @media (max-width: 720px) {
   .wb-project-row { grid-template-columns: 1fr; }
   .wb-pair-cols, .wb-bilingual-head { grid-template-columns: 1fr; }
   .wb-bilingual-head { display: none; }
+  .wb-export-actions { width: 100%; }
 }
 
 .wb-badge.is-error { color: #b3261e; border-color: #b3261e; }

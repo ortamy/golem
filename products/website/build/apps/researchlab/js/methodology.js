@@ -6,7 +6,10 @@
 (function(window, document) {
   'use strict';
 
-  var PAGE_PATH = 'pages/methodology.html';
+  var PAGE_TEMPLATE = '<section class="methodology-shell" aria-labelledby="methodology-title">' +
+    '<header class="methodology-heading"><div><p class="methodology-kicker" id="methodology-hero-kicker">ГОЛЕМ · ПРИНЦИПЫ РАЗОБЛАЧЕНИЯ</p><h1 id="methodology-title">Методология</h1><p class="subtitle methodology-hero-description" id="methodology-hero-description">Базовые правила, по которым выявляется подмена смысла и возвращается физика текста.</p></div></header>' +
+    '<div class="methodology-toolbar methodology-navigation lab-card"><label class="methodology-select-label" for="methodology-category-select">Раздел методологии<select id="methodology-category-select" class="lab-input" aria-label="Раздел методологии"><option value="principles">Принципы разоблачения</option><option value="methods">Методы разоблачения</option><option value="mechanisms">Механизмы подмены</option><option value="shifts">Языковые сдвиги</option><option value="techniques">Приёмы подмены</option><option value="philosophemes">Греческие философемы</option><option value="distortions">Типы искажений</option><option value="matrices">Культурные матрицы</option><option value="paleo-translation">Принципы палео-перевода</option></select></label><label class="methodology-select-label" for="methodology-document-select">Документ<select id="methodology-document-select" class="lab-input" aria-label="Документ внутри раздела"><option value="">Все документы</option></select></label><button type="button" class="lab-btn lab-btn-primary lab-btn-sm" id="methodology-add-btn">+ Добавить карточку</button></div>' +
+    '<div class="methodology-panel" id="methodology-panel" role="tabpanel" aria-live="polite"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка материалов…</div></div></div></section>';
   var DATA_PATH = 'data/methodology/cards.json';
   var MECHANISMS_DATA_PATH = 'data/methodology/mechanisms.json';
   var MATRICES_DATA_PATH = 'data/methodology/cultural-matrices.json';
@@ -363,34 +366,31 @@
     container.dataset.methodologyReady = '1';
     container.innerHTML = '<div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка…</div></div>';
 
-    fetch(PAGE_PATH).then(function(response) {
-      if (!response.ok) throw new Error('HTTP ' + response.status + ' for ' + PAGE_PATH);
-      return response.text();
-    }).then(function(html) {
-      container.innerHTML = html;
-      bindCategorySelect(container);
-      bindDocumentSelect(container);
-      bindAddButton(container);
-      bindBackButton(container);
-      loadStore(container);
-    }).catch(function(error) {
-      container.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить раздел: ' + escapeHtml(error.message) + '</div>';
-      container.dataset.methodologyReady = '0';
-    });
+    container.innerHTML = PAGE_TEMPLATE;
+    bindCategorySelect(container);
+    bindDocumentSelect(container);
+    bindAddButton(container);
+    bindBackButton(container);
+    loadStore(container);
   }
 
   function loadStore(container) {
     var paths = [DATA_PATH, MECHANISMS_DATA_PATH, MATRICES_DATA_PATH, METHODS_DATA_PATH];
-    Promise.all(paths.map(function(path) { return fetch(path); })).then(function(responses) {
-      responses.forEach(function(response, index) {
-        if (!response.ok) throw new Error('HTTP ' + response.status + ' for ' + paths[index]);
+    Promise.all(paths.map(function(path) {
+      return fetch(path).then(function(response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+      }).catch(function() {
+        return null;
       });
-      return Promise.all(responses.map(function(response) { return response.json(); }));
-    }).then(function(dataSets) {
-      var principleCards = Array.isArray(dataSets[0]) ? dataSets[0] : (dataSets[0].cards || []);
-      var mechanismCards = Array.isArray(dataSets[1]) ? dataSets[1] : (dataSets[1].cards || []);
-      var matrixCards = Array.isArray(dataSets[2]) ? dataSets[2] : (dataSets[2].cards || []);
-      var methodCards = Array.isArray(dataSets[3]) ? dataSets[3].cards : [];
+    })).then(function(dataSets) {
+      var principleCards = Array.isArray(dataSets[0]) ? dataSets[0] : ((dataSets[0] && dataSets[0].cards) || []);
+      var mechanismCards = Array.isArray(dataSets[1]) ? dataSets[1] : ((dataSets[1] && dataSets[1].cards) || []);
+      var matrixCards = Array.isArray(dataSets[2]) ? dataSets[2] : ((dataSets[2] && dataSets[2].cards) || []);
+      var methodCards = Array.isArray(dataSets[3]) ? dataSets[3] : ((dataSets[3] && dataSets[3].cards) || []);
+      if (!principleCards.length && !mechanismCards.length && !matrixCards.length && !methodCards.length) {
+        throw new Error('Источники методологии недоступны');
+      }
       store = {
         categories: (dataSets[0] && dataSets[0].categories) || {},
         cards: principleCards.map(function(card, index) {
@@ -424,7 +424,7 @@
         var panel = container.querySelector('#methodology-panel');
         if (panel) {
           panel.className = 'methodology-panel methodology-panel-empty';
-          panel.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить материалы методологии.</div>';
+          panel.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить материалы методологии. Проверьте подключение к серверу или обновите страницу после его запуска.</div>';
         }
       }
     });
@@ -435,7 +435,9 @@
       id: card.id || category + '-' + (index + 1),
       category: category,
       title: card.title || 'Карточка методологии',
-      summary: card.summary || card.text || '',
+      summary: category === 'methods'
+        ? String(card.summary || card.text || '').replace(/^\s*\*\s*/, '')
+        : (card.summary || card.text || ''),
       text: card.text || card.summary || '',
       icon: card.icon || '../../assets/icons/32/ui/book.png',
       document: category === 'mechanisms' ? 'mechanism-card' : (category === 'matrices' ? 'matrix-card' : (category === 'methods' ? 'method-card' : 'principle-card'))
@@ -747,15 +749,15 @@
       return '<article class="methodology-card' + documentClass + shiftClass + '" data-id="' + escapeHtml(card.id) + '" style="animation-delay:' + (index * 30) + 'ms">' +
         '<div class="methodology-card-head">' +
           '<div class="methodology-card-heading">' + cardIcon + '<h3 class="methodology-card-title">' + escapeHtml(cardTitle) + '</h3></div>' +
-          '<div class="methodology-card-actions">' +
-            infoButton +
-            '<button type="button" class="methodology-icon-btn methodology-copy-btn" data-id="' + escapeHtml(card.id) + '" title="Копировать" aria-label="Копировать карточку">' + COPY_ICON + '</button>' +
-            '<button type="button" class="methodology-icon-btn methodology-prompt-btn" data-id="' + escapeHtml(card.id) + '" title="В конструктор промптов" aria-label="Отправить в конструктор промптов">' + WAND_ICON + '</button>' +
-            '<button type="button" class="methodology-icon-btn methodology-edit-btn" data-id="' + escapeHtml(card.id) + '" title="Редактировать" aria-label="Редактировать карточку">' + EDIT_ICON + '</button>' +
-            '<button type="button" class="methodology-icon-btn methodology-delete-btn" data-id="' + escapeHtml(card.id) + '" title="Удалить" aria-label="Удалить карточку">' + DELETE_ICON + '</button>' +
-          '</div>' +
         '</div>' +
         '<p class="methodology-card-text">' + escapeHtml(cardText) + '</p>' +
+        '<div class="methodology-card-actions">' +
+          infoButton +
+          '<button type="button" class="methodology-icon-btn methodology-copy-btn" data-id="' + escapeHtml(card.id) + '" title="Копировать" aria-label="Копировать карточку">' + COPY_ICON + '</button>' +
+          '<button type="button" class="methodology-icon-btn methodology-prompt-btn" data-id="' + escapeHtml(card.id) + '" title="В конструктор промптов" aria-label="Отправить в конструктор промптов">' + WAND_ICON + '</button>' +
+          '<button type="button" class="methodology-icon-btn methodology-edit-btn" data-id="' + escapeHtml(card.id) + '" title="Редактировать" aria-label="Редактировать карточку">' + EDIT_ICON + '</button>' +
+          '<button type="button" class="methodology-icon-btn methodology-delete-btn" data-id="' + escapeHtml(card.id) + '" title="Удалить" aria-label="Удалить карточку">' + DELETE_ICON + '</button>' +
+        '</div>' +
       '</article>';
     }).join('');
 

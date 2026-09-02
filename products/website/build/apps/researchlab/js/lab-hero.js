@@ -12,7 +12,9 @@
   function metaChips(chips) {
     if (!chips || !chips.length) return '';
     return '<div class="lab-hero__meta">' + chips.map(function (c) {
-      return '<span class="lab-hero__chip">' + esc(c) + '</span>';
+      var label = typeof c === 'object' ? c.label : c;
+      var className = typeof c === 'object' && c.className ? ' ' + esc(c.className) : '';
+      return '<span class="lab-hero__chip' + className + '">' + esc(label) + '</span>';
     }).join('') + '</div>';
   }
 
@@ -39,6 +41,12 @@
       title: 'Рабочий стол исследователя',
       subtitle: 'Сводка текущего поля: корни, дела, словари и переходы между слоями исследования.',
       icon: 'archaeology/testtube.png'
+    },
+    'manifest': {
+      kicker: 'ГОЛЕМ · МАНИФЕСТ',
+      title: 'Манифест проекта Golem',
+      subtitle: 'Четыре акта восстановления: увидеть проблему, собрать метод, применить его и войти в практику.',
+      icon: 'ui/scroll.png'
     },
     'workbench': {
       kicker: 'ГОЛЕМ · МАСТЕРСКАЯ',

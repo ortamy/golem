@@ -5,8 +5,21 @@
    ============================================= */
 
 /* ===== PALEO-MECHANICS MODULES ===== */
-.paleo-mechanics-head h1 {
-  margin-bottom: var(--space-2);
+.paleo-mechanics-actions {
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+.paleo-mechanics-actions .lab-btn {
+  margin-inline: auto;
+}
+
+#paleo-mechanics .research-controls {
+  justify-content: center;
+}
+
+#paleo-mechanics .research-controls label {
+  text-align: center;
 }
 
 .paleo-mechanics-modules {
@@ -24,6 +37,7 @@
   box-shadow: var(--shadow-card);
   color: var(--text-secondary);
   line-height: 1.6;
+  text-align: center;
 }
 
 .paleo-module-heading {
@@ -32,6 +46,7 @@
   gap: var(--space-3);
   margin-bottom: var(--space-3);
   color: var(--text-primary);
+  justify-content: center;
 }
 
 .paleo-module-heading img {
@@ -86,6 +101,7 @@
 .paleo-module-copy,
 .paleo-comparison-copy {
   color: var(--text-secondary);
+  text-align: center;
 }
 
 .paleo-module-copy p,
@@ -113,7 +129,7 @@
 .paleo-assembly {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: var(--space-3);
   padding: 10px var(--space-3);
   margin-bottom: 14px;
@@ -145,14 +161,17 @@
   margin: 0;
   list-style: none;
   counter-reset: paleo-step;
+  justify-items: center;
 }
 
 .paleo-step {
   display: grid;
-  grid-template-columns: 28px 1fr;
+  grid-template-columns: 28px minmax(0, 1fr);
   gap: 10px;
   align-items: start;
   counter-increment: paleo-step;
+  width: min(100%, 440px);
+  text-align: left;
 }
 
 .paleo-step > span {
@@ -175,4 +194,5 @@
   padding: var(--space-3) 14px;
   background: rgba(158, 54, 54, 0.08);
   border-radius: var(--radius-sm);
+  text-align: center;
 }

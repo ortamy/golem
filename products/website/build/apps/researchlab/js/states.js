@@ -38,6 +38,10 @@ const GolemStates = (function() {
     return d.innerHTML;
   }
 
+  function normalizeText(text) {
+    return String(text == null ? '' : text).replace(/\s+/g, ' ').trim().toLowerCase();
+  }
+
   function dataPath(path) {
     return new URL(path, document.baseURI).href;
   }
@@ -217,6 +221,13 @@ const GolemStates = (function() {
         if (targetId) openState(targetId);
       });
     });
+
+    var currentStep = container.querySelector('.state-landscape-contour-node.is-current');
+    if (currentStep && typeof currentStep.scrollIntoView === 'function') {
+      requestAnimationFrame(function() {
+        currentStep.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+      });
+    }
   }
 
   // ===== РЕНДЕР СЕТКИ КАРТОЧЕК =====
@@ -295,8 +306,9 @@ const GolemStates = (function() {
       '</div>';
     }
 
-    // Смысл
-    var meaningHtml = s.meaning ? '<div class="state-detail-section"><h3>Смысл</h3><p>' + escapeHtml(s.meaning) + '</p></div>' : '';
+    // «Смысл» дополняет короткое описание в шапке, а не повторяет его.
+    var isMeaningDuplicate = normalizeText(s.meaning) === normalizeText(s.physics);
+    var meaningHtml = s.meaning && !isMeaningDuplicate ? '<div class="state-detail-section"><h3>Смысл</h3><p>' + escapeHtml(s.meaning) + '</p></div>' : '';
 
     // Примеры
     var examplesHtml = '';
@@ -310,40 +322,21 @@ const GolemStates = (function() {
         '</div></div>';
     }
 
-    // Переходы
-    var transitionsHtml = '';
-    if (s.transitions && s.transitions.length) {
-      transitionsHtml = '<div class="state-detail-section">' +
-        '<h3>Переходы</h3>' +
-        '<div class="transitions-list state-timeline" role="list">';
-      s.transitions.forEach(function(t) {
-        var target = statesById[t.to];
-        var targetName = target ? target.name : t.to;
-        transitionsHtml += '<div class="transition-item state-timeline-item" role="button" tabindex="0" aria-label="Открыть переход в состояние: ' + escapeHtml(targetName) + '" data-to="' + escapeHtml(t.to) + '">' +
-          '<span class="transition-icon" aria-hidden="true"><img src="../../assets/icons/32/ui/arrows.png" alt=""></span>' +
-          '<div class="transition-info">' +
-            '<div class="transition-label">' + escapeHtml(targetName) + (t.label ? ': ' + escapeHtml(t.label) : '') + '</div>' +
-            (t.action ? '<div class="transition-action">' + escapeHtml(t.action) + '</div>' : '') +
-          '</div>' +
-        '</div>';
-      });
-      transitionsHtml += '</div></div>';
-    }
-
     // Города в этом состоянии
     var citiesHtml = renderCitiesForState(id);
 
-    // Интенсивность
+    // Одна статичная метрика: визуальный минимум делает нулевую точку видимой.
     var intensityHtml = '';
     if (s.intensity !== undefined) {
+      var intensityPercent = Math.round(s.intensity * 100);
+      var visualPercent = Math.max(5, intensityPercent);
       intensityHtml = '<div class="state-detail-section">' +
-        '<h3>Интенсивность</h3>' +
-        '<div class="state-card-intensity" style="max-width:300px;">' +
-          '<span>' + escapeHtml(s.intensity_label || '') + '</span>' +
+        '<h3>Открытость</h3>' +
+        '<div class="state-card-intensity state-static-metric" style="max-width:300px;">' +
+          '<span>' + escapeHtml(s.intensity_label || '') + ' — ' + visualPercent + '%</span>' +
           '<div class="state-intensity-bar">' +
-            '<div class="state-intensity-fill" style="width: ' + (s.intensity * 100) + '%; background: ' + color + '"></div>' +
+            '<div class="state-intensity-fill" style="width: ' + visualPercent + '%; background: ' + color + '"></div>' +
           '</div>' +
-          '<span>' + Math.round(s.intensity * 100) + '%</span>' +
         '</div>' +
       '</div>';
     }
@@ -364,7 +357,6 @@ const GolemStates = (function() {
         paleoHtml +
         meaningHtml +
         examplesHtml +
-        transitionsHtml +
         citiesHtml +
       '</div>' +
     '</div>';
@@ -404,7 +396,6 @@ const GolemStates = (function() {
       return transition.to === landscapeTransitionId;
     });
     var target = selectedTransition && statesById[selectedTransition.to];
-    var openness = Math.round((Number(state.intensity) || 0) * 100);
     var contour = states.slice().sort(function(a, b) {
       return (Number(a.intensity) || 0) - (Number(b.intensity) || 0);
     });
@@ -422,23 +413,23 @@ const GolemStates = (function() {
 
     var routeDetailHtml = target ? '<div class="state-landscape-route-detail" aria-live="polite">' +
       '<span class="state-landscape-route-kicker">Выбранный маршрут</span>' +
-      '<div><strong>' + escapeHtml(state.name) + ' → ' + escapeHtml(target.name) + '</strong>' +
+      '<div class="state-landscape-route-chain"><strong>' + escapeHtml(state.name) + '</strong><span aria-hidden="true">↓</span><strong>' + escapeHtml(target.name) + '</strong>' +
       (selectedTransition.label ? '<span class="state-landscape-route-label">' + escapeHtml(selectedTransition.label) + '</span>' : '') + '</div>' +
       (selectedTransition.action ? '<p><b>Хук:</b> ' + escapeHtml(selectedTransition.action) + '</p>' : '') +
       '<button type="button" class="state-landscape-open" data-to="' + escapeHtml(target.id) + '">Открыть состояние <span aria-hidden="true">→</span></button>' +
     '</div>' : '<div class="state-landscape-route-detail is-empty">Для этого состояния пока не задан маршрут перехода.</div>';
 
-    return '<section class="state-landscape" style="--landscape-color: ' + escapeHtml(state.color || '#b8860b') + '; --landscape-openness: ' + openness + '%;" aria-labelledby="state-landscape-title">' +
-      '<div class="state-landscape-head"><div><span class="state-landscape-kicker">ЛАНДШАФТ СОСТОЯНИЯ</span><h3 id="state-landscape-title">Пространство и доступные переходы</h3></div><span class="state-landscape-level">Открытость <b>' + openness + '%</b></span></div>' +
+    return '<section class="state-landscape" style="--landscape-color: #8a613c;" aria-labelledby="state-landscape-title">' +
+      '<div class="state-landscape-head"><div><span class="state-landscape-kicker">ЛАНДШАФТ СОСТОЯНИЯ</span><h3 id="state-landscape-title">Пространство и доступные переходы</h3></div></div>' +
       '<div class="state-landscape-stage">' +
         '<div class="state-landscape-terrain" aria-hidden="true"><i></i><i></i><i></i></div>' +
         '<div class="state-landscape-current"><span class="state-landscape-current-paleo" aria-hidden="true">' + escapeHtml(state.paleo || '') + '</span><span class="state-landscape-current-label">Текущее состояние</span><strong>' + escapeHtml(state.name) + '</strong><small>' + escapeHtml(state.intensity_label || '') + '</small></div>' +
-        '<div class="state-landscape-routes" aria-label="Маршруты из состояния ' + escapeHtml(state.name) + '">' + routesHtml + '</div>' +
       '</div>' +
+      '<section class="state-landscape-routes" aria-label="Переходы из состояния ' + escapeHtml(state.name) + '"><h4>Переходы</h4>' + routesHtml + '</section>' +
       routeDetailHtml +
       '<div class="state-landscape-contour" aria-label="Полный контур состояний">' + contour.map(function(item) {
         var current = item.id === state.id ? ' is-current' : '';
-        return '<span class="state-landscape-contour-node' + current + '" title="' + escapeHtml(item.name) + '" style="--node-color: ' + escapeHtml(item.color || '#b8860b') + '"><i></i><small>' + escapeHtml(item.name) + '</small></span>';
+        return '<span class="state-landscape-contour-node' + current + '" title="' + escapeHtml(item.name) + '" style="--node-color: #8a613c"><i></i><small>' + escapeHtml(item.name) + '</small></span>';
       }).join('') + '</div>' +
     '</section>';
   }
@@ -461,10 +452,7 @@ const GolemStates = (function() {
     });
 
     if (!matching.length) {
-      return '<div class="state-detail-section">' +
-        '<h3>Города и страны в этом состоянии</h3>' +
-        '<p class="text-muted">Нет записей в картографии для этого состояния.</p>' +
-      '</div>';
+      return '';
     }
 
     return '<div class="state-detail-section">' +

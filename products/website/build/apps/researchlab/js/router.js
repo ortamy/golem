@@ -31,6 +31,10 @@ const LabRouter = (function() {
       var learnTitle = window.LearnLab.routeTitle(route);
       if (learnTitle) return learnTitle;
     }
+    if (route.indexOf('researches') === 0 && window.LoadResearches && window.LoadResearches.routeTitle) {
+      var researchTitle = window.LoadResearches.routeTitle(route);
+      if (researchTitle) return researchTitle;
+    }
     // #workbench — титулы внутренних экранов берутся из реестра конвейеров и проектов.
     if (route.indexOf('workbench') === 0 && window.Workbench && window.Workbench.routeTitle) {
       var workbenchTitle = window.Workbench.routeTitle(route);
@@ -47,6 +51,11 @@ const LabRouter = (function() {
     if (route === 'dictionaries') return 'Словари';
     if (route === 'dictionaries/root-dictionary') return 'Корневой словарь';
     if (route === 'dictionaries/paleo-glossary') return 'Палео-глоссарий';
+    if (route.indexOf('paleo-mechanics/') === 0 && window.PageController && PageController.jsonCache['paleo-mechanics']) {
+      var paleoKey = decodeURIComponent(route.split('/')[1]);
+      var paleoDocument = PageController.jsonCache['paleo-mechanics'][paleoKey];
+      if (paleoDocument && paleoDocument.title) return paleoDocument.title;
+    }
     if (route.indexOf('dictionaries/') === 0 && window.PageController && PageController.jsonCache.dictionaries) {
       var dictionaryKey = decodeURIComponent(route.split('/')[1]);
       var dictionary = PageController.jsonCache.dictionaries[dictionaryKey];
