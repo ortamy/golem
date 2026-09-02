@@ -93,6 +93,14 @@
       line-height: 1.65;
       transition: background .25s ease, color .25s ease;
     }
+    /* Сквозная шапка лендинга: остаётся в верхней кромке при движении по секциям. */
+    .lab-header {
+      position: sticky !important;
+      top: 0;
+      z-index: 25;
+      background: var(--chocolate);
+      box-shadow: 0 1px 0 var(--line), 0 8px 24px rgba(45, 31, 20, .08);
+    }
     body::before {
       position: fixed;
       inset: 0;
@@ -194,6 +202,7 @@
     h1, h2, h3, p { margin-top: 0; }
     h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.08; }
     h1 { max-width: 820px; margin-bottom: 22px; font-size: clamp(2.7rem, 7vw, 5.8rem); letter-spacing: -.025em; }
+    .hero-title-short { display: none; }
     h2 { margin-bottom: 18px; font-size: clamp(2.15rem, 5vw, 3.8rem); letter-spacing: -.015em; }
     h3 { margin-bottom: 10px; font-size: 1.65rem; }
     .section { position: relative; padding: 86px 0; }
@@ -244,6 +253,7 @@
     .loss-number { color: var(--plate); font-family: var(--serif); font-size: 1.45rem; font-weight: 700; }
     .loss-name { font-weight: 600; }
     .loss-detail { color: var(--muted); font-size: .78rem; }
+    .loss-explanation { grid-column: 2 / -1; display: block; margin: -4px 0 4px; color: var(--muted); font-size: .82rem; line-height: 1.45; }
     .loss-percent { color: var(--plate); font-family: var(--serif); font-size: 1.6rem; font-weight: 700; }
     .loss-caption { margin: 30px 0 0; color: var(--chocolate-soft); font-family: var(--serif); font-size: 1.5rem; font-style: italic; }
     .mechanics { background: var(--paper); }
@@ -285,6 +295,25 @@
     .preview-copy h3 { margin-bottom: 8px; }
     .preview-copy p { margin-bottom: 18px; color: var(--muted); font-size: .84rem; }
     .preview-copy .button { margin-top: auto; align-self: flex-start; }
+    .tools-all-link { display: inline-block; margin-top: 22px; }
+    .scale-strip { overflow: hidden; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-light); }
+    .scale-strip .container { width: 100%; max-width: none; overflow: hidden; }
+    .scale-track { display: flex; width: max-content; gap: 10px; padding-left: 10px; animation: scale-marquee 34s linear infinite; }
+    .scale-set { display: flex; flex: 0 0 auto; gap: 10px; }
+    @keyframes scale-marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 5px)); } }
+    .scale-chip { flex: 0 0 auto; padding: 8px 13px; border: 1px solid var(--line-gold); border-radius: 999px; color: var(--chocolate-soft); font-size: .78rem; white-space: nowrap; }
+    .desktop-anchor-nav { position: sticky; top: 56px; z-index: 12; display: flex; justify-content: center; gap: 22px; padding: 8px 20px; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper-light) 92%, transparent); backdrop-filter: blur(8px); }
+    .desktop-anchor-nav a { color: var(--muted); font-size: .74rem; font-weight: 700; text-decoration: none; }
+    .desktop-anchor-nav a:hover { color: var(--gold-deep); }
+    .scroll-progress { position: fixed; inset: 0 0 auto; z-index: 30; height: 3px; transform-origin: left; background: var(--gold); transform: scaleX(0); }
+    .back-to-top { position: fixed; right: 18px; bottom: 18px; z-index: 15; display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid var(--gold); border-radius: 50%; background: var(--paper-light); color: var(--chocolate); cursor: pointer; font-size: 1.2rem; }
+    .letter-popover { position: fixed; z-index: 25; width: min(230px, calc(100vw - 28px)); padding: 14px; border: 1px solid var(--gold); border-radius: var(--radius); background: var(--paper-light); box-shadow: var(--shadow); color: var(--chocolate); line-height: 1.35; }
+    .letter-popover strong { display: block; margin-bottom: 4px; color: var(--gold-deep); font-family: var(--serif); font-size: 1.25rem; }
+    .waitlist-form { display: grid; gap: 8px; width: min(100%, 360px); margin-top: 4px; }
+    .waitlist-row { display: flex; gap: 8px; }
+    .waitlist-input { min-width: 0; flex: 1; padding: 11px 12px; border: 1px solid #8c765d; border-radius: var(--radius); background: var(--paper); color: var(--chocolate); }
+    .waitlist-form .button { min-width: 0; }
+    .waitlist-status { min-height: 1.2em; margin: 0; color: #dbcbb2; font-size: .76rem; }
     .text-link { color: var(--bronze); font-size: .8rem; font-weight: 700; text-decoration: none; }
     .text-link:hover { text-decoration: underline; }
     .project-callout { display: grid; gap: 24px; align-items: end; padding: 34px; border: 1px solid var(--gold); border-radius: var(--radius-lg); background: var(--chocolate); color: var(--paper); }
@@ -321,8 +350,8 @@
       .hero h1 { margin-bottom: 24px; font-size: 52px; }
     }
     @media (max-width: 767px) {
-      .hero { min-height: auto; }
-      .hero-content { min-height: 620px; padding-inline: 16px; }
+      .hero { min-height: auto; padding: 30px 0 42px; }
+      .hero-content { min-height: 0; padding-inline: 16px; align-items: start; }
       .hero-copy { width: 100%; text-align: center; }
       .hero h1 { max-width: none; }
       .hero-lead { max-width: none; }
@@ -330,7 +359,7 @@
       .hero-actions .button { width: 100%; padding-block: 16px; text-align: center; }
       .hero-note { justify-content: center; margin-right: auto; margin-left: auto; text-align: center; }
       .loss-detail { display: none; }
-      .loss-plate { grid-template-columns: 42px 1fr auto; }
+      .loss-plate { grid-template-columns: 42px 1fr auto; gap: 10px; }
       .analysis-card { padding: 16px; }
       .analysis-inner { padding: 14px 8px 6px; }
       .word { font-size: 2.1rem; }
@@ -339,6 +368,23 @@
       .project-callout .button { width: 100%; }
       .preview-copy .button { width: 100%; }
       .analysis-cta { width: 100%; }
+      .waitlist-row { flex-direction: column; }
+      .waitlist-row .button { width: 100%; }
+    }
+    @media (max-width: 720px) {
+      body { padding-top: 61px; }
+      .lab-header { position: fixed !important; top: 0; right: 0; left: 0; width: 100%; }
+      .desktop-anchor-nav { display: none; }
+      .loss-plate { grid-template-columns: 42px 1fr auto; }
+      .loss-explanation { grid-column: 2 / -1; }
+      .scale-strip .container { width: 100%; padding-inline: 0; }
+    }
+    @media (max-width: 480px) {
+      .hero-title-full { display: none; }
+      .hero-title-short { display: inline; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .scale-track { animation: none; transform: none; }
     }
     /* ===== ПОРТАЛ ВХОДА ===== */
     body.portal-is-open { overflow: hidden; }
@@ -605,13 +651,15 @@
       <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub" aria-label="GitHub"><img src="assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub"></a>
     </div>
   </header>
+  <nav class="desktop-anchor-nav" aria-label="Разделы лендинга"><a href="#map">Карта</a><a href="#mechanics">Механика</a><a href="#club">Клуб</a><a href="#tools">Инструменты</a></nav>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <main id="main-content">
     <section class="section hero" id="hero" aria-labelledby="hero-title">
       <div class="container hero-content">
         <div class="hero-copy">
           <p class="eyebrow">Шаар / вход в исследование</p>
-          <h1 id="hero-title">Golem — исследовательская платформа для реконструкции палео-образного мышления</h1>
+          <h1 id="hero-title"><span class="hero-title-full">Golem — исследовательская платформа для реконструкции палео-образного мышления</span><span class="hero-title-short">Реконструкция палео-образного мышления</span></h1>
           <p class="hero-lead">Возвращаем тексту его физику: образ, движение, состояние и переход.</p>
           <div class="hero-actions">
             <a class="button" href="apps/researchlab/index.html#dashboard" data-portal-trigger>Начать исследование <span aria-hidden="true">↗</span></a>
@@ -621,8 +669,9 @@
         </div>
       </div>
     </section>
+    <section class="scale-strip" aria-label="Масштаб корпуса"><div class="container"><div class="scale-track"><div class="scale-set"><span class="scale-chip">127 корней</span><span class="scale-chip">21 словарь</span><span class="scale-chip">23 046 стихов</span><span class="scale-chip">16 состояний</span><span class="scale-chip">22 буквы</span><span class="scale-chip">1913 терминов</span><span class="scale-chip">53+ модуля лаборатории</span></div><div class="scale-set" aria-hidden="true"><span class="scale-chip">127 корней</span><span class="scale-chip">21 словарь</span><span class="scale-chip">23 046 стихов</span><span class="scale-chip">16 состояний</span><span class="scale-chip">22 буквы</span><span class="scale-chip">1913 терминов</span><span class="scale-chip">53+ модуля лаборатории</span></div></div></div></section>
 
-    <section class="section loss-map" id="loss-map" aria-labelledby="loss-title">
+    <section class="section loss-map" id="map" aria-labelledby="loss-title">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Карта утрат</p>
@@ -630,11 +679,11 @@
           <p>Каждый слой передачи оставляет след. Карта показывает, сколько физики текста ещё можно вернуть.</p>
         </div>
         <ol class="loss-list">
-          <li class="loss-plate" style="--plate: #C89B3C"><span class="loss-number">01</span><span class="loss-name">Палео-образы <span class="loss-detail">— исходное движение</span></span><span class="loss-percent">100%</span></li>
-          <li class="loss-plate" style="--plate: #b58a37"><span class="loss-number">02</span><span class="loss-name">Масоретский слой <span class="loss-detail">— огласовка поверх каркаса</span></span><span class="loss-percent">70%</span></li>
-          <li class="loss-plate" style="--plate: #8d6b37"><span class="loss-number">03</span><span class="loss-name">Греческая передача <span class="loss-detail">— смена оптики</span></span><span class="loss-percent">40%</span></li>
-          <li class="loss-plate" style="--plate: #674a2d"><span class="loss-number">04</span><span class="loss-name">Латинская передача <span class="loss-detail">— закрепление подмены</span></span><span class="loss-percent">25%</span></li>
-          <li class="loss-plate" style="--plate: #2D1F14"><span class="loss-number">05</span><span class="loss-name">Синодальный слой <span class="loss-detail">— готовое понятие</span></span><span class="loss-percent">15%</span></li>
+          <li class="loss-plate" style="--plate: #C89B3C"><span class="loss-number">01</span><span class="loss-name">Палео-образы <span class="loss-detail">— исходное движение</span></span><span class="loss-percent">100%</span><p class="loss-explanation">Исходный слой удерживал образ, движение и физическую последовательность.</p></li>
+          <li class="loss-plate" style="--plate: #b58a37"><span class="loss-number">02</span><span class="loss-name">Масоретский слой <span class="loss-detail">— огласовка поверх каркаса</span></span><span class="loss-percent">70%</span><p class="loss-explanation">Огласовка зафиксировала один вариант чтения.</p></li>
+          <li class="loss-plate" style="--plate: #8d6b37"><span class="loss-number">03</span><span class="loss-name">Греческая передача <span class="loss-detail">— смена оптики</span></span><span class="loss-percent">40%</span><p class="loss-explanation">Душа вместо жизни, дух вместо дыхания.</p></li>
+          <li class="loss-plate" style="--plate: #674a2d"><span class="loss-number">04</span><span class="loss-name">Латинская передача <span class="loss-detail">— закрепление подмены</span></span><span class="loss-percent">25%</span><p class="loss-explanation">Закон вместо наставления, церковь вместо собрания.</p></li>
+          <li class="loss-plate" style="--plate: #2D1F14"><span class="loss-number">05</span><span class="loss-name">Синодальный слой <span class="loss-detail">— готовое понятие</span></span><span class="loss-percent">15%</span><p class="loss-explanation">Готовое понятие: Бог вместо Элоhим.</p></li>
         </ol>
         <p class="loss-caption">Конкретное стало абстрактным. Действие стало понятием.</p>
       </div>
@@ -652,11 +701,11 @@
             <p class="word-label">Пример последовательности</p>
             <div class="word"><span>Мицраим</span> 𐤌𐤑𐤓𐤉𐤌</div>
             <ol class="sequence">
-              <li><span class="sequence-letter">𐤌</span><span><strong>Поток</strong><small>среда, в которой движение продолжается</small></span></li>
-              <li><span class="sequence-letter">𐤑</span><span><strong>Крюк</strong><small>захват и изменение направления</small></span></li>
-              <li><span class="sequence-letter">𐤓</span><span><strong>Вершина</strong><small>точка подъёма и обзора</small></span></li>
-              <li><span class="sequence-letter">𐤉</span><span><strong>Рука</strong><small>действующий инструмент</small></span></li>
-              <li><span class="sequence-letter">𐤌</span><span><strong>Поток</strong><small>возвращение в среду, но уже изменённым</small></span></li>
+              <li><button class="sequence-letter" type="button" data-letter="𐤌" data-image="Вода и поток" data-function="Среда, в которой движение продолжается" aria-label="Мем: вода и поток">𐤌</button><span><strong>Поток</strong><small>среда, в которой движение продолжается</small></span></li>
+              <li><button class="sequence-letter" type="button" data-letter="𐤑" data-image="Крюк и захват" data-function="Захват и изменение направления" aria-label="Цади: крюк и захват">𐤑</button><span><strong>Крюк</strong><small>захват и изменение направления</small></span></li>
+              <li><button class="sequence-letter" type="button" data-letter="𐤓" data-image="Вершина" data-function="Точка подъёма и обзора" aria-label="Реш: вершина">𐤓</button><span><strong>Вершина</strong><small>точка подъёма и обзора</small></span></li>
+              <li><button class="sequence-letter" type="button" data-letter="𐤉" data-image="Рука и действие" data-function="Действующий инструмент" aria-label="Йод: рука и действие">𐤉</button><span><strong>Рука</strong><small>действующий инструмент</small></span></li>
+              <li><button class="sequence-letter" type="button" data-letter="𐤌" data-image="Вода и поток" data-function="Возвращение в среду уже изменённым" aria-label="Мем: вода и поток">𐤌</button><span><strong>Поток</strong><small>возвращение в среду, но уже изменённым</small></span></li>
             </ol>
             <a class="button button-outline analysis-cta" href="apps/researchlab/index.html#paleo-builder">Разобрать в лаборатории <span aria-hidden="true">↗</span></a>
           </div>
@@ -696,6 +745,7 @@
             </div>
             <div class="club-action">
               <a class="button" id="clubCta" href="#">В палео-клуб <span aria-hidden="true">→</span></a>
+              <form class="waitlist-form" id="waitlistForm" novalidate><div class="waitlist-row"><input class="waitlist-input" id="waitlistEmail" type="email" autocomplete="email" placeholder="Ваш email" aria-label="Email для уведомления"><button class="button" type="submit">Сообщить об открытии</button></div><p class="waitlist-status" id="waitlistStatus" role="status" aria-live="polite"></p></form>
               <p class="club-note">Анонс открытия — на сайте и в GitHub.</p>
             </div>
           </div>
@@ -720,7 +770,9 @@
           <article class="preview-card">
             <div class="preview-copy"><h3>Генератор улик</h3><p>Фиксируйте наблюдения, связывайте источники и удерживайте ход проверки.</p><a class="button button-outline" href="apps/researchlab/index.html#generators">Открыть генератор <span aria-hidden="true">↗</span></a></div>
           </article>
+          <article class="preview-card"><div class="preview-copy"><h3>Палео-тренажёр</h3><p>Собирай смысл из крупных палео-букв и проверяй последовательность действий.</p><a class="button button-outline" href="apps/researchlab/index.html#learn/paleo-trainer">Открыть тренажёр <span aria-hidden="true">↗</span></a></div></article>
         </div>
+        <a class="text-link tools-all-link" href="apps/researchlab/index.html#dashboard">Все инструменты лаборатории →</a>
       </div>
     </section>
 
@@ -786,6 +838,7 @@
       <div class="footer-bottom"><span>© Golem Research Lab</span><span>Давар · Ор · Свива</span></div>
     </div>
   </footer>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Наверх">↑</button>
 
   <script>
     // Тема сайта: цикл light → white → dark, как LabTheme в лабе. Общий ключ golem_theme.
@@ -921,6 +974,80 @@
         if (e.key === 'Escape' && clubTeaser && !clubTeaser.hidden) closeClubTeaser();
       });
     }
+
+    // ===== МОБИЛЬНАЯ НАВИГАЦИЯ И ИНТЕРАКТИВ ЛЕНДИНГА =====
+    const progressBar = document.querySelector('#scrollProgress');
+    const backToTop = document.querySelector('#backToTop');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const scrollOptions = reduceMotion ? { behavior: 'auto' } : { behavior: 'smooth' };
+    document.querySelectorAll('.desktop-anchor-nav a').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ ...scrollOptions, block: 'start' });
+        history.replaceState(null, '', link.getAttribute('href'));
+      });
+    });
+    function updateLandingScroll() {
+      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const percent = Math.min(1, Math.max(0, window.scrollY / max));
+      if (progressBar) progressBar.style.transform = `scaleX(${percent})`;
+      if (backToTop) backToTop.style.display = percent > .6 ? 'inline-flex' : 'none';
+    }
+    window.addEventListener('scroll', updateLandingScroll, { passive: true });
+    window.addEventListener('resize', updateLandingScroll);
+    updateLandingScroll();
+    backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, ...scrollOptions }));
+
+    let letterPopover = null;
+    function closeLetterPopover() { letterPopover?.remove(); letterPopover = null; }
+    function openLetterPopover(letter) {
+      closeLetterPopover();
+      letterPopover = document.createElement('aside');
+      letterPopover.className = 'letter-popover';
+      letterPopover.setAttribute('role', 'dialog');
+      letterPopover.innerHTML = `<strong>${letter.dataset.letter}</strong><div>${letter.dataset.image}</div><small>${letter.dataset.function}</small>`;
+      document.body.appendChild(letterPopover);
+      const box = letter.getBoundingClientRect();
+      const pop = letterPopover.getBoundingClientRect();
+      letterPopover.style.left = `${Math.min(Math.max(14, box.left + box.width / 2 - pop.width / 2), window.innerWidth - pop.width - 14)}px`;
+      letterPopover.style.top = `${box.bottom + 10 + pop.height > window.innerHeight ? Math.max(14, box.top - pop.height - 10) : box.bottom + 10}px`;
+    }
+    document.querySelectorAll('[data-letter]').forEach((letter) => {
+      letter.addEventListener('click', (event) => { event.stopPropagation(); openLetterPopover(letter); });
+      letter.addEventListener('mouseenter', () => { if (window.matchMedia('(hover: hover)').matches) openLetterPopover(letter); });
+    });
+    document.addEventListener('click', (event) => { if (letterPopover && !letterPopover.contains(event.target) && !event.target.closest('[data-letter]')) closeLetterPopover(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeLetterPopover(); });
+
+    // Адаптер: подключённый Supabase используется напрямую, иначе очередь остаётся локальной.
+    const waitlistForm = document.querySelector('#waitlistForm');
+    waitlistForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const input = document.querySelector('#waitlistEmail');
+      const status = document.querySelector('#waitlistStatus');
+      const email = input.value.trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status.textContent = 'Введите корректный email.'; input.focus(); return; }
+      try {
+        const client = window.supabase || window.supabaseClient;
+        if (client?.from) {
+          const response = await client.from('waitlist').insert({ email, created_at: new Date().toISOString() });
+          if (response.error && response.error.code !== '23505') throw response.error;
+          status.textContent = response.error ? 'Вы уже в списке.' : 'Вы в списке. Код придёт на почту.';
+          return;
+        }
+        let queue = [];
+        try { queue = JSON.parse(localStorage.getItem('golem_waitlist') || '[]'); } catch (e) {}
+        if (queue.some((item) => item.email === email)) { status.textContent = 'Вы уже в списке.'; return; }
+        queue.push({ email, created_at: new Date().toISOString() });
+        localStorage.setItem('golem_waitlist', JSON.stringify(queue));
+        status.textContent = 'Вы в списке. Код придёт на почту.';
+        input.value = '';
+      } catch (error) {
+        status.textContent = 'Не удалось сохранить заявку. Попробуйте ещё раз.';
+      }
+    });
   </script>
 </body>
 </html>
