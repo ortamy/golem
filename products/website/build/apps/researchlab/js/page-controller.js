@@ -1958,6 +1958,7 @@ const PageController = (function() {
       var seg = parsed && parsed.segments;
       if (seg && seg[1] === 'lessons') viewId = seg[2] ? 'lesson' : 'lessons';
       else if (seg && seg[1] === 'game') viewId = 'game';
+      else if (seg && seg[1] === 'paleo-trainer') viewId = 'paleo-trainer';
       else if (seg && seg[1] === 'courses') {
         viewId = seg[2] ? 'course' : 'courses';
         if (seg[2] && window.GolemCourses && window.GolemCourses.list) {

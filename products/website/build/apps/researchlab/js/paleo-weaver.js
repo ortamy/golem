@@ -21,7 +21,7 @@
     'направление': { pronoun: 'которое', accusative: 'направление', genitive: 'направления', dative: 'направлению' },
     'открытие': { pronoun: 'которое', accusative: 'открытие', genitive: 'открытия', dative: 'открытию' }
   };
-  var VERBS = { 'направление': 'направляет', 'фиксация': 'фиксирует', 'разрушение': 'разрушает', 'захват': 'захватывает', 'действие': 'действует', 'откровение': 'открывает' };
+  var VERBS = { 'направление': 'направляет', 'фиксация': 'фиксирует', 'разрушение': 'разрушает', 'захват': 'захватывает', 'действие': 'действует', 'откровение': 'открывает', 'остановка': 'останавливает' };
   var MEANS = ['разрушение', 'действие', 'поток', 'огонь'];
   var PARTICLES = { 'связка': 'и', 'захват': 'через' };
   var TRANSLIT = { 'א':'ʼ','ב':'б','ג':'г','ד':'д','ה':'h','ו':'в','ז':'з','ח':'х','ט':'т','י':'й','כ':'к','ך':'к','ל':'л','מ':'м','ם':'м','נ':'н','ן':'н','ס':'с','ע':'ʼ','פ':'п','ף':'п','צ':'ц','ץ':'ц','ק':'к','ר':'р','ש':'ш','ת':'т' };
@@ -44,7 +44,8 @@
     if (!values.length) return 'образ требует проверки';
     if (isParticle(values)) return particleText(values);
     var subject = first(values, Object.keys(FORMS)) || values[0];
-    var verbKey = Object.keys(VERBS).filter(function(key) { return values.indexOf(key) !== -1; })[0] || 'направление';
+    // Подлежащее не может повторять себя как глагол: «разрушение, которое разрушает».
+    var verbKey = Object.keys(VERBS).filter(function(key) { return values.indexOf(key) !== -1 && key !== subject; })[0] || (VERBS[subject] ? 'остановка' : 'направление');
     var object = values.slice(values.indexOf(subject) + 1).filter(function(value) { return FORMS[value] && !VERBS[value] && value !== subject; })[0] || '';
     var target = values.filter(function(value) { return (value === 'вершина' || value === 'откровение') && value !== subject; })[0] || '';
     var means = unique(values.filter(function(value) { return MEANS.indexOf(value) !== -1 && value !== verbKey && value !== subject; })).slice(0, 1);

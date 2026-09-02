@@ -10,16 +10,16 @@
 .wb-count { color: var(--text-muted); font-size: 14px; }
 
 /* --- Каталог конвейеров --- */
-.wb-pipeline-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.wb-pipeline-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 14px; min-width: 0; }
 .wb-pipeline-card {
   display: flex; flex-direction: column; gap: 10px;
   padding: 16px; background: var(--bg-card);
   border: 1px solid var(--border-light); border-radius: 10px;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-soft); min-width: 0; max-width: 100%;
 }
-.wb-pipeline-head { display: flex; align-items: center; gap: 10px; }
+.wb-pipeline-head { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .wb-pipeline-icon { width: 28px; height: 28px; object-fit: contain; }
-.wb-pipeline-title { margin: 0; font-size: 17px; color: var(--text-primary); }
+.wb-pipeline-title { min-width: 0; margin: 0; font-size: 17px; color: var(--text-primary); overflow-wrap: anywhere; }
 .wb-pipeline-desc { margin: 0; color: var(--text-secondary); font-size: 14px; line-height: 1.5; flex: 1; }
 .wb-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .wb-tag {
@@ -115,6 +115,8 @@
 .wb-export-actions { display: flex; flex-wrap: wrap; gap: 6px; }
 
 @media (max-width: 720px) {
+  .wb-pipeline-grid { grid-template-columns: minmax(0, 1fr); }
+  .wb-pipeline-foot { min-width: 0; gap: 10px; }
   .wb-project-row { grid-template-columns: 1fr; }
   .wb-pair-cols, .wb-bilingual-head { grid-template-columns: 1fr; }
   .wb-bilingual-head { display: none; }
