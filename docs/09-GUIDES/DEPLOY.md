@@ -1,141 +1,66 @@
-# 🚀 DEPLOY — РАЗВЁРТЫВАНИЕ ПРОЕКТА С НУЛЯ
+# Развёртывание проекта «Голем»
 
-**Метаданные файла**
-- **Файл:** `docs/DEPLOY.md`
-- **Версия:** 1.0
-- **Дата создания:** 2026-06-11
-- **Последнее обновление:** 2026-06-11
-- **Причина обновления:** Первичное создание
-- **Статус:** Активный
-- **Тема:** Развёртывание веб-интерфейса и нейросети с нуля
-- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
-- **Язык:** русский
-- **Связанные файлы:** `docs/DEPLOY.md`, `web/`, `ed-neural/`, `tools/`
-- **Хеш:** ожидает
-- **Достоверность:** высокая
-- **Последний аудит:** 2026-06-11
+**Файл:** `docs/09-GUIDES/DEPLOY.md`
+**Статус:** актуальный
+**Опора:** `docs/01-ARCHITECTURE/ARCHITECTURE.md`
 
----
+## Что разворачивается
 
-## 📋 ЧТО РАЗВОРАЧИВАЕМ
+- публичный статический сайт `products/website/`;
+- Research Lab SPA в `products/website/apps/researchlab/`;
+- производный слой `products/website/build/`;
+- опциональный локальный Flask API `products/agents/server.py`.
 
-- Веб-интерфейс (локально или GitHub Pages)
-- Нейросеть «Эд» (локально)
-- ИИ-агент (локально)
-
----
-
-## 🌐 ВЕБ-ИНТЕРФЕЙС
-
-### Локально
+## Сборка
 
 ```bash
-cd web
-node server.js
+cd products/website
+npm install
+bash tools/build.sh
 ```
 
-Открыть: `http://localhost:8080`
+Скрипт пересоздаёт `build/`, копирует сайт, Research Lab, assets и данные, затем выполняет frontend-сборку.
 
-### GitHub Pages (автоматически)
-
-Пуш в `main` → GitHub Actions → деплой на `https://<user>.github.io/golem/`
-
-Настройка: Settings → Pages → Source: GitHub Actions
-
----
-
-## 🧠 НЕЙРОСЕТЬ «ЭД»
-
-### Установка
+## Локальный просмотр
 
 ```bash
-pip install -r requirements.txt
+cd products/website/build
+python -m http.server 8000
 ```
 
-### Загрузка модели
+- `http://localhost:8000/` — публичный сайт;
+- `http://localhost:8000/apps/researchlab/index.html#dashboard` — Research Lab.
+
+HTTP-сервер нужен для загрузки JSON через `fetch`; `file://` для smoke-проверки не использовать.
+
+## Агентный API
 
 ```bash
-cd ed-neural/models
-# Скачать GGUF модель (Mistral 7B / DeepSeek Coder)
-wget https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/resolve/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+python products/agents/server.py
 ```
 
-### Запуск сервера
+Основные endpoints: `/api/health`, `/api/info`, `/api/pipelines`, `/api/pipeline-results`, `/api/pipelines/<id>/run` и `/api/pipelines/<id>/results`.
+
+Тесты:
 
 ```bash
-cd ed-neural/inference
-python server.py
+python -m unittest discover -s products/agents/tests -p "test_*.py"
 ```
 
-Сервер: `http://localhost:8000`
+## GitHub Pages
 
-### Проверка
+Push в `main` запускает `.github/workflows/deploy.yml`, который вызывает `products/website/tools/build.sh` и публикует `products/website/build/`.
+
+## Перед deploy
 
 ```bash
-python ed-neural/inference/client.py --prompt "Что такое хесед?"
+node --check products/website/app.js
+node --check products/website/apps/researchlab/js/router.js
+node --check products/website/apps/researchlab/js/page-controller.js
+cd products/website
+bash tools/build.sh
+cd ../..
+git diff --check
 ```
 
----
-
-## 🤖 ИИ-АГЕНТ
-
-### Запуск
-
-```bash
-python ed-agent/agent.py
-```
-
-### Авто-режим
-
-```bash
-python ed-agent/agent.py --auto "проверь всё и исправь"
-```
-
----
-
-## 📊 ГЕНЕРАЦИЯ КЭША ЗНАНИЙ
-
-```bash
-python ed-neural/scripts/generate-knowledge-cache.py
-```
-
-Создаст `tools/cache/neural-cache/` с чанками всех исследований.
-
----
-
-## ✅ ПРОВЕРКА ОКРУЖЕНИЯ
-
-```bash
-python tools/checkers/check-env.py
-```
-
-Покажет что установлено, чего не хватает.
-
----
-
-## 🔧 ПОЛНЫЙ ПАЙПЛАЙН
-
-```bash
-# 1. Проверить окружение
-python tools/checkers/check-env.py
-
-# 2. Сгенерировать кэш знаний
-python ed-neural/scripts/generate-knowledge-cache.py
-
-# 3. Запустить нейросеть
-python ed-neural/inference/server.py
-
-# 4. Запустить веб-интерфейс
-cd web && node server.js
-
-# 5. Запустить агента
-python ed-agent/agent.py
-```
-
----
-
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `docs/NEURAL.md`
-- `docs/11-PRODUCTS/AGENT.md`
-- `web/README.md`
-- `ed-neural/README.md`
+Старые `web/`, `ed-neural/`, `ed-agent/`, `tools/checkers/` и `tools/generators/` не входят в текущий deploy-контур.

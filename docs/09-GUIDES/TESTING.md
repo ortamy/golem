@@ -1,130 +1,80 @@
-# 🧪 TESTING — ТЕСТИРОВАНИЕ СКРИПТОВ
+# Тестирование проекта «Голем»
 
-**Метаданные файла**
-- **Файл:** `docs/TESTING.md`
-- **Версия:** 1.0
-- **Дата создания:** 2026-06-11
-- **Последнее обновление:** 2026-06-11
-- **Причина обновления:** Первичное создание
-- **Статус:** Активный
-- **Тема:** Как тестировать скрипты перед пушем
-- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
-- **Язык:** русский
-- **Связанные файлы:** `docs/TESTING.md`, `tools/checkers/`, `tools/generators/`
-- **Хеш:** ожидает
-- **Достоверность:** высокая
-- **Последний аудит:** 2026-06-11
+**Файл:** `docs/09-GUIDES/TESTING.md`
+**Статус:** актуальный минимум проверки
+**Опора:** `docs/01-ARCHITECTURE/ARCHITECTURE.md`
 
----
-
-## 🎯 ПРАВИЛО
-
-Перед каждым коммитом прогнать:
+## Перед изменением
 
 ```bash
-python tools/checkers/check-code-quality.py
+git status
 ```
 
----
+Определи слой: документация, публичный сайт, Research Lab, Python-агенты или сборка.
 
-## 📋 ЧЕК-ЛИСТ ДЛЯ НОВОГО СКРИПТА
-
-- [ ] `#!/usr/bin/env python3` в первой строке
-- [ ] `sys.path.insert` правильный (utils — parent.parent, остальные — parent)
-- [ ] Docstring у каждой функции
-- [ ] `if __name__ == "__main__"` блок
-- [ ] Аргументы через `argparse`
-- [ ] `--help` показывает описание
-- [ ] `--verbose` для подробного вывода
-- [ ] `--dry-run` для опасных операций
-- [ ] `--fix` для автоисправления
-- [ ] Прогресс-бар для долгих операций
-
----
-
-## 🧪 ТЕСТИРОВАНИЕ ЧЕКЕРА
+## Документы
 
 ```bash
-# 1. Проверка без изменений
-python tools/checkers/check-NAME.py
-
-# 2. Проверка одного файла (если поддерживает)
-python tools/checkers/check-NAME.py --file path/to/file.md
-
-# 3. Dry-run (если есть)
-python tools/checkers/check-NAME.py --fix --dry-run
-
-# 4. Реальный запуск
-python tools/checkers/check-NAME.py --fix
-
-# 5. Проверить что не сломалось
-python tools/checkers/check-NAME.py
+git diff --check
 ```
 
----
+Проверь локальные ссылки, H1, пути в metadata, старые каталоги и отсутствие секретов.
 
-## 🧪 ТЕСТИРОВАНИЕ ГЕНЕРАТОРА
+## JavaScript
 
 ```bash
-# 1. Тестовая генерация (с лимитом)
-python tools/generators/generate-NAME.py --limit 10
-
-# 2. Проверить выходной файл
-ls -la web/export/   # или tools/cache/
-
-# 3. Полная генерация
-python tools/generators/generate-NAME.py
+node --check products/website/app.js
+node --check products/website/apps/researchlab/js/router.js
+node --check products/website/apps/researchlab/js/page-controller.js
 ```
 
----
+Для изменённого модуля проверь прямой hash-маршрут, повторный переход, общую шапку, breadcrumbs, JSON и mobile overflow.
 
-## 🔧 ТЕСТИРОВАНИЕ CODE-INJECTOR
+## Сайт
 
 ```bash
-# Всегда сначала dry-run
-python tools/utils/code-injector.py -f test.py --replace "old" --code "new" --dry-run
-
-# С бэкапом
-python tools/utils/code-injector.py -f test.py --replace "old" --code "new"
-
-# Проверить результат
-cat test.py
+cd products/website
+bash tools/build.sh
 ```
 
----
-
-## 📦 ТЕСТИРОВАНИЕ ПЕРЕД ПУШЕМ
+После сборки подними HTTP-сервер из `build/`:
 
 ```bash
-# 1. Качество кода
-python tools/checkers/check-code-quality.py
-
-# 2. Имена файлов
-python tools/checkers/check-naming.py
-
-# 3. Ссылки
-python tools/checkers/check-links.py
-
-# 4. Быстрый прогон религионизмов
-python tools/checkers/check-religionisms.py
-
-# Если всё чисто — коммит
-git add . && git commit -m "Описание изменений"
+cd build
+python -m http.server 8000
 ```
 
----
+Проверь ширины 360, 480, 720 и desktop, сквозную шапку, тему, reduced-motion, waitlist и интерактивы лендинга.
 
-## ⚠️ ЧТО ДЕЛАТЬ ЕСЛИ СКРИПТ СЛОМАЛСЯ
+## Research Lab
 
-1. **Посмотреть лог:** `cat golem.log`
-2. **Запустить с подробным выводом:** `python script.py --verbose`
-3. **Проверить sys.path:** `python -c "import sys; print(sys.path)"`
-4. **Проверить что файл на месте:** `ls -la tools/checkers/check-NAME.py`
-5. **Восстановить из бэкапа:** `cp tools/cache/backups/file.py.bak tools/path/file.py`
+Проверяй основные маршруты:
 
----
+```text
+#dashboard
+#root-dictionary
+#learn/paleo-trainer
+#pipelines
+#pipelines/<id>
+#workbench
+#workbench/run/<id>
+```
 
-## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `tools/checkers/check-code-quality.py`
-- `tools/checkers/check-env.py`
-- `docs/SCRIPTS-OVERVIEW.md`
+Проверь локальный fallback при недоступном агентном сервере.
+
+## Python-агенты
+
+```bash
+python -m unittest discover -s products/agents/tests -p "test_*.py"
+```
+
+Минимальные области: линейный/циклический trace, кастомный пайплайн, сохранение результатов, `/api/health` и ошибка Ollama.
+
+## После проверки
+
+```bash
+git diff --check
+git status
+```
+
+Производные файлы должны быть получены сборкой. Временные скриншоты и локальные результаты не добавляй без явного назначения.

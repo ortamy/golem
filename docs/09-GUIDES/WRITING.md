@@ -1,5 +1,9 @@
 # Руководство по написанию документов
 
+**Файл:** `docs/09-GUIDES/WRITING.md`
+**Статус:** актуальный рабочий гайд
+**Опора:** `docs/00-START/MANIFEST.md`, `docs/01-ARCHITECTURE/ARCHITECTURE.md`
+
 После заполнения учения замени `black` на реальные оценки:
 - `green` — соответствует ТаНаХу
 - `yellow` — смешанное
@@ -75,20 +79,19 @@
 ## 🔄 ПРОЦЕСС НАПИСАНИЯ
 
 1. Выбери тему
-2. Проверь нет ли дубликата: `python tools/utils/search.py "ключевое слово"`
-3. Определи тип файла → открой `cache-metadata-templates.json` → скопируй метаданные
-4. Открой `.md` шаблон из `instructions/templates/`
-5. Напиши черновик в `backlog/`
-6. Пройди аудит: bdikah → mivdak → tikun → factcheck
+2. Проверь, нет ли дубликата, через VS Code или `git grep`.
+3. Определи тип документа и выбери шаблон из `docs/12-TEMPLATES/`.
+4. Напиши черновик рядом с целевым продуктовым разделом или в `tasks/`.
+5. Пройди содержательную проверку: источник → методология → фактология → согласованность.
 7. Исправь замечания
-8. Перенеси в `content/`
-9. Запусти `check-religionisms.py --fix`
-10. Обнови `files.json`
+8. Перенеси документ в актуальный раздел `docs/`, `products/` или `researches/` согласно его назначению.
+9. Проверь локальные ссылки и `git diff --check`.
+10. Если менялся сайт, пересобери `products/website/build/`.
 
 ---
 
 ## 🔗 СВЯЗАННЫЕ ФАЙЛЫ
-- `tools/cache/cache-metadata-templates.json` — единый источник метаданных
-- `instructions/templates/` — все .md шаблоны
-- `guides/AUDIT.md` — как проверять
-- `guides/TERMINOLOGY.md` — как работать с терминами
+- `docs/12-TEMPLATES/` — актуальные шаблоны документов
+- `docs/08-AUDITS/DOCS-AUDIT-2026-09-02.md` — аудит документации
+- `docs/04-STANDARD/TERMINOLOGY.md` — рабочая терминология
+- `docs/01-ARCHITECTURE/ARCHITECTURE.md` — границы и пути проекта

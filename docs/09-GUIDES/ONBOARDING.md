@@ -1,190 +1,77 @@
-# 🚀 БЫСТРЫЙ СТАРТ — ONBOARDING
+# Быстрый старт для нового участника
 
-**Метаданные файла**
-- **Файл:** `docs/ONBOARDING.md`
-- **Версия:** 1.0
-- **Дата создания:** 2026-06-09
-- **Последнее обновление:** 2026-06-09
-- **Причина обновления:** Первичное создание
-- **Статус:** Активный
-- **Тема:** Быстрый старт для новых участников проекта «Голем»
+**Файл:** `docs/09-GUIDES/ONBOARDING.md`
+**Статус:** актуальный
+**Опора:** `docs/00-START/MANIFEST.md`, `docs/01-ARCHITECTURE/ARCHITECTURE.md`
 
----
+## Сначала прочитать
 
-## 🔥 ДОБРО ПОЖАЛОВАТЬ
+1. `README.md` — общий вход.
+2. `docs/00-START/MANIFEST.md` — методологическое поле.
+3. `docs/01-ARCHITECTURE/ARCHITECTURE.md` — границы систем.
+4. `docs/INDEX.md` — карта документации.
+5. `docs/02-MANAGEMENT/ROADMAP.md` — направления развития.
+6. `docs/02-MANAGEMENT/BACKLOG.md` — текущие задачи.
+7. `docs/09-GUIDES/WRITING.md` — правила написания.
 
-Проект «Голем» — восстановление истины ТаНаХа через разоблачение лжи. Ты можешь участвовать: добавлять исследования, проверять тексты, улучшать инструменты.
+Для Research Lab дополнительно прочитать `docs/11-PRODUCTS/RESEARCH-LAB.md`.
 
-Этот гайд поможет начать за 5 минут.
+## Проверка окружения
 
----
-
-## 📦 УСТАНОВКА
-
-### 1. Склонировать репозиторий
 ```bash
-git clone https://github.com/ortamy/golem.git
-cd golem
+git status
+python --version
+node --version
 ```
 
-### 2. Установить зависимости
+Для сайта:
+
 ```bash
-# Windows
-pip install -r requirements.txt
-
-# Linux/Mac
-pip install rich  # curses уже встроен
+cd products/website
+npm install
+npm run build
 ```
 
-### 3. Первый запуск
+Для агентного слоя:
+
 ```bash
-cd tools
-python golem.py
+python products/agents/server.py
 ```
 
-Выбери язык (Русский) → и ты в главном меню.
+## Карта исходников
 
----
+- `products/website/index.html` — публичный лендинг.
+- `products/website/apps/researchlab/` — SPA лаборатории.
+- `products/website/apps/researchlab/js/router.js` — hash-маршруты.
+- `products/website/apps/researchlab/js/page-controller.js` — рендеринг.
+- `products/website/apps/researchlab/js/lab-hero.js` — общая шапка и крошки.
+- `products/website/apps/researchlab/data/` — JSON-данные.
+- `products/agents/server.py` — Flask API.
+- `products/agents/pipelines/` — пайплайны.
+- `tools/` — генераторы и Design Baseline.
 
-## 🧭 НАВИГАЦИЯ
+## Первый рабочий цикл
 
-```
-ГОЛЕМ v4.1
-├── ДЕЙСТВИЯ
-│   ├── Запустить все проверки
-│   ├── Запустить все исправления
-│   └── Полный аудит
-├── ИНСТРУМЕНТЫ
-│   ├── Чекеры (проверки)
-│   ├── Генераторы (создание файлов)
-│   ├── Отчёты (статистика)
-│   ├── Автоматизация
-│   └── Бэкап и экспорт
-└── ВЫХОД
-```
+1. Найди задачу в `docs/02-MANAGEMENT/BACKLOG.md` или `tasks/`.
+2. Проверь архитектурные границы.
+3. Найди существующий модуль или документ.
+4. Измени канонический исходник, не `build/`.
+5. Запусти релевантную проверку.
+6. Для сайта пересобери `build/` через `products/website/tools/build.sh`.
+7. Проверь diff и обнови документацию при изменении маршрута/API/структуры.
 
-**Управление:** стрелки ↑↓ — выбор, Enter — вход, Esc — назад, q — выход.
+## Контроль перед коммитом
 
----
-
-## ✅ ПЕРВЫЕ ДЕЙСТВИЯ
-
-### Проверить проект
 ```bash
-# Через меню:
-ДЕЙСТВИЯ → Запустить все проверки
-
-# Или напрямую:
-python tools/checkers/check-links.py
-python tools/checkers/check-religionisms.py
+git diff --check
+node --check products/website/app.js
+node --check products/website/apps/researchlab/js/router.js
+node --check products/website/apps/researchlab/js/page-controller.js
 ```
 
-### Исправить религионимы
-```bash
-python tools/checkers/check-religionisms.py --fix
-```
-Это заменит «Бог» → «Элоhим», «грех» → «промах» и т.д. во всех файлах.
+## Безопасность
 
-### Добавить метаданные в новые файлы
-```bash
-python tools/generators/unify-metadata.py --fix
-```
-
----
-
-## 📝 КАК ДОБАВИТЬ ИССЛЕДОВАНИЕ
-
-1. Создай `.md` файл в `researches/` (или подпапке)
-2. Используй шаблон:
-```markdown
-# 📜 НАЗВАНИЕ ИССЛЕДОВАНИЯ
-
-**Метаданные файла**
-- **Файл:** `researches/...`
-- **Версия:** 1.0
-- **Дата создания:** 2026-06-09
-- **Последнее обновление:** 2026-06-09
-- **Причина обновления:** Первичное создание
-- **Статус:** Активный
-- **Тема:** Краткое описание темы
-
----
-
-## 🔥 ВВЕДЕНИЕ
-...
-
-## 📖 СВИДЕТЕЛЬСТВО ТАНАХА
-...
-
-## ⚔️ РАЗОБЛАЧЕНИЕ
-...
-```
-
-3. Запусти проверки:
-```bash
-python tools/checkers/check-religionisms.py --fix
-python tools/generators/unify-metadata.py --fix
-```
-
-4. Готово. Файл чист и готов к публикации.
-
----
-
-## 📚 ГЛАВНЫЕ ПРАВИЛА
-
-- **Источник истины:** ТаНаХ на иврите (масоретский текст)
-- **Имя:** יהוה (Яхве) — не «Господь», не «Бог»
-- **Запрещённые слова:** религионимы, грецизмы, латинизмы (см. `instructions/forbidden-words.md`)
-- **Без таблиц:** только списки
-- **Одно слово — одно исследование**
-- **Истина проста:** если сложно — это ложь
-
----
-
-## 🛠 ОСНОВНЫЕ КОМАНДЫ
-
-| Действие | Команда |
-|----------|---------|
-| Все проверки | `python tools/golem.py` → ДЕЙСТВИЯ → Запустить все проверки |
-| Исправить религионимы | `python tools/checkers/check-religionisms.py --fix` |
-| Обновить метаданные | `python tools/generators/unify-metadata.py --fix` |
-| Проверить ссылки | `python tools/checkers/check-links.py` |
-| Найти дубликаты | `python tools/checkers/find-duplicates.py` |
-| Статистика | `python tools/reports/stats-report.py` |
-| Очистить кэш | `python tools/checkers/clear-cache.py` |
-
----
-
-## 📂 СТРУКТУРА ПРОЕКТА (КРАТКО)
-
-| Папка | Что внутри |
-|-------|-----------|
-| `terminology/` | Разбор ивритских терминов |
-| `researches/` | Исследования явлений, систем, учений |
-| `instructions/` | Принципы, методы, карты очищения языка |
-| `tools/` | Скрипты для проверок и автоматизации |
-| `docs/` | Документация проекта |
-| `neural/` | Нейросеть «Эд» (в разработке) |
-
----
-
-## ❓ ЧАСТЫЕ ВОПРОСЫ
-
-**Скрипт упал с ошибкой?**
-```bash
-python tools/checkers/clear-cache.py
-python tools/checkers/check-religionisms.py --rebuild
-```
-
-**Не знаешь, куда положить файл?**
-Запусти `python tools/automation/sort-files.py --dry-run` — он подскажет.
-
-**Файл не проходит проверку имён?**
-Имена только латиницей, через дефис: `my-research.md`
-
-**Как откатить изменения?**
-```bash
-git checkout -- .
-```
-
----
+- Не коммить `.env`, ключи и персональные данные.
+- Не редактировать `build/` вручную.
+- Не считать `archive/` активным источником без проверки.
+- Не переносить в новые инструкции команды из исторических `tools/checkers/`, `instructions/` и `backlog/`.

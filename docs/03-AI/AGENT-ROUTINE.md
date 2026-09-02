@@ -1,137 +1,62 @@
-# 📜 ROUTINE — ЕЖЕДНЕВНАЯ РУТИНА АГЕНТА «ЭД»
+# Рутина AI-агента «Эд»
 
-**Метаданные файла**
-- **Файл:** `instructions/agent/ROUTINE.md`
-- **Версия:** 2.0
-- **Дата создания:** 2026-06-11
-- **Последнее обновление:** 2026-06-12
-- **Причина обновления:** Добавлены шаблоны метаданных, tree-health, проверка headers
-- **Статус:** Активный
-- **Тема:** Ежедневная рутина агента «Эд» — проверки, генерация, отчёт
-- **Аудит:** bdikah ⏳ | mivdak ⏳ | tikun ⏳ | factcheck ⏳
-- **Язык:** русский
-- **Связанные файлы:** `instructions/agent/AGENT-PROMPT.md`, `tools/cache/cache-metadata-templates.json`, `ed/agent/agent.py`
-- **Хеш:** ожидает
-- **Достоверность:** высокая
-- **Последний аудит:** 2026-06-12
+**Файл:** `docs/03-AI/AGENT-ROUTINE.md`
+**Статус:** актуальный рабочий протокол
+**Опора:** `docs/00-START/MANIFEST.md`, `docs/01-ARCHITECTURE/ARCHITECTURE.md`
 
----
+## Перед началом
 
-## 🔥 НАЗНАЧЕНИЕ
+1. Прочитать `docs/00-START/MANIFEST.md`.
+2. Прочитать `docs/01-ARCHITECTURE/ARCHITECTURE.md`.
+3. Проверить `git status`.
+4. Определить слой: документация, сайт, Research Lab, агенты или инструменты.
 
-Ежедневная рутина агента «Эд». Выполняется автоматически при запуске или по расписанию. Шесть этапов: от проверки репозитория до отчёта.
+## Для документации
 
----
+1. Найти существующий документ и проверить дубликаты.
+2. Сверить путь с `docs/INDEX.md`.
+3. Изменить канонический файл.
+4. Проверить локальные ссылки, H1 и metadata.
+5. Запустить `git diff --check`.
+6. Обновить отчёт аудита при изменении структуры.
 
-## 🔄 6 ЭТАПОВ
+## Для публичного сайта
 
-### Этап 1: Проверка репозитория
+1. Найти исходник в `products/website/index.html`, `app.js` или `src/`.
+2. Проверить desktop/mobile.
+3. Выполнить `node --check products/website/app.js`.
+4. Пересобрать сайт: `bash products/website/tools/build.sh`.
+5. Проверить производный `build/` через HTTP-сервер.
 
-```bash
-python tools/checkers/check-naming.py
-python tools/checkers/check-links.py
-python tools/checkers/check-orphans.py
-python tools/checkers/check-empty-files.py
-python tools/checkers/check-code-quality.py
-python tools/checkers/check-headers.py
-```
+## Для Research Lab
 
-**Действие:** запустить все чекеры. Если ошибки — зафиксировать в `AGENT-RETROSPECTIVE.md`.
+1. Проверить маршрут в `apps/researchlab/js/router.js`.
+2. Проверить renderer в `page-controller.js` или профильном модуле.
+3. Проверить `LabHero`, breadcrumbs и повторный переход.
+4. Проверить локальный JSON fallback.
+5. Пересобрать сайт после frontend-изменений.
 
----
+Основные маршруты контроля:
 
-### Этап 2: Проверка религионимов
+- `#dashboard`;
+- `#root-dictionary`;
+- `#learn/paleo-trainer`;
+- `#pipelines`;
+- `#pipelines/<id>`;
+- `#workbench`.
 
-```bash
-python tools/checkers/check-religionisms.py
-```
-
-**Если найдены:**
-```bash
-python tools/checkers/check-religionisms.py --fix
-```
-
-**Действие:** исправить автоматически. Зафиксировать количество замен.
-
----
-
-### Этап 3: Обновление метаданных и структуры
+## Для агентов
 
 ```bash
-python tools/sync/sync-structure.py
-python tools/generators/generate-metadata.py --fix
-python tools/generators/generate-glossary.py
-python tools/generators/generate-index.py
+python -m unittest discover -s products/agents/tests -p "test_*.py"
+python products/agents/server.py
 ```
 
-**Действие:** обновить `STRUCTURE.md`, `GLOSSARY.md`, `INDEX.md`. Привести метаданные к шаблонам из `cache-metadata-templates.json`.
+Проверить API, trace, сохранение результатов и fallback при недоступности Ollama.
 
----
+## Завершение
 
-### Этап 4: Проверка шаблонов метаданных
-
-**Действие:** проверить что все новые файлы используют правильные метаданные из `tools/cache/cache-metadata-templates.json`. Если файл создан не по шаблону — обновить метаданные.
-
-Особое внимание:
-- `content/teachings/` — поле `Tree-Health` обязательно
-- `ideas/` — поле `Статус идеи` обязательно
-
----
-
-### Этап 5: Генерация файлов для веба
-
-```bash
-python tools/generators/generate-files-json.py
-python tools/generators/generate-book.py
-python tools/reports/report-dashboard.py
-```
-
-**Действие:** обновить `web/files.json`, сгенерировать книгу и дашборд.
-
----
-
-### Этап 6: Отчёт и фиксация
-
-**Действие:** записать в `AGENT-RETROSPECTIVE.md`:
-- Дату выполнения
-- Какие этапы пройдены
-- Какие ошибки возникли
-- Статистику: сколько файлов проверено, сколько исправлено
-
-**Если были изменения:**
-```bash
-git add . && git commit -m "chore: ежедневная рутина агента [дата]"
-```
-
----
-
-## ⚡ БЫСТРЫЙ ЗАПУСК
-
-```bash
-python ed/agent/agent.py --auto "выполни ежедневную рутину"
-```
-
----
-
-## ⚠️ ОШИБКИ И РЕШЕНИЯ
-
-| Ошибка | Решение |
-|--------|---------|
-| `name 're' is not defined` | Добавить `import re` в скрипт |
-| `addwstr() returned ERR` | Ошибка curses на Windows, не критично |
-| Файл не найден | Проверить `sys.path` в скрипте |
-| Кэш устарел | `python tools/utils/clear-cache.py` |
-| Метаданные не по шаблону | Сверить с `cache-metadata-templates.json` |
-
----
-
-## 📋 ЧЕК-ЛИСТ
-
-- [ ] Чекеры пройдены
-- [ ] Религионимы исправлены
-- [ ] Структура обновлена
-- [ ] Метаданные по шаблонам
-- [ ] Tree-Health заполнен для teachings
-- [ ] Статус идеи заполнен для ideas
-- [ ] files.json обновлён
-- [ ] Отчёт записан
+- Проверить `git diff --check`.
+- Убедиться, что `build/` получен сборкой.
+- Не коммитить временные результаты и секреты.
+- Записать изменённые файлы, проверки и ограничения.
