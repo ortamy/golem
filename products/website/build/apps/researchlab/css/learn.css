@@ -10,6 +10,8 @@
 .learn-mode-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
 .learn-mode-card { display:flex; flex-direction:column; min-height:230px; padding:26px; border:1px solid var(--border-light); border-top:3px solid var(--accent-gold); border-radius:10px; background:var(--bg-card); box-shadow:var(--shadow-soft); cursor:pointer; text-decoration:none; color:inherit; transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease; }
 .learn-mode-card:hover,.learn-mode-card:focus-visible { border-color:var(--accent-gold); box-shadow: var(--shadow-card-hover-color); outline:none; }
+.learn-mode-placeholder { border-top-color:var(--text-muted); cursor:default; opacity:.82; }
+.learn-mode-placeholder:hover,.learn-mode-placeholder:focus-visible { border-color:var(--border-light); border-top-color:var(--text-muted); box-shadow:var(--shadow-soft); }
 .learn-mode-icon { color:var(--accent-gold); font:48px/1 var(--font-paleo); margin-bottom:16px; }
 .learn-mode-card h2 { font:600 28px/1.15 var(--font-heading); margin-bottom:8px; }
 .learn-mode-card p { color:var(--text-secondary); margin-bottom:16px; }
@@ -30,7 +32,7 @@
 .learn-state-panel p { margin:6px 0 0; color:var(--text-muted); }
 .learn-state-panel .learn-danger { flex:0 0 auto; }
 .learn-back { margin-bottom:20px; }
-.learn-letter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+.learn-letter-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
 .learn-letter-card { position:relative; padding:18px 14px; min-height:190px; text-align:center; border:1px solid var(--border-light); border-left:4px solid var(--text-muted); border-radius:8px; background:var(--bg-card); cursor:pointer; transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease; animation:learn-card-in var(--dur-2) ease both; }
 .learn-letter-card:hover,.learn-letter-card:focus-visible { border-color:var(--accent-gold); box-shadow: var(--shadow-card-hover-color); outline:none; }
 .learn-letter-card.is-progress { border-left-color:var(--accent-gold); }
@@ -81,7 +83,7 @@
 .course-tag.level { color:var(--accent-gold); border-color:var(--border-light); }
 
 @keyframes learn-card-in { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } } @keyframes learn-correct { 50% { transform:scale(1.03); } } @keyframes learn-wrong { 25%,75% { transform:translateX(-4px); } 50% { transform:translateX(4px); } } @keyframes learn-pulse { 50% { opacity:.55; } }
-@media (max-width:800px) { .learn-letter-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:800px) { .learn-letter-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:600px) { .learn-hero,.learn-section-head,.learn-state-panel { display:block; }.learn-state-panel .learn-danger { margin-top:16px; }.learn-hero-mark { display:none; }.learn-stats,.learn-mode-grid { grid-template-columns:1fr; }.learn-letter-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }.learn-question { padding:20px 14px; }.learn-game-bar { flex-wrap:wrap; }.learn-options { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }.learn-option { padding:12px 10px; font-size:16px; }.course-grid { grid-template-columns:1fr; } }
 @media (prefers-reduced-motion:reduce) { .learn-module *, .learn-module *::before, .learn-module *::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
 /* ===== Курс: открытый статус и уроки-свитки ===== */
