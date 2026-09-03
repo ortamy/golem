@@ -170,22 +170,6 @@
     }
     .club-banner-copy { margin: 0; font-family: var(--serif); font-size: 1.15rem; line-height: 1.15; }
     .club-banner-copy strong { font-weight: 600; }
-    .club-banner-link {
-      display: inline-flex;
-      min-height: 34px;
-      align-items: center;
-      padding: 7px 15px;
-      border: 1px solid rgba(255, 247, 232, .8);
-      border-radius: 999px;
-      color: #fff7e8;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background .2s ease, color .2s ease, transform .2s ease;
-    }
-    .club-banner-link:hover { background: #fff7e8; color: #713515; transform: translateY(-1px); }
     .club-banner-close {
       position: absolute;
       top: 50%;
@@ -423,10 +407,34 @@
     .audience-grid, .preview-grid { display: grid; gap: 16px; }
     .audience > .container > .section-heading, .platform > .container > .section-heading { margin-right: auto; margin-left: auto; text-align: center; }
     .audience > .container > .section-heading p:not(.eyebrow), .platform > .container > .section-heading p:not(.eyebrow) { margin-right: auto; margin-left: auto; }
-    .audience-card { display: flex; flex-direction: column; min-height: 210px; padding: 26px; background: var(--paper-light); border: 1px solid var(--gold); border-radius: var(--radius-lg); box-shadow: var(--shadow); text-align: center; }
-    .card-index { display: block; margin-bottom: 25px; color: var(--bronze); font-family: var(--serif); font-size: 1.2rem; }
+    .audience-layout { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); gap: 14px clamp(12px, 1.8vw, 28px); align-items: center; }
+    .audience-layout > .section-heading { grid-column: 2 / 4; grid-row: 2 / 4; align-self: center; justify-self: center; max-width: 520px; margin: 0; text-align: center; }
+    .audience-layout > .section-heading p:not(.eyebrow) { margin-right: auto; margin-left: auto; }
+    .audience-side { display: contents; }
+    .audience-card { display: flex; flex-direction: column; min-height: 118px; padding: 16px 14px; background: color-mix(in srgb, var(--paper-light) 68%, transparent); border: 1px solid color-mix(in srgb, var(--gold) 72%, transparent); border-radius: var(--radius-lg); box-shadow: 0 12px 28px rgba(44, 24, 16, .1), inset 0 1px 0 rgba(255, 255, 255, .38); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); text-align: center; transform: translateY(0) rotate(0) scale(1); transition: box-shadow .3s ease, border-color .3s ease; }
+    .audience-side--left .audience-card:nth-child(1) { grid-column: 1; grid-row: 1; --from: -24px; --to: 18px; --tilt: -1.5deg; }
+    .audience-side--left .audience-card:nth-child(2) { grid-column: 2; grid-row: 1; --from: 20px; --to: -16px; --tilt: 1.2deg; }
+    .audience-side--left .audience-card:nth-child(3) { grid-column: 1; grid-row: 2; --from: -18px; --to: 24px; --tilt: -2deg; }
+    .audience-side--left .audience-card:nth-child(4) { grid-column: 1; grid-row: 3; --from: 20px; --to: -22px; --tilt: 1.8deg; }
+    .audience-side--left .audience-card:nth-child(5) { grid-column: 2; grid-row: 4; --from: -22px; --to: 16px; --tilt: -1deg; }
+    .audience-side--left .audience-card:nth-child(6) { grid-column: 1; grid-row: 4; --from: 16px; --to: -26px; --tilt: 2.2deg; }
+    .audience-side--right .audience-card:nth-child(1) { grid-column: 4; grid-row: 1; --from: 18px; --to: -24px; --tilt: 1.4deg; }
+    .audience-side--right .audience-card:nth-child(2) { grid-column: 3; grid-row: 1; --from: -20px; --to: 16px; --tilt: -1.1deg; }
+    .audience-side--right .audience-card:nth-child(3) { grid-column: 4; grid-row: 2; --from: 24px; --to: -18px; --tilt: 2deg; }
+    .audience-side--right .audience-card:nth-child(4) { grid-column: 4; grid-row: 3; --from: -18px; --to: 24px; --tilt: -1.7deg; }
+    .audience-side--right .audience-card:nth-child(5) { grid-column: 3; grid-row: 4; --from: 20px; --to: -16px; --tilt: 1deg; }
+    .audience-side--right .audience-card:nth-child(6) { grid-column: 4; grid-row: 4; --from: -16px; --to: 26px; --tilt: -2.2deg; }
+    .audience-card:hover { border-color: var(--gold-deep); box-shadow: 0 16px 34px rgba(44, 24, 16, .16); }
+    .audience-card h3 { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 8px; font-size: clamp(.68rem, .95vw, 1rem); letter-spacing: -.025em; white-space: nowrap; }
+    .audience-icon { width: 32px; height: 32px; flex: 0 0 32px; object-fit: contain; }
     .audience-card p { margin-bottom: 0; color: var(--muted); font-size: .9rem; }
-    .audience-card .text-link { margin-top: auto; padding-top: 16px; }
+    @keyframes audience-drift { from { transform: translateY(var(--from)) rotate(var(--tilt)) scale(.96); } to { transform: translateY(var(--to)) rotate(calc(var(--tilt) * -1)) scale(1.04); } }
+    @supports (animation-timeline: view()) {
+      .audience-card { animation: audience-drift linear both; animation-timeline: view(block); animation-range: entry 0% exit 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .audience-card { animation: none !important; transform: none; }
+    }
     .platform { background: var(--paper-deep); }
     .preview-card { display: flex; flex-direction: column; padding: 26px; background: var(--paper-light); border: 1px solid var(--gold); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
     .preview-copy { display: flex; flex: 1; flex-direction: column; }
@@ -449,9 +457,10 @@
     .back-to-top { position: fixed; right: 18px; bottom: 18px; z-index: 15; display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid var(--gold); border-radius: 50%; background: var(--paper-light); color: var(--chocolate); cursor: pointer; font-size: 1.2rem; }
     .letter-popover { position: fixed; z-index: 25; width: min(230px, calc(100vw - 28px)); padding: 14px; border: 1px solid var(--gold); border-radius: var(--radius); background: var(--paper-light); box-shadow: var(--shadow); color: var(--chocolate); line-height: 1.35; }
     .letter-popover strong { display: block; margin-bottom: 4px; color: var(--gold-deep); font-family: var(--serif); font-size: 1.25rem; }
-    .waitlist-form { display: grid; gap: 8px; width: min(100%, 360px); margin: 4px auto 0; }
+    .waitlist-form { display: grid; gap: 8px; width: min(100%, 540px); margin: 4px auto 0; }
     .waitlist-row { display: flex; gap: 8px; }
-    .waitlist-input { min-width: 0; flex: 1; min-height: 48px; padding: 10px 14px; border: 1px solid #8c765d; border-radius: var(--radius); background: var(--paper); color: var(--chocolate); }
+    .waitlist-input, .waitlist-form .button { min-width: 0; flex: 1 1 0; box-sizing: border-box; }
+    .waitlist-input { min-height: 48px; padding: 10px 14px; border: 1px solid #8c765d; border-radius: var(--radius); background: var(--paper); color: var(--chocolate); }
     .waitlist-form .button { min-width: 0; }
     .waitlist-status { min-height: 1.2em; margin: 0; color: var(--club-text); font-size: .8rem; }
     .text-link { color: var(--bronze); font-size: .8rem; font-weight: 700; text-decoration: none; }
@@ -463,7 +472,7 @@
     .project-callout p { max-width: 580px; margin-bottom: 0; color: #dbcbb2; line-height: 1.7; }
     .project-callout .button-outline { border-color: var(--gold); color: var(--paper); }
     .site-footer { padding: 40px 0 18px; background: var(--chocolate); color: var(--paper); }
-    .footer-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-bottom: 16px; }
+    .footer-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 24px; padding-bottom: 16px; text-align: center; }
     .footer-brand { color: var(--gold); }
     .footer-slogan { max-width: none; margin: 0; color: #dbcbb2; font-family: var(--serif); font-size: 1.3rem; font-style: italic; white-space: nowrap; }
     .footer-bottom { display: inline; color: #b9a58b; font-size: .72rem; }
@@ -472,7 +481,7 @@
       .loss-plate { grid-template-columns: 70px 1fr 100px auto; }
       .loss-detail { display: block; }
       .mechanics-grid { grid-template-columns: .85fr 1.15fr; align-items: center; }
-      .audience-grid, .preview-grid { grid-template-columns: repeat(3, 1fr); }
+      .preview-grid { grid-template-columns: repeat(3, 1fr); }
       .project-callout { max-width: 860px; margin-inline: auto; }
     }
     @media (min-width: 641px) and (max-width: 979px) {
@@ -505,6 +514,30 @@
       .project-callout .button { width: 100%; }
       .preview-copy .button { width: 100%; }
       .analysis-cta { width: 100%; }
+      .audience { overflow: visible; padding: 54px 0 58px; }
+      .audience-layout { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 10px; min-height: 0; margin-inline: -8px; padding: 0; }
+      .audience-layout > .section-heading { position: relative; top: auto; left: auto; z-index: 3; grid-column: 1 / -1; grid-row: 1; width: auto; max-width: 330px; padding: 0 10px 18px; transform: none; }
+      .audience-layout > .section-heading h2 { margin-bottom: 10px; font-size: clamp(1.55rem, 7vw, 2.25rem); }
+      .audience-layout > .section-heading p:not(.eyebrow) { font-size: .84rem; line-height: 1.45; }
+      .audience-side { display: contents; }
+      .audience-card, .audience-side--left .audience-card, .audience-side--right .audience-card { position: relative; z-index: 1; grid-column: auto; grid-row: auto; width: auto; min-height: 92px; padding: 12px 9px; overflow: visible; animation: none; transform: rotate(var(--tilt)) scale(.98); }
+      .audience-side--left .audience-card:nth-child(1) { grid-column: 1; grid-row: 2; --tilt: -2deg; }
+      .audience-side--left .audience-card:nth-child(2) { grid-column: 2; grid-row: 2; --tilt: 1.5deg; }
+      .audience-side--left .audience-card:nth-child(3) { grid-column: 1; grid-row: 3; --tilt: 1deg; }
+      .audience-side--left .audience-card:nth-child(4) { grid-column: 2; grid-row: 3; --tilt: -1.5deg; }
+      .audience-side--left .audience-card:nth-child(5) { grid-column: 1; grid-row: 4; --tilt: -1deg; }
+      .audience-side--left .audience-card:nth-child(6) { grid-column: 2; grid-row: 4; --tilt: 2deg; }
+      .audience-side--right .audience-card:nth-child(1) { grid-column: 1; grid-row: 5; --tilt: 1.5deg; }
+      .audience-side--right .audience-card:nth-child(2) { grid-column: 2; grid-row: 5; --tilt: -2deg; }
+      .audience-side--right .audience-card:nth-child(3) { grid-column: 1; grid-row: 6; --tilt: -1.5deg; }
+      .audience-side--right .audience-card:nth-child(4) { grid-column: 2; grid-row: 6; --tilt: 1deg; }
+      .audience-side--right .audience-card:nth-child(5) { grid-column: 1; grid-row: 7; --tilt: 2deg; }
+      .audience-side--right .audience-card:nth-child(6) { grid-column: 2; grid-row: 7; --tilt: -1deg; }
+      .audience-card h3 { gap: 5px; margin-bottom: 0; font-size: .68rem; white-space: normal; }
+      .audience-icon { width: 24px; height: 24px; flex-basis: 24px; }
+      .audience-card p { display: block; margin-top: 8px; font-size: .72rem; line-height: 1.35; }
+      .footer-top { flex-direction: column; gap: 8px; }
+      .footer-slogan { white-space: normal; }
       .waitlist-row { flex-direction: column; }
       .waitlist-row .button { width: 100%; }
     }
@@ -513,17 +546,20 @@
       .lab-header { position: sticky !important; top: 0; right: auto; left: auto; width: 100%; height: 64px; }
       .desktop-anchor-nav { display: none; }
       .footer-slogan { white-space: normal; }
-      .club-banner { min-height: 92px; padding: 10px 52px; }
+      .club-banner { height: 64px; min-height: 64px; padding: 8px 52px; }
       .club-matrix-edge { width: 105px; gap: 4px; padding-inline: 5px; font-size: .95rem; }
-      .club-banner-content { min-height: 72px; flex-direction: column; gap: 7px; }
+      .club-banner-content { min-height: 0; height: 100%; flex-direction: column; gap: 7px; }
       .club-banner-copy { font-size: 1.05rem; }
       .club-banner-close { right: 12px; }
       .loss-plate { grid-template-columns: 42px 1fr auto; }
       .loss-explanation { grid-column: 2 / -1; }
       .scale-strip .container { width: 100%; padding-inline: 0; }
-      .analysis-stack { min-height: 0; padding: 0; }
+      .analysis-stack { min-height: 470px; margin-top: 20px; padding: 0 0 16px; overflow: visible; }
       .mechanics h2 { max-width: none; font-size: 2.1rem; }
-      .analysis-card--primary, .analysis-card--secondary, .analysis-card--tertiary { position: relative; top: auto; right: auto; left: auto; width: 100%; margin-top: 18px; padding: 16px; transform: none; }
+      .analysis-card--primary, .analysis-card--secondary, .analysis-card--tertiary { position: absolute; top: 0; right: auto; left: 9%; width: 82%; margin: 0; padding: 16px; transform-origin: 50% 8%; }
+      .analysis-card--primary { z-index: 4; transform: rotate(0deg); }
+      .analysis-card--secondary { top: 46px; left: 0; z-index: 3; transform: rotate(-5deg); }
+      .analysis-card--tertiary { top: 58px; left: 18%; z-index: 2; transform: rotate(5deg); }
       .analysis-card--primary .analysis-inner, .analysis-card--secondary .analysis-inner, .analysis-card--tertiary .analysis-inner { padding: 14px 0 6px; }
       .analysis-card--primary .word, .analysis-card--secondary .word, .analysis-card--tertiary .word { font-size: 2.1rem; }
       .analysis-card--primary .sequence, .analysis-card--secondary .sequence, .analysis-card--tertiary .sequence { gap: 8px; }
@@ -531,6 +567,13 @@
       .analysis-card--primary .sequence-letter, .analysis-card--secondary .sequence-letter, .analysis-card--tertiary .sequence-letter { font-size: 1.4rem; }
       .analysis-card--primary .sequence strong, .analysis-card--secondary .sequence strong, .analysis-card--tertiary .sequence strong { font-size: .9rem; }
       .analysis-card--primary .sequence small, .analysis-card--secondary .sequence small, .analysis-card--tertiary .sequence small { font-size: .72rem; line-height: normal; }
+    }
+    @media (max-width: 420px) {
+      .audience-layout { gap: 10px 8px; margin-inline: -4px; }
+      .audience-layout > .section-heading { max-width: 300px; padding-inline: 6px; }
+      .audience-card, .audience-side--left .audience-card, .audience-side--right .audience-card { min-height: 88px; padding: 10px 7px; }
+      .audience-card h3 { font-size: .64rem; }
+      .audience-icon { width: 22px; height: 22px; flex-basis: 22px; }
     }
     @media (max-width: 480px) {
       .hero-title-full { display: none; }
@@ -617,7 +660,7 @@
       line-height: 1.5;
       text-align: center;
     }
-    .portal-form { display: grid; gap: 18px; }
+    .portal-form, #portalForm { display: grid; gap: 18px; }
     .portal-field { display: grid; gap: 6px; }
     .portal-field label {
       color: var(--chocolate-soft);
@@ -767,6 +810,7 @@
     .club-list li:nth-child(4)::before { content: '𐤃'; }
     .club-action { display: grid; gap: 12px; justify-items: center; align-content: center; }
     .club-action .button { min-width: 240px; }
+    .club-action .waitlist-form .button { min-width: 0; }
     .club-note { margin: 0; color: var(--club-muted); font-size: .8rem; }
     /* Тизер клуба — на базе .portal-overlay */
     .club-modal-badge { display: flex; justify-content: center; margin-bottom: 14px; }
@@ -788,13 +832,19 @@
     @media (max-width: 767px) {
       .loss-layout { grid-template-columns: 1fr; gap: 30px; }
       .loss-intro { position: static; }
-      .loss-summary { width: 112px; height: 112px; margin-top: 22px; font-size: 2.7rem; }
+      .loss-intro .section-heading { text-align: center; }
+      .loss-intro .section-heading p:not(.eyebrow) { margin-right: auto; margin-left: auto; }
+      .loss-summary { width: 112px; height: 112px; margin: 22px auto 0; font-size: 2.7rem; }
       .loss-summary span { margin-top: -25px; font-size: .58rem; }
       .loss-list { gap: 10px; padding-left: 34px; }
       .loss-list::before { left: 13px; }
-      .loss-plate { grid-template-columns: 34px minmax(0, 1fr) auto; min-height: 58px; padding: 9px 10px; }
+      .loss-plate { grid-template-columns: minmax(0, 1fr) auto; min-height: 58px; padding: 14px 16px; overflow: hidden; text-align: center; }
       .loss-plate::before { left: -27px; width: 9px; height: 9px; }
-      .loss-number { font-size: 1rem; }
+      .loss-number { position: absolute; top: 50%; left: -16px; z-index: 0; color: color-mix(in srgb, var(--plate) 34%, transparent); font-size: 4.8rem; line-height: 1; pointer-events: none; transform: translateY(-50%); }
+      .loss-name, .loss-percent, .loss-explanation { position: relative; z-index: 1; }
+      .loss-name { justify-self: center; }
+      .loss-percent { justify-self: end; }
+      .loss-explanation { grid-column: 1 / -1; text-align: center; }
       .loss-detail, .loss-explanation { font-size: .7rem; }
       .loss-percent { font-size: 1.15rem; }
       .loss-caption { margin-top: 20px; font-size: 1.2rem; }
@@ -819,8 +869,7 @@
     <div class="club-matrix-edge club-matrix-edge--right" aria-hidden="true"><span class="club-matrix-column">𐤕<br>𐤔<br>𐤓<br>𐤒<br>𐤑<br>𐤐<br>𐤏<br>𐤎<br>𐤍<br>𐤌<br>𐤋<br>𐤊<br>𐤕<br>𐤔<br>𐤓<br>𐤒<br>𐤑<br>𐤐<br>𐤏<br>𐤎</span><span class="club-matrix-column">𐤀<br>𐤁<br>𐤂<br>𐤃<br>𐤄<br>𐤅<br>𐤆<br>𐤇<br>𐤈<br>𐤉<br>𐤊<br>𐤋<br>𐤀<br>𐤁<br>𐤂<br>𐤃<br>𐤄<br>𐤅<br>𐤆<br>𐤇</span><span class="club-matrix-column">𐤇<br>𐤆<br>𐤅<br>𐤄<br>𐤃<br>𐤂<br>𐤁<br>𐤀<br>𐤉<br>𐤊<br>𐤋<br>𐤌<br>𐤇<br>𐤆<br>𐤅<br>𐤄<br>𐤃<br>𐤂<br>𐤁<br>𐤀</span></div>
     <button class="club-banner-close" id="clubBannerClose" type="button" aria-label="Закрыть новость">×</button>
     <div class="club-banner-content">
-      <p class="club-banner-copy"><strong>Скоро открытие палео-клуба</strong> — живое пространство для совместного исследования.</p>
-      <a class="club-banner-link" href="apps/researchlab/index.html#club">Войти в палео-клуб <span aria-hidden="true">↗</span></a>
+      <p class="club-banner-copy"><strong>ПАЛЕО-КЛУБ</strong> — скоро открытие</p>
     </div>
   </aside>
   <header class="lab-header">
@@ -931,14 +980,27 @@
 
     <section class="section audience" id="sviva" aria-labelledby="audience-title">
       <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Свива исследователей</p>
-          <h2 id="audience-title">Для тех, кто ищет корни, а не переводы</h2>
-        </div>
-        <div class="audience-grid">
-          <article class="audience-card"><span class="card-index">01 / Ор</span><h3>Исследователь ТаНаХа</h3><p>Сверяйте слои текста, находите места сдвига и собирайте собственную карту улик.</p><a class="text-link" href="apps/researchlab/index.html#scripture-reader">Книгочтение ТаНаХа ↗</a></article>
-          <article class="audience-card"><span class="card-index">02 / Хук</span><h3>Лингвист-реконструктор</h3><p>Разбирайте корни как механику: буква становится функцией, а слово — траекторией.</p><a class="text-link" href="apps/researchlab/index.html#root-dictionary">Корневой словарь ↗</a></article>
-          <article class="audience-card"><span class="card-index">03 / Давар</span><h3>Искатель правды</h3><p>Выходите из готовых формулировок и проверяйте каждый переход по исходным данным.</p><a class="text-link" href="apps/researchlab/index.html#manifest">Манифест v11.0 ↗</a></article>
+        <div class="audience-layout">
+          <div class="audience-side audience-side--left">
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/scribe/scroll.png" alt="" aria-hidden="true">Исследователь ТаНаХа</h3><p>Сверяйте слои текста, находите места сдвига и собирайте собственную карту улик.</p></article>
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/paleo/aleph.png" alt="" aria-hidden="true">Лингвист-реконструктор</h3><p>Разбирайте корни как механику: буква становится функцией, а слово — траекторией.</p></article>
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/archaeology/testtube.png" alt="" aria-hidden="true">Искатель первоисточника</h3><p>Отделяйте исходный образ от поздней интерпретации и проверяйте каждый переход.</p></article>
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/ui/book.png" alt="" aria-hidden="true">Читатель между строк</h3><p>Замечайте, где конкретный образ превращается в абстракцию, и возвращайте ему форму.</p></article>
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/ui/compass.png" alt="" aria-hidden="true">Картограф смыслов</h3><p>Собирайте маршруты между словами, корнями и состояниями в единую карту движения.</p></article>
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/crafts/hammer-and-chisel.png" alt="" aria-hidden="true">Редактор идей</h3><p>Проверяйте формулировки инструментами наблюдения, а не привычкой к готовым ответам.</p></article>
+          </div>
+          <div class="section-heading">
+            <p class="eyebrow">Свива исследователей</p>
+            <h2 id="audience-title">Для тех, кто ищет смыслы, а не философию</h2>
+          </div>
+          <div class="audience-side audience-side--right">
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/scribe/scrolls.png" alt="" aria-hidden="true">Учитель и наставник</h3><p>Объясняйте механику букв через живые образы, а не через набор готовых терминов.</p></article>
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/ui/clock.png" alt="" aria-hidden="true">Практик осознанного чтения</h3><p>Замедляйте чтение, чтобы замечать действие, среду и направление каждого слова.</p></article>
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/ui/map.png" alt="" aria-hidden="true">Создатель карт смыслов</h3><p>Связывайте корни, состояния и наблюдения в собственную исследовательскую систему.</p></article>
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/archaeology/lamp.png" alt="" aria-hidden="true">Охотник за контекстом</h3><p>Подсвечивайте детали, которые теряются при быстром переводе и поверхностном чтении.</p></article>
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/desert/footprints.svg" alt="" aria-hidden="true">Путешественник по корням</h3><p>Идите по следам слова от первого образа к его живому действию в тексте.</p></article>
+            <article class="audience-card"><h3><img class="audience-icon" src="assets/icons/32/ui/group.png" alt="" aria-hidden="true">Собиратель общины</h3><p>Приносите собственные наблюдения в разговор и помогайте другим видеть глубже.</p></article>
+          </div>
         </div>
       </div>
     </section>
