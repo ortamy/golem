@@ -100,23 +100,23 @@
   
   <!-- Global Search -->
   <div class="header-search" id="globalSearch">
-    <span class="search-icon"><img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Поиск" style="vertical-align: middle; margin-right: 6px;"></span>
+    <span class="search-icon"><i data-lucide="search" aria-hidden="true"></i></span>
     <input type="text" id="gs-input" placeholder="Поиск по лаборатории..." oninput="LabSearch.search(this.value)" onkeydown="if(event.key==='Escape')LabSearch.hide()" />
     <div class="search-results" id="gs-results"></div>
   </div>
   
   <nav>
-    <button class="theme-toggle" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn"><img src="../../assets/icons/32/ui/month.png" width="24" height="24" alt="Тёмная тема"></button>
-    <a href="../../"><img src="../../assets/icons/32/ui/web.png" width="24" height="24" alt="Сайт" style="vertical-align: middle; margin-right: 6px;"> Сайт</a>
-    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener"><img src="../../assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub" style="vertical-align: middle; margin-right: 6px;"> GitHub</a>
+    <button class="theme-toggle" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn"><i data-lucide="moon" aria-hidden="true"></i></button>
+    <a href="../../" class="icon-link" title="Сайт" aria-label="Сайт"><i data-lucide="globe" aria-hidden="true"></i></a>
+    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="icon-link" title="GitHub" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a>
   </nav>
   <div class="lab-header-mobile-links">
-    <button class="mobile-icon-link" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtnMobile"><img src="../../assets/icons/32/ui/month.png" width="24" height="24" alt="Тёмная тема"></button>
-    <a href="../../" class="mobile-icon-link" title="Сайт"><img src="../../assets/icons/32/ui/web.png" width="24" height="24" alt="Сайт"></a>
-    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub"><img src="../../assets/icons/32/ui/github.svg" width="24" height="24" alt="GitHub"></a>
+    <button class="mobile-icon-link" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtnMobile"><i data-lucide="moon" aria-hidden="true"></i></button>
+    <a href="../../" class="mobile-icon-link" title="Сайт"><i data-lucide="globe" aria-hidden="true"></i></a>
+    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub"><i data-lucide="github" aria-hidden="true"></i></a>
   </div>
   <button class="lab-hamburger hamburger-btn" id="labSidebarToggle" aria-label="Открыть меню" aria-controls="labSidebar" aria-expanded="false" onclick="LabSidebar.toggle()" style="display:none;">
-    <img src="../../assets/icons/32/ui/burger-menu.png" width="24" height="24" alt="">
+    <i data-lucide="menu" aria-hidden="true"></i>
   </button>
 </header>
 
@@ -126,68 +126,68 @@
   <!-- SIDEBAR -->
   <aside class="lab-sidebar" id="labSidebar">
   <div class="sidebar-items">
-    <a href="#manifest" class="sidebar-item sidebar-item-top" data-module="manifest"><img src="../../assets/icons/32/ui/scroll.png" class="lab-icon" alt="">Манифест</a>
-    <a href="#dashboard" class="sidebar-item sidebar-item-top" data-module="dashboard"><img src="../../assets/icons/32/ui/grid.png" class="lab-icon" alt="">Рабочий стол</a>
-    <a href="#workbench" class="sidebar-item sidebar-item-top" data-module="workbench"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Мастерская</a>
-    <a href="#club" class="sidebar-item sidebar-item-top" data-module="club"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-клуб</a>
+    <a href="#manifest" class="sidebar-item sidebar-item-top" data-module="manifest"><i data-lucide="scroll-text" class="lab-icon" aria-hidden="true"></i>Манифест</a>
+    <a href="#dashboard" class="sidebar-item sidebar-item-top" data-module="dashboard"><i data-lucide="layout-grid" class="lab-icon" aria-hidden="true"></i>Рабочий стол</a>
+    <a href="#workbench" class="sidebar-item sidebar-item-top" data-module="workbench"><i data-lucide="hammer" class="lab-icon" aria-hidden="true"></i>Мастерская</a>
+    <a href="#club" class="sidebar-item sidebar-item-top" data-module="club"><i data-lucide="footprints" class="lab-icon" aria-hidden="true"></i>Палео-клуб</a>
     <div class="sidebar-section">
       <div class="sidebar-section-header" data-section="data">
-        <img src="../../assets/icons/32/ui/book.png" class="icon" alt="">
+        <i data-lucide="book-open" class="icon" aria-hidden="true"></i>
         <span>Данные</span>
-        <span class="toggle-icon">▼</span>
+        <i data-lucide="chevron-down" class="toggle-icon" aria-hidden="true"></i>
       </div>
       <div class="sidebar-section-content" id="section-data">
-        <a href="#scripture-reader" class="sidebar-item" data-module="scripture-reader"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Книгочтение</a>
-        <a href="#learn" class="sidebar-item" data-module="learn"><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Обучение</a>
-        <a href="#dictionaries" class="sidebar-item" data-module="dictionaries"><img src="../../assets/icons/32/ui/markbook.png" class="lab-icon" alt="">Словари</a>
-        <a href="#researches" class="sidebar-item" data-module="researches"><img src="../../assets/icons/32/scribe/scrolls.png" class="lab-icon" alt="">Исследования</a>
-        <a href="#methodology" class="sidebar-item" data-module="methodology"><img src="../../assets/icons/32/ui/scales.png" class="lab-icon" alt="">Методология</a>
-        <a href="#paleo-mechanics" class="sidebar-item" data-module="paleo-mechanics"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Палео-механика</a>
-        <a href="#paleo-linguistics" class="sidebar-item" data-module="paleo-linguistics"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="">Палео-лингвистика</a>
-        <a href="#language-map" class="sidebar-item" data-module="language-map"><img src="../../assets/icons/32/ui/map.png" class="lab-icon" alt="">Карта языков</a>
-        <a href="#cartography" class="sidebar-item" data-module="cartography"><img src="../../assets/icons/32/ui/compass.png" class="lab-icon" alt="">Картография</a>
-        <a href="#states" class="sidebar-item" data-module="states"><img src="../../assets/icons/32/ui/flag.png" class="lab-icon" alt="">Карта состояний</a>
-        <a href="#timeline" class="sidebar-item" data-module="timeline"><img src="../../assets/icons/32/ui/clock.png" class="lab-icon" alt="">Палео-таймлайн</a>
-        <a href="#religionisms" class="sidebar-item" data-module="religionisms"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="Религионизмы">Религионизмы</a>
+        <a href="#scripture-reader" class="sidebar-item" data-module="scripture-reader"><i data-lucide="book-open" class="lab-icon" aria-hidden="true"></i>Книгочтение</a>
+        <a href="#learn" class="sidebar-item" data-module="learn"><i data-lucide="graduation-cap" class="lab-icon" aria-hidden="true"></i>Обучение</a>
+        <a href="#dictionaries" class="sidebar-item" data-module="dictionaries"><i data-lucide="library" class="lab-icon" aria-hidden="true"></i>Словари</a>
+        <a href="#researches" class="sidebar-item" data-module="researches"><i data-lucide="archive" class="lab-icon" aria-hidden="true"></i>Исследования</a>
+        <a href="#methodology" class="sidebar-item" data-module="methodology"><i data-lucide="scale" class="lab-icon" aria-hidden="true"></i>Методология</a>
+        <a href="#paleo-mechanics" class="sidebar-item" data-module="paleo-mechanics"><i data-lucide="cog" class="lab-icon" aria-hidden="true"></i>Палео-механика</a>
+        <a href="#paleo-linguistics" class="sidebar-item" data-module="paleo-linguistics"><i data-lucide="languages" class="lab-icon" aria-hidden="true"></i>Палео-лингвистика</a>
+        <a href="#language-map" class="sidebar-item" data-module="language-map"><i data-lucide="map" class="lab-icon" aria-hidden="true"></i>Карта языков</a>
+        <a href="#cartography" class="sidebar-item" data-module="cartography"><i data-lucide="compass" class="lab-icon" aria-hidden="true"></i>Картография</a>
+        <a href="#states" class="sidebar-item" data-module="states"><i data-lucide="flag" class="lab-icon" aria-hidden="true"></i>Карта состояний</a>
+        <a href="#timeline" class="sidebar-item" data-module="timeline"><i data-lucide="clock" class="lab-icon" aria-hidden="true"></i>Палео-таймлайн</a>
+        <a href="#religionisms" class="sidebar-item" data-module="religionisms"><i data-lucide="help-circle" class="lab-icon" aria-hidden="true"></i>Религионизмы</a>
       </div>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-header" data-section="tools">
-        <img src="../../assets/icons/32/archaeology/testtube.png" class="icon" alt="">
+        <i data-lucide="flask-conical" class="icon" aria-hidden="true"></i>
         <span>Инструменты</span>
-        <span class="toggle-icon">▼</span>
+        <i data-lucide="chevron-down" class="toggle-icon" aria-hidden="true"></i>
       </div>
       <div class="sidebar-section-content" id="section-tools">
-        <a href="#paleo-builder" class="sidebar-item" data-module="paleo-builder"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Палео-конструктор</a>
-        <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><img src="../../assets/icons/32/ui/keyboard.png" class="lab-icon" alt="">Палео-клавиатура</a>
-        <a href="#generators" class="sidebar-item" data-module="generators"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Генераторы</a>
-        <a href="#checkers" class="sidebar-item" data-module="checkers"><img src="../../assets/icons/32/ui/question.png" class="lab-icon" alt="">Чекеры</a>
-        <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><img src="../../assets/icons/32/scribe/scroll.png" class="lab-icon" alt="Компаратор">Компаратор</a>
-          <a href="#analyzers" class="sidebar-item" data-module="analyzers"><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Анализаторы</a>
+        <a href="#paleo-builder" class="sidebar-item" data-module="paleo-builder"><i data-lucide="hammer" class="lab-icon" aria-hidden="true"></i>Палео-конструктор</a>
+        <a href="#paleo-keyboard" class="sidebar-item" data-module="paleo-keyboard"><i data-lucide="keyboard" class="lab-icon" aria-hidden="true"></i>Палео-клавиатура</a>
+        <a href="#generators" class="sidebar-item" data-module="generators"><i data-lucide="sparkles" class="lab-icon" aria-hidden="true"></i>Генераторы</a>
+        <a href="#checkers" class="sidebar-item" data-module="checkers"><i data-lucide="check-circle" class="lab-icon" aria-hidden="true"></i>Чекеры</a>
+        <a href="#translation-comparator" class="sidebar-item" data-module="translation-comparator"><i data-lucide="diff" class="lab-icon" aria-hidden="true"></i>Компаратор</a>
+        <a href="#analyzers" class="sidebar-item" data-module="analyzers"><i data-lucide="test-tube" class="lab-icon" aria-hidden="true"></i>Анализаторы</a>
       </div>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-header" data-section="ai">
-        <img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="icon" alt="">
+        <i data-lucide="bot" class="icon" aria-hidden="true"></i>
         <span>AI</span>
-        <span class="toggle-icon">▼</span>
+        <i data-lucide="chevron-down" class="toggle-icon" aria-hidden="true"></i>
       </div>
       <div class="sidebar-section-content" id="section-ai">
-        <a href="#ai-agents" class="sidebar-item" data-module="ai-agents"><img src="../../assets/icons/32/ui/user.png" class="lab-icon" alt="">Агенты</a>
-        <a href="#pipelines" class="sidebar-item" data-module="pipelines"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Пайплайны</a>
-        <a href="#agent-server" class="sidebar-item" data-module="agent-server"><img src="../../assets/icons/32/ui/settings.png" class="lab-icon" alt="">Запуск сервера</a>
-        <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><img src="../../assets/icons/32/ui/bell.png" class="lab-icon" alt="Нейрочат">Нейрочат</a>
-        <a href="#vision" class="sidebar-item" data-module="vision"><img src="../../assets/icons/32/archaeology/lamp.png" class="lab-icon" alt="">Анализ изображений</a>
+        <a href="#ai-agents" class="sidebar-item" data-module="ai-agents"><i data-lucide="users" class="lab-icon" aria-hidden="true"></i>Агенты</a>
+        <a href="#pipelines" class="sidebar-item" data-module="pipelines"><i data-lucide="workflow" class="lab-icon" aria-hidden="true"></i>Пайплайны</a>
+        <a href="#agent-server" class="sidebar-item" data-module="agent-server"><i data-lucide="server" class="lab-icon" aria-hidden="true"></i>Запуск сервера</a>
+        <a href="#ed-chat" class="sidebar-item" data-module="ed-chat"><i data-lucide="bell" class="lab-icon" aria-hidden="true"></i>Нейрочат</a>
+        <a href="#vision" class="sidebar-item" data-module="vision"><i data-lucide="image" class="lab-icon" aria-hidden="true"></i>Анализ изображений</a>
       </div>
     </div>
     <div class="sidebar-section" id="sidebar-admin-section">
       <div class="sidebar-section-header" data-section="system">
-        <img src="../../assets/icons/32/ui/settings.png" class="icon" alt="">
+        <i data-lucide="settings" class="icon" aria-hidden="true"></i>
         <span>Система</span>
-        <span class="toggle-icon">▼</span>
+        <i data-lucide="chevron-down" class="toggle-icon" aria-hidden="true"></i>
       </div>
       <div class="sidebar-section-content" id="section-system">
-        <a href="#admin-settings" class="sidebar-item" data-module="admin-settings"><img src="../../assets/icons/32/ui/settings.png" class="lab-icon" alt="">Настройки</a>
+        <a href="#admin-settings" class="sidebar-item" data-module="admin-settings"><i data-lucide="settings" class="lab-icon" aria-hidden="true"></i>Настройки</a>
         
       </div>
     </div>
@@ -215,7 +215,7 @@
   <div class="modal-window">
     <div class="modal-header">
       <h3 id="modalTitle">Просмотр</h3>
-<button class="modal-close" onclick="LabModal.close()"><img src="../../assets/icons/32/ui/close.png" width="32" height="32" alt="Закрыть" style="vertical-align: middle; margin-right: 6px;"></button>
+<button class="modal-close" onclick="LabModal.close()" title="Закрыть"><i data-lucide="x" aria-hidden="true"></i></button>
     </div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-footer" id="modalFooter"></div>
@@ -227,6 +227,9 @@
   <kbd>⌨</kbd> ?
 </div>
 
+<!-- Vendored Lucide: UI-иконки (навигация, кнопки). См. js/lucide-init.js. -->
+<script src="js/vendor/lucide.min.js"></script>
+<script src="js/lucide-init.js"></script>
 <!-- Общие данные и рендереры должны загрузиться до PageController. -->
 <script src="js/paleo-letters.js"></script>
 <script src="js/paleo-weaver.js"></script>
@@ -316,17 +319,13 @@ const LabTheme = {
     if (this.themes.indexOf(theme) < 0) theme = 'light';
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('golem_theme', theme);
-    var icon = theme === 'dark'
-      ? '<img src="../../assets/icons/32/ui/sun.png" width="24" height="24" alt="Светлая тема">'
-      : theme === 'white'
-        ? '<img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема">'
-        : theme === 'parchment'
-          ? '<img src="../../assets/icons/32/ui/month.png" width="24" height="24" alt="Белая тема">'
-          : '<img src="../../assets/icons/32/ui/month.png" width="24" height="24" alt="Пергаментная тема">';
+    var iconName = theme === 'dark' ? 'sun' : theme === 'white' ? 'moon' : 'contrast';
+    var icon = '<i data-lucide="' + iconName + '" aria-hidden="true"></i>';
     var btn = document.getElementById('themeBtn');
     if (btn) btn.innerHTML = icon;
     var btnMobile = document.getElementById('themeBtnMobile');
     if (btnMobile) btnMobile.innerHTML = icon;
+    if (window.LabIcons) LabIcons.sync();
   },
   toggle: function() {
     var current = document.documentElement.getAttribute('data-theme') || 'light';
@@ -442,12 +441,12 @@ const LabSearch = {
     }
 
     var grouped = [
-      { key: 'roots', label: 'Корни и словари', icon: '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Корни" style="vertical-align: middle; margin-right: 6px;">', items: [] },
-      { key: 'methodology', label: 'Методология', icon: '<img src="../../assets/icons/32/crafts/hammer-and-chisel.png" width="32" height="32" alt="Методология" style="vertical-align: middle; margin-right: 6px;">', items: [] },
-      { key: 'cartography', label: 'Картография', icon: '<img src="../../assets/icons/32/ui/web.png" width="32" height="32" alt="Картография" style="vertical-align: middle; margin-right: 6px;">', items: [] },
-      { key: 'scripture', label: 'Книгочтение', icon: '<img src="../../assets/icons/32/ui/book.png" width="32" height="32" alt="Книгочтение" style="vertical-align: middle; margin-right: 6px;">', items: [] },
-      { key: 'religionisms', label: 'Религионизмы', icon: '<img src="../../assets/icons/32/ui/question.png" width="32" height="32" alt="Религионизмы" style="vertical-align: middle; margin-right: 6px;">', items: [] },
-      { key: 'translations', label: 'Компаратор', icon: '<img src="../../assets/icons/32/scribe/scroll.png" width="32" height="32" alt="Компаратор" style="vertical-align: middle; margin-right: 6px;">', items: [] }
+      { key: 'roots', label: 'Корни и словари', icon: '<i data-lucide="book-open" aria-hidden="true"></i>', items: [] },
+      { key: 'methodology', label: 'Методология', icon: '<i data-lucide="hammer" aria-hidden="true"></i>', items: [] },
+      { key: 'cartography', label: 'Картография', icon: '<i data-lucide="globe" aria-hidden="true"></i>', items: [] },
+      { key: 'scripture', label: 'Книгочтение', icon: '<i data-lucide="book-open" aria-hidden="true"></i>', items: [] },
+      { key: 'religionisms', label: 'Религионизмы', icon: '<i data-lucide="help-circle" aria-hidden="true"></i>', items: [] },
+      { key: 'translations', label: 'Компаратор', icon: '<i data-lucide="scroll-text" aria-hidden="true"></i>', items: [] }
     ];
 
     var byKey = {};
@@ -624,7 +623,7 @@ const LabHotkeys = {
       '<tr><td><kbd>?</kbd></td><td>Показать эту справку</td></tr>' +
       '</table>' +
       '<div class="text-small text-muted mt-8">Модули: 1-Рабочий стол, 2-Словарь, 3-Разбор слов, 4-Чекер, 5-Переводы, 6-Архив досок, 7-Анализ, 8-Нейрочат, 9-Клавиатура</div>';
-    LabModal.show('<img src="../../assets/icons/32/paleo/track.png" width="32" height="32" alt="Горячие клавиши" style="vertical-align: middle; margin-right: 6px;"> Горячие клавиши', html);
+    LabModal.show('<i data-lucide="keyboard" aria-hidden="true"></i> Горячие клавиши', html);
   }
 };
 

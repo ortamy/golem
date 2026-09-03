@@ -288,7 +288,7 @@ const LoadResearches = (function() {
     container.innerHTML = '<div class="research-controls exposure-filters">' +
       '<label class="research-search-label">Поиск<input id="researches-search" class="lab-input" type="search" placeholder="Название, тема, тег или категория" value="' + escapeHtml(state.query) + '"></label>' +
       '<label>Категория<select id="researches-category" class="lab-input"><option value="all">Все категории</option>' + options + '</select></label>' +
-      '<button type="button" class="lab-btn lab-btn-primary exposure-new-btn" id="researches-new-btn">+ Новое дело</button>' +
+      '<button type="button" class="lab-btn lab-btn-primary exposure-new-btn" id="researches-new-btn">Новое дело</button>' +
       '</div>' +
       '<div class="research-confidence-bar">' +
       renderConfidenceChips() +

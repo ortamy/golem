@@ -28,6 +28,7 @@
 @import url('components/neurochat.css');
 @import url('components/manifest.css');
 @import url('components/buttons.css');
+@import url('components/lucide.css');
 
 .lab-hero__kicker-link { color: inherit; text-decoration: none; }
 .lab-hero__kicker-link:hover, .lab-hero__kicker-link:focus-visible { color: var(--accent-gold); text-decoration: underline; outline: none; }

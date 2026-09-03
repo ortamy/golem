@@ -7,6 +7,52 @@
 
 Каждый пак содержит `placeholder.svg` — заглушку, которую подставляют, пока для слота не нарисована реальная иконка.
 
+## Слой Lucide (UI/навигация/кнопки) — добавлен 2026-09-03
+
+UI-иконки Research Lab переведены на **Lucide** (vendored: `researchlab/js/vendor/lucide.min.js`, init: `researchlab/js/lucide-init.js`, стили: `researchlab/css/components/lucide.css`). Тематические паки `assets/icons/32/...` остаются источником для героев разделов, агентов и контента.
+
+Маппинг бывших UI/навигационных PNG → Lucide:
+
+| Где | Было (PNG) | Lucide |
+|---|---|---|
+| Поиск в шапке | `ui/question.png` | `search` |
+| Переключение темы | `ui/month.png` / `ui/sun.png` / `ui/moon.png` | `moon` / `sun` / `contrast` |
+| Ссылка «Сайт» | `ui/web.png` | `globe` |
+| Ссылка «GitHub» | `ui/github.svg` | `github` |
+| Бургер | `ui/burger-menu.png` | `menu` |
+| Манифест | `ui/scroll.png` | `scroll-text` |
+| Рабочий стол | `ui/grid.png` | `layout-grid` |
+| Мастерская / Палео-конструктор | `crafts/hammer-and-chisel.png` | `hammer` |
+| Палео-клуб | `paleo/track.png` | `footprints` |
+| Данные / Книгочтение | `ui/book.png` | `book-open` |
+| Обучение | `ui/book.png` | `graduation-cap` |
+| Словари | `ui/markbook.png` | `library` |
+| Исследования | `scribe/scrolls.png` | `archive` |
+| Методология | `ui/scales.png` | `scale` |
+| Палео-механика | `crafts/hammer-and-chisel.png` | `cog` |
+| Палео-лингвистика | `scribe/scroll.png` | `languages` |
+| Карта языков | `ui/map.png` | `map` |
+| Картография | `ui/compass.png` | `compass` |
+| Карта состояний | `ui/flag.png` | `flag` |
+| Палео-таймлайн | `ui/clock.png` | `clock` |
+| Религионизмы | `ui/question.png` | `help-circle` |
+| Инструменты (раздел) | `archaeology/testtube.png` | `flask-conical` |
+| Палео-клавиатура | `ui/keyboard.png` | `keyboard` |
+| Генераторы | `crafts/hammer-and-chisel.png` | `sparkles` |
+| Чекеры | `ui/question.png` | `check-circle` |
+| Компаратор | `scribe/scroll.png` | `diff` |
+| Анализаторы | `archaeology/testtube.png` | `test-tube` |
+| AI (раздел) | `crafts/hammer-and-chisel.png` | `bot` |
+| Агенты | `ui/user.png` | `users` |
+| Пайплайны | `paleo/track.png` | `workflow` |
+| Запуск сервера / Система / Настройки | `ui/settings.png` | `server` / `settings` |
+| Нейрочат | `ui/bell.png` | `bell` |
+| Анализ изображений | `archaeology/lamp.png` | `image` |
+| Секции (свёрнутые) | текстовый `▼` | `chevron-down` (+rotate −90°) |
+| Закрытие модалки | `nav/alert.png` | `x` |
+
+Автодополнение иконок в кнопках `.lab-btn` выполняется по правилам `TEXT_ICON_RULES` (`researchlab/js/lucide-init.js`); отключить для конкретной кнопки — атрибут `data-no-icon`.
+
 ## Паки
 
 ### `archaeology/` — археология

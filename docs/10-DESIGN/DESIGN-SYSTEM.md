@@ -327,6 +327,17 @@ Focus: граница `--accent-gold` + `box-shadow: 0 0 0 2px rgba(184,134,11,0
 
 Каждый пак содержит `placeholder.svg` — заглушку для незаполненных слотов. Паки `feasts`, `food`, `map`, `signs` пока полностью пустые (только placeholder) — это открытый участок работы, а не ошибка документации (см. задачу «Иконки — перерисовать в SVG» в `CLAUDE.md`).
 
+### Слой Lucide (UI-иконки) — добавлен 2026-09-03
+
+UI-хром (шапка, сайдбар, модалки, кнопки, поиск) переведён на **Lucide** — иконки локально, без CDN:
+
+- Vendored UMD: `apps/researchlab/js/vendor/lucide.min.js` (v0.462.0).
+- Инициализация: `apps/researchlab/js/lucide-init.js` — `lucide.createIcons()` + `MutationObserver` на все DOM-изменения + автодополнение иконок в `.lab-btn` по тексту кнопки (правила в `TEXT_ICON_RULES`).
+- Публичный API: `LabIcons.icon(name, cls)` → разметка `<i data-lucide>`, затем `LabIcons.sync()`.
+- Стили: `css/components/lucide.css` (размеры в шапке/сайдбаре/кнопках, hover-микродвижение, reduced-motion).
+- Стиль: `stroke="currentColor"`, цвет наследуется от контекста — одна иконка работает в «пёргаменте», «скриптории» и «белой» теме.
+- **Правило слоёв:** Lucide — только UI-хром и кнопки. Тематические паки (`archaeology/`, `desert/`, `feasts/`, `food/`, `paleo/`, `signs/`…) остаются PNG/SVG из `assets/icons/32/` (в т.ч. иконки шапок разделов `lab-hero` и иконки агентов).
+
 Подробная карта — [карта иконок](ICON-MAP.md).
 
 ---

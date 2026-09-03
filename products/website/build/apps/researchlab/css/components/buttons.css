@@ -13,3 +13,25 @@ a[class*='btn'],
 a[class*='button'] {
   border-radius: var(--radius-sm);
 }
+
+/* ===== POLISH 2026-09: вертикальный ритм, фокус, disabled, ссылки ===== */
+.lab-btn {
+  min-height: 40px;
+  gap: var(--space-2);
+}
+.lab-btn-sm,
+.lab-btn-compact { min-height: 34px; }
+
+.lab-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-focus);
+}
+
+.lab-btn:disabled,
+.lab-btn[disabled],
+.lab-btn.is-disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+a.lab-btn { text-decoration: none; }

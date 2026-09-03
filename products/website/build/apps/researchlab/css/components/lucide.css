@@ -1,0 +1,80 @@
+/* =============================================
+   components/lucide.css — слой иконок Lucide
+   Добавлен 2026-09-03.
+   Vendored: js/vendor/lucide.min.js (подключается в index.html).
+   Рендер: js/lucide-init.js (createIcons + MutationObserver).
+   Правило: UI-иконки (навигация, кнопки) — Lucide;
+   тематические паки assets/icons/32/... остаются PNG/SVG.
+   ============================================= */
+
+/* Базовый размер и поведение */
+svg.lucide {
+  display: inline-block;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* ===== Кнопки ===== */
+.lab-btn { gap: var(--space-2); }
+
+button.lab-btn svg.lucide,
+a.lab-btn svg.lucide {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--motion-fast);
+}
+.lab-btn:hover svg.lucide { transform: translateY(-1px); }
+.lab-btn-sm svg.lucide,
+.lab-btn-compact svg.lucide { width: 14px; height: 14px; }
+
+/* ===== Шапка ===== */
+.lab-header nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.lab-header nav a svg.lucide { width: 16px; height: 16px; }
+.lab-header nav a.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+}
+.lab-header nav a.icon-link svg.lucide { width: 20px; height: 20px; }
+.theme-toggle svg.lucide { width: 22px; height: 22px; color: var(--text-light); }
+.theme-toggle:hover svg.lucide { color: #160e08; }
+.lab-header-mobile-links .mobile-icon-link svg.lucide { width: 20px; height: 20px; }
+.lab-hamburger svg.lucide { width: 24px; height: 24px; }
+
+/* ===== Глобальный поиск ===== */
+.header-search .search-icon { display: inline-flex; align-items: center; }
+.header-search .search-icon svg.lucide { width: 16px; height: 16px; color: var(--text-muted); }
+.header-search .sr-group-head svg.lucide { width: 20px; height: 20px; }
+
+/* ===== Сайдбар ===== */
+.sidebar-section-header .toggle-icon { transform-origin: center; }
+.sidebar-section-header .toggle-icon.lucide { width: 14px; height: 14px; }
+.sidebar-section-header .icon.lucide,
+.sidebar-section-header svg.lucide.icon { width: 20px; height: 20px; flex-shrink: 0; }
+
+/* ===== Модалка ===== */
+.modal-close { display: inline-flex; align-items: center; justify-content: center; }
+.modal-close svg.lucide { width: 20px; height: 20px; }
+
+/* ===== Появление иконок ===== */
+svg.lucide { animation: lucide-in var(--dur-1) ease; }
+@keyframes lucide-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  svg.lucide { animation: none; }
+  .lab-btn:hover svg.lucide { transform: none; }
+}
