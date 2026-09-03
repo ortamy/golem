@@ -75,30 +75,35 @@ const ClubModule = (function() {
     var isDiscussionsRoute = !!(parsed && parsed.segments && parsed.segments[1] === 'discussions');
     var isSessionsRoute = !!(parsed && parsed.segments && parsed.segments[1] === 'sessions');
     var discussions = container.parentNode && container.parentNode.querySelector('#club-discussions');
+    var archive = container.parentNode && container.parentNode.querySelector('#club-session-archive');
     if (isCreateRoute) {
       if (discussions) discussions.innerHTML = '';
+      if (archive) archive.innerHTML = '';
       renderCreate(container);
       return;
     }
     if (isDiscussionsRoute) {
       if (discussions) discussions.innerHTML = '';
+      if (archive) archive.innerHTML = '';
       renderFeed(container, null, true);
       return;
     }
     if (isSessionsRoute) {
       if (discussions) discussions.innerHTML = '';
+      if (archive) archive.innerHTML = '';
       renderSessions(container);
       return;
     }
     if (currentCardId) {
       if (discussions) discussions.innerHTML = '';
+      if (archive) archive.innerHTML = '';
       renderDetail(container, currentCardId);
     } else {
-      renderFeed(container, discussions);
+      renderFeed(container, discussions, false, archive);
     }
   }
 
-  function renderFeed(container, discussions, onlyDiscussions) {
+  function renderFeed(container, discussions, onlyDiscussions, archive) {
     if (!window.ClubData) {
       container.innerHTML = '<div class="lab-alert">Загрузка данных...</div>';
       return;
@@ -111,6 +116,7 @@ const ClubModule = (function() {
         return;
       }
       container.innerHTML = feed.top;
+      if (archive) archive.innerHTML = buildSessionsPreview();
       if (discussions) {
         discussions.innerHTML = '';
       }
@@ -245,7 +251,6 @@ const ClubModule = (function() {
         '</span>' +
       '</div>' +
     '</div>' +
-    buildSessionsPreview() +
     '<div class="club-top-card club-side-card club-my-circles">' +
       '<h3>Мои круги</h3>' +
       circlesHtml +
@@ -262,7 +267,7 @@ const ClubModule = (function() {
     var bars = (session.result || [0, 0, 0, 0]).map(function(value) {
       return '<span style="height:' + Math.max(18, value * 8) + '%"></span>';
     }).join('');
-    var progress = session.status === 'active' ? '<div class="club-session-progress"><span style="width:' + session.progress + '%"></span></div><small>' + session.progress + '% маршрута собрано</small>' : '';
+    var progress = session.status !== 'completed' && typeof session.progress === 'number' ? '<div class="club-session-progress"><span style="width:' + session.progress + '%"></span></div><small>' + session.progress + '% маршрута собрано</small>' : '';
     return '<article class="club-session-card club-session-' + escapeHtml(session.status) + '">' +
       '<div class="club-session-card-head"><span class="club-session-status"><i aria-hidden="true"></i>' + sessionStatusLabel(session.status) + '</span><time>' + escapeHtml(session.date) + '</time></div>' +
       '<h3>' + escapeHtml(session.title) + '</h3><p>' + escapeHtml(session.findings) + '</p>' + progress +
@@ -273,7 +278,7 @@ const ClubModule = (function() {
 
   function buildSessionsPreview() {
     var sessions = ClubData.MOCK.sessions.slice(0, 2);
-    return '<section class="club-session-archive club-top-card" aria-labelledby="club-session-archive-title"><div class="club-section-heading"><div><span class="club-card-type">Хроника клуба</span><h3 id="club-session-archive-title">Архив сессий</h3></div><a class="lab-btn lab-btn-secondary lab-btn-sm" href="#club/sessions">Сессии <span aria-hidden="true">→</span></a></div><div class="club-session-preview-list">' + sessions.map(buildSessionCard).join('') + '</div></section>';
+    return '<section class="club-session-archive club-top-card club-side-card" aria-labelledby="club-session-archive-title"><div class="club-section-heading"><div><h3 id="club-session-archive-title">Архив сессий</h3><p class="club-session-archive-subtitle">Текущие, будущие и завершённые маршруты, которые клуб проходит вместе.</p></div><a class="lab-btn lab-btn-secondary lab-btn-sm" href="#club/sessions">Сессии <span aria-hidden="true">→</span></a></div><div class="club-session-preview-list">' + sessions.map(buildSessionCard).join('') + '</div></section>';
   }
 
   function renderSessions(container) {

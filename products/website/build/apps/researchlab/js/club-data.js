@@ -15,8 +15,8 @@ const ClubData = (function () {
       { handle: 'связующий', level: 2, color: '#a08050', initial: 'С' }
     ],
     sessions: [
-      { id: 'session-meaning', status: 'active', date: 'Сегодня, 19:00', title: 'Как рождается значение', participants: 6, capacity: 10, progress: 68, findings: 'Собираем механику корня דבר: слово как действие и след.', action: 'Войти в сессию' },
-      { id: 'session-shabbat', status: 'upcoming', date: '12 сентября 2026, 19:00', title: 'Шаббат: остановка в потоке', participants: 4, capacity: 10, progress: 0, findings: 'Читаем שבת через образ возвращения и точки цикла.', action: 'Записаться' },
+      { id: 'session-meaning', status: 'active', date: 'Сегодня, 19:00', title: 'Как рождается значение', participants: 6, capacity: 10, progress: 68, findings: 'Собираем механику корня 𐤃𐤁𐤓: слово как действие', action: 'Войти в сессию' },
+      { id: 'session-shabbat', status: 'upcoming', date: '12 сентября 2026, 19:00', title: 'Шаббат: остановка в потоке', participants: 4, capacity: 10, progress: 0, findings: 'Читаем 𐤔𐤁𐤕 через образ возвращения и точки цикла.', action: 'Записаться' },
       { id: 'session-mitsraim', status: 'completed', date: '29 августа 2026', title: 'Мицраим: форма сужения', participants: 8, capacity: 10, progress: 100, findings: 'Зафиксированы 3 наблюдения и 2 вопроса для следующей проверки.', action: 'Смотреть итоги', result: [3, 5, 2, 8] },
       { id: 'session-alphabet', status: 'completed', date: '22 августа 2026', title: 'Маршруты алфавита', participants: 7, capacity: 10, progress: 100, findings: 'Карта переходов Синай → Ханаан → Финикия собрана.', action: 'Смотреть итоги', result: [5, 7, 4, 9] }
     ],

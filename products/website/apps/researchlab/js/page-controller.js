@@ -1318,7 +1318,7 @@ const PageController = (function() {
         break;
 
       case 'club':
-        container.innerHTML = '<div id="club-app"></div><div id="club-discussions"></div>';
+        container.innerHTML = '<div id="club-app"></div><div id="club-session-archive"></div><div id="club-discussions"></div>';
         container.dataset.loaded = '1';
         if (window.ClubModule) {
           var app = container.querySelector('#club-app');
