@@ -9,7 +9,7 @@ import pixelmatch from 'pixelmatch';
 const BASE = 'baseline';
 const TOP_MASK = 84;                                  // px под крошками + отступ h1
 const routes = ['dashboard','manifest','states','dictionaries','researches','timeline','scripture-reader','generators','cartography','learn','methodology'];
-const themes = ['light','white','dark'];
+const themes = ['light','parchment','white','dark'];
 
 let pass = 0, fail = 0, skip = 0;
 for (const t of themes) {

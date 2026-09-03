@@ -8,6 +8,7 @@ const ClubModule = (function() {
 
   var STORAGE_KEY = 'golem_waitlist';
   var currentCardId = null;
+  var isCreateRoute = false;
 
   function escapeHtml(text) {
     var el = document.createElement('div');
@@ -69,52 +70,66 @@ const ClubModule = (function() {
     return (window.AccessGate && AccessGate.getRole) ? AccessGate.getRole() : 'guest';
   }
 
-  function render(container) {
+  function render(container, parsed) {
+    isCreateRoute = !!(parsed && parsed.segments && parsed.segments[1] === 'create');
+    var isDiscussionsRoute = !!(parsed && parsed.segments && parsed.segments[1] === 'discussions');
+    var isSessionsRoute = !!(parsed && parsed.segments && parsed.segments[1] === 'sessions');
+    var discussions = container.parentNode && container.parentNode.querySelector('#club-discussions');
+    if (isCreateRoute) {
+      if (discussions) discussions.innerHTML = '';
+      renderCreate(container);
+      return;
+    }
+    if (isDiscussionsRoute) {
+      if (discussions) discussions.innerHTML = '';
+      renderFeed(container, null, true);
+      return;
+    }
+    if (isSessionsRoute) {
+      if (discussions) discussions.innerHTML = '';
+      renderSessions(container);
+      return;
+    }
     if (currentCardId) {
+      if (discussions) discussions.innerHTML = '';
       renderDetail(container, currentCardId);
     } else {
-      renderFeed(container);
+      renderFeed(container, discussions);
     }
   }
 
-  function renderFeed(container) {
+  function renderFeed(container, discussions, onlyDiscussions) {
     if (!window.ClubData) {
       container.innerHTML = '<div class="lab-alert">Загрузка данных...</div>';
       return;
     }
-    Promise.all([ClubData.getCards(), ClubData.getWordOfDay()]).then(function(results) {
-      var cards = results[0];
-      var wordOfDay = results[1];
-      container.innerHTML = buildFeedHTML(cards, wordOfDay);
-      bindFeedEvents(container);
+    ClubData.getCards().then(function(cards) {
+      var feed = buildFeedHTML(cards);
+      if (onlyDiscussions) {
+        container.innerHTML = feed.discussions;
+        bindFeedEvents(container);
+        return;
+      }
+      container.innerHTML = feed.top;
+      if (discussions) {
+        discussions.innerHTML = '';
+      }
     });
   }
 
-  function buildFeedHTML(cards, wordOfDay) {
+  function buildFeedHTML(cards) {
     var role = getRole();
-    var wordHtml = '';
-    if (wordOfDay) {
-      var paleoStr = (wordOfDay.paleo || []).join('');
-      wordHtml = '<div class="club-word">' +
-        '<div class="club-word-paleo">' + escapeHtml(paleoStr) + '</div>' +
-        '<div class="club-word-info">' +
-          '<strong>' + escapeHtml(wordOfDay.hebrew) + ' · ' + escapeHtml(wordOfDay.translit) + '</strong>' +
-          '<p>' + escapeHtml(wordOfDay.gloss) + '</p>' +
-        '</div>' +
-        '<div class="club-word-actions">' +
-          '<a class="lab-btn lab-btn-primary lab-btn-sm" href="#learn/paleo-trainer?word=' + encodeURIComponent(wordOfDay.translit || wordOfDay.hebrew || '') + '">Собрать →</a>' +
-          '<button class="lab-btn lab-btn-secondary lab-btn-sm club-word-discuss" data-id="' + escapeHtml('shabbat') + '">Обсудить</button>' +
-        '</div>' +
-      '</div>';
-    }
+    var actionBar = '<div class="club-create-card">' +
+      '<div><strong>Исследовательский круг</strong><p>Создайте тему, соберите контекст и пригласите участников к проверяемому обсуждению.</p></div>' +
+      '<div class="club-create-actions"><a class="lab-btn lab-btn-primary" href="#club/discussions">Обсуждения</a><a class="lab-btn lab-btn-secondary" href="#club/create">Создать обсуждение</a></div>' +
+    '</div>';
 
     var cardsHtml = cards.map(function(card) {
       var typeLabels = { word: 'Слово', state: 'Состояние', board: 'Доска', verse: 'Стих' };
       var participants = card.participants || [];
-      return '<article class="club-card" data-id="' + escapeHtml(card.id) + '">' +
+      return '<article class="club-card" data-id="' + escapeHtml(card.id) + '" data-type="' + escapeHtml(card.type || 'word') + '">' +
         '<div class="club-card-head">' +
           '<span class="club-card-type type-' + (card.type || 'word') + '">' + (typeLabels[card.type] || card.type) + '</span>' +
-          '<span class="club-card-ref">' + escapeHtml(card.ref) + '</span>' +
         '</div>' +
         '<h3 class="club-card-title">' + escapeHtml(card.title) + '</h3>' +
         '<p class="club-card-synthesis">' + escapeHtml(card.synthesis) + '</p>' +
@@ -123,24 +138,84 @@ const ClubModule = (function() {
           '<span class="club-card-meta">· ' + (card.posts_count || 0) + ' постов · эмет: ' + (card.emet || 0) + ' · вопрос: ' + (card.questions || 0) + '</span>' +
         '</div>' +
         '<div class="club-card-actions">' +
-      '<a class="lab-btn lab-btn-secondary lab-btn-sm" href="' + attachmentHref(card.attachment) + '">Открыть в модуле ↗</a>' +
-          '<button class="lab-btn lab-btn-secondary lab-btn-sm club-join" data-id="' + escapeHtml(card.id) + '">Вступить</button>' +
+      '<a class="lab-btn lab-btn-secondary lab-btn-sm" href="#club/' + encodeURIComponent(card.id) + '">Посмотреть</a>' +
+          '<button class="lab-btn lab-btn-primary lab-btn-sm club-join" data-id="' + escapeHtml(card.id) + '">Вступить</button>' +
         '</div>' +
       '</article>';
     }).join('');
 
-    var sidePanel = buildSidePanel(role);
-
-    return '<div class="club-feed">' +
-      '<div class="club-main">' +
-        wordHtml +
+    var topPanel = buildTopPanel(role, actionBar);
+    return {
+      top: '<div class="club-feed club-top-feed">' + topPanel + '</div>',
+      discussions: '<main class="club-main club-discussions">' +
+        '<div class="club-discussions-head"><div class="club-discussions-title"><h2>Обсуждения</h2></div>' +
+          '<label class="club-topic-filter">Тема<select class="lab-select" id="club-topic-filter" aria-label="Фильтр обсуждений по теме"><option value="all">Все темы</option><option value="word">Слова и корни</option><option value="state">Состояния</option><option value="board">Исследовательские доски</option><option value="verse">Стихи и переводы</option></select></label>' +
+        '</div>' +
         '<div class="club-cards">' + cardsHtml + '</div>' +
-      '</div>' +
-      '<aside class="club-side">' + sidePanel + '</aside>' +
-    '</div>';
+        '<p class="club-filter-empty" id="club-filter-empty" hidden>По этой теме пока нет обсуждений.</p>' +
+      '</main>'
+    };
   }
 
-  function buildSidePanel(role) {
+  function renderCreate(container) {
+    container.innerHTML =
+      '<div class="club-detail-head"><span class="club-card-type">Новая тема</span><h2>Создать обсуждение</h2><p>Опишите вопрос так, чтобы участники могли отделить факт от интерпретации и гипотезы.</p></div>' +
+      '<form id="club-create-form" class="club-create-form" novalidate>' +
+        '<label>Тема обсуждения *<input class="club-input" id="club-topic" required maxlength="140" placeholder="Например: Как меняется образ дома в корне אב"></label>' +
+        '<label>Описание темы *<textarea class="club-textarea" id="club-description" required minlength="20" placeholder="Опишите наблюдение, контекст и границы вопроса..."></textarea></label>' +
+        '<div class="club-form-grid"><label>Тип обсуждения<select class="club-input" id="club-type"><option value="question">Исследовательский вопрос</option><option value="comparison">Сравнение</option><option value="hypothesis">Гипотеза</option><option value="method">Методология</option></select></label>' +
+        '<label>Уверенность<select class="club-input" id="club-confidence"><option value="needs-review">Требует проверки</option><option value="hypothesis">Рабочая гипотеза</option><option value="verified">Подтверждается</option></select></label></div>' +
+        '<label>Исследовательский вопрос<textarea class="club-textarea" id="club-question" placeholder="Что именно должны проверить участники?"></textarea></label>' +
+        '<label>Ожидаемый результат<textarea class="club-textarea" id="club-outcome" placeholder="Какой вывод, карту связей или контрпример нужно получить?"></textarea></label>' +
+        '<fieldset><legend>Приложенные исследования из архива</legend><div id="club-research-picker" class="club-research-picker"><span class="club-picker-loading">Загрузка архива…</span></div></fieldset>' +
+        '<label>Методологические ограничения и контекст<textarea class="club-textarea" id="club-context" placeholder="Какие источники, уровни уверенности и различия эмет/шекер нужно учитывать?"></textarea></label>' +
+        '<label>Теги<input class="club-input" id="club-tags" placeholder="корень, образ, перевод"></label>' +
+        '<div id="club-create-error" class="lab-alert lab-alert-error" hidden></div><div class="club-create-actions"><button class="lab-btn lab-btn-primary" type="submit">Опубликовать тему</button><button class="lab-btn lab-btn-secondary" type="button" id="club-save-draft">Сохранить черновик</button></div>' +
+      '</form>';
+    bindCreateEvents(container);
+    loadResearchPicker(container);
+  }
+
+  function loadResearchPicker(container) {
+    var picker = container.querySelector('#club-research-picker');
+    fetch('data/exposures/index.json').then(function(response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
+    }).then(function(items) {
+      picker.innerHTML = (items || []).slice(0, 60).map(function(item) {
+        return '<label class="club-research-option"><input type="checkbox" value="' + escapeHtml(item.id || item.slug) + '" data-title="' + escapeHtml(item.title) + '"><span><strong>' + escapeHtml(item.title) + '</strong><small>' + escapeHtml(item.category || 'Архив') + '</small></span></label>';
+      }).join('') || '<span class="club-picker-empty">Архив пока пуст.</span>';
+    }).catch(function() { picker.innerHTML = '<span class="club-picker-empty">Архив недоступен. Можно сохранить тему без приложения.</span>'; });
+  }
+
+  function bindCreateEvents(container) {
+    var form = container.querySelector('#club-create-form');
+    var save = container.querySelector('#club-save-draft');
+    function submit(status) {
+      var topic = container.querySelector('#club-topic').value.trim();
+      var description = container.querySelector('#club-description').value.trim();
+      var error = container.querySelector('#club-create-error');
+      if (!topic || description.length < 20) { error.textContent = 'Укажите тему и описание не короче 20 символов.'; error.hidden = false; return; }
+      error.hidden = true;
+      var selected = Array.prototype.slice.call(container.querySelectorAll('#club-research-picker input:checked')).map(function(input) { return { id: input.value, title: input.dataset.title }; });
+      ClubData.addThread({ id: 'local_thread_' + Date.now(), title: topic, synthesis: description, type: 'board', ref: 'новая тема', status: status, confidence: container.querySelector('#club-confidence').value, question: container.querySelector('#club-question').value.trim(), outcome: container.querySelector('#club-outcome').value.trim(), context: container.querySelector('#club-context').value.trim(), tags: container.querySelector('#club-tags').value.split(',').map(function(tag) { return tag.trim(); }).filter(Boolean), research: selected }).then(function() { LabRouter.navigate('club'); });
+    }
+    if (form) form.addEventListener('submit', function(event) { event.preventDefault(); submit('published'); });
+    if (save) save.addEventListener('click', function() { submit('draft'); });
+  }
+
+  function buildTopPanel(role, actionBar) {
+    var circlePlaceholders = [
+      { id: 'shabbat', paleo: '𐤔', image: 'зуб', topic: 'Шаббат — остановка в потоке' },
+      { id: 'mitsraim', paleo: '𐤌', image: 'вода', topic: 'Мицраим — сужение потока' },
+      { id: 'sheol', paleo: '𐤏', image: 'глаз', topic: 'Состояние Шеол' },
+      { id: 'board-avraam', paleo: '𐤀', image: 'бык', topic: 'Авраам — отец множества' }
+    ];
+    var circlesHtml = '<div class="club-circle-placeholders" aria-label="Палео-образы моих кругов">' +
+      circlePlaceholders.map(function(circle) {
+        return '<a class="club-circle-placeholder paleo" href="#club/' + encodeURIComponent(circle.id) + '" title="' + circle.topic + ' — образ: ' + circle.image + '" aria-label="Открыть обсуждение: ' + circle.topic + '">' + circle.paleo + '</a>';
+      }).join('') +
+      '</div>';
     var waitlistHtml = '';
     if (role === 'guest') {
       waitlistHtml = '<div class="club-waitlist">' +
@@ -153,20 +228,64 @@ const ClubModule = (function() {
         '<div id="club-notice" class="club-notice" style="display:none;"></div>' +
       '</div>';
     }
-    return '<div class="club-side-card">' +
-      '<h3>Сейчас в клубе</h3>' +
-      renderAvatarStack(ClubData.MOCK.profiles, 5) +
-      '<p class="club-side-stub">Исследователи онлайн: 6</p>' +
-    '</div>' +
-    '<div class="club-side-card">' +
+    return '<section class="club-top-panel" aria-label="Информация клуба">' +
+      actionBar +
+      '<div class="club-top-card club-side-card">' +
+        '<h3>Сейчас в клубе</h3>' +
+        renderAvatarStack(ClubData.MOCK.profiles, 5) +
+        '<p class="club-side-stub">Исследователи онлайн: 6</p>' +
+      '</div>' +
+      '<div class="club-top-card club-side-card club-session-teaser">' +
       '<h3>Ближайшая сессия</h3>' +
-      '<p class="club-side-stub">Скоро анонс</p>' +
+      '<div class="club-session-signal" role="img" aria-label="Сессия «Как рождается значение» формируется">' +
+        '<span class="club-session-orbit" aria-hidden="true"><span class="club-session-dot"></span></span>' +
+        '<span class="club-session-copy">' +
+          '<strong>Как рождается значение</strong>' +
+          '<small>Сессия формируется</small>' +
+        '</span>' +
+      '</div>' +
     '</div>' +
-    '<div class="club-side-card">' +
+    buildSessionsPreview() +
+    '<div class="club-top-card club-side-card club-my-circles">' +
       '<h3>Мои круги</h3>' +
-      '<p class="club-side-stub">—</p>' +
+      circlesHtml +
     '</div>' +
-    waitlistHtml;
+    (waitlistHtml ? '<div class="club-top-card club-side-card club-top-waitlist">' + waitlistHtml + '</div>' : '') +
+    '</section>';
+  }
+
+  function sessionStatusLabel(status) {
+    return { active: 'Идёт сейчас', upcoming: 'Предстоящая', completed: 'Завершена' }[status] || 'Сессия';
+  }
+
+  function buildSessionCard(session) {
+    var bars = (session.result || [0, 0, 0, 0]).map(function(value) {
+      return '<span style="height:' + Math.max(18, value * 8) + '%"></span>';
+    }).join('');
+    var progress = session.status === 'active' ? '<div class="club-session-progress"><span style="width:' + session.progress + '%"></span></div><small>' + session.progress + '% маршрута собрано</small>' : '';
+    return '<article class="club-session-card club-session-' + escapeHtml(session.status) + '">' +
+      '<div class="club-session-card-head"><span class="club-session-status"><i aria-hidden="true"></i>' + sessionStatusLabel(session.status) + '</span><time>' + escapeHtml(session.date) + '</time></div>' +
+      '<h3>' + escapeHtml(session.title) + '</h3><p>' + escapeHtml(session.findings) + '</p>' + progress +
+      '<div class="club-session-card-foot"><span>' + session.participants + '/' + session.capacity + ' участников</span>' +
+      (session.status === 'completed' ? '<span class="club-session-result" aria-label="Мини-граф итогов">' + bars + '</span>' : '') +
+      '<a class="lab-btn lab-btn-secondary lab-btn-sm" href="#club/sessions">' + escapeHtml(session.action) + '</a></div></article>';
+  }
+
+  function buildSessionsPreview() {
+    var sessions = ClubData.MOCK.sessions.slice(0, 2);
+    return '<section class="club-session-archive club-top-card" aria-labelledby="club-session-archive-title"><div class="club-section-heading"><div><span class="club-card-type">Хроника клуба</span><h3 id="club-session-archive-title">Архив сессий</h3></div><a class="lab-btn lab-btn-secondary lab-btn-sm" href="#club/sessions">Сессии <span aria-hidden="true">→</span></a></div><div class="club-session-preview-list">' + sessions.map(buildSessionCard).join('') + '</div></section>';
+  }
+
+  function renderSessions(container) {
+    if (!window.ClubData || !ClubData.getSessions) {
+      container.innerHTML = '<div class="lab-alert">Архив сессий пока недоступен.</div>';
+      return;
+    }
+    ClubData.getSessions().then(function(sessions) {
+      var order = { active: 0, upcoming: 1, completed: 2 };
+      sessions.sort(function(a, b) { return order[a.status] - order[b.status]; });
+      container.innerHTML = '<main class="club-sessions-page"><div class="club-sessions-intro"><span class="club-card-type">Живая хроника</span><h1>Архив сессий</h1><p>Здесь остаются маршруты, которые клуб проходит вместе: текущие, будущие и уже проверенные встречи.</p></div><div class="club-sessions-timeline" aria-label="Хронология сессий">' + sessions.map(buildSessionCard).join('') + '</div><a class="lab-btn lab-btn-secondary" href="#club">← Вернуться в клуб</a></main>';
+    }).catch(function() { container.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить архив сессий.</div>'; });
   }
 
   function renderDetail(container, cardId) {
@@ -249,6 +368,19 @@ const ClubModule = (function() {
 
   function bindFeedEvents(container) {
     var cards = container.querySelectorAll('.club-card');
+    var filter = container.querySelector('#club-topic-filter');
+    var empty = container.querySelector('#club-filter-empty');
+    if (filter) {
+      filter.addEventListener('change', function() {
+        var visible = 0;
+        cards.forEach(function(card) {
+          var show = filter.value === 'all' || card.getAttribute('data-type') === filter.value;
+          card.hidden = !show;
+          if (show) visible += 1;
+        });
+        if (empty) empty.hidden = visible > 0;
+      });
+    }
     cards.forEach(function(card) {
       card.addEventListener('click', function(e) {
         if (e.target.closest('a') || e.target.closest('button')) return;

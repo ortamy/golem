@@ -9,6 +9,8 @@ const CSS_ROOT = join(APP, 'css');
 const APP_URL = pathToFileURL(join(APP, 'index.html')).href + '#dashboard';
 const THEMES = {
   light: { accent: '#b8860b', rgb: '184 134 11' },
+  parchment: { accent: '#8b6508', rgb: '139 101 8' },
+  white: { accent: '#8b6508', rgb: '139 101 8' },
   dark: { accent: '#d4a030', rgb: '212 160 48' },
   white: { accent: '#555555', rgb: '85 85 85' }
 };

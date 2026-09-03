@@ -1,4 +1,4 @@
-/* Единая шапка разделов лаборатории (эталон — «Анализаторы»). */
+/* Единая шапка разделов лаборатории. */
 .lab-hero {
   position: relative;
   display: flex;
@@ -75,33 +75,10 @@
   line-height: 1.1;
 }
 
-.lab-hero__badge {
-  position: relative;
-  z-index: 1;
+.lab-hero__title-main {
   display: inline-flex;
   align-items: center;
-  width: fit-content;
-  min-height: 28px;
-  margin: 0 0 14px;
-  padding: 4px 10px;
-  border: 1px solid var(--border-dark);
-  border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  line-height: 1;
-}
-
-.lab-hero__badge-soon {
-  background: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: .05em;
-  animation: hero-chip-pulse 2s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .lab-hero__badge-soon { animation: none; }
+  gap: 14px;
 }
 
 .lab-hero__subtitle {
@@ -133,26 +110,6 @@
   border-radius: 999px;
   font-family: var(--font-mono);
   font-size: 12px;
-}
-
-.lab-hero__chip-soon {
-  background: var(--accent-gold);
-  color: #fff;
-  border-color: var(--accent-gold);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  animation: hero-chip-pulse 2s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .lab-hero__chip-soon {
-    animation: none;
-  }
-}
-
-@keyframes hero-chip-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
 }
 
 /* На десктопе иконка остаётся якорем, а текст собирается в одну левую ось. */
@@ -257,11 +214,6 @@
 .lab-hero-module--cartography .section-hero,
 .lab-hero-module--heraldry .section-hero,
 .lab-hero-module--investigation .section-hero {
-  display: none;
-}
-
-/* Клуб использует собственную шапку внутри контента: общий hero здесь дублирует её. */
-.lab-hero-module--club > .lab-hero {
   display: none;
 }
 

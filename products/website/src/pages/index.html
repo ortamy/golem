@@ -13,7 +13,8 @@
 <script>
   (function () {
     var savedTheme = localStorage.getItem('golem_theme');
-    document.documentElement.setAttribute('data-theme', savedTheme === 'dark' ? 'dark' : 'light');
+    var allowedThemes = ['light', 'parchment', 'white', 'dark'];
+    document.documentElement.setAttribute('data-theme', allowedThemes.indexOf(savedTheme) >= 0 ? savedTheme : 'light');
   }());
 </script>
 
@@ -666,8 +667,9 @@ html[dir="rtl"] .hero::after { content: 'הוהי'; }
   }
 
   function toggleTheme() {
-    var currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-    var nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    var themeOrder = ['light', 'parchment', 'white', 'dark'];
+    var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    var nextTheme = themeOrder[(themeOrder.indexOf(currentTheme) + 1) % themeOrder.length];
     document.documentElement.setAttribute('data-theme', nextTheme);
     localStorage.setItem('golem_theme', nextTheme);
     updateThemeButton(nextTheme);

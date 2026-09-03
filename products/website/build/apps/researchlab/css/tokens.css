@@ -159,8 +159,8 @@
   --success-text: #b8e0b8;
 }
 
-/* ===== СВЕТЛАЯ ПАСТЕЛЬНАЯ ТЕМА ===== */
-[data-theme="white"] {
+/* ===== ПЕРГАМЕНТНАЯ ТЕМА ===== */
+[data-theme="parchment"] {
   --bg-primary: #ede0c8;
   --bg-secondary: #faf3e0;
   --bg-tertiary: #f5edd5;
@@ -202,6 +202,53 @@
   --success-bg: #eef6ee;
   --success-border: #bfdcc0;
   --success-text: #2a5c2a;
+}
+[data-theme="parchment"] body::before,
+[data-theme="parchment"] body::after { opacity: 0; }
+
+/* ===== ЧИСТО БЕЛАЯ ТЕМА ===== */
+[data-theme="white"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #eef1f3;
+  --bg-dark: #ffffff;
+  --bg-dark-hover: #f8f9fa;
+  --bg-card: #ffffff;
+  --text-primary: #1f2933;
+  --text-secondary: #52606d;
+  --text-muted: #7b8794;
+  --text-light: #1f2933;
+  --text-gold: #8b6508;
+  --accent-gold-rgb: 139 101 8;
+  --border-light: #d9e0e6;
+  --border-dark: #d9e0e6;
+  --border-gold: var(--accent-gold);
+  --accent-gold: #8b6508;
+  --accent-gold-hover: #6f5006;
+  --accent-red: #b83226;
+  --accent-red-hover: #92251d;
+  --accent-green: #286828;
+  --ring-focus: 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.38);
+  --shadow-card: 0 1px 3px rgba(31,41,51,0.08), 0 2px 8px rgba(31,41,51,0.05);
+  --shadow-hover: 0 4px 12px rgba(31,41,51,0.12), 0 2px 4px rgba(31,41,51,0.07);
+  --shadow-card-hover: var(--shadow-hover);
+  --shadow-modal: 0 8px 24px rgba(31,41,51,0.16), 0 2px 8px rgba(31,41,51,0.08);
+  --shadow-floating: 0 12px 32px rgba(31,41,51,0.18), 0 4px 12px rgba(31,41,51,0.09);
+  --shadow-soft: 0 2px 12px rgba(31,41,51,0.07);
+  --shadow-card-color: rgba(31,41,51,0.05);
+  --shadow-card-hover-color: rgba(31,41,51,0.12);
+  --info-bg: #eef6ea;
+  --info-border: #c4dfb8;
+  --info-text: #2f5420;
+  --warn-bg: #fff8e8;
+  --warn-border: #ead39a;
+  --warn-text: #684c16;
+  --error-bg: #fff1f1;
+  --error-border: #e5b2b2;
+  --error-text: #702c2c;
+  --success-bg: #eef8ef;
+  --success-border: #c0dfc1;
+  --success-text: #2b6030;
 }
 [data-theme="white"] body::before,
 [data-theme="white"] body::after { opacity: 0; }

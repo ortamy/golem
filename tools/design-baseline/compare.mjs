@@ -22,7 +22,7 @@ const maxDiffArgIdx = process.argv.indexOf('--max-diff');
 const THRESHOLD = thresholdArgIdx > -1 ? parseFloat(process.argv[thresholdArgIdx + 1]) : 0.12;
 const MAX_DIFF_PCT = maxDiffArgIdx > -1 ? parseFloat(process.argv[maxDiffArgIdx + 1]) : 0.5;
 
-const THEMES = ['light', 'white', 'dark'];
+const THEMES = ['light', 'parchment', 'white', 'dark'];
 // Полная матрица маршрутов (синхронна со screenshot.mjs)
 const ROUTES = [
   'dashboard', 'manifest', 'states', 'dictionaries', 'researches',

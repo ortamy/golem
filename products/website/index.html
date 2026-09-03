@@ -12,7 +12,7 @@
     // Тема до первой отрисовки: общий с лабом ключ golem_theme.
     try {
       var __golemTheme = localStorage.getItem('golem_theme');
-      if (__golemTheme === 'white' || __golemTheme === 'dark') {
+      if (__golemTheme === 'parchment' || __golemTheme === 'white' || __golemTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', __golemTheme);
       }
     } catch (e) {}
@@ -48,9 +48,8 @@
       --shadow: 0 18px 45px rgba(45, 31, 20, .10);
       --max: 1180px;
     }
-    /* Белая тема — молочный пергамент (слой как theme-white.css лаба: #faf3e0).
-       Тёмные поверхности (--chocolate) остаются тёмными, светлеет только бумага. */
-    [data-theme="white"] {
+    /* Пергаментная тема сохраняет существующую бежевую палитру. */
+    [data-theme="parchment"] {
       --paper: #faf3e0;
       --paper-deep: #f0e6cc;
       --paper-light: #fdf9ee;
@@ -68,19 +67,39 @@
       --muted: #c9b89d;
       --shadow: 0 18px 45px rgba(0, 0, 0, .22);
     }
-    /* Белая тема — светлая пастель, аналог theme-white.css лаба.
-       Золото не переопределяем: тёмные карточки (клуб, футер) остаются тёмными. */
+    /* Полностью белая тема: нейтральные поверхности и читаемый тёмный текст. */
     [data-theme="white"] {
-      --paper: #fbf8f1;
-      --paper-deep: #f5f0e6;
-      --paper-light: #fffdf6;
-      --chocolate: #2c1810;
-      --chocolate-soft: #5c4a3a;
-      --muted: #8a7a67;
-      --line: rgba(45, 31, 20, .16);
-      --shadow: 0 18px 45px rgba(45, 31, 20, .07);
+      --paper: #ffffff;
+      --paper-deep: #eef1f3;
+      --paper-light: #f8f9fa;
+      --chocolate: #1f2933;
+      --chocolate-soft: #52606d;
+      --muted: #7b8794;
+      --line: rgba(31, 41, 51, .16);
+      --shadow: 0 18px 45px rgba(31, 41, 51, .08);
     }
     [data-theme="white"] body::before { opacity: 0; }
+    [data-theme="white"] .lab-header,
+    [data-theme="white"] .skip-link,
+    [data-theme="white"] .project-callout,
+    [data-theme="white"] .site-footer,
+    [data-theme="white"] .club-card {
+      background: #fff;
+      color: var(--chocolate);
+      border-color: var(--line-gold);
+    }
+    [data-theme="white"] .project-callout h2,
+    [data-theme="white"] .project-callout .button-outline,
+    [data-theme="white"] .site-footer,
+    [data-theme="white"] .club-card {
+      color: var(--chocolate);
+    }
+    [data-theme="white"] .project-callout p,
+    [data-theme="white"] .footer-slogan,
+    [data-theme="white"] .footer-links a,
+    [data-theme="white"] .footer-bottom {
+      color: var(--chocolate-soft);
+    }
     *, *::before, *::after { box-sizing: border-box; }
     html { min-width: 320px; scroll-behavior: smooth; }
     body {
@@ -531,6 +550,16 @@
     }
     /* ===== ПАЛЕО-КЛУБ ===== */
     .club-body { position: relative; z-index: 1; display: grid; gap: 26px; }
+    .club-session-archive-preview { display: block; width: 100%; margin-top: 26px; padding: 26px 28px; border: 2px solid var(--gold); border-radius: var(--radius-lg); background: #fffdf6; box-shadow: 0 12px 30px rgba(45,31,20,.12); }
+    .club-session-archive-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+    .club-session-archive-heading .eyebrow { margin: 0 0 4px; }
+    .club-session-archive-heading h3 { margin: 0; color: var(--chocolate); font-family: var(--heading); font-size: 1.55rem; }
+    .club-session-archive-list { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .club-session-archive-list article { display: grid; gap: 5px; padding: 14px; border: 1px solid rgba(92,74,58,.25); border-radius: 6px; background: rgba(250,243,224,.7); }
+    .club-session-archive-list time, .club-session-archive-list small { color: var(--muted); font-size: .78rem; }
+    .club-session-archive-list strong { color: var(--chocolate); font-family: var(--heading); font-size: 1.15rem; }
+    .club-session-preview-status { color: var(--muted); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .club-session-preview-status.is-active { color: var(--gold); }
     .club-card {
       position: relative;
       overflow: hidden;
@@ -622,6 +651,8 @@
       .club-body { grid-template-columns: 1fr auto; align-items: center; }
     }
     @media (max-width: 767px) {
+      .club-session-archive-list { grid-template-columns: 1fr; }
+      .club-session-archive-heading { align-items: flex-start; flex-direction: column; }
       .club-card { padding: 30px 22px; }
       .club-list { grid-template-columns: 1fr; }
       .club-action { justify-items: stretch; }
@@ -749,8 +780,16 @@
               <p class="club-note">Анонс открытия — на сайте и в GitHub.</p>
             </div>
           </div>
+        <section class="club-session-archive-preview" aria-labelledby="club-session-archive-title">
+          <div class="club-session-archive-heading"><div><p class="eyebrow">ЖИВАЯ ХРОНИКА</p><h3 id="club-session-archive-title">Архив сессий</h3></div><a class="text-link" href="apps/researchlab/index.html#club/sessions">Сессии →</a></div>
+          <div class="club-session-archive-list">
+            <article><span class="club-session-preview-status is-active">● Идёт сейчас</span><time>Сегодня, 19:00</time><strong>Как рождается значение</strong><small>6 участников · 68% маршрута собрано</small></article>
+            <article><span class="club-session-preview-status">Предстоящая</span><time>12 сентября 2026</time><strong>Шаббат: остановка в потоке</strong><small>4 участника уже записались</small></article>
+          </div>
+        </section>
         </div>
       </div>
+      
     </section>
 
     <section class="section platform" id="tools" aria-labelledby="platform-title">
@@ -847,10 +886,11 @@
       document.querySelector('#themeBtnMobile')
     ].filter(Boolean);
     const themeIconPath = 'assets/icons/32/ui/';
-    const themeOrder = ['light', 'white', 'dark'];
+    const themeOrder = ['light', 'parchment', 'white', 'dark'];
     // Иконка показывает тему, в которую ведёт клик (как в лабе).
     const themeViews = {
-      light: { icon: 'month.png', alt: 'Белая тема', title: 'Переключить на белую тему' },
+      light: { icon: 'month.png', alt: 'Пергаментная тема', title: 'Переключить на пергаментную тему' },
+      parchment: { icon: 'month.png', alt: 'Белая тема', title: 'Переключить на белую тему' },
       white: { icon: 'moon.png', alt: 'Тёмная тема', title: 'Переключить на тёмную тему' },
       dark: { icon: 'sun.png', alt: 'Светлая тема', title: 'Переключить на светлую тему' }
     };

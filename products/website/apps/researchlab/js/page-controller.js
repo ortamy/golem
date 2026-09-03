@@ -1277,8 +1277,8 @@ const PageController = (function() {
         window.Workbench.applyRoute(parsed);
       }
       if (moduleId === 'club' && window.ClubModule) {
-        window.ClubModule._setCardId(parsed && parsed.segments && parsed.segments[1]);
-        window.ClubModule.render(container.querySelector('#club-app') || container);
+        window.ClubModule._setCardId(parsed && parsed.segments && parsed.segments[1] && parsed.segments[1] !== 'discussions' && parsed.segments[1] !== 'create' && parsed.segments[1] !== 'sessions' ? parsed.segments[1] : null);
+        window.ClubModule.render(container.querySelector('#club-app') || container, parsed);
       }
       // Шапка должна обновиться и при перерисовке уже загруженного модуля
       applyModuleHero(moduleId, container, parsed);
@@ -1318,12 +1318,12 @@ const PageController = (function() {
         break;
 
       case 'club':
-        container.innerHTML = '<div id="club-app"></div>';
+        container.innerHTML = '<div id="club-app"></div><div id="club-discussions"></div>';
         container.dataset.loaded = '1';
         if (window.ClubModule) {
           var app = container.querySelector('#club-app');
-          window.ClubModule._setCardId(parsed && parsed.segments && parsed.segments[1]);
-          window.ClubModule.render(app);
+          window.ClubModule._setCardId(parsed && parsed.segments && parsed.segments[1] && parsed.segments[1] !== 'discussions' && parsed.segments[1] !== 'create' && parsed.segments[1] !== 'sessions' ? parsed.segments[1] : null);
+          window.ClubModule.render(app, parsed);
         }
         break;
 
@@ -2006,7 +2006,7 @@ const PageController = (function() {
       else if (segWb && segWb[1] === 'project') viewId = 'project';
       // override задаётся в workbench.js (title конвейера / имя проекта)
     } else if (moduleId === 'club') {
-      viewId = 'club';
+      viewId = parsed && parsed.segments && parsed.segments[1] === 'discussions' ? 'discussions' : 'club';
     }
     return [viewId, override];
   }
@@ -2120,7 +2120,14 @@ const PageController = (function() {
     renderWhenReady: renderWhenReady,
     jsonCache: jsonCache  ,
     pageState: pageState,
-    agentMapData: agentMapData,
+    // Getter возвращает актуальный массив после открытия #ai-agents.
+    // Простое значение здесь осталось бы снимком null, созданным до первого рендера.
+    getAgentMapData: function() {
+      return agentMapData || (agentMapData = getAgentMapData());
+    },
+    get agentMapData() {
+      return agentMapData;
+    },
     renderDictionaries: renderDictionaries,
     renderDocumentPage: renderDocumentPage
   };

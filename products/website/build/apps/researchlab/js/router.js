@@ -49,6 +49,8 @@ const LabRouter = (function() {
     }
     if (route.indexOf('root-dictionary/page/') === 0) return 'Страница ' + route.split('/').pop();
     if (route === 'dictionaries') return 'Словари';
+    if (route === 'club/discussions') return 'Обсуждения';
+    if (route === 'club/sessions') return 'Сессии';
     if (route === 'dictionaries/root-dictionary') return 'Корневой словарь';
     if (route === 'dictionaries/paleo-glossary') return 'Палео-глоссарий';
     if (route.indexOf('paleo-mechanics/') === 0 && window.PageController && PageController.jsonCache['paleo-mechanics']) {

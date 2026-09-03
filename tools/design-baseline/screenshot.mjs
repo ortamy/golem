@@ -19,7 +19,7 @@ const APP_INDEX = pathToFileURL(
   'c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab/index.html'
 ).href;
 
-const THEMES = ['light', 'white', 'dark']; // golem_theme из index.html (LabTheme)
+const THEMES = ['light', 'parchment', 'white', 'dark']; // golem_theme из index.html (LabTheme)
 const ROUTES = [
   // ядро матрицы (этап 0)
   'dashboard',        // рабочий стол, tool-grid

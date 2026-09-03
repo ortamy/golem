@@ -317,6 +317,12 @@
       subtitle: 'Результат конвейера в специализированном взоре.',
       icon: 'scribe/scrolls.png'
     },
+    'club/discussions': {
+      kicker: 'ГОЛЕМ · КЛУБ · СВИВА ИССЛЕДОВАТЕЛЕЙ',
+      title: 'Обсуждения',
+      subtitle: 'Исследовательские темы клуба: наблюдения, источники, гипотезы и проверяемые выводы.',
+      icon: 'paleo/track.png'
+    },
     'learn/lessons': {
       kicker: 'ГОЛЕМ · ОБУЧЕНИЕ',
       title: 'Изучение иврита',
@@ -351,8 +357,7 @@
       kicker: 'ГОЛЕМ · КЛУБ · СВИВА ИССЛЕДОВАТЕЛЕЙ',
       title: 'Палео-клуб',
       subtitle: 'Закрытое сообщество исследователей. Буква и корень дня, живые сессии, круги практики.',
-      icon: 'paleo/track.png',
-      badge: { label: 'СКОРО', className: 'lab-hero__badge-soon' }
+      icon: 'paleo/track.png'
     },
     'states/diagnostic': {
       kicker: 'ГОЛЕМ · КАРТА СОСТОЯНИЙ',

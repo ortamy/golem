@@ -41,6 +41,7 @@
 <link rel="stylesheet" href="css/methodology.css">
 <link rel="stylesheet" href="css/lab-hero.css?v=20260903-hero">
 <link rel="stylesheet" href="css/manifest.css">
+<link rel="stylesheet" href="css/theme-parchment.css">
 <link rel="stylesheet" href="css/theme-white.css">
 <link rel="stylesheet" href="css/timeline.css">
 <link rel="stylesheet" href="css/analyzers.css">
@@ -128,7 +129,7 @@
     <a href="#manifest" class="sidebar-item sidebar-item-top" data-module="manifest"><img src="../../assets/icons/32/ui/scroll.png" class="lab-icon" alt="">Манифест</a>
     <a href="#dashboard" class="sidebar-item sidebar-item-top" data-module="dashboard"><img src="../../assets/icons/32/ui/grid.png" class="lab-icon" alt="">Рабочий стол</a>
     <a href="#workbench" class="sidebar-item sidebar-item-top" data-module="workbench"><img src="../../assets/icons/32/crafts/hammer-and-chisel.png" class="lab-icon" alt="">Мастерская</a>
-    <a href="#club" class="sidebar-item sidebar-item-top" data-module="club"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-клуб<span class="sidebar-badge">скоро</span></a>
+    <a href="#club" class="sidebar-item sidebar-item-top" data-module="club"><img src="../../assets/icons/32/paleo/track.png" class="lab-icon" alt="">Палео-клуб</a>
     <div class="sidebar-section">
       <div class="sidebar-section-header" data-section="data">
         <img src="../../assets/icons/32/ui/book.png" class="icon" alt="">
@@ -306,7 +307,7 @@ const LabSidebar = {
 
 // ===== LAB THEME =====
 const LabTheme = {
-  themes: ['light', 'white', 'dark'],
+  themes: ['light', 'parchment', 'white', 'dark'],
   init: function() {
     var saved = localStorage.getItem('golem_theme') || 'light';
     this.set(this.themes.indexOf(saved) >= 0 ? saved : 'light');
@@ -319,7 +320,9 @@ const LabTheme = {
       ? '<img src="../../assets/icons/32/ui/sun.png" width="24" height="24" alt="Светлая тема">'
       : theme === 'white'
         ? '<img src="../../assets/icons/32/ui/moon.png" width="24" height="24" alt="Тёмная тема">'
-        : '<img src="../../assets/icons/32/ui/month.png" width="24" height="24" alt="Тёмная тема">';
+        : theme === 'parchment'
+          ? '<img src="../../assets/icons/32/ui/month.png" width="24" height="24" alt="Белая тема">'
+          : '<img src="../../assets/icons/32/ui/month.png" width="24" height="24" alt="Пергаментная тема">';
     var btn = document.getElementById('themeBtn');
     if (btn) btn.innerHTML = icon;
     var btnMobile = document.getElementById('themeBtnMobile');

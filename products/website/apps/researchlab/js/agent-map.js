@@ -23,7 +23,9 @@
   }
 
   function getAgents() {
-    return (window.PageController && window.PageController.agentMapData) || [];
+    return window.PageController && window.PageController.getAgentMapData
+      ? window.PageController.getAgentMapData()
+      : [];
   }
 
   function defaultPosition(index) {

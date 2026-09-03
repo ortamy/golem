@@ -1,0 +1,174 @@
+/* ===== ПЕРГАМЕНТНАЯ ТЕМА: бывшие white-совместимые overrides ===== */
+html[data-theme="parchment"] {
+  --bg-hover: #f5edd5;
+  --bg-subtle: #faf3e0;
+  --bg-paper: #faf3e0;
+}
+
+/* Общие hover/active-фоны в пергаментной шкале. */
+html[data-theme="parchment"] .lab-header nav a:hover,
+html[data-theme="parchment"] .lab-header nav button:hover,
+html[data-theme="parchment"] .lab-btn-secondary:hover,
+html[data-theme="parchment"] .sidebar-section-header:hover,
+html[data-theme="parchment"] .sidebar-item:hover,
+html[data-theme="parchment"] .pk-key:hover,
+html[data-theme="parchment"] .investigation-evidence-trigger:hover,
+html[data-theme="parchment"] .investigation-evidence-trigger:focus-visible,
+html[data-theme="parchment"] .investigation-creator:hover,
+html[data-theme="parchment"] .investigation-creator:focus-visible,
+html[data-theme="parchment"] .investigation-creator.is-open,
+html[data-theme="parchment"] .dw-list-item:hover,
+html[data-theme="parchment"] .admin-btn-secondary:hover,
+html[data-theme="parchment"] .settings-nav-btn:hover {
+  background: var(--bg-tertiary);
+}
+
+html[data-theme="parchment"] .lab-btn-secondary:active,
+html[data-theme="parchment"] .pk-key:active,
+html[data-theme="parchment"] .question-option.selected,
+html[data-theme="parchment"] .scale-option.selected,
+html[data-theme="parchment"] .tc-witness-row.active td,
+html[data-theme="parchment"] .rd-subs,
+html[data-theme="parchment"] .clue-conclusion,
+html[data-theme="parchment"] .methodology-icon-btn:hover,
+html[data-theme="parchment"] .methodology-info-btn:hover {
+  background: #eadfc8;
+}
+
+/* Акцентные поверхности сохраняют золото пергаментной темы. */
+html[data-theme="parchment"] .lab-btn-primary,
+html[data-theme="parchment"] .lab-btn-primary-orange,
+html[data-theme="parchment"] .lab-btn-danger,
+html[data-theme="parchment"] .tool-card .tool-badge.new,
+html[data-theme="parchment"] .exposure-toc-item.active,
+html[data-theme="parchment"] .cartography-filter-btn.active,
+html[data-theme="parchment"] .settings-toggle input:checked + .settings-toggle-slider,
+html[data-theme="parchment"] .admin-btn-primary,
+html[data-theme="parchment"] .admin-btn-danger,
+html[data-theme="parchment"] .btn-diagnostic-next,
+html[data-theme="parchment"] .btn-result-state {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: var(--bg-secondary);
+}
+
+html[data-theme="parchment"] .sidebar-section-title,
+html[data-theme="parchment"] .investigation-timeline-tag,
+html[data-theme="parchment"] .agent-server-kicker {
+  color: var(--text-secondary);
+}
+
+/* Карточки и служебные панели модулей. */
+html[data-theme="parchment"] .board-module,
+html[data-theme="parchment"] .research-board,
+html[data-theme="parchment"] .board-workspace,
+html[data-theme="parchment"] .board-toolbar,
+html[data-theme="parchment"] .board-help,
+html[data-theme="parchment"] .board-card,
+html[data-theme="parchment"] .board-inspector,
+html[data-theme="parchment"] .board-dialog,
+html[data-theme="parchment"] .board-dialog input,
+html[data-theme="parchment"] .board-dialog textarea,
+html[data-theme="parchment"] .board-conclusion,
+html[data-theme="parchment"] .evidence-card,
+html[data-theme="parchment"] .attachment-card,
+html[data-theme="parchment"] .attachment-thumbnail,
+html[data-theme="parchment"] .attachment-placeholder,
+html[data-theme="parchment"] .investigation-timeline,
+html[data-theme="parchment"] .investigation-timeline-details,
+html[data-theme="parchment"] .investigation-portrait,
+html[data-theme="parchment"] .admin-panel,
+html[data-theme="parchment"] .settings-nav,
+html[data-theme="parchment"] .settings-cache-card,
+html[data-theme="parchment"] .metric-card,
+html[data-theme="parchment"] .agent-card,
+html[data-theme="parchment"] .settings-export-card,
+html[data-theme="parchment"] .admin-list-item,
+html[data-theme="parchment"] .metrics-detail,
+html[data-theme="parchment"] .settings-logs-container,
+html[data-theme="parchment"] .gate-card,
+html[data-theme="parchment"] .admin-input,
+html[data-theme="parchment"] .admin-textarea {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+
+html[data-theme="parchment"] .board-module,
+html[data-theme="parchment"] .board-workspace {
+  background-image: none;
+}
+
+html[data-theme="parchment"] .board-toolbar h1,
+html[data-theme="parchment"] .board-inspector-title,
+html[data-theme="parchment"] .board-dialog h2,
+html[data-theme="parchment"] .investigation-timeline-point,
+html[data-theme="parchment"] .investigation-timeline-point:hover,
+html[data-theme="parchment"] .investigation-timeline-point:focus-visible,
+html[data-theme="parchment"] .investigation-timeline-details,
+html[data-theme="parchment"] .board-card,
+html[data-theme="parchment"] .board-dialog input,
+html[data-theme="parchment"] .board-dialog textarea {
+  color: var(--text-primary);
+}
+
+/* Жёстко заданные статусы и подсветки переводим в бежевую шкалу. */
+html[data-theme="parchment"] .book-card--completed,
+html[data-theme="parchment"] .book-card--in-progress,
+html[data-theme="parchment"] .agent-server-status,
+html[data-theme="parchment"] .agent-server-output pre,
+html[data-theme="parchment"] .agent-server-note code,
+html[data-theme="parchment"] .agent-server-note kbd,
+html[data-theme="parchment"] .vl-synthesis,
+html[data-theme="parchment"] .br-callout,
+html[data-theme="parchment"] .br-text-card {
+  background: var(--bg-secondary);
+}
+
+html[data-theme="parchment"] .book-card:hover,
+html[data-theme="parchment"] .book-card:focus-visible,
+html[data-theme="parchment"] .evidence-card:hover,
+html[data-theme="parchment"] .attachment-card:hover,
+html[data-theme="parchment"] .language-map-card:hover,
+html[data-theme="parchment"] .heraldry-card:hover,
+html[data-theme="parchment"] .state-city-card:hover,
+html[data-theme="parchment"] .question-option:hover,
+html[data-theme="parchment"] .scale-option:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  background: var(--bg-tertiary);
+}
+
+html[data-theme="parchment"] .agent-grid .agent-card-orchestrator,
+html[data-theme="parchment"] .agent-grid .agent-card-orchestrator:hover {
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-soft);
+}
+
+html[data-theme="parchment"] .sidebar-item.active,
+html[data-theme="parchment"] .exposure-toc-item.active {
+  background: #eadfc8;
+  color: var(--accent-gold);
+}
+
+html[data-theme="parchment"] .admin-notice-success,
+html[data-theme="parchment"] .admin-notice-error {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+
+html[data-theme="parchment"] .settings-range,
+html[data-theme="parchment"] .settings-toggle-slider,
+html[data-theme="parchment"] .metrics-progress-bar {
+  background: #d4c4a8;
+}
+
+html[data-theme="parchment"] .highlight,
+html[data-theme="parchment"] .highlight-gold,
+html[data-theme="parchment"] .exposure-chip.active {
+  background: #f5edd5;
+}
+
+/* Inline-стили модулей остаются в пергаментной шкале. */
+html[data-theme="parchment"] #vi-img { border-color: var(--border-light) !important; }
+html[data-theme="parchment"] #vi-placeholder > div { color: var(--text-secondary) !important; }

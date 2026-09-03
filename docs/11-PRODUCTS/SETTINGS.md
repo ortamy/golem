@@ -146,7 +146,7 @@
 | `golem_settings_logs` | Логи действий (массив JSON) |
 | `golem_settings_errors` | Логи ошибок (массив JSON) |
 | `golem_admin_password_override` | Пароль администратора (строка) |
-| `golem_theme` | Тема: `light` / `dark` |
+| `golem_theme` | Тема: `light` / `parchment` / `white` / `dark` |
 | `golem_wa_cache` | Кэш разбора слов |
 | `golem_rag_*` | RAG-индексы |
 | `golem_knowledge_*` | Индексы знаний |
