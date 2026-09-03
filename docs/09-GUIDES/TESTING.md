@@ -56,6 +56,8 @@ python -m http.server 8000
 #learn/paleo-trainer
 #pipelines
 #pipelines/<id>
+#club
+#club/<id>
 #workbench
 #workbench/run/<id>
 ```

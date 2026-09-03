@@ -29,6 +29,7 @@
           (config.icon ? '<img class="lab-hero__icon" src="../../assets/icons/32/' + config.icon + '" alt="" aria-hidden="true">' : '') +
           esc(config.title) +
         '</h1>' +
+        (config.badge ? '<span class="lab-hero__badge ' + esc(config.badge.className || '') + '">' + esc(config.badge.label) + '</span>' : '') +
         (config.subtitle ? '<p class="lab-hero__subtitle">' + esc(config.subtitle) + '</p>' : '') +
         metaChips(config.meta) +
       '</div>'
@@ -349,7 +350,7 @@
       title: 'Палео-клуб',
       subtitle: 'Закрытое сообщество исследователей. Буква и корень дня, живые сессии, круги практики.',
       icon: 'paleo/track.png',
-      meta: [{ label: 'СКОРО', className: 'lab-hero__chip-soon' }]
+      badge: { label: 'СКОРО', className: 'lab-hero__badge-soon' }
     },
     'states/diagnostic': {
       kicker: 'ГОЛЕМ · КАРТА СОСТОЯНИЙ',

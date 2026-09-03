@@ -75,6 +75,41 @@
   line-height: 1.1;
 }
 
+.lab-hero__title-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lab-hero__badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 28px;
+  margin: 0 0 10px;
+  padding: 4px 10px;
+  border: 1px solid var(--border-dark);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.lab-hero__badge-soon {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .05em;
+  animation: hero-chip-pulse 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-hero__badge-soon { animation: none; }
+}
+
 .lab-hero__subtitle {
   text-align: left;
   position: relative;

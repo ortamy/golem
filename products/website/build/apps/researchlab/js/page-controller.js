@@ -1276,6 +1276,10 @@ const PageController = (function() {
       if (moduleId === 'workbench' && window.Workbench) {
         window.Workbench.applyRoute(parsed);
       }
+      if (moduleId === 'club' && window.ClubModule) {
+        window.ClubModule._setCardId(parsed && parsed.segments && parsed.segments[1]);
+        window.ClubModule.render(container.querySelector('#club-app') || container);
+      }
       // Шапка должна обновиться и при перерисовке уже загруженного модуля
       applyModuleHero(moduleId, container, parsed);
       if (window.LabRouter) LabRouter.renderBreadcrumbs(moduleId, parsed);
@@ -1317,7 +1321,9 @@ const PageController = (function() {
         container.innerHTML = '<div id="club-app"></div>';
         container.dataset.loaded = '1';
         if (window.ClubModule) {
-          window.ClubModule.render(container.querySelector('#club-app'));
+          var app = container.querySelector('#club-app');
+          window.ClubModule._setCardId(parsed && parsed.segments && parsed.segments[1]);
+          window.ClubModule.render(app);
         }
         break;
 

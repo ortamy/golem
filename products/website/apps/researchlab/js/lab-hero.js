@@ -26,9 +26,12 @@
       '<div class="lab-hero__body">' +
         (config.kicker ? '<p class="lab-hero__kicker">' + esc(config.kicker) + '</p>' : '') +
         '<h1 class="lab-hero__title"' + titleId + '>' +
+          '<span class="lab-hero__title-main">' +
           (config.icon ? '<img class="lab-hero__icon" src="../../assets/icons/32/' + config.icon + '" alt="" aria-hidden="true">' : '') +
           esc(config.title) +
+          '</span>' +
         '</h1>' +
+        (config.badge ? '<span class="lab-hero__badge ' + esc(config.badge.className || '') + '">' + esc(config.badge.label) + '</span>' : '') +
         (config.subtitle ? '<p class="lab-hero__subtitle">' + esc(config.subtitle) + '</p>' : '') +
         metaChips(config.meta) +
       '</div>'
@@ -345,11 +348,11 @@
       icon: 'ui/book.png'
     },
     'club': {
-      kicker: 'ГОЛЕМ · ПАЛЕО-КЛУБ',
+      kicker: 'ГОЛЕМ · КЛУБ · СВИВА ИССЛЕДОВАТЕЛЕЙ',
       title: 'Палео-клуб',
       subtitle: 'Закрытое сообщество исследователей. Буква и корень дня, живые сессии, круги практики.',
       icon: 'paleo/track.png',
-      meta: [{ label: 'СКОРО', className: 'lab-hero__chip-soon' }]
+      badge: { label: 'СКОРО', className: 'lab-hero__badge-soon' }
     },
     'states/diagnostic': {
       kicker: 'ГОЛЕМ · КАРТА СОСТОЯНИЙ',
@@ -454,7 +457,17 @@
     if (!container) return;
     var config = Object.assign({}, base, (viewId && VIEWS[moduleId + '/' + viewId]) || {}, override || {});
     var hero = ensureHero(container, moduleId, config);
-    var signature = (viewId || '') + '|' + (config.title || '') + '|' + (config.subtitle || '');
+    // Учитываем всю визуальную конфигурацию: старый hero мог остаться в DOM
+    // после hot reload, если совпадали только title и subtitle.
+    var signature = JSON.stringify({
+      view: viewId || '',
+      kicker: config.kicker || '',
+      title: config.title || '',
+      subtitle: config.subtitle || '',
+      icon: config.icon || '',
+      badge: config.badge || null,
+      meta: config.meta || []
+    });
     if (hero.getAttribute('data-lab-hero-view') !== signature) {
       hero.setAttribute('data-lab-hero-view', signature);
       hero.innerHTML = heroHtml(Object.assign({}, config, { titleId: 'lab-hero-title-' + moduleId }));
