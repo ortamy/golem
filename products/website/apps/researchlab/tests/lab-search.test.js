@@ -17,3 +17,33 @@ search.load().then(function (items) {
   console.error(error);
   process.exitCode = 1;
 });
+
+const withDataSandbox = {
+  window: {
+    fetch: function (url) {
+      const files = {
+        'data/roots/roots.json': [{ translit: 'AV', root: 'אב', meaning: 'источник' }, { translit: 'ABA', root: 'אבא', meaning: 'отец' }],
+        'data/roots/root-links.json': [{ from: 'AV', to: 'ABA', type: 'example', source: 'researcher', confidence: 'confirmed', note: 'Расширенная форма' }],
+        'data/dictionaries.json': {},
+        'data/methodology/cards.json': [],
+        'data/qumran-books.json': { books: [] }
+      };
+      return Promise.resolve({ ok: true, json: function () { return Promise.resolve(files[url]); } });
+    }
+  },
+  document: { readyState: 'loading', addEventListener() {} },
+  console
+};
+vm.runInNewContext(source, withDataSandbox);
+withDataSandbox.window.LabSearch.load().then(function (items) {
+  const links = items.filter(function (item) { return item.type === 'root-link'; });
+  assert.strictEqual(links.length, 1);
+  assert.strictEqual(links[0].route, 'root-dictionary/graph/AV');
+  assert.ok(links[0].keywords.indexOf('aba') !== -1);
+  assert.strictEqual(withDataSandbox.window.LabSearch.search('confirmed')[0], links[0]);
+  assert.strictEqual(withDataSandbox.window.LabSearch.search('Расширенная')[0], links[0]);
+  console.log('OK lab-search: root links and graph routes');
+}).catch(function (error) {
+  console.error(error);
+  process.exitCode = 1;
+});

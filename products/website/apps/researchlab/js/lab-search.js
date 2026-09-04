@@ -5,11 +5,12 @@
   var MAX_RESULTS = 30;
   var DATA_URLS = {
     roots: 'data/roots/roots.json',
+    rootLinks: 'data/roots/root-links.json',
     dictionaries: 'data/dictionaries.json',
     methodology: 'data/methodology/cards.json',
     scripture: 'data/qumran-books.json'
   };
-  var state = { items: [], loaded: false, loading: null };
+  var state = { items: [], loaded: false, loading: null, roots: [], rootLinks: [] };
   var MODULES = [
     ['dashboard', 'Рабочий стол', 'Лаборатория'], ['manifest', 'Манифест', 'Система'],
     ['root-dictionary', 'Корневой словарь', 'Словари'], ['dictionaries', 'Словари', 'Словари'],
@@ -35,6 +36,34 @@
       route: route, source: source, keywords: normalize(keywords || ''), params: params || null });
   }
 
+  function rootId(value) {
+    return normalize(value).toUpperCase();
+  }
+
+  function addRootLinkItems() {
+    var rootsById = {};
+    state.roots.forEach(function (root) {
+      if (root && root.translit) rootsById[rootId(root.translit)] = root;
+    });
+    var seen = {};
+    state.rootLinks.forEach(function (link) {
+      if (!link || !link.from || !link.to) return;
+      var from = rootId(link.from), to = rootId(link.to);
+      var type = normalize(link.type || 'relation');
+      var key = from + '|' + to + '|' + type;
+      if (seen[key]) return;
+      seen[key] = true;
+      var fromRoot = rootsById[from], toRoot = rootsById[to];
+      var fromDescription = fromRoot ? (fromRoot.meaning || fromRoot.image || '') : '';
+      var toDescription = toRoot ? (toRoot.meaning || toRoot.image || '') : '';
+      var details = [link.type, link.source, link.confidence, link.note,
+        fromDescription, toDescription].filter(Boolean).join(' ');
+      add(state.items, 'root-link', from + ' ↔ ' + to, link.note || details,
+        'root-dictionary/graph/' + encodeURIComponent(from), 'Связи',
+        [from, to, 'связи', details].join(' '));
+    });
+  }
+
   function moduleItems() {
     return MODULES.map(function (m) {
       return { type: 'module', title: m[1], snippet: m[1], route: m[0], source: m[2], keywords: normalize(m[0] + ' ' + m[2]) };
@@ -56,8 +85,10 @@
     state.loading = Promise.all(Object.keys(DATA_URLS).map(function (key) {
       return readJson(DATA_URLS[key]).then(function (data) {
         if (key === 'roots' && Array.isArray(data)) data.forEach(function (r) {
+          state.roots.push(r);
           add(state.items, 'root', r.root, r.meaning, 'root-dictionary', 'Корни', r.root + ' ' + r.translit + ' ' + r.meaning);
         });
+        if (key === 'rootLinks' && Array.isArray(data)) state.rootLinks = data;
         if (key === 'methodology' && Array.isArray(data)) data.forEach(function (c, index) {
           add(state.items, 'methodology', c.title, c.text, 'methodology', 'Методология', c.title + ' ' + c.text, { card: c.id || String(index) });
         });
@@ -73,7 +104,11 @@
           });
         });
       }).catch(function (error) { console.warn('[LabSearch] fallback:', error.message); });
-    })).then(function () { state.loaded = true; return state.items; });
+    })).then(function () {
+      addRootLinkItems();
+      state.loaded = true;
+      return state.items;
+    });
     return state.loading;
   }
 
