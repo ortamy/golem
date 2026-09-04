@@ -101,7 +101,7 @@
   <!-- Global Search -->
   <div class="header-search" id="globalSearch">
     <span class="search-icon"><i data-lucide="search" aria-hidden="true"></i></span>
-    <input type="text" id="gs-input" placeholder="Поиск по лаборатории..." oninput="LabSearch.search(this.value)" onkeydown="if(event.key==='Escape')LabSearch.hide()" />
+    <input type="text" id="gs-input" placeholder="Поиск по лаборатории..." autocomplete="off" />
     <div class="search-results" id="gs-results"></div>
   </div>
   
@@ -238,6 +238,7 @@
 <script src="js/modules/section-renderer.js"></script>
 <script src="js/dashboard.js"></script>
 <script src="js/learn-courses.js"></script>
+  <script src="js/paleo-battle.js"></script>
 <script src="js/learn.js"></script>
 <script src="js/load-researches.js"></script>
 <script src="js/methodology.js?v=20260804-2"></script>
@@ -285,6 +286,7 @@
 <script src="js/timeline.js"></script>
 <script src="js/paleo-builder.js"></script>
 <script src="js/analyzers.js"></script>
+<script src="js/lab-search.js"></script>
 <script>
 // ===== LAB SIDEBAR (mobile only) =====
 const LabSidebar = {
@@ -398,8 +400,9 @@ const LabToast = {
   }
 };
 
-// ===== LAB SEARCH (Global Paleo) =====
-const LabSearch = {
+/* Legacy search implementation removed: the header is handled by js/lab-search.js. */
+/*
+const LegacyLabSearch = {
   MAX_TOTAL: 30,
 
   search: function(query) {
@@ -579,6 +582,7 @@ const LabSearch = {
     if (input) input.value = '';
   }
 };
+*/
 
 // ===== LAB HOTKEYS =====
 const LabHotkeys = {

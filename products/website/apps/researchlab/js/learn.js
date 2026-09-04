@@ -11,7 +11,7 @@
     ['א','𐤀','Алеф','бык','сила'],['ב','𐤁','Бет','дом','вместилище'],['ג','𐤂','Гимель','верблюд','движение'],['ד','𐤃','Далет','дверь','вход'],['ה','𐤄','Хе','дыхание','откровение'],['ו','𐤅','Вав','крюк','соединение'],['ז','𐤆','Заин','оружие','инструмент'],['ח','𐤇','Хет','ограда','отделение'],['ט','𐤈','Тет','змея','оборачивание'],['י','𐤉','Йод','рука','действие'],['כ','𐤊','Каф','ладонь','удержание'],['ל','𐤋','Ламед','посох','направление'],['מ','𐤌','Мем','вода','течение'],['נ','𐤍','Нун','рыба','жизнь'],['ס','𐤎','Самех','опора','поддержка'],['ע','𐤏','Аин','глаз','видение'],['פ','𐤐','Пе','рот','речь'],['צ','𐤑','Цаде','крюк','цель'],['ק','𐤒','Коф','игла','окружение'],['ר','𐤓','Реш','голова','начало'],['ש','𐤔','Шин','зуб','разрушение'],['ת','𐤕','Тав','знак','печать']
   ];
   var letters = [];
-  var state = { view:'home', lesson:null, game:null, timer:null, course:null, trainer:null, review:null };
+  var state = { view:'home', lesson:null, game:null, timer:null, course:null, trainer:null, review:null, battle:null };
 
   function esc(value) { var div = document.createElement('div'); div.textContent = String(value == null ? '' : value); return div.innerHTML; }
   function now() { return new Date().toISOString(); }
@@ -104,7 +104,8 @@
       state.view = course ? 'course' : 'courses';
       state.course = course;
     } else if (target === 'paleo-trainer') {
-      state.view = 'trainer';
+      state.view = segments[1] === 'battle' ? 'battle' : 'trainer';
+      if (state.view === 'battle') initBattle();
       if (!state.trainer) initTrainer();
       state.course = null;
       state.game = null;
@@ -140,7 +141,7 @@
     var srs = srsStats();
     return '<div class="learn-state-panel"><div><h2>Состояние Свивы</h2><p>Результаты уроков и рекорд сохраняются только в этом браузере.</p></div><button type="button" class="lab-btn lab-btn-secondary learn-danger" onclick="LearnLab.reset()">Сбросить прогресс</button></div>' +
       '<div class="learn-hero"><div><h1>Обучение</h1><p class="subtitle">Верните глазу древнего читателя предметный образ буквы: от знака к действию.</p></div><div class="learn-hero-mark" aria-hidden="true">𐤀𐤁𐤂</div></div>' + statsMarkup() +
-      '<div class="learn-mode-grid"><button class="learn-mode-card learn-review-card" type="button" onclick="LearnLab.openReview()"><span class="learn-mode-icon" aria-hidden="true">𐤕</span><h2>Повторение</h2><p>Короткая очередь карточек, которым уже пора вернуться в поле зрения.</p><div class="learn-mode-meta"><span>' + srsStats().due + ' карточек к повторению</span><span>→</span></div></button><button class="learn-mode-card" type="button" onclick="LearnLab.openLessons()"><span class="learn-mode-icon" aria-hidden="true">𐤀</span><h2>Изучение иврита</h2><p>22 урока по буквам: название, образ, значение и обратное узнавание символа.</p><div class="learn-mode-meta"><span>' + completed + '/22 уроков</span><span>→</span></div><div class="learn-progress-bar" aria-label="Прогресс ' + completed + ' из 22"><span style="width:' + (completed / 22 * 100) + '%"></span></div></button><button class="learn-mode-card" type="button" onclick="LearnLab.openGame()"><span class="learn-mode-icon" aria-hidden="true">𐤔</span><h2>Угадай образ</h2><p>Игровой раунд на скорость: увидьте знак, выберите предметный образ и соберите серию.</p><div class="learn-mode-meta"><span>Рекорд: ' + record() + ' очков</span><span>→</span></div></button><button class="learn-mode-card" type="button" onclick="LearnLab.openCourses()"><span class="learn-mode-icon" aria-hidden="true">𐤅</span><h2>Курсы</h2><p>Практические курсы: палео-механика, без воды, результат после каждого модуля.</p><div class="learn-mode-meta"><span>' + coursesCount() + ' курсов</span><span>→</span></div></button><button class="learn-mode-card" type="button" onclick="LearnLab.openTrainer()"><span class="learn-mode-icon" aria-hidden="true">𐤏</span><h2>Палео-тренажёр</h2><p>Крупные палео-буквы: увидь образ, назови функцию, собери смысл. Пиши свой ответ или генерируй новое слово.</p><div class="learn-mode-meta"><span>Начать</span><span>→</span></div></button><article class="learn-mode-card learn-mode-placeholder" aria-label="Палео-битва скоро появится"><span class="learn-mode-icon" aria-hidden="true">𐤒</span><h2>Палео-битва</h2><p>Игровое состязание по предметным образам, фактам и гипотезам. Режим готовится к запуску.</p><div class="learn-mode-meta"><span>Скоро</span></div></article></div>';
+      '<div class="learn-mode-grid"><button class="learn-mode-card learn-review-card" type="button" onclick="LearnLab.openReview()"><span class="learn-mode-icon" aria-hidden="true">𐤕</span><h2>Повторение</h2><p>Короткая очередь карточек, которым уже пора вернуться в поле зрения.</p><div class="learn-mode-meta"><span>' + srsStats().due + ' карточек к повторению</span><span>→</span></div></button><button class="learn-mode-card" type="button" onclick="LearnLab.openLessons()"><span class="learn-mode-icon" aria-hidden="true">𐤀</span><h2>Изучение иврита</h2><p>22 урока по буквам: название, образ, значение и обратное узнавание символа.</p><div class="learn-mode-meta"><span>' + completed + '/22 уроков</span><span>→</span></div><div class="learn-progress-bar" aria-label="Прогресс ' + completed + ' из 22"><span style="width:' + (completed / 22 * 100) + '%"></span></div></button><button class="learn-mode-card" type="button" onclick="LearnLab.openGame()"><span class="learn-mode-icon" aria-hidden="true">𐤔</span><h2>Угадай образ</h2><p>Игровой раунд на скорость: увидьте знак, выберите предметный образ и соберите серию.</p><div class="learn-mode-meta"><span>Рекорд: ' + record() + ' очков</span><span>→</span></div></button><button class="learn-mode-card" type="button" onclick="LearnLab.openCourses()"><span class="learn-mode-icon" aria-hidden="true">𐤅</span><h2>Курсы</h2><p>Практические курсы: палео-механика, без воды, результат после каждого модуля.</p><div class="learn-mode-meta"><span>' + coursesCount() + ' курсов</span><span>→</span></div></button><button class="learn-mode-card" type="button" onclick="LearnLab.openTrainer()"><span class="learn-mode-icon" aria-hidden="true">𐤏</span><h2>Палео-тренажёр</h2><p>Крупные палео-буквы: увидь образ, назови функцию, собери смысл. Пиши свой ответ или генерируй новое слово.</p><div class="learn-mode-meta"><span>Начать</span><span>→</span></div></button><button class="learn-mode-card learn-battle-entry" type="button" onclick="LearnLab.openBattle()"><span class="learn-mode-icon" aria-hidden="true">⚔</span><h2>Палео-битва</h2><p>Два исследователя по очереди собирают слово, функцию и объяснение.</p><div class="learn-mode-meta"><span>5 раундов · local-first</span><span>→</span></div></button>';
   }
 
   function courseCard(course, index) {
@@ -352,6 +353,40 @@
     }).join('') + ' <span class="learn-trainer-compare-arrow">↔</span> ' + esc((t.rootEntry && (t.rootEntry.image || t.rootEntry.meaning)) || 'сборка');
   }
 
+  function battleCards() {
+    return loadRoots().then(function(roots) {
+      var built = root.PaleoBattle && root.PaleoBattle.makeCards ? root.PaleoBattle.makeCards(roots, letters) : [];
+      return built.length ? built : (root.PaleoBattle ? root.PaleoBattle.fallbackCards() : []);
+    });
+  }
+  function initBattle() {
+    if (!root.PaleoBattle) return;
+    var saved = root.PaleoBattle.load ? root.PaleoBattle.load() : null;
+    state.battle = saved && saved.status !== 'finished' ? saved : state.battle;
+  }
+  function battleReady() {
+    initBattle();
+    return state.battle;
+  }
+  function battleInput(id, label, value, placeholder) {
+    return '<label class="learn-battle-field" for="' + id + '">' + label + '<input id="' + id + '" class="learn-answer-input" autocomplete="off" value="' + esc(value || '') + '" placeholder="' + placeholder + '"></label>';
+  }
+  function renderBattle() {
+    var match = battleReady();
+    if (!match) {
+      battleCards().then(function(cards) { state.battle = root.PaleoBattle.createMatch(cards); root.PaleoBattle.save(state.battle); render(); });
+      return '<div class="learn-battle-shell"><p class="learn-trainer-loading">Собираем колоду…</p></div>';
+    }
+    if (match.status === 'finished') return renderBattleResult(match);
+    var card = match.cards[match.round], review = match.status === 'review' ? match.history[match.history.length - 1] : null;
+    if (review) return '<div class="learn-battle-shell"><div class="learn-battle-head"><strong>Проверка раунда ' + review.round + '</strong><span>' + esc(match.players[review.player].name) + ': +' + review.result.points + '</span></div><div class="learn-battle-review"><span class="learn-battle-word" lang="hbo">' + esc(card.word) + '</span><p><b>Образ:</b> ' + esc(card.image) + '</p><p><b>Функция:</b> ' + esc(card.function) + '</p><p><b>Реконструкция:</b> ' + esc(card.reconstruction) + '</p><p><b>Статус:</b> ' + esc(card.status) + ' · <b>Источник:</b> ' + esc(card.source) + '</p></div><button type="button" class="lab-btn lab-btn-primary" onclick="LearnLab.battleNext()">Следующий ход →</button></div>';
+    return '<div class="learn-battle-shell"><div class="learn-battle-head"><span>РАУНД ' + (match.round + 1) + '/' + match.cards.length + ' · ход ' + (match.currentPlayer + 1) + '</span><strong>' + esc(match.players[0].name) + ' ' + match.players[0].score + ' : ' + match.players[1].score + ' ' + esc(match.players[1].name) + '</strong></div><p class="learn-battle-note">Локальная комната: ответы остаются в этом браузере. Игроки по очереди проходят одну карточку.</p><div class="learn-battle-prompt"><span class="learn-battle-word" lang="hbo">' + card.chain.map(function(part) { return esc(part.paleo); }).join(' ') + '</span><p>Соберите слово, назовите действие механики и отделите факт от интерпретации.</p></div><div class="learn-battle-form">' + battleInput('battle-sequence', 'Буквенная цепочка', '', 'например: אב') + battleInput('battle-image', 'Образ', '', 'что видите в цепочке') + battleInput('battle-function', 'Функция / действие', '', 'что делает механика') + battleInput('battle-explanation', 'Краткое объяснение', '', 'не менее одной фразы') + '<label class="learn-battle-field">Уверенность<select id="battle-confidence"><option>высокая</option><option>средняя</option><option>низкая</option></select></label><label class="learn-battle-field">Статус<select id="battle-status">' + root.PaleoBattle.STATUS.map(function(status) { return '<option>' + status + '</option>'; }).join('') + '</select></label></div><button type="button" class="lab-btn lab-btn-primary" onclick="LearnLab.battleSubmit()">Проверить ответ</button></div>';
+  }
+  function renderBattleResult(match) {
+    var winner = root.PaleoBattle.winner(match), label = winner === 'draw' ? 'Ничья' : 'Победитель: ' + match.players[winner].name;
+    return '<div class="learn-battle-shell"><div class="learn-battle-result"><h2>Матч завершён</h2><p class="learn-battle-winner">' + esc(label) + '</p><div class="learn-battle-scores"><strong>' + esc(match.players[0].name) + ': ' + match.players[0].score + '</strong><strong>' + esc(match.players[1].name) + ': ' + match.players[1].score + '</strong></div><p>Достижения: ' + esc(root.PaleoBattle.achievements(match).join(' · ') || 'первые шаги') + '</p><button type="button" class="lab-btn lab-btn-primary" onclick="LearnLab.newBattle()">Новый матч</button></div></div>';
+  }
+
   function weaverReading(entries) {
     var meanings = (entries || []).map(function(g) { return g.meaning; }).filter(Boolean);
     var reading = '';
@@ -405,13 +440,15 @@
       root.LabHero.setView('learn', 'review', { title: 'Повторение', subtitle: 'Вернуть буквы в поле зрения через интервалы' });
     } else if (state.view === 'trainer') {
       root.LabHero.setView('learn', 'paleo-trainer');
+    } else if (state.view === 'battle') {
+      root.LabHero.setView('learn', 'paleo-trainer', { title: 'Палео-битва', subtitle: 'Два исследователя · пять карточек · local-first' });
     } else if (state.view === 'lessons' || state.view === 'courses') {
       root.LabHero.setView('learn', state.view);
     } else {
       root.LabHero.setView('learn', null);
     }
   }
-  function render() { var container = getContainer(); if (!container || !letters.length) return; if (state.view === 'lessons') container.innerHTML = renderLessons(); else if (state.view === 'lesson') container.innerHTML = renderLesson(); else if (state.view === 'review') container.innerHTML = renderReview(); else if (state.view === 'game') container.innerHTML = renderGame(); else if (state.view === 'courses') container.innerHTML = renderCourses(); else if (state.view === 'course') container.innerHTML = renderCourse(); else if (state.view === 'trainer') container.innerHTML = renderTrainer(); else container.innerHTML = renderHome(); applyHero(); }
+  function render() { var container = getContainer(); if (!container || !letters.length) return; if (state.view === 'lessons') container.innerHTML = renderLessons(); else if (state.view === 'lesson') container.innerHTML = renderLesson(); else if (state.view === 'review') container.innerHTML = renderReview(); else if (state.view === 'game') container.innerHTML = renderGame(); else if (state.view === 'courses') container.innerHTML = renderCourses(); else if (state.view === 'course') container.innerHTML = renderCourse(); else if (state.view === 'trainer') container.innerHTML = renderTrainer(); else if (state.view === 'battle') container.innerHTML = renderBattle(); else container.innerHTML = renderHome(); applyHero(); }
   function markStarted(item) { var p = progress(); if (!p.letters[item.hebrew] || p.letters[item.hebrew].status !== 'complete') p.letters[item.hebrew] = {status:'progress',score:0}; touch(p); }
   function feedback(text, ok) { var el = document.getElementById('learn-feedback'); if (el) { el.textContent = text; el.className = 'learn-feedback ' + (ok ? 'is-correct' : 'is-wrong'); } }
   function advance(ok) { if (!ok) return; state.lesson.score++; if (state.lesson.step < 4) { state.lesson.step++; render(); } else { var p = progress(), item = state.lesson.item; p.letters[item.hebrew] = {status:'complete',score:state.lesson.score,attempts:(p.letters[item.hebrew] && p.letters[item.hebrew].attempts || 0) + 1,lastActivity:now()}; srsLetterCards(item).forEach(function(def) { srsSchedule(def.id, def.type, def.label, state.lesson.score >= 4 ? 'good' : 'hard'); }); touch(p); state.view = 'lesson'; state.lesson.done = true; render(); } }
@@ -429,6 +466,10 @@
     openGame: function() { navigate(['game']); },
     openCourses: function() { navigate(['courses']); },
     openTrainer: function() { navigate(['paleo-trainer']); },
+    openBattle: function() { navigate(['paleo-trainer', 'battle']); },
+    newBattle: function() { battleCards().then(function(cards) { state.battle = root.PaleoBattle.createMatch(cards); root.PaleoBattle.save(state.battle); render(); }); },
+    battleSubmit: function() { var match = battleReady(), answer = { sequence: (document.getElementById('battle-sequence') || {}).value, image: (document.getElementById('battle-image') || {}).value, function: (document.getElementById('battle-function') || {}).value, explanation: (document.getElementById('battle-explanation') || {}).value, confidence: (document.getElementById('battle-confidence') || {}).value, status: (document.getElementById('battle-status') || {}).value }; root.PaleoBattle.submitRound(match, answer); root.PaleoBattle.save(match); render(); },
+    battleNext: function() { var match = battleReady(); root.PaleoBattle.nextRound(match); root.PaleoBattle.save(match); render(); },
     trainerTheme: function(theme) { var t = trainerReady(); if (THEMES.indexOf(theme) === -1) return; buildTrainerWord(theme).then(render); },
     trainerAnswer: function(value) { trainerReady().answer = String(value || ''); },
     revealTrainer: function() { var t = trainerReady(); if (!t.entries.length) return; t.revealed = true; markLettersLearned(t.entries); render(); },

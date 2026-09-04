@@ -27,6 +27,7 @@ const LabRouter = (function() {
 
   function routeTitle(route) {
     if (route === 'dashboard') return 'ГОЛЕМ';
+    if (route === 'learn/paleo-trainer/battle') return 'Палео-битва';
     if (route.indexOf('learn') === 0 && window.LearnLab && window.LearnLab.routeTitle) {
       var learnTitle = window.LearnLab.routeTitle(route);
       if (learnTitle) return learnTitle;
@@ -77,7 +78,12 @@ const LabRouter = (function() {
 
     var segments = (parsed && parsed.segments && parsed.segments.length ? parsed.segments : [moduleId]).slice();
     var routes = ['dashboard'];
-    for (var i = 0; i < segments.length; i++) routes.push(segments.slice(0, i + 1).join('/'));
+    // Battle — самостоятельный режим обучения, а не дочерний экран тренажёра.
+    if (segments.join('/') === 'learn/paleo-trainer/battle') {
+      routes.push('learn', 'learn/paleo-trainer/battle');
+    } else {
+      for (var i = 0; i < segments.length; i++) routes.push(segments.slice(0, i + 1).join('/'));
+    }
 
     var crumb = container.querySelector('.lab-hero__kicker');
     if (!crumb) return;

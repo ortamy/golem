@@ -170,7 +170,7 @@
     }
   }
 
-  /* ---- глобальные клавиши и мост мёртвого хедер-поиска ---- */
+  /* ---- глобальные клавиши; шапочный поиск работает отдельно ---- */
   function installKeys() {
     window.addEventListener('keydown', function (e) {
       if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K' || e.code === 'KeyK')) {
@@ -184,17 +184,8 @@
 
     var gs = document.getElementById('globalSearch');
     if (!gs) return;
-    var gi = gs.querySelector('input');
-    if (gi) {
-      gi.readOnly = true;
-      gi.tabIndex = -1;
-      gi.removeAttribute('oninput');
-      gi.removeAttribute('onkeydown');
-    }
-    gs.addEventListener('click', function (e) {
-      e.preventDefault();
-      openPalette();
-    });
+    /* Не перехватываем поле: Ctrl/Cmd+K по-прежнему открывает палитру,
+       а ввод в шапке обрабатывает LabSearch. */
   }
 
   /* ===== Иконки: используются пиксельные PNG из assets/icons/32 =====
