@@ -2095,7 +2095,6 @@ const PageController = (function() {
     if (window.ScriptureReader) ScriptureReader.init();
     if (window.AdminSettings) AdminSettings.init();
     if (window.LearnLab) LearnLab.init();
-    if (window.Dashboard) Dashboard.init();
     if (window.GolemStates) GolemStates.init();
 
     // Init board generator form

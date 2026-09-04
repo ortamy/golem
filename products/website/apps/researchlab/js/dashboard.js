@@ -8,6 +8,9 @@ const Dashboard = (function() {
 
   var loaded = false;
   var reloading = false;
+  // Dashboard needs a lightweight overview. Full scripture corpus is over 117 MB;
+  // load books only in their dedicated route.
+  var MAX_PROGRESS_BOOKS = 0;
 
   function esc(text) {
     var d = document.createElement('div');
@@ -32,7 +35,10 @@ const Dashboard = (function() {
   }
 
   function loadBookProgress(books, forceReload) {
-    return Promise.all((books || []).map(function(book) {
+    return Promise.all((books || []).map(function(book, index) {
+      if (index >= MAX_PROGRESS_BOOKS) {
+        return Promise.resolve({ book: book, status: 'not-started', verses: [], percent: 0 });
+      }
       var path = bookDataPath(book);
       if (!path) return Promise.resolve({ book: book, status: 'not-started', verses: [], percent: 0 });
 
