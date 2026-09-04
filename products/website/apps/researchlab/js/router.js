@@ -49,6 +49,7 @@ const LabRouter = (function() {
       return dictionarySegments[2] ? 'Поиск: ' + decodeURIComponent(dictionarySegments[2]) : 'Поиск';
     }
     if (route.indexOf('root-dictionary/page/') === 0) return 'Страница ' + route.split('/').pop();
+    if (route.indexOf('root-dictionary/graph/') === 0) return 'Связи: ' + decodeURIComponent(route.split('/').pop());
     if (route === 'dictionaries') return 'Словари';
     if (route === 'club/discussions') return 'Обсуждения';
     if (route === 'club/sessions') return 'Сессии';

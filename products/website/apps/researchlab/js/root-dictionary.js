@@ -6,6 +6,8 @@ const RootDict = (function() {
   let currentPage = 1;
   let loading = false;
   let currentQuery = '';
+  let links = [];
+  let graphLoading = false;
 
   function navigate(segments) {
     if (window.LabRouter) window.LabRouter.navigate('root-dictionary', segments);
@@ -13,6 +15,7 @@ const RootDict = (function() {
 
   function applyRoute(parsed) {
     var segments = parsed && parsed.segments ? parsed.segments.slice(1) : [];
+    if (segments[0] === 'graph') { renderGraph(decodeURIComponent(segments[1] || '')); return; }
     currentQuery = segments[0] === 'search' ? decodeURIComponent(segments[1] || '') : '';
     currentPage = segments[0] === 'search' && segments[2] === 'page'
       ? Math.max(1, parseInt(segments[3], 10) || 1)
@@ -44,6 +47,15 @@ const RootDict = (function() {
         loading = false;
         roots = Array.isArray(data) ? data : [];
         window._roots = data;
+        return fetch('data/roots/root-links.json').then(function(response) {
+          if (!response.ok) throw new Error('root-links.json: HTTP ' + response.status);
+          return response.json();
+        }).catch(function() { return []; }).then(function(manualLinks) {
+          links = window.RootGraph ? RootGraph.mergeLinks(roots, manualLinks) : [];
+        });
+      })
+      .then(function() {
+        loading = false;
         var totalEl = document.getElementById('rd-total');
         var spinnerEl = document.getElementById('rd-spinner');
         if (totalEl) totalEl.textContent = roots.length;
@@ -126,7 +138,7 @@ const RootDict = (function() {
         r.examples.forEach(function(ex) { html += '<li>' + ex + '</li>'; });
         html += '</ul>';
       }
-      html += '</div>';
+      html += '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" onclick="RootsSearch.graph(\'' + encodeURIComponent(r.translit) + '\')">Связи</button></div>';
     });
     list.innerHTML = html;
     if (pagination) {
@@ -156,7 +168,32 @@ const RootDict = (function() {
     return d.innerHTML;
   }
 
-  window.RootsSearch = { filter: function(query) { navigate(query.trim() ? ['search', encodeURIComponent(query.trim())] : []); }, goTo: goTo };
+  function graph(id) { navigate(['graph', encodeURIComponent(id)]); }
+  function renderGraph(id) {
+    if (graphLoading || !roots.length) return;
+    if (!window.RootGraph) return;
+    var graphData = RootGraph.localGraph(roots, links, id);
+    if (!graphData.root) { filter(''); return; }
+    var list = document.getElementById('rd-list');
+    var pagination = document.getElementById('rd-pagination');
+    var empty = document.getElementById('rd-empty');
+    if (!list) return;
+    if (pagination) pagination.innerHTML = '';
+    if (empty) empty.style.display = 'none';
+    var center = graphData.nodes[0], width = 760, height = 360, cx = width / 2, cy = height / 2;
+    var positions = {};
+    graphData.nodes.forEach(function(node, index) {
+      var angle = index === 0 ? 0 : (index - 1) * Math.PI * 2 / Math.max(1, graphData.nodes.length - 1);
+      var radius = index === 0 ? 0 : Math.min(125, 55 + graphData.nodes.length * 10);
+      positions[RootGraph.rootId(node)] = { x:cx + Math.cos(angle) * radius, y:cy + Math.sin(angle) * radius };
+    });
+    var edges = graphData.links.map(function(link) { var a=positions[link.from], b=positions[link.to]; return a && b ? '<line class="rd-graph-edge" data-confidence="' + escapeHtml(link.confidence) + '" x1="' + a.x + '" y1="' + a.y + '" x2="' + b.x + '" y2="' + b.y + '"></line>' : ''; }).join('');
+    var nodes = graphData.nodes.map(function(node) { var p=positions[RootGraph.rootId(node)], selected=RootGraph.rootId(node) === id.toUpperCase(); return '<g class="rd-graph-node" tabindex="0" role="button" aria-label="' + escapeHtml(node.translit + ': ' + node.meaning) + '" onclick="RootsSearch.graph(\'' + encodeURIComponent(node.translit) + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();RootsSearch.graph(\'' + encodeURIComponent(node.translit) + '\')}"' + (selected ? ' aria-current="true"' : '') + '><circle cx="' + p.x + '" cy="' + p.y + '" r="' + (selected ? 42 : 34) + '"></circle><text x="' + p.x + '" y="' + p.y + '" lang="hbo">' + escapeHtml(RootGraph.paleo(node)) + '</text><text class="rd-graph-node-label" x="' + p.x + '" y="' + (p.y + 58) + '">' + escapeHtml(node.translit) + '</text></g>'; }).join('');
+    var relationItems = graphData.links.map(function(link) { var other = link.from.toUpperCase() === id.toUpperCase() ? link.to : link.from; var node = RootGraph.getRootById(roots, other); return '<li><button type="button" class="lab-btn lab-btn-link" onclick="RootsSearch.graph(\'' + encodeURIComponent(other) + '\')">' + escapeHtml(node ? node.translit : other) + '</button> — ' + escapeHtml(link.label || link.type) + '; <span class="rd-graph-confidence">' + escapeHtml(link.confidence) + '</span>; ' + escapeHtml(link.source) + '. ' + escapeHtml(link.note || '') + '</li>'; }).join('');
+    list.innerHTML = '<section class="rd-graph" aria-labelledby="rd-graph-title"><div class="rd-graph-toolbar"><button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" onclick="RootsSearch.back()">← К словарю</button><a class="lab-btn lab-btn-primary lab-btn-sm" href="#learn/paleo-trainer?root=' + encodeURIComponent(id) + '">Цепочка в палео-тренажёре</a><span class="rd-graph-note">Только палео-иврит / протоханаанейские глифы.</span></div><h2 id="rd-graph-title">Связи: ' + escapeHtml(center.translit) + '</h2><p>' + escapeHtml(center.meaning) + '</p><div class="rd-graph-canvas"><svg viewBox="0 0 760 360" role="img" aria-label="Локальная карта палео-связей">' + edges + nodes + '</svg></div><div class="rd-graph-legend" aria-label="Легенда"><span>сплошная — подтверждённая/вероятная</span><span class="is-dashed">пунктир — гипотеза/непроверено</span><span>Уверенность и источник также указаны текстом.</span></div><div class="rd-graph-list"><h3>Список отношений</h3><ul>' + (relationItems || '<li>Связи не найдены.</li>') + '</ul></div></section>';
+  }
+
+  window.RootsSearch = { filter: function(query) { navigate(query.trim() ? ['search', encodeURIComponent(query.trim())] : []); }, goTo: goTo, graph: graph, back: function() { navigate([]); } };
   window.RootDict = { init: init, applyRoute: applyRoute };
   return window.RootDict;
 })();

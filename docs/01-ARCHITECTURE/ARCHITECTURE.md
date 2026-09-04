@@ -167,6 +167,7 @@ products/website/apps/researchlab/
 Основные источники:
 
 - `data/roots/roots.json` — корни и палео-образы;
+- `data/roots/root-links.json` — исследовательские и производные связи локального графа корней; графовые глифы используют только палео-иврит/протоханаанейское письмо;
 - `data/dictionaries.json` — словари;
 - `data/learn/alphabet.json` — 22 буквы;
 - `data/methodology/` — карточки методологии;

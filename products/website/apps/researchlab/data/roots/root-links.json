@@ -1,0 +1,8 @@
+[
+  {"from":"AV","to":"ABA","type":"example","source":"researcher","confidence":"confirmed","note":"Расширенная форма того же образного ряда."},
+  {"from":"AMN","to":"AMT","type":"semantic-field","source":"researcher","confidence":"hypothesis","note":"Надёжность и фиксация как соседние рабочие поля."},
+  {"from":"AMN","to":"AMYN","type":"shared-function","source":"researcher","confidence":"probable","note":"Общее поле надёжности требует отдельной проверки."},
+  {"from":"AVR","to":"AMR","type":"shared-function","source":"researcher","confidence":"hypothesis","note":"Связь света и произнесения оставлена как исследовательская гипотеза."},
+  {"from":"BKR","to":"BQR","type":"semantic-field","source":"researcher","confidence":"unverified","note":"Соседство поиска и рассвета не является этимологическим выводом."},
+  {"from":"GL","to":"GVL","type":"paleo-chain","source":"researcher","confidence":"hypothesis","note":"Движение и раскрытие отмечены как возможная цепь образов."}
+]

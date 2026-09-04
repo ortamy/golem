@@ -127,7 +127,7 @@ const PageController = (function() {
             '<div class="dict-name">Корневой словарь</div>' +
             '<div class="dict-count">150 корней</div>' +
           '</div>' +
-          '<div class="dict-desc">Поиск по корням иврита. Введите корень, слово или значение.</div>' +
+          '<p class="subtitle">Поиск по корням иврита. Введите корень, слово или значение. Граф использует только палео-письмо.</p>' +
           '</a>',
         '<a href="#" class="dict-card" data-key="__paleo_glossary" style="animation-delay: 50ms">' +
           '<div class="dict-card-top">' +
@@ -1329,7 +1329,7 @@ const PageController = (function() {
 
       case 'root-dictionary':
         container.innerHTML = '<h1><img src="../../assets/icons/32/ui/book.png" class="lab-icon" alt="">Корневой словарь</h1>' +
-          '<p class="subtitle">Поиск по корням иврита. Введите корень, слово или значение.</p>' +
+          '<p class="subtitle">Поиск по корням иврита. Введите корень, слово или значение. Граф использует только палео-письмо.</p>' +
           '<div class="search-wrap"><input type="text" id="rd-search" class="lab-input" placeholder="אמן, AMN, верить..." oninput="if(window.RootsSearch)RootsSearch.filter(this.value)" autofocus></div>' +
           '<div class="rd-stats"><div class="rd-stat"><div class="num" id="rd-total">150</div><div class="label">Корней</div></div><div class="rd-stat"><div class="num" id="rd-found">0</div><div class="label">Найдено</div></div></div>' +
           '<div id="rd-spinner" class="rd-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка словаря…</div></div>' +

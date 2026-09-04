@@ -109,6 +109,12 @@
       if (!state.trainer) initTrainer();
       state.course = null;
       state.game = null;
+      if (state.view === 'trainer' && parsed && parsed.params && parsed.params.root) {
+        loadRoots().then(function(roots) {
+          var selected = roots.filter(function(entry) { return String(entry.translit || '').toUpperCase() === String(parsed.params.root).toUpperCase(); })[0];
+          if (selected && state.trainer) { state.trainer.rootEntry = selected; state.trainer.entries = glyphEntriesForRoot(selected); render(); }
+        });
+      }
     } else {
       state.view = 'home';
       state.lesson = null;
