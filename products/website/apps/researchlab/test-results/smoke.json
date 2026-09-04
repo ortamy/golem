@@ -4,7 +4,8 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "tests/smoke.spec.js"
+      "tests/smoke.spec.js",
+      "--workers=1"
     ],
     "configFile": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\playwright.config.js",
     "rootDir": "C:/Users/DELL/Desktop/golem/products/website/apps/researchlab/tests",
@@ -80,7 +81,7 @@
       "specs": [
         {
           "title": "agent server offline shows Сервер отключен without uncaught errors",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -91,60 +92,25 @@
               "projectName": "smoke",
               "results": [
                 {
-                  "workerIndex": 6,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 33262,
-                  "error": {
-                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-pipeline-server-status]')\nExpected substring: \u001b[32m\"Сервер отключен\"\u001b[39m\nReceived string:    \u001b[31m\"Проверка сервера…\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-pipeline-server-status]')\u001b[22m\n\u001b[2m    4 × locator resolved to <div data-status=\"checking\" class=\"pipeline-server-status\" data-pipeline-server-status=\"\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"Проверка сервера…\"\u001b[22m\n",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-pipeline-server-status]')\nExpected substring: \u001b[32m\"Сервер отключен\"\u001b[39m\nReceived string:    \u001b[31m\"Проверка сервера…\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-pipeline-server-status]')\u001b[22m\n\u001b[2m    4 × locator resolved to <div data-status=\"checking\" class=\"pipeline-server-status\" data-pipeline-server-status=\"\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"Проверка сервера…\"\u001b[22m\n\n    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:72:63",
-                    "location": {
-                      "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                      "column": 63,
-                      "line": 72
-                    },
-                    "snippet": "\u001b[0m \u001b[90m 70 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/#pipelines'\u001b[39m\u001b[33m,\u001b[39m { waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 71 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'#labContent'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 72 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-pipeline-server-status]'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'Сервер отключен'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 73 |\u001b[39m   expect(errors)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m 74 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                        "column": 63,
-                        "line": 72
-                      },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-pipeline-server-status]')\nExpected substring: \u001b[32m\"Сервер отключен\"\u001b[39m\nReceived string:    \u001b[31m\"Проверка сервера…\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-pipeline-server-status]')\u001b[22m\n\u001b[2m    4 × locator resolved to <div data-status=\"checking\" class=\"pipeline-server-status\" data-pipeline-server-status=\"\">…</div>\u001b[22m\n\u001b[2m      - unexpected value \"Проверка сервера…\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 70 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/#pipelines'\u001b[39m\u001b[33m,\u001b[39m { waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 71 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'#labContent'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 72 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-pipeline-server-status]'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'Сервер отключен'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 73 |\u001b[39m   expect(errors)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m 74 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:72:63\u001b[22m"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 2001,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-04T17:55:46.005Z",
+                  "startTime": "2026-09-04T19:49:45.516Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-agent-server-offline-91a52-чен-without-uncaught-errors-smoke\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-agent-server-offline-91a52-чен-without-uncaught-errors-smoke\\trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                    "column": 63,
-                    "line": 72
-                  }
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "2c14808d47b386fba9eb-6004d79a05aad60492c7",
           "file": "smoke.spec.js",
-          "line": 66,
+          "line": 81,
           "column": 1
         }
       ],
@@ -152,7 +118,7 @@
         {
           "title": "registered routes",
           "file": "smoke.spec.js",
-          "line": 53,
+          "line": 68,
           "column": 6,
           "specs": [
             {
@@ -171,12 +137,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 61568,
+                      "duration": 20943,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:06:42.293Z",
+                      "startTime": "2026-09-04T19:34:16.908Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -186,7 +152,7 @@
               ],
               "id": "2c14808d47b386fba9eb-0f3727fa309f949fcec5",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -205,12 +171,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 73051,
+                      "duration": 22954,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:07:44.880Z",
+                      "startTime": "2026-09-04T19:34:38.265Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -220,7 +186,7 @@
               ],
               "id": "2c14808d47b386fba9eb-ed0c6f55e19166a05ee9",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -239,12 +205,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 58438,
+                      "duration": 21686,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:08:58.035Z",
+                      "startTime": "2026-09-04T19:35:01.244Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,7 +220,7 @@
               ],
               "id": "2c14808d47b386fba9eb-8acd6a034ac00bcd5812",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -273,12 +239,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 53043,
+                      "duration": 18657,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:09:56.557Z",
+                      "startTime": "2026-09-04T19:35:22.953Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,7 +254,7 @@
               ],
               "id": "2c14808d47b386fba9eb-f4cebe0f238a8e49801d",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -307,12 +273,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57159,
+                      "duration": 3632,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:10:49.687Z",
+                      "startTime": "2026-09-04T19:35:41.630Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,7 +288,7 @@
               ],
               "id": "2c14808d47b386fba9eb-f4bf9b1b3a502fc3126e",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -341,12 +307,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 50015,
+                      "duration": 20071,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:11:46.914Z",
+                      "startTime": "2026-09-04T19:35:45.283Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -356,7 +322,7 @@
               ],
               "id": "2c14808d47b386fba9eb-d76e4abcdba77fd474f8",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -375,12 +341,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 37724,
+                      "duration": 22098,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:12:37.038Z",
+                      "startTime": "2026-09-04T19:36:05.381Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -390,7 +356,7 @@
               ],
               "id": "2c14808d47b386fba9eb-b1235a407a0c982123be",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -409,12 +375,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42664,
+                      "duration": 11805,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:13:14.830Z",
+                      "startTime": "2026-09-04T19:36:27.506Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -424,7 +390,7 @@
               ],
               "id": "2c14808d47b386fba9eb-3a96137c623a2c88e978",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -443,12 +409,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42102,
+                      "duration": 11575,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:13:57.556Z",
+                      "startTime": "2026-09-04T19:36:39.353Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -458,7 +424,7 @@
               ],
               "id": "2c14808d47b386fba9eb-396d2d214fa34407e6d4",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -477,12 +443,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 38239,
+                      "duration": 22277,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:14:39.765Z",
+                      "startTime": "2026-09-04T19:36:50.993Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -492,7 +458,7 @@
               ],
               "id": "2c14808d47b386fba9eb-5ef1860a196571412144",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -511,12 +477,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 39027,
+                      "duration": 10731,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:15:18.076Z",
+                      "startTime": "2026-09-04T19:37:13.285Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -526,7 +492,7 @@
               ],
               "id": "2c14808d47b386fba9eb-b942cf4eec238992dca0",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -545,12 +511,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 75009,
+                      "duration": 21085,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:15:57.175Z",
+                      "startTime": "2026-09-04T19:37:24.033Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -560,7 +526,7 @@
               ],
               "id": "2c14808d47b386fba9eb-017755668829e2cedd2f",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -579,12 +545,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 36394,
+                      "duration": 20595,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:17:12.276Z",
+                      "startTime": "2026-09-04T19:37:45.188Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -594,7 +560,7 @@
               ],
               "id": "2c14808d47b386fba9eb-f3c926054a5e75e34b73",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -613,12 +579,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 38221,
+                      "duration": 20373,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:17:48.727Z",
+                      "startTime": "2026-09-04T19:38:05.814Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -628,7 +594,7 @@
               ],
               "id": "2c14808d47b386fba9eb-b1fc0ca3b3408b6182e1",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -647,12 +613,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 34853,
+                      "duration": 11716,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:18:26.988Z",
+                      "startTime": "2026-09-04T19:38:26.213Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -662,7 +628,7 @@
               ],
               "id": "2c14808d47b386fba9eb-fa048457c199c551a10f",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -681,12 +647,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 33617,
+                      "duration": 21107,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:19:01.902Z",
+                      "startTime": "2026-09-04T19:38:38.041Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -696,7 +662,7 @@
               ],
               "id": "2c14808d47b386fba9eb-638f9abc6bb3b98a54bd",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -715,12 +681,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 35937,
+                      "duration": 17483,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:19:35.578Z",
+                      "startTime": "2026-09-04T19:38:59.196Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -730,7 +696,7 @@
               ],
               "id": "2c14808d47b386fba9eb-95e4788006ef8450a4fd",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -749,12 +715,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 37123,
+                      "duration": 10888,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:20:11.573Z",
+                      "startTime": "2026-09-04T19:39:16.700Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -764,7 +730,7 @@
               ],
               "id": "2c14808d47b386fba9eb-f52bc504dfc5f5893aff",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -783,12 +749,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 33977,
+                      "duration": 4516,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:20:48.745Z",
+                      "startTime": "2026-09-04T19:39:27.608Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -798,12 +764,12 @@
               ],
               "id": "2c14808d47b386fba9eb-26571ab669edda0141ac",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
               "title": "route #translation-comparator renders without uncaught errors",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -816,58 +782,23 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 27562,
-                      "error": {
-                        "message": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n",
-                        "stack": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\n    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:46:14)\n    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9",
-                        "location": {
-                          "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                          "column": 14,
-                          "line": 46
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m viewport \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mviewportSize()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m     path\u001b[33m:\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m \u001b[32m`${routeFileName(route)}-${projectName}.png`\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m 48 |\u001b[39m     clip\u001b[33m:\u001b[39m { x\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m y\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m width\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mwidth\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mheight }\u001b[33m,\u001b[39m\n \u001b[90m 49 |\u001b[39m     timeout\u001b[33m:\u001b[39m \u001b[35m15\u001b[39m_000\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                            "column": 14,
-                            "line": 46
-                          },
-                          "message": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\n\n\u001b[0m \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m viewport \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mviewportSize()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m     path\u001b[33m:\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m \u001b[32m`${routeFileName(route)}-${projectName}.png`\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m 48 |\u001b[39m     clip\u001b[33m:\u001b[39m { x\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m y\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m width\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mwidth\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mheight }\u001b[33m,\u001b[39m\n \u001b[90m 49 |\u001b[39m     timeout\u001b[33m:\u001b[39m \u001b[35m15\u001b[39m_000\u001b[0m\n\u001b[2m    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:46:14)\u001b[22m\n\u001b[2m    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 3855,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:21:22.772Z",
+                      "startTime": "2026-09-04T19:39:32.164Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-51a78-ers-without-uncaught-errors-smoke\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-51a78-ers-without-uncaught-errors-smoke\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                        "column": 14,
-                        "line": 46
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "2c14808d47b386fba9eb-50ed0d10ff6aedc278bd",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -883,15 +814,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 46054,
+                      "duration": 12813,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:21:54.259Z",
+                      "startTime": "2026-09-04T19:39:36.060Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -901,7 +832,7 @@
               ],
               "id": "2c14808d47b386fba9eb-63ba849e3febe590bb4a",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -917,15 +848,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 40073,
+                      "duration": 20239,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:22:40.921Z",
+                      "startTime": "2026-09-04T19:39:48.900Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -935,12 +866,12 @@
               ],
               "id": "2c14808d47b386fba9eb-9ff25b3db3f465e94eb3",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
               "title": "route #cartography renders without uncaught errors",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -951,60 +882,25 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 4292,
-                      "error": {
-                        "message": "Error: uncaught errors on #cartography\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"console: [Cartography] Ошибка загрузки: Error: HTTP 404 for world map\u001b[39m\n\u001b[31m+     at http://127.0.0.1:4173/js/cartography.js:177:31\u001b[39m\n\u001b[31m+     at async Promise.all (index 5)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
-                        "stack": "Error: uncaught errors on #cartography\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"console: [Cartography] Ошибка загрузки: Error: HTTP 404 for world map\u001b[39m\n\u001b[31m+     at http://127.0.0.1:4173/js/cartography.js:177:31\u001b[39m\n\u001b[31m+     at async Promise.all (index 5)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:41:50)\n    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9",
-                        "location": {
-                          "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                          "column": 50,
-                          "line": 41
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 39 |\u001b[39m     \u001b[36mreturn\u001b[39m \u001b[36mfalse\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m   }\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m5\u001b[39m_000 })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 41 |\u001b[39m   expect(errors\u001b[33m,\u001b[39m \u001b[32m`uncaught errors on #${route}`\u001b[39m)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 42 |\u001b[39m   expect(hasMojibake\u001b[33m,\u001b[39m \u001b[32m`mojibake on #${route}`\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 43 |\u001b[39m   \u001b[36mif\u001b[39m (projectName \u001b[33m===\u001b[39m \u001b[32m'mobile'\u001b[39m) expect(metrics\u001b[33m.\u001b[39mscrollWidth\u001b[33m,\u001b[39m \u001b[32m`horizontal overflow on #${route}`\u001b[39m)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(metrics\u001b[33m.\u001b[39minnerWidth)\u001b[33m;\u001b[39m\n \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                            "column": 50,
-                            "line": 41
-                          },
-                          "message": "Error: uncaught errors on #cartography\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"console: [Cartography] Ошибка загрузки: Error: HTTP 404 for world map\u001b[39m\n\u001b[31m+     at http://127.0.0.1:4173/js/cartography.js:177:31\u001b[39m\n\u001b[31m+     at async Promise.all (index 5)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n\u001b[0m \u001b[90m 39 |\u001b[39m     \u001b[36mreturn\u001b[39m \u001b[36mfalse\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m   }\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m5\u001b[39m_000 })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 41 |\u001b[39m   expect(errors\u001b[33m,\u001b[39m \u001b[32m`uncaught errors on #${route}`\u001b[39m)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 42 |\u001b[39m   expect(hasMojibake\u001b[33m,\u001b[39m \u001b[32m`mojibake on #${route}`\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 43 |\u001b[39m   \u001b[36mif\u001b[39m (projectName \u001b[33m===\u001b[39m \u001b[32m'mobile'\u001b[39m) expect(metrics\u001b[33m.\u001b[39mscrollWidth\u001b[33m,\u001b[39m \u001b[32m`horizontal overflow on #${route}`\u001b[39m)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(metrics\u001b[33m.\u001b[39minnerWidth)\u001b[33m;\u001b[39m\n \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:41:50)\u001b[22m\n\u001b[2m    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 9485,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:23:21.057Z",
+                      "startTime": "2026-09-04T19:40:09.151Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-0a28b-ers-without-uncaught-errors-smoke\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-0a28b-ers-without-uncaught-errors-smoke\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                        "column": 50,
-                        "line": 41
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "2c14808d47b386fba9eb-845c7aa6ca8dd18a915a",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1020,15 +916,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 53413,
+                      "duration": 10947,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:23:40.769Z",
+                      "startTime": "2026-09-04T19:40:18.666Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1038,7 +934,7 @@
               ],
               "id": "2c14808d47b386fba9eb-b2ecbd1c194eb13ceb7c",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1054,15 +950,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 46214,
+                      "duration": 11530,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:24:34.954Z",
+                      "startTime": "2026-09-04T19:40:29.638Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1072,7 +968,7 @@
               ],
               "id": "2c14808d47b386fba9eb-428aacde7a02a5f08b7d",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1088,15 +984,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 46902,
+                      "duration": 11196,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:25:21.232Z",
+                      "startTime": "2026-09-04T19:40:41.195Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1106,7 +1002,7 @@
               ],
               "id": "2c14808d47b386fba9eb-84e539b5d4899346578a",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1122,15 +1018,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 77479,
+                      "duration": 9122,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:26:08.219Z",
+                      "startTime": "2026-09-04T19:40:52.416Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1140,7 +1036,7 @@
               ],
               "id": "2c14808d47b386fba9eb-9ec3e8a8156524465488",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1156,15 +1052,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 54857,
+                      "duration": 14014,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:27:25.795Z",
+                      "startTime": "2026-09-04T19:41:01.560Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1174,7 +1070,7 @@
               ],
               "id": "2c14808d47b386fba9eb-95baf5965a302f3b204b",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1190,15 +1086,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 55634,
+                      "duration": 9672,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:28:20.749Z",
+                      "startTime": "2026-09-04T19:41:15.595Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1208,7 +1104,7 @@
               ],
               "id": "2c14808d47b386fba9eb-f0843c7d1ca2a8d33136",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1224,15 +1120,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56107,
+                      "duration": 3603,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:29:16.479Z",
+                      "startTime": "2026-09-04T19:41:25.285Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1242,7 +1138,7 @@
               ],
               "id": "2c14808d47b386fba9eb-d18e2243f51ed8af98cc",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1258,15 +1154,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 81009,
+                      "duration": 9636,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:30:12.694Z",
+                      "startTime": "2026-09-04T19:41:28.917Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1276,7 +1172,7 @@
               ],
               "id": "2c14808d47b386fba9eb-47fbec50921ddcb35cf8",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1292,15 +1188,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 71136,
+                      "duration": 3103,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:31:33.756Z",
+                      "startTime": "2026-09-04T19:41:38.571Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1310,7 +1206,7 @@
               ],
               "id": "2c14808d47b386fba9eb-199fcbd8d93cce8d81b9",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1326,15 +1222,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 61366,
+                      "duration": 25257,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:32:45.026Z",
+                      "startTime": "2026-09-04T19:41:41.694Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1344,12 +1240,12 @@
               ],
               "id": "2c14808d47b386fba9eb-a9f421832f3db910b24b",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
               "title": "route #layer-analyzer renders without uncaught errors",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -1360,60 +1256,25 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 27602,
-                      "error": {
-                        "message": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n",
-                        "stack": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\n    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:46:14)\n    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9",
-                        "location": {
-                          "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                          "column": 14,
-                          "line": 46
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m viewport \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mviewportSize()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m     path\u001b[33m:\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m \u001b[32m`${routeFileName(route)}-${projectName}.png`\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m 48 |\u001b[39m     clip\u001b[33m:\u001b[39m { x\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m y\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m width\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mwidth\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mheight }\u001b[33m,\u001b[39m\n \u001b[90m 49 |\u001b[39m     timeout\u001b[33m:\u001b[39m \u001b[35m15\u001b[39m_000\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                            "column": 14,
-                            "line": 46
-                          },
-                          "message": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\n\n\u001b[0m \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m viewport \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mviewportSize()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m     path\u001b[33m:\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m \u001b[32m`${routeFileName(route)}-${projectName}.png`\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m 48 |\u001b[39m     clip\u001b[33m:\u001b[39m { x\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m y\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m width\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mwidth\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mheight }\u001b[33m,\u001b[39m\n \u001b[90m 49 |\u001b[39m     timeout\u001b[33m:\u001b[39m \u001b[35m15\u001b[39m_000\u001b[0m\n\u001b[2m    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:46:14)\u001b[22m\n\u001b[2m    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 12089,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:33:46.453Z",
+                      "startTime": "2026-09-04T19:42:06.974Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-ac2df-ers-without-uncaught-errors-smoke\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-ac2df-ers-without-uncaught-errors-smoke\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                        "column": 14,
-                        "line": 46
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "2c14808d47b386fba9eb-f05d77b3037174d3ef7d",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1429,15 +1290,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 59312,
+                      "duration": 11209,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:34:20.342Z",
+                      "startTime": "2026-09-04T19:42:19.077Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1447,7 +1308,7 @@
               ],
               "id": "2c14808d47b386fba9eb-dea83836bc787e923217",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1463,15 +1324,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 61976,
+                      "duration": 3219,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:35:20.969Z",
+                      "startTime": "2026-09-04T19:42:30.301Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1481,12 +1342,12 @@
               ],
               "id": "2c14808d47b386fba9eb-2d6e63342ee037cb1f8c",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
               "title": "route #state-analyzer renders without uncaught errors",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -1497,65 +1358,30 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 23945,
-                      "error": {
-                        "message": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n",
-                        "stack": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\n    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:46:14)\n    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9",
-                        "location": {
-                          "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                          "column": 14,
-                          "line": 46
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m viewport \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mviewportSize()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m     path\u001b[33m:\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m \u001b[32m`${routeFileName(route)}-${projectName}.png`\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m 48 |\u001b[39m     clip\u001b[33m:\u001b[39m { x\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m y\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m width\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mwidth\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mheight }\u001b[33m,\u001b[39m\n \u001b[90m 49 |\u001b[39m     timeout\u001b[33m:\u001b[39m \u001b[35m15\u001b[39m_000\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                            "column": 14,
-                            "line": 46
-                          },
-                          "message": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\n\n\u001b[0m \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m viewport \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mviewportSize()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m     path\u001b[33m:\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m \u001b[32m`${routeFileName(route)}-${projectName}.png`\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m 48 |\u001b[39m     clip\u001b[33m:\u001b[39m { x\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m y\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m width\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mwidth\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mheight }\u001b[33m,\u001b[39m\n \u001b[90m 49 |\u001b[39m     timeout\u001b[33m:\u001b[39m \u001b[35m15\u001b[39m_000\u001b[0m\n\u001b[2m    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:46:14)\u001b[22m\n\u001b[2m    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 3331,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:36:23.052Z",
+                      "startTime": "2026-09-04T19:42:33.549Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-0d015-ers-without-uncaught-errors-smoke\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-0d015-ers-without-uncaught-errors-smoke\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                        "column": 14,
-                        "line": 46
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "2c14808d47b386fba9eb-b49f8dbae859eea8d805",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
               "title": "route #exposure-editor renders without uncaught errors",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -1566,60 +1392,25 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 56524,
-                      "error": {
-                        "message": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n",
-                        "stack": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\n    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:46:14)\n    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9",
-                        "location": {
-                          "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                          "column": 14,
-                          "line": 46
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m viewport \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mviewportSize()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m     path\u001b[33m:\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m \u001b[32m`${routeFileName(route)}-${projectName}.png`\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m 48 |\u001b[39m     clip\u001b[33m:\u001b[39m { x\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m y\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m width\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mwidth\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mheight }\u001b[33m,\u001b[39m\n \u001b[90m 49 |\u001b[39m     timeout\u001b[33m:\u001b[39m \u001b[35m15\u001b[39m_000\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                            "column": 14,
-                            "line": 46
-                          },
-                          "message": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\n\n\u001b[0m \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m viewport \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mviewportSize()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m     path\u001b[33m:\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m \u001b[32m`${routeFileName(route)}-${projectName}.png`\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m 48 |\u001b[39m     clip\u001b[33m:\u001b[39m { x\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m y\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m width\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mwidth\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mheight }\u001b[33m,\u001b[39m\n \u001b[90m 49 |\u001b[39m     timeout\u001b[33m:\u001b[39m \u001b[35m15\u001b[39m_000\u001b[0m\n\u001b[2m    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:46:14)\u001b[22m\n\u001b[2m    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 3716,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:36:52.790Z",
+                      "startTime": "2026-09-04T19:42:36.911Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-9a2f3-ers-without-uncaught-errors-smoke\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-9a2f3-ers-without-uncaught-errors-smoke\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                        "column": 14,
-                        "line": 46
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "2c14808d47b386fba9eb-50394bad6fb424c7b372",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1635,15 +1426,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 35286,
+                      "duration": 9550,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:37:56.278Z",
+                      "startTime": "2026-09-04T19:42:40.656Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1653,7 +1444,7 @@
               ],
               "id": "2c14808d47b386fba9eb-9e99d4e50dc9cc024a13",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1669,15 +1460,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 52732,
+                      "duration": 3859,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:38:32.370Z",
+                      "startTime": "2026-09-04T19:42:50.242Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1687,7 +1478,7 @@
               ],
               "id": "2c14808d47b386fba9eb-f62cb58d12842477efff",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1703,15 +1494,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 45849,
+                      "duration": 9860,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:39:25.188Z",
+                      "startTime": "2026-09-04T19:42:54.127Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1721,7 +1512,7 @@
               ],
               "id": "2c14808d47b386fba9eb-e7fb64768c7b62d19b10",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1737,15 +1528,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 35661,
+                      "duration": 9140,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:40:11.104Z",
+                      "startTime": "2026-09-04T19:43:04.011Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1755,7 +1546,7 @@
               ],
               "id": "2c14808d47b386fba9eb-dfd83b3dedf5ce8e95ce",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1771,15 +1562,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 32729,
+                      "duration": 3042,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:40:46.817Z",
+                      "startTime": "2026-09-04T19:43:13.168Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1789,7 +1580,7 @@
               ],
               "id": "2c14808d47b386fba9eb-17db9c9372d6b6a5ce1d",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1805,15 +1596,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 30202,
+                      "duration": 10855,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:41:19.607Z",
+                      "startTime": "2026-09-04T19:43:16.234Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1823,7 +1614,7 @@
               ],
               "id": "2c14808d47b386fba9eb-3b5132561ad82fbcb2fa",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1839,15 +1630,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 31050,
+                      "duration": 14331,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:41:49.868Z",
+                      "startTime": "2026-09-04T19:43:27.116Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1857,7 +1648,7 @@
               ],
               "id": "2c14808d47b386fba9eb-0bb41fe09e9fbfbfe38b",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1873,15 +1664,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 30936,
+                      "duration": 4995,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:42:20.976Z",
+                      "startTime": "2026-09-04T19:43:41.470Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1891,7 +1682,7 @@
               ],
               "id": "2c14808d47b386fba9eb-51a2ae762a04293b4f7a",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1907,15 +1698,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 34778,
+                      "duration": 20698,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:42:51.985Z",
+                      "startTime": "2026-09-04T19:43:46.492Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1925,7 +1716,7 @@
               ],
               "id": "2c14808d47b386fba9eb-9fb259d42946562fe214",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1941,15 +1732,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 35439,
+                      "duration": 4881,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:43:26.802Z",
+                      "startTime": "2026-09-04T19:44:07.218Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1959,7 +1750,7 @@
               ],
               "id": "2c14808d47b386fba9eb-eaecebeb94f381ee23f8",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -1975,15 +1766,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 35914,
+                      "duration": 21315,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:44:02.340Z",
+                      "startTime": "2026-09-04T19:44:12.136Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1993,7 +1784,7 @@
               ],
               "id": "2c14808d47b386fba9eb-16db7a300b5ab7802327",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2009,15 +1800,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 32423,
+                      "duration": 16017,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:44:38.308Z",
+                      "startTime": "2026-09-04T19:44:33.473Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2027,7 +1818,7 @@
               ],
               "id": "2c14808d47b386fba9eb-7843b6256301357dd1dd",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2043,15 +1834,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 32806,
+                      "duration": 5806,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:45:10.782Z",
+                      "startTime": "2026-09-04T19:44:49.509Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2061,7 +1852,7 @@
               ],
               "id": "2c14808d47b386fba9eb-e64f766916c74e041486",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2077,15 +1868,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 31093,
+                      "duration": 13128,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:45:43.655Z",
+                      "startTime": "2026-09-04T19:44:55.338Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2095,7 +1886,7 @@
               ],
               "id": "2c14808d47b386fba9eb-66f1225c4f59741c6f0e",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2111,15 +1902,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 33094,
+                      "duration": 12482,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:46:14.817Z",
+                      "startTime": "2026-09-04T19:45:08.480Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2129,7 +1920,7 @@
               ],
               "id": "2c14808d47b386fba9eb-058d4f36e911106ce4a9",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2145,15 +1936,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 30429,
+                      "duration": 4173,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:46:47.946Z",
+                      "startTime": "2026-09-04T19:45:20.974Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2163,7 +1954,7 @@
               ],
               "id": "2c14808d47b386fba9eb-1c75a32520a33c6573b5",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2179,15 +1970,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 33115,
+                      "duration": 4753,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:47:18.420Z",
+                      "startTime": "2026-09-04T19:45:25.173Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2197,7 +1988,7 @@
               ],
               "id": "2c14808d47b386fba9eb-336157673ae3663e4227",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2213,15 +2004,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 36692,
+                      "duration": 7843,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:47:51.615Z",
+                      "startTime": "2026-09-04T19:45:29.954Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2231,7 +2022,7 @@
               ],
               "id": "2c14808d47b386fba9eb-ec8d6b1fd056687bbf9d",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2247,15 +2038,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 39605,
+                      "duration": 15896,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:48:28.381Z",
+                      "startTime": "2026-09-04T19:45:37.844Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2265,7 +2056,7 @@
               ],
               "id": "2c14808d47b386fba9eb-f46fcadbea13ee02a459",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2281,15 +2072,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 35731,
+                      "duration": 16918,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:49:08.039Z",
+                      "startTime": "2026-09-04T19:45:53.797Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2299,7 +2090,7 @@
               ],
               "id": "2c14808d47b386fba9eb-4842ba847c6852200e00",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2315,15 +2106,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 40716,
+                      "duration": 31727,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:49:43.831Z",
+                      "startTime": "2026-09-04T19:46:10.742Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2333,7 +2124,7 @@
               ],
               "id": "2c14808d47b386fba9eb-b51ad322de95e7589f72",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2349,15 +2140,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 35536,
+                      "duration": 25691,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:50:24.636Z",
+                      "startTime": "2026-09-04T19:46:42.501Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2367,7 +2158,7 @@
               ],
               "id": "2c14808d47b386fba9eb-f40d50d5765a56b2502e",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2383,15 +2174,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 35440,
+                      "duration": 36438,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:51:00.261Z",
+                      "startTime": "2026-09-04T19:47:08.240Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2401,12 +2192,12 @@
               ],
               "id": "2c14808d47b386fba9eb-2aba76e76f19d4ff63d5",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
               "title": "route #method-archeology renders without uncaught errors",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -2417,60 +2208,25 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 72448,
-                      "error": {
-                        "message": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n",
-                        "stack": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\n    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:46:14)\n    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9",
-                        "location": {
-                          "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                          "column": 14,
-                          "line": 46
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m viewport \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mviewportSize()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m     path\u001b[33m:\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m \u001b[32m`${routeFileName(route)}-${projectName}.png`\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m 48 |\u001b[39m     clip\u001b[33m:\u001b[39m { x\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m y\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m width\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mwidth\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mheight }\u001b[33m,\u001b[39m\n \u001b[90m 49 |\u001b[39m     timeout\u001b[33m:\u001b[39m \u001b[35m15\u001b[39m_000\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                            "column": 14,
-                            "line": 46
-                          },
-                          "message": "TimeoutError: page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\n\n\u001b[0m \u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m fs\u001b[33m.\u001b[39mpromises\u001b[33m.\u001b[39mmkdir(screenshotDir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mconst\u001b[39m viewport \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mviewportSize()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m     path\u001b[33m:\u001b[39m path\u001b[33m.\u001b[39mjoin(screenshotDir\u001b[33m,\u001b[39m \u001b[32m`${routeFileName(route)}-${projectName}.png`\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m 48 |\u001b[39m     clip\u001b[33m:\u001b[39m { x\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m y\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m width\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mwidth\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m viewport\u001b[33m.\u001b[39mheight }\u001b[33m,\u001b[39m\n \u001b[90m 49 |\u001b[39m     timeout\u001b[33m:\u001b[39m \u001b[35m15\u001b[39m_000\u001b[0m\n\u001b[2m    at checkRoute (C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:46:14)\u001b[22m\n\u001b[2m    at C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js:59:9\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 35381,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:51:35.777Z",
+                      "startTime": "2026-09-04T19:47:44.727Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-1d535-ers-without-uncaught-errors-smoke\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\test-results\\smoke-registered-routes-ro-1d535-ers-without-uncaught-errors-smoke\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\tests\\smoke.spec.js",
-                        "column": 14,
-                        "line": 46
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "2c14808d47b386fba9eb-6b6dd6c8270c37f65fe6",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2486,15 +2242,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 52705,
+                      "duration": 28696,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:52:52.460Z",
+                      "startTime": "2026-09-04T19:48:20.142Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2504,7 +2260,7 @@
               ],
               "id": "2c14808d47b386fba9eb-ec73ac39d0f85385f9e3",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2520,15 +2276,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 29941,
+                      "duration": 34092,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:53:45.886Z",
+                      "startTime": "2026-09-04T19:48:48.870Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2538,7 +2294,7 @@
               ],
               "id": "2c14808d47b386fba9eb-93971d2c8af90b8f2706",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2554,15 +2310,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 29120,
+                      "duration": 13349,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:54:15.888Z",
+                      "startTime": "2026-09-04T19:49:22.978Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2572,7 +2328,7 @@
               ],
               "id": "2c14808d47b386fba9eb-8ed150a90eef9bcfd6aa",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2588,15 +2344,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 30458,
+                      "duration": 4660,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:54:45.060Z",
+                      "startTime": "2026-09-04T19:49:36.370Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2606,7 +2362,7 @@
               ],
               "id": "2c14808d47b386fba9eb-b90cd5a7fb477a2dc9b4",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             },
             {
@@ -2622,15 +2378,15 @@
                   "projectName": "smoke",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 30386,
+                      "duration": 4415,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-04T17:55:15.555Z",
+                      "startTime": "2026-09-04T19:49:41.062Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2640,7 +2396,7 @@
               ],
               "id": "2c14808d47b386fba9eb-30c526a8cf4ca6e62ea7",
               "file": "smoke.spec.js",
-              "line": 55,
+              "line": 70,
               "column": 5
             }
           ]
@@ -2650,11 +2406,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-04T17:06:41.109Z",
-    "duration": 2980679.7430000002,
-    "expected": 61,
+    "startTime": "2026-09-04T19:34:15.042Z",
+    "duration": 933363.026,
+    "expected": 68,
     "skipped": 0,
-    "unexpected": 7,
+    "unexpected": 0,
     "flaky": 0
   }
 }

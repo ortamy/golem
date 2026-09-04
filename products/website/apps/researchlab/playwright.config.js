@@ -7,7 +7,7 @@ module.exports = defineConfig({
   workers: 1,
   fullyParallel: false,
   reporter: [['list'], ['json', { outputFile: 'test-results/smoke.json' }]],
-  use: { baseURL: 'http://127.0.0.1:4173', channel: 'chrome', ignoreHTTPSErrors: true, trace: 'retain-on-failure' },
+  use: { baseURL: 'http://127.0.0.1:4173', channel: 'chrome', ignoreHTTPSErrors: true, trace: 'off' },
   webServer: {
     command: 'python -m http.server 4173',
     cwd: __dirname,

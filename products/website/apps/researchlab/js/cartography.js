@@ -192,6 +192,9 @@ const Cartography = (function() {
         path.setAttribute('role', 'button');
         return new XMLSerializer().serializeToString(path);
       }).join('');
+    }).catch(function(error) {
+      console.warn('[Cartography] Карта мира недоступна, продолжаем без геометрии:', error.message);
+      return '';
     });
     return worldMapPromise;
   }

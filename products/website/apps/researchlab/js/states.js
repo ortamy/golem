@@ -532,7 +532,7 @@ const GolemStates = (function() {
       '</div>' +
       '<div class="diagnostic-page">' +
         '<div class="diagnostic-header">' +
-          '<h2><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt=""> Диагностика состояния</h2>' +
+          '<h2><img src="../../assets/icons/32/archaeology/testtube.svg" class="lab-icon" alt=""> Диагностика состояния</h2>' +
           '<p>Ответь на 7 вопросов, чтобы определить своё текущее пространство.</p>' +
         '</div>' +
         '<div class="diagnostic-progress">' +

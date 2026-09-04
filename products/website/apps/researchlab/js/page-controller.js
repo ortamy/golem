@@ -317,7 +317,7 @@ const PageController = (function() {
         '<p class="paleo-module-lead">' + renderInlineMarkdown(image) + '</p>' +
       '</article>',
       '<article class="paleo-module paleo-module-function">' +
-        '<div class="paleo-module-heading"><img src="../../assets/icons/32/archaeology/testtube.png" alt=""><h2>Функция</h2></div>' +
+        '<div class="paleo-module-heading"><img src="../../assets/icons/32/archaeology/testtube.svg" alt=""><h2>Функция</h2></div>' +
         '<div class="paleo-module-copy">' + renderInlineMarkdown(functionText) + '</div>' +
       '</article>',
       '<article class="paleo-module paleo-module-example">' +
@@ -1027,7 +1027,7 @@ const PageController = (function() {
     pipelines.hidden = false;
     if (container.id === 'pipelines' && window.LabHero && window.LabHero.setView) window.LabHero.setView('pipelines', null);
     pipelines.innerHTML =
-      '<div class="pipeline-control-panel"><div><div class="pipeline-server-status" data-pipeline-server-status data-status="checking"><span class="pipeline-server-dot" aria-hidden="true"></span><span>Проверка сервера…</span></div></div><div class="pipeline-page-actions"><button type="button" class="lab-btn lab-btn-primary pipeline-create-btn" data-pipeline-create>+ Создать пайплайн</button><button type="button" class="lab-btn lab-btn-secondary" data-pipelines-back>← К агентам</button></div></div>' +
+      '<div class="pipeline-control-panel"><div><div class="pipeline-server-status" data-pipeline-server-status data-status="checking"><span class="pipeline-server-dot" aria-hidden="true"></span><span>Проверка сервера…</span></div></div><div class="pipeline-page-actions"><button type="button" class="lab-btn lab-btn-primary pipeline-create-btn" data-pipeline-create>Создать пайплайн</button><button type="button" class="lab-btn lab-btn-secondary" data-pipelines-back>← К агентам</button></div></div>' +
       '<div class="agent-pipelines-status lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка локальных пайплайнов…</div></div>';
     pipelines.querySelector('[data-pipelines-back]').addEventListener('click', function() {
       LabRouter.navigate('ai-agents');
@@ -1365,11 +1365,11 @@ const PageController = (function() {
         break;
 
       case 'word-analyzer':
-        container.innerHTML = '<h1><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Разбор слов</h1>' +
+        container.innerHTML = '<h1><img src="../../assets/icons/32/archaeology/testtube.svg" class="lab-icon" alt="">Разбор слов</h1>' +
           '<p class="subtitle">Вставьте слова через запятую или каждое с новой строки. Мы найдём корень, палео-образы, транслитерацию и цепочку подмен.</p>' +
           '<textarea id="wa-input" class="lab-textarea" rows="8" placeholder="אמת, תורה, שלום&#10;משיח&#10;צדק, חסד"></textarea>' +
           '<div class="flex gap-8 mb-16">' +
-          '<button class="lab-btn lab-btn-primary" onclick="WordAnalyzer.analyze()"><img src="../../assets/icons/32/archaeology/testtube.png" width="32" height="32" alt="Разобрать" style="vertical-align: middle; margin-right: 6px;"> Разобрать</button>' +
+          '<button class="lab-btn lab-btn-primary" onclick="WordAnalyzer.analyze()"><img src="../../assets/icons/32/archaeology/testtube.svg" width="32" height="32" alt="Разобрать" style="vertical-align: middle; margin-right: 6px;"> Разобрать</button>' +
           '<button class="lab-btn lab-btn-secondary" onclick="document.getElementById(\'wa-input\').value=\'\';document.getElementById(\'wa-grid\').innerHTML=\'\';document.getElementById(\'wa-export\').style.display=\'none\';document.getElementById(\'wa-status\').className=\'lab-alert lab-alert-info\';document.getElementById(\'wa-status\').textContent=\'Введите слова для разбора.\'"><img src="../../assets/icons/32/nav/alert.png" width="32" height="32" alt="Очистить" style="vertical-align: middle; margin-right: 6px;"> Очистить</button>' +
           '</div>' +
           '<div id="wa-status" class="lab-alert lab-alert-info">Введите слова для разбора.</div>' +
@@ -1393,7 +1393,7 @@ const PageController = (function() {
         break;
 
       case 'etymology-checker':
-        container.innerHTML = '<h1><img src="../../assets/icons/32/archaeology/testtube.png" class="lab-icon" alt="">Чекер этимологии</h1>' +
+        container.innerHTML = '<h1><img src="../../assets/icons/32/archaeology/testtube.svg" class="lab-icon" alt="">Чекер этимологии</h1>' +
           '<p class="subtitle">Проверь слово на соответствие палео-корням, образам и карте утрат</p>' +
           '<div class="search-wrap"><input type="text" id="el-input" class="lab-input" placeholder="Введите слово на иврите..." onkeydown="if(event.key===\'Enter\')EtymologyLab.analyze()"><button class="lab-btn lab-btn-primary" onclick="EtymologyLab.analyze()">Разобрать</button></div>' +
           '<div id="el-results"></div>';
