@@ -7,3 +7,8 @@
 - [x] P1 · offline-тест (#pipelines, «Сервер отключен») · браузерные console-ошибки `Failed to load resource: 404 / ERR_FAILED` ложно роняли `expect(errors).toEqual([])`; теперь собираются только `pageerror` (uncaught JS-errors), статические network-ошибки игнорируются · закрыто после полного smoke
 
 Полный smoke после фиксов: `68 passed (15.6m)`, `stats: expected=68 unexpected=0 flaky=0`, `134 PNG` в `tests/screenshots/` (включая `cartography-desktop.png`/`cartography-mobile.png`), `git diff --check` чисто.
+
+## Этап A2 — P0-фиксы визуального мусора (после дизайн-аудита)
+
+- [x] P0 · хедер / hero / карточки · битые изображения в изолированном smoke-сервере: ссылки `../../assets/...` выходили за корень изоляции (на сайте ассеты на месте — `products/website/assets/`); сделано локальное зеркало `apps/researchlab/assets/` (86 файлов: иконки 32px + `golem-logo-2.png`), ноль правок ссылок, изолированные кадры теперь пиксель-в-пиксель как сайт · проверено HEAD-запросами (200 по всем ранее 404-URL)
+- [x] P0 · хедер · логотип-ссылка при недогруженной картинке рендерила alt синим (browser default); страховка `color: var(--text-light)` в `.lab-header .logo` (layout.css)

@@ -19,6 +19,7 @@
   align-items: center;
   flex: 0 0 auto;
   text-decoration: none;
+  color: var(--text-light);
   transition: opacity var(--motion-base);
 }
 .lab-header .logo img {
