@@ -349,3 +349,54 @@ body.is-embed .lab-content { margin: 0; }
 }
 .tool-card p,
 .dw-widget p { margin: 4px 0 0; font-size: 13px; line-height: 1.5; }
+
+/* =============================================
+   БЕЛАЯ ТЕМА: полный монохром «всё белое».
+   Убирает коричневые шапку/поиск/плашки: все поверхности
+   белые, тонкие тёплые рамки, тёмный текст.
+   ============================================= */
+[data-theme="white"] .lab-header {
+  background: #ffffff;
+  border-color: #e6dfd0;
+  color: #221a10;
+}
+[data-theme="white"] .lab-header .logo,
+[data-theme="white"] .lab-header nav a,
+[data-theme="white"] .lab-header nav button,
+[data-theme="white"] .header-search,
+[data-theme="white"] .header-search input,
+[data-theme="white"] #globalSearch,
+[data-theme="white"] #gs-input,
+[data-theme="white"] #gs-results,
+[data-theme="white"] .lab-header-mobile-links {
+  background: #ffffff;
+  color: #221a10;
+}
+[data-theme="white"] .lab-sidebar,
+[data-theme="white"] .lab-content {
+  background: #ffffff;
+}
+[data-theme="white"] .lab-input,
+[data-theme="white"] .lab-select,
+[data-theme="white"] .lab-textarea,
+[data-theme="white"] .lab-btn-secondary,
+[data-theme="white"] .lab-badge,
+[data-theme="white"] .wb-badge,
+[data-theme="white"] .pipeline-status-badge,
+[data-theme="white"] .rd-card,
+[data-theme="white"] .dw-widget,
+[data-theme="white"] .dw-summary-item,
+[data-theme="white"] .dw-metric,
+[data-theme="white"] .tool-card,
+[data-theme="white"] .book-card {
+  background: #ffffff;
+}
+[data-theme="white"] .lab-hero {
+  background: #fbfaf6;
+  color: #3a2c1c;
+  border-color: #e6dfd0;
+}
+[data-theme="white"] .lab-hero__kicker,
+[data-theme="white"] .lab-hero__title {
+  color: var(--accent-gold);
+}
