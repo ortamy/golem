@@ -289,3 +289,63 @@ body.is-embed .lab-content { margin: 0; }
     scroll-behavior: auto !important;
   }
 }
+
+/* =============================================
+   РЕДИЗАЙН v2 (фидбек): низкая шапка, компактные экраны.
+   Кнопки/инпуты и мобильные тач-таргеты НЕ трогаем.
+   ============================================= */
+
+/* Шапка: 48px, логотип меньше; сайдбар синхронизирован */
+.lab-header {
+  height: 48px;
+  padding: 0 var(--space-4);
+}
+.lab-header .logo img { height: 28px; width: auto; }
+.golem-beta { height: 16px; padding: 0 6px; font-size: 8px; }
+.lab-sidebar {
+  top: 48px;
+  height: calc(100vh - 48px);
+  width: 224px;
+  min-width: 224px;
+}
+
+/* Контент: меньше воздуха между экраном и каркасом */
+.lab-content {
+  margin: var(--space-2) var(--space-3) var(--space-3);
+  padding: var(--space-4);
+}
+body.is-embed .lab-content { margin: 0; }
+
+/* Hero-блоки разделов: компактные (читалки-манифесты задают крупный вид сами) */
+.lab-hero {
+  padding: 14px 18px;
+  margin: 0 0 14px;
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+.lab-hero__icon { width: 24px; height: 24px; }
+.lab-hero__kicker { margin: 0 0 3px; font-size: 11px; letter-spacing: 0.12em; }
+.lab-hero__title {
+  margin: 0 0 3px;
+  font-size: clamp(19px, 2.4vw, 26px);
+  line-height: 1.15;
+}
+.lab-hero__body { display: block; }
+
+/* Карточки-виджеты рабочего стола и карточки инструментов: плотнее */
+.dashboard-widgets { margin-bottom: var(--space-4); }
+.dw-widget,
+.tool-card {
+  padding: 14px 16px;
+}
+.dw-summary { padding: 8px 12px 0; }
+.dw-summary-item { padding: 8px 8px; }
+.dw-widget h3,
+.tool-card h3,
+.dw-widget-heading h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  line-height: 1.3;
+}
+.tool-card p,
+.dw-widget p { margin: 4px 0 0; font-size: 13px; line-height: 1.5; }

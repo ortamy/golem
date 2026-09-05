@@ -359,3 +359,149 @@
   /* Один фокус для клавиатуры: рамка+кольцо золотом */
   --focus-outline: 1px solid var(--accent-gold);
 }
+
+/* =============================================
+   МОНОЛИТНЫЕ ПАЛИТРЫ ТЕМ (редизайн v2, фидбек)
+   Каждая тема — одна цветовая семья без смешения:
+   :root/light+parchment = бежевая; white = белая;
+   dark = чёрная (тёплый чёрный); brown = коричневая.
+   Блоки идут ПОСЛЕ базовых и перекрывают их.
+   ============================================= */
+
+/* Бежевая (parchment приводим к той же семье, hero/шапка — шоколадный контраст) */
+[data-theme="parchment"] {
+  --bg-primary: #ede0c8;
+  --bg-secondary: #f4ead6;
+  --bg-tertiary: #e6d7ba;
+  --bg-card: #f6eedd;
+  --bg-dark: #5a3b22;
+  --bg-dark-hover: #4a2f1a;
+  --header-bg: #2c1810;
+  --header-text: #fff8ea;
+  --header-muted: #d8c8b0;
+  --text-light: #2c1810;
+  --text-on-dark: #f6efe0;
+  --border-light: #d3c29f;
+  --border-dark: #8a6a42;
+}
+
+/* Белая (white): нейтральные тёплые поверхности, без серо-голубого */
+[data-theme="white"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #fbfaf6;
+  --bg-tertiary: #f1ece1;
+  --bg-card: #ffffff;
+  --bg-dark: #3a2c1c;
+  --bg-dark-hover: #2e2315;
+  --text-primary: #221a10;
+  --text-secondary: #5c5142;
+  --text-muted: #8d8271;
+  --text-on-dark: #f5efe3;
+  --text-muted-on-dark: #d8cbb3;
+  --text-gold: #9a7420;
+  --border-light: #e6dfd0;
+  --border-dark: #cbbfa8;
+  --header-bg: #ffffff;
+  --header-text: #221a10;
+  --header-muted: #8d8271;
+  --info-bg: #f3f0e7;
+  --info-border: #d8d0bd;
+  --info-text: #57503c;
+  --warn-bg: #faf3e2;
+  --warn-border: #e4cf9c;
+  --warn-text: #6d5422;
+  --error-bg: #f9ecea;
+  --error-border: #e3b8ae;
+  --error-text: #7a3527;
+  --success-bg: #eef4e6;
+  --success-border: #c4d5a8;
+  --success-text: #42582a;
+}
+
+/* Чёрная (dark): тёплый монохромный чёрный, без бежевых/серых панелей */
+[data-theme="dark"] {
+  --bg-primary: #100b06;
+  --bg-secondary: #181006;
+  --bg-tertiary: #221710;
+  --bg-dark: #090502;
+  --bg-dark-hover: #150d06;
+  --bg-card: #140d06;
+  --text-primary: #f2ead9;
+  --text-secondary: #cdbda1;
+  --text-muted: #9c8d74;
+  --text-light: #f2ead9;
+  --text-on-dark: #f6efe0;
+  --text-on-light: #191007;
+  --text-on-accent: #191007;
+  --text-muted-on-dark: #cdbda1;
+  --text-gold: #d6b05a;
+  --accent-gold-rgb: 200 155 60;
+  --border-light: #2e2315;
+  --border-dark: #453525;
+  --accent-gold: #c89b3c;
+  --accent-gold-hover: #d8ab4d;
+  --accent-red: #cf6b4a;
+  --accent-red-hover: #dd7c58;
+  --accent-green: #93b574;
+  --header-bg: #060301;
+  --header-text: #f2ead9;
+  --header-muted: #b9a68a;
+  --info-bg: #1c150c;
+  --info-border: #5a6a4a;
+  --info-text: #cfe0b8;
+  --warn-bg: #241a0c;
+  --warn-border: #7a5f26;
+  --warn-text: #e8cf8e;
+  --error-bg: #241410;
+  --error-border: #8a4a36;
+  --error-text: #efb09c;
+  --success-bg: #16200f;
+  --success-border: #55673c;
+  --success-text: #c2d6a6;
+  --grad-gold-cta: linear-gradient(135deg, #8a5f18 0%, #c89b3c 50%, #e0b85a 115%);
+}
+
+/* Коричневая (brown): цельный тёплый коричневый монохром */
+[data-theme="brown"] {
+  --bg-primary: #3b2a18;
+  --bg-secondary: #45321d;
+  --bg-tertiary: #4f3a23;
+  --bg-dark: #271a0d;
+  --bg-dark-hover: #332413;
+  --bg-card: #402e1b;
+  --text-primary: #f3e9d6;
+  --text-secondary: #d8c6a6;
+  --text-muted: #b09b78;
+  --text-light: #f3e9d6;
+  --text-on-dark: #f6efe0;
+  --text-on-light: #241707;
+  --text-on-accent: #241707;
+  --text-muted-on-dark: #d8c6a6;
+  --text-gold: #e2bb56;
+  --accent-gold-rgb: 224 184 79;
+  --border-light: #5c4826;
+  --border-dark: #705831;
+  --accent-gold: #d4a030;
+  --accent-gold-hover: #e0b84f;
+  --accent-red: #d97b4e;
+  --accent-red-hover: #e08a5a;
+  --accent-green: #9cb96a;
+  --header-bg: #1f1407;
+  --header-text: #f3e9d6;
+  --header-muted: #c9b288;
+  --info-bg: #43331c;
+  --info-border: #5d6a42;
+  --info-text: #d8e0bc;
+  --warn-bg: #4a3517;
+  --warn-border: #8a6a2c;
+  --warn-text: #eed497;
+  --error-bg: #4a2418;
+  --error-border: #95502f;
+  --error-text: #f0b69b;
+  --success-bg: #36401d;
+  --success-border: #6a7a42;
+  --success-text: #d0dcae;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.22);
+  --shadow-modal: 0 8px 24px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.30);
+  --shadow-floating: 0 12px 32px rgba(0,0,0,0.60), 0 4px 12px rgba(0,0,0,0.35);
+}
