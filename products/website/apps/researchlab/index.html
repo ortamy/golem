@@ -6,6 +6,12 @@
 <title>Исследовательская лаборатория — Golem</title>
 <meta name="description" content="Полноценная исследовательская лаборатория проекта Голем">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Шрифты грузим НЕблокирующе (preload + onload): блокирующий fetch к Google Fonts
+     при недоступной сети вешал первую отрисовку на 10–20 секунд. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:wght@500;600;700&family=Caveat:wght@400;600&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Phoenician:wght@400&family=Noto+Serif+Hebrew:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:wght@500;600;700&family=Caveat:wght@400;600&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Phoenician:wght@400&family=Noto+Serif+Hebrew:wght@400;700&display=swap"></noscript>
 <link rel="stylesheet" href="css/lab.css">
 <link rel="stylesheet" href="css/agent-map.css">
 <link rel="stylesheet" href="css/agent-server.css">

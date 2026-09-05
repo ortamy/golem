@@ -2,9 +2,8 @@
    lab.css - Golem Research Lab Design System v2.1
    Manifest: layers (tokens -> base -> layout -> components -> responsive).
    Font stack per DESIGN-SYSTEM.md.
+   Шрифты Google подключаются НЕблокирующе в index.html (preload), без @import.
    ============================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:wght@500;600;700&family=Caveat:wght@400;600&family=Noto+Serif+Hebrew:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Phoenician:wght@400&display=swap');
 
 /* Layers (cascade order == original section order of lab.css) */
 @import url('tokens.css');
