@@ -1,36 +1,67 @@
-const CACHE_NAME = 'golem-cache-v17';
-const PRECACHE_URLS = ['index.html', 'css/admin.css', 'css/agent-map.css', 'css/agent-server.css', 'css/block-renderer.css', 'css/board-generator.css', 'css/board.css', 'css/cartography.css', 'css/dashboard.css', 'css/workbench.css', 'css/davar-checker.css', 'css/tree-checker.css', 'css/etymology-lab.css', 'css/exposure-editor.css', 'css/heraldry.css', 'css/investigation.css', 'css/lab-hero.css', 'css/lab.css', 'css/tokens.css', 'css/base.css', 'css/layout.css', 'css/responsive.css', 'css/components/dashboard.css', 'css/components/forms.css', 'css/components/cards.css', 'css/components/feedback.css', 'css/components/data.css', 'css/components/highlight-export.css', 'css/components/research.css', 'css/components/paleo-keyboard.css', 'css/components/modal.css', 'css/components/dict-term-doc.css', 'css/components/animations.css', 'css/components/utilities.css', 'css/components/research-json.css', 'css/components/paleo-mechanics.css', 'css/components/neurochat.css', 'css/components/manifest.css', 'css/components/buttons.css', 'css/theme-white.css', 'css/language-map.css', 'css/linguistic-tensor.css', 'css/learn.css', 'js/load-researches.js', 'css/methodology.css', 'css/paleo-glossary.css', 'css/paleo-linguistics.css', 'css/prompt-generator.css', 'css/religionisms.css', 'css/research-library.css', 'css/section-renderer.css', 'css/root-dictionary.css', 'css/scripture-reader.css', 'css/states.css', 'css/translation-comparator.css', 'css/word-analyzer.css', 'js/access-gate.js', 'js/admin-settings.js', 'js/agent-map.js', 'js/agent-server.js', 'js/board-generator.js', 'js/board-library.js', 'js/board.js', 'js/cartography.js', 'js/dashboard.js', 'js/workbench.js', 'js/workbench-pipelines.js', 'js/davar-checker.js', 'js/tree-checker.js', 'js/ed-chat.js', 'js/etymology-lab.js', 'js/exposure-editor.js', 'js/heraldry.js', 'js/investigation.js', 'js/lab-hero.js', 'js/language-map.js', 'js/linguistic-tensor.js', 'js/learn-courses.js', 'js/learn.js', 'js/methodology.js', 'js/analyzers.js', 'js/paleo-glossary.js', 'js/paleo-keyboard.js', 'js/paleo-letters.js', 'js/paleo-linguistics.js', 'js/prompt-generator.js', 'js/religionism-checker.js', 'js/root-dictionary.js', 'js/router.js', 'js/scripture-reader.js', 'js/states.js', 'js/translation-comparator.js', 'js/vision-ui.js', 'js/modules/block-renderer.js', 'js/modules/exposure-case.js', 'js/modules/section-renderer.js', 'js/modules/religionisms.js', 'data/cartography.json', 'data/dictionaries.json', 'data/lab-config.json', 'data/methodology.json', 'data/paleo-glossary/roots.json', 'data/paleo-mechanics.json', 'data/qumran-books.json', 'data/states.json', 'data/tehillim.json', 'data/timeline.json', 'data/witnesses.json', 'data/exposures/documents.json', 'data/exposures/index.json', 'data/heraldry/heraldry.json', 'data/language-map/languages.json', 'data/learn/alphabet.json', 'data/methodology/cards.json', 'data/paleo-linguistics/akkadian.json', 'data/paleo-linguistics/arabic.json', 'data/paleo-linguistics/aramaic.json', 'data/paleo-linguistics/eblaite.json', 'data/paleo-linguistics/evolution.json', 'data/paleo-linguistics/languages.json', 'data/paleo-linguistics/paleo-hebrew.json', 'data/paleo-linguistics/phoenician.json', 'data/paleo-linguistics/proto-canaanite.json', 'data/paleo-linguistics/ugaritic.json', 'data/prompts/blocks.json', 'data/prompts/index.json', 'data/religionisms/religionisms.json', 'data/research/emuna.json', 'data/research/hesed.json', 'data/research/kadosh.json', 'data/research/korban.json', 'data/research/template.json', 'data/research/teshuva.json', 'data/research/tohu.json', 'data/roots/roots.json', 'data/scripture/bereshit-1.json', 'data/pipelines.json', 'pages/tree-checker.html'];
+const CACHE_NAME = 'golem-cache-v18';
+// Пре-кэш минимален: всё остальное кэшируется рантаймом при первом запросе.
+// Это исключает «зависшую» установку SW из-за одного отсутствующего файла
+// в длинном списке и не держит первый заход на загрузке десятков ресурсов.
+const PRECACHE_URLS = ['index.html'];
 
-self.addEventListener('install', event => {
+self.addEventListener('install', (event) => {
+  // Установка не должна падать из-за отдельных недоступных ресурсов.
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => Promise.all([
-        cache.addAll(PRECACHE_URLS),
-        cache.addAll(['data/methodology/cards.json', 'data/methodology/methods.json', 'data/methodology/mechanisms.json', 'data/methodology/cultural-matrices.json', 'js/paleo-weaver.js'])
-      ]))
+      .then((cache) => Promise.all(
+        PRECACHE_URLS.map((url) => cache.add(url).catch(() => {}))
+      ))
       .then(() => self.skipWaiting())
   );
 });
 
-self.addEventListener('activate', event => {
+self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))))
+      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
       .then(() => self.clients.claim())
   );
 });
 
-self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET') return;
-  if (new URL(event.request.url).origin !== self.location.origin) return;
+self.addEventListener('fetch', (event) => {
+  const { request } = event;
+  if (request.method !== 'GET') return;
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
 
-  event.respondWith(
-    fetch(event.request).then(networkResponse => {
-      if (networkResponse && networkResponse.ok) {
-        const responseCopy = networkResponse.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseCopy));
-      }
-      return networkResponse;
-    }).catch(() => caches.match(event.request).then(cachedResponse => cachedResponse || new Response('Ресурс временно недоступен.', { status: 503, statusText: 'Service Unavailable' })))
-  );
+  event.respondWith(handle(request));
 });
+
+async function handle(request) {
+  const cache = await caches.open(CACHE_NAME);
+
+  // Навигация: свежий документ с сети; при офлайне — из кэша.
+  if (request.mode === 'navigate') {
+    try {
+      const response = await fetch(request);
+      cache.put(request, response.clone()).catch(() => {});
+      return response;
+    } catch (e) {
+      const hit = await cache.match(request);
+      return hit || cache.match('index.html');
+    }
+  }
+
+  // Статика: stale-while-revalidate — мгновенный ответ из кэша, обновление в фоне.
+  const cached = await cache.match(request);
+  const networkPromise = fetch(request)
+    .then((response) => {
+      if (response && response.ok) {
+        cache.put(request, response.clone()).catch(() => {});
+      }
+      return response;
+    })
+    .catch(() => cached);
+
+  if (cached) {
+    // не ждём сеть — отдаём кэш и обновляем его в фоне
+    networkPromise.catch(() => {});
+    return cached;
+  }
+  return networkPromise || new Response('Ресурс временно недоступен.', { status: 503, statusText: 'Service Unavailable' });
+}
