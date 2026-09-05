@@ -419,3 +419,20 @@ UI-хром (шапка, сайдбар, модалки, кнопки, поис�
 6. Иконки физически лежат в `products/website/assets/icons/32/`, а не в `docs/design/icons/` или отдельной по-размерной структуре внутри researchlab.
 7. Формат иконок сейчас в основном PNG, а не SVG (кроме `desert/`).
 8. Брейкпоинт `375px` не выделен отдельно.
+
+---
+
+## Слой LINEAR-PALEO (Этап 0–1 редизайна, 2026-09-05)
+
+Спека: `docs/10-DESIGN/REDESIGN-LINEAR-PALEO.md`. Реализация — последний CSS-слой `products/website/apps/researchlab/css/redesign.css` (подключается отдельным `<link>` последним в `index.html`, чтобы побеждать каскад модульных CSS), токены — блок «LINEAR-PALEO ТОКЕНЫ» в `css/tokens.css`.
+
+- **UI-шрифт (инструменты):** `--font-ui` = DM Sans; контент/заголовки остаются serif.
+- **Размеры UI:** `--ui-13 / --ui-12 / --ui-11` (13/12/11px).
+- **Высоты контролов:** `--control-h: 28px`, `--control-h-sm: 24px`.
+- **Слои поверхности:** `--surface / --surface-hover / --surface-2 / --line / --line-strong` — псевдонимы существующих тематических токенов.
+- **Статусы:** `--status-ok / --status-warn / --status-danger / --status-neutral`.
+- **Фокус:** `--focus-outline` + `--ring-focus` (золото) на `:focus-visible` для всех интерактивных элементов.
+- **Бейджи-статусы:** `.lab-badge` (+ `--ok/--warn/--danger/--neutral`, `--dotless`) — 18px, 11px, точка-индикатор через `::before`.
+- **Изменённые компоненты:** `.lab-btn`/`.lab-btn-sm`/`.lab-btn-compact` (28/24px, гротеск 13/12px, без тени), `.lab-input/.lab-select/.lab-textarea` (28px, 13px), сайдбар (пункты 28px, актив = золотая полоса слева 2px), `.lab-content` (плоскость, без `--shadow-soft`, радиус `--radius-md`), хедер-кнопки 30px.
+- **Мобильные тач-таргеты 44px не отменяются**: в `responsive.css` (до слоя redesign) правила ≤768px поднимают контролы; при желании пересмотреть — отдельной задачей, не ломая текущие правила.
+- **reduced-motion** принудительно глобально (`prefers-reduced-motion: reduce`).

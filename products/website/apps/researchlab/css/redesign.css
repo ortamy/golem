@@ -1,0 +1,291 @@
+/* =============================================
+   css/redesign.css — LINEAR-ПАЛЕО СЛОЙ (результат редизайна)
+   Подключается ПОСЛЕДНИМ <link> в apps/researchlab/index.html,
+   чтобы побеждать каскад модульных CSS. Спека:
+   docs/10-DESIGN/REDESIGN-LINEAR-PALEO.md
+   Принципы: плотность (база 4px), тонкие рамки вместо теней,
+   один акцент (золото), интерфейс = гротеск, контент = serif,
+   клавиатурный фокус видим, бейджи с точкой-индикатором.
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* ===== КНОПКИ: компактная базовая высота ===== */
+.lab-btn {
+  min-height: var(--control-h);
+  padding: 2px 12px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+  font-weight: 600;
+  letter-spacing: 0;
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+  gap: var(--control-gap);
+}
+.lab-btn:hover { box-shadow: none; }
+.lab-btn:active { transform: none; box-shadow: none; }
+.lab-btn-sm,
+.lab-btn-compact {
+  min-height: var(--control-h-sm);
+  padding: 1px 8px;
+  font-size: var(--ui-12);
+  border-radius: var(--radius-xs);
+}
+
+/* ===== ИНПУТЫ / СЕЛЕКТЫ / ТЕКСТАРЕА: компактные, гротеск ===== */
+.lab-input,
+.lab-select {
+  min-height: var(--control-h);
+  padding: 4px 8px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.lab-textarea {
+  padding: 8px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+  line-height: var(--leading-ui);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.lab-input:focus,
+.lab-textarea:focus,
+.lab-select:focus {
+  border-color: var(--accent-gold);
+  box-shadow: var(--ring-focus);
+}
+
+/* ===== КЛАВИАТУРНЫЙ ФОКУС (виден всегда) ===== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role='button']:focus-visible,
+[tabindex]:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 1px;
+  box-shadow: var(--ring-focus);
+  border-radius: var(--radius-xs);
+}
+
+/* ===== САЙДБАР: компактные пункты, актив = золотая полоса слева ===== */
+.lab-sidebar {
+  width: 232px;
+  min-width: 232px;
+  box-shadow: none;
+  padding-top: var(--space-3);
+}
+.sidebar-section { margin-top: var(--space-2); }
+.sidebar-section-header {
+  min-height: 26px;
+  padding: 3px var(--space-5);
+  font-family: var(--font-ui);
+  font-size: var(--ui-11);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.sidebar-section-header .icon,
+.sidebar-section-header .icon img { width: 14px; height: 14px; }
+.sidebar-section-title {
+  padding: 2px var(--space-5);
+  font-family: var(--font-ui);
+  font-size: var(--ui-11);
+}
+.sidebar-item {
+  min-height: 28px;
+  padding: 4px var(--space-5) 4px var(--space-6);
+  gap: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+  line-height: 1.3;
+  border-left: 2px solid transparent;
+}
+.sidebar-item:hover { color: var(--accent-gold); }
+.sidebar-item.active {
+  border-left-color: var(--accent-gold);
+  font-weight: 600;
+}
+.sidebar-item .lab-icon,
+.sidebar-item .icon { width: 16px; height: 16px; font-size: 16px; }
+
+/* ===== ШАПКА: компактные элементы ===== */
+.lab-header nav a,
+.lab-header nav button {
+  padding: 4px 8px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+  letter-spacing: 0;
+}
+.theme-toggle,
+.mobile-icon-link {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+}
+.header-search { max-width: 380px; }
+
+/* ===== КОНТЕНТ: плоскость вместо «плавающей» карточки ===== */
+.lab-content {
+  margin: var(--space-3);
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+body.is-embed .lab-content { margin: 0; }
+
+/* ===== БЕЙДЖИ-СТАТУСЫ: 18px, 11px, точка-индикатор (как Linear) ===== */
+.lab-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 18px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-family: var(--font-ui);
+  font-size: var(--ui-11);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.lab-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.lab-badge--ok { color: var(--status-ok); }
+.lab-badge--warn { color: var(--status-warn); }
+.lab-badge--danger { color: var(--status-danger); }
+.lab-badge--neutral { color: var(--status-neutral); }
+.lab-badge--dotless::before { display: none; }
+
+/* ===== WORKBENCH-СТАТУСЫ (wb-badge is-*) -> Linear-бейджи ===== */
+.wb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 18px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font-family: var(--font-ui);
+  font-size: var(--ui-11);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--status-neutral);
+}
+.wb-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.wb-badge.is-running,
+.wb-badge.is-pending { color: var(--status-warn); }
+.wb-badge.is-done { color: var(--status-ok); }
+.wb-badge.is-error { color: var(--status-danger); }
+.wb-badge.is-cancelled { color: var(--status-neutral); }
+
+/* ===== ТАБЫ / ВТОРИЧНЫЕ ПАНЕЛИ: плотный ритм ===== */
+.lab-tabs { gap: 2px; }
+.lab-tab {
+  min-height: var(--control-h);
+  padding: 4px 10px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+}
+
+/* ===== ЭТАЛОННЫЕ МОДУЛИ: плоские карточки (dashboard, словарь) ===== */
+.dw-widget,
+.tool-card,
+.book-card {
+  box-shadow: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+.dw-summary-item,
+.dw-metric,
+.dw-widget-note,
+.tool-card,
+.book-card {
+  box-shadow: none;
+}
+.dw-summary-item:hover,
+.dw-summary-item--link:hover,
+.dw-metric:hover,
+.tool-card:hover,
+.book-card:hover {
+  box-shadow: none;
+  transform: none;
+  border-color: var(--accent-gold);
+}
+.rd-card {
+  padding: 16px;
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+.rd-card:hover {
+  box-shadow: none;
+  background: var(--surface-hover);
+}
+.pipeline-status-badge,
+.pipeline-loop-badge,
+.pipeline-loop-close {
+  font-family: var(--font-ui);
+}
+
+/* ===== МОБИЛЬНЫЙ РЕЖИМ: сохраняем тач-таргеты 44px
+        (стандарт доступности; см. DESIGN-SYSTEM.md «Мобильный режим») ===== */
+@media (max-width: 768px) {
+  .lab-btn,
+  .lab-btn-sm,
+  .lab-btn-compact {
+    min-height: 44px;
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+  .lab-input,
+  .lab-select {
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .sidebar-item {
+    min-height: 44px;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .sidebar-section-header { min-height: 40px; }
+  .theme-toggle,
+  .mobile-icon-link,
+  .lab-hamburger {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ===== REDUCED-MOTION: принудительно без движения ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -319,3 +319,43 @@
   --glow-glyph: 0 0 24px rgb(var(--accent-gold-rgb) / 0.20);
   --glow-edge: 0 0 0 1px rgb(var(--accent-gold-rgb) / 0.20);
 }
+
+/* =============================================
+   LINEAR-PALEO ТОКЕНЫ (Этап 0 редизайна; spec: docs/10-DESIGN/REDESIGN-LINEAR-PALEO.md)
+   Компактные контролы + слои поверхности + шрифт интерфейса.
+   Значения цветов ссылаются на существующие темы через var(), поэтому
+   тёплые/нейтральные темы работают без дублирования.
+   ============================================= */
+:root {
+  /* Шрифт интерфейса (инструменты): гротеск; контент остаётся serif */
+  --font-ui: 'DM Sans', -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Размеры UI-типографики (плотный режим) */
+  --ui-13: 13px;   /* основной текст контролов */
+  --ui-12: 12px;   /* вторичный */
+  --ui-11: 11px;   /* метки, бейджи, капс-заголовки */
+
+  /* Высоты контролов */
+  --control-h: 28px;
+  --control-h-sm: 24px;
+  --control-gap: 6px;
+
+  /* Слои поверхности (Linear-анатомия: фон -> поверхность -> поднятая) */
+  --surface: var(--bg-card);
+  --surface-hover: var(--bg-tertiary);
+  --surface-2: var(--bg-secondary);
+  --line: var(--border-light);
+  --line-strong: var(--border-dark);
+
+  /* Тонкая рамка для карточек вместо теней */
+  --card-border: 1px solid var(--line);
+
+  /* Статус-индикаторы (приглушённые; точки-индикаторы бейджей) */
+  --status-ok: var(--accent-green);
+  --status-warn: var(--accent-gold);
+  --status-danger: var(--accent-red);
+  --status-neutral: var(--text-muted);
+
+  /* Один фокус для клавиатуры: рамка+кольцо золотом */
+  --focus-outline: 1px solid var(--accent-gold);
+}
