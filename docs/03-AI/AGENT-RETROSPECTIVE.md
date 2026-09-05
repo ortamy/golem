@@ -1,7 +1,7 @@
 # 📜 AGENT-RETROSPECTIVE — РЕТРОСПЕКТИВА АГЕНТА «ЭД»
 
 **Метаданные файла**
-- **Файл:** `instructions/agent/AGENT-RETROSPECTIVE.md`
+- **Файл:** `docs/03-AI/AGENT-RETROSPECTIVE.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-06-11
 - **Последнее обновление:** 2026-06-11

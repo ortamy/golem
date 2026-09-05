@@ -10,28 +10,28 @@
 
 | Буква | Файл | Образ | Функция |
 | :--- | :--- | :--- | :--- |
-| א | [aleph-ox.md](aleph-ox.md) | Бык | Источник силы |
-| ב | [bet-house.md](bet-house.md) | Дом | Вмещает |
-| ג | [gimel-camel.md](gimel-camel.md) | Верблюд | Переносит через расстояние |
-| ד | [dalet-door.md](dalet-door.md) | Дверь | Открывает/закрывает доступ |
-| ה | [he-window.md](he-window.md) | Окно/дыхание | Проявляет наружу |
-| ו | [vav-hook.md](vav-hook.md) | Крюк | Соединяет |
-| ז | [zayin-weapon.md](zayin-weapon.md) | Оружие | Прорезает, разделяет |
-| ח | [chet-fence.md](chet-fence.md) | Ограда | Отделяет, защищает границу |
-| ט | [tet-serpent.md](tet-serpent.md) | Змея | Оборачивает, скручивает |
-| י | [yod-hand.md](yod-hand.md) | Рука | Совершает действие |
-| כ | [kaf-palm.md](kaf-palm.md) | Ладонь | Удерживает через форму |
-| ל | [lamed-staff.md](lamed-staff.md) | Посох | Направляет |
-| מ | [mem-water.md](mem-water.md) | Вода | Течёт |
-| נ | [nun-fish.md](nun-fish.md) | Рыба | Продолжает движение жизни |
-| ס | [samekh-support.md](samekh-support.md) | Опора | Поддерживает |
-| ע | [ayin-eye.md](ayin-eye.md) | Глаз | Видит, воспринимает |
-| פ | [pey-mouth.md](pey-mouth.md) | Рот | Выпускает наружу |
-| צ | [tsadi-hook.md](tsadi-hook.md) | Крюк/ловушка | Захватывает цель |
-| ק | [qof-needle.md](qof-needle.md) | Игла | Отделяет через окружение |
-| ר | [resh-head.md](resh-head.md) | Голова | Начало, вершина |
-| ש | [shin-tooth.md](shin-tooth.md) | Зуб/огонь | Разрушает, преобразует |
-| ת | [tav-seal.md](tav-seal.md) | Знак/печать | Завершает, фиксирует |
+| א | [ALEPH-OX.md](ALEPH-OX.md) | Бык | Источник силы |
+| ב | [BET-HOUSE.md](BET-HOUSE.md) | Дом | Вмещает |
+| ג | [GIMEL-CAMEL.md](GIMEL-CAMEL.md) | Верблюд | Переносит через расстояние |
+| ד | [DALET-DOOR.md](DALET-DOOR.md) | Дверь | Открывает/закрывает доступ |
+| ה | [HE-WINDOW.md](HE-WINDOW.md) | Окно/дыхание | Проявляет наружу |
+| ו | [VAV-HOOK.md](VAV-HOOK.md) | Крюк | Соединяет |
+| ז | [ZAYIN-WEAPON.md](ZAYIN-WEAPON.md) | Оружие | Прорезает, разделяет |
+| ח | [CHET-FENCE.md](CHET-FENCE.md) | Ограда | Отделяет, защищает границу |
+| ט | [TET-SERPENT.md](TET-SERPENT.md) | Змея | Оборачивает, скручивает |
+| י | [YOD-HAND.md](YOD-HAND.md) | Рука | Совершает действие |
+| כ | [KAF-PALM.md](KAF-PALM.md) | Ладонь | Удерживает через форму |
+| ל | [LAMED-STAFF.md](LAMED-STAFF.md) | Посох | Направляет |
+| מ | [MEM-WATER.md](MEM-WATER.md) | Вода | Течёт |
+| נ | [NUN-FISH.md](NUN-FISH.md) | Рыба | Продолжает движение жизни |
+| ס | [SAMEKH-SUPPORT.md](SAMEKH-SUPPORT.md) | Опора | Поддерживает |
+| ע | [AYIN-EYE.md](AYIN-EYE.md) | Глаз | Видит, воспринимает |
+| פ | [PEY-MOUTH.md](PEY-MOUTH.md) | Рот | Выпускает наружу |
+| צ | [TSADI-HOOK.md](TSADI-HOOK.md) | Крюк/ловушка | Захватывает цель |
+| ק | [QOF-NEEDLE.md](QOF-NEEDLE.md) | Игла | Отделяет через окружение |
+| ר | [RESH-HEAD.md](RESH-HEAD.md) | Голова | Начало, вершина |
+| ש | [SHIN-TOOTH.md](SHIN-TOOTH.md) | Зуб/огонь | Разрушает, преобразует |
+| ת | [TAV-SEAL.md](TAV-SEAL.md) | Знак/печать | Завершает, фиксирует |
 
 ## Структура файла буквы
 

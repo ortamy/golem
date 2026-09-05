@@ -1,7 +1,7 @@
 # 📜 אֲחִידוּת — CHECK-CONSISTENCY: ПРОВЕРКА СОГЛАСОВАННОСТИ
 
 **Метаданные файла**
-- **Файл:** `instructions/checkers/check-consistency.md`
+- **Файл:** `docs/08-AUDITS/CHECK-CONSISTENCY.md`
 - **Версия:** 1.1
 - **Дата создания:** 2026-06-05
 - **Последнее обновление:** 2026-06-11

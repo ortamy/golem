@@ -1,10 +1,12 @@
 # 📜 RESEARCH-LAB — ИССЛЕДОВАТЕЛЬСКАЯ ЛАБОРАТОРИЯ
 
+> ⚠️ ИСТОРИЧЕСКИЙ ДОКУМЕНТ — описывает устаревшую структуру проекта. Актуальная карта Research Lab — `docs/11-PRODUCTS/RESEARCH-LAB-MAP.md`.
+
 **Метаданные файла**
-- **Файл:** `instructions/products/research-lab.md`
+- **Файл:** `docs/11-PRODUCTS/RESEARCH-LAB.md`
 - **Версия:** 1.0
 - **Дата создания:** 2026-07-04
-- **Статус:** Активный
+- **Статус:** Исторический
 - **Тема:** Архитектура и функциональность исследовательской лаборатории — полноценного web-приложения для работы с текстами, переводами, корнями и нейросетью.
 - **Связанные файлы:** `instructions/products/webapp.md`, `content/foundations/hebrew-roots.md`, `data/religious-dictionary.json`
 
