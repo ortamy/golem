@@ -418,6 +418,51 @@
   --success-text: #42582a;
 }
 
+/* Бежевая (beige): лёгкая пастельная, цельный монохром (шапка/поиск/плашки — светлые) */
+[data-theme="beige"] {
+  --bg-primary: #f6efdf;
+  --bg-secondary: #f1e6cf;
+  --bg-tertiary: #e9dcbd;
+  --bg-card: #faf4e6;
+  --bg-dark: #efe3c8;
+  --bg-dark-hover: #e4d6b2;
+  --text-primary: #3a2b17;
+  --text-secondary: #6a563a;
+  --text-muted: #9c8766;
+  --text-light: #3a2b17;
+  --text-on-dark: #3a2b17;
+  --text-on-light: #3a2b17;
+  --text-on-accent: #fffaf0;
+  --text-muted-on-dark: #6a563a;
+  --text-gold: #9a6f15;
+  --accent-gold-rgb: 154 111 21;
+  --border-light: #dccaa4;
+  --border-dark: #c2ac7d;
+  --accent-gold: #9a6f15;
+  --accent-gold-hover: #7e5a10;
+  --accent-red: #b3542f;
+  --accent-red-hover: #93432a;
+  --accent-green: #4f6b33;
+  --header-bg: #f1e6cf;
+  --header-text: #3a2b17;
+  --header-muted: #6a563a;
+  --info-bg: #f0ecdd;
+  --info-border: #c9cd9f;
+  --info-text: #4a5230;
+  --warn-bg: #f8efd8;
+  --warn-border: #dcbe7f;
+  --warn-text: #7a5c1d;
+  --error-bg: #f8e9e0;
+  --error-border: #d9a183;
+  --error-text: #7a3a24;
+  --success-bg: #eef3e0;
+  --success-border: #b9cb8e;
+  --success-text: #46582c;
+  --shadow-card: 0 1px 3px rgba(90,68,30,0.08), 0 2px 8px rgba(90,68,30,0.05);
+  --shadow-modal: 0 8px 24px rgba(90,68,30,0.16), 0 2px 8px rgba(90,68,30,0.08);
+  --shadow-floating: 0 12px 32px rgba(90,68,30,0.18), 0 4px 12px rgba(90,68,30,0.10);
+}
+
 /* Чёрная (dark): тёплый монохромный чёрный, без бежевых/серых панелей */
 [data-theme="dark"] {
   --bg-primary: #100b06;

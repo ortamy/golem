@@ -33,6 +33,27 @@ const UserPreferences = (function() {
           '--header-text': '#221a10'
         }
       },
+      beige: {
+        label: 'Бежевая',
+        vars: {
+          '--bg-primary': '#f6efdf',
+          '--bg-secondary': '#f1e6cf',
+          '--bg-tertiary': '#e9dcbd',
+          '--bg-card': '#faf4e6',
+          '--bg-dark': '#efe3c8',
+          '--bg-dark-hover': '#e4d6b2',
+          '--text-primary': '#3a2b17',
+          '--text-secondary': '#6a563a',
+          '--text-muted': '#9c8766',
+          '--text-on-dark': '#3a2b17',
+          '--accent-gold': '#9a6f15',
+          '--border-light': '#dccaa4',
+          '--border-dark': '#c2ac7d',
+          '--border-color': '#dccaa4',
+          '--header-bg': '#f1e6cf',
+          '--header-text': '#3a2b17'
+        }
+      },
       brown: {
         label: 'Коричневая',
         vars: {
