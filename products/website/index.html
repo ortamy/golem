@@ -660,7 +660,7 @@
       line-height: 1.5;
       text-align: center;
     }
-    .portal-form, #portalForm { display: grid; gap: 18px; }
+    .portal-form { display: grid; gap: 18px; }
     .portal-field { display: grid; gap: 6px; }
     .portal-field label {
       color: var(--chocolate-soft);
@@ -1075,19 +1075,11 @@
       <button class="portal-close" type="button" aria-label="Закрыть" id="portalClose">×</button>
       <div class="portal-brand">ГОЛЕМ</div>
       <h2 class="portal-heading" id="portalTitle">Исследовательская лаборатория</h2>
-      <p class="portal-desc">Войдите, чтобы продолжить работу с исследовательскими инструментами.</p>
-      <form id="portalForm">
-        <div class="portal-field">
-          <label for="portalId">Идентификатор</label>
-          <input class="portal-input" id="portalId" name="id" type="text" autocomplete="username" placeholder="Ваш идентификатор" required>
-        </div>
-        <div class="portal-field">
-          <label for="portalKey">Ключ доступа</label>
-          <input class="portal-input" id="portalKey" name="key" type="password" autocomplete="current-password" placeholder="Ключ доступа" required>
-        </div>
-        <button class="portal-btn portal-btn-primary" type="submit">Войти</button>
-        <a class="portal-btn portal-btn-ghost" href="apps/researchlab/index.html#dashboard">Гостевой режим</a>
-      </form>
+      <p class="portal-desc">Вход не требуется — Лаборатория открыта для всех. Роли «исследователь / админ» настраиваются внутри (гостевой режим по умолчанию).</p>
+      <div class="portal-form portal-actions">
+        <a class="portal-btn portal-btn-primary" href="apps/researchlab/index.html#dashboard">Перейти в Лабораторию</a>
+        <a class="portal-btn portal-btn-ghost" href="apps/researchlab/index.html#manifest">Читать Манифест</a>
+      </div>
     </div>
   </div>
 
@@ -1180,7 +1172,6 @@
 
     // ===== ПОРТАЛ ВХОДА =====
     const portal = document.querySelector('#labPortal');
-    const portalForm = document.querySelector('#portalForm');
     const portalClose = document.querySelector('#portalClose');
     const portalTriggers = document.querySelectorAll('[data-portal-trigger]');
     let portalReturnFocus = null;
@@ -1191,7 +1182,6 @@
       portal.hidden = false;
       portal.classList.add('is-open');
       document.body.classList.add('portal-is-open');
-      setTimeout(() => document.querySelector('#portalId')?.focus(), 100);
     }
 
     function closePortal() {
@@ -1211,10 +1201,6 @@
     });
     portalClose?.addEventListener('click', closePortal);
     portal?.addEventListener('click', (e) => { if (e.target === portal) closePortal(); });
-    portalForm?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      window.location.href = 'apps/researchlab/index.html#dashboard';
-    });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && portal && !portal.hidden) closePortal();
     });

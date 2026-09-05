@@ -64,16 +64,16 @@ const PageController = (function() {
       { icon: 'ui/question', name: 'Разоблачитель', desc: 'Ищет подмены в переводах, сравнивает LXX и Синодальный.', model: 'GPT-4o', cat: 'Исследователь' },
       { icon: 'scribe/scrolls', name: 'Сборщик', desc: 'Объединяет результаты в единый отчёт.', model: 'Claude Haiku 3.5', cat: 'Оркестрация' },
       { icon: 'ui/scales', name: 'Критик', desc: 'Проверяет разбор на соответствие методологии.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
-      { icon: 'seals/ring', name: 'Семитолог', desc: 'Ищет параллели в аккадском, угаритском и арамейском.', model: 'GPT-4o', cat: 'Исследователь' },
-      { icon: 'scribe/scroll', name: 'Компаратор', desc: 'Трёхстороннее сравнение масоретского текста, Септуагинты и кумранских свитков.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
+      { icon: 'seals/ring', name: 'Семитолог', desc: 'Авто-вывод не выполняется: требуется ручная сверка параллелей по словарям (заглушка).', model: '—', cat: 'Исследователь' },
+      { icon: 'scribe/scroll', name: 'Компаратор', desc: 'Сравнение свидетелей требует внешних источников; авто-вывод не выполняется (заглушка).', model: '—', cat: 'Исследователь' },
       { icon: 'ui/keyboard', name: 'Редактор', desc: 'Приводит черновик к стилю проекта.', model: 'Claude Haiku 3.5', cat: 'Документация' },
       { icon: 'scribe/scroll', name: 'Переводчик палео-иврита', desc: 'Переводит букву через палео-образ к физическому смыслу.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
-      { icon: 'crafts/hammer-and-chisel', name: 'Фронтенд-разработчик', desc: 'Создаёт интерфейсы Лаборатории на Vanilla JS, CSS и SVG.', model: 'Claude Sonnet 4', cat: 'Разработчик' },
-      { icon: 'ui/settings', name: 'AI-инженер', desc: 'Разрабатывает нейросетевые модули на PyTorch и Flask API.', model: 'Claude Sonnet 4', cat: 'Разработчик' },
+      { icon: 'crafts/hammer-and-chisel', name: 'Фронтенд-разработчик', desc: 'Заглушка: генерация интерфейсов появится после подключения LLM-движка.', model: '—', cat: 'Разработчик' },
+      { icon: 'ui/settings', name: 'AI-инженер', desc: 'Заглушка: подготовка задач для LLM-инженера после подключения модели.', model: '—', cat: 'Разработчик' },
       { icon: 'ui/scales', name: 'Проверяющий', desc: 'Валидирует код, данные и исследовательские гипотезы.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
-      { icon: 'scribe/scroll', name: 'Технический писатель', desc: 'Оформляет документацию в Markdown.', model: 'Claude Haiku 3.5', cat: 'Документация' },
-      { icon: 'ui/scales', name: 'Ревьюер кода', desc: 'Проверяет код на соответствие MANIFEST.md.', model: 'Claude Sonnet 4', cat: 'Контроль качества' },
-      { icon: 'paleo/track', name: 'Архитектор потока', desc: 'Проектирует порядок вызова агентов.', model: 'Claude Sonnet 4', cat: 'Оркестрация' },
+      { icon: 'scribe/scroll', name: 'Технический писатель', desc: 'Заглушка: оформление документации после подключения LLM.', model: '—', cat: 'Документация' },
+      { icon: 'ui/scales', name: 'Ревьюер кода', desc: 'Заглушка: авто-ревью кода появится после подключения LLM.', model: '—', cat: 'Контроль качества' },
+      { icon: 'paleo/track', name: 'Архитектор потока', desc: 'Заглушка: используется линейный порядок агентов из конфига пайплайна.', model: '—', cat: 'Оркестрация' },
       { icon: 'ui/link', name: 'Связной', desc: 'Связывает разрозненные исследования в единую сеть.', model: 'Claude Sonnet 4', cat: 'Оркестрация' }
     ];
     var agentSlugs = ['orchestrator', 'researcher', 'exposer', 'collector', 'critic', 'semitologist', 'comparator', 'editor', 'paleo-translator', 'frontend-developer', 'ai-engineer', 'verifier', 'technical-writer', 'code-reviewer', 'flow-architect', 'liaison'];
