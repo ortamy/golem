@@ -10,9 +10,12 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>
     // Тема до первой отрисовки: общий с лабом ключ golem_theme.
+    // Набор тем: белая (white) / коричневая (brown) / чёрная (dark).
+    // Устаревшая 'parchment' больше не существует — бесшумно приводим к белой.
     try {
       var __golemTheme = localStorage.getItem('golem_theme');
-      if (__golemTheme === 'parchment' || __golemTheme === 'white' || __golemTheme === 'dark') {
+      if (__golemTheme === 'parchment') __golemTheme = 'white';
+      if (__golemTheme === 'white' || __golemTheme === 'brown' || __golemTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', __golemTheme);
       }
     } catch (e) {}

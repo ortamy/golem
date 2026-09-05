@@ -12,27 +12,6 @@ const UserPreferences = (function() {
 
   var PRESETS = {
     theme: {
-      parchment: {
-        label: 'Бежевая',
-        vars: {
-          '--bg-primary': '#ede0c8',
-          '--bg-secondary': '#f4ead6',
-          '--bg-tertiary': '#e6d7ba',
-          '--bg-card': '#f6eedd',
-          '--bg-dark': '#2c1810',
-          '--bg-dark-hover': '#4a2f1a',
-          '--text-primary': '#2c1810',
-          '--text-secondary': '#5c4a3a',
-          '--text-muted': '#8a7a6a',
-          '--text-on-dark': '#f6efe0',
-          '--accent-gold': '#b8860b',
-          '--border-light': '#d3c29f',
-          '--border-dark': '#8a6a42',
-          '--border-color': '#d3c29f',
-          '--header-bg': '#2c1810',
-          '--header-text': '#fff8ea'
-        }
-      },
       white: {
         label: 'Белая',
         vars: {
@@ -127,7 +106,7 @@ const UserPreferences = (function() {
   function defaults(role) {
     return {
       role: role || 'guest',
-      theme: 'parchment',
+      theme: 'white',
       fontSize: 'standard',
       density: 'standard',
       contentWidth: 'standard',
@@ -171,7 +150,9 @@ const UserPreferences = (function() {
 
   function apply(prefs) {
     if (!prefs) prefs = load();
-    HTML.setAttribute('data-theme', prefs.theme);
+    // Защита от устаревших сохранённых тем (parchment удалена): фолбэк — белая.
+    var theme = PRESETS.theme[prefs.theme] ? prefs.theme : 'white';
+    HTML.setAttribute('data-theme', theme);
     HTML.setAttribute('data-font-size', prefs.fontSize);
     HTML.setAttribute('data-density', prefs.density);
     HTML.setAttribute('data-content-width', prefs.contentWidth);
@@ -182,7 +163,7 @@ const UserPreferences = (function() {
     root.setProperty('--user-font-size', PRESETS.fontSize[prefs.fontSize].value);
     root.setProperty('--user-content-width', PRESETS.contentWidth[prefs.contentWidth].value);
 
-    var themeVars = PRESETS.theme[prefs.theme].vars;
+    var themeVars = PRESETS.theme[theme].vars;
     Object.keys(themeVars).forEach(function(varName) {
       root.setProperty(varName, themeVars[varName]);
     });
