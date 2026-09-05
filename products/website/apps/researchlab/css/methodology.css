@@ -336,7 +336,7 @@ html[data-theme="dark"] .methodology-toolbar .lab-btn-primary {
 
 html[data-theme="dark"] .methodology-toolbar .lab-btn-secondary:hover,
 html[data-theme="dark"] .methodology-toolbar .lab-btn-secondary:active {
-  background: rgb(var(--accent-gold-rgb) / );
+  background: rgb(var(--accent-gold-rgb) / 0.14);
 }
 
 @media (max-width: 640px) {

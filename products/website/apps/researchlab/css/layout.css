@@ -6,7 +6,7 @@
 
 /* ===== HEADER ===== */
 .lab-header {
-  background: var(--bg-dark); color: var(--text-light);
+  background: var(--header-bg); color: var(--header-text);
   padding: 0 var(--space-6); height: 56px;
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--space-4);
@@ -19,7 +19,7 @@
   align-items: center;
   flex: 0 0 auto;
   text-decoration: none;
-  color: var(--text-light);
+  color: var(--header-text);
   transition: opacity var(--motion-base);
 }
 .lab-header .logo img {
@@ -44,12 +44,12 @@
 }
 .lab-header .logo:hover { opacity: 0.8; }
 .lab-header .header-subtitle {
-  color: var(--text-muted); font-size: var(--text-sm); margin-left: var(--space-2);
+  color: var(--header-muted); font-size: var(--text-sm); margin-left: var(--space-2);
   font-family: var(--font-serif); white-space: nowrap;
 }
 .lab-header nav { display: flex; gap: var(--space-2); align-items: center; flex: 0 0 auto; }
 .lab-header nav a, .lab-header nav button {
-  font-size: var(--text-sm); color: var(--text-light); text-decoration: none;
+  font-size: var(--text-sm); color: var(--header-text); text-decoration: none;
   letter-spacing: 1px; transition: all var(--motion-base);
   padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm);
   border: none; background: none; cursor: pointer;
@@ -105,7 +105,7 @@
   font-family: var(--font-serif); font-size: var(--text-sm);
   border: 1px solid var(--border-dark);
   border-radius: var(--radius-sm); background: var(--bg-dark-hover);
-  color: var(--text-light); outline: none;
+   color: var(--header-text); outline: none;
   transition: border-color var(--motion-base);
 }
 .header-search input:focus { border-color: var(--accent-gold); }
@@ -289,7 +289,7 @@
   color: var(--accent-gold); font-weight: 600;
 }
 [data-theme="dark"] .sidebar-item.active {
-  background: rgb(var(--accent-gold-rgb) / );
+  background: rgb(var(--accent-gold-rgb) / 0.14);
 }
 .sidebar-item .icon { font-size: var(--text-base); width: 20px; text-align: center; flex-shrink: 0; }
 .sidebar-item .icon img {

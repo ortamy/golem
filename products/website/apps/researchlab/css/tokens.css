@@ -18,6 +18,10 @@
   --text-secondary: #5c4a3a;
   --text-muted: #8a7a6a;
   --text-light: #ede0c8;
+  --text-on-dark: #fff8ea;
+  --text-on-light: #2c1810;
+  --text-on-accent: #fffaf0;
+  --text-muted-on-dark: #d8c8b0;
   --text-gold: #b8860b;
   --accent-gold-rgb: 184 134 11;
   --border-light: #d4c4a8;
@@ -28,6 +32,9 @@
   --accent-red: #c0392b;
   --accent-red-hover: #a93226;
   --accent-green: #2a6a2a;
+  --header-bg: #2c1810;
+  --header-text: #fff8ea;
+  --header-muted: #d8c8b0;
 
   /* ===== SPACING SCALE (4px base) ===== */
   --space-1: 4px;
@@ -119,23 +126,30 @@
 }
 
 [data-theme="dark"] {
-  --bg-primary: #2a1f18;
-  --bg-secondary: #33261e;
-  --bg-tertiary: #3d2e24;
-  --bg-dark: #1e1611;
-  --bg-dark-hover: #2a1f18;
-  --bg-card: #33261e;
-  --text-primary: #e8dcc8;
-  --text-secondary: #bfae96;
-  --text-muted: #8a7a6a;
-  --text-light: #e8dcc8;
-  --text-gold: #d4a030;
-  --accent-gold-rgb: 212 160 48;
-  --border-light: #4a382a;
-  --border-dark: #5c3a2a;
+  --bg-primary: #111111;
+  --bg-secondary: #1b1b1b;
+  --bg-tertiary: #282828;
+  --bg-dark: #050505;
+  --bg-dark-hover: #141414;
+  --bg-card: #1b1b1b;
+  --text-primary: #f2f2f2;
+  --text-secondary: #c4c4c4;
+  --text-muted: #969696;
+  --text-light: #f2f2f2;
+  --text-on-dark: #ffffff;
+  --text-on-light: #111111;
+  --text-on-accent: #ffffff;
+  --text-muted-on-dark: #c4c4c4;
+  --text-gold: #e0e0e0;
+  --accent-gold-rgb: 224 224 224;
+  --border-light: #3a3a3a;
+  --border-dark: #555555;
   --border-gold: var(--accent-gold);
-  --accent-gold: #d4a030;
-  --accent-gold-hover: #b8860b;
+  --accent-gold: #e0e0e0;
+  --accent-gold-hover: #ffffff;
+  --accent-red: #bdbdbd;
+  --accent-red-hover: #eeeeee;
+  --accent-green: #bdbdbd;
   --ring-focus: 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.45);
   --shadow-card: 0 1px 3px rgba(0,0,0,0.30), 0 2px 8px rgba(0,0,0,0.20);
   --shadow-hover: 0 4px 12px rgba(0,0,0,0.45), 0 2px 4px rgba(0,0,0,0.25);
@@ -145,18 +159,21 @@
   --shadow-soft: 0 2px 12px rgba(0,0,0,0.35);
   --shadow-card-color: rgba(0,0,0,0.3);
   --shadow-card-hover-color: rgba(0,0,0,0.5);
-  --info-bg: #2e3a28;
-  --info-border: #4a6a3a;
-  --info-text: #c8e0b8;
-  --warn-bg: #3a3226;
-  --warn-border: #7a6434;
-  --warn-text: #f0d8a0;
-  --error-bg: #3a2826;
-  --error-border: #8a4a3a;
-  --error-text: #f0b8a8;
-  --success-bg: #2a3a2e;
-  --success-border: #4a7a4a;
-  --success-text: #b8e0b8;
+  --info-bg: #202020;
+  --info-border: #666666;
+  --info-text: #e0e0e0;
+  --warn-bg: #242424;
+  --warn-border: #777777;
+  --warn-text: #eeeeee;
+  --error-bg: #202020;
+  --error-border: #888888;
+  --error-text: #f0f0f0;
+  --success-bg: #202020;
+  --success-border: #666666;
+  --success-text: #e0e0e0;
+  --header-bg: #050505;
+  --header-text: #ffffff;
+  --header-muted: #c4c4c4;
 }
 
 /* ===== ПЕРГАМЕНТНАЯ ТЕМА ===== */
@@ -171,6 +188,10 @@
   --text-secondary: #5c4a3a;
   --text-muted: #8a7a6a;
   --text-light: #2c1810;
+  --text-on-dark: #fff8ea;
+  --text-on-light: #2c1810;
+  --text-on-accent: #fffaf0;
+  --text-muted-on-dark: #665542;
   --text-gold: #8b6508;
   --accent-gold-rgb: 139 101 8;
   --border-light: #d4c4a8;
@@ -202,6 +223,9 @@
   --success-bg: #eef6ee;
   --success-border: #bfdcc0;
   --success-text: #2a5c2a;
+  --header-bg: #f5edd5;
+  --header-text: #2c1810;
+  --header-muted: #665542;
 }
 [data-theme="parchment"] body::before,
 [data-theme="parchment"] body::after { opacity: 0; }
@@ -218,6 +242,10 @@
   --text-secondary: #52606d;
   --text-muted: #7b8794;
   --text-light: #1f2933;
+  --text-on-dark: #ffffff;
+  --text-on-light: #1f2933;
+  --text-on-accent: #ffffff;
+  --text-muted-on-dark: #52606d;
   --text-gold: #8b6508;
   --accent-gold-rgb: 139 101 8;
   --border-light: #d9e0e6;
@@ -249,6 +277,45 @@
   --success-bg: #eef8ef;
   --success-border: #c0dfc1;
   --success-text: #2b6030;
+  --header-bg: #ffffff;
+  --header-text: #1f2933;
+  --header-muted: #52606d;
 }
 [data-theme="white"] body::before,
 [data-theme="white"] body::after { opacity: 0; }
+
+/* ===== СЛОЙ «СОВРЕМЕННЫЙ МАНУСКРИПТ» (Этап B; источники — tasks/design-inspiration.md) ===== */
+:root {
+  /* Техника 1: градиенты фона (hypercolor-адаптация в палитре проекта; var() резолвится на элементе — темы работают сами) */
+  --grad-parchment: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary) 55%, var(--bg-tertiary));
+  --grad-dark: linear-gradient(160deg, var(--bg-dark), var(--bg-dark-hover));
+  --grad-gold-cta: linear-gradient(135deg, #8b6508 0%, #b8860b 50%, #d4a030 115%);
+
+  /* Техника 2: SVG fractal-noise, тайл 160px, плотность запечена в opacity=0.05 (0.03–0.05 по концепции) */
+  --texture-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+
+  /* Техника 7 (shadcn): анатомия карточки, единый отступ */
+  --card-spacing: 16px;
+  --card-spacing-lg: 24px;
+
+  /* Техники 9/11: lift и reveal */
+  --dur-3: 480ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-lift: 300ms var(--ease-standard);
+  --motion-reveal: var(--dur-3) var(--ease-out);
+
+  /* Техника 13: fluid-типографика hero/секций/глифов */
+  --text-hero: clamp(2.25rem, 5vw, 3.5rem);
+  --text-section: clamp(1.75rem, 3vw, 2.5rem);
+  --glyph-hero: clamp(4rem, 10vw, 8rem);
+
+  /* Техника 18: glow — в светлых темах выключен */
+  --glow-glyph: none;
+  --glow-edge: none;
+}
+
+[data-theme="dark"] {
+  --grad-gold-cta: linear-gradient(135deg, #a8a8a8 0%, #e0e0e0 100%);
+  --glow-glyph: 0 0 24px rgb(var(--accent-gold-rgb) / 0.20);
+  --glow-edge: 0 0 0 1px rgb(var(--accent-gold-rgb) / 0.20);
+}

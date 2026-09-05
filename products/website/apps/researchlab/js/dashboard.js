@@ -151,10 +151,10 @@ const Dashboard = (function() {
     return '<section class="dw-summary" aria-labelledby="dw-summary-title">' +
       '<div class="dw-summary-heading"><div><span class="dw-summary-kicker">Срез корпуса</span><h2 id="dw-summary-title">Сводка исследований</h2></div>' +
         '<span class="dw-summary-date">' + esc(researchMetrics.referenceDate ? 'Срез данных: ' + researchMetrics.referenceDate : 'Дата среза не указана') + '</span></div>' +
-      '<div class="dw-summary-grid">' + items.map(function(item) {
+      '<div class="dw-summary-grid">' + items.map(function(item, i) {
         var tag = item.href ? 'a' : 'div';
         var href = item.href ? ' href="' + item.href + '"' : '';
-        return '<' + tag + ' class="dw-summary-item' + (item.href ? ' dw-summary-item--link' : '') + '"' + href + '>' +
+        return '<' + tag + ' class="dw-summary-item reveal' + (item.href ? ' dw-summary-item--link' : '') + '"' + href + ' style="--i:' + i + '">' +
           '<span class="dw-summary-value">' + esc(item.num) + '</span><span class="dw-summary-label">' + esc(item.label) + '</span>' +
           renderCounterDelta(item.delta) + '</' + tag + '>';
       }).join('') + '</div>' +

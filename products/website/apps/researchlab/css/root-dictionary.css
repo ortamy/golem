@@ -48,7 +48,7 @@
 
 /* Dark theme adjustments */
 [data-theme="dark"] .rd-image { background: var(--bg-tertiary); }
-[data-theme="dark"] .rd-subs { background: rgb(var(--accent-gold-rgb) / ); }
+[data-theme="dark"] .rd-subs { background: rgb(var(--accent-gold-rgb) / 0.14); }
 
 @media (min-width: 768px) {
   #rd-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }

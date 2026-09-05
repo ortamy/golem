@@ -28,13 +28,21 @@
 }
 .br-card {
   display: flex;
-  gap: .75rem;
+  gap: .65rem;
   align-items: flex-start;
-  padding: 1rem;
-  border: 1px solid var(--border-light, rgba(70, 55, 35, .2));
+  padding: 14px 16px;
+  border: 1px solid var(--border-light, rgba(70, 55, 35, .15));
   border-top: 2px solid var(--br-accent);
-  background: var(--bg-card, rgba(255, 252, 244, .65));
-  line-height: 1.55;
+  border-radius: 8px;
+  background: var(--bg-card, rgba(255, 252, 244, .7));
+  box-shadow: var(--shadow-card);
+  line-height: 1.5;
+  transition: transform var(--dur-2) var(--ease-standard),
+              box-shadow var(--dur-2) var(--ease-standard);
+}
+.br-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
 }
 .br-card-icon, .br-timeline-number, .br-accordion-marker {
   color: var(--br-accent);

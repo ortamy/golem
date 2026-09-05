@@ -343,6 +343,9 @@ const LabRouter = (function() {
     // PageController и LabHero могут обновить шапку асинхронно.
     window.setTimeout(function() { renderBreadcrumbs(moduleId, parseHash()); }, 0);
     window.setTimeout(function() { renderBreadcrumbs(moduleId, parseHash()); }, 80);
+    window.setTimeout(function() {
+      if (window.RevealObserver) window.RevealObserver.scan(modules[moduleId]);
+    }, 120);
 
     // Прокрутка вверх
     window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -6,7 +6,7 @@
   gap: 18px;
   margin: 0 0 24px;
   padding: 32px;
-  color: var(--text-light);
+  color: var(--text-on-dark);
   background: var(--bg-dark);
   border: 1px solid var(--border-dark);
   border-radius: 12px;
@@ -105,7 +105,7 @@
   align-items: center;
   min-height: 30px;
   padding: 4px 10px;
-  color: var(--text-light);
+  color: var(--text-on-dark);
   border: 1px solid var(--border-dark);
   border-radius: 999px;
   font-family: var(--font-mono);

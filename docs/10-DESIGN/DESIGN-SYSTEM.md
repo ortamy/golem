@@ -280,13 +280,53 @@ Focus: граница `--accent-gold` + `box-shadow: 0 0 0 2px rgba(184,134,11,0
 - `spin` (1s linear infinite) — вращение спиннера
 - `modalIn` (0.25s ease) — scale + translateY при открытии модалки
 
+## 6.1 Слой «современный манускрипт» (Этап B)
+
+Новый слой токенов и базовых классов по `tasks/design-inspiration.md`. Применение к модулям — Этап C (задача 5); на Этапе B модули не затрагивались.
+
+### Новые токены (tokens.css, секция «Слой современного манускрипта»)
+
+| Токен | Значение | Источник-техника |
+|---|---|---|
+| `--grad-parchment` | `linear-gradient(135deg, bg-secondary, bg-primary 55%, bg-tertiary)` | №1 hypercolor-адаптация |
+| `--grad-dark` | `linear-gradient(160deg, bg-dark, bg-dark-hover)` | №1 |
+| `--grad-gold-cta` | золото 8b6508→b8860b→d4a030 (тёмная: b8860b→d4a030) | №1/17 |
+| `--texture-noise` | SVG fractal-noise data-URI, тайл 160px, opacity 0.05 | №2 transparenttextures |
+| `--card-spacing` / `--card-spacing-lg` | `16px` / `24px` | №7 shadcn |
+| `--dur-3`, `--ease-standard`, `--motion-lift`, `--motion-reveal` | `480ms`, `cubic-bezier(0.4,0,0.2,1)`, `300ms`, `480ms` | №9/11 |
+| `--text-hero`, `--text-section`, `--glyph-hero` | `clamp(2.25rem,5vw,3.5rem)`, `clamp(1.75rem,3vw,2.5rem)`, `clamp(4rem,10vw,8rem)` | №13 |
+| `--glow-glyph`, `--glow-edge` | `none` (светлые) / золотой glow (тёмная) | №18 |
+
+### Новые базовые классы (lab.css)
+
+| Класс | Назначение | Техника |
+|---|---|---|
+| `.lab-kicker` | caps-kicker: золото, tracking, xs | №14 |
+| `.glyph-inline` | палео-глиф в строке: 1.35em, золотой | №16 |
+| `.lab-noise` / `.lab-noise-dark` | фон: noise-тайл поверх градиента (два слоя background-image) | №1+2 |
+| `.reveal` + `.is-visible` | вход: opacity+translateY(16px), stagger `--i`×90ms; триггер — IO в Этапе C | №11 |
+| `.glow-glyph` | text-shadow glow (тёмная тема) | №18 |
+| `.lab-frame-gold` | золотая градиентная рамка (padding-box/border-box) | №10 |
+| `.lab-btn-cta` | градиентная CTA: lift −2px, press scale(0.97) | №9/17/19 |
+| `.lab-shimmer` | блик на CTA (::after, 1.8s, пауза 4s) | №17 |
+| `.lab-badge` + `--confirmed/--hypothesis/--disputed` | pill-бейджи уверенности (эмет/шекер) | №15 |
+
+### Политика reduced-motion
+
+`prefers-reduced-motion: reduce` отключает `.reveal`-сдвиг, shimmer и CTA-lift точечно (глобальный запрет не вводился, чтобы не конфликтовать с существующими анимациями модулей).
+
+### Применение слоя (Этап C, 2026-09-04)
+
+Пилот (hero Рабочего стола) одобрен пользователем; слой применён к **всем модульным hero** через `css/manuscript.css` (скоуп `[data-lab-hero]`, подключён в `lab.css`). Использовано: `--grad-dark` + `--texture-noise`, заголовок `--text-light` по `--text-hero` (иерархия размером, не цветом), подзаголовок 56ch/1.7, глиф-монограмма א (Пховел, U+10900) как единственный фирменный акцент; на ≤640px watermark скрыт. Эффекты-кандидаты (`.lab-shimmer`, `.glow-glyph`, `.lab-frame-gold`, aurora, spotlight) — **не применены** как противоречащие минимализму; классы остаются в lab.css для точечных решений. Кадры «после»: `tasks/pilot/after-*.png`; smoke:quick после раскатки — 9/9.
+
 ---
+
 
 ## 7. Иконки
 
 ### Фактическое расположение
 
-Иконки лежат не в `researchlab/`, а на уровень выше, в `products/website/assets/icons/32/`, и используются из researchlab через относительный путь `../assets/icons/32/<pack>/<name>`. Единственный используемый в коде размер на диске — **32px** (папка `32/`); других размерных папок (`20/`, `24/`, `48/`) не существует — нужный размер получают атрибутами `width`/`height` у одного и того же файла.
+Иконки лежат не в `researchlab/`, а на уровень выше, в `products/website/assets/icons/32/`, и используются из researchlab через относительный путь `../assets/icons/32/<pack>/<name>`. Единственный используемый в коде размер на диске — **32px** (папка `32/`); других размерных папок (`20/`, `24/`, `48/`) не существует — нужный размер получают атрибутами `width`/`height` у одного и того же файла. Для изолированного smoke-сервера (корень = `researchlab/`) в `apps/researchlab/assets/` существует локальное зеркало иконок 32px и логотипа (Этап A2) — ссылки при этом не менялись.
 
 ### Размеры применения (из кода)
 
