@@ -1,6 +1,6 @@
 """Переводчик палео-иврита: собирает буквы в образ; на повторе перечитывает образ как термин."""
 from .common import record
-from utils.context import find_root
+from utils.context import find_root, root_letters
 
 
 def translate(data):
@@ -18,7 +18,7 @@ def translate(data):
             source = found.get("root", source)
 
     return record(data, "paleo_translator", paleo_image={
-        "letters": root.get("letters", ""),
+        "letters": root_letters(root),
         "meaning": root.get("meaning", "образ не найден; нужна ручная сборка"),
         "method": "последовательность функций букв",
         "depth": iteration if data.get("recursive") and iteration > 1 else 0,
