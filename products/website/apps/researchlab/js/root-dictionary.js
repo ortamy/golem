@@ -102,7 +102,7 @@ const RootDict = (function() {
     var pageItems = filtered.slice(start, start + PER_PAGE);
     var html = '';
     pageItems.forEach(function(r) {
-      html += '<div class="rd-card"><div class="rd-card-header">';
+      html += '<article class="rd-card" data-root-id="' + escapeHtml(r.root) + '" tabindex="0" role="button" aria-label="Открыть этимологический разбор: ' + escapeHtml(r.root) + '"><div class="rd-card-header">';
 
       // Paleo symbols рядом с корнем
       if (r.paleo && r.paleo.length > 0) {
@@ -138,9 +138,10 @@ const RootDict = (function() {
         r.examples.forEach(function(ex) { html += '<li>' + ex + '</li>'; });
         html += '</ul>';
       }
-      html += '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" onclick="RootsSearch.graph(\'' + encodeURIComponent(r.translit) + '\')">Связи</button></div>';
+      html += '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm rd-graph-button" onclick="event.stopPropagation();RootsSearch.graph(\'' + encodeURIComponent(r.translit) + '\')">Связи</button></div></article>';
     });
     list.innerHTML = html;
+    if (window.RootEtymologyModal) window.RootEtymologyModal.bind(list);
     if (pagination) {
       var pHtml = '';
       if (totalPages > 1) {
@@ -150,7 +151,8 @@ const RootDict = (function() {
         }
         pHtml += '<button class="rd-page-btn" onclick="RootsSearch.goTo(' + (currentPage + 1) + ')" ' + (currentPage >= totalPages ? 'disabled' : '') + '>→</button>';
       }
-      pagination.innerHTML = pHtml;
+      list.innerHTML = html;
+      if (window.RootEtymologyModal) window.RootEtymologyModal.bind(list);
     }
   }
 

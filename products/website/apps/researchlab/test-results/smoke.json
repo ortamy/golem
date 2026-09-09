@@ -4,7 +4,8 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "tests/smoke.spec.js"
+      "tests/smoke.spec.js",
+      "root etymology modal"
     ],
     "configFile": "C:\\Users\\DELL\\Desktop\\golem\\products\\website\\apps\\researchlab\\playwright.config.js",
     "rootDir": "C:/Users/DELL/Desktop/golem/products/website/apps/researchlab/tests",
@@ -17,18 +18,14 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {
-      "actualWorkers": 1
-    },
+    "metadata": {},
     "preserveOutput": "always",
     "projects": [
       {
         "outputDir": "C:/Users/DELL/Desktop/golem/products/website/apps/researchlab/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
+        "metadata": {},
         "id": "smoke",
         "name": "smoke",
         "testDir": "C:/Users/DELL/Desktop/golem/products/website/apps/researchlab/tests",
@@ -71,379 +68,17 @@
       "timeout": 120000
     }
   },
-  "suites": [
+  "suites": [],
+  "errors": [
     {
-      "title": "smoke.spec.js",
-      "file": "smoke.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "agent server offline shows Сервер отключен without uncaught errors",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 90000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "smoke",
-              "projectName": "smoke",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2008,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-07T11:27:35.394Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "2c14808d47b386fba9eb-6004d79a05aad60492c7",
-          "file": "smoke.spec.js",
-          "line": 81,
-          "column": 1
-        }
-      ],
-      "suites": [
-        {
-          "title": "registered routes",
-          "file": "smoke.spec.js",
-          "line": 68,
-          "column": 6,
-          "specs": [
-            {
-              "title": "route #dashboard renders without uncaught errors",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "smoke",
-                  "projectName": "smoke",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5047,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-07T11:25:58.919Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2c14808d47b386fba9eb-ed0c6f55e19166a05ee9",
-              "file": "smoke.spec.js",
-              "line": 70,
-              "column": 5
-            },
-            {
-              "title": "route #workbench renders without uncaught errors",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "smoke",
-                  "projectName": "smoke",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3940,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-07T11:26:04.629Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2c14808d47b386fba9eb-8acd6a034ac00bcd5812",
-              "file": "smoke.spec.js",
-              "line": 70,
-              "column": 5
-            },
-            {
-              "title": "route #researches renders without uncaught errors",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "smoke",
-                  "projectName": "smoke",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6759,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-07T11:26:08.648Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2c14808d47b386fba9eb-d76e4abcdba77fd474f8",
-              "file": "smoke.spec.js",
-              "line": 70,
-              "column": 5
-            },
-            {
-              "title": "route #root-dictionary renders without uncaught errors",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "smoke",
-                  "projectName": "smoke",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 60988,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-07T11:26:15.458Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2c14808d47b386fba9eb-017755668829e2cedd2f",
-              "file": "smoke.spec.js",
-              "line": 70,
-              "column": 5
-            },
-            {
-              "title": "route #scripture-reader renders without uncaught errors",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "smoke",
-                  "projectName": "smoke",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4804,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-07T11:27:16.504Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2c14808d47b386fba9eb-638f9abc6bb3b98a54bd",
-              "file": "smoke.spec.js",
-              "line": 70,
-              "column": 5
-            },
-            {
-              "title": "route #cartography renders without uncaught errors",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "smoke",
-                  "projectName": "smoke",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5931,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-07T11:27:21.416Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2c14808d47b386fba9eb-845c7aa6ca8dd18a915a",
-              "file": "smoke.spec.js",
-              "line": 70,
-              "column": 5
-            },
-            {
-              "title": "route #pipelines renders without uncaught errors",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "smoke",
-                  "projectName": "smoke",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3930,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-07T11:27:27.440Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2c14808d47b386fba9eb-9ec3e8a8156524465488",
-              "file": "smoke.spec.js",
-              "line": 70,
-              "column": 5
-            },
-            {
-              "title": "route #club renders without uncaught errors",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "smoke",
-                  "projectName": "smoke",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3898,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-07T11:27:31.448Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2c14808d47b386fba9eb-9fb259d42946562fe214",
-              "file": "smoke.spec.js",
-              "line": 70,
-              "column": 5
-            }
-          ]
-        },
-        {
-          "title": "checkers module cards",
-          "file": "smoke.spec.js",
-          "line": 92,
-          "column": 6,
-          "specs": [
-            {
-              "title": "clicking a module card sets location.hash to its route",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 90000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "smoke",
-                  "projectName": "smoke",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 16428,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-09-07T11:27:37.450Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2c14808d47b386fba9eb-b40d97ebde6e73c9ad98",
-              "file": "smoke.spec.js",
-              "line": 96,
-              "column": 3
-            }
-          ]
-        }
-      ]
+      "message": "Error: Timed out waiting 120000ms from config.webServer.",
+      "stack": "Error: Timed out waiting 120000ms from config.webServer."
     }
   ],
-  "errors": [],
   "stats": {
-    "startTime": "2026-09-07T11:25:55.936Z",
-    "duration": 118528.29699999999,
-    "expected": 10,
+    "startTime": "2026-09-09T22:24:13.919Z",
+    "duration": 121009.84899999999,
+    "expected": 0,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

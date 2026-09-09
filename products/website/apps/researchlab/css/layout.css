@@ -295,6 +295,19 @@
 [data-theme="dark"] .sidebar-item.active {
   background: rgb(var(--accent-gold-rgb) / 0.14);
 }
+/* Пульс-точка активности живого модуля (палео-клуб): transform/opacity, без layout */
+.sidebar-item[data-module="club"] .club-live-dot {
+  width: 8px; height: 8px; flex-shrink: 0; border-radius: 50%;
+  background: var(--accent-gold);
+  animation: club-dot-pulse 2.2s ease-in-out infinite;
+}
+@keyframes club-dot-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgb(var(--accent-gold-rgb) / 0); }
+  50% { transform: scale(1.35); box-shadow: 0 0 0 5px rgb(var(--accent-gold-rgb) / 0.16); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-item[data-module="club"] .club-live-dot { animation: none; }
+}
 .sidebar-item .icon { font-size: var(--text-base); width: 20px; text-align: center; flex-shrink: 0; }
 .sidebar-item .icon img {
   display: block;

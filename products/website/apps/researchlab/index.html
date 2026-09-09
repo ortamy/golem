@@ -143,7 +143,7 @@
     <a href="#manifest" class="sidebar-item sidebar-item-top" data-module="manifest"><i data-lucide="scroll-text" class="lab-icon" aria-hidden="true"></i>Манифест</a>
     <a href="#dashboard" class="sidebar-item sidebar-item-top" data-module="dashboard"><i data-lucide="layout-grid" class="lab-icon" aria-hidden="true"></i>Рабочий стол</a>
     <a href="#workbench" class="sidebar-item sidebar-item-top" data-module="workbench"><i data-lucide="hammer" class="lab-icon" aria-hidden="true"></i>Мастерская</a>
-    <a href="#club" class="sidebar-item sidebar-item-top" data-module="club"><i data-lucide="footprints" class="lab-icon" aria-hidden="true"></i>Палео-клуб</a>
+    <a href="#club" class="sidebar-item sidebar-item-top" data-module="club"><i data-lucide="footprints" class="lab-icon" aria-hidden="true"></i>Палео-клуб<span class="club-live-dot" aria-hidden="true"></span></a>
     <div class="sidebar-section">
       <div class="sidebar-section-header" data-section="data">
         <i data-lucide="book-open" class="icon" aria-hidden="true"></i>
@@ -293,6 +293,7 @@
 <script defer src="js/lab-hero.js?v=20260903-hero"></script>
 <script defer src="js/root-graph.js"></script>
 <script defer src="js/root-dictionary.js"></script>
+<script defer src="js/root-etymology-modal.js"></script>
 <script defer src="js/paleo-glossary.js"></script>
 <script defer src="js/state-checker.js"></script>
 <script defer src="js/exposure-editor.js"></script>
@@ -413,17 +414,31 @@ const LabTheme = {
 
 // ===== LAB MODAL =====
 const LabModal = {
+  lastFocused: null,
   show: function(title, body, footerHTML) {
+    this.lastFocused = document.activeElement;
     document.getElementById('modalTitle').innerHTML = title;
     document.getElementById('modalBody').innerHTML = body;
     var footer = document.getElementById('modalFooter');
     footer.innerHTML = footerHTML || '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabModal.close()">Закрыть</button>';
-    document.getElementById('labModal').classList.add('show');
+    var modal = document.getElementById('labModal');
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    var close = modal.querySelector('.modal-close');
+    if (close) close.focus();
   },
   close: function() {
-    document.getElementById('labModal').classList.remove('show');
+    var modal = document.getElementById('labModal');
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    if (this.lastFocused && typeof this.lastFocused.focus === 'function') this.lastFocused.focus();
   }
 };
+
+document.addEventListener('keydown', function(event) {
+  var modal = document.getElementById('labModal');
+  if (event.key === 'Escape' && modal && modal.classList.contains('show')) LabModal.close();
+});
 
 // ===== LAB EXPORT =====
 const LabExport = {

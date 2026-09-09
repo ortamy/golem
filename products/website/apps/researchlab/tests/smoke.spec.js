@@ -89,6 +89,59 @@ test('agent server offline shows Сервер отключен without uncaught 
   expect(errors).toEqual([]);
 });
 
+test.describe('root etymology modal', () => {
+  test('loads pilot data, caches it, and handles keyboard/backdrop close', async ({ page }) => {
+    let requests = 0;
+    page.on('request', (request) => {
+      if (request.url().includes('/data/roots/etymology/')) requests += 1;
+    });
+    await page.route('**/data/roots/etymology/**', async (route) => {
+      await route.continue();
+    });
+    await page.goto('/#root-dictionary/search/AV', { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('[data-root-id="אב"]', { timeout: 20_000 });
+    const card = page.locator('[data-root-id="אב"]');
+    await card.press('Enter');
+    await expect(page.locator('#labModal')).toHaveClass(/show/);
+    await expect(page.locator('#modalBody')).toContainText('Пра-форма');
+    expect(requests).toBe(1);
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#labModal')).not.toHaveClass(/show/);
+    await card.press(' ');
+    await expect(page.locator('#modalBody')).toContainText('Когнаты');
+    expect(requests).toBe(1);
+    await page.mouse.click(5, 5);
+    await expect(page.locator('#labModal')).not.toHaveClass(/show/);
+  });
+
+  test('shows the unpublished fallback for a root without etymology data', async ({ page }) => {
+    const roots = require('../data/roots/roots.json');
+    const fs = require('node:fs');
+    const path = require('node:path');
+    const root = roots.find((item) => !fs.existsSync(path.join(__dirname, '..', 'data', 'roots', 'etymology', `${item.root}.json`)));
+    await page.goto(`/#root-dictionary/search/${encodeURIComponent(root.translit)}`, { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector(`[data-root-id="${root.root}"]`, { timeout: 20_000 });
+    await page.locator(`[data-root-id="${root.root}"]`).click();
+    await expect(page.locator('#modalBody')).toContainText('Разбор готовится');
+  });
+
+  test('retries a failed etymology request', async ({ page }) => {
+    let requests = 0;
+    await page.route('**/data/roots/etymology/**', async (route) => {
+      requests += 1;
+      if (requests === 1) return route.abort();
+      return route.continue();
+    });
+    await page.goto('/#root-dictionary/search/AM', { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('[data-root-id="אם"]', { timeout: 20_000 });
+    await page.locator('[data-root-id="אם"]').click();
+    await expect(page.locator('[data-rem-retry]')).toBeVisible();
+    await page.locator('[data-rem-retry]').click();
+    await expect(page.locator('#modalBody')).toContainText('Семантические сдвиги');
+    expect(requests).toBe(2);
+  });
+});
+
 test.describe('checkers module cards', () => {
   // Поведенческая проверка: клик по карточке-модулю на #checkers меняет
   // location.hash на её маршрут. Селектор `.gc-card[href^="#"]` берёт только
