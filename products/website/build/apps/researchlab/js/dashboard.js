@@ -8,6 +8,9 @@ const Dashboard = (function() {
 
   var loaded = false;
   var reloading = false;
+  // Dashboard needs a lightweight overview. Full scripture corpus is over 117 MB;
+  // load books only in their dedicated route.
+  var MAX_PROGRESS_BOOKS = 0;
 
   function esc(text) {
     var d = document.createElement('div');
@@ -32,7 +35,10 @@ const Dashboard = (function() {
   }
 
   function loadBookProgress(books, forceReload) {
-    return Promise.all((books || []).map(function(book) {
+    return Promise.all((books || []).map(function(book, index) {
+      if (index >= MAX_PROGRESS_BOOKS) {
+        return Promise.resolve({ book: book, status: 'not-started', verses: [], percent: 0 });
+      }
       var path = bookDataPath(book);
       if (!path) return Promise.resolve({ book: book, status: 'not-started', verses: [], percent: 0 });
 
@@ -145,10 +151,10 @@ const Dashboard = (function() {
     return '<section class="dw-summary" aria-labelledby="dw-summary-title">' +
       '<div class="dw-summary-heading"><div><span class="dw-summary-kicker">Срез корпуса</span><h2 id="dw-summary-title">Сводка исследований</h2></div>' +
         '<span class="dw-summary-date">' + esc(researchMetrics.referenceDate ? 'Срез данных: ' + researchMetrics.referenceDate : 'Дата среза не указана') + '</span></div>' +
-      '<div class="dw-summary-grid">' + items.map(function(item) {
+      '<div class="dw-summary-grid">' + items.map(function(item, i) {
         var tag = item.href ? 'a' : 'div';
         var href = item.href ? ' href="' + item.href + '"' : '';
-        return '<' + tag + ' class="dw-summary-item' + (item.href ? ' dw-summary-item--link' : '') + '"' + href + '>' +
+        return '<' + tag + ' class="dw-summary-item reveal' + (item.href ? ' dw-summary-item--link' : '') + '"' + href + ' style="--i:' + i + '">' +
           '<span class="dw-summary-value">' + esc(item.num) + '</span><span class="dw-summary-label">' + esc(item.label) + '</span>' +
           renderCounterDelta(item.delta) + '</' + tag + '>';
       }).join('') + '</div>' +

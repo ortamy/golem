@@ -13,11 +13,6 @@ const EdChat = (function() {
     gemini: { name: 'Gemini', style: 'с образными аналогиями и несколькими ракурсами' }
   };
   const DEFAULT_PROMPT = 'Палео-исследовательский режим: возвращать физику образа, показывать подмены и отделять факт от гипотезы.';
-  const DEMO_RESPONSES = [
-    'Запрос принят. Разберу его через образ, движение и возможную подмену смысла.',
-    'Вижу здесь несколько слоёв. Сначала отделю наблюдаемое от интерпретации, затем проверю связь корней.',
-    'Для точного разбора нужен контекст: кто действует, что меняется и какое движение скрыто за формулировкой.'
-  ];
 
   let messages = [];
   let settings = { model: 'claude', prompt: DEFAULT_PROMPT };
@@ -159,8 +154,12 @@ const EdChat = (function() {
   }
 
   function createResponse(text) {
-    const sample = DEMO_RESPONSES[messages.length % DEMO_RESPONSES.length];
-    return model().name + ': ' + sample + '\n\nФокус ответа: ' + model().style + '.\nПромпт: ' + settings.prompt + '\n\nИсходный запрос: «' + text + '»';
+    // Честный статус вместо выдуманного ответа модели:
+    // локальный EdChat не вызывает LLM — только демонстрирует интерфейс.
+    const current = model();
+    return '⚠️ Демо-режим: сервер нейросети «Эд» не подключён, реального ответа нет.\n\n' +
+      'Выбранная модель: ' + current.name + ' · ' + current.style + '.\n' +
+      'Промпт: ' + settings.prompt + '\n\nИсходный запрос: «' + text + '»';
   }
 
   function saveMessages() {

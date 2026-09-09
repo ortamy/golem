@@ -223,13 +223,13 @@
 .scripture-paleo-letter:focus-visible {
   outline: none;
   border-color: var(--accent-gold);
-  background: rgb(var(--accent-gold-rgb) / );
+  background: rgb(var(--accent-gold-rgb) / 0.12);
 }
 
 .scripture-paleo-letter.is-selected {
   color: var(--accent-gold);
   border-color: var(--accent-gold);
-  background: rgb(var(--accent-gold-rgb) / );
+  background: rgb(var(--accent-gold-rgb) / 0.12);
 }
 
 .scripture-hebrew {
@@ -743,7 +743,7 @@
 
 .scripture-physics-trigger:hover,
 .scripture-physics-trigger:focus-visible {
-  background: rgb(var(--accent-gold-rgb) / );
+  background: rgb(var(--accent-gold-rgb) / 0.12);
 }
 
 .scripture-physics-trigger:focus-visible,

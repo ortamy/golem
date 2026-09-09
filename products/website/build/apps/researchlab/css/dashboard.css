@@ -2,18 +2,17 @@
 
 .dashboard-widgets { margin-bottom: 40px; }
 
-.dw-summary { margin-bottom: var(--space-6); padding: 18px 20px 0; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); box-shadow: var(--shadow-soft); }
-.dw-summary-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding-bottom: 14px; }
-.dw-summary-kicker { display: block; color: var(--accent-gold); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; }
-.dw-summary-heading h2 { margin: 3px 0 0; color: var(--text-primary); font-family: var(--font-heading); font-size: 22px; font-weight: 600; }
-.dw-summary-date { flex-shrink: 0; color: var(--text-muted); font-family: var(--font-mono); font-size: var(--text-xs); }
-.dw-summary-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--border-light); }
-.dw-summary-item { min-width: 0; padding: 16px 14px 18px; color: var(--text-primary); text-align: center; text-decoration: none; }
-.dw-summary-item + .dw-summary-item { border-left: 1px solid var(--border-light); }
-.dw-summary-item--link:hover, .dw-summary-item--link:focus-visible { background: rgb(var(--accent-gold-rgb) / 0.10); outline: none; }
-.dw-summary-value { display: block; color: var(--accent-gold); font-family: var(--font-heading); font-size: 34px; font-weight: 700; line-height: 1; }
-.dw-summary-label { display: block; margin-top: 7px; color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 1px; line-height: 1.25; text-transform: uppercase; }
-.dw-counter-delta { display: block; min-height: 17px; margin-top: 7px; color: var(--text-muted); font-size: 11px; line-height: 1.2; }
+.dw-summary { margin-bottom: var(--space-5); padding: 14px 16px 0; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; box-shadow: var(--shadow-card); }
+.dw-summary-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding-bottom: 10px; }
+.dw-summary-kicker { display: block; color: var(--accent-gold); font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.dw-summary-heading h2 { margin: 2px 0 0; color: var(--text-primary); font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; }
+.dw-summary-date { flex-shrink: 0; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.7rem; }
+.dw-summary-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.dw-summary-item { min-width: 0; padding: 12px 10px; text-align: center; text-decoration: none; color: var(--text-primary); background: var(--bg-tertiary, #f7f1e5); border-radius: 6px; box-shadow: var(--shadow-card); transition: transform var(--dur-2) var(--ease-standard), box-shadow var(--dur-2) var(--ease-standard); }
+.dw-summary-item--link:hover, .dw-summary-item--link:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-hover); outline: none; }
+.dw-summary-value { display: block; color: var(--text-primary); font-family: var(--font-heading); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+.dw-summary-label { display: block; margin-top: 6px; color: var(--text-muted); font-size: 0.65rem; letter-spacing: 0.05em; line-height: 1.25; text-transform: uppercase; }
+.dw-counter-delta { display: block; min-height: 14px; margin-top: 4px; color: var(--text-muted); font-size: 0.7rem; line-height: 1.2; }
 .dw-counter-delta--up { color: #5e7d3a; }
 
 .dw-grid {
@@ -41,9 +40,12 @@
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;
 }
 .dw-metric {
-  display: flex; flex-direction: column; gap: 3px; min-width: 0;
-  padding: 10px 12px; border-left: 3px solid var(--border-light); background: var(--bg-tertiary);
+  display: flex; flex-direction: column; gap: 4px; min-width: 0;
+  padding: 12px 14px; border-left: 3px solid var(--border-light); background: var(--bg-tertiary);
+  border-radius: var(--radius-sm); box-shadow: var(--shadow-card);
+  transition: transform var(--dur-2) var(--ease-standard), box-shadow var(--dur-2) var(--ease-standard);
 }
+.dw-metric:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
 .dw-metric-value { color: var(--text-primary); font-family: var(--font-heading); font-size: 25px; font-weight: 700; line-height: 1; }
 .dw-metric-label { color: var(--text-muted); font-size: var(--text-xs); line-height: 1.25; }
 .dw-metric--new, .dw-metric--verified { border-left-color: var(--accent-gold); }

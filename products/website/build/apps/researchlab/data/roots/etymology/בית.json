@@ -1,0 +1,19 @@
+{
+  "proto": "*bayt-",
+  "cognates": [
+    { "lang": "Аккадский", "form": "bītu", "meaning": "дом" },
+    { "lang": "Арабский", "form": "bayt", "meaning": "дом, жилище" },
+    { "lang": "Угаритский", "form": "bt", "meaning": "дом" }
+  ],
+  "stages": [
+    { "period": "Прасемитский", "form": "*bayt-", "note": "жилище и домохозяйство" },
+    { "period": "Библейский иврит", "form": "בית", "note": "дом, семейное или институциональное пространство" }
+  ],
+  "shifts": [
+    { "from": "жилище", "to": "семья/дом", "type": "расширение" },
+    { "from": "дом", "to": "учреждение", "type": "метонимия" }
+  ],
+  "confidence": "fact",
+  "sources": ["HALOT, בית", "Semitic languages: an international handbook"],
+  "notes": "В текущем roots.json карточка בית отсутствует; файл подготовлен как пилот для следующей поставки словаря."
+}

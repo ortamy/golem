@@ -10,16 +10,21 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>
     // Тема до первой отрисовки: общий с лабом ключ golem_theme.
+    // Набор тем: белая (white) / бежевая (beige) / коричневая (brown) / чёрная (dark).
+    // Устаревшая 'parchment' больше не существует — бесшумно приводим к белой.
     try {
       var __golemTheme = localStorage.getItem('golem_theme');
-      if (__golemTheme === 'parchment' || __golemTheme === 'white' || __golemTheme === 'dark') {
+      if (__golemTheme === 'parchment') __golemTheme = 'white';
+      if (__golemTheme === 'white' || __golemTheme === 'beige' || __golemTheme === 'brown' || __golemTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', __golemTheme);
       }
     } catch (e) {}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <!-- Шрифты НЕблокирующе: при недоступной сети Google Fonts страница не зависает. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"></noscript>
   <link rel="stylesheet" href="apps/researchlab/css/lab.css">
   <meta property="og:title" content="Golem — исследовательская платформа">
   <meta property="og:description" content="Возвращаем тексту его физику: образ, движение, состояние и переход.">
@@ -48,7 +53,28 @@
       --shadow: 0 18px 45px rgba(45, 31, 20, .10);
       --max: 1180px;
     }
-    /* Пергаментная тема сохраняет существующую бежевую палитру. */
+    /* Пастельная бежевая тема. */
+    [data-theme="beige"] {
+      --paper: #f6efdf;
+      --paper-deep: #e9dcbd;
+      --paper-light: #faf4e6;
+      --chocolate: #3a2b17;
+      --chocolate-soft: #6a563a;
+      --muted: #9c8766;
+      --line: rgba(58, 43, 23, .16);
+      --shadow: 0 18px 45px rgba(58, 43, 23, .10);
+    }
+    [data-theme="brown"] {
+      --paper: #3b2a18;
+      --paper-deep: #4f3a23;
+      --paper-light: #45321d;
+      --chocolate: #f3e9d6;
+      --chocolate-soft: #d8c6a6;
+      --muted: #b09b78;
+      --line: rgba(243, 233, 214, .18);
+      --shadow: 0 18px 45px rgba(0, 0, 0, .22);
+    }
+    /* Legacy parchment value is kept as an alias for old bookmarks. */
     [data-theme="parchment"] {
       --paper: #faf3e0;
       --paper-deep: #f0e6cc;
@@ -98,6 +124,16 @@
     [data-theme="white"] .footer-slogan,
     [data-theme="white"] .footer-bottom {
       color: var(--chocolate-soft);
+    }
+    /* Цвет логотипа соответствует поверхности шапки каждой темы. */
+    .lab-header .logo img[src*="golem-logo"] {
+      filter: brightness(0) invert(1);
+    }
+    [data-theme="white"] .lab-header .logo img[src*="golem-logo"] {
+      filter: brightness(0);
+    }
+    [data-theme="beige"] .lab-header .logo img[src*="golem-logo"] {
+      filter: invert(29%) sepia(19%) saturate(1090%) hue-rotate(348deg) brightness(83%) contrast(88%);
     }
     *, *::before, *::after { box-sizing: border-box; }
     html { min-width: 320px; scroll-behavior: smooth; }
@@ -660,7 +696,7 @@
       line-height: 1.5;
       text-align: center;
     }
-    .portal-form, #portalForm { display: grid; gap: 18px; }
+    .portal-form { display: grid; gap: 18px; }
     .portal-field { display: grid; gap: 6px; }
     .portal-field label {
       color: var(--chocolate-soft);
@@ -869,11 +905,11 @@
     <div class="club-matrix-edge club-matrix-edge--right" aria-hidden="true"><span class="club-matrix-column">𐤕<br>𐤔<br>𐤓<br>𐤒<br>𐤑<br>𐤐<br>𐤏<br>𐤎<br>𐤍<br>𐤌<br>𐤋<br>𐤊<br>𐤕<br>𐤔<br>𐤓<br>𐤒<br>𐤑<br>𐤐<br>𐤏<br>𐤎</span><span class="club-matrix-column">𐤀<br>𐤁<br>𐤂<br>𐤃<br>𐤄<br>𐤅<br>𐤆<br>𐤇<br>𐤈<br>𐤉<br>𐤊<br>𐤋<br>𐤀<br>𐤁<br>𐤂<br>𐤃<br>𐤄<br>𐤅<br>𐤆<br>𐤇</span><span class="club-matrix-column">𐤇<br>𐤆<br>𐤅<br>𐤄<br>𐤃<br>𐤂<br>𐤁<br>𐤀<br>𐤉<br>𐤊<br>𐤋<br>𐤌<br>𐤇<br>𐤆<br>𐤅<br>𐤄<br>𐤃<br>𐤂<br>𐤁<br>𐤀</span></div>
     <button class="club-banner-close" id="clubBannerClose" type="button" aria-label="Закрыть новость">×</button>
     <div class="club-banner-content">
-      <p class="club-banner-copy"><strong>ПАЛЕО-КЛУБ</strong> — скоро открытие.</p>
+      <p class="club-banner-copy"><strong>ПАЛЕО-КЛУБ</strong> — скоро открытие</p>
     </div>
   </aside>
   <header class="lab-header">
-    <a href="./" class="logo" aria-label="Golem — на главную"><img src="assets/images/golem-logo-2.png" alt="ГОЛЕМ" style="height: 40px; width: auto;"><span class="golem-beta" aria-label="Бета-версия">BETA</span></a>
+<a href="./" class="logo" aria-label="Golem — на главную"><img src="assets/images/golem-logo.svg" alt="Golem" style="height: 40px; width: auto;"><span class="golem-beta" aria-label="Бета-версия">BETA</span></a>
 
     <nav class="desktop-anchor-nav" aria-label="Разделы лендинга"><a href="#map">Карта</a><a href="#mechanics">Механика</a><a href="#club">Клуб</a><a href="#tools">Инструменты</a></nav>
     <nav>
@@ -1075,19 +1111,11 @@
       <button class="portal-close" type="button" aria-label="Закрыть" id="portalClose">×</button>
       <div class="portal-brand">ГОЛЕМ</div>
       <h2 class="portal-heading" id="portalTitle">Исследовательская лаборатория</h2>
-      <p class="portal-desc">Войдите, чтобы продолжить работу с исследовательскими инструментами.</p>
-      <form id="portalForm">
-        <div class="portal-field">
-          <label for="portalId">Идентификатор</label>
-          <input class="portal-input" id="portalId" name="id" type="text" autocomplete="username" placeholder="Ваш идентификатор" required>
-        </div>
-        <div class="portal-field">
-          <label for="portalKey">Ключ доступа</label>
-          <input class="portal-input" id="portalKey" name="key" type="password" autocomplete="current-password" placeholder="Ключ доступа" required>
-        </div>
-        <button class="portal-btn portal-btn-primary" type="submit">Войти</button>
-        <a class="portal-btn portal-btn-ghost" href="apps/researchlab/index.html#dashboard">Гостевой режим</a>
-      </form>
+      <p class="portal-desc">Вход не требуется — Лаборатория открыта для всех. Роли «исследователь / админ» настраиваются внутри (гостевой режим по умолчанию).</p>
+      <div class="portal-form portal-actions">
+        <a class="portal-btn portal-btn-primary" href="apps/researchlab/index.html#dashboard">Перейти в Лабораторию</a>
+        <a class="portal-btn portal-btn-ghost" href="apps/researchlab/index.html#manifest">Читать Манифест</a>
+      </div>
     </div>
   </div>
 
@@ -1121,22 +1149,22 @@
   <button class="back-to-top" id="backToTop" type="button" aria-label="Наверх">↑</button>
 
   <script>
-    // Тема сайта: цикл light → white → dark, как LabTheme в лабе. Общий ключ golem_theme.
+    // Тема сайта: общий с Research Lab цикл white → beige → brown → dark.
     const themeButtons = [
       document.querySelector('#themeBtn'),
       document.querySelector('#themeBtnMobile')
     ].filter(Boolean);
-    const themeOrder = ['light', 'parchment', 'white', 'dark'];
+    const themeOrder = ['white', 'beige', 'brown', 'dark'];
     // Иконка показывает тему, в которую ведёт клик (как в лабе).
     const themeViews = {
-      light: { icon: 'contrast', alt: 'Пергаментная тема', title: 'Переключить на пергаментную тему' },
-      parchment: { icon: 'contrast', alt: 'Белая тема', title: 'Переключить на белую тему' },
-      white: { icon: 'moon', alt: 'Тёмная тема', title: 'Переключить на тёмную тему' },
-      dark: { icon: 'sun', alt: 'Светлая тема', title: 'Переключить на светлую тему' }
+      white: { icon: 'contrast', alt: 'Бежевая тема', title: 'Переключить на бежевую тему' },
+      beige: { icon: 'contrast', alt: 'Коричневая тема', title: 'Переключить на коричневую тему' },
+      brown: { icon: 'moon', alt: 'Чёрная тема', title: 'Переключить на чёрную тему' },
+      dark: { icon: 'sun', alt: 'Белая тема', title: 'Переключить на белую тему' }
     };
 
     function updateThemeControls(theme) {
-      const view = themeViews[theme] || themeViews.light;
+      const view = themeViews[theme] || themeViews.white;
       themeButtons.forEach((button) => {
         const icon = button.querySelector('i[data-lucide]');
         if (icon) icon.setAttribute('data-lucide', view.icon);
@@ -1160,9 +1188,10 @@
       });
     });
 
-    let savedTheme = 'light';
-    try { savedTheme = localStorage.getItem('golem_theme') || 'light'; } catch (e) {}
-    if (themeOrder.indexOf(savedTheme) < 0) savedTheme = 'light';
+    let savedTheme = 'white';
+    try { savedTheme = localStorage.getItem('golem_theme') || 'white'; } catch (e) {}
+    if (savedTheme === 'light' || savedTheme === 'parchment') savedTheme = 'beige';
+    if (themeOrder.indexOf(savedTheme) < 0) savedTheme = 'white';
     document.documentElement.dataset.theme = savedTheme;
     updateThemeControls(savedTheme);
 
@@ -1180,7 +1209,6 @@
 
     // ===== ПОРТАЛ ВХОДА =====
     const portal = document.querySelector('#labPortal');
-    const portalForm = document.querySelector('#portalForm');
     const portalClose = document.querySelector('#portalClose');
     const portalTriggers = document.querySelectorAll('[data-portal-trigger]');
     let portalReturnFocus = null;
@@ -1191,7 +1219,6 @@
       portal.hidden = false;
       portal.classList.add('is-open');
       document.body.classList.add('portal-is-open');
-      setTimeout(() => document.querySelector('#portalId')?.focus(), 100);
     }
 
     function closePortal() {
@@ -1211,10 +1238,6 @@
     });
     portalClose?.addEventListener('click', closePortal);
     portal?.addEventListener('click', (e) => { if (e.target === portal) closePortal(); });
-    portalForm?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      window.location.href = 'apps/researchlab/index.html#dashboard';
-    });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && portal && !portal.hidden) closePortal();
     });

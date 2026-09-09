@@ -9,6 +9,8 @@
 #rd-list { display: grid; grid-template-columns: 1fr; gap: 16px; }
 
 .rd-card { min-width: 0; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 20px; transition: all 0.2s; overflow-wrap: anywhere; }
+.rd-card[role="button"] { cursor: pointer; }
+.rd-card[role="button"]:focus-visible { outline: 2px solid var(--accent-gold); outline-offset: 2px; }
 .rd-card:hover { border-color: var(--accent-gold); box-shadow: 2px 2px 12px var(--shadow-card-hover-color); }
 .rd-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
 .rd-card-header .root-heb { font-size: 32px; font-family: var(--font-hebrew); line-height: 1; direction: rtl; }
@@ -48,7 +50,7 @@
 
 /* Dark theme adjustments */
 [data-theme="dark"] .rd-image { background: var(--bg-tertiary); }
-[data-theme="dark"] .rd-subs { background: rgb(var(--accent-gold-rgb) / ); }
+[data-theme="dark"] .rd-subs { background: rgb(var(--accent-gold-rgb) / 0.14); }
 
 @media (min-width: 768px) {
   #rd-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }

@@ -87,10 +87,10 @@
 .agent-grid .agent-card-orchestrator {
   background: linear-gradient(180deg, rgb(var(--accent-gold-rgb) / 0.32) 0%, rgba(92, 62, 8, 0.22) 100%);
   border: 2px solid var(--accent-gold);
-  box-shadow: 0 0 0 1px rgb(var(--accent-gold-rgb) / ), var(--shadow-soft);
+  box-shadow: 0 0 0 1px rgb(var(--accent-gold-rgb) / 0.20), var(--shadow-soft);
 }
 .agent-grid .agent-card-orchestrator:hover {
-  background: linear-gradient(180deg, rgb(var(--accent-gold-rgb) / ) 0%, rgba(108, 72, 8, 0.30) 100%);
+  background: linear-gradient(180deg, rgb(var(--accent-gold-rgb) / 0.22) 0%, rgba(108, 72, 8, 0.30) 100%);
   border-color: var(--accent-gold);
 }
 .agent-grid .tool-icon {

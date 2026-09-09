@@ -259,7 +259,9 @@ const LoadResearches = (function() {
 
   function renderCards(list) {
     if (!list.length) return '<div class="lab-alert lab-alert-info">Ничего не найдено.</div>';
-    return '<div class="exposure-grid">' + list.map(function(item) { return ExposureCase.renderCard(item); }).join('') + '</div>';
+    return '<div class="exposure-grid">' +
+      list.map(function(item, i) { return ExposureCase.renderCard(item).replace('<article class="exposure-card">', '<article class="exposure-card reveal" style="--i:' + i + '">'); }).join('') +
+      '</div>';
   }
 
   function itemIndex() {

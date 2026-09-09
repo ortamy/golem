@@ -18,7 +18,7 @@
   box-shadow: 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.15);
 }
 [data-theme="dark"] .lab-input:focus, [data-theme="dark"] .lab-textarea:focus, [data-theme="dark"] .lab-select:focus {
-  box-shadow: 0 0 0 2px rgb(var(--accent-gold-rgb) / );
+  box-shadow: 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.40);
 }
 .lab-input { width: 100%; }
 .lab-textarea { width: 100%; resize: vertical; }

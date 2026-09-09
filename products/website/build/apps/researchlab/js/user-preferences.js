@@ -12,40 +12,88 @@ const UserPreferences = (function() {
 
   var PRESETS = {
     theme: {
-      parchment: {
-        label: 'Пергамент',
-        vars: {
-          '--bg-base': '#ede0c8',
-          '--bg-card': '#faf3e0',
-          '--bg-tertiary': '#e8d5b0',
-          '--text-primary': '#2c1810',
-          '--text-secondary': '#5c4a3a',
-          '--accent-gold': '#b8860b',
-          '--border-color': '#d4c4a0'
-        }
-      },
-      dark: {
-        label: 'Тёмная',
-        vars: {
-          '--bg-base': '#1a1a1f',
-          '--bg-card': '#22222a',
-          '--bg-tertiary': '#2a2a35',
-          '--text-primary': '#f0f0f2',
-          '--text-secondary': '#a0a0a8',
-          '--accent-gold': '#d4a017',
-          '--border-color': '#34343c'
-        }
-      },
       white: {
         label: 'Белая',
         vars: {
-          '--bg-base': '#ffffff',
-          '--bg-card': '#f8f8f8',
-          '--bg-tertiary': '#eeeeee',
-          '--text-primary': '#1a1a1a',
-          '--text-secondary': '#555555',
-          '--accent-gold': '#8b6914',
-          '--border-color': '#dddddd'
+          '--bg-primary': '#ffffff',
+          '--bg-secondary': '#fbfaf6',
+          '--bg-tertiary': '#f1ece1',
+          '--bg-card': '#ffffff',
+          '--bg-dark': '#fbfaf6',
+          '--bg-dark-hover': '#f1ece1',
+          '--text-primary': '#221a10',
+          '--text-secondary': '#5c5142',
+          '--text-muted': '#8d8271',
+          '--text-on-dark': '#3a2c1c',
+          '--accent-gold': '#9a7420',
+          '--border-light': '#e6dfd0',
+          '--border-dark': '#cbbfa8',
+          '--border-color': '#e6dfd0',
+          '--header-bg': '#ffffff',
+          '--header-text': '#221a10'
+        }
+      },
+      beige: {
+        label: 'Бежевая',
+        vars: {
+          '--bg-primary': '#f6efdf',
+          '--bg-secondary': '#f1e6cf',
+          '--bg-tertiary': '#e9dcbd',
+          '--bg-card': '#faf4e6',
+          '--bg-dark': '#efe3c8',
+          '--bg-dark-hover': '#e4d6b2',
+          '--text-primary': '#3a2b17',
+          '--text-secondary': '#6a563a',
+          '--text-muted': '#9c8766',
+          '--text-on-dark': '#3a2b17',
+          '--accent-gold': '#9a6f15',
+          '--border-light': '#dccaa4',
+          '--border-dark': '#c2ac7d',
+          '--border-color': '#dccaa4',
+          '--header-bg': '#f1e6cf',
+          '--header-text': '#3a2b17'
+        }
+      },
+      brown: {
+        label: 'Коричневая',
+        vars: {
+          '--bg-primary': '#3b2a18',
+          '--bg-secondary': '#45321d',
+          '--bg-tertiary': '#4f3a23',
+          '--bg-card': '#402e1b',
+          '--bg-dark': '#271a0d',
+          '--bg-dark-hover': '#332413',
+          '--text-primary': '#f3e9d6',
+          '--text-secondary': '#d8c6a6',
+          '--text-muted': '#b09b78',
+          '--text-on-dark': '#f6efe0',
+          '--accent-gold': '#d4a030',
+          '--border-light': '#5c4826',
+          '--border-dark': '#705831',
+          '--border-color': '#5c4826',
+          '--header-bg': '#1f1407',
+          '--header-text': '#f3e9d6'
+        }
+      },
+      dark: {
+        label: 'Чёрная',
+        vars: {
+          '--bg-primary': '#100b06',
+          '--bg-secondary': '#181006',
+          '--bg-tertiary': '#221710',
+          '--bg-card': '#140d06',
+          '--bg-dark': '#090502',
+          '--bg-dark-hover': '#150d06',
+          '--text-primary': '#f2ead9',
+          '--text-secondary': '#cdbda1',
+          '--text-muted': '#9c8d74',
+          '--text-on-dark': '#f6efe0',
+          '--accent-gold': '#c89b3c',
+          '--border-light': '#2e2315',
+          '--border-dark': '#453525',
+          '--border-color': '#2e2315',
+          '--header-bg': '#060301',
+          '--header-text': '#f2ead9'
         }
       }
     },
@@ -79,7 +127,7 @@ const UserPreferences = (function() {
   function defaults(role) {
     return {
       role: role || 'guest',
-      theme: 'parchment',
+      theme: 'white',
       fontSize: 'standard',
       density: 'standard',
       contentWidth: 'standard',
@@ -123,7 +171,9 @@ const UserPreferences = (function() {
 
   function apply(prefs) {
     if (!prefs) prefs = load();
-    HTML.setAttribute('data-theme', prefs.theme);
+    // Защита от устаревших сохранённых тем (parchment удалена): фолбэк — белая.
+    var theme = PRESETS.theme[prefs.theme] ? prefs.theme : 'white';
+    HTML.setAttribute('data-theme', theme);
     HTML.setAttribute('data-font-size', prefs.fontSize);
     HTML.setAttribute('data-density', prefs.density);
     HTML.setAttribute('data-content-width', prefs.contentWidth);
@@ -134,7 +184,7 @@ const UserPreferences = (function() {
     root.setProperty('--user-font-size', PRESETS.fontSize[prefs.fontSize].value);
     root.setProperty('--user-content-width', PRESETS.contentWidth[prefs.contentWidth].value);
 
-    var themeVars = PRESETS.theme[prefs.theme].vars;
+    var themeVars = PRESETS.theme[theme].vars;
     Object.keys(themeVars).forEach(function(varName) {
       root.setProperty(varName, themeVars[varName]);
     });

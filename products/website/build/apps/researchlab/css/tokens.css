@@ -18,6 +18,10 @@
   --text-secondary: #5c4a3a;
   --text-muted: #8a7a6a;
   --text-light: #ede0c8;
+  --text-on-dark: #fff8ea;
+  --text-on-light: #2c1810;
+  --text-on-accent: #fffaf0;
+  --text-muted-on-dark: #d8c8b0;
   --text-gold: #b8860b;
   --accent-gold-rgb: 184 134 11;
   --border-light: #d4c4a8;
@@ -28,6 +32,16 @@
   --accent-red: #c0392b;
   --accent-red-hover: #a93226;
   --accent-green: #2a6a2a;
+
+  /* ===== STATUS COLORS (Linear-style dots) ===== */
+  --status-green: #34c759;
+  --status-amber: #ff9f0a;
+  --status-gray: #8e8e93;
+  --status-red: #ff3b30;
+
+  --header-bg: #2c1810;
+  --header-text: #fff8ea;
+  --header-muted: #d8c8b0;
 
   /* ===== SPACING SCALE (4px base) ===== */
   --space-1: 4px;
@@ -119,23 +133,30 @@
 }
 
 [data-theme="dark"] {
-  --bg-primary: #2a1f18;
-  --bg-secondary: #33261e;
-  --bg-tertiary: #3d2e24;
-  --bg-dark: #1e1611;
-  --bg-dark-hover: #2a1f18;
-  --bg-card: #33261e;
-  --text-primary: #e8dcc8;
-  --text-secondary: #bfae96;
-  --text-muted: #8a7a6a;
-  --text-light: #e8dcc8;
-  --text-gold: #d4a030;
-  --accent-gold-rgb: 212 160 48;
-  --border-light: #4a382a;
-  --border-dark: #5c3a2a;
+  --bg-primary: #111111;
+  --bg-secondary: #1b1b1b;
+  --bg-tertiary: #282828;
+  --bg-dark: #050505;
+  --bg-dark-hover: #141414;
+  --bg-card: #1b1b1b;
+  --text-primary: #f2f2f2;
+  --text-secondary: #c4c4c4;
+  --text-muted: #969696;
+  --text-light: #f2f2f2;
+  --text-on-dark: #ffffff;
+  --text-on-light: #111111;
+  --text-on-accent: #ffffff;
+  --text-muted-on-dark: #c4c4c4;
+  --text-gold: #e0e0e0;
+  --accent-gold-rgb: 224 224 224;
+  --border-light: #3a3a3a;
+  --border-dark: #555555;
   --border-gold: var(--accent-gold);
-  --accent-gold: #d4a030;
-  --accent-gold-hover: #b8860b;
+  --accent-gold: #e0e0e0;
+  --accent-gold-hover: #ffffff;
+  --accent-red: #bdbdbd;
+  --accent-red-hover: #eeeeee;
+  --accent-green: #bdbdbd;
   --ring-focus: 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.45);
   --shadow-card: 0 1px 3px rgba(0,0,0,0.30), 0 2px 8px rgba(0,0,0,0.20);
   --shadow-hover: 0 4px 12px rgba(0,0,0,0.45), 0 2px 4px rgba(0,0,0,0.25);
@@ -145,18 +166,21 @@
   --shadow-soft: 0 2px 12px rgba(0,0,0,0.35);
   --shadow-card-color: rgba(0,0,0,0.3);
   --shadow-card-hover-color: rgba(0,0,0,0.5);
-  --info-bg: #2e3a28;
-  --info-border: #4a6a3a;
-  --info-text: #c8e0b8;
-  --warn-bg: #3a3226;
-  --warn-border: #7a6434;
-  --warn-text: #f0d8a0;
-  --error-bg: #3a2826;
-  --error-border: #8a4a3a;
-  --error-text: #f0b8a8;
-  --success-bg: #2a3a2e;
-  --success-border: #4a7a4a;
-  --success-text: #b8e0b8;
+  --info-bg: #202020;
+  --info-border: #666666;
+  --info-text: #e0e0e0;
+  --warn-bg: #242424;
+  --warn-border: #777777;
+  --warn-text: #eeeeee;
+  --error-bg: #202020;
+  --error-border: #888888;
+  --error-text: #f0f0f0;
+  --success-bg: #202020;
+  --success-border: #666666;
+  --success-text: #e0e0e0;
+  --header-bg: #050505;
+  --header-text: #ffffff;
+  --header-muted: #c4c4c4;
 }
 
 /* ===== ПЕРГАМЕНТНАЯ ТЕМА ===== */
@@ -171,6 +195,10 @@
   --text-secondary: #5c4a3a;
   --text-muted: #8a7a6a;
   --text-light: #2c1810;
+  --text-on-dark: #fff8ea;
+  --text-on-light: #2c1810;
+  --text-on-accent: #fffaf0;
+  --text-muted-on-dark: #665542;
   --text-gold: #8b6508;
   --accent-gold-rgb: 139 101 8;
   --border-light: #d4c4a8;
@@ -202,6 +230,9 @@
   --success-bg: #eef6ee;
   --success-border: #bfdcc0;
   --success-text: #2a5c2a;
+  --header-bg: #f5edd5;
+  --header-text: #2c1810;
+  --header-muted: #665542;
 }
 [data-theme="parchment"] body::before,
 [data-theme="parchment"] body::after { opacity: 0; }
@@ -218,6 +249,10 @@
   --text-secondary: #52606d;
   --text-muted: #7b8794;
   --text-light: #1f2933;
+  --text-on-dark: #ffffff;
+  --text-on-light: #1f2933;
+  --text-on-accent: #ffffff;
+  --text-muted-on-dark: #52606d;
   --text-gold: #8b6508;
   --accent-gold-rgb: 139 101 8;
   --border-light: #d9e0e6;
@@ -249,6 +284,276 @@
   --success-bg: #eef8ef;
   --success-border: #c0dfc1;
   --success-text: #2b6030;
+  --header-bg: #ffffff;
+  --header-text: #1f2933;
+  --header-muted: #52606d;
 }
 [data-theme="white"] body::before,
 [data-theme="white"] body::after { opacity: 0; }
+
+/* ===== СЛОЙ «СОВРЕМЕННЫЙ МАНУСКРИПТ» (Этап B; источники — tasks/design-inspiration.md) ===== */
+:root {
+  /* Техника 1: градиенты фона (hypercolor-адаптация в палитре проекта; var() резолвится на элементе — темы работают сами) */
+  --grad-parchment: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary) 55%, var(--bg-tertiary));
+  --grad-dark: linear-gradient(160deg, var(--bg-dark), var(--bg-dark-hover));
+  --grad-gold-cta: linear-gradient(135deg, #8b6508 0%, #b8860b 50%, #d4a030 115%);
+
+  /* Техника 2: SVG fractal-noise, тайл 160px, плотность запечена в opacity=0.05 (0.03–0.05 по концепции) */
+  --texture-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+
+  /* Техника 7 (shadcn): анатомия карточки, единый отступ */
+  --card-spacing: 16px;
+  --card-spacing-lg: 24px;
+
+  /* Техники 9/11: lift и reveal */
+  --dur-3: 480ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-lift: 300ms var(--ease-standard);
+  --motion-reveal: var(--dur-3) var(--ease-out);
+
+  /* Техника 13: fluid-типографика hero/секций/глифов */
+  --text-hero: clamp(2.25rem, 5vw, 3.5rem);
+  --text-section: clamp(1.75rem, 3vw, 2.5rem);
+  --glyph-hero: clamp(4rem, 10vw, 8rem);
+
+  /* Техника 18: glow — в светлых темах выключен */
+  --glow-glyph: none;
+  --glow-edge: none;
+}
+
+[data-theme="dark"] {
+  --grad-gold-cta: linear-gradient(135deg, #a8a8a8 0%, #e0e0e0 100%);
+  --glow-glyph: 0 0 24px rgb(var(--accent-gold-rgb) / 0.20);
+  --glow-edge: 0 0 0 1px rgb(var(--accent-gold-rgb) / 0.20);
+}
+
+/* =============================================
+   LINEAR-PALEO ТОКЕНЫ (Этап 0 редизайна; spec: docs/10-DESIGN/REDESIGN-LINEAR-PALEO.md)
+   Компактные контролы + слои поверхности + шрифт интерфейса.
+   Значения цветов ссылаются на существующие темы через var(), поэтому
+   тёплые/нейтральные темы работают без дублирования.
+   ============================================= */
+:root {
+  /* Шрифт интерфейса (инструменты): гротеск; контент остаётся serif */
+  --font-ui: 'DM Sans', -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Размеры UI-типографики (плотный режим) */
+  --ui-13: 13px;   /* основной текст контролов */
+  --ui-12: 12px;   /* вторичный */
+  --ui-11: 11px;   /* метки, бейджи, капс-заголовки */
+
+  /* Высоты контролов */
+  --control-h: 28px;
+  --control-h-sm: 24px;
+  --control-gap: 6px;
+
+  /* Слои поверхности (Linear-анатомия: фон -> поверхность -> поднятая) */
+  --surface: var(--bg-card);
+  --surface-hover: var(--bg-tertiary);
+  --surface-2: var(--bg-secondary);
+  --line: var(--border-light);
+  --line-strong: var(--border-dark);
+
+  /* Тонкая рамка для карточек вместо теней */
+  --card-border: 1px solid var(--line);
+
+  /* Статус-индикаторы (приглушённые; точки-индикаторы бейджей) */
+  --status-ok: var(--accent-green);
+  --status-warn: var(--accent-gold);
+  --status-danger: var(--accent-red);
+  --status-neutral: var(--text-muted);
+
+  /* Один фокус для клавиатуры: рамка+кольцо золотом */
+  --focus-outline: 1px solid var(--accent-gold);
+}
+
+/* =============================================
+   МОНОЛИТНЫЕ ПАЛИТРЫ ТЕМ (редизайн v2, фидбек)
+   Каждая тема — одна цветовая семья без смешения:
+   :root/light+parchment = бежевая; white = белая;
+   dark = чёрная (тёплый чёрный); brown = коричневая.
+   Блоки идут ПОСЛЕ базовых и перекрывают их.
+   ============================================= */
+
+/* Бежевая (parchment приводим к той же семье, hero/шапка — шоколадный контраст) */
+[data-theme="parchment"] {
+  --bg-primary: #ede0c8;
+  --bg-secondary: #f4ead6;
+  --bg-tertiary: #e6d7ba;
+  --bg-card: #f6eedd;
+  --bg-dark: #5a3b22;
+  --bg-dark-hover: #4a2f1a;
+  --header-bg: #2c1810;
+  --header-text: #fff8ea;
+  --header-muted: #d8c8b0;
+  --text-light: #2c1810;
+  --text-on-dark: #f6efe0;
+  --border-light: #d3c29f;
+  --border-dark: #8a6a42;
+}
+
+/* Белая (white): нейтральные тёплые поверхности, без серо-голубого */
+[data-theme="white"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #fbfaf6;
+  --bg-tertiary: #f1ece1;
+  --bg-card: #ffffff;
+  --bg-dark: #fbfaf6;
+  --bg-dark-hover: #f1ece1;
+  --text-primary: #221a10;
+  --text-secondary: #5c5142;
+  --text-muted: #8d8271;
+  --text-on-dark: #3a2c1c;
+  --text-muted-on-dark: #d8cbb3;
+  --text-gold: #9a7420;
+  --border-light: #e6dfd0;
+  --border-dark: #cbbfa8;
+  --header-bg: #ffffff;
+  --header-text: #221a10;
+  --header-muted: #8d8271;
+  --info-bg: #f3f0e7;
+  --info-border: #d8d0bd;
+  --info-text: #57503c;
+  --warn-bg: #faf3e2;
+  --warn-border: #e4cf9c;
+  --warn-text: #6d5422;
+  --error-bg: #f9ecea;
+  --error-border: #e3b8ae;
+  --error-text: #7a3527;
+  --success-bg: #eef4e6;
+  --success-border: #c4d5a8;
+  --success-text: #42582a;
+}
+
+/* Бежевая (beige): лёгкая пастельная, цельный монохром (шапка/поиск/плашки — светлые) */
+[data-theme="beige"] {
+  --bg-primary: #f6efdf;
+  --bg-secondary: #f1e6cf;
+  --bg-tertiary: #e9dcbd;
+  --bg-card: #faf4e6;
+  --bg-dark: #efe3c8;
+  --bg-dark-hover: #e4d6b2;
+  --text-primary: #3a2b17;
+  --text-secondary: #6a563a;
+  --text-muted: #9c8766;
+  --text-light: #3a2b17;
+  --text-on-dark: #3a2b17;
+  --text-on-light: #3a2b17;
+  --text-on-accent: #fffaf0;
+  --text-muted-on-dark: #6a563a;
+  --text-gold: #9a6f15;
+  --accent-gold-rgb: 154 111 21;
+  --border-light: #dccaa4;
+  --border-dark: #c2ac7d;
+  --accent-gold: #9a6f15;
+  --accent-gold-hover: #7e5a10;
+  --accent-red: #b3542f;
+  --accent-red-hover: #93432a;
+  --accent-green: #4f6b33;
+  --header-bg: #f1e6cf;
+  --header-text: #3a2b17;
+  --header-muted: #6a563a;
+  --info-bg: #f0ecdd;
+  --info-border: #c9cd9f;
+  --info-text: #4a5230;
+  --warn-bg: #f8efd8;
+  --warn-border: #dcbe7f;
+  --warn-text: #7a5c1d;
+  --error-bg: #f8e9e0;
+  --error-border: #d9a183;
+  --error-text: #7a3a24;
+  --success-bg: #eef3e0;
+  --success-border: #b9cb8e;
+  --success-text: #46582c;
+  --shadow-card: 0 1px 3px rgba(90,68,30,0.08), 0 2px 8px rgba(90,68,30,0.05);
+  --shadow-modal: 0 8px 24px rgba(90,68,30,0.16), 0 2px 8px rgba(90,68,30,0.08);
+  --shadow-floating: 0 12px 32px rgba(90,68,30,0.18), 0 4px 12px rgba(90,68,30,0.10);
+}
+
+/* Чёрная (dark): тёплый монохромный чёрный, без бежевых/серых панелей */
+[data-theme="dark"] {
+  --bg-primary: #100b06;
+  --bg-secondary: #181006;
+  --bg-tertiary: #221710;
+  --bg-dark: #090502;
+  --bg-dark-hover: #150d06;
+  --bg-card: #140d06;
+  --text-primary: #f2ead9;
+  --text-secondary: #cdbda1;
+  --text-muted: #9c8d74;
+  --text-light: #f2ead9;
+  --text-on-dark: #f6efe0;
+  --text-on-light: #191007;
+  --text-on-accent: #191007;
+  --text-muted-on-dark: #cdbda1;
+  --text-gold: #d6b05a;
+  --accent-gold-rgb: 200 155 60;
+  --border-light: #2e2315;
+  --border-dark: #453525;
+  --accent-gold: #c89b3c;
+  --accent-gold-hover: #d8ab4d;
+  --accent-red: #cf6b4a;
+  --accent-red-hover: #dd7c58;
+  --accent-green: #93b574;
+  --header-bg: #060301;
+  --header-text: #f2ead9;
+  --header-muted: #b9a68a;
+  --info-bg: #1c150c;
+  --info-border: #5a6a4a;
+  --info-text: #cfe0b8;
+  --warn-bg: #241a0c;
+  --warn-border: #7a5f26;
+  --warn-text: #e8cf8e;
+  --error-bg: #241410;
+  --error-border: #8a4a36;
+  --error-text: #efb09c;
+  --success-bg: #16200f;
+  --success-border: #55673c;
+  --success-text: #c2d6a6;
+  --grad-gold-cta: linear-gradient(135deg, #8a5f18 0%, #c89b3c 50%, #e0b85a 115%);
+}
+
+/* Коричневая (brown): цельный тёплый коричневый монохром */
+[data-theme="brown"] {
+  --bg-primary: #3b2a18;
+  --bg-secondary: #45321d;
+  --bg-tertiary: #4f3a23;
+  --bg-dark: #271a0d;
+  --bg-dark-hover: #332413;
+  --bg-card: #402e1b;
+  --text-primary: #f3e9d6;
+  --text-secondary: #d8c6a6;
+  --text-muted: #b09b78;
+  --text-light: #f3e9d6;
+  --text-on-dark: #f6efe0;
+  --text-on-light: #241707;
+  --text-on-accent: #241707;
+  --text-muted-on-dark: #d8c6a6;
+  --text-gold: #e2bb56;
+  --accent-gold-rgb: 224 184 79;
+  --border-light: #5c4826;
+  --border-dark: #705831;
+  --accent-gold: #d4a030;
+  --accent-gold-hover: #e0b84f;
+  --accent-red: #d97b4e;
+  --accent-red-hover: #e08a5a;
+  --accent-green: #9cb96a;
+  --header-bg: #1f1407;
+  --header-text: #f3e9d6;
+  --header-muted: #c9b288;
+  --info-bg: #43331c;
+  --info-border: #5d6a42;
+  --info-text: #d8e0bc;
+  --warn-bg: #4a3517;
+  --warn-border: #8a6a2c;
+  --warn-text: #eed497;
+  --error-bg: #4a2418;
+  --error-border: #95502f;
+  --error-text: #f0b69b;
+  --success-bg: #36401d;
+  --success-border: #6a7a42;
+  --success-text: #d0dcae;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.22);
+  --shadow-modal: 0 8px 24px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.30);
+  --shadow-floating: 0 12px 32px rgba(0,0,0,0.60), 0 4px 12px rgba(0,0,0,0.35);
+}

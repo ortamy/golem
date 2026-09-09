@@ -1,0 +1,719 @@
+/* =============================================
+   css/redesign.css — LINEAR-ПАЛЕО СЛОЙ (результат редизайна)
+   Подключается ПОСЛЕДНИМ <link> в apps/researchlab/index.html,
+   чтобы побеждать каскад модульных CSS. Спека:
+   docs/10-DESIGN/DESIGN-INSPIRATION.md
+   Принципы: плотность (база 4px), тонкие рамки вместо теней,
+   один акцент (золото), интерфейс = гротеск, контент = serif,
+   клавиатурный фокус видим, бейджи с точкой-индикатором.
+   Шрифт DM Sans грузится неблокирующе через <link preload> в index.html.
+   ============================================= */
+
+/* ===== КНОПКИ: компактная базовая высота ===== */
+.lab-btn {
+  min-height: var(--control-h);
+  padding: 2px 12px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+  font-weight: 600;
+  letter-spacing: 0;
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+  gap: var(--control-gap);
+}
+.lab-btn:hover { box-shadow: none; }
+.lab-btn:active { transform: none; box-shadow: none; }
+.lab-btn-sm,
+.lab-btn-compact {
+  min-height: var(--control-h-sm);
+  padding: 1px 8px;
+  font-size: var(--ui-12);
+  border-radius: var(--radius-xs);
+}
+
+/* ===== ИНПУТЫ / СЕЛЕКТЫ / ТЕКСТАРЕА: компактные, гротеск ===== */
+.lab-input,
+.lab-select {
+  min-height: var(--control-h);
+  padding: 4px 8px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.lab-textarea {
+  padding: 8px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+  line-height: var(--leading-ui);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.lab-input:focus,
+.lab-textarea:focus,
+.lab-select:focus {
+  border-color: var(--accent-gold);
+  box-shadow: var(--ring-focus);
+}
+
+/* ===== КЛАВИАТУРНЫЙ ФОКУС (виден всегда) ===== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role='button']:focus-visible,
+[tabindex]:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 1px;
+  box-shadow: var(--ring-focus);
+  border-radius: var(--radius-xs);
+}
+
+/* ===== САЙДБАР: компактные пункты, актив = золотая полоса слева ===== */
+.lab-sidebar {
+  width: 232px;
+  min-width: 232px;
+  box-shadow: none;
+  padding-top: var(--space-3);
+}
+.sidebar-section { margin-top: var(--space-2); }
+.sidebar-section-header {
+  min-height: 26px;
+  padding: 3px var(--space-5);
+  font-family: var(--font-ui);
+  font-size: var(--ui-11);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.sidebar-section-header .icon,
+.sidebar-section-header .icon img { width: 14px; height: 14px; }
+.sidebar-section-title {
+  padding: 2px var(--space-5);
+  font-family: var(--font-ui);
+  font-size: var(--ui-11);
+}
+.sidebar-item {
+  min-height: 28px;
+  padding: 4px var(--space-5) 4px var(--space-6);
+  gap: var(--space-2);
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+  line-height: 1.3;
+  border-left: 2px solid transparent;
+}
+.sidebar-item:hover { color: var(--accent-gold); }
+.sidebar-item.active {
+  border-left-color: var(--accent-gold);
+  font-weight: 600;
+}
+.sidebar-item .lab-icon,
+.sidebar-item .icon { width: 16px; height: 16px; font-size: 16px; }
+
+/* ===== ШАПКА: компактные элементы ===== */
+.lab-header nav a,
+.lab-header nav button {
+  padding: 4px 8px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+  letter-spacing: 0;
+}
+.theme-toggle,
+.mobile-icon-link {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+}
+
+/* Search moved below the sticky header; only the trigger remains in the header. */
+.search-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: color var(--motion-base), background var(--motion-base);
+}
+.search-toggle:hover,
+.search-toggle.is-active {
+  color: var(--accent-gold);
+  background: rgb(var(--accent-gold-rgb) / 0.08);
+}
+.search-toggle svg.lucide { width: 16px; height: 16px; }
+
+.glass-search-panel {
+  position: sticky;
+  top: 56px;
+  z-index: 999;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--header-bg) 74%, transparent);
+  border-bottom: 1px solid transparent;
+  transition: height 200ms ease, opacity 200ms ease, border-color 200ms ease;
+}
+.glass-search-panel.is-search-open {
+  height: 64px;
+  overflow: visible;
+  opacity: 1;
+  pointer-events: auto;
+  border-bottom-color: rgb(var(--accent-gold-rgb) / 0.15);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  backdrop-filter: blur(12px) saturate(1.2);
+}
+.search-panel-inner {
+  position: relative;
+  max-width: none;
+  height: 64px;
+  padding: 10px var(--space-6);
+}
+.glass-search-panel input {
+  width: 100%;
+  height: 44px;
+  padding: 10px 14px 10px 40px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-sm);
+  background: var(--bg-dark-hover);
+  color: var(--header-text);
+  font-family: var(--font-serif);
+  font-size: var(--text-sm);
+  outline: none;
+}
+.glass-search-panel input:focus { border-color: var(--accent-gold); }
+.glass-search-panel input::placeholder { color: var(--text-muted); }
+.glass-search-panel .search-icon {
+  position: absolute;
+  z-index: 1;
+  left: calc(var(--space-6) + 10px);
+  top: 50%;
+  color: var(--text-muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.glass-search-panel .search-icon svg.lucide { width: 16px; height: 16px; }
+.glass-search-panel .search-results {
+  top: 64px;
+  left: var(--space-6);
+  right: var(--space-6);
+  width: auto;
+  max-width: none;
+  transform: none;
+  margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .glass-search-panel.is-search-open {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--header-bg);
+  }
+  .search-panel-inner { padding-inline: var(--space-3); }
+  .glass-search-panel .search-icon { left: calc(var(--space-3) + 12px); }
+  .glass-search-panel .search-results { left: var(--space-3); right: var(--space-3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-search-panel { transition: none; }
+}
+
+/* ===== КОНТЕНТ: плоскость вместо «плавающей» карточки ===== */
+.lab-content {
+  margin: var(--space-3);
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+body.is-embed .lab-content { margin: 0; }
+
+/* ===== БЕЙДЖИ-СТАТУСЫ: 18px, 11px, точка-индикатор (как Linear) ===== */
+.lab-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 18px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-family: var(--font-ui);
+  font-size: var(--ui-11);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.lab-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.lab-badge--ok { color: var(--status-ok); }
+.lab-badge--warn { color: var(--status-warn); }
+.lab-badge--danger { color: var(--status-danger); }
+.lab-badge--neutral { color: var(--status-neutral); }
+.lab-badge--dotless::before { display: none; }
+
+/* ===== WORKBENCH-СТАТУСЫ (wb-badge is-*) -> Linear-бейджи ===== */
+.wb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 18px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font-family: var(--font-ui);
+  font-size: var(--ui-11);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--status-neutral);
+}
+.wb-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.wb-badge.is-running,
+.wb-badge.is-pending { color: var(--status-warn); }
+.wb-badge.is-done { color: var(--status-ok); }
+.wb-badge.is-error { color: var(--status-danger); }
+.wb-badge.is-cancelled { color: var(--status-neutral); }
+
+/* ===== ТАБЫ / ВТОРИЧНЫЕ ПАНЕЛИ: плотный ритм ===== */
+.lab-tabs { gap: 2px; }
+.lab-tab {
+  min-height: var(--control-h);
+  padding: 4px 10px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-13);
+}
+
+/* ===== ЭТАЛОННЫЕ МОДУЛИ: плоские карточки (dashboard, словарь) ===== */
+.dw-widget,
+.tool-card,
+.book-card {
+  box-shadow: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+.dw-summary-item,
+.dw-metric,
+.dw-widget-note,
+.tool-card,
+.book-card {
+  box-shadow: none;
+}
+.dw-summary-item:hover,
+.dw-summary-item--link:hover,
+.dw-metric:hover,
+.tool-card:hover,
+.book-card:hover {
+  box-shadow: none;
+  transform: none;
+  border-color: var(--accent-gold);
+}
+.rd-card {
+  padding: 16px;
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+.rd-card:hover {
+  box-shadow: none;
+  background: var(--surface-hover);
+}
+.pipeline-status-badge,
+.pipeline-loop-badge,
+.pipeline-loop-close {
+  font-family: var(--font-ui);
+}
+
+/* ===== МОБИЛЬНЫЙ РЕЖИМ: сохраняем тач-таргеты 44px
+        (стандарт доступности; см. DESIGN-SYSTEM.md «Мобильный режим») ===== */
+@media (max-width: 768px) {
+  .lab-btn,
+  .lab-btn-sm,
+  .lab-btn-compact {
+    min-height: 44px;
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+  .lab-input,
+  .lab-select {
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .sidebar-item {
+    min-height: 44px;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .sidebar-section-header { min-height: 40px; }
+  .theme-toggle,
+  .mobile-icon-link,
+  .lab-hamburger {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ===== REDUCED-MOTION: принудительно без движения ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =============================================
+   РЕДИЗАЙН v2 (фидбек): низкая шапка, компактные экраны.
+   Кнопки/инпуты и мобильные тач-таргеты НЕ трогаем.
+   ============================================= */
+
+/* Шапка: 48px, логотип меньше; сайдбар синхронизирован */
+.lab-header {
+  height: 48px;
+  padding: 0 var(--space-4);
+}
+.lab-header .logo img { height: 28px; width: auto; }
+.golem-beta { height: 16px; padding: 0 6px; font-size: 8px; }
+.lab-sidebar {
+  top: 48px;
+  height: calc(100vh - 48px);
+  width: 224px;
+  min-width: 224px;
+}
+
+/* Контент: меньше воздуха между экраном и каркасом */
+.lab-content {
+  margin: var(--space-2) var(--space-3) var(--space-3);
+  padding: var(--space-4);
+}
+body.is-embed .lab-content { margin: 0; }
+
+/* Hero-блоки разделов: компактные (читалки-манифесты задают крупный вид сами) */
+.lab-hero {
+  padding: 14px 18px;
+  margin: 0 0 14px;
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+.lab-hero__icon { width: 24px; height: 24px; }
+.lab-hero__kicker { margin: 0 0 3px; font-size: 11px; letter-spacing: 0.12em; }
+.lab-hero__title {
+  margin: 0 0 3px;
+  font-size: clamp(19px, 2.4vw, 26px);
+  line-height: 1.15;
+}
+.lab-hero__body { display: block; }
+
+/* Карточки-виджеты рабочего стола и карточки инструментов: плотнее */
+.dashboard-widgets { margin-bottom: var(--space-4); }
+.dw-widget,
+.tool-card {
+  padding: 14px 16px;
+}
+.dw-summary { padding: 8px 12px 0; }
+.dw-summary-item { padding: 8px 8px; }
+.dw-widget h3,
+.tool-card h3,
+.dw-widget-heading h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  line-height: 1.3;
+}
+.tool-card p,
+.dw-widget p { margin: 4px 0 0; font-size: 13px; line-height: 1.5; }
+
+/* =============================================
+   БЕЛАЯ ТЕМА: полный монохром «всё белое».
+   Убирает коричневые шапку/поиск/плашки: все поверхности
+   белые, тонкие тёплые рамки, тёмный текст.
+   ============================================= */
+[data-theme="white"] .lab-header {
+  background: #ffffff;
+  border-color: #e6dfd0;
+  color: #221a10;
+}
+[data-theme="white"] .lab-header .logo,
+[data-theme="white"] .lab-header nav a,
+[data-theme="white"] .lab-header nav button,
+[data-theme="white"] .header-search,
+[data-theme="white"] .header-search input,
+[data-theme="white"] #globalSearch,
+[data-theme="white"] #gs-input,
+[data-theme="white"] #gs-results,
+[data-theme="white"] .lab-header-mobile-links {
+  background: #ffffff;
+  color: #221a10;
+}
+[data-theme="white"] .lab-sidebar,
+[data-theme="white"] .lab-content {
+  background: #ffffff;
+}
+[data-theme="white"] .lab-input,
+[data-theme="white"] .lab-select,
+[data-theme="white"] .lab-textarea,
+[data-theme="white"] .lab-btn-secondary,
+[data-theme="white"] .lab-badge,
+[data-theme="white"] .wb-badge,
+[data-theme="white"] .pipeline-status-badge,
+[data-theme="white"] .rd-card,
+[data-theme="white"] .dw-widget,
+[data-theme="white"] .dw-summary-item,
+[data-theme="white"] .dw-metric,
+[data-theme="white"] .tool-card,
+[data-theme="white"] .book-card {
+  background: #ffffff;
+}
+[data-theme="white"] .lab-hero {
+  background: #fbfaf6;
+  color: #3a2c1c;
+  border-color: #e6dfd0;
+}
+[data-theme="white"] .lab-hero__kicker,
+[data-theme="white"] .lab-hero__title {
+  color: var(--accent-gold);
+}
+
+/* =============================================
+   ПОСТАУДИТСКИЙ СЛОЙ (2026-09-06) — Linear-like компактность.
+   1) Логотип: inline style="height:40px" блокировал 28px из redesign -> !important.
+   2) Hero модулей: единый компактный размер (побеждает manuscript.css — тот же
+      слой подключён раньше, специфичность [data-lab-hero] .lab-hero__title равна).
+   3) Базовый текст модулей: 15px/1.6 вместо 18px/1.8 — легче и читабельнее;
+      читалки (Манифест, Книгочтение) сохраняют свои крупные правила.
+   4) Мобильная шапка: одна строка вместо сломанного двойного ряда
+      (поиск выпадал вторым рядом и перекрывал контент).
+   5) Мобильные кнопочные группы переносятся, а не обрезаются.
+   ============================================= */
+
+/* --- Логотип / бейдж BETA --- */
+.lab-header .logo img {
+  height: 28px !important;
+  width: auto !important;
+}
+/* SVG подключён как img, поэтому цвет задаётся фильтром, а не наследуется от ссылки. */
+.lab-header .logo img[src*="golem-logo"] {
+  filter: brightness(0) invert(1);
+}
+html[data-theme="white"] .lab-header .logo img[src*="golem-logo"] {
+  filter: brightness(0);
+}
+html[data-theme="beige"] .lab-header .logo img[src*="golem-logo"] {
+  filter: invert(29%) sepia(19%) saturate(1090%) hue-rotate(348deg) brightness(83%) contrast(88%);
+}
+.golem-beta {
+  height: 18px;
+  padding: 0 7px;
+  font-size: 10px;
+  line-height: 18px;
+  letter-spacing: 0.05em;
+}
+
+/* --- Hero модулей: консистентный компактный вид --- */
+.lab-hero,
+[data-lab-hero] {
+  padding: 16px 20px;
+}
+[data-lab-hero] .lab-hero__title,
+.module .lab-hero__title {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.2;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+[data-lab-hero] .lab-hero__title-main {
+  justify-content: flex-start;
+}
+[data-lab-hero] .lab-hero__kicker,
+.module .lab-hero__kicker {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  margin-bottom: 4px;
+}
+[data-lab-hero] .lab-hero__subtitle,
+.module .lab-hero__subtitle {
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 52ch;
+}
+
+/* --- Базовый текст модулей: 15px/1.6 --- */
+.lab-content {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.module:not([id="manifest"]):not([id="scripture-reader"]) {
+  font-size: 15px;
+  line-height: 1.6;
+}
+/* Читалки: чуть крупнее инструментов, но компактнее прежних 18px */
+.lab-content #manifest,
+.lab-content #scripture-reader {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.module h1 {
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.2;
+}
+.module .subtitle {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 60ch;
+}
+
+/* --- Мобильная шапка: одна строка --- */
+@media (max-width: 768px) {
+  .lab-header {
+    height: 48px;
+    min-height: 48px;
+    flex-wrap: nowrap;
+    padding: 0 8px;
+    gap: 8px;
+  }
+  .lab-header .logo { flex: 0 0 auto; }
+  .golem-beta { display: none; }
+  .lab-header-mobile-links { display: none !important; }
+  .lab-header nav { display: flex; align-items: center; gap: 4px; }
+  .lab-header nav a.icon-link { display: none; }
+  .lab-header nav .theme-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  }
+  .header-search {
+    order: 0;
+    flex: 1 1 auto;
+    min-width: 60px;
+    max-width: none;
+    margin: 0;
+  }
+  .header-search input {
+    min-height: 36px;
+    height: 36px;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    padding: 6px 10px 6px 30px;
+  }
+  .header-search .search-icon { left: 9px; font-size: 14px; }
+  .lab-hamburger {
+    order: 5;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    margin-left: 0;
+  }
+  .lab-sidebar { top: 48px; height: calc(100vh - 48px); }
+  .lab-sidebar-overlay { inset: 48px 0 0 0; }
+
+  /* Кнопочные группы: перенос вместо обрезания */
+  .rd-pagination,
+  .pagination {
+    flex-wrap: wrap;
+  }
+  .lab-tabs { overflow-x: auto; }
+
+  /* Крошки и шапки модулей на телефоне */
+  .module h1 { font-size: 20px; }
+  .module .subtitle { font-size: 13px; }
+}
+
+/* --- Header icon controls: one aligned, theme-aware control family --- */
+.lab-header nav {
+  margin-left: auto;
+  gap: var(--space-2);
+}
+
+.lab-header .icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  padding: 0;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  background: var(--bg-dark-hover);
+  color: var(--header-text);
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition: background-color var(--motion-base), border-color var(--motion-base), color var(--motion-base), transform var(--motion-fast);
+}
+
+.lab-header .icon-btn svg.lucide {
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+}
+
+.lab-header .icon-btn:hover {
+  background: color-mix(in srgb, var(--bg-dark-hover) 76%, var(--header-text));
+  border-color: var(--header-muted);
+}
+
+.lab-header .icon-btn:active { transform: scale(0.96); }
+
+.lab-header .icon-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-focus);
+}
+
+/* The search panel remains signalled by the existing active-state class. */
+.lab-header .search-toggle.is-active {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  background: rgb(var(--accent-gold-rgb) / 0.14);
+}
+
+@media (max-width: 768px) {
+  .lab-header {
+    padding-inline: var(--space-4);
+  }
+
+  .lab-header nav {
+    gap: var(--space-2);
+  }
+
+  .lab-header .icon-btn,
+  .lab-header nav .theme-toggle,
+  .lab-header .lab-hamburger {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    padding: 0;
+  }
+
+  .lab-header .icon-btn svg.lucide { width: 16px; height: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-header .icon-btn { transition: none; }
+  .lab-header .icon-btn:active { transform: none; }
+}

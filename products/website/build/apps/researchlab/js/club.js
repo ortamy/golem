@@ -130,10 +130,10 @@ const ClubModule = (function() {
       '<div class="club-create-actions"><a class="lab-btn lab-btn-primary" href="#club/discussions">Обсуждения</a><a class="lab-btn lab-btn-secondary" href="#club/create">Создать обсуждение</a></div>' +
     '</div>';
 
-    var cardsHtml = cards.map(function(card) {
+    var cardsHtml = cards.map(function(card, i) {
       var typeLabels = { word: 'Слово', state: 'Состояние', board: 'Доска', verse: 'Стих' };
       var participants = card.participants || [];
-      return '<article class="club-card" data-id="' + escapeHtml(card.id) + '" data-type="' + escapeHtml(card.type || 'word') + '">' +
+      return '<article class="club-card reveal" data-id="' + escapeHtml(card.id) + '" data-type="' + escapeHtml(card.type || 'word') + '" style="--i:' + i + '">' +
         '<div class="club-card-head">' +
           '<span class="club-card-type type-' + (card.type || 'word') + '">' + (typeLabels[card.type] || card.type) + '</span>' +
         '</div>' +
