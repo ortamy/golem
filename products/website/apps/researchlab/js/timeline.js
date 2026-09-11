@@ -122,7 +122,7 @@ const Timeline = (function() {
           moreHtml +
           '<div class="tl-container-footer">' +
             '<span class="tl-container-meta">Хронология</span>' +
-            '<button class="tl-container-btn" type="button" title="Открыть таймлайн">→ Открыть</button>' +
+            '<button class="tl-container-btn" type="button" title="Открыть таймлайн">Открыть</button>' +
           '</div>' +
         '</article>';
     }).join('');
@@ -217,7 +217,7 @@ const Timeline = (function() {
           eventCard.hidden = expanded;
         });
         this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        this.textContent = expanded ? '… показать все (ещё ' + card.querySelectorAll('.event-card-hidden').length + ')' : '← свернуть события';
+        this.textContent = expanded ? '… показать все (ещё ' + card.querySelectorAll('.event-card-hidden').length + ')' : 'свернуть события';
       });
     });
   }
@@ -237,7 +237,7 @@ const Timeline = (function() {
     // восстанавливает базовую шапку LabHero).
     timelineContainer.innerHTML =
       '<section class="tl-detail" aria-label="Таймлайн: ' + escapeHtml(timeline.title) + '">' +
-        '<button class="tl-detail-back" type="button">← Каталог таймлайнов</button>' +
+        '<button class="tl-detail-back" type="button">Каталог таймлайнов</button>' +
         '<div class="tl-detail-meta tl-meta-line">' +
           '<span class="tl-detail-glyph" lang="hbo" aria-hidden="true">' + escapeHtml(timeline.paleoIcon) + '</span>' +
           '<span class="meta-sep">·</span>' +
@@ -360,7 +360,7 @@ const Timeline = (function() {
           '<p class="tl-detail-event-desc">' + escapeHtml(event.description || '') + '</p>' +
         '</div>' +
         '<div class="tl-event-actions">' +
-          '<button class="tl-event-action-btn" type="button" data-action="open" data-event-idx="' + index + '" title="Открыть событие">→</button>' +
+          '<button class="tl-event-action-btn" type="button" data-action="open" data-event-idx="' + index + '" title="Открыть событие">›</button>' +
           '<button class="tl-event-action-btn" type="button" data-action="copy" data-event-idx="' + index + '" title="Копировать ссылку">⎘</button>' +
         '</div>' +
       '</div>' +

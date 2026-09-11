@@ -99,7 +99,7 @@ const DATA_PATH = 'data/heraldry/heraldry.json';
           (paleo ? '<div class="heraldry-card-paleo" dir="rtl" lang="he">' + text(paleo) + '</div>' : '') +
         '</div>' +
         '<div class="heraldry-card-symbol"><span class="heraldry-card-symbol-label">Символ</span> ' + text(c.symbol) + '</div>' +
-        '<button class="lab-btn lab-btn-secondary lab-btn-sm heraldry-detail-btn" data-id="' + escapeHtml(c.id) + '" aria-label="Открыть разбор: ' + escapeHtml(c.name) + '">Подробнее <span aria-hidden="true">→</span></button>' +
+        '<button class="lab-btn lab-btn-secondary lab-btn-sm heraldry-detail-btn" data-id="' + escapeHtml(c.id) + '" aria-label="Открыть разбор: ' + escapeHtml(c.name) + '">Подробнее</button>' +
       '</article>';
     }).join('');
 

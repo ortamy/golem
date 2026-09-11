@@ -258,7 +258,6 @@ const AlephyStates = (function() {
       '<button type="button" class="cartography-world-launch states-map-launch" onclick="AlephyStates.openLandscape()">' +
         '<span aria-hidden="true">𐤌</span>' +
         '<span><strong>Карта состояний</strong><small>Открыть полный слой состояний</small></span>' +
-        '<span aria-hidden="true">→</span>' +
       '</button>' +
       '<div class="states-head">' +
         '<h1><img src="assets/icons/32/ui/web.png" class="lab-icon" alt=""> Карта состояний</h1>' +
@@ -379,7 +378,7 @@ const AlephyStates = (function() {
     }
 
     return '<div class="states-page states-landscape-page">' +
-      '<div class="states-controls"><button type="button" class="states-nav-btn states-nav-back" onclick="AlephyStates.openGrid()"><span aria-hidden="true">←</span> Все состояния</button></div>' +
+      '<div class="states-controls"><button type="button" class="states-nav-btn states-nav-back" onclick="AlephyStates.openGrid()">Все состояния</button></div>' +
       renderStateLandscape(firstState) +
     '</div>';
   }
@@ -416,7 +415,7 @@ const AlephyStates = (function() {
       '<div class="state-landscape-route-chain"><strong>' + escapeHtml(state.name) + '</strong><span aria-hidden="true">↓</span><strong>' + escapeHtml(target.name) + '</strong>' +
       (selectedTransition.label ? '<span class="state-landscape-route-label">' + escapeHtml(selectedTransition.label) + '</span>' : '') + '</div>' +
       (selectedTransition.action ? '<p><b>Хук:</b> ' + escapeHtml(selectedTransition.action) + '</p>' : '') +
-      '<button type="button" class="state-landscape-open" data-to="' + escapeHtml(target.id) + '">Открыть состояние <span aria-hidden="true">→</span></button>' +
+      '<button type="button" class="state-landscape-open" data-to="' + escapeHtml(target.id) + '">Открыть состояние</button>' +
     '</div>' : '<div class="state-landscape-route-detail is-empty">Для этого состояния пока не задан маршрут перехода.</div>';
 
     return '<section class="state-landscape" style="--landscape-color: #8a613c;" aria-labelledby="state-landscape-title">' +

@@ -341,7 +341,7 @@
     linkSourceId = null;
     mapView.innerHTML = '<div class="agent-map-shell">' +
       '<div class="agent-map-toolbar"><p class="agent-map-hint">Перетаскивайте узлы. Для связи выберите «Соединить агентов», затем два узла. Двойной щелчок по линии удаляет её.</p>' +
-      '<div class="agent-map-toolbar-actions"><button type="button" class="lab-btn lab-btn-secondary" data-agent-map-link-mode>Соединить агентов</button><button type="button" class="lab-btn lab-btn-primary" data-agent-map-back>← Назад к списку агентов</button></div></div>' +
+      '<div class="agent-map-toolbar-actions"><button type="button" class="lab-btn lab-btn-secondary" data-agent-map-link-mode>Соединить агентов</button><button type="button" class="lab-btn lab-btn-primary" data-agent-map-back>Назад к списку агентов</button></div></div>' +
       '<div class="agent-map-stage" id="agent-map-stage"><svg class="agent-map-links" aria-hidden="true"></svg><div class="agent-map-panel" aria-live="polite"></div></div></div>';
     stage = mapView.querySelector('.agent-map-stage');
     linksSvg = mapView.querySelector('.agent-map-links');

@@ -426,7 +426,7 @@ const Cartography = (function() {
         '<h1><img src="assets/icons/32/ui/web.png" class="lab-icon" alt="">Картография</h1>' +
         '<p class="section-hero-lead">Смысловая карта: страны, города и регионы как пространственные конструкции.</p>' +
       '</header>' +
-      '<button type="button" class="cartography-world-launch" data-open-map="1"><span aria-hidden="true">𐤌</span><span><strong>Глобальная карта состояний</strong><small>Открыть полный слой диагностики</small></span><span aria-hidden="true">→</span></button>' +
+      '<button type="button" class="cartography-world-launch" data-open-map="1"><span aria-hidden="true">𐤌</span><span><strong>Глобальная карта состояний</strong><small>Открыть полный слой диагностики</small></span></button>' +
       '<div class="cartography-theme-grid">' + MAP_THEMES.map(renderThemeCard).join('') + '</div>';
 
     container.querySelectorAll('.cartography-open-map, .cartography-world-launch').forEach(function(button) {

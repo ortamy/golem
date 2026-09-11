@@ -156,7 +156,7 @@
         var text = document.createElement('span'); text.className = 'sr-text'; text.textContent = item.title;
         var snippet = document.createElement('span'); snippet.className = 'sr-snippet'; snippet.textContent = item.snippet;
         copy.appendChild(text); if (item.snippet && normalize(item.snippet) !== normalize(item.title)) copy.appendChild(snippet);
-        var arrow = document.createElement('span'); arrow.className = 'sr-arrow'; arrow.textContent = '→';
+        var arrow = document.createElement('span'); arrow.className = 'sr-arrow';
         button.appendChild(copy); button.appendChild(arrow); group.appendChild(button);
       });
       frag.appendChild(group);

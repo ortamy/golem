@@ -161,7 +161,7 @@ const Religionisms = (function() {
         '</div>'
       : '';
 
-    detail.innerHTML = '<button class="lab-btn lab-btn-secondary lab-btn-sm mb-16" onclick="Religionisms.close()">← Назад к сферам</button>' +
+    detail.innerHTML = '<button class="lab-btn lab-btn-secondary lab-btn-sm mb-16" onclick="Religionisms.close()">Назад к сферам</button>' +
       '<div class="rel-detail-header">' +
       '<img src="' + iconPath + '" class="rel-detail-icon" alt="">' +
       '<h2>' + escapeHtml(sphere.name) + '</h2>' +

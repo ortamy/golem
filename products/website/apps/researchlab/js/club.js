@@ -278,7 +278,7 @@ const ClubModule = (function() {
 
   function buildSessionsPreview() {
     var sessions = ClubData.MOCK.sessions.slice(0, 2);
-    return '<section class="club-session-archive club-top-card club-side-card" aria-labelledby="club-session-archive-title"><div class="club-section-heading"><div><h3 id="club-session-archive-title">Архив сессий</h3><p class="club-session-archive-subtitle">Текущие, будущие и завершённые маршруты, которые клуб проходит вместе.</p></div><a class="lab-btn lab-btn-secondary lab-btn-sm" href="#club/sessions">Сессии <span aria-hidden="true">→</span></a></div><div class="club-session-preview-list">' + sessions.map(buildSessionCard).join('') + '</div></section>';
+    return '<section class="club-session-archive club-top-card club-side-card" aria-labelledby="club-session-archive-title"><div class="club-section-heading"><div><h3 id="club-session-archive-title">Архив сессий</h3><p class="club-session-archive-subtitle">Текущие, будущие и завершённые маршруты, которые клуб проходит вместе.</p></div><a class="lab-btn lab-btn-secondary lab-btn-sm" href="#club/sessions">Сессии</a></div><div class="club-session-preview-list">' + sessions.map(buildSessionCard).join('') + '</div></section>';
   }
 
   function renderSessions(container) {
@@ -289,7 +289,7 @@ const ClubModule = (function() {
     ClubData.getSessions().then(function(sessions) {
       var order = { active: 0, upcoming: 1, completed: 2 };
       sessions.sort(function(a, b) { return order[a.status] - order[b.status]; });
-      container.innerHTML = '<main class="club-sessions-page"><div class="club-sessions-intro"><span class="club-card-type">Живая хроника</span><h1>Архив сессий</h1><p>Здесь остаются маршруты, которые клуб проходит вместе: текущие, будущие и уже проверенные встречи.</p></div><div class="club-sessions-timeline" aria-label="Хронология сессий">' + sessions.map(buildSessionCard).join('') + '</div><a class="lab-btn lab-btn-secondary" href="#club">← Вернуться в клуб</a></main>';
+      container.innerHTML = '<main class="club-sessions-page"><div class="club-sessions-intro"><span class="club-card-type">Живая хроника</span><h1>Архив сессий</h1><p>Здесь остаются маршруты, которые клуб проходит вместе: текущие, будущие и уже проверенные встречи.</p></div><div class="club-sessions-timeline" aria-label="Хронология сессий">' + sessions.map(buildSessionCard).join('') + '</div><a class="lab-btn lab-btn-secondary" href="#club">Вернуться в клуб</a></main>';
     }).catch(function() { container.innerHTML = '<div class="lab-alert lab-alert-error">Не удалось загрузить архив сессий.</div>'; });
   }
 
@@ -357,7 +357,7 @@ const ClubModule = (function() {
     '</div>' : '';
 
     return '<div class="club-detail">' +
-      '<button class="club-back" id="club-back">← Назад</button>' +
+      '<button class="club-back" id="club-back">Назад</button>' +
       '<div class="club-detail-head">' +
         '<span class="club-card-type type-' + (card.type || 'word') + '">' + (typeLabels[card.type] || card.type) + '</span>' +
         '<h2>' + escapeHtml(card.title) + '</h2>' +

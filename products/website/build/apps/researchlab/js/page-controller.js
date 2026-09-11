@@ -185,7 +185,7 @@ const PageController = (function() {
         return String(value || '').toLowerCase().indexOf(query) !== -1;
       })
     });
-    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'dictionaries\')">← Назад к словарям</button>';
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'dictionaries\')">Назад к словарям</button>';
     var options = keys.map(function(key) {
       return '<option value="' + escapeHtml(key) + '"' + (key === state.key ? ' selected' : '') + '>' +
         escapeHtml(data[key].title || key) + '</option>';
@@ -226,7 +226,7 @@ const PageController = (function() {
   }
 
   function renderRootDictionaryModule(container, data) {
-    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'dictionaries\')">← Назад к словарям</button>';
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'dictionaries\')">Назад к словарям</button>';
     container.innerHTML = '<div class="research-page-head">' +
       '<h1><img src="assets/icons/32/ui/book.png" class="lab-icon" alt="">Корневой словарь</h1>' +
       '<p class="subtitle">Поиск по корням иврита. Введите корень, слово или значение.</p>' + backBtn +
@@ -240,7 +240,7 @@ const PageController = (function() {
   }
 
   function renderPaleoGlossaryModule(container, data) {
-    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'dictionaries\')">← Назад к словарям</button>';
+    var backBtn = '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'dictionaries\')">Назад к словарям</button>';
     container.innerHTML = '<div class="research-page-head">' +
       '<div class="paleo-glossary-head">' +
       '<div class="paleo-glossary-icon" aria-hidden="true">𐤌</div>' +
@@ -433,8 +433,8 @@ const PageController = (function() {
         escapeHtml(data[key].title || key) + '</option>';
     }).join('');
     var backBtn = page === 'paleo-mechanics'
-      ? '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'paleo-mechanics\')">← Назад к списку</button>'
-      : '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState[\'' + page + '\'].key=\'\';PageController.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', PageController.jsonCache[\'' + page + '\'])">← Назад к списку</button>';
+      ? '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabRouter.navigate(\'paleo-mechanics\')">Назад к списку</button>'
+      : '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="PageController.pageState[\'' + page + '\'].key=\'\';PageController.renderDocumentPage(document.getElementById(\'' + page + '\'), \'' + page + '\', PageController.jsonCache[\'' + page + '\'])">Назад к списку</button>';
     if (page === 'paleo-mechanics') {
       renderPaleoMechanicsDocument(container, documentData, options, backBtn);
       return;
@@ -607,7 +607,7 @@ const PageController = (function() {
         '<ol class="manifest-history-list">' + historyItems + '</ol></div>';
     }
 
-    // Два слоя: прасемитский язык и протосинайская письменность
+    // Прасемитский язык и протосинайская письменность
     var tl = methodology.twoLayers || {};
     var layersHtml = '';
     if (tl.title) {
@@ -826,7 +826,7 @@ const PageController = (function() {
       seedHtml +
       moneyHtml +
       legacyHtml +
-      '<div class="manifest-cta-wrap"><a class="lab-btn lab-btn-primary manifest-cta" href="#dashboard">Начать исследование <span aria-hidden="true">→</span></a>' +
+      '<div class="manifest-cta-wrap"><a class="lab-btn lab-btn-primary manifest-cta" href="#dashboard">Начать исследование</a>' +
       '<a class="lab-btn lab-btn-secondary manifest-cta manifest-cta-secondary" href="#root-dictionary">Открыть корневой словарь</a></div>' +
       '</section>' +
 
@@ -1004,7 +1004,7 @@ const PageController = (function() {
     detail.innerHTML = '<div class="agent-detail-page">' +
       '<div class="agent-detail-grid"><section class="agent-detail-section agent-detail-wide"><h2>Запуск агента</h2><form id="agent-run-form"><label for="agent-run-input">Запрос</label><textarea id="agent-run-input" class="lab-textarea agent-prompt" rows="4">разбери слово Берешит</textarea><button type="submit" class="lab-btn lab-btn-primary" id="agent-run-button">Запустить</button></form></section>' +
       '<section class="agent-detail-section agent-detail-wide"><h2>Результат</h2><pre id="agent-run-output" class="agent-output" aria-live="polite">Результат появится после запуска.</pre></section></div>' +
-      '<button type="button" class="lab-btn lab-btn-secondary agent-detail-back" onclick="LabRouter.navigate(\'ai-agents\')">← К списку агентов</button></div>';
+      '<button type="button" class="lab-btn lab-btn-secondary agent-detail-back" onclick="LabRouter.navigate(\'ai-agents\')">К списку агентов</button></div>';
     var form = detail.querySelector('#agent-run-form');
     var input = detail.querySelector('#agent-run-input');
     var output = detail.querySelector('#agent-run-output');
@@ -1054,7 +1054,7 @@ const PageController = (function() {
     pipelines.hidden = false;
     if (container.id === 'pipelines' && window.LabHero && window.LabHero.setView) window.LabHero.setView('pipelines', null);
     pipelines.innerHTML =
-      '<div class="pipeline-control-panel"><div><div class="pipeline-server-status" data-pipeline-server-status data-status="checking"><span class="pipeline-server-dot" aria-hidden="true"></span><span>Проверка сервера…</span></div></div><div class="pipeline-page-actions"><button type="button" class="lab-btn lab-btn-primary pipeline-create-btn" data-pipeline-create>Создать пайплайн</button><button type="button" class="lab-btn lab-btn-secondary" data-pipelines-back>← К агентам</button></div></div>' +
+      '<div class="pipeline-control-panel"><div><div class="pipeline-server-status" data-pipeline-server-status data-status="checking"><span class="pipeline-server-dot" aria-hidden="true"></span><span>Проверка сервера…</span></div></div><div class="pipeline-page-actions"><button type="button" class="lab-btn lab-btn-primary pipeline-create-btn" data-pipeline-create>Создать пайплайн</button><button type="button" class="lab-btn lab-btn-secondary" data-pipelines-back>К агентам</button></div></div>' +
       '<div class="agent-pipelines-status lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка локальных пайплайнов…</div></div>';
     pipelines.querySelector('[data-pipelines-back]').addEventListener('click', function() {
       LabRouter.navigate('ai-agents');
@@ -1215,7 +1215,7 @@ const PageController = (function() {
       if (window.LabHero && window.LabHero.setView) {
         window.LabHero.setView('pipelines', 'pipeline', { title: pipeline.name, subtitle: pipeline.description || 'Цепочка передачи контекста', icon: 'paleo/track.png', meta: [latest ? 'Есть сохранённый запуск' : 'Ожидание запуска'] });
       }
-      container.innerHTML = '<article class="pipeline-detail-page"><div class="pipeline-back-container"><button type="button" class="lab-btn lab-btn-secondary" data-pipeline-back>← К пайплайнам</button></div><section class="pipeline-detail-card"><h2>Запуск</h2><label>Запрос<textarea class="lab-input" data-pipeline-query rows="3">' + escapeHtml(latest && latest.query || pipeline.defaultQuery || '') + '</textarea></label><div class="pipeline-card-buttons"><button class="lab-btn lab-btn-primary" data-pipeline-detail-run>Запустить локально</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-open-result>Открыть результат</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-copy>Копировать результат</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-json>Экспорт JSON</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-markdown>Экспорт Markdown</button></div><p class="pipeline-run-status" data-pipeline-detail-status>Последний запуск: ' + escapeHtml(latest ? formatPipelineDate(latest.createdAt) : 'нет') + '</p></section><div class="pipeline-detail-grid"><section class="pipeline-detail-card"><h2>Цепочка процесса</h2><p class="pipeline-detail-note">Показаны доступные факты выполнения. Скрытые рассуждения не отображаются.</p><ol class="pipeline-process-list">' + steps + '</ol></section><section class="pipeline-detail-card" id="pipeline-result"><h2>Результат</h2><p>' + escapeHtml(body.aiSummary || body.summary || 'Запустите локальный пайплайн, чтобы получить результат.') + '</p>' + (body.limitations ? '<p class="pipeline-result-limitations"><strong>Ограничения:</strong> ' + escapeHtml(body.limitations) + '</p>' : '') + '</section></div><section class="pipeline-detail-card"><h2>История запусков</h2><ul class="pipeline-detail-history">' + (history.map(function(item) { return '<li><strong>' + escapeHtml(item.title || pipeline.name) + '</strong><span>' + escapeHtml(formatPipelineDate(item.createdAt)) + '</span><p>' + escapeHtml(item.query || '') + '</p></li>'; }).join('') || '<li>Сохранённых запусков пока нет.</li>') + '</ul></section></article>';
+      container.innerHTML = '<article class="pipeline-detail-page"><div class="pipeline-back-container"><button type="button" class="lab-btn lab-btn-secondary" data-pipeline-back>К пайплайнам</button></div><section class="pipeline-detail-card"><h2>Запуск</h2><label>Запрос<textarea class="lab-input" data-pipeline-query rows="3">' + escapeHtml(latest && latest.query || pipeline.defaultQuery || '') + '</textarea></label><div class="pipeline-card-buttons"><button class="lab-btn lab-btn-primary" data-pipeline-detail-run>Запустить локально</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-open-result>Открыть результат</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-copy>Копировать результат</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-json>Экспорт JSON</button><button class="lab-btn lab-btn-secondary" data-pipeline-detail-markdown>Экспорт Markdown</button></div><p class="pipeline-run-status" data-pipeline-detail-status>Последний запуск: ' + escapeHtml(latest ? formatPipelineDate(latest.createdAt) : 'нет') + '</p></section><div class="pipeline-detail-grid"><section class="pipeline-detail-card"><h2>Цепочка процесса</h2><p class="pipeline-detail-note">Показаны доступные факты выполнения. Скрытые рассуждения не отображаются.</p><ol class="pipeline-process-list">' + steps + '</ol></section><section class="pipeline-detail-card" id="pipeline-result"><h2>Результат</h2><p>' + escapeHtml(body.aiSummary || body.summary || 'Запустите локальный пайплайн, чтобы получить результат.') + '</p>' + (body.limitations ? '<p class="pipeline-result-limitations"><strong>Ограничения:</strong> ' + escapeHtml(body.limitations) + '</p>' : '') + '</section></div><section class="pipeline-detail-card"><h2>История запусков</h2><ul class="pipeline-detail-history">' + (history.map(function(item) { return '<li><strong>' + escapeHtml(item.title || pipeline.name) + '</strong><span>' + escapeHtml(formatPipelineDate(item.createdAt)) + '</span><p>' + escapeHtml(item.query || '') + '</p></li>'; }).join('') || '<li>Сохранённых запусков пока нет.</li>') + '</ul></section></article>';
       var status = container.querySelector('[data-pipeline-detail-status]');
       container.querySelector('[data-pipeline-back]').addEventListener('click', function() { window.location.hash = 'pipelines'; });
       container.querySelector('[data-pipeline-detail-open-result]').addEventListener('click', function() { var result = document.getElementById('pipeline-result'); if (result) result.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
@@ -1448,8 +1448,8 @@ const PageController = (function() {
           '<div id="scripture-translit" class="scripture-translit"></div>' +
           '</article>' +
           '<nav class="scripture-navigation" id="scripture-navigation" style="display:none;" aria-label="Навигация по стихам">' +
-          '<button type="button" class="lab-btn lab-btn-secondary" id="scripture-prev">← Предыдущий стих</button>' +
-          '<button type="button" class="lab-btn lab-btn-secondary" id="scripture-next">Следующий стих →</button>' +
+          '<button type="button" class="lab-btn lab-btn-secondary" id="scripture-prev">Предыдущий стих</button>' +
+          '<button type="button" class="lab-btn lab-btn-secondary" id="scripture-next">Следующий стих</button>' +
           '</nav>' +
           '<section id="scripture-analysis" class="scripture-analysis scripture-physics" style="display:none;" aria-live="polite">' +
           '<button type="button" class="scripture-physics-trigger" id="scripture-physics-trigger" aria-expanded="false" aria-controls="scripture-physics-panel">' +
