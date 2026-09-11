@@ -7,13 +7,13 @@
  *   #workbench/project/<runId>  — проект: результат во вьювере pipeline.viewer
  *
  * Реестр конвейеров и движки — в workbench-pipelines.js.
- * Метаданные проектов — localStorage (golem.workbench.projects).
+ * Метаданные проектов — localStorage (alephy.workbench.projects).
  * Результаты (большие) — только в памяти + «Скачать»; в localStorage мета.
  */
 const Workbench = (function() {
   'use strict';
 
-  var STORE_KEY = 'golem.workbench.projects';
+  var STORE_KEY = 'alephy.workbench.projects';
   var AGENT_API_URL = 'http://127.0.0.1:5000';
 
   function esc(text) {

@@ -1,5 +1,5 @@
 /* =============================================
-   layout.css - Golem Research Lab layer
+   layout.css - Alephy Research Lab layer
    Layer of lab.css (split). Do not edit by hand -
    regenerate from lab.css source sections.
    ============================================= */
@@ -27,7 +27,7 @@
   height: 40px;
   width: auto;
 }
-.golem-beta {
+.alephy-beta {
   display: inline-flex;
   align-items: center;
   height: 18px;

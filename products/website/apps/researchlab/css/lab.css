@@ -1,5 +1,5 @@
 /* =============================================
-   lab.css - Golem Research Lab Design System v2.1
+   lab.css - Alephy Research Lab Design System v2.1
    Manifest: layers (tokens -> base -> layout -> components -> responsive).
    Font stack per DESIGN-SYSTEM.md.
    Шрифты Google подключаются НЕблокирующе в index.html (preload), без @import.

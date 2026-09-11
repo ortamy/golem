@@ -5,7 +5,7 @@
 }(typeof window !== 'undefined' ? window : this, function () {
   'use strict';
 
-  var STORAGE_KEY = 'golem_paleo_battle';
+  var STORAGE_KEY = 'alephy_paleo_battle';
   var MATCH_ROUNDS = 5;
   var STATUS = ['факт', 'интерпретация', 'гипотеза'];
 

@@ -1,10 +1,10 @@
-# GOLEM — Tanakh Recovery Platform
+# ALEPHY — Tanakh Recovery Platform
 
-[![Deploy](https://github.com/ortamy/golem/actions/workflows/deploy.yml/badge.svg)](https://github.com/ortamy/golem/actions)
+[![Deploy](https://github.com/ortamy/alephy/actions/workflows/deploy.yml/badge.svg)](https://github.com/ortamy/alephy/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Website](https://img.shields.io/badge/website-ortamy.github.io%2Fgolem-8b5cf6)](https://ortamy.github.io/golem)
+[![Website](https://img.shields.io/badge/website-ortamy.github.io%2Falephy-8b5cf6)](https://ortamy.github.io/alephy)
 
-Golem is a research platform for recovering the original meaning of the Tanakh through Paleo-Hebrew, Proto-Canaanite, and Phoenician scripts, three-letter roots, and systematic exposure of Greco-Latin substitutions introduced in translations. Not a religion. Not a congregation. A forensic linguistics project.
+Alephy is a research platform for recovering the original meaning of the Tanakh through Paleo-Hebrew, Proto-Canaanite, and Phoenician scripts, three-letter roots, and systematic exposure of Greco-Latin substitutions introduced in translations. Not a religion. Not a congregation. A forensic linguistics project.
 
 ---
 
@@ -22,13 +22,13 @@ Golem is a research platform for recovering the original meaning of the Tanakh t
 
 ## Quick Start
 
-**Online:** [ortamy.github.io/golem](https://ortamy.github.io/golem)
-**Research Lab:** [ortamy.github.io/golem/webapp](https://ortamy.github.io/golem/webapp)
+**Online:** [ortamy.github.io/alephy](https://ortamy.github.io/alephy)
+**Research Lab:** [ortamy.github.io/alephy/webapp](https://ortamy.github.io/alephy/webapp)
 
 ```bash
-git clone https://github.com/ortamy/golem.git
-cd golem
-python tools/golem.py
+git clone https://github.com/ortamy/alephy.git
+cd alephy
+python tools/alephy.py
 ```
 
 ```bash
@@ -41,7 +41,7 @@ python main.py "אמן"
 ## Architecture
 
 ```
-golem/
+alephy/
 ├── content/          Terminology, Tanakh, Bashah, Research
 ├── instructions/     Methodology: exposure, dictionaries, templates
 ├── products/
@@ -99,6 +99,6 @@ MIT
 
 ## Links
 
-- **Website:** [ortamy.github.io/golem](https://ortamy.github.io/golem)
-- **Laboratory:** [ortamy.github.io/golem/webapp](https://ortamy.github.io/golem/webapp)
-- **GitHub:** [github.com/ortamy/golem](https://github.com/ortamy/golem)
+- **Website:** [ortamy.github.io/alephy](https://ortamy.github.io/alephy)
+- **Laboratory:** [ortamy.github.io/alephy/webapp](https://ortamy.github.io/alephy/webapp)
+- **GitHub:** [github.com/ortamy/alephy](https://github.com/ortamy/alephy)

@@ -35,13 +35,13 @@ python -m http.server 8765
 
 ## Источник результатов
 
-`GolemAnalyzers.adapter` сначала отправляет запрос на `POST /api/analyzers/analyze`:
+`AlephyAnalyzers.adapter` сначала отправляет запрос на `POST /api/analyzers/analyze`:
 
 ```json
 {
   "text": "текст",
   "kind": "layer | ai | dialect",
-  "settings": {"model": "golem-local", "mode": "local"}
+  "settings": {"model": "alephy-local", "mode": "local"}
 }
 ```
 
@@ -51,7 +51,7 @@ python -m http.server 8765
 
 1. Добавьте описание карточки в `renderOverview` и маршрут с понятным `data-module` в sidebar.
 2. Добавьте route в массив `routedModules` файла `js/router.js`.
-3. Добавьте ветку в `PageController` и новый тип в `GolemAnalyzers.render`.
+3. Добавьте ветку в `PageController` и новый тип в `AlephyAnalyzers.render`.
 4. Вынесите маркеры и настройки в отдельный каталог или endpoint, если анализатор должен обновляться без изменения UI.
 5. Добавьте responsive-правила в `css/analyzers.css` и smoke-тест маршрута.
 

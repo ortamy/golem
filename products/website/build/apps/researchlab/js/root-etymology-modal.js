@@ -40,30 +40,63 @@ const RootEtymologyModal = (function() {
   }
 
   function showLoading(root) {
-    LabModal.show('Этимологический разбор', '<div class="rem-skeleton" aria-label="Загрузка разбора"><span></span><span></span><span></span><span></span></div>', '');
+    LabModal.show('Этимологический разбор', '<div class="rem-skeleton" aria-label="Загрузка разбора"><span></span><span></span><span></span><span></span></div>');
     load(root, 0);
   }
 
   function load(root, attempt) {
     var path = 'data/roots/etymology/' + encodeURIComponent(root.root) + '.json';
-    if (cache[root.root]) { LabModal.show('Этимологический разбор', render(cache[root.root], root), ''); return; }
+    if (cache[root.root]) {
+      LabModal.show('Этимологический разбор', render(cache[root.root], root));
+      return;
+    }
+
+    LabModal.show(
+      'Этимологический разбор',
+      '<div class="rem-skeleton" aria-label="Загрузка разбора"><span></span><span></span><span></span><span></span></div>'
+    );
+
     fetch(path).then(function(response) {
       if (response.status === 404) return null;
       if (!response.ok) throw new Error('HTTP ' + response.status);
       return response.json();
     }).then(function(data) {
       if (!data) {
-        LabModal.show('Этимологический разбор', '<div class="rem-empty"><p>Разбор готовится.</p><span>Для этого корня этимологические данные пока не опубликованы.</span></div>', '');
+        LabModal.show(
+          'Этимологический разбор',
+          '<div class="rem-empty"><p>Разбор готовится.</p><span>Для этого корня этимологические данные пока не опубликованы.</span></div>'
+        );
         return;
       }
-      if (!data || typeof data !== 'object' || !data.proto) throw new Error('Invalid etymology data');
+      if (!data || typeof data !== 'object' || !data.proto) {
+        throw new Error('Invalid etymology data');
+      }
       cache[root.root] = data;
-      LabModal.show('Этимологический разбор', render(data, root), '');
+      LabModal.show('Этимологический разбор', render(data, root));
     }).catch(function() {
-      LabModal.show('Этимологический разбор', '<div class="rem-error"><p>Не удалось загрузить разбор.</p><button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-rem-retry>Повторить</button></div>', '');
-      var retry = document.querySelector('[data-rem-retry]');
-      if (retry) retry.addEventListener('click', function() { showLoading(root); });
+      LabModal.show(
+        'Этимологический разбор',
+        '<div class="rem-error"><p>Не удалось загрузить разбор.</p></div>',
+        '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-rem-retry>Повторить</button>'
+      );
+      ensureRetry(root);
     });
+  }
+
+  function ensureRetry(root) {
+    var retry = document.querySelector('[data-rem-retry]');
+    if (!retry) {
+      var footer = document.getElementById('modalFooter');
+      if (!footer) return;
+      footer.innerHTML = '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-rem-retry>Повторить</button>';
+      retry = document.querySelector('[data-rem-retry]');
+    }
+    if (retry) {
+      retry.onclick = function(event) {
+        event.preventDefault();
+        showLoading(root);
+      };
+    }
   }
 
   function open(root) {

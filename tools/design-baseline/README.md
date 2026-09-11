@@ -4,7 +4,7 @@
 
 ## Матрица
 
-- Темы: `light`, `white`, `dark` (ключ localStorage `golem_theme`)
+- Темы: `light`, `white`, `dark` (ключ localStorage `alephy_theme`)
 - Маршруты: `dashboard`, `manifest`, `states`, `dictionaries`, `researches`
 - Вьюпорт 1440×900, fullPage, deviceScaleFactor 1
 

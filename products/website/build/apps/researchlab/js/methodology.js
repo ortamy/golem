@@ -7,7 +7,7 @@
   'use strict';
 
   var PAGE_TEMPLATE = '<section class="methodology-shell" aria-labelledby="methodology-title">' +
-    '<header class="methodology-heading"><div><p class="methodology-kicker" id="methodology-hero-kicker">ГОЛЕМ · ПРИНЦИПЫ РАЗОБЛАЧЕНИЯ</p><h1 id="methodology-title">Методология</h1><p class="subtitle methodology-hero-description" id="methodology-hero-description">Базовые правила, по которым выявляется подмена смысла и возвращается физика текста.</p></div></header>' +
+    '<header class="methodology-heading"><div><p class="methodology-kicker" id="methodology-hero-kicker">АЛЕФИ · ПРИНЦИПЫ РАЗОБЛАЧЕНИЯ</p><h1 id="methodology-title">Методология</h1><p class="subtitle methodology-hero-description" id="methodology-hero-description">Базовые правила, по которым выявляется подмена смысла и возвращается физика текста.</p></div></header>' +
     '<div class="methodology-toolbar methodology-navigation lab-card"><label class="methodology-select-label" for="methodology-category-select">Раздел методологии<select id="methodology-category-select" class="lab-input" aria-label="Раздел методологии"><option value="principles">Принципы разоблачения</option><option value="methods">Методы разоблачения</option><option value="mechanisms">Механизмы подмены</option><option value="shifts">Языковые сдвиги</option><option value="techniques">Приёмы подмены</option><option value="philosophemes">Греческие философемы</option><option value="distortions">Типы искажений</option><option value="matrices">Культурные матрицы</option><option value="paleo-translation">Принципы палео-перевода</option></select></label><label class="methodology-select-label" for="methodology-document-select">Документ<select id="methodology-document-select" class="lab-input" aria-label="Документ внутри раздела"><option value="">Все документы</option></select></label><button type="button" class="lab-btn lab-btn-primary lab-btn-sm" id="methodology-add-btn">Добавить карточку</button></div>' +
     '<div class="methodology-panel" id="methodology-panel" role="tabpanel" aria-live="polite"><div class="lab-spinner show"><div class="loader"></div><div class="spinner-text">Загрузка материалов…</div></div></div></section>';
   var DATA_PATH = 'data/methodology/cards.json';
@@ -15,7 +15,7 @@
   var MATRICES_DATA_PATH = 'data/methodology/cultural-matrices.json';
   var METHODS_DATA_PATH = 'data/methodology/methods.json';
   var API_URL = 'http://localhost:8000/api/methodology/cards';
-  var STORAGE_KEY = 'golem_methodology_cards_v1';
+  var STORAGE_KEY = 'alephy_methodology_cards_v1';
 
   var CATEGORIES = [
     { key: 'principles', label: 'Принципы разоблачения' },
@@ -31,39 +31,39 @@
 
   var METHODOLOGY_HERO = {
     principles: {
-      kicker: 'ГОЛЕМ · ПРИНЦИПЫ РАЗОБЛАЧЕНИЯ',
+      kicker: 'АЛЕФИ · ПРИНЦИПЫ РАЗОБЛАЧЕНИЯ',
       description: 'Базовые правила, по которым выявляется подмена смысла и возвращается физика текста.'
     },
     methods: {
-      kicker: 'ГОЛЕМ · МЕТОДЫ РАЗОБЛАЧЕНИЯ',
+      kicker: 'АЛЕФИ · МЕТОДЫ РАЗОБЛАЧЕНИЯ',
       description: 'Рабочие способы проверки слова, перевода и цепочки смысловых сдвигов.'
     },
     mechanisms: {
-      kicker: 'ГОЛЕМ · МЕХАНИЗМЫ ПОДМЕНЫ',
+      kicker: 'АЛЕФИ · МЕХАНИЗМЫ ПОДМЕНЫ',
       description: 'Системные ходы, через которые живое действие превращается в застывшую формулу.'
     },
     shifts: {
-      kicker: 'ГОЛЕМ · ЯЗЫКОВЫЕ СДВИГИ',
+      kicker: 'АЛЕФИ · ЯЗЫКОВЫЕ СДВИГИ',
       description: 'Десять изменений языка, которые меняют ритм, конкретность и присутствие исходного текста.'
     },
     techniques: {
-      kicker: 'ГОЛЕМ · ПРИЁМЫ ПОДМЕНЫ',
+      kicker: 'АЛЕФИ · ПРИЁМЫ ПОДМЕНЫ',
       description: 'Конкретные техники, которыми система искажает смысл и лишает слово силы.'
     },
     philosophemes: {
-      kicker: 'ГОЛЕМ · ГРЕЧЕСКИЕ ФИЛОСОФЕМЫ',
+      kicker: 'АЛЕФИ · ГРЕЧЕСКИЕ ФИЛОСОФЕМЫ',
       description: 'Тридцать пять моделей мышления, которые перевод превратил в линзу для чтения ТаНаХа.'
     },
     distortions: {
-      kicker: 'ГОЛЕМ · ТИПЫ ИСКАЖЕНИЙ',
+      kicker: 'АЛЕФИ · ТИПЫ ИСКАЖЕНИЙ',
       description: 'Девять диагностических моделей, показывающих, как понятие теряет исходную физику в цепочке перевода.'
     },
     matrices: {
-      kicker: 'ГОЛЕМ · КУЛЬТУРНЫЕ МАТРИЦЫ',
+      kicker: 'АЛЕФИ · КУЛЬТУРНЫЕ МАТРИЦЫ',
       description: 'Пять слоёв — вавилонский, египетский, греческий, римский и славянский, — через которые текст прошёл до современного читателя.'
     },
     'paleo-translation': {
-      kicker: 'ГОЛЕМ · ПРИНЦИПЫ ПАЛЕО-ПЕРЕВОДА',
+      kicker: 'АЛЕФИ · ПРИНЦИПЫ ПАЛЕО-ПЕРЕВОДА',
       description: 'Правила, по которым перевод восстанавливает конструкцию и сохраняет физику палео-образа.'
     }
   };
@@ -596,7 +596,7 @@
 
     if (heading) heading.classList.add('is-updating');
     setTimeout(function() {
-      kicker.textContent = documentCard ? 'ГОЛЕМ · ДОКУМЕНТ' : heroData.kicker;
+      kicker.textContent = documentCard ? 'АЛЕФИ · ДОКУМЕНТ' : heroData.kicker;
       if (title) title.textContent = documentCard ? (documentCard.title || 'Документ') : 'Методология';
       description.textContent = documentCard ? (documentCard.summary || documentCard.text || heroData.description) : heroData.description;
       if (back) back.hidden = !documentCard;

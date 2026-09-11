@@ -7,7 +7,7 @@ import { writeFileSync, mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-const URL = pathToFileURL('c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab/index.html').href;
+const URL = pathToFileURL('c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab/index.html').href;
 
 const book = [
   'Песок держит след ноги недолго, но след всё же был.',
@@ -58,7 +58,7 @@ console.log('OK  проект открыт: вьювер «оригинал ↔ 
 
 // Проект в «Мои проекты»
 const meta = await page.evaluate(function () {
-  return JSON.parse(localStorage.getItem('golem.workbench.projects') || '[]');
+  return JSON.parse(localStorage.getItem('alephy.workbench.projects') || '[]');
 });
 if (!meta.length) throw new Error('localStorage пуст — мета не сохранилась');
 if (meta[0].status !== 'done' || !meta[0].progress || meta[0].progress.percent !== 100) throw new Error('Мета проекта не завершена: ' + JSON.stringify(meta[0]));

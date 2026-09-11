@@ -84,7 +84,7 @@ class PipelineApiTest(unittest.TestCase):
 
         self.assertEqual(response.status_code, 200)
         body = response.get_json()
-        self.assertEqual(body["service"], "golem-agents")
+        self.assertEqual(body["service"], "alephy-agents")
         self.assertIn("pid", body)
         self.assertIn("python", body)
         self.assertIn("uptime", body)

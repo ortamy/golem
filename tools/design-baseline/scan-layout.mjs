@@ -11,7 +11,7 @@
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const ROOT = 'c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab/css';
+const ROOT = 'c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab/css';
 const SKIP = new Set(['tokens.css', 'lab.css', 'theme-white.css']);
 const onlyIdx = process.argv.indexOf('--files');
 const ONLY = onlyIdx > -1 ? process.argv[onlyIdx + 1].split(',').map(s => s.trim()) : null;
@@ -83,5 +83,5 @@ out.push('\n=== ПРАВИЛА h1 ===');
 for (const r of h1Rules.sort((a, b) => a.file.localeCompare(b.file))) {
   out.push(`${r.file.padEnd(26)} L${String(r.line).padEnd(5)} ${r.size.padEnd(10)} ${r.lh.padEnd(6)} ${r.sel.slice(0, 52)}`);
 }
-writeFileSync(join('c:/Users/DELL/Desktop/golem-main/tools/design-baseline', 'scan-layout-report.txt'), out.join('\n'), 'utf8');
+writeFileSync(join('c:/Users/DELL/Desktop/alephy-main/tools/design-baseline', 'scan-layout-report.txt'), out.join('\n'), 'utf8');
 console.log('OK -> scan-layout-report.txt');

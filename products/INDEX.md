@@ -1,6 +1,6 @@
 # 📑 ИНДЕКС PRODUCTS
 
-**Описание:** Индекс всех продуктов проекта «ГОЛЕМ»
+**Описание:** Индекс всех продуктов проекта «АЛЕФИ»
 
 ---
 
@@ -144,14 +144,14 @@
 
 ---
 
-### golem-os/ - 💻 Golem OS
+### alephy-os/ - 💻 Alephy OS
 **Статус:** В разработке  
 **Назначение:** Специализированная ОС для работы с проектом
 
 **Компоненты:**
-- [golem-os/](golem-os/) - основной код ОС
-- [docs/](golem-os/docs/) - документация
-- [tests/](golem-os/tests/) - тесты
+- [alephy-os/](alephy-os/) - основной код ОС
+- [docs/](alephy-os/docs/) - документация
+- [tests/](alephy-os/tests/) - тесты
 
 **Связи:**
 - [tools/](../tools/) - инструменты
@@ -171,7 +171,7 @@
 - **Веб:** 3 (tanakh, webapp, website)
 - **Языки:** 1 (davar)
 - **Боты:** 1 (telegram-bot)
-- **ОС:** 1 (golem-os)
+- **ОС:** 1 (alephy-os)
 
 ---
 
@@ -281,7 +281,7 @@ python tools/deploy/deploy-all.py
 - [telegram-bot/](telegram-bot/) - Telegram бот
 - [webapp/](webapp/) - веб-приложение
 - [website/](website/) - статический сайт
-- [golem-os/](golem-os/) - операционная система
+- [alephy-os/](alephy-os/) - операционная система
 
 ---
 

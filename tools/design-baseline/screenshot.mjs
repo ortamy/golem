@@ -16,10 +16,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // === КОНФИГ ===
 const APP_INDEX = pathToFileURL(
-  'c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab/index.html'
+  'c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab/index.html'
 ).href;
 
-const THEMES = ['light', 'parchment', 'white', 'dark']; // golem_theme из index.html (LabTheme)
+const THEMES = ['light', 'parchment', 'white', 'dark']; // alephy_theme из index.html (LabTheme)
 const ROUTES = [
   // ядро матрицы (этап 0)
   'dashboard',        // рабочий стол, tool-grid
@@ -70,7 +70,7 @@ try {
       // чтобы снимки не зависели от состояния сети и CDN-шрифтов
       await context.route(/^https?:\/\//, (r) => r.abort());
       await context.addInitScript((t) => {
-        try { localStorage.setItem('golem_theme', t); } catch (_) {}
+        try { localStorage.setItem('alephy_theme', t); } catch (_) {}
       }, theme);
 
       const page = await context.newPage();

@@ -59,7 +59,7 @@ const PageController = (function() {
 
   function getAgentMapData() {
     var agents = [
-      { icon: 'ui/arrows', name: 'Оркестратор', desc: 'Оркестратор — получает запрос, разбивает его на подзадачи и распределяет их между агентами.', model: 'GOLEM', cat: 'Оркестрация', featured: true },
+      { icon: 'ui/arrows', name: 'Оркестратор', desc: 'Оркестратор — получает запрос, разбивает его на подзадачи и распределяет их между агентами.', model: 'ALEPHY', cat: 'Оркестрация', featured: true },
       { icon: 'archaeology/testtube', name: 'Исследователь', desc: 'Разбирает корни, стихи, термины.', model: 'Claude Sonnet 4', cat: 'Исследователь' },
       { icon: 'ui/question', name: 'Разоблачитель', desc: 'Ищет подмены в переводах, сравнивает LXX и Синодальный.', model: 'GPT-4o', cat: 'Исследователь' },
       { icon: 'scribe/scrolls', name: 'Сборщик', desc: 'Объединяет результаты в единый отчёт.', model: 'Claude Haiku 3.5', cat: 'Оркестрация' },
@@ -244,7 +244,7 @@ const PageController = (function() {
     container.innerHTML = '<div class="research-page-head">' +
       '<div class="paleo-glossary-head">' +
       '<div class="paleo-glossary-icon" aria-hidden="true">𐤌</div>' +
-      '<div><p class="paleo-glossary-kicker">ГОЛЕМ · СЛОВАРИ</p><h1>Палео-глоссарий</h1>' +
+      '<div><p class="paleo-glossary-kicker">АЛЕФИ · СЛОВАРИ</p><h1>Палео-глоссарий</h1>' +
       '<p class="subtitle">Первая партия: 100 слов как русла потока — палео-форма, квадратное письмо, функция и корень.</p></div>' +
       '</div>' + backBtn +
       '</div>' +
@@ -999,7 +999,7 @@ const PageController = (function() {
     if (list) list.hidden = true;
     detail.hidden = false;
     if (window.LabHero && window.LabHero.setView) {
-      window.LabHero.setView('ai-agents', 'agent', { kicker: 'GOLEM · AI-AGENTS', title: agent.name, subtitle: agent.desc, icon: agent.icon + '.png', meta: [agent.cat, agent.model, 'Готов к запуску'] });
+      window.LabHero.setView('ai-agents', 'agent', { kicker: 'ALEPHY · AI-AGENTS', title: agent.name, subtitle: agent.desc, icon: agent.icon + '.png', meta: [agent.cat, agent.model, 'Готов к запуску'] });
     }
     detail.innerHTML = '<div class="agent-detail-page">' +
       '<div class="agent-detail-grid"><section class="agent-detail-section agent-detail-wide"><h2>Запуск агента</h2><form id="agent-run-form"><label for="agent-run-input">Запрос</label><textarea id="agent-run-input" class="lab-textarea agent-prompt" rows="4">разбери слово Берешит</textarea><button type="submit" class="lab-btn lab-btn-primary" id="agent-run-button">Запустить</button></form></section>' +
@@ -1277,8 +1277,8 @@ const PageController = (function() {
       if (moduleId === 'methodology' && window.MethodologyLab) {
         window.MethodologyLab.init(container, parsed);
       }
-      if (moduleId === 'states' && window.GolemStates) {
-        window.GolemStates.init(parsed);
+      if (moduleId === 'states' && window.AlephyStates) {
+        window.AlephyStates.init(parsed);
       }
       if (moduleId === 'learn' && window.LearnLab) {
         window.LearnLab.applyRoute(parsed);
@@ -1332,7 +1332,7 @@ const PageController = (function() {
       case 'state-analyzer':
         container.innerHTML = '';
         container.dataset.loaded = '1';
-        if (window.GolemAnalyzers) window.GolemAnalyzers.render(container, moduleId);
+        if (window.AlephyAnalyzers) window.AlephyAnalyzers.render(container, moduleId);
         break;
 
       case 'pipelines':
@@ -1379,7 +1379,7 @@ const PageController = (function() {
         container.innerHTML = '<div class="paleo-glossary-page">' +
           '<header class="paleo-glossary-head">' +
           '<div class="paleo-glossary-icon" aria-hidden="true">𐤌</div>' +
-          '<div><p class="paleo-glossary-kicker">ГОЛЕМ · ИНСТРУМЕНТЫ</p><h1>Палео-глоссарий</h1>' +
+          '<div><p class="paleo-glossary-kicker">АЛЕФИ · ИНСТРУМЕНТЫ</p><h1>Палео-глоссарий</h1>' +
           '<p class="subtitle">Первая партия: 100 слов как русла потока — палео-форма, квадратное письмо, функция и корень.</p></div>' +
           '</header>' +
           '<div class="paleo-glossary-controls">' +
@@ -1474,7 +1474,7 @@ const PageController = (function() {
       case 'investigation':
         container.innerHTML = '<header class="section-hero">' +
           '<div class="section-hero-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
-          '<div class="section-hero-kicker">ГОЛЕМ · ЧЕКЕР ПОДМЕН</div>' +
+          '<div class="section-hero-kicker">АЛЕФИ · ЧЕКЕР ПОДМЕН</div>' +
           '<h1><img src="assets/icons/32/ui/question.png" class="lab-icon" alt="">Чекер подмен</h1>' +
           '<p class="section-hero-lead">Введите слово, корень или перевод. Сопоставьте происхождение, цепочку подмен и текстовые свидетельства.</p>' +
         '</header>' +
@@ -1787,9 +1787,9 @@ const PageController = (function() {
 
       case 'states':
         showSpinner(container, 'Загрузка карты состояний…');
-        if (window.GolemStates) {
+        if (window.AlephyStates) {
           container.dataset.loaded = '1';
-          window.GolemStates.init(parsed);
+          window.AlephyStates.init(parsed);
         } else {
           showError(container, 'Модуль «Карта состояний» не загрузился.');
         }
@@ -1989,8 +1989,8 @@ const PageController = (function() {
       else if (seg && seg[1] === 'paleo-trainer') viewId = 'paleo-trainer';
       else if (seg && seg[1] === 'courses') {
         viewId = seg[2] ? 'course' : 'courses';
-        if (seg[2] && window.GolemCourses && window.GolemCourses.list) {
-          var course = window.GolemCourses.list.filter(function(item) { return item.id === decodeURIComponent(seg[2]); })[0];
+        if (seg[2] && window.AlephyCourses && window.AlephyCourses.list) {
+          var course = window.AlephyCourses.list.filter(function(item) { return item.id === decodeURIComponent(seg[2]); })[0];
           if (course) override = { title: course.title, subtitle: course.description, meta: [course.level + ' · ' + course.lessons.length + ' уроков'] };
         }
       }
@@ -2132,7 +2132,7 @@ const PageController = (function() {
     if (window.ScriptureReader) ScriptureReader.init();
     if (window.AdminSettings) AdminSettings.init();
     if (window.LearnLab) LearnLab.init();
-    if (window.GolemStates) GolemStates.init();
+    if (window.AlephyStates) AlephyStates.init();
 
     // Init board generator form
     var boardForm = document.getElementById('board-form');

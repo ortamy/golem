@@ -10,8 +10,8 @@ const VisionUI = (function() {
   const LOCAL_API_URL = 'http://localhost:8000/describe';
   const MAX_FILE_SIZE = 10 * 1024 * 1024;
   const ALLOWED_TYPES = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
-  const API_KEY_STORAGE = 'golem_hf_api_key';
-  const MODE_STORAGE = 'golem_vision_mode';
+  const API_KEY_STORAGE = 'alephy_hf_api_key';
+  const MODE_STORAGE = 'alephy_vision_mode';
 
   let state = {
     mode: localStorage.getItem(MODE_STORAGE) || 'huggingface',

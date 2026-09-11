@@ -1,4 +1,4 @@
-# requirements.txt — зависимости проекта «Голем»
+# requirements.txt — зависимости проекта «Алефи»
 # Установка: pip install -r requirements.txt
 
 rich>=13.0.0

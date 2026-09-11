@@ -6,7 +6,7 @@
 const ClubModule = (function() {
   'use strict';
 
-  var STORAGE_KEY = 'golem_waitlist';
+  var STORAGE_KEY = 'alephy_waitlist';
   var currentCardId = null;
   var isCreateRoute = false;
 

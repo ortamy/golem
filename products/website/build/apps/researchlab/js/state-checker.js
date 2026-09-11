@@ -1,7 +1,7 @@
 /**
  * state-checker.js — «Чекер стран»: диагностика страны по 8 состояниям пространств.
  * Данные: data/state-matrix.json. Результат: круговая диаграмма, доминирующее состояние,
- * текстовый диагноз в стиле «Голема», экспорт в Markdown.
+ * текстовый диагноз в стиле «Алефи», экспорт в Markdown.
  */
 const StateChecker = (function() {
   'use strict';
@@ -18,7 +18,7 @@ const StateChecker = (function() {
   ];
 
   var COLORS = ['#8e2f25', '#5c4a3a', '#b8860b', '#2f6b1f', '#6b9ec4', '#2455a4', '#8a5a2b', '#d4a030'];
-  var CACHE_KEY = 'golem_state_checker_cache';
+  var CACHE_KEY = 'alephy_state_checker_cache';
   var matrix = null;
   var loadPromise = null;
 
@@ -216,7 +216,7 @@ const StateChecker = (function() {
       '<section class="state-checker-page">' +
         '<header class="stc-hero">' +
           '<div class="stc-hero-watermark" aria-hidden="true">𐤕 𐤇 𐤌 𐤓 𐤔 𐤌</div>' +
-          '<p class="stc-kicker">ГОЛЕМ · ЧЕКЕР СТРАН</p>' +
+          '<p class="stc-kicker">АЛЕФИ · ЧЕКЕР СТРАН</p>' +
           '<h1>Чекер стран</h1>' +
           '<p class="stc-subtitle">Диагностика стран по 8 состояниям пространств.</p>' +
         '</header>' +

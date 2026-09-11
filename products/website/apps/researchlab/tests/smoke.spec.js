@@ -93,10 +93,7 @@ test.describe('root etymology modal', () => {
   test('loads pilot data, caches it, and handles keyboard/backdrop close', async ({ page }) => {
     let requests = 0;
     page.on('request', (request) => {
-      if (request.url().includes('/data/roots/etymology/')) requests += 1;
-    });
-    await page.route('**/data/roots/etymology/**', async (route) => {
-      await route.continue();
+      if (decodeURIComponent(request.url()).includes('/data/roots/etymology/')) requests += 1;
     });
     await page.goto('/#root-dictionary/search/AV', { waitUntil: 'domcontentloaded' });
     await page.waitForSelector('[data-root-id="אב"]', { timeout: 20_000 });
@@ -127,7 +124,9 @@ test.describe('root etymology modal', () => {
 
   test('retries a failed etymology request', async ({ page }) => {
     let requests = 0;
-    await page.route('**/data/roots/etymology/**', async (route) => {
+    // Glob-паттерны Playwright не гарантируют матчинг percent-encoded Hebrew,
+    // поэтому перехватываем по декодированному pathname.
+    await page.route((url) => decodeURIComponent(url.pathname).indexOf('/data/roots/etymology/') === 0, async (route) => {
       requests += 1;
       if (requests === 1) return route.abort();
       return route.continue();

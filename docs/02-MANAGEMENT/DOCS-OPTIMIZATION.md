@@ -26,10 +26,10 @@
 ## 2. ДИАГНОЗ (зафиксированные факты)
 
 - **Рассинхрон путей:** `docs/06-METHODOLOGY/PALEO-STANDARD.md`, `PALEO-TRANSLATION-PRINCIPLES.md`, `PALEO-TRANSLATION-PROTOCOL.md` лежат физически в `06-METHODOLOGY/`, при этом весь корпус (~90 ссылок) и их собственные шапки указывают `docs/04-STANDARD/*`. Шапки части файлов содержат старые пути (`docs/BACKLOG.md`, `guides/CODING.md`, `instructions/...`).
-- **Два поколения гайдов:** CODING, GIT, SETUP, FAQ, SECURITY, SEARCH, CONTRIBUTING, COLLABORATION, WORKFLOW-RESEARCH, TROUBLESHOOTING описывают мёртвую структуру (`tools/checkers/`, `golem.py`, `web/`, `ed-neural/`, `content/`). Актуальные: DEPLOY, ONBOARDING, SCRIPTS, TESTING, WRITING, REMOTION, DOCKER-SETUP.
+- **Два поколения гайдов:** CODING, GIT, SETUP, FAQ, SECURITY, SEARCH, CONTRIBUTING, COLLABORATION, WORKFLOW-RESEARCH, TROUBLESHOOTING описывают мёртвую структуру (`tools/checkers/`, `alephy.py`, `web/`, `ed-neural/`, `content/`). Актуальные: DEPLOY, ONBOARDING, SCRIPTS, TESTING, WRITING, REMOTION, DOCKER-SETUP.
 - **Исторические справочники в «живых» разделах:** `docs/08-AUDITS/CHECKERS.md` (описывает несуществующий каталог чекеров) и `docs/13-REPORTS/RESEARCHES-REPORT.md` (снимок старого прогона) остаются в активных папках без пометки.
 - **Устаревшие продуктовые доки:** `docs/10-DESIGN/ICONS.md`, `docs/11-PRODUCTS/WEB-INTERFACE.md`, `WEBSITE.md`, `RESEARCH-LAB.md` описывают раннюю структуру (`web/`, `products/webapp/`, `ru/en/he`), фактическая карта — `RESEARCH-LAB-MAP.md`.
-- **Противоречие чисел:** `docs/14-APPS/GOLEM.md` — «17 состояний», канон (MANIFEST, STATES.md, ONBOARDING-CHECKLIST) — **16**.
+- **Противоречие чисел:** `docs/14-APPS/ALEPHY.md` — «17 состояний», канон (MANIFEST, STATES.md, ONBOARDING-CHECKLIST) — **16**.
 - **Регистр ссылок:** `docs/07-MECHANICS/README.md` ссылается на файлы букв в нижнем регистре (`aleph-ox.md`), реальные файлы — в верхнем (`ALEPH-OX.md`); на case-sensitive ФС ссылки битые.
 - **Навигация:** INDEX.md заявляет «14 тематических папок (00–13)», фактически 15 папок (00–14) + планируемая архивная; состав части папок в INDEX расходится с ФС.
 - **Метаданные:** поля «Файл:», «Связанные файлы:», хеш, аудит в шапках часто пустые/старые.
@@ -81,7 +81,7 @@ Exit-код: 0 — чисто; 1 — есть error. Прогон: CI-workflow `
 
 ### 3.5. Устранение противоречий и дублей
 
-- `GOLEM.md`: «17 состояний» → «16 состояний» (канон — MANIFEST/STATES.md).
+- `ALEPHY.md`: «17 состояний» → «16 состояний» (канон — MANIFEST/STATES.md).
 - `07-MECHANICS/README.md`: ссылки на файлы букв — в верхний регистр (совпадает с фактическими именами).
 - Эталонные списки (22 буквы, состояния и т.п.) остаются в канонических документах (MANIFEST, PALEO-STANDARD, STATES.md); дубли в производных файлах ссылаются на канон, а не копируются.
 

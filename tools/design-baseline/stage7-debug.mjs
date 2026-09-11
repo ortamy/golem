@@ -2,7 +2,7 @@
 import { chromium } from 'playwright-core';
 import { pathToFileURL } from 'node:url';
 import { resolve, join } from 'node:path';
-const APP = resolve('c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab');
+const APP = resolve('c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab');
 const u = pathToFileURL(join(APP,'index.html')).href + '#manifest';
 (async () => {
   const b = await chromium.launch({ channel:'chrome', headless:true, args:['--allow-file-access-from-files','--no-sandbox'] });

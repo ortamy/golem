@@ -5,7 +5,7 @@ import { chromium } from 'playwright-core';
 import { pathToFileURL } from 'node:url';
 
 const URL = pathToFileURL(
-  'c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab/index.html'
+  'c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab/index.html'
 ).href + '#dashboard';
 
 const browser = await chromium.launch({

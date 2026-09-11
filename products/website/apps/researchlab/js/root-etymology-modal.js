@@ -41,8 +41,6 @@ const RootEtymologyModal = (function() {
 
   function showLoading(root) {
     LabModal.show('Этимологический разбор', '<div class="rem-skeleton" aria-label="Загрузка разбора"><span></span><span></span><span></span><span></span></div>');
-    var close = document.querySelector('#labModal .modal-close');
-    if (close) close.focus();
     load(root, 0);
   }
 
@@ -57,7 +55,6 @@ const RootEtymologyModal = (function() {
       'Этимологический разбор',
       '<div class="rem-skeleton" aria-label="Загрузка разбора"><span></span><span></span><span></span><span></span></div>'
     );
-    ensureRetry(root);
 
     fetch(path).then(function(response) {
       if (response.status === 404) return null;
@@ -79,7 +76,8 @@ const RootEtymologyModal = (function() {
     }).catch(function() {
       LabModal.show(
         'Этимологический разбор',
-        '<div class="rem-error"><p>Не удалось загрузить разбор.</p></div>'
+        '<div class="rem-error"><p>Не удалось загрузить разбор.</p></div>',
+        '<button type="button" class="lab-btn lab-btn-secondary lab-btn-sm" data-rem-retry>Повторить</button>'
       );
       ensureRetry(root);
     });
@@ -94,10 +92,10 @@ const RootEtymologyModal = (function() {
       retry = document.querySelector('[data-rem-retry]');
     }
     if (retry) {
-      retry.addEventListener('click', function(event) {
+      retry.onclick = function(event) {
         event.preventDefault();
         showLoading(root);
-      });
+      };
     }
   }
 

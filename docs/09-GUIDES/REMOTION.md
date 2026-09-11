@@ -1,4 +1,4 @@
-# Remotion: создание видео в проекте «Голем»
+# Remotion: создание видео в проекте «Алефи»
 
 **Файл:** `docs/09-GUIDES/REMOTION.md`
 **Статус:** актуальный рабочий гайд
@@ -7,7 +7,7 @@
 
 ## Назначение
 
-Remotion — отдельный видеопродукт проекта «Голем». Он создаёт видео из React-композиций, где каждый кадр вычисляется программно. Видеопродукт изолирован от публичного сайта, Research Lab, Python-агентов, `tasks/` и `docs/`.
+Remotion — отдельный видеопродукт проекта «Алефи». Он создаёт видео из React-композиций, где каждый кадр вычисляется программно. Видеопродукт изолирован от публичного сайта, Research Lab, Python-агентов, `tasks/` и `docs/`.
 
 Рабочая директория:
 
@@ -60,7 +60,7 @@ npm install
 ## Запуск Remotion Studio
 
 ```powershell
-cd C:\Users\DELL\Desktop\golem-main\products\video
+cd C:\Users\DELL\Desktop\alephy-main\products\video
 npm run dev
 ```
 
@@ -79,7 +79,7 @@ WordOfTheDay
 - длительность `450 frames`, то есть 15 секунд;
 - последовательное появление глифов;
 - переход к буквенным колонкам;
-- финальную фразу и плашку `GOLEM`.
+- финальную фразу и плашку `ALEPHY`.
 
 Для остановки Studio нажми `Ctrl+C` в терминале.
 
@@ -171,7 +171,7 @@ products/video/src/data/words.json
 
 Текущий шаблон выбирает первое слово из массива. Для параметризации используй `defaultProps` или metadata-функцию Remotion, не меняя исходный формат данных.
 
-## Стиль GOLEM
+## Стиль ALEPHY
 
 Для видео используются значения, согласованные с Research Lab:
 
@@ -211,7 +211,7 @@ npx remotion render WordOfTheDay out/slovo-dnya.mp4
 Результат:
 
 ```text
-C:\Users\DELL\Desktop\golem-main\products\video\out\slovo-dnya.mp4
+C:\Users\DELL\Desktop\alephy-main\products\video\out\slovo-dnya.mp4
 ```
 
 Первый рендер может скачать headless Chromium. Это нормальная часть установки Remotion и может занять несколько минут.

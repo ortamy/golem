@@ -57,7 +57,7 @@ class ContentPathsTest(unittest.TestCase):
 
     def test_load_instruction_reads_manifest(self):
         text = load_instruction("00-START/MANIFEST.md")
-        self.assertIn("ГОЛЕМ", text)
+        self.assertIn("АЛЕФИ", text)
 
     def test_load_instruction_resolves_basename(self):
         text = load_instruction("PALEO-STANDARD.md")

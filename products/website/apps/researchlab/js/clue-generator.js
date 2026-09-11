@@ -2,7 +2,7 @@
 (function() {
   'use strict';
 
-  var STORAGE_KEY = 'golem_clue_cases';
+  var STORAGE_KEY = 'alephy_clue_cases';
   var state = { clues: [], links: [], conclusion: '', cases: [], selected: null };
   var container;
 
@@ -53,7 +53,7 @@
   function build() { var output = container.querySelector('#clue-output'); output.innerHTML = state.clues.map(function(c) { var next = state.links.filter(function(l) { return l.from === c.id; }).map(function(l) { return '<div class="clue-arrow">↓ ' + esc(l.text || 'связь') + '</div>'; }).join(''); return '<div class="clue-output-card"><strong>' + esc(c.text || 'Улика без текста') + '</strong>' + next + '</div>'; }).join('') + '<div class="clue-conclusion"><b>Вывод:</b> ' + esc(state.conclusion || 'Вывод не указан.') + '</div>'; }
   function text() { return state.clues.map(function(c, i) { var links = state.links.filter(function(l) { return l.from === c.id; }).map(function(l) { var to = clueById(l.to); return '  → ' + (l.text || 'связь') + ' → ' + (to ? to.text : ''); }).join('\n'); return (i + 1) + '. ' + c.text + (links ? '\n' + links : ''); }).join('\n') + '\n\nВывод: ' + state.conclusion; }
   function download(content, name, type) { var link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([content], { type: type })); link.download = name; link.click(); URL.revokeObjectURL(link.href); }
-  function exportText() { download(text(), 'golem-clue-chain.txt', 'text/plain;charset=utf-8'); }
-  function exportCards() { var cards = state.clues.map(function(c) { return { type: 'clue', title: 'Улика', content: c.text }; }); cards.push({ type: 'conclusion', title: 'Вывод', content: state.conclusion }); localStorage.setItem('golem_board_import', JSON.stringify(cards)); if (window.LabRouter) window.LabRouter.navigate('board'); }
+  function exportText() { download(text(), 'alephy-clue-chain.txt', 'text/plain;charset=utf-8'); }
+  function exportCards() { var cards = state.clues.map(function(c) { return { type: 'clue', title: 'Улика', content: c.text }; }); cards.push({ type: 'conclusion', title: 'Вывод', content: state.conclusion }); localStorage.setItem('alephy_board_import', JSON.stringify(cards)); if (window.LabRouter) window.LabRouter.navigate('board'); }
   window.ClueGenerator = { init: function(el) { container = el; if (container.dataset.ready) return; container.dataset.ready = '1'; state.cases = loadCases(); state.clues = [{ id: id(), text: '' }]; render(); } };
 })();

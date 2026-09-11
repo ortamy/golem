@@ -21,7 +21,7 @@
             applyTranslations();
             
             // Save preference
-            localStorage.setItem('golem-lang', lang);
+            localStorage.setItem('alephy-lang', lang);
             
             return true;
         } catch (e) {
@@ -90,7 +90,7 @@
     // Initialize i18n
     async function init() {
         // Check for saved language preference
-        const savedLang = localStorage.getItem('golem-lang');
+        const savedLang = localStorage.getItem('alephy-lang');
         
         // Check URL parameter
         const urlParams = new URLSearchParams(window.location.search);
@@ -139,7 +139,7 @@
     }
 
     // Export to global scope
-    global.GolemI18n = {
+    global.AlephyI18n = {
         init,
         loadLanguage,
         switchLanguage,

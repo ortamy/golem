@@ -6,7 +6,7 @@
 const BoardLib = (function() {
   'use strict';
 
-  const STORAGE_KEY = 'golem_boards';
+  const STORAGE_KEY = 'alephy_boards';
 
   function init() {
     render();

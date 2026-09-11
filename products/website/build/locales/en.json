@@ -2,7 +2,7 @@
   "lang": "en",
   "dir": "ltr",
   "site": {
-    "name": "GOLEM",
+    "name": "ALEPHY",
     "tagline": "Restoring truth · Yahweh is one"
   },
   "nav": {
@@ -17,7 +17,7 @@
   },
   "pages": {
     "index": {
-      "title": "Golem — Restoring Truth",
+      "title": "Alephy — Restoring Truth",
       "hero_title": "◈ restoring truth",
       "hero_subtitle": "Tanakh research based on Hebrew original",
       "cta_research": "Research",
@@ -25,8 +25,8 @@
       "cta_about": "About"
     },
     "tools": {
-      "title": "Tools — Golem",
-      "heading": "◈ Golem Project Tools",
+      "title": "Tools — Alephy",
+      "heading": "◈ Alephy Project Tools",
       "description": "Tools for Tanakh research, text analysis, and visual materials creation.",
       "card1_title": "Research Board Generator",
       "card1_desc": "Create visual research boards for evidence, threads, and conclusions analysis.",
@@ -37,19 +37,19 @@
       "card3_desc": "Create custom Tanakh interlinear with Paleo-Hebrew, Masoretic text, transliteration and translation."
     },
     "about": {
-      "title": "About — Golem",
+      "title": "About — Alephy",
       "heading": "◈ About"
     },
     "research": {
-      "title": "Research — Golem",
+      "title": "Research — Alephy",
       "heading": "◈ Research"
     },
     "tanakh": {
-      "title": "Tanakh Reading — Golem",
+      "title": "Tanakh Reading — Alephy",
       "heading": "◈ Tanakh Reading"
     },
     "interlinear": {
-      "title": "Interlinear — Golem",
+      "title": "Interlinear — Alephy",
       "heading": "◈ Tanakh Interlinear",
       "subtitle": "paleo-hebrew / masoretic / transliteration / translation"
     }
@@ -59,7 +59,7 @@
     "research": "Research",
     "about": "About",
     "github": "GitHub",
-    "copy": "Project «Golem» · Restoring truth · Yahweh is one"
+    "copy": "Project «Alephy» · Restoring truth · Yahweh is one"
   }
 }
 </parameter>

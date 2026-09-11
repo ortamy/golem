@@ -1,0 +1,35 @@
+=== ЗАПИСАНО ===
+Файлов изменено: 9
+Латинских замен: 18
+Кириллических замен: 5
+Пропущено (binary/non-utf8): 1
+SKIP products/website/apps/researchlab/js/paleo-linguistics.js (non-utf8)
+
+Dockerfile	latin=9	cyr=0	protectedLines=0
+docker/sshd_config	latin=1	cyr=0	protectedLines=0
+docs/02-MANAGEMENT/DOCS-OPTIMIZATION.md	latin=2	cyr=0	protectedLines=0
+docs/05-DICTIONARIES/SCIENTISMS.md	latin=0	cyr=0	protectedLines=2
+docs/14-APPS/ALEPHY.md	latin=1	cyr=0	protectedLines=1
+docs/14-APPS/README.md	latin=2	cyr=0	protectedLines=0
+docs/INDEX.md	latin=1	cyr=0	protectedLines=0
+products/neuro/models/download.sh	latin=0	cyr=0	protectedLines=3
+products/neuro/training-data/exposure-candidates.json	latin=0	cyr=0	protectedLines=1
+products/video/src/WordOfTheDay.tsx	latin=2	cyr=0	protectedLines=0
+products/website/apps/researchlab/data/exposures/documents.json	latin=0	cyr=0	protectedLines=1
+products/website/apps/researchlab/data/scripture/divrei-hayamim.json	latin=0	cyr=0	protectedLines=4
+products/website/apps/researchlab/data/scripture/dvarim.json	latin=0	cyr=0	protectedLines=2
+products/website/apps/researchlab/data/scripture/iyov.json	latin=0	cyr=0	protectedLines=6
+products/website/apps/researchlab/data/scripture/melachim-bet.json	latin=0	cyr=0	protectedLines=4
+products/website/apps/researchlab/data/scripture/samaritan_paleo.json	latin=0	cyr=0	protectedLines=30
+products/website/apps/researchlab/data/scripture/shmot.json	latin=0	cyr=0	protectedLines=2
+products/website/apps/researchlab/data/scripture/tehillim.json	latin=0	cyr=0	protectedLines=4
+products/website/apps/researchlab/data/scripture/vayikra.json	latin=0	cyr=0	protectedLines=2
+products/website/apps/researchlab/data/scripture/yeshayahu.json	latin=0	cyr=0	protectedLines=2
+products/website/apps/researchlab/data/scripture/yirmeyahu.json	latin=0	cyr=0	protectedLines=2
+products/website/config/server.js	latin=0	cyr=3	protectedLines=0
+products/website/index.html	latin=0	cyr=2	protectedLines=0
+products/website/src/content/html/INDEX.html	latin=0	cyr=0	protectedLines=1
+products/website/src/content/md/INDEX.md	latin=0	cyr=0	protectedLines=1
+products/website/src/js/burger-menu.js	latin=0	cyr=0	protectedLines=1
+products/website/src/locales/he.json	latin=0	cyr=0	protectedLines=9
+products/website/src/pages/about/index.html	latin=0	cyr=0	protectedLines=1

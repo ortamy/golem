@@ -1,4 +1,4 @@
-# Установка и запуск Docker-коробки «Голем»
+# Установка и запуск Docker-коробки «Алефи»
 
 ## Требования
 
@@ -23,20 +23,20 @@ docker compose version
 Клонируйте проект и перейдите в папку, где находится `docker-compose.yml`:
 
 ```powershell
-git clone https://github.com/ortamy/golem.git
-cd golem
+git clone https://github.com/ortamy/alephy.git
+cd alephy
 ```
 
 Создайте ключ и секрет LUKS, если их ещё нет:
 
 ```powershell
-New-Item -ItemType Directory -Force .golem-secrets
-ssh-keygen -t ed25519 -f .golem-secrets/golem_ed25519 -N ""
-Copy-Item .golem-secrets/golem_ed25519.pub .golem-secrets/authorized_keys
-openssl rand -base64 48 | Out-File -Encoding ascii .golem-secrets/luks_passphrase
+New-Item -ItemType Directory -Force .alephy-secrets
+ssh-keygen -t ed25519 -f .alephy-secrets/alephy_ed25519 -N ""
+Copy-Item .alephy-secrets/alephy_ed25519.pub .alephy-secrets/authorized_keys
+openssl rand -base64 48 | Out-File -Encoding ascii .alephy-secrets/luks_passphrase
 ```
 
-Не передавайте `.golem-secrets/` и не добавляйте его в Git.
+Не передавайте `.alephy-secrets/` и не добавляйте его в Git.
 
 Запустите коробку:
 
@@ -48,7 +48,7 @@ docker compose up -d --build
 
 ```powershell
 docker compose ps
-docker compose logs -f golem
+docker compose logs -f alephy
 ```
 
 `Ctrl+C` прекращает просмотр логов, но не останавливает контейнер.
@@ -56,7 +56,7 @@ docker compose logs -f golem
 ## Подключение по SSH
 
 ```powershell
-ssh -i .golem-secrets/golem_ed25519 -p 2222 golem@127.0.0.1
+ssh -i .alephy-secrets/alephy_ed25519 -p 2222 alephy@127.0.0.1
 ```
 
 При первом подключении введите `yes` для подтверждения fingerprint. Парольный вход отключён. Выйти и вернуться позже:
@@ -72,7 +72,7 @@ exit
 При первом запуске entrypoint автоматически создаёт LUKS2-том, открывает его и монтирует в `/workspace/secure`. Проверить его:
 
 ```bash
-cryptsetup status golem-secure
+cryptsetup status alephy-secure
 mount | grep /workspace/secure
 df -h /workspace/secure
 ```
@@ -80,8 +80,8 @@ df -h /workspace/secure
 Вручную открыть том (обычно не требуется; выполняется от root):
 
 ```bash
-cryptsetup open /var/lib/golem/secure.luks golem-secure
-mount /dev/mapper/golem-secure /workspace/secure
+cryptsetup open /var/lib/alephy/secure.luks alephy-secure
+mount /dev/mapper/alephy-secure /workspace/secure
 ```
 
 В образе уже есть Python 3.12, Node.js, Git, `vim`, `curl`, `openssl` и `cryptsetup`. Дополнительные инструменты устанавливаются так:
@@ -91,7 +91,7 @@ sudo apt update
 sudo apt install -y имя-пакета
 ```
 
-Сохраняйте данные в `/workspace/secure`: это volume `golem-luks`, который сохраняется после `docker compose down`. Исходники проекта доступны только для чтения в `/workspace/project`.
+Сохраняйте данные в `/workspace/secure`: это volume `alephy-luks`, который сохраняется после `docker compose down`. Исходники проекта доступны только для чтения в `/workspace/project`.
 
 ## Остановка и очистка
 
@@ -113,27 +113,27 @@ docker compose down -v
 docker system prune -a
 ```
 
-Последняя команда действует на весь Docker Desktop, а не только на «Голем».
+Последняя команда действует на весь Docker Desktop, а не только на «Алефи».
 
 ## Перенос образа на флешке
 
-Образ имеет имя `golem:latest`. Сохранить его в TAR-файл:
+Образ имеет имя `alephy:latest`. Сохранить его в TAR-файл:
 
 ```powershell
-docker save -o golem-image.tar golem:latest
+docker save -o alephy-image.tar alephy:latest
 ```
 
 На другом компьютере загрузить образ:
 
 ```powershell
-docker load -i golem-image.tar
+docker load -i alephy-image.tar
 ```
 
 Для запуска также перенесите `docker-compose.yml`, `Dockerfile`, папку `docker/` и секреты:
 
 ```text
-.golem-secrets/authorized_keys
-.golem-secrets/luks_passphrase
+.alephy-secrets/authorized_keys
+.alephy-secrets/luks_passphrase
 ```
 
 Затем выполните в корне проекта:
@@ -142,4 +142,4 @@ docker load -i golem-image.tar
 docker compose up -d
 ```
 
-TAR-файл не содержит SSH-ключей, пароль LUKS и данные volume `golem-luks`.
+TAR-файл не содержит SSH-ключей, пароль LUKS и данные volume `alephy-luks`.

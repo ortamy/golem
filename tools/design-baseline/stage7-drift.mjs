@@ -10,7 +10,7 @@ import fs from 'node:fs';
 import { PNG } from 'pngjs';
 import pixelmatch from 'pixelmatch';
 
-const APP = resolve('c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab');
+const APP = resolve('c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab');
 const routes = ['dashboard','manifest','states','dictionaries','researches','timeline','scripture-reader','generators','cartography','learn','methodology'];
 const themeDir = 'light';
 

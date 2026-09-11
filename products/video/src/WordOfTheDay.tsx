@@ -25,7 +25,7 @@ export const WordOfTheDay: React.FC = () => {
     <AbsoluteFill style={{backgroundColor: parchment, color: ink, fontFamily: "'EB Garamond', Georgia, serif", overflow: "hidden"}}>
       <div style={{position: "absolute", inset: 48, border: `1px solid ${gold}`, opacity: 0.45}} />
       <div style={{position: "absolute", top: 76, left: 100, color: gold, fontSize: 22, letterSpacing: "0.18em", textTransform: "uppercase"}}>слово дня</div>
-      <div style={{position: "absolute", top: 76, right: 100, color: muted, fontSize: 18}}>GOLEM / {String(Math.floor(seconds)).padStart(2, "0")}:00</div>
+      <div style={{position: "absolute", top: 76, right: 100, color: muted, fontSize: 18}}>ALEPHY / {String(Math.floor(seconds)).padStart(2, "0")}:00</div>
 
       <AbsoluteFill style={{opacity: sceneOne, alignItems: "center", justifyContent: "center"}}>
         <div style={{color: muted, fontSize: 28, marginBottom: 34}}>палео-сборка</div>
@@ -59,7 +59,7 @@ export const WordOfTheDay: React.FC = () => {
         <div style={{fontSize: 34, color: muted, marginBottom: 24}}>сборка</div>
         <div style={{fontSize: 66, maxWidth: 1400, lineHeight: 1.1}}>{word.synthesis}</div>
         <div style={{fontSize: 34, color: gold, marginTop: 42}}>{word.hebrew} · {word.translit} · {word.gloss}</div>
-        <div style={{marginTop: 90, padding: "14px 44px", backgroundColor: ink, color: parchment, fontSize: 30, letterSpacing: "0.28em"}}>GOLEM</div>
+        <div style={{marginTop: 90, padding: "14px 44px", backgroundColor: ink, color: parchment, fontSize: 30, letterSpacing: "0.28em"}}>ALEPHY</div>
       </AbsoluteFill>
     </AbsoluteFill>
   );

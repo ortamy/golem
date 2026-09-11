@@ -8,7 +8,7 @@
 const PaleoLinguistics = (function() {
   'use strict';
 
-  const COMPARE_KEY = 'golem_pl_compare';
+  const COMPARE_KEY = 'alephy_pl_compare';
   let languages = [];
   let letters = [];
   let langCache = {};
@@ -167,7 +167,7 @@ const PaleoLinguistics = (function() {
       // Шапка модуля подменяется на язык
       if (window.LabHero && window.LabHero.setView) {
         window.LabHero.setView('paleo-linguistics', 'detail', {
-          kicker: 'ГОЛЕМ · ПАЛЕО-ЛИНГВИСТИКА',
+          kicker: 'АЛЕФИ · ПАЛЕО-ЛИНГВИСТИКА',
           title: lang.name,
           subtitle: lang.role || '',
           icon: 'scribe/scroll.png'

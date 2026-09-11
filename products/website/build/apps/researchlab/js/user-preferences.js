@@ -1,13 +1,13 @@
 /**
  * user-preferences.js — персональные настройки для исследователя и гостя.
- * Хранит предпочтения в localStorage по ключу golem_user_preferences.
+ * Хранит предпочтения в localStorage по ключу alephy_user_preferences.
  * Применяет настройки через data-* атрибуты на <html>.
  */
 
 const UserPreferences = (function() {
   'use strict';
 
-  var STORAGE_KEY = 'golem_user_preferences';
+  var STORAGE_KEY = 'alephy_user_preferences';
   var HTML = document.documentElement;
 
   var PRESETS = {
@@ -344,7 +344,7 @@ const UserPreferences = (function() {
         var blob = new Blob([JSON.stringify(prefs, null, 2)], { type: 'application/json' });
         var a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = 'golem-user-preferences.json';
+        a.download = 'alephy-user-preferences.json';
         a.click();
         showNotice('Настройки экспортированы.', false);
       });

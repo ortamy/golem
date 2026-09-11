@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Генерирует products/website/files.json для legacy-ридера (GolemAPI / GolemState).
+"""Генерирует products/website/files.json для legacy-ридера (AlephyAPI / AlephyState).
 
 Формат записи совпадает с products/website/config/server.js:
   path, title, topic, category, subcategory, related, icon.

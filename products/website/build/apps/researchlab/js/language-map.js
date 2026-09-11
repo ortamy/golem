@@ -184,7 +184,7 @@
   function renderDetail(container, language) {
     if (window.LabHero && window.LabHero.setView) {
       window.LabHero.setView('language-map', 'detail', {
-        kicker: 'ГОЛЕМ · КАРТА ЯЗЫКОВ',
+        kicker: 'АЛЕФИ · КАРТА ЯЗЫКОВ',
         title: language.name,
         subtitle: language.type || '',
         icon: 'paleo/track.png'

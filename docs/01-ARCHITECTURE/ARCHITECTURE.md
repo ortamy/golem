@@ -1,4 +1,4 @@
-# Архитектура проекта «Голем»
+# Архитектура проекта «Алефи»
 
 > **Назначение:** актуальный архитектурный паспорт проекта. Документ описывает действующие границы систем, точки входа, потоки данных и правила изменения исходников.
 >
@@ -24,7 +24,7 @@
 ## 2. Карта репозитория
 
 ```text
-golem/
+alephy/
 ├── .agents/                 # настройки служебных AI-агентов
 ├── .claude/                 # локальные инструкции и навыки
 ├── .github/                 # CI/CD и GitHub Pages
@@ -87,7 +87,7 @@ products/website/
 Waitlist работает через адаптер в inline-скрипте:
 
 - если доступен `window.supabase` или `window.supabaseClient`, выполняется `insert` в `waitlist`;
-- без клиента используется локальная очередь `localStorage.golem_waitlist`;
+- без клиента используется локальная очередь `localStorage.alephy_waitlist`;
 - SQL-схема находится в `products/website/docs/supabase-waitlist.sql`.
 
 ## 4. Research Lab SPA
@@ -263,7 +263,7 @@ Docker-контур (`Dockerfile`, `docker-compose.yml`, `docker/`) предна
 
 ```text
 tools/
-├── golem.py                 # CLI-меню проекта
+├── alephy.py                 # CLI-меню проекта
 ├── checkers/                # проверки структуры и качества
 ├── generators/              # генерация индексов, данных и отчётов
 ├── reports/                 # отчёты

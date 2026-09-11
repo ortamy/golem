@@ -263,6 +263,6 @@ python tools/checkers/check-duplicates.py
 
 ### Полный аудит
 ```bash
-python tools/golem.py
+python tools/alephy.py
 ```
 

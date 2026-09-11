@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Общие утилиты для агентов Голема."""
+"""Общие утилиты для агентов Алефи."""
 import json
 import re
 from pathlib import Path

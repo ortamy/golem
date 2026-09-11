@@ -99,7 +99,7 @@
 
   function promptText(left, right, analysis) {
     var lines = analysis.rows.map(function(row) { return '- ' + row.axis.title + ': ' + left.name + ' — ' + row.left + '/100; ' + right.name + ' — ' + row.right + '/100.'; });
-    return 'Проанализируй языки в методологии GOLEM: ' + left.name + ' и ' + right.name + '.\n\n' + lines.join('\n') + '\n\nВердикт: ' + analysis.verdict + '\n\nУточни, какие конкретные корни, формы и переходы нужно проверить корпусом.';
+    return 'Проанализируй языки в методологии ALEPHY: ' + left.name + ' и ' + right.name + '.\n\n' + lines.join('\n') + '\n\nВердикт: ' + analysis.verdict + '\n\nУточни, какие конкретные корни, формы и переходы нужно проверить корпусом.';
   }
 
   function copyPrompt(container, left, right, analysis, button) {
@@ -123,7 +123,7 @@
     current.right = current.right || (defaultRight && defaultRight.id);
     container.innerHTML = '<section class="tensor-shell" aria-labelledby="tensor-title"><header class="section-hero">' +
       '<div class="section-hero-watermark" aria-hidden="true">𐤀 𐤁 𐤂 𐤃 𐤄 𐤅</div>' +
-      '<div class="section-hero-kicker">ГОЛЕМ · ЛИНГВИСТИЧЕСКИЙ ТЕНЗОР</div>' +
+      '<div class="section-hero-kicker">АЛЕФИ · ЛИНГВИСТИЧЕСКИЙ ТЕНЗОР</div>' +
       '<h1><img src="assets/icons/32/archaeology/testtube.svg" class="lab-icon" alt="">Лингвистический тензор</h1>' +
       '<p class="section-hero-lead">Сопоставьте два языка и посмотрите, где их поток удерживает действие, корень и физику образа.</p>' +
       '</header>' +

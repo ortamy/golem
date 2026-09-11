@@ -14,7 +14,7 @@
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
-const ROOT = 'c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab/css';
+const ROOT = 'c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab/css';
 const APPLY = process.argv.includes('--apply');
 const onlyIdx = process.argv.indexOf('--only');
 const ONLY = onlyIdx > -1 ? process.argv[onlyIdx + 1].split(',').map(s => s.trim()) : null;

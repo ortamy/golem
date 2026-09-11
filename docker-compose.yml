@@ -1,11 +1,11 @@
 services:
-  golem:
+  alephy:
     build:
       context: .
       dockerfile: Dockerfile
-    image: golem:latest
-    container_name: golem-isolated
-    hostname: golem
+    image: alephy:latest
+    container_name: alephy-isolated
+    hostname: alephy
     restart: unless-stopped
     # LUKS requires these Linux capabilities inside the container.
     cap_add:
@@ -16,28 +16,28 @@ services:
     devices:
       - /dev/loop-control:/dev/loop-control
     networks:
-      - golem-net
+      - alephy-net
     ports:
       - "127.0.0.1:2222:22"
     volumes:
-      - golem-luks:/var/lib/golem
+      - alephy-luks:/var/lib/alephy
       - .:/workspace/project:ro
     secrets:
       - ssh_authorized_keys
       - luks_passphrase
 
 networks:
-  golem-net:
-    name: golem-isolated-net
+  alephy-net:
+    name: alephy-isolated-net
     driver: bridge
     internal: true
 
 volumes:
-  golem-luks:
-    name: golem-luks
+  alephy-luks:
+    name: alephy-luks
 
 secrets:
   ssh_authorized_keys:
-    file: .golem-secrets/authorized_keys
+    file: .alephy-secrets/authorized_keys
   luks_passphrase:
-    file: .golem-secrets/luks_passphrase
+    file: .alephy-secrets/luks_passphrase

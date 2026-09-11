@@ -6,7 +6,7 @@ KbdInteractiveAuthentication no
 ChallengeResponseAuthentication no
 PermitRootLogin no
 PermitEmptyPasswords no
-AllowUsers golem
+AllowUsers alephy
 PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
 X11Forwarding no

@@ -13,9 +13,9 @@
 
     function loadFromStorage() {
         try {
-            state.bookmarks = JSON.parse(localStorage.getItem('golem_bookmarks') || '[]');
-            state.fileHistory = JSON.parse(localStorage.getItem('golem_history') || '[]');
-            state.fontSize = localStorage.getItem('golem_fontSize') || 'medium';
+            state.bookmarks = JSON.parse(localStorage.getItem('alephy_bookmarks') || '[]');
+            state.fileHistory = JSON.parse(localStorage.getItem('alephy_history') || '[]');
+            state.fontSize = localStorage.getItem('alephy_fontSize') || 'medium';
         } catch (e) {
             console.error('Ошибка загрузки из localStorage:', e);
         }
@@ -23,7 +23,7 @@
 
     function saveBookmarks() {
         try {
-            localStorage.setItem('golem_bookmarks', JSON.stringify(state.bookmarks));
+            localStorage.setItem('alephy_bookmarks', JSON.stringify(state.bookmarks));
         } catch (e) {
             console.error('Ошибка сохранения закладок:', e);
         }
@@ -31,7 +31,7 @@
 
     function saveHistory() {
         try {
-            localStorage.setItem('golem_history', JSON.stringify(state.fileHistory));
+            localStorage.setItem('alephy_history', JSON.stringify(state.fileHistory));
         } catch (e) {
             console.error('Ошибка сохранения истории:', e);
         }
@@ -39,7 +39,7 @@
 
     function saveFontSize() {
         try {
-            localStorage.setItem('golem_fontSize', state.fontSize);
+            localStorage.setItem('alephy_fontSize', state.fontSize);
         } catch (e) {
             console.error('Ошибка сохранения размера шрифта:', e);
         }
@@ -67,7 +67,7 @@
         return state.bookmarks.indexOf(path) >= 0;
     }
 
-    global.GolemState = {
+    global.AlephyState = {
         state,
         loadFromStorage,
         saveBookmarks,

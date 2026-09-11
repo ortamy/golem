@@ -8,7 +8,7 @@
       "has_transitions": "низкая",
       "proximity_to_reality": "низкая",
       "notes": "Часто удерживает описание состояния, но переход и действие приходится восстанавливать из контекста.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Евразия",
       "script": "кириллица",
@@ -22,7 +22,7 @@
       "has_transitions": "средняя",
       "proximity_to_reality": "средняя",
       "notes": "Сильная сборка действия через порядок слов и глагольные конструкции, при этом часть переходов задаётся служебными элементами.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Европа / Америка",
       "script": "латиница",
@@ -36,7 +36,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "средняя",
       "notes": "Сложная форма предложения позволяет удерживать несколько фаз действия и связывать их в последовательность.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Европа",
       "script": "латиница",
@@ -50,7 +50,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "высокая",
       "notes": "Корневая система и породы глагола позволяют собирать действие, направление и изменение состояния в одной конструкции.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Ближний Восток / Северная Африка",
       "script": "арабское письмо",
@@ -64,7 +64,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "высокая",
       "notes": "Корень задаёт каркас действия, а словообразовательная форма показывает его разворачивание и связь с состоянием.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Израиль",
       "script": "ивритское письмо",
@@ -78,7 +78,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "средняя",
       "notes": "Последовательное присоединение формантов делает видимыми отношения, направление и фазу действия внутри слова.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Анатолия",
       "script": "латиница",
@@ -92,7 +92,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "средняя",
       "notes": "Агглютинативная структура последовательно уточняет действие, участника и переход между состояниями.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Центральная Азия",
       "script": "кириллица",
@@ -107,7 +107,7 @@
       "has_transitions": "средняя",
       "proximity_to_reality": "средняя",
       "notes": "Глагольные конструкции и вид помогают удерживать действие, но часть переходов выражается служебными формами и контекстом.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Европа / Америка",
       "script": "латиница",
@@ -122,7 +122,7 @@
       "has_transitions": "низкая",
       "proximity_to_reality": "низкая",
       "notes": "Сильная институциональная и абстрактная лексика; действие часто собирается через фиксированный порядок и служебные элементы.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Европа / Африка",
       "script": "латиница",
@@ -137,7 +137,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "средняя",
       "notes": "Аспект, частицы и контекст заменяют развитую систему времён; переход состояния виден через последовательность и маркеры действия.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Восточная Азия",
       "script": "иероглифы",
@@ -152,7 +152,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "средняя",
       "notes": "Агглютинация и частицы точно маркируют отношения, фазу действия и уровень обращения между участниками.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Восточная Азия",
       "script": "кандзи / кана",
@@ -167,7 +167,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "средняя",
       "notes": "Глагольные окончания собирают время, аспект, вежливость и отношение говорящего к собеседнику.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Восточная Азия",
       "script": "хангыль",
@@ -182,7 +182,7 @@
       "has_transitions": "средняя",
       "proximity_to_reality": "средняя",
       "notes": "Индоевропейская основа соединяется с ближневосточным контекстом; действие выражается через вид, вспомогательные глаголы и связность повествования.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Иран / Центральная Азия",
       "script": "персидско-арабское письмо",
@@ -197,7 +197,7 @@
       "has_transitions": "средняя",
       "proximity_to_reality": "средняя",
       "notes": "Близость к русскому позволяет сравнить вид глагола, свободный порядок слов и разные способы удержания действия.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Евразия",
       "script": "кириллица",
@@ -212,7 +212,7 @@
       "has_transitions": "средняя",
       "proximity_to_reality": "средняя",
       "notes": "Падежная система и глагольный вид удерживают роли и завершённость действия, но отношения часто кодируются формами.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Европа",
       "script": "латиница",
@@ -227,7 +227,7 @@
       "has_transitions": "средняя",
       "proximity_to_reality": "средняя",
       "notes": "Аналитическая грамматика и продуктивные аффиксы позволяют прозрачно показывать участника, направление и результат действия.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Юго-Восточная Азия",
       "script": "латиница",
@@ -242,7 +242,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "средняя",
       "notes": "Агглютинация и развитая падежная система подробно маркируют отношения, место и движение внутри фразы.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Северная Европа",
       "script": "латиница",
@@ -257,7 +257,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "средняя",
       "notes": "Последовательные суффиксы выражают направление, владение и отношение, делая переходы внутри слова наблюдаемыми.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Центральная Европа",
       "script": "латиница",
@@ -272,7 +272,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "высокая",
       "notes": "Сложная глагольная система и маркировка участников позволяют собирать несколько ролей и фаз действия в одной форме.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Кавказ",
       "script": "грузинское письмо",
@@ -287,7 +287,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "средняя",
       "notes": "Система аспектов и эргативные конструкции по-разному распределяют участника и действие в завершённых и незавершённых событиях.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Южная Азия",
       "script": "деванагари",
@@ -302,7 +302,7 @@
       "has_transitions": "средняя",
       "proximity_to_reality": "средняя",
       "notes": "Богатая система времени, вида и вежливости собирает действие через форму глагола и отношение между участниками.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Южная Азия",
       "script": "бенгальское письмо",
@@ -317,7 +317,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "высокая",
       "notes": "Классы существительных и плотная глагольная сборка одновременно маркируют участника, время, объект и направление действия.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Восточная Африка",
       "script": "латиница",
@@ -332,7 +332,7 @@
       "has_transitions": "средняя",
       "proximity_to_reality": "средняя",
       "notes": "Тональность, порядок слов и частицы несут основную нагрузку смысла, времени и перехода между состояниями.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Юго-Восточная Азия",
       "script": "латиница",
@@ -347,7 +347,7 @@
       "has_transitions": "средняя",
       "proximity_to_reality": "средняя",
       "notes": "Тоны, частицы и контекст собирают намерение, фазу действия и отношение говорящего без сложного словоизменения.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Юго-Восточная Азия",
       "script": "тайское письмо",
@@ -362,7 +362,7 @@
       "has_transitions": "высокая",
       "proximity_to_reality": "высокая",
       "notes": "Современная живая ветка сохраняет корневую морфологию и породы глагола, но соединяет их с новой городской и технологической лексикой.",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза",
       "region": "Израиль",
       "script": "ивритское письмо",
@@ -380,7 +380,7 @@
       "region": "Европа",
       "script": "латиница",
       "family": "романский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -395,7 +395,7 @@
       "region": "Европа / Америка",
       "script": "латиница",
       "family": "романский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -410,7 +410,7 @@
       "region": "Западная Европа",
       "script": "латиница",
       "family": "германский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -425,7 +425,7 @@
       "region": "Северная Европа",
       "script": "латиница",
       "family": "германский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -440,7 +440,7 @@
       "region": "Центральная Европа",
       "script": "латиница",
       "family": "славянский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -455,7 +455,7 @@
       "region": "Балканы",
       "script": "кириллица",
       "family": "славянский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -470,7 +470,7 @@
       "region": "Балтия",
       "script": "латиница",
       "family": "балтийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -485,7 +485,7 @@
       "region": "Кавказ",
       "script": "армянское письмо",
       "family": "армянский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -500,7 +500,7 @@
       "region": "Северная Европа",
       "script": "латиница",
       "family": "уральский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -515,7 +515,7 @@
       "region": "Кавказ / Центральная Азия",
       "script": "латиница",
       "family": "тюркский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -530,7 +530,7 @@
       "region": "Эфиопия",
       "script": "геэзское письмо",
       "family": "афразийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -545,7 +545,7 @@
       "region": "Западная Африка",
       "script": "латиница",
       "family": "нигер-конго",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -560,7 +560,7 @@
       "region": "Южная Азия",
       "script": "тамильское письмо",
       "family": "дравидийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -575,7 +575,7 @@
       "region": "Юго-Восточная Азия",
       "script": "бирманское письмо",
       "family": "сино-тибетский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -590,7 +590,7 @@
       "region": "Океания",
       "script": "латиница",
       "family": "полинезийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -605,7 +605,7 @@
       "region": "Европа",
       "script": "греческое письмо",
       "family": "индоевропейский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -620,7 +620,7 @@
       "region": "Северная Европа",
       "script": "латиница",
       "family": "германский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -635,7 +635,7 @@
       "region": "Северная Европа",
       "script": "латиница",
       "family": "германский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -650,7 +650,7 @@
       "region": "Северная Европа",
       "script": "латиница",
       "family": "германский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -665,7 +665,7 @@
       "region": "Балканы",
       "script": "кириллица / латиница",
       "family": "славянский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -680,7 +680,7 @@
       "region": "Балканы",
       "script": "латиница",
       "family": "славянский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -695,7 +695,7 @@
       "region": "Центральная Европа",
       "script": "латиница",
       "family": "славянский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -710,7 +710,7 @@
       "region": "Юго-Восточная Европа",
       "script": "латиница",
       "family": "романский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -725,7 +725,7 @@
       "region": "Балтия",
       "script": "латиница",
       "family": "балтийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -740,7 +740,7 @@
       "region": "Центральная Азия",
       "script": "латиница",
       "family": "тюркский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -755,7 +755,7 @@
       "region": "Центральная Азия",
       "script": "кириллица",
       "family": "тюркский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -770,7 +770,7 @@
       "region": "Евразия",
       "script": "кириллица",
       "family": "тюркский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -785,7 +785,7 @@
       "region": "Юго-Восточная Азия",
       "script": "латиница",
       "family": "австронезийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -800,7 +800,7 @@
       "region": "Юго-Восточная Азия",
       "script": "кхмерское письмо",
       "family": "австроазиатский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -815,7 +815,7 @@
       "region": "Юго-Восточная Азия",
       "script": "лаосское письмо",
       "family": "тай-кадайский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -830,7 +830,7 @@
       "region": "Южная Азия",
       "script": "телугу-письмо",
       "family": "дравидийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -845,7 +845,7 @@
       "region": "Центральная Азия",
       "script": "кириллица",
       "family": "монгольский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -860,7 +860,7 @@
       "region": "Южная Африка",
       "script": "латиница",
       "family": "банту",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -875,7 +875,7 @@
       "region": "Западная Африка",
       "script": "латиница / аджами",
       "family": "афразийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -890,7 +890,7 @@
       "region": "Южная Америка",
       "script": "латиница",
       "family": "кечуанский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -905,7 +905,7 @@
       "region": "Средиземноморье",
       "script": "латиница",
       "family": "семитский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -920,7 +920,7 @@
       "region": "Западная Европа",
       "script": "латиница",
       "family": "баскский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -935,7 +935,7 @@
       "region": "Западная Европа",
       "script": "латиница",
       "family": "кельтский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -950,7 +950,7 @@
       "region": "Гималаи",
       "script": "тибетское письмо",
       "family": "сино-тибетский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -965,7 +965,7 @@
       "region": "Южный Китай",
       "script": "китайские иероглифы",
       "family": "сино-тибетский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -980,7 +980,7 @@
       "region": "Филиппины",
       "script": "латиница",
       "family": "австронезийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -995,7 +995,7 @@
       "region": "Восточная Африка",
       "script": "латиница",
       "family": "афразийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1010,7 +1010,7 @@
       "region": "Центральная Азия",
       "script": "кириллица",
       "family": "индоевропейский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1025,7 +1025,7 @@
       "region": "Южная Азия",
       "script": "деванагари",
       "family": "индоарийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1040,7 +1040,7 @@
       "region": "Западная Африка",
       "script": "латиница",
       "family": "нигер-конго",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1055,7 +1055,7 @@
       "region": "Балканы",
       "script": "латиница",
       "family": "индоевропейский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1070,7 +1070,7 @@
       "region": "Кавказ",
       "script": "кириллица",
       "family": "нахский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1085,7 +1085,7 @@
       "region": "Кавказ",
       "script": "кириллица",
       "family": "северо-западнокавказский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1100,7 +1100,7 @@
       "region": "Южная Азия",
       "script": "персидско-арабское письмо",
       "family": "индоарийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1115,7 +1115,7 @@
       "region": "Южная Азия",
       "script": "каннада-письмо",
       "family": "дравидийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1130,7 +1130,7 @@
       "region": "Южная Азия",
       "script": "сингальское письмо",
       "family": "индоарийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1145,7 +1145,7 @@
       "region": "Юго-Восточная Азия",
       "script": "латиница / яванское письмо",
       "family": "австронезийский",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1160,7 +1160,7 @@
       "region": "Центральная Африка",
       "script": "латиница",
       "family": "банту",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1175,7 +1175,7 @@
       "region": "Анды",
       "script": "латиница",
       "family": "аймара",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     },
     {
@@ -1190,7 +1190,7 @@
       "region": "Южная Америка",
       "script": "латиница",
       "family": "тупи-гуарани",
-      "source": "GOLEM baseline",
+      "source": "ALEPHY baseline",
       "confidence": "исследовательская гипотеза"
     }
   ]

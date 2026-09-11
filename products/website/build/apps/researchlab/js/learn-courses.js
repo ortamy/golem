@@ -664,5 +664,5 @@
     }
   ];
 
-  root.GolemCourses = { list: COURSES };
+  root.AlephyCourses = { list: COURSES };
 })(typeof window !== 'undefined' ? window : this);

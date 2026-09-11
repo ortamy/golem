@@ -3,7 +3,7 @@ var burgerMenuScriptEl = document.currentScript || document.querySelector('scrip
 
 document.addEventListener('DOMContentLoaded', function() {
     // Путь к самому скрипту (../../js/burger-menu.js) уже верно резолвится
-    // браузером с учётом любого суб-пути хостинга (например /golem/ на GitHub Pages).
+    // браузером с учётом любого суб-пути хостинга (например /alephy/ на GitHub Pages).
     // Строим ссылки от корня сайта (js/ на уровень выше), а не от глубины URL,
     // которая не знает о суб-пути хостинга.
     var prefix = new URL('../', burgerMenuScriptEl.src).href;
@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var isRTL = document.documentElement.dir === 'rtl';
     
     var menuTexts = {
-        ru: { home: 'Главная', tanakh: 'Чтение ТаНаХа', research: 'Исследования', methods: 'Методы разоблачения', dictionaries: 'Словари', methodology: 'Методология', tools: 'Инструменты', about: 'О проекте', logo: 'ГОЛЕМ' },
-        en: { home: 'Home', tanakh: 'Tanakh Reading', research: 'Research', methods: 'Exposure Methods', dictionaries: 'Dictionaries', methodology: 'Methodology', tools: 'Tools', about: 'About', logo: 'GOLEM' },
+        ru: { home: 'Главная', tanakh: 'Чтение ТаНаХа', research: 'Исследования', methods: 'Методы разоблачения', dictionaries: 'Словари', methodology: 'Методология', tools: 'Инструменты', about: 'О проекте', logo: 'АЛЕФИ' },
+        en: { home: 'Home', tanakh: 'Tanakh Reading', research: 'Research', methods: 'Exposure Methods', dictionaries: 'Dictionaries', methodology: 'Methodology', tools: 'Tools', about: 'About', logo: 'ALEPHY' },
         he: { home: 'ראשי', tanakh: 'קריאת תנ״ך', research: 'מחקר', methods: 'שיטות חשיפה', dictionaries: 'מילונים', methodology: 'מתודולוגיה', tools: 'כלים', about: 'אודות', logo: 'גולם' }
     };
     
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     var options = langOptions[htmlLang] || langOptions.ru;
-    var selectHTML = '<select onchange="if(this.value) GolemI18n.switchLanguage(this.value.split(\'=\')[1])">';
+    var selectHTML = '<select onchange="if(this.value) AlephyI18n.switchLanguage(this.value.split(\'=\')[1])">';
     options.forEach(function(opt) {
         selectHTML += '<option value="' + opt.value + '"' + (opt.selected ? ' selected' : '') + '>' + opt.label + '</option>';
     });

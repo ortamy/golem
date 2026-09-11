@@ -4,7 +4,7 @@ import { pathToFileURL } from 'node:url';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
-const APP = resolve('c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab');
+const APP = resolve('c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab');
 const CSS_ROOT = join(APP, 'css');
 const APP_URL = pathToFileURL(join(APP, 'index.html')).href + '#dashboard';
 const THEMES = {
@@ -44,7 +44,7 @@ const browser = await chromium.launch({
 try {
   for (const [theme, expected] of Object.entries(THEMES)) {
     const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
-    await context.addInitScript((value) => localStorage.setItem('golem_theme', value), theme);
+    await context.addInitScript((value) => localStorage.setItem('alephy_theme', value), theme);
     const page = await context.newPage();
     await page.goto(APP_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForTimeout(500);

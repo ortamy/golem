@@ -252,7 +252,7 @@ const Timeline = (function() {
     // setView ПОСЛЕ Timeline.applyRoute и без него вернёт базовую шапку каталога
     // (тот же контракт, что в load-researches.js и workbench.js).
     timelineContainer._labHeroOverride = {
-      kicker: 'ГОЛЕМ · ПАЛЕО-ТАЙМЛАЙН',
+      kicker: 'АЛЕФИ · ПАЛЕО-ТАЙМЛАЙН',
       title: timeline.title,
       subtitle: timeline.description || '',
       icon: 'paleo/track.png'

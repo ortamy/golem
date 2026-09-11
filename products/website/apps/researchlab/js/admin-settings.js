@@ -1,5 +1,5 @@
 /**
- * admin-settings.js — comprehensive settings module for Golem Research Lab.
+ * admin-settings.js — comprehensive settings module for Alephy Research Lab.
  * Covers model config, cache, agents, system metrics, logs, export/import,
  * plus legacy admin features (password, guest tokens, appearance).
  *
@@ -49,10 +49,10 @@ const AdminSettings = (function() {
   ];
 
   var STORAGE_KEYS = {
-    modelConfig: 'golem_settings_model',
-    agentConfig: 'golem_settings_agents',
-    logs: 'golem_settings_logs',
-    errorLogs: 'golem_settings_errors'
+    modelConfig: 'alephy_settings_model',
+    agentConfig: 'alephy_settings_agents',
+    logs: 'alephy_settings_logs',
+    errorLogs: 'alephy_settings_errors'
   };
 
   var draft = null;
@@ -413,12 +413,12 @@ const AdminSettings = (function() {
       var key = localStorage.key(i);
       var val = localStorage.getItem(key);
       totalKvSize += (val ? val.length : 0) + (key ? key.length : 0);
-      if (key && key.indexOf('golem_') === 0) totalKvItems++;
+      if (key && key.indexOf('alephy_') === 0) totalKvItems++;
     }
 
     // Разбор слов кэш
     var waCache = {};
-    try { waCache = JSON.parse(localStorage.getItem('golem_wa_cache')) || {}; } catch(e) {}
+    try { waCache = JSON.parse(localStorage.getItem('alephy_wa_cache')) || {}; } catch(e) {}
     var waItems = Object.keys(waCache).length;
     var waSize = JSON.stringify(waCache).length;
 
@@ -426,7 +426,7 @@ const AdminSettings = (function() {
     var ragKeys = [];
     for (var j = 0; j < localStorage.length; j++) {
       var k = localStorage.key(j);
-      if (k && (k.indexOf('golem_rag_') === 0 || k.indexOf('golem_knowledge_') === 0)) {
+      if (k && (k.indexOf('alephy_rag_') === 0 || k.indexOf('alephy_knowledge_') === 0)) {
         ragKeys.push(k);
       }
     }
@@ -481,14 +481,14 @@ const AdminSettings = (function() {
       var keysToRemove = [];
       for (var i = 0; i < localStorage.length; i++) {
         var key = localStorage.key(i);
-        if (key && key.indexOf('golem_') === 0) {
+        if (key && key.indexOf('alephy_') === 0) {
           keysToRemove.push(key);
           count++;
         }
       }
       keysToRemove.forEach(function(k) { localStorage.removeItem(k); });
       // Reset word analyzer cache
-      try { localStorage.removeItem('golem_wa_cache'); } catch(e) {}
+      try { localStorage.removeItem('alephy_wa_cache'); } catch(e) {}
       updateCacheStats();
       showResult('Очищено ' + count + ' записей KV-кэша.', false);
       addLog('Очистка KV-кэша: ' + count + ' записей');
@@ -505,7 +505,7 @@ const AdminSettings = (function() {
     });
 
     document.getElementById('settings-clear-wa').addEventListener('click', function() {
-      try { localStorage.removeItem('golem_wa_cache'); } catch(e) {}
+      try { localStorage.removeItem('alephy_wa_cache'); } catch(e) {}
       updateCacheStats();
       showResult('Кэш разбора слов очищен.', false);
       addLog('Очистка кэша разбора слов');
@@ -517,13 +517,13 @@ const AdminSettings = (function() {
       var keysToRemove = [];
       for (var i = 0; i < localStorage.length; i++) {
         var key = localStorage.key(i);
-        if (key && (key.indexOf('golem_') === 0 || key.indexOf('golem_wa_') === 0 || key.indexOf('golem_rag_') === 0 || key.indexOf('golem_knowledge_') === 0)) {
+        if (key && (key.indexOf('alephy_') === 0 || key.indexOf('alephy_wa_') === 0 || key.indexOf('alephy_rag_') === 0 || key.indexOf('alephy_knowledge_') === 0)) {
           keysToRemove.push(key);
           count++;
         }
       }
       keysToRemove.forEach(function(k) { localStorage.removeItem(k); });
-      try { localStorage.removeItem('golem_wa_cache'); } catch(e) {}
+      try { localStorage.removeItem('alephy_wa_cache'); } catch(e) {}
       updateCacheStats();
       showResult('Очищено ' + count + ' записей. Все кэши сброшены.', false);
       addLog('Полная очистка кэша: ' + count + ' записей');
@@ -677,7 +677,7 @@ const AdminSettings = (function() {
       var key = localStorage.key(i);
       var val = localStorage.getItem(key);
       totalSize += (val ? val.length : 0) + (key ? key.length : 0);
-      if (key && key.indexOf('golem_') === 0) cacheCount++;
+      if (key && key.indexOf('alephy_') === 0) cacheCount++;
     }
     var ramPercent = Math.min(Math.floor(totalSize / 5120), 100); // cap at ~5MB
     if (ramEl) ramEl.textContent = formatBytes(totalSize);
@@ -699,7 +699,7 @@ const AdminSettings = (function() {
       detailEl.innerHTML =
         '<table class="lab-table">' +
           '<tr><td>Браузер</td><td>' + navigator.userAgent.substring(0, 80) + '...</td></tr>' +
-          '<tr><td>localStorage</td><td>' + formatBytes(totalSize) + ' (' + cacheCount + ' golem-записей)</td></tr>' +
+          '<tr><td>localStorage</td><td>' + formatBytes(totalSize) + ' (' + cacheCount + ' alephy-записей)</td></tr>' +
           '<tr><td>Активная модель</td><td>' + modelLabel + '</td></tr>' +
           '<tr><td>Температура</td><td>' + mc.temperature + '</td></tr>' +
           '<tr><td>Max токенов</td><td>' + mc.maxTokens + '</td></tr>' +
@@ -851,7 +851,7 @@ const AdminSettings = (function() {
         errorLogs: loadErrorLogs(),
         labConfig: draft || cloneConfig()
       };
-      downloadJSON(data, 'golem-settings-export.json');
+      downloadJSON(data, 'alephy-settings-export.json');
       addLog('Экспорт всех настроек');
       showNotice('Настройки экспортированы.', false);
     });
@@ -1133,7 +1133,7 @@ const AdminSettings = (function() {
     if (logsExportBtn) {
       logsExportBtn.addEventListener('click', function() {
         var logs = loadLogs();
-        downloadJSON(logs, 'golem-logs-export.json');
+        downloadJSON(logs, 'alephy-logs-export.json');
         showNotice('Логи экспортированы.', false);
       });
     }

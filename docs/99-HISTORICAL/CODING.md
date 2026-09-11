@@ -1,4 +1,4 @@
-# 💻 GUIDE-CODING — СТАНДАРТЫ КОДА ПРОЕКТА «ГОЛЕМ»
+# 💻 GUIDE-CODING — СТАНДАРТЫ КОДА ПРОЕКТА «АЛЕФИ»
 
 > ⚠️ ИСТОРИЧЕСКИЙ ДОКУМЕНТ — описывает устаревшую структуру проекта. Актуальные руководства — `docs/09-GUIDES/`.
 
@@ -21,7 +21,7 @@
 
 ## 🔥 ВВЕДЕНИЕ
 
-Единый стандарт для всего кода проекта «Голем»: Python, JavaScript, CSS, Bash, Markdown. Все участники следуют этим стандартам.
+Единый стандарт для всего кода проекта «Алефи»: Python, JavaScript, CSS, Bash, Markdown. Все участники следуют этим стандартам.
 
 ---
 
@@ -119,7 +119,7 @@ except ValueError as e:
 ### Заголовок файла
 
 ```javascript
-// web/app.js — Golem Web Interface v9.2 — PC + Mobile, адаптивный
+// web/app.js — Alephy Web Interface v9.2 — PC + Mobile, адаптивный
 ```
 
 ### Именование
@@ -140,7 +140,7 @@ except ValueError as e:
 ### Функции
 
 ```javascript
-// web/app.js — Golem Web Interface v9.2
+// web/app.js — Alephy Web Interface v9.2
 
 function loadFile(path) {
     var content = document.getElementById('content');
@@ -165,7 +165,7 @@ function loadFile(path) {
 ### Заголовок файла
 
 ```css
-/* web/style.css — стили веб-интерфейса Golem */
+/* web/style.css — стили веб-интерфейса Alephy */
 ```
 
 ### Структура
@@ -261,7 +261,7 @@ function do_something() {
 ## 🏛 СТРУКТУРА ПРОЕКТА (АКТУАЛЬНАЯ)
 
 ```
-golem/
+alephy/
 ├── content/                    # контент
 │   ├── terminology/
 │   ├── tanakh/

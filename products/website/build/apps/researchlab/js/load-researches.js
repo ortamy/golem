@@ -7,7 +7,7 @@
 const LoadResearches = (function() {
   'use strict';
 
-  var STORAGE_KEY = 'golem_exposure_drafts';
+  var STORAGE_KEY = 'alephy_exposure_drafts';
   var state = { query: '', category: 'all', confidence: 'all', activeSlug: '' };
   var items = [];
 
@@ -358,7 +358,7 @@ const LoadResearches = (function() {
     if (window.LabHero && window.LabHero.setView) {
       var confidence = ExposureCase.confidenceMeta(item.confidence);
       container._labHeroOverride = {
-        kicker: 'ГОЛЕМ · ИССЛЕДОВАНИЯ',
+        kicker: 'АЛЕФИ · ИССЛЕДОВАНИЯ',
         title: item.title || '',
         subtitle: (item.category || ''),
         icon: 'scribe/scroll.png',

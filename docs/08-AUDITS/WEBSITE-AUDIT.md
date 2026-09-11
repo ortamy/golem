@@ -109,7 +109,7 @@ span.addEventListener('click', () => openFile(path));
 
 - Объединить реализации Markdown из `js/parser.js`, `pages/research/index.html` и `build/server.js`.
 - Перейти в `js/api.js` с callbacks на `async/await`; проверять `response.ok` в `fetchJSON`.
-- Убрать глобальные функции `window.Golem*` и inline-обработчики в пользу ES modules.
+- Убрать глобальные функции `window.Alephy*` и inline-обработчики в пользу ES modules.
 - В `app.js` убрать повторную инициализацию `setFontSize` и двойной вызов `addToHistory`.
 - Разделить исходный контент, generated HTML и runtime data; закрепить правила в `docs/STRUCTURE.md`.
 - Не удалять `webapp/`, `researchlab/` или `tanakh/` без проверки их ссылок и назначения.
@@ -134,7 +134,7 @@ span.addEventListener('click', () => openFile(path));
 
 `index.html` вычисляет язык, но всегда отправляет в `pages/index.html` через 1,2 секунды. Использовать HTTP redirect или мгновенную навигацию на реальные locale URL. `sitemap.xml` указывает `/ru/`, `/en/`, `/he/`, тогда как фактическая структура содержит `pages/`; все URL надо проверить на HTTP 200.
 
-Многие content HTML имеют `<title>Без названия — Golem`; отсутствуют description, canonical и hreflang. Нужны шаблон метаданных и генерация sitemap из route manifest. Не запрещать в `robots.txt` CSS/JS, необходимые для рендеринга; `Disallow: /api/` оставить.
+Многие content HTML имеют `<title>Без названия — Alephy`; отсутствуют description, canonical и hreflang. Нужны шаблон метаданных и генерация sitemap из route manifest. Не запрещать в `robots.txt` CSS/JS, необходимые для рендеринга; `Disallow: /api/` оставить.
 
 Для accessibility:
 

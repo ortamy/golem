@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
-const ROOT = 'c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab/css';
+const ROOT = 'c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab/css';
 const SKIP = new Set(['tokens.css', 'lab.css']);
 
 function listCss(dir) {

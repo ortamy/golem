@@ -1,7 +1,7 @@
 (function(window, document) {
   'use strict';
 
-  var STORAGE_KEY = 'golem_agent_map_v1';
+  var STORAGE_KEY = 'alephy_agent_map_v1';
   var state = null;
   var container = null;
   var stage = null;

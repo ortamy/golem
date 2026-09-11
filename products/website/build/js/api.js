@@ -64,7 +64,7 @@
         });
     }
 
-    global.GolemAPI = {
+    global.AlephyAPI = {
         fetchJSON,
         fetchText,
         loadFile,

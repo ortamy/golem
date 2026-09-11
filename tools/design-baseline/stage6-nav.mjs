@@ -15,9 +15,9 @@ import { mkdirSync, readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { PNG } from 'pngjs';
 import pixelmatch from 'pixelmatch';
 
-const APP_INDEX = pathToFileURL('c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab/index.html').href;
-const BASE = 'c:/Users/DELL/Desktop/golem-main/tools/design-baseline/baseline/v7';
-const OUTB = 'c:/Users/DELL/Desktop/golem-main/tools/design-baseline/baseline/stage6-B';
+const APP_INDEX = pathToFileURL('c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab/index.html').href;
+const BASE = 'c:/Users/DELL/Desktop/alephy-main/tools/design-baseline/baseline/v7';
+const OUTB = 'c:/Users/DELL/Desktop/alephy-main/tools/design-baseline/baseline/stage6-B';
 const SHOOT_B = process.argv.includes('--shoot');
 const FILL_A = process.argv.includes('--fill-a');
 const onlyIdx = process.argv.indexOf('--only');

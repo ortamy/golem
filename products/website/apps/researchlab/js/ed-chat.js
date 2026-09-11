@@ -1,9 +1,9 @@
 const EdChat = (function() {
   'use strict';
 
-  const STORAGE_KEY = 'golem_ed_chat';
-  const HISTORY_KEY = 'golem_ed_chat_history';
-  const SETTINGS_KEY = 'golem_ed_chat_settings';
+  const STORAGE_KEY = 'alephy_ed_chat';
+  const HISTORY_KEY = 'alephy_ed_chat_history';
+  const SETTINGS_KEY = 'alephy_ed_chat_settings';
   const TOKEN_LIMIT = 4096;
   const CONTEXT_DOCUMENTS = ['MANIFEST.md', 'docs/06-METHODOLOGY/', 'docs/01-ARCHITECTURE/ARCHITECTURE.md'];
   const MODELS = {
@@ -47,7 +47,7 @@ const EdChat = (function() {
   }
 
   function hasApiKey() {
-    return Boolean(localStorage.getItem('golem_hf_api_key') || localStorage.getItem('golem_api_key'));
+    return Boolean(localStorage.getItem('alephy_hf_api_key') || localStorage.getItem('alephy_api_key'));
   }
 
   function init() {

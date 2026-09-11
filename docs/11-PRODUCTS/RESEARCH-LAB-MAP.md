@@ -8,7 +8,7 @@ Research Lab находится в `products/website/apps/researchlab/` и ра�
 
 ### Хедер
 
-- Логотип «ГОЛЕМ» — ссылка на `#dashboard`.
+- Логотип «АЛЕФИ» — ссылка на `#dashboard`.
 - Глобальный поиск — контейнер `#globalSearch`, поле `#gs-input` и результаты `#gs-results`. Поиск выполняет `LabSearch.search()`.
 - Кнопка темы `#themeBtn` и мобильный дубль `#themeBtnMobile` — `LabTheme.toggle()`.
 - Ссылка «Сайт» — переход к публичному сайту.

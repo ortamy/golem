@@ -3,7 +3,7 @@ import { chromium } from 'playwright-core';
 import { pathToFileURL } from 'node:url';
 import { resolve, join } from 'node:path';
 
-const APP = resolve('c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab');
+const APP = resolve('c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab');
 const ROUTES = ['dashboard','manifest','states','dictionaries','researches','checkers','generators','learn'];
 const HAS_H1 = new Set(ROUTES);
 const opts = { channel:'chrome', headless:true, args:['--allow-file-access-from-files','--no-sandbox'] };

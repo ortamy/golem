@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Исследовательская лаборатория — Golem</title>
-<meta name="description" content="Полноценная исследовательская лаборатория проекта Голем">
+<title>Исследовательская лаборатория — Alephy</title>
+<meta name="description" content="Полноценная исследовательская лаборатория проекта Алефи">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,19 +106,19 @@
 
 <!-- HEADER -->
 <header class="lab-header glass-topbar" id="labHeader">
-  <a href="#dashboard" class="logo"><img src="../../assets/images/golem-logo.svg" alt="Golem" style="height: 40px; width: auto;"><span class="golem-beta glass-btn-gold" aria-label="Бета-версия">BETA</span></a>
+  <a href="#dashboard" class="logo"><img src="../../assets/images/alephy-logo.svg" alt="Alephy" style="height: 40px; width: auto;"><span class="alephy-beta glass-btn-gold" aria-label="Бета-версия">BETA</span></a>
   
   <nav>
     <button class="theme-toggle icon-btn" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtn"><i data-lucide="moon" aria-hidden="true"></i></button>
     <button class="search-toggle icon-btn" id="searchToggle" type="button" aria-label="Поиск" role="button" tabindex="0" aria-expanded="false" aria-controls="globalSearch"><i data-lucide="search" aria-hidden="true"></i></button>
     <a href="../../" class="icon-link" title="Сайт" aria-label="Сайт"><i data-lucide="globe" aria-hidden="true"></i></a>
-    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="icon-link" title="GitHub" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a>
+    <a href="https://github.com/ortamy/alephy" target="_blank" rel="noopener" class="icon-link" title="GitHub" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a>
   </nav>
   <div class="lab-header-mobile-links">
     <button class="mobile-icon-link" onclick="LabTheme.toggle()" title="Переключить тему" id="themeBtnMobile"><i data-lucide="moon" aria-hidden="true"></i></button>
     <button class="mobile-icon-link search-toggle" id="searchToggleMobile" type="button" aria-label="Поиск" role="button" tabindex="0" aria-expanded="false" aria-controls="globalSearch"><i data-lucide="search" aria-hidden="true"></i></button>
     <a href="../../" class="mobile-icon-link" title="Сайт"><i data-lucide="globe" aria-hidden="true"></i></a>
-    <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub"><i data-lucide="github" aria-hidden="true"></i></a>
+    <a href="https://github.com/ortamy/alephy" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub"><i data-lucide="github" aria-hidden="true"></i></a>
   </div>
   <button class="lab-hamburger hamburger-btn icon-btn" id="labSidebarToggle" aria-label="Открыть меню" aria-controls="labSidebar" aria-expanded="false" onclick="LabSidebar.toggle()" style="display:none;">
     <i data-lucide="menu" aria-hidden="true"></i>
@@ -216,9 +216,9 @@
 
 <!-- FOOTER -->
 <footer class="lab-footer">
-  <a href="../pages/index.html">Проект «Голем»</a> — восстановление истины.
+  <a href="../pages/index.html">Проект «Алефи»</a> — восстановление истины.
   <span class="sep">|</span>
-  <a href="https://github.com/ortamy/golem">GitHub</a>
+  <a href="https://github.com/ortamy/alephy">GitHub</a>
   <span class="sep">|</span>
   <span id="lab-version">v0.2.0</span>
 </footer>
@@ -390,13 +390,13 @@ document.addEventListener('DOMContentLoaded', function() { LabSearchToggle.init(
 const LabTheme = {
   themes: ['white', 'beige', 'brown', 'dark'],
   init: function() {
-    var saved = localStorage.getItem('golem_theme') || 'white';
+    var saved = localStorage.getItem('alephy_theme') || 'white';
     this.set(this.themes.indexOf(saved) >= 0 ? saved : 'white');
   },
   set: function(theme) {
     if (this.themes.indexOf(theme) < 0) theme = 'light';
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('golem_theme', theme);
+    localStorage.setItem('alephy_theme', theme);
     var iconName = theme === 'dark' ? 'sun' : theme === 'white' ? 'moon' : 'contrast';
     var icon = '<i data-lucide="' + iconName + '" aria-hidden="true"></i>';
     var btn = document.getElementById('themeBtn');
@@ -414,15 +414,24 @@ const LabTheme = {
 
 // ===== LAB MODAL =====
 const LabModal = {
+  lastFocused: null,
   show: function(title, body, footerHTML) {
+    this.lastFocused = document.activeElement;
     document.getElementById('modalTitle').innerHTML = title;
     document.getElementById('modalBody').innerHTML = body;
     var footer = document.getElementById('modalFooter');
     footer.innerHTML = footerHTML || '<button class="lab-btn lab-btn-secondary lab-btn-sm" onclick="LabModal.close()">Закрыть</button>';
-    document.getElementById('labModal').classList.add('show');
+    var modal = document.getElementById('labModal');
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    var close = modal.querySelector('.modal-close');
+    if (close) close.focus();
   },
   close: function() {
-    document.getElementById('labModal').classList.remove('show');
+    var modal = document.getElementById('labModal');
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    if (this.lastFocused && typeof this.lastFocused.focus === 'function') this.lastFocused.focus();
   }
 };
 
@@ -766,7 +775,7 @@ const WordAnalyzer = {
     'ברית': { translit: 'брит', meaning: 'союз', root: 'בר', rootMeaning: 'чистый', subs: [['завет', 'брит (ברית)', 'От בר — чистый. Брит — союз, основанный на очищении.']] }
   },
 
-  CACHE_KEY: 'golem_wa_cache',
+  CACHE_KEY: 'alephy_wa_cache',
 
   analyze: function() {
     var input = document.getElementById('wa-input');

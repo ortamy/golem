@@ -20,7 +20,7 @@ load_dotenv(ROOT / ".env")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Оркестратор пайплайнов Голема")
+    parser = argparse.ArgumentParser(description="Оркестратор пайплайнов Алефи")
     parser.add_argument("query", nargs="+", help="Запрос на русском языке")
     args = parser.parse_args()
     try:

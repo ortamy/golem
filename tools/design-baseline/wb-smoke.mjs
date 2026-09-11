@@ -3,7 +3,7 @@
 import { chromium } from 'playwright-core';
 import { pathToFileURL } from 'node:url';
 
-const APP = 'c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab/index.html';
+const APP = 'c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab/index.html';
 const URL = pathToFileURL(APP).href;
 
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--allow-file-access-from-files'] });
@@ -24,7 +24,7 @@ if (cards !== 3) throw new Error('Карточек конвейеров: ' + car
 const heroTitle = await page.locator('#workbench .lab-hero__title').first().textContent();
 if (!/Мастерская/.test(heroTitle)) throw new Error('Шапка хаба: ' + heroTitle);
 const crumb = await page.locator('#workbench .lab-hero__kicker').first().textContent();
-if (!/ГОЛЕМ/.test(crumb)) throw new Error('Крошки хаба: ' + crumb);
+if (!/АЛЕФИ/.test(crumb)) throw new Error('Крошки хаба: ' + crumb);
 const empty = await page.locator('#workbench').textContent();
 if (!/Пока пусто/.test(empty)) throw new Error('Список проектов не пустой при первом входе');
 console.log('OK  #workbench: 3 карточки, шапка «Мастерская», крошки, пустой список проектов');

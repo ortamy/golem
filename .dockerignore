@@ -1,5 +1,5 @@
 .git
-.golem-secrets
+.alephy-secrets
 node_modules
 __pycache__
 *.pyc

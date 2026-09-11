@@ -1,5 +1,5 @@
 /**
- * router.js — SPA Router for Golem Research Lab
+ * router.js — SPA Router for Alephy Research Lab
  * 
  * Переключение между модулями без перезагрузки страницы
  * Использует hash-based routing: #root-dictionary, #religionism-checker, и т.д.
@@ -26,7 +26,7 @@ const LabRouter = (function() {
   }
 
   function routeTitle(route) {
-    if (route === 'dashboard') return 'ГОЛЕМ';
+    if (route === 'dashboard') return 'АЛЕФИ';
     if (route === 'learn/paleo-trainer/battle') return 'Палео-битва';
     if (route.indexOf('learn') === 0 && window.LearnLab && window.LearnLab.routeTitle) {
       var learnTitle = window.LearnLab.routeTitle(route);
@@ -344,7 +344,7 @@ const LabRouter = (function() {
     // document.title в соответствии с маршрутом.
     // Раньше title задавался только манифестом и лип к другим страницам.
     var pageTitle = routeTitle(moduleId);
-    if (pageTitle) document.title = pageTitle + ' — Golem';
+    if (pageTitle) document.title = pageTitle + ' — Alephy';
 
     // PageController получает единственный вызов через зарегистрированный колбэк.
     if (onModuleChange) {

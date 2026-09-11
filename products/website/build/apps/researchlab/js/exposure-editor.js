@@ -8,7 +8,7 @@ const ExposureEditor = (function() {
   'use strict';
 
   // ===== КОНСТАНТЫ =====
-  var STORAGE_KEY = 'golem_exposure_drafts';
+  var STORAGE_KEY = 'alephy_exposure_drafts';
   var CATEGORIES = [
     'linguistic', 'historical', 'theological', 'social',
     'economic', 'political', 'technological', 'other'

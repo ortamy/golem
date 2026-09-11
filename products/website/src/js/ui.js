@@ -2,8 +2,8 @@
 (function(global) {
     'use strict';
 
-    const GolemState = global.GolemState;
-    const GolemParser = global.GolemParser;
+    const AlephyState = global.AlephyState;
+    const AlephyParser = global.AlephyParser;
     const EMOJI_REGEX = /[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{2300}-\u{23FF}\u{2000}-\u{27B0}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA6F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{2934}-\u{2935}\u{25AA}-\u{25AB}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2764}\u{2714}\u{2716}\u{303D}\u{2122}\u{00A9}\u{00AE}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25B6}\u{25C0}\u{3030}\u{3297}\u{3299}]+/gu;
 
     function $(id) { return document.getElementById(id); }
@@ -41,7 +41,7 @@
 
     function buildSelects() {
         const counts = {}, cats = [];
-        GolemState.state.FILES.forEach(function(f) {
+        AlephyState.state.FILES.forEach(function(f) {
             if (!counts[f.category]) { counts[f.category] = 0; cats.push(f.category); }
             counts[f.category]++;
         });
@@ -58,7 +58,7 @@
     }
 
     function getFiltered() {
-        if (GolemState.state.filteredCache) return GolemState.state.filteredCache;
+        if (AlephyState.state.filteredCache) return AlephyState.state.filteredCache;
         const m = isMobile();
         let q = m ? $('search-mobile') : $('search');
         let cat = m ? $('category-select-mobile') : $('category-select');
@@ -67,7 +67,7 @@
         cat = cat ? cat.value : '';
         sub = sub ? sub.value : '';
 
-        let list = GolemState.state.FILES;
+        let list = AlephyState.state.FILES;
         if (cat) list = list.filter(function(f) { return f.category === cat; });
         if (sub) list = list.filter(function(f) { return f.subcategory === sub; });
         if (q) list = list.filter(function(f) {
@@ -79,7 +79,7 @@
         const ss = m ? $('subcategory-select-mobile') : $('subcategory-select');
         if (ss && cat) {
             const subs = {};
-            GolemState.state.FILES.forEach(function(f) { 
+            AlephyState.state.FILES.forEach(function(f) { 
                 if (f.category === cat && f.subcategory) subs[f.subcategory] = true; 
             });
             const sn = Object.keys(subs).sort();
@@ -99,7 +99,7 @@
             ss.value = ''; 
         }
 
-        GolemState.state.filteredCache = list;
+        AlephyState.state.filteredCache = list;
         return list;
     }
 
@@ -142,7 +142,7 @@
     }
 
     function render() {
-        GolemState.state.filteredCache = null;
+        AlephyState.state.filteredCache = null;
         if (isMobile()) {
             const mlv = $('mobile-list-view');
             const items = mlv.querySelectorAll('.file-item-mobile, .cat-header-mobile');
@@ -162,10 +162,10 @@
         [bl, bm].forEach(function(list) {
             if (!list) return; 
             list.innerHTML = '';
-            GolemState.state.bookmarks.forEach(function(p) {
+            AlephyState.state.bookmarks.forEach(function(p) {
                 const d = document.createElement('div'); 
                 d.className = 'bookmark-item';
-                const bf = GolemState.state.FILES.find(function(x) { return x.path === p; });
+                const bf = AlephyState.state.FILES.find(function(x) { return x.path === p; });
                 const titleText = bf ? renderTitle(bf) : esc(p);
                 const titleDiv = document.createElement('div');
                 titleDiv.innerHTML = titleText;
@@ -175,7 +175,7 @@
             });
         });
         const bs = $('bookmarks-section'); 
-        if (bs) bs.style.display = GolemState.state.bookmarks.length ? 'block' : 'none';
+        if (bs) bs.style.display = AlephyState.state.bookmarks.length ? 'block' : 'none';
     }
 
     function renderHistory() {
@@ -183,10 +183,10 @@
         [hl, bh].forEach(function(list) {
             if (!list) return; 
             list.innerHTML = '';
-            GolemState.state.fileHistory.slice(0, 8).forEach(function(p) {
+            AlephyState.state.fileHistory.slice(0, 8).forEach(function(p) {
                 const d = document.createElement('div'); 
                 d.className = 'history-item';
-                const f = GolemState.state.FILES.find(function(x) { return x.path === p; });
+                const f = AlephyState.state.FILES.find(function(x) { return x.path === p; });
                 const titleText = f ? renderTitle(f) : esc((p || '').substring(0, 40));
                 const titleDiv = document.createElement('div');
                 titleDiv.innerHTML = titleText;
@@ -196,7 +196,7 @@
             });
         });
         const hs = $('history-section'); 
-        if (hs) hs.style.display = GolemState.state.fileHistory.length ? 'block' : 'none';
+        if (hs) hs.style.display = AlephyState.state.fileHistory.length ? 'block' : 'none';
     }
 
     function buildTOC(md) {
@@ -224,7 +224,7 @@
     }
 
     function renderLinks(p, clickFn) {
-        const f = GolemState.state.FILES.find(function(x) { return x.path === p; });
+        const f = AlephyState.state.FILES.find(function(x) { return x.path === p; });
         if (!f || !f.related || !f.related.length) return '';
         const container = document.createElement('div');
         const hr = document.createElement('hr');
@@ -235,7 +235,7 @@
         container.appendChild(h3);
         const ul = document.createElement('ul');
         f.related.forEach(function(r) {
-            const rf = GolemState.state.FILES.find(function(x) { return x.path === r; });
+            const rf = AlephyState.state.FILES.find(function(x) { return x.path === r; });
             const tt = rf ? (rf.title || r) : r;
             const li = document.createElement('li');
             const span = document.createElement('span');
@@ -283,8 +283,8 @@
     }
 
     function setFontSize(size) {
-        GolemState.state.fontSize = size;
-        GolemState.saveFontSize();
+        AlephyState.state.fontSize = size;
+        AlephyState.saveFontSize();
         const sizes = { small: '12px', medium: '14px', large: '16px' };
         document.body.style.fontSize = sizes[size] || '14px';
         const btns = document.querySelectorAll('.font-size-btn');
@@ -307,11 +307,11 @@
         $('file-page').style.display = 'none';
         $('mobile-list-view').style.display = 'block';
         $('stats-mobile').style.display = 'block';
-        GolemState.state.currentPath = null;
+        AlephyState.state.currentPath = null;
         render();
     }
 
-    global.GolemUI = {
+    global.AlephyUI = {
         $,
         esc,
         renderTitle,

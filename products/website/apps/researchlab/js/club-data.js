@@ -4,7 +4,7 @@
  */
 const ClubData = (function () {
   'use strict';
-  var STORAGE_KEY = 'golem_club_posts';
+  var STORAGE_KEY = 'alephy_club_posts';
   var MOCK = {
     profiles: [
       { handle: 'маскиль_а', level: 3, color: '#b8860b', initial: 'М' },

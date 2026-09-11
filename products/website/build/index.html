@@ -1,22 +1,22 @@
-<!-- products/website/index.html — Шаар в Исследовательскую лабораторию Golem -->
+<!-- products/website/index.html — Шаар в Исследовательскую лабораторию Alephy -->
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golem — исследовательская платформа</title>
+  <title>Alephy — исследовательская платформа</title>
   <meta name="description" content="Реконструкция палео-образного мышления">
-  <link rel="canonical" href="https://ortamy.github.io/golem/">
+  <link rel="canonical" href="https://ortamy.github.io/alephy/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>
-    // Тема до первой отрисовки: общий с лабом ключ golem_theme.
+    // Тема до первой отрисовки: общий с лабом ключ alephy_theme.
     // Набор тем: белая (white) / бежевая (beige) / коричневая (brown) / чёрная (dark).
     // Устаревшая 'parchment' больше не существует — бесшумно приводим к белой.
     try {
-      var __golemTheme = localStorage.getItem('golem_theme');
-      if (__golemTheme === 'parchment') __golemTheme = 'white';
-      if (__golemTheme === 'white' || __golemTheme === 'beige' || __golemTheme === 'brown' || __golemTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', __golemTheme);
+      var __alephyTheme = localStorage.getItem('alephy_theme');
+      if (__alephyTheme === 'parchment') __alephyTheme = 'white';
+      if (__alephyTheme === 'white' || __alephyTheme === 'beige' || __alephyTheme === 'brown' || __alephyTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', __alephyTheme);
       }
     } catch (e) {}
   </script>
@@ -26,10 +26,10 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"></noscript>
   <link rel="stylesheet" href="apps/researchlab/css/lab.css">
-  <meta property="og:title" content="Golem — исследовательская платформа">
+  <meta property="og:title" content="Alephy — исследовательская платформа">
   <meta property="og:description" content="Возвращаем тексту его физику: образ, движение, состояние и переход.">
-  <meta property="og:image" content="https://ortamy.github.io/golem/favicon.svg">
-  <meta property="og:url" content="https://ortamy.github.io/golem/">
+  <meta property="og:image" content="https://ortamy.github.io/alephy/favicon.svg">
+  <meta property="og:url" content="https://ortamy.github.io/alephy/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <style>
@@ -126,13 +126,13 @@
       color: var(--chocolate-soft);
     }
     /* Цвет логотипа соответствует поверхности шапки каждой темы. */
-    .lab-header .logo img[src*="golem-logo"] {
+    .lab-header .logo img[src*="alephy-logo"] {
       filter: brightness(0) invert(1);
     }
-    [data-theme="white"] .lab-header .logo img[src*="golem-logo"] {
+    [data-theme="white"] .lab-header .logo img[src*="alephy-logo"] {
       filter: brightness(0);
     }
-    [data-theme="beige"] .lab-header .logo img[src*="golem-logo"] {
+    [data-theme="beige"] .lab-header .logo img[src*="alephy-logo"] {
       filter: invert(29%) sepia(19%) saturate(1090%) hue-rotate(348deg) brightness(83%) contrast(88%);
     }
     *, *::before, *::after { box-sizing: border-box; }
@@ -909,18 +909,18 @@
     </div>
   </aside>
   <header class="lab-header">
-<a href="./" class="logo" aria-label="Golem — на главную"><img src="assets/images/golem-logo.svg" alt="Golem" style="height: 40px; width: auto;"><span class="golem-beta" aria-label="Бета-версия">BETA</span></a>
+<a href="./" class="logo" aria-label="Alephy — на главную"><img src="assets/images/alephy-logo.svg" alt="Alephy" style="height: 40px; width: auto;"><span class="alephy-beta" aria-label="Бета-версия">BETA</span></a>
 
     <nav class="desktop-anchor-nav" aria-label="Разделы лендинга"><a href="#map">Карта</a><a href="#mechanics">Механика</a><a href="#club">Клуб</a><a href="#tools">Инструменты</a></nav>
     <nav>
       <button class="theme-toggle" type="button" title="Переключить тему" id="themeBtn" aria-label="Переключить тему"><i data-lucide="moon" aria-hidden="true"></i></button>
       <a href="apps/researchlab/index.html" class="icon-link" title="Лаборатория" aria-label="Лаборатория"><i data-lucide="flask-conical" aria-hidden="true"></i></a>
-      <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="icon-link" title="GitHub" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a>
+      <a href="https://github.com/ortamy/alephy" target="_blank" rel="noopener" class="icon-link" title="GitHub" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a>
     </nav>
     <div class="lab-header-mobile-links">
       <button class="mobile-icon-link" type="button" title="Переключить тему" id="themeBtnMobile" aria-label="Переключить тему"><i data-lucide="moon" aria-hidden="true"></i></button>
       <a href="apps/researchlab/index.html" class="mobile-icon-link" title="Лаборатория" aria-label="Лаборатория"><i data-lucide="flask-conical" aria-hidden="true"></i></a>
-      <a href="https://github.com/ortamy/golem" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a>
+      <a href="https://github.com/ortamy/alephy" target="_blank" rel="noopener" class="mobile-icon-link" title="GitHub" aria-label="GitHub"><i data-lucide="github" aria-hidden="true"></i></a>
     </div>
   </header>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -1097,7 +1097,7 @@
     <section class="section" id="methodology" aria-labelledby="project-title">
       <div class="container">
         <div class="project-callout">
-          <div><p class="eyebrow">О проекте Golem</p><h2 id="project-title">Сначала увидеть. Затем проверить.</h2><p>Golem соединяет методологию, корпус источников и инструменты так, чтобы исследование не зависело от чужого перевода.</p></div>
+          <div><p class="eyebrow">О проекте Alephy</p><h2 id="project-title">Сначала увидеть. Затем проверить.</h2><p>Alephy соединяет методологию, корпус источников и инструменты так, чтобы исследование не зависело от чужого перевода.</p></div>
           <a class="button button-outline" href="apps/researchlab/index.html#methodology">Смотреть методологию ↗</a>
         </div>
       </div>
@@ -1109,7 +1109,7 @@
   <div class="portal-overlay" id="labPortal" hidden>
     <div class="portal-card" role="dialog" aria-modal="true" aria-labelledby="portalTitle">
       <button class="portal-close" type="button" aria-label="Закрыть" id="portalClose">×</button>
-      <div class="portal-brand">ГОЛЕМ</div>
+      <div class="portal-brand">АЛЕФИ</div>
       <h2 class="portal-heading" id="portalTitle">Исследовательская лаборатория</h2>
       <p class="portal-desc">Вход не требуется — Лаборатория открыта для всех. Роли «исследователь / админ» настраиваются внутри (гостевой режим по умолчанию).</p>
       <div class="portal-form portal-actions">
@@ -1123,7 +1123,7 @@
   <div class="portal-overlay" id="clubTeaser" hidden>
     <div class="portal-card" role="dialog" aria-modal="true" aria-labelledby="clubTeaserTitle">
       <button class="portal-close" type="button" aria-label="Закрыть" id="clubTeaserClose">×</button>
-      <div class="portal-brand">ГОЛЕМ · КЛУБ</div>
+      <div class="portal-brand">АЛЕФИ · КЛУБ</div>
       <p class="club-badge club-modal-badge">СКОРО</p>
       <h2 class="portal-heading" id="clubTeaserTitle">Палео-клуб открывается скоро</h2>
       <p class="portal-desc">Круг живого чтения и практики. Что будет внутри:</p>
@@ -1140,9 +1140,9 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <a class="brand footer-brand" href="./"><span class="brand-mark" aria-hidden="true">ג</span><span>GOLEM</span></a>
+        <a class="brand footer-brand" href="./"><span class="brand-mark" aria-hidden="true">ג</span><span>ALEPHY</span></a>
         <p class="footer-slogan">Путь из тесноты в открытое пространство</p>
-        <div class="footer-bottom"><span>© Golem Research Lab</span></div>
+        <div class="footer-bottom"><span>© Alephy Research Lab</span></div>
       </div>
     </div>
   </footer>
@@ -1183,13 +1183,13 @@
         const current = document.documentElement.dataset.theme || 'light';
         const next = themeOrder[(themeOrder.indexOf(current) + 1) % themeOrder.length] || 'light';
         document.documentElement.dataset.theme = next;
-        try { localStorage.setItem('golem_theme', next); } catch (e) {}
+        try { localStorage.setItem('alephy_theme', next); } catch (e) {}
         updateThemeControls(next);
       });
     });
 
     let savedTheme = 'white';
-    try { savedTheme = localStorage.getItem('golem_theme') || 'white'; } catch (e) {}
+    try { savedTheme = localStorage.getItem('alephy_theme') || 'white'; } catch (e) {}
     if (savedTheme === 'light' || savedTheme === 'parchment') savedTheme = 'beige';
     if (themeOrder.indexOf(savedTheme) < 0) savedTheme = 'white';
     document.documentElement.dataset.theme = savedTheme;
@@ -1199,12 +1199,12 @@
     const clubBanner = document.querySelector('#clubBanner');
     const clubBannerClose = document.querySelector('#clubBannerClose');
     let clubBannerDismissed = false;
-    try { clubBannerDismissed = localStorage.getItem('golem_club_banner_dismissed') === '1'; } catch (e) {}
+    try { clubBannerDismissed = localStorage.getItem('alephy_club_banner_dismissed') === '1'; } catch (e) {}
     if (clubBanner && clubBannerDismissed) clubBanner.hidden = true;
     clubBannerClose?.addEventListener('click', () => {
       if (!clubBanner) return;
       clubBanner.hidden = true;
-      try { localStorage.setItem('golem_club_banner_dismissed', '1'); } catch (e) {}
+      try { localStorage.setItem('alephy_club_banner_dismissed', '1'); } catch (e) {}
     });
 
     // ===== ПОРТАЛ ВХОДА =====
@@ -1354,10 +1354,10 @@
           return;
         }
         let queue = [];
-        try { queue = JSON.parse(localStorage.getItem('golem_waitlist') || '[]'); } catch (e) {}
+        try { queue = JSON.parse(localStorage.getItem('alephy_waitlist') || '[]'); } catch (e) {}
         if (queue.some((item) => item.email === email)) { status.textContent = 'Вы уже в списке.'; return; }
         queue.push({ email, created_at: new Date().toISOString() });
-        localStorage.setItem('golem_waitlist', JSON.stringify(queue));
+        localStorage.setItem('alephy_waitlist', JSON.stringify(queue));
         status.textContent = 'Вы в списке. Код придёт на почту.';
         input.value = '';
       } catch (error) {
@@ -1368,11 +1368,11 @@
 <script src="apps/researchlab/js/vendor/lucide.min.js"></script>
 <script>
   // Рендер иконок Lucide в шапке (текущие + после смены темы).
-  function __golemRenderIcons() {
+  function __alephyRenderIcons() {
     if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
   }
-  window.addEventListener('DOMContentLoaded', __golemRenderIcons);
-  window.addEventListener('load', __golemRenderIcons);
+  window.addEventListener('DOMContentLoaded', __alephyRenderIcons);
+  window.addEventListener('load', __alephyRenderIcons);
 </script>
 </body>
 </html>

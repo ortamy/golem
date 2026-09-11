@@ -2,10 +2,10 @@
 (function(root) {
   'use strict';
 
-  var PROGRESS_KEY = 'golem_learn_progress';
-  var RECORD_KEY = 'golem_guess_record';
-  var COURSE_KEY = 'golem_course_progress';
-  var SRS_KEY = 'golem_srs_cards';
+  var PROGRESS_KEY = 'alephy_learn_progress';
+  var RECORD_KEY = 'alephy_guess_record';
+  var COURSE_KEY = 'alephy_course_progress';
+  var SRS_KEY = 'alephy_srs_cards';
   var LETTER_KEYS = ['א','ב','ג','ד','ה','ו','ז','ח','ט','י','כ','ל','מ','נ','ס','ע','פ','צ','ק','ר','ש','ת'];
   var fallback = [
     ['א','𐤀','Алеф','бык','сила'],['ב','𐤁','Бет','дом','вместилище'],['ג','𐤂','Гимель','верблюд','движение'],['ד','𐤃','Далет','дверь','вход'],['ה','𐤄','Хе','дыхание','откровение'],['ו','𐤅','Вав','крюк','соединение'],['ז','𐤆','Заин','оружие','инструмент'],['ח','𐤇','Хет','ограда','отделение'],['ט','𐤈','Тет','змея','оборачивание'],['י','𐤉','Йод','рука','действие'],['כ','𐤊','Каф','ладонь','удержание'],['ל','𐤋','Ламед','посох','направление'],['מ','𐤌','Мем','вода','течение'],['נ','𐤍','Нун','рыба','жизнь'],['ס','𐤎','Самех','опора','поддержка'],['ע','𐤏','Аин','глаз','видение'],['פ','𐤐','Пе','рот','речь'],['צ','𐤑','Цаде','крюк','цель'],['ק','𐤒','Коф','игла','окружение'],['ר','𐤓','Реш','голова','начало'],['ש','𐤔','Шин','зуб','разрушение'],['ת','𐤕','Тав','знак','печать']
@@ -49,7 +49,7 @@
 
   function findCourse(id) {
     id = decodeURIComponent(String(id || ''));
-    return ((root.GolemCourses && root.GolemCourses.list) || []).filter(function(course) {
+    return ((root.AlephyCourses && root.AlephyCourses.list) || []).filter(function(course) {
       return course.id === id && course.lessons && course.lessons.length;
     })[0] || null;
   }
@@ -133,7 +133,7 @@
     });
   }
 
-  function coursesCount() { return (root.GolemCourses && root.GolemCourses.list) ? root.GolemCourses.list.length : 0; }
+  function coursesCount() { return (root.AlephyCourses && root.AlephyCourses.list) ? root.AlephyCourses.list.length : 0; }
 
   function statsMarkup() {
     var p = progress(), completed = letters.filter(function(item) { return p.letters[item.hebrew] && p.letters[item.hebrew].status === 'complete'; }).length;
@@ -169,7 +169,7 @@
     tagClose;
   }
   function renderCourses() {
-    var courses = (root.GolemCourses && root.GolemCourses.list) || [];
+    var courses = (root.AlephyCourses && root.AlephyCourses.list) || [];
     return '<div class="course-grid">' + courses.map(courseCard).join('') + '</div>';
   }
 

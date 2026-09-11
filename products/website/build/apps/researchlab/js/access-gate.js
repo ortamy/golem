@@ -7,11 +7,11 @@ const AccessGate = (function() {
   'use strict';
 
   var ADMIN_LOGIN = 'admin';
-  var DEFAULT_PASSWORD = 'Golem2026';
-  var SESSION_ADMIN_KEY = 'golem_admin_session';
-  var SESSION_RESEARCHER_KEY = 'golem_researcher_session';
-  var SESSION_GUEST_KEY = 'golem_guest_session';
-  var PASSWORD_OVERRIDE_KEY = 'golem_admin_password_override';
+  var DEFAULT_PASSWORD = 'Alephy2026';
+  var SESSION_ADMIN_KEY = 'alephy_admin_session';
+  var SESSION_RESEARCHER_KEY = 'alephy_researcher_session';
+  var SESSION_GUEST_KEY = 'alephy_guest_session';
+  var PASSWORD_OVERRIDE_KEY = 'alephy_admin_password_override';
   var CONFIG_PATH = 'data/lab-config.json';
 
   var config = null;
@@ -97,7 +97,7 @@ const AccessGate = (function() {
     overlay.className = 'gate-overlay';
     overlay.innerHTML =
       '<div class="gate-card">' +
-        '<div class="gate-logo">ГОЛЕМ</div>' +
+        '<div class="gate-logo">АЛЕФИ</div>' +
         '<h1 class="gate-title">Исследовательская лаборатория</h1>' +
         '<p class="gate-subtitle">Войдите как администратор, исследователь или продолжите в гостевом режиме.</p>' +
         '<label class="gate-label" for="gate-login">Логин</label>' +

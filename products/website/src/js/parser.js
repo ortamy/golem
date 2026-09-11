@@ -134,7 +134,7 @@
         return html;
     }
 
-    global.GolemParser = {
+    global.AlephyParser = {
         extractTitle,
         extractTopic,
         extractRelated,

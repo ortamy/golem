@@ -135,7 +135,7 @@ def status_suffix(path: Path) -> str:
 def render_index() -> str:
     folders = doc_folders()
     lines = [
-        "# 📑 ИНДЕКС ДОКУМЕНТАЦИИ «ГОЛЕМ»",
+        "# 📑 ИНДЕКС ДОКУМЕНТАЦИИ «АЛЕФИ»",
         "",
         f"> Файл генерируется автоматически: `python tools/generate-docs-index.py`. Ручные правки будут перезаписаны.",
         "",

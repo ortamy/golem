@@ -1,5 +1,5 @@
 #!/bin/bash
-# GOLEM Website Build Script
+# ALEPHY Website Build Script
 # Собирает сайт из src/ и корня в build/
 # Запуск: bash tools/build.sh
 
@@ -8,7 +8,7 @@ set -e
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 BUILD_DIR="$ROOT_DIR/build"
 
-echo "=== GOLEM Website Build ==="
+echo "=== ALEPHY Website Build ==="
 echo "Root: $ROOT_DIR"
 echo "Build: $BUILD_DIR"
 

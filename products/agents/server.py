@@ -121,7 +121,7 @@ def run_pipeline():
 
 @app.get("/api/health")
 def health():
-    return jsonify({"status": "ok", "service": "golem-agents"})
+    return jsonify({"status": "ok", "service": "alephy-agents"})
 
 
 @app.get("/api/info")
@@ -129,7 +129,7 @@ def api_info():
     """Метаданные процесса: нужны панели «Запуск сервера» в интерфейсе."""
     return jsonify({
         "status": "ok",
-        "service": "golem-agents",
+        "service": "alephy-agents",
         "host": app.config.get("SERVER_HOST", "127.0.0.1"),
         "port": app.config.get("SERVER_PORT", 5000),
         "pid": os.getpid(),
@@ -388,7 +388,7 @@ def _http_host(host):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="GOLEM: агентный сервер + Лаборатория ResearchLab")
+    parser = argparse.ArgumentParser(description="ALEPHY: агентный сервер + Лаборатория ResearchLab")
     parser.add_argument("--host", default="127.0.0.1", help="Адрес прослушивания (по умолчанию 127.0.0.1)")
     parser.add_argument("--port", type=int, default=5000, help="Порт (по умолчанию 5000)")
     parser.add_argument("--no-cors", action="store_true", help="Не добавлять CORS-заголовки")
@@ -403,7 +403,7 @@ def main():
     http_host = _http_host(args.host)
     lab_url = "http://{0}:{1}/apps/researchlab/".format(http_host, args.port)
     print("=" * 64)
-    print("GOLEM · сервер агентов")
+    print("ALEPHY · сервер агентов")
     print("  Лаборатория: " + lab_url)
     print("  API health : http://{0}:{1}/api/health".format(http_host, args.port))
     print("  Python     : " + sys.executable)

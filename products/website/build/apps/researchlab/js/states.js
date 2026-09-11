@@ -9,7 +9,7 @@
  * Подмаршрут: #states?state=tohu
  */
 
-const GolemStates = (function() {
+const AlephyStates = (function() {
   'use strict';
 
   const STATES_DATA_PATH = 'data/states.json';
@@ -255,7 +255,7 @@ const GolemStates = (function() {
     }).join('');
 
     return '<div class="states-page">' +
-      '<button type="button" class="cartography-world-launch states-map-launch" onclick="GolemStates.openLandscape()">' +
+      '<button type="button" class="cartography-world-launch states-map-launch" onclick="AlephyStates.openLandscape()">' +
         '<span aria-hidden="true">𐤌</span>' +
         '<span><strong>Карта состояний</strong><small>Открыть полный слой состояний</small></span>' +
         '<span aria-hidden="true">→</span>' +
@@ -278,7 +278,7 @@ const GolemStates = (function() {
         // Шапка модуля подменяется на название состояния
     if (window.LabHero && window.LabHero.setView) {
       window.LabHero.setView('states', 'detail', {
-        kicker: 'ГОЛЕМ · КАРТА СОСТОЯНИЙ',
+        kicker: 'АЛЕФИ · КАРТА СОСТОЯНИЙ',
         title: s.name,
         subtitle: s.physics || '',
         icon: 'ui/web.png'
@@ -371,7 +371,7 @@ const GolemStates = (function() {
 
     if (window.LabHero && window.LabHero.setView) {
       window.LabHero.setView('states', 'landscape', {
-        kicker: 'ГОЛЕМ · КАРТА СОСТОЯНИЙ',
+        kicker: 'АЛЕФИ · КАРТА СОСТОЯНИЙ',
         title: 'Визуальная карта',
         subtitle: 'Ландшафт переходов между состояниями',
         icon: 'ui/web.png'
@@ -379,7 +379,7 @@ const GolemStates = (function() {
     }
 
     return '<div class="states-page states-landscape-page">' +
-      '<div class="states-controls"><button type="button" class="states-nav-btn states-nav-back" onclick="GolemStates.openGrid()"><span aria-hidden="true">←</span> Все состояния</button></div>' +
+      '<div class="states-controls"><button type="button" class="states-nav-btn states-nav-back" onclick="AlephyStates.openGrid()"><span aria-hidden="true">←</span> Все состояния</button></div>' +
       renderStateLandscape(firstState) +
     '</div>';
   }
@@ -517,7 +517,7 @@ const GolemStates = (function() {
     var scaleHtml = '<div class="question-options-scale">';
     scaleOptions.forEach(function(opt) {
       var isSelected = selectedValue === opt.value;
-      scaleHtml += '<div class="scale-option' + (isSelected ? ' selected' : '') + '" data-value="' + opt.value + '" onclick="GolemStates.selectAnswer(\'' + escapeHtml(q.question.id) + '\', ' + opt.value + ')">' +
+      scaleHtml += '<div class="scale-option' + (isSelected ? ' selected' : '') + '" data-value="' + opt.value + '" onclick="AlephyStates.selectAnswer(\'' + escapeHtml(q.question.id) + '\', ' + opt.value + ')">' +
         '<span class="scale-value">' + opt.value * 4 + '</span>' +
         '<span class="scale-label">' + escapeHtml(opt.label) + '</span>' +
       '</div>';
@@ -547,12 +547,12 @@ const GolemStates = (function() {
         '</div>' +
         '<div class="diagnostic-actions">' +
           (current > 0
-            ? '<button class="btn-diagnostic-prev" onclick="GolemStates.prevQuestion()"><img src="assets/icons/32/nav/home.png" class="lab-icon" alt=""> Назад</button>'
+            ? '<button class="btn-diagnostic-prev" onclick="AlephyStates.prevQuestion()"><img src="assets/icons/32/nav/home.png" class="lab-icon" alt=""> Назад</button>'
             : '') +
           (hasAnswer
             ? (current < total - 1
-                ? '<button class="btn-diagnostic-next" onclick="GolemStates.nextQuestion()"><img src="assets/icons/32/nav/door.png" class="lab-icon" alt=""> Далее</button>'
-                : '<button class="btn-diagnostic-next" onclick="GolemStates.completeDiagnostic()"><img src="assets/icons/32/archaeology/lamp.png" class="lab-icon" alt=""> Узнать результат</button>')
+                ? '<button class="btn-diagnostic-next" onclick="AlephyStates.nextQuestion()"><img src="assets/icons/32/nav/door.png" class="lab-icon" alt=""> Далее</button>'
+                : '<button class="btn-diagnostic-next" onclick="AlephyStates.completeDiagnostic()"><img src="assets/icons/32/archaeology/lamp.png" class="lab-icon" alt=""> Узнать результат</button>')
             : '<button class="btn-diagnostic-next" disabled>Выберите ответ</button>'
           ) +
         '</div>' +
@@ -594,7 +594,7 @@ const GolemStates = (function() {
       return '<div class="states-page"><div class="diagnostic-page">' +
         '<div class="diagnostic-header"><h2>Результат диагностики</h2></div>' +
         '<p class="text-muted" style="text-align:center;">Недостаточно данных для определения состояния. Пройди диагностику заново.</p>' +
-        '<div class="result-actions"><button class="btn-result-restart" onclick="GolemStates.restartDiagnostic()">Пройти заново</button></div>' +
+        '<div class="result-actions"><button class="btn-result-restart" onclick="AlephyStates.restartDiagnostic()">Пройти заново</button></div>' +
       '</div></div>';
     }
 
@@ -629,9 +629,9 @@ const GolemStates = (function() {
               '</div>'
             : '') +
           '<div class="result-actions">' +
-            '<button class="btn-result-state" onclick="GolemStates.openState(\'' + escapeHtml(bestStateId) + '\')"><img src="assets/icons/32/ui/book.png" class="lab-icon" alt=""> Подробнее о состоянии</button>' +
-            '<button class="btn-result-restart" onclick="GolemStates.restartDiagnostic()"><img src="assets/icons/32/ui/hourglass.png" class="lab-icon" alt=""> Пройти заново</button>' +
-            '<button class="btn-result-share" onclick="GolemStates.shareResult(\'' + escapeHtml(state.name) + '\', \'' + escapeHtml(transition ? targetName : '') + '\')"><img src="assets/icons/32/ui/export.png" class="lab-icon" alt=""> Поделиться</button>' +
+            '<button class="btn-result-state" onclick="AlephyStates.openState(\'' + escapeHtml(bestStateId) + '\')"><img src="assets/icons/32/ui/book.png" class="lab-icon" alt=""> Подробнее о состоянии</button>' +
+            '<button class="btn-result-restart" onclick="AlephyStates.restartDiagnostic()"><img src="assets/icons/32/ui/hourglass.png" class="lab-icon" alt=""> Пройти заново</button>' +
+            '<button class="btn-result-share" onclick="AlephyStates.shareResult(\'' + escapeHtml(state.name) + '\', \'' + escapeHtml(transition ? targetName : '') + '\')"><img src="assets/icons/32/ui/export.png" class="lab-icon" alt=""> Поделиться</button>' +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -728,9 +728,9 @@ const GolemStates = (function() {
   }
 
   function shareResult(stateName, transitionName) {
-    var text = '🧪 Моё состояние по карте «Голем»: ' + stateName;
+    var text = '🧪 Моё состояние по карте «Алефи»: ' + stateName;
     if (transitionName) text += ' → Рекомендуемый переход: ' + transitionName;
-    text += '\n\nУзнай своё состояние: https://ortamy.github.io/golem/pages/lab/#states';
+    text += '\n\nУзнай своё состояние: https://ortamy.github.io/alephy/pages/lab/#states';
 
     if (navigator.clipboard) {
       navigator.clipboard.writeText(text).then(function() {
@@ -770,4 +770,4 @@ const GolemStates = (function() {
   };
 })();
 
-window.GolemStates = GolemStates;
+window.AlephyStates = AlephyStates;

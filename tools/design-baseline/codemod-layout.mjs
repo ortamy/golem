@@ -10,7 +10,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const ROOT = 'c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab/css';
+const ROOT = 'c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab/css';
 const APPLY = process.argv.includes('--apply');
 
 // файл => { старое значение => токен }

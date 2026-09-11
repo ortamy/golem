@@ -3,7 +3,7 @@
 
   // v2: актуализированные дефолты (порт 5000, host 127.0.0.1) и реальное
   // управление сервером из интерфейса: статус, остановка, перезапуск, запуск через .bat.
-  var STORAGE_KEY = 'golem_agent_server_v2';
+  var STORAGE_KEY = 'alephy_agent_server_v2';
   var DEFAULTS = {
     python: 'python',
     script: 'server.py',
@@ -69,7 +69,7 @@
       '@echo off',
       'setlocal',
       'cd /d ' + shellQuote(cwd),
-      'REM GOLEM: запуск сервера агентов и Лаборатории',
+      'REM ALEPHY: запуск сервера агентов и Лаборатории',
       (/[\\/\s]/.test(python) ? shellQuote(python) : python) + ' ' + shellQuote(script) +
         ' --host ' + shellQuote(values.host) + ' --port ' + String(values.port) +
         (values.cors ? '' : ' --no-cors'),
@@ -86,7 +86,7 @@
       '@echo off',
       'setlocal',
       'set PORT=' + String(values.port),
-      'REM GOLEM: остановка сервера по порту',
+      'REM ALEPHY: остановка сервера по порту',
       'for /f "tokens=5" %%a in (\'netstat -aon ^| findstr :%PORT% ^| findstr LISTENING\') do taskkill /f /pid %%a',
       'endlocal'
     ].join('\r\n');

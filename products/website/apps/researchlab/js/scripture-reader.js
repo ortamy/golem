@@ -767,7 +767,7 @@ const ScriptureReader = (function() {
       return;
     }
     try {
-      var key = 'golem_scripture_evidence_v1';
+      var key = 'alephy_scripture_evidence_v1';
       var saved = JSON.parse(localStorage.getItem(key) || '[]');
       if (!Array.isArray(saved)) saved = [];
       saved.unshift(evidence);

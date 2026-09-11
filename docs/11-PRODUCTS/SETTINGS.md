@@ -36,10 +36,10 @@
 | Presence Penalty | range 0–2 | 0.0 | Штраф за темы |
 
 **Кнопки:**
-- «Сохранить настройки модели» — сохраняет в `localStorage` (ключ `golem_settings_model`)
+- «Сохранить настройки модели» — сохраняет в `localStorage` (ключ `alephy_settings_model`)
 - «Тестовый запрос» — проверяет текущую конфигурацию
 
-**Хранение:** localStorage, ключ `golem_settings_model`
+**Хранение:** localStorage, ключ `alephy_settings_model`
 
 ### 2. Кэш (`#settings-tab-cache`)
 
@@ -47,9 +47,9 @@
 
 | Тип кэша | Описание | Действие |
 |----------|----------|----------|
-| KV-кэш (localStorage) | Все записи с префиксом `golem_` | Очистить KV |
-| RAG-индексы | Индексы `golem_rag_*`, `golem_knowledge_*` | Переиндексировать RAG |
-| Кэш разбора слов | Кэш WordAnalyzer (`golem_wa_cache`) | Очистить кэш слов |
+| KV-кэш (localStorage) | Все записи с префиксом `alephy_` | Очистить KV |
+| RAG-индексы | Индексы `alephy_rag_*`, `alephy_knowledge_*` | Переиндексировать RAG |
+| Кэш разбора слов | Кэш WordAnalyzer (`alephy_wa_cache`) | Очистить кэш слов |
 | Весь кэш | Все перечисленные хранилища | Очистить всё |
 
 Каждая карточка показывает размер в B/KB/MB и количество записей.
@@ -68,7 +68,7 @@
 | Компаратор (comparator) | Claude Sonnet 4 | Вкл/Выкл + приоритет |
 | Редактор (editor) | Claude Haiku 3.5 | Вкл/Выкл + приоритет |
 
-Изменения сохраняются автоматически в `localStorage` (ключ `golem_settings_agents`).
+Изменения сохраняются автоматически в `localStorage` (ключ `alephy_settings_agents`).
 
 ### 4. Метрики (`#settings-tab-metrics`)
 
@@ -78,7 +78,7 @@
 |---------|----------|
 | CPU | Симулированная загрузка процессора (0–100%) |
 | RAM | Использование localStorage (в B/KB/MB) |
-| Записей в кэше | Количество `golem_*` записей |
+| Записей в кэше | Количество `alephy_*` записей |
 | Состояние модели | Текущая выбранная модель |
 
 Детальная таблица включает: браузер, размер localStorage, активную модель, температуру, max токенов, версию лаборатории.
@@ -87,7 +87,7 @@
 
 История действий в лаборатории:
 
-- Хранится в localStorage (ключ `golem_settings_logs`)
+- Хранится в localStorage (ключ `alephy_settings_logs`)
 - Лимит: до 200 записей
 - Формат: время + действие
 - Сортировка: свежие сверху
@@ -97,7 +97,7 @@
 
 Логи ошибок и предупреждений:
 
-- Хранится в localStorage (ключ `golem_settings_errors`)
+- Хранится в localStorage (ключ `alephy_settings_errors`)
 - Лимит: до 100 записей
 - Формат: время + ошибка + источник
 - Строки с ошибками подсвечены левой золотой полосой
@@ -108,7 +108,7 @@
 
 | Функция | Описание |
 |---------|----------|
-| Экспорт всех настроек | Скачивает `golem-settings-export.json` (модель + агенты + логи + lab-config) |
+| Экспорт всех настроек | Скачивает `alephy-settings-export.json` (модель + агенты + логи + lab-config) |
 | Импорт настроек | Загрузка JSON-файла, восстановление до 4 разделов |
 | Экспорт lab-config.json | Для коммита в репозиторий (гостевые токены, цвет, скрытые разделы) |
 
@@ -141,15 +141,15 @@
 
 | Ключ | Назначение |
 |------|-----------|
-| `golem_settings_model` | Конфигурация модели (JSON) |
-| `golem_settings_agents` | Конфигурация агентов (JSON) |
-| `golem_settings_logs` | Логи действий (массив JSON) |
-| `golem_settings_errors` | Логи ошибок (массив JSON) |
-| `golem_admin_password_override` | Пароль администратора (строка) |
-| `golem_theme` | Тема: `light` / `parchment` / `white` / `dark` |
-| `golem_wa_cache` | Кэш разбора слов |
-| `golem_rag_*` | RAG-индексы |
-| `golem_knowledge_*` | Индексы знаний |
+| `alephy_settings_model` | Конфигурация модели (JSON) |
+| `alephy_settings_agents` | Конфигурация агентов (JSON) |
+| `alephy_settings_logs` | Логи действий (массив JSON) |
+| `alephy_settings_errors` | Логи ошибок (массив JSON) |
+| `alephy_admin_password_override` | Пароль администратора (строка) |
+| `alephy_theme` | Тема: `light` / `parchment` / `white` / `dark` |
+| `alephy_wa_cache` | Кэш разбора слов |
+| `alephy_rag_*` | RAG-индексы |
+| `alephy_knowledge_*` | Индексы знаний |
 
 ### Маршруты
 - `#admin-settings` — основной маршрут
@@ -172,10 +172,10 @@
 
 ```javascript
 // Чтение конфигурации модели
-const modelCfg = JSON.parse(localStorage.getItem('golem_settings_model'));
+const modelCfg = JSON.parse(localStorage.getItem('alephy_settings_model'));
 
 // Чтение конфигурации агентов
-const agentCfg = JSON.parse(localStorage.getItem('golem_settings_agents'));
+const agentCfg = JSON.parse(localStorage.getItem('alephy_settings_agents'));
 
 // Добавление лога из любого модуля
 if (window.Settings) {

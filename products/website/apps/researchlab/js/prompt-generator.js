@@ -6,7 +6,7 @@
 
   var PAGE_PATH = 'pages/prompt-generator.html';
   var DATA_PATH = 'data/prompts/blocks.json';
-  var CUSTOM_STORAGE_KEY = 'golem_prompt_custom_blocks';
+  var CUSTOM_STORAGE_KEY = 'alephy_prompt_custom_blocks';
   var pendingExternalBlocks = [];
   var activeAddBlock = null;
 

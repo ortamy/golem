@@ -1,7 +1,7 @@
 (function(window, document) {
   'use strict';
 
-  var STORAGE_KEY = 'golem.research-board.v1';
+  var STORAGE_KEY = 'alephy.research-board.v1';
   var COLORS = ['#d9a441', '#c96b4b', '#6fa3a8', '#a67c52', '#b6b05f', '#c8c1b3'];
   var DEFAULT_WIDTH = 230;
   var DEFAULT_HEIGHT = 150;
@@ -307,7 +307,7 @@
 
   function exportState() {
     var blob = new Blob([JSON.stringify(active.state, null, 2)], { type: 'application/json' });
-    var link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'golem-research-board.json'; link.click(); URL.revokeObjectURL(link.href);
+    var link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'alephy-research-board.json'; link.click(); URL.revokeObjectURL(link.href);
     setStatus('Доска экспортирована в JSON-файл.');
   }
 

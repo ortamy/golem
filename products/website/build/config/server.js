@@ -188,7 +188,7 @@ function renderMdPage(title, content, filePath) {
     html = '<p>' + html + '</p>';
     return `<!DOCTYPE html>
 <html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${title} — Голем</title><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>${title} — Алефи</title><link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="/style.css">
 <style>
 body{font-family:'EB Garamond',Georgia,serif;font-size:18px;line-height:1.8;background:#ede0c8;color:#2c1810;margin:0;padding-top:56px}
@@ -205,9 +205,9 @@ body{font-family:'EB Garamond',Georgia,serif;font-size:18px;line-height:1.8;back
 .site-footer{background:#2c1810;color:#8a7a6a;padding:40px 24px 24px;text-align:center;margin-top:60px}
 .footer-copy{font-size:12px;letter-spacing:2px;font-family:'Cormorant Garamond',Georgia,serif}
 </style></head><body>
-<header class="top-bar"><div class="logo"><a href="/">ГОЛЕМ</a></div></header>
+<header class="top-bar"><div class="logo"><a href="/">АЛЕФИ</a></div></header>
 <main class="md-content">${html}</main>
-<footer class="site-footer"><div class="footer-copy">Проект «Голем». Восстановление истины. Яхве один.</div></footer>
+<footer class="site-footer"><div class="footer-copy">Проект «Алефи». Восстановление истины. Яхве один.</div></footer>
 </body></html>`;
 }
 
@@ -307,7 +307,7 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, () => {
     console.log('\n========================================');
-    console.log('  GOLEM — Свидетель Истины');
+    console.log('  ALEPHY — Свидетель Истины');
     console.log('========================================');
     console.log(`  Сервер запущен: http://localhost:${PORT}/`);
     console.log(`  Корень:         ${WEB_DIR}`);

@@ -369,7 +369,7 @@ function exportTXT() {
   
   text += `${'='.repeat(50)}\n`;
   text += `Создано: ${new Date().toLocaleString('ru-RU')}\n`;
-  text += `Проект: Golem — Свидетель Истины\n`;
+  text += `Проект: Alephy — Свидетель Истины\n`;
   
   const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
   const link = document.createElement('a');

@@ -1,4 +1,4 @@
-# Скрипты и команды проекта «Голем»
+# Скрипты и команды проекта «Алефи»
 
 **Файл:** `docs/09-GUIDES/SCRIPTS.md`
 **Статус:** актуальный справочник
@@ -68,7 +68,7 @@ python tools/generate-paleo-meanings.py --help
 
 ## Design Baseline
 
-`tools/design-baseline/` содержит сценарии визуальной проверки и локальную зависимость Playwright. Это отдельный контур, не общий `tools/golem.py`.
+`tools/design-baseline/` содержит сценарии визуальной проверки и локальную зависимость Playwright. Это отдельный контур, не общий `tools/alephy.py`.
 
 ## Агентный сервер
 
@@ -120,7 +120,7 @@ git diff --check
 
 Не использовать без восстановления соответствующих скриптов:
 
-- `python tools/golem.py`;
+- `python tools/alephy.py`;
 - `python tools/checkers/...`;
 - `python tools/generators/...`;
 - `python tools/reports/...`;

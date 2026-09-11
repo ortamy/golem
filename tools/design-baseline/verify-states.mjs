@@ -6,7 +6,7 @@
    ============================================================= */
 import { chromium } from 'playwright-core';
 
-const APP = 'file:///c:/Users/DELL/Desktop/golem-main/products/website/apps/researchlab/index.html';
+const APP = 'file:///c:/Users/DELL/Desktop/alephy-main/products/website/apps/researchlab/index.html';
 
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--allow-file-access-from-files'] });
 try {
