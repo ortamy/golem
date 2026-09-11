@@ -1,4 +1,4 @@
-# GOLEM — Tanakh Recovery Platform
+# Alephy — Paleo Recovery Platform
 
 [![Deploy](https://github.com/ortamy/golem/actions/workflows/deploy.yml/badge.svg)](https://github.com/ortamy/golem/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -73,21 +73,6 @@ golem/
 3. **Translation chain analysis.** Synodal → Church Slavonic → Latin (Vulgate) → Greek (Septuagint) → Hebrew. Substitutions are identified at each layer.
 4. **Nine distortion types.** Category substitution, juridification, psychologization, action-to-emotion shift, abstraction, meaning narrowing, dualization, meaning castration, babylonization.
 5. **If it's complicated, it's wrong.** The Tanakh is an instruction manual, not a history book.
-
----
-
-## Key Substitutions
-
-- **Lord** (יהוה) → YHWH
-- **God** (אלהים) → Elohim
-- **Soul** (נפש) → Breathing being
-- **Spirit** (רוח) → Breath / Wind
-- **Faith** (אמונה) → Faithfulness in action
-- **Sin** (חטא) → Miss (the mark)
-- **Sacrifice** (קרבן) → Drawing near
-- **Law** (תורה) → Instruction
-- **Glory** (כבוד) → Weight / Presence
-- **Church** (קהלה) → Assembly
 
 ---
 
