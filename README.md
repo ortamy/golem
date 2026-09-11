@@ -1,4 +1,4 @@
-# ALEPHY — Tanakh Recovery Platform
+# ALEPHY — Paleo Recovery Platform
 
 [![Deploy](https://github.com/ortamy/alephy/actions/workflows/deploy.yml/badge.svg)](https://github.com/ortamy/alephy/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -6,33 +6,44 @@
 
 Alephy is a research platform for recovering the original meaning of the Tanakh through Paleo-Hebrew, Proto-Canaanite, and Phoenician scripts, three-letter roots, and systematic exposure of Greco-Latin substitutions introduced in translations. Not a religion. Not a congregation. A forensic linguistics project.
 
+The project is built as a **support structure (опора), not dogma**: every claim is separated into *fact*, *interpretation*, and *hypothesis*. Debatable statements live in `docs/06-METHODOLOGY/HYPOTHESES.md`; the manifest keeps only the working method.
+
 ---
 
 ## Key Features
 
 - **Paleo-Hebrew Analysis** — 22 letters as pictograms. Each carries an image, not just a sound. Proto-Canaanite and Phoenician scripts serve as reference witnesses.
-- **Root Dictionary** — 154+ three-letter roots with Paleo-images, meanings, and Tanakh examples.
-- **Religionism Checker** — detects substitution words (Lord → YHWH, God → Elohim) in any Russian text and suggests restored terms.
-- **Translation Comparator** — side-by-side view of the Masoretic Text, Septuagint, and Synodal translation. See what was lost at each layer.
-- **Research Laboratory** — integrated webapp with global search, dark mode, mobile support, and keyboard shortcuts.
-- **Board Generator** — visual investigation boards for exposing substitution chains. Export to PNG, PDF, TXT.
-- **Multi-Agent AI** — CrewAI-powered agents for automated root research, verse analysis, and exposure detection.
+- **Root Dictionary** — three-letter roots with Paleo-images, meanings, and Tanakh examples (`apps/researchlab/data/roots/roots.json`).
+- **Religionism Checker** — detects substitution words (Lord → YHWH, God → Elohim) and suggests restored terms.
+- **Translation Comparator** — side-by-side view of scripture layers: consonant flow, Masoretic text, Septuagint, Vulgate, Synodal translation.
+- **Research Lab** — vanilla-JS SPA (`apps/researchlab/`) with hash routing, dashboard, methodology viewer, learning modules, states map, timeline, cartography, dark mode, mobile support, offline fallback (service worker), and Playwright smoke tests.
+- **Exposure Dictionaries** — religionisms, distortion types, mechanisms, cultural matrices, Greek philosophemes.
+- **Agent Server** — Flask API (`products/agents/server.py`) exposing research pipelines; the Lab consumes pipeline results and renders deep-linked reports.
+- **Neuro & Video** — neural contour training data and video production (`products/neuro/`, `products/video/`).
 
 ---
 
 ## Quick Start
 
 **Online:** [ortamy.github.io/alephy](https://ortamy.github.io/alephy)
-**Research Lab:** [ortamy.github.io/alephy/webapp](https://ortamy.github.io/alephy/webapp)
+**Research Lab:** [ortamy.github.io/alephy/apps/researchlab/](https://ortamy.github.io/alephy/apps/researchlab/)
 
 ```bash
 git clone https://github.com/ortamy/alephy.git
 cd alephy
-python tools/alephy.py
+
+# build the public site + Research Lab
+cd products/website
+bash tools/build.sh
 ```
 
 ```bash
+# agent server (optional, http://127.0.0.1:5000)
 cd products/agents
+pip install -r requirements.txt
+python server.py
+
+# one-off agent run
 python main.py "אמן"
 ```
 
@@ -40,54 +51,49 @@ python main.py "אמן"
 
 ## Architecture
 
-```
+Canonical sources live in `docs/`, `products/`, and `tools/`. The deployable copy is generated — never edit `build/` or derived files directly.
+
+```text
 alephy/
-├── content/          Terminology, Tanakh, Bashah, Research
-├── instructions/     Methodology: exposure, dictionaries, templates
+├── docs/                Methodology, architecture, design system, decisions
 ├── products/
-│   ├── website/      Public site + Research Laboratory (SPA)
-│   ├── agents/       CrewAI multi-agent system
-│   ├── discord-bot/  Discord bot (Node.js)
-│   └── neuro/        Neural network "Ed"
-├── tools/            Python utilities: checkers, generators, reports
-└── data/             Structured data: roots.json, paleo.json, exposures.json
+│   ├── website/         Public site (landing) + Research Lab SPA (apps/researchlab/)
+│   ├── agents/          Flask agent server, pipelines, agent definitions
+│   ├── neuro/           Neural contour and training data
+│   └── video/           Video production
+├── tools/               Python checks, generators, automation
+├── researches/          Research artifacts
+├── tasks/               Working task planning
+├── archive/             Historical layer — not an active dependency
+├── docker/              Isolated run environment (Dockerfile, docker-compose.yml)
+└── .github/             CI/CD: deploy.yml, docs-check.yml, auto-update-files.yml
 ```
+
+Build pipeline (canonical): `sources → checks → tools/build.sh → products/website/build/ → GitHub Pages`. GitHub Actions runs the same `tools/build.sh` on every push to `main`.
+
+Docs map: [`docs/00-START/MANIFEST.md`](docs/00-START/MANIFEST.md) (methodology anchor) · [`docs/01-ARCHITECTURE/ARCHITECTURE.md`](docs/01-ARCHITECTURE/ARCHITECTURE.md) (architecture passport) · [`docs/INDEX.md`](docs/INDEX.md) (full index) · [`docs/decisions.md`](docs/decisions.md) (ADR log).
 
 ---
 
 ## Tech Stack
 
-- **Public Site** — HTML/CSS, Tailwind CSS, Preline
-- **Research Lab** — Vanilla JavaScript SPA with hash routing
-- **Bots** — Node.js (Discord), Telegram Bot API
-- **AI Agents** — CrewAI, Python 3.12, Claude API, OpenAI API
-- **Utilities** — Python, JSON
-- **Deployment** — GitHub Pages + GitHub Actions
+- **Public Site** — HTML/CSS, Tailwind CSS v4 (CLI build), Motion
+- **Research Lab** — Vanilla JavaScript SPA, hash routing (`js/router.js` → `js/page-controller.js`), JSON data files, Playwright smoke tests
+- **Agent Server** — Python + Flask, OpenAI API, dotenv; pipeline results stored as JSON and consumed by the Lab
+- **Tooling** — Python (checkers, generators), Node.js (design baseline, automation scripts)
+- **Deployment** — GitHub Pages + GitHub Actions (`deploy.yml` publishes `products/website/build`)
 
 ---
 
 ## Methodology
 
-1. **Paleo-Hebrew first.** Each of the 22 letters is a pictogram. Meaning is embedded in form. Proto-Canaanite and Phoenician parallels serve as reference witnesses.
-2. **Three-letter roots.** Every word is reduced to its root. Root equals action, not abstraction.
-3. **Translation chain analysis.** Synodal → Church Slavonic → Latin (Vulgate) → Greek (Septuagint) → Hebrew. Substitutions are identified at each layer.
-4. **Nine distortion types.** Category substitution, juridification, psychologization, action-to-emotion shift, abstraction, meaning narrowing, dualization, meaning castration, babylonization.
-5. **If it's complicated, it's wrong.** The Tanakh is an instruction manual, not a history book.
+Aligned with [`docs/00-START/MANIFEST.md`](docs/00-START/MANIFEST.md) v12:
 
----
-
-## Key Substitutions
-
-- **Lord** (יהוה) → YHWH
-- **God** (אלהים) → Elohim
-- **Soul** (נפש) → Breathing being
-- **Spirit** (רוח) → Breath / Wind
-- **Faith** (אמונה) → Faithfulness in action
-- **Sin** (חטא) → Miss (the mark)
-- **Sacrifice** (קרבן) → Drawing near
-- **Law** (תורה) → Instruction
-- **Glory** (כבוד) → Weight / Presence
-- **Church** (קהלה) → Assembly
+1. **Text as layers.** The text we read is the last layer of a transmission chain: consonant flow → Masoretic fixation → Septuagint (Greek, language of philosophy) → Vulgate (Latin, language of law) → Slavic/Russian translations (language of ritual and morality). Each layer brought its own cultural context. We work with the earliest accessible layer — Paleo-Hebrew — without claiming that later layers are "false": they are different layers.
+2. **Word as construction.** Each Paleo letter goes back to an object (bull, house, water, hand, door, fire). A word can be read not only as a "meaning" but as a sequence of functions assembled from letter-objects. This is a reading method to apply or reject — not a claim about "how it really was".
+3. **Three-letter roots.** Every word is reduced to its root; the root is an action, not an abstraction.
+4. **Exposure discipline.** Substitutions are categorized (distortion types, mechanisms, cultural matrices, philosophemes) and checked against evidence criteria — see `docs/06-METHODOLOGY/` (PRINCIPLES, METHODS, LINGUISTIC-METHODS, DISTORTIONS, MECHANISMS, EVIDENCE).
+5. **Fact ≠ interpretation ≠ hypothesis.** Everything debatable is explicitly moved to `docs/06-METHODOLOGY/HYPOTHESES.md`. If the method stops working, it is discarded without regret.
 
 ---
 
@@ -100,5 +106,5 @@ MIT
 ## Links
 
 - **Website:** [ortamy.github.io/alephy](https://ortamy.github.io/alephy)
-- **Laboratory:** [ortamy.github.io/alephy/webapp](https://ortamy.github.io/alephy/webapp)
+- **Laboratory:** [ortamy.github.io/alephy/apps/researchlab/](https://ortamy.github.io/alephy/apps/researchlab/)
 - **GitHub:** [github.com/ortamy/alephy](https://github.com/ortamy/alephy)
