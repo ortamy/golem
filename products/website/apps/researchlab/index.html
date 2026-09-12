@@ -90,15 +90,13 @@
 
 <!-- Embed mode styles -->
 <style>
-  .lab-header.is-embed, .lab-sidebar.is-embed, .lab-footer.is-embed,
-  .lab-sidebar-overlay.is-embed, .lab-hamburger.is-embed,
+  .lab-header.is-embed, .lab-sidebar.is-embed, .lab-sidebar-overlay.is-embed, .lab-hamburger.is-embed,
   .lab-header-mobile-links.is-embed, .hotkey-hint.is-embed,
   #labSidebarToggle.is-embed { display: none !important; }
   .is-embed .lab-layout { flex-direction: row !important; }
   .is-embed .lab-layout > .lab-sidebar { display: none !important; }
   .is-embed .lab-content { padding: 0 !important; min-height: 100vh; }
   .is-embed .lab-header { display: none !important; }
-  .is-embed .lab-footer { display: none !important; }
   body.is-embed { padding-top: 0; }
 </style>
 </head>
@@ -213,15 +211,6 @@
 </div>
 
 <div class="lab-sidebar-overlay" id="labSidebarOverlay" onclick="LabSidebar.close()" style="display:none;"></div>
-
-<!-- FOOTER -->
-<footer class="lab-footer">
-  <a href="../pages/index.html">Проект «Алефи»</a> — восстановление истины.
-  <span class="sep">|</span>
-  <a href="https://github.com/ortamy/alephy">GitHub</a>
-  <span class="sep">|</span>
-  <span id="lab-version">v0.2.0</span>
-</footer>
 
 <!-- MODAL -->
 <div class="modal-overlay" id="labModal" onclick="if(event.target===this)LabModal.close()">

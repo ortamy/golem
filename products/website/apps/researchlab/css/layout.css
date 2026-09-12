@@ -332,17 +332,6 @@ body.is-embed .lab-content {
   margin: 0; border: none; border-radius: 0; box-shadow: none; background: transparent;
 }
 
-/* ===== FOOTER ===== */
-.lab-footer {
-  background: var(--bg-dark); color: var(--text-muted);
-  padding: var(--space-4) var(--space-6); text-align: center;
-  font-size: var(--text-sm); letter-spacing: 1px;
-  border-top: 1px solid var(--border-dark);
-}
-.lab-footer a { color: var(--accent-gold); text-decoration: none; }
-.lab-footer a:hover { border-bottom: 1px solid var(--accent-gold); }
-.lab-footer .sep { color: var(--border-dark); margin: 0 var(--space-3); }
-
 /* ===== MODULE CONTAINER ===== */
 .module { display: none; }
 .module.active {
