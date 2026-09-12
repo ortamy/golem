@@ -3,6 +3,7 @@
 **Файл:** `docs/03-AI/AGENT-ROUTINE.md`
 **Статус:** актуальный рабочий протокол
 **Опора:** `docs/00-START/MANIFEST.md`, `docs/01-ARCHITECTURE/ARCHITECTURE.md`
+**Скорость:** `docs/03-AI/AGENT-SPEED.md` (канон — `.clinerules` §2 «один проход»).
 
 ## Перед началом
 
@@ -10,6 +11,7 @@
 2. Прочитать `docs/01-ARCHITECTURE/ARCHITECTURE.md`.
 3. Проверить `git status`.
 4. Определить слой: документация, сайт, Research Lab, агенты или инструменты.
+5. Для простой правки не начинать с полного обхода репо: см. `AGENT-SPEED.md`.
 
 ## Для документации
 

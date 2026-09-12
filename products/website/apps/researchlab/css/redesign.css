@@ -398,7 +398,6 @@ body.is-embed .lab-content { margin: 0; }
   padding: 0 var(--space-4);
 }
 .lab-header .logo img { height: 28px; width: auto; }
-.alephy-beta { height: 16px; padding: 0 6px; font-size: 8px; }
 .lab-sidebar {
   top: 48px;
   height: calc(100vh - 48px);
@@ -525,14 +524,6 @@ html[data-theme="white"] .lab-header .logo img[src*="alephy-logo"] {
 html[data-theme="beige"] .lab-header .logo img[src*="alephy-logo"] {
   filter: invert(29%) sepia(19%) saturate(1090%) hue-rotate(348deg) brightness(83%) contrast(88%);
 }
-.alephy-beta {
-  height: 18px;
-  padding: 0 7px;
-  font-size: 10px;
-  line-height: 18px;
-  letter-spacing: 0.05em;
-}
-
 /* --- Hero модулей: консистентный компактный вид --- */
 .lab-hero,
 [data-lab-hero] {
@@ -597,7 +588,6 @@ html[data-theme="beige"] .lab-header .logo img[src*="alephy-logo"] {
     gap: 8px;
   }
   .lab-header .logo { flex: 0 0 auto; }
-  .alephy-beta { display: none; }
   .lab-header-mobile-links { display: none !important; }
   .lab-header nav { display: flex; align-items: center; gap: 4px; }
   .lab-header nav a.icon-link { display: none; }
