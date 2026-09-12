@@ -10,7 +10,10 @@
 .dw-summary-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
 .dw-summary-item { min-width: 0; padding: 12px 10px; text-align: center; text-decoration: none; color: var(--text-primary); background: var(--bg-tertiary, #f7f1e5); border-radius: 6px; box-shadow: var(--shadow-card); transition: transform var(--dur-2) var(--ease-standard), box-shadow var(--dur-2) var(--ease-standard); }
 .dw-summary-item--link:hover, .dw-summary-item--link:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-hover); outline: none; }
-.dw-summary-value { display: block; color: var(--text-primary); font-family: var(--font-heading); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+.dw-summary-value { display: block; color: var(--text-primary); font-family: var(--font-heading), Georgia, 'Times New Roman', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+/* Цифры сводки не зависят от .reveal: IO мог оставить opacity:0 до пересечения. */
+.dw-summary-item,
+.dw-summary-value { opacity: 1; visibility: visible; }
 .dw-summary-label { display: block; margin-top: 6px; color: var(--text-muted); font-size: 0.65rem; letter-spacing: 0.05em; line-height: 1.25; text-transform: uppercase; }
 .dw-counter-delta { display: block; min-height: 14px; margin-top: 4px; color: var(--text-muted); font-size: 0.7rem; line-height: 1.2; }
 .dw-counter-delta--up { color: #5e7d3a; }

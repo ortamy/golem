@@ -88,7 +88,14 @@ const Dashboard = (function() {
   function init() {
     var container = document.getElementById('dashboard-widgets');
     if (!container) return;
-    if (loaded) return;
+    if (container.querySelector('.dw-summary-value')) {
+      loaded = true;
+      return;
+    }
+    if (loaded) {
+      reload();
+      return;
+    }
 
     loadData(false).then(function(data) {
       loaded = true;
@@ -136,6 +143,7 @@ const Dashboard = (function() {
 
     bindDictClicks(container);
     bindBookClicks(container);
+    if (window.RevealObserver) window.RevealObserver.scan(container);
   }
 
   function renderCounters(data, dictEntries, totalTerms) {
@@ -154,7 +162,7 @@ const Dashboard = (function() {
       '<div class="dw-summary-grid">' + items.map(function(item, i) {
         var tag = item.href ? 'a' : 'div';
         var href = item.href ? ' href="' + item.href + '"' : '';
-        return '<' + tag + ' class="dw-summary-item reveal' + (item.href ? ' dw-summary-item--link' : '') + '"' + href + ' style="--i:' + i + '">' +
+        return '<' + tag + ' class="dw-summary-item' + (item.href ? ' dw-summary-item--link' : '') + '"' + href + ' style="--i:' + i + '">' +
           '<span class="dw-summary-value">' + esc(item.num) + '</span><span class="dw-summary-label">' + esc(item.label) + '</span>' +
           renderCounterDelta(item.delta) + '</' + tag + '>';
       }).join('') + '</div>' +
