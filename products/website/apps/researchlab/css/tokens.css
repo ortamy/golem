@@ -45,6 +45,7 @@
   --header-ink: #fff8ea;
   --header-ink-muted: #d8c8b0;
   --header-glass-mix: 74%;
+  --header-compact: 48px;
 
   /* ===== SPACING SCALE (4px base) ===== */
   --space-1: 4px;
@@ -558,9 +559,6 @@
   --header-bg: #241810;
   --header-text: #f4ead2;
   --header-muted: #c2a880;
-  --header-ink: #f4ead2;
-  --header-ink-muted: #c2a880;
-  --header-glass-mix: 72%;
   --header-ink: #f4ead2;
   --header-ink-muted: #c2a880;
   --header-glass-mix: 72%;
