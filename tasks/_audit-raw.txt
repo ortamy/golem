@@ -1,0 +1,2419 @@
+=== SUMMARY (CSS, объявления) ===
+prop            | decls | unique | from-var | literal
+box-shadow      |   266 |    101 |      135 |     131
+text-shadow     |     2 |      2 |        1 |       1
+backdrop-filter |    16 |      8 |        0 |      16
+border-radius   |   542 |     38 |      250 |     292
+z-index         |    59 |     19 |        0 |      59
+font-size       |   961 |    132 |      290 |     671
+padding         |   777 |    266 |      241 |     536
+margin          |   476 |    130 |       40 |     436
+gap             |   644 |     58 |      203 |     441
+padding-top     |    35 |     25 |        9 |      26
+padding-right   |    12 |     10 |        2 |      10
+padding-bottom  |    32 |     16 |       15 |      17
+padding-left    |    33 |     16 |        8 |      25
+margin-top      |   274 |     40 |       52 |     222
+margin-right    |    25 |     14 |        1 |      24
+margin-bottom   |   365 |     30 |      161 |     204
+margin-left     |    38 |     10 |        4 |      34
+padding-inline  |     6 |      6 |        2 |       4
+margin-inline   |     1 |      1 |        0 |       1
+row-gap         |     2 |      2 |        1 |       1
+column-gap      |     2 |      2 |        1 |       1
+color-hex       |  1102 |    410 |        0 |    1102
+color-func      |   214 |    146 |        0 |     214
+TOTAL: 5884
+
+=== box-shadow: значения ===
+  63x  var(--shadow-soft)
+        css/learn.css(15), css/components/dashboard.css(12), css/club.css(5), css/methodology.css(4), css/manifest.css(3), css/dashboard.css(2) +16 файлов
+  33x  var(--shadow-card)
+        css/manifest.css(18), css/components/dict-term-doc.css(3), css/dashboard.css(3), css/components/manifest.css(2), css/components/research.css(2), css/block-renderer.css(1) +4 файлов
+  27x  none
+        css/redesign.css(11), css/components/forms.css(4), css/club.css(3), css/components/paleo-keyboard.css(3), css/timeline.css(2), css/board-generator.css(1) +3 файлов
+  12x  var(--shadow-card-hover-color)
+        css/manifest.css(7), css/learn.css(3), css/exposure-editor.css(1), css/language-map.css(1)
+  10x  var(--shadow-hover)
+        css/components/dict-term-doc.css(3), css/dashboard.css(2), css/block-renderer.css(1), css/components/cards.css(1), css/components/forms.css(1), css/components/manifest.css(1) +1 файлов
+   6x  var(--ring-focus)
+        css/redesign.css(3), css/components/buttons.css(1), css/lab.css(1), css/states.css(1)
+   3x  0 0 0 1px var(--accent-gold)
+        css/club.css(1), css/heraldry.css(1), css/investigation.css(1)
+   3x  0 2px 12px rgba(44, 24, 16, 0.08)
+        css/generators-checkers.css(1), css/research-library.css(1), css/scripture-reader.css(1)
+   3x  var(--shadow-soft, 0 2px 8px rgba(0,0,0,0.15))
+        css/timeline.css(3)
+   2x  0 0 0 0 rgb(var(--accent-gold-rgb) / 0)
+        css/club.css(1), css/layout.css(1)
+   2x  0 0 0 2px rgba(217,164,65,.42), 0 12px 28px rgba(0,0,0,.48)
+        css/board.css(2)
+   2x  0 0 0 4px rgb(var(--accent-gold-rgb) / 0.30)
+        css/investigation.css(2)
+   2x  0 0 4px rgba(192, 57, 43, 0.6)
+        css/board-generator.css(2)
+   2x  0 2px 6px rgba(44, 24, 16, 0.1)
+        css/board-generator.css(2)
+   2x  0 3px 12px rgba(61, 40, 22, 0.08)
+        css/checkers-comparator.css(2)
+   2x  0 4px 12px rgba(0,0,0,0.1)
+        css/cartography.css(1), css/heraldry.css(1)
+   2x  0 4px 16px var(--shadow-card-hover-color)
+        css/manifest.css(1), css/word-analyzer.css(1)
+   2x  0 6px 20px var(--shadow-card-hover-color)
+        css/components/dashboard.css(1), css/religionisms.css(1)
+   2x  0 8px 22px var(--shadow-card-hover-color)
+        css/methodology.css(2)
+   2x  4px 0 16px var(--shadow-card-color)
+        css/layout.css(2)
+   2x  var(--shadow-floating)
+        css/layout.css(1), css/manuscript.css(1)
+   2x  var(--shadow-modal)
+        css/components/modal.css(1), css/components/utilities.css(1)
+   2x  var(--shadow-soft, 0 3px 12px rgba(60, 45, 25, .12))
+        css/agent-map.css(2)
+   1x  -8px 0 24px rgba(0,0,0,0.24)
+        css/responsive.css(1)
+   1x  0 -4px 14px rgba(0, 0, 0, 0.09)
+        css/scripture-reader.css(1)
+   1x  0 0 0 1px rgb(var(--accent-gold-rgb) / 0.20), var(--shadow-soft)
+        css/components/dashboard.css(1)
+   1x  0 0 0 1px rgb(var(--accent-gold-rgb) / 0.35)
+        css/scripture-reader.css(1)
+   1x  0 0 0 1px rgba(232, 117, 36, 0.28)
+        css/scripture-reader.css(1)
+   1x  0 0 0 1px var(--scripture-orange, #e87524)
+        css/scripture-reader.css(1)
+   1x  0 0 0 2px rgb(var(--accent-gold-rgb) / .15)
+        css/clue-generator.css(1)
+   1x  0 0 0 2px rgb(var(--accent-gold-rgb) / 0.15)
+        css/components/forms.css(1)
+   1x  0 0 0 2px rgb(var(--accent-gold-rgb) / 0.3)
+        css/exposure-editor.css(1)
+   1x  0 0 0 2px rgb(var(--accent-gold-rgb) / 0.40)
+        css/components/forms.css(1)
+   1x  0 0 0 2px rgba(165, 121, 50, .2), var(--shadow-soft, 0 3px 12px rgba(60, 45, 25, .12))
+        css/agent-map.css(1)
+   1x  0 0 0 2px rgba(61, 52, 41, .2), var(--shadow-soft, 0 3px 12px rgba(60, 45, 25, .12))
+        css/agent-map.css(1)
+   1x  0 0 0 2px var(--accent-gold),var(--shadow-card-hover-color)
+        css/manifest.css(1)
+   1x  0 0 0 3px rgb(163 77 63 / .18)
+        css/agent-server.css(1)
+   1x  0 0 0 3px rgb(184 134 11 / .16)
+        css/agent-server.css(1)
+   1x  0 0 0 3px rgb(85 122 77 / .18)
+        css/agent-server.css(1)
+   1x  0 0 0 3px rgb(var(--accent-gold-rgb) / .14)
+        css/cartography.css(1)
+   1x  0 0 0 3px rgba(138,122,106,.12)
+        css/components/dashboard.css(1)
+   1x  0 0 0 3px rgba(42,106,42,.14)
+        css/components/dashboard.css(1)
+   1x  0 0 0 3px var(--bg-card)
+        css/club.css(1)
+   1x  0 0 0 3px var(--bg-primary)
+        css/investigation.css(1)
+   1x  0 0 0 3px var(--ring-focus)
+        css/components/utilities.css(1)
+   1x  0 0 0 4px color-mix(in srgb, var(--landscape-color) 13%, transparent)
+        css/states.css(1)
+   1x  0 0 0 4px color-mix(in srgb, var(--node-color) 15%, transparent)
+        css/states.css(1)
+   1x  0 0 0 4px rgb(var(--accent-gold-rgb) / .18)
+        css/components/dashboard.css(1)
+   1x  0 0 0 5px rgb(var(--accent-gold-rgb) / 0.16)
+        css/layout.css(1)
+   1x  0 0 0 7px rgb(var(--accent-gold-rgb) / .14)
+        css/club.css(1)
+   1x  0 0 0 9px color-mix(in srgb, var(--landscape-color) 10%, transparent), 0 12px 28px rgba(44, 24, 16, .14)
+        css/states.css(1)
+   1x  0 10px 22px rgba(0, 0, 0, 0.18)
+        css/paleo-linguistics.css(1)
+   1x  0 10px 28px rgba(0, 0, 0, .18)
+        css/davar-checker.css(1)
+   1x  0 10px 28px rgba(44, 24, 16, 0.10)
+        css/states.css(1)
+   1x  0 12px 26px rgb(var(--accent-gold-rgb) / .18)
+        css/research-library.css(1)
+   1x  0 12px 30px rgba(30, 16, 8, .24)
+        css/prompt-generator.css(1)
+   1x  0 18px 50px rgba(0, 0, 0, .45)
+        css/prompt-generator.css(1)
+   1x  0 1px 0 var(--border-light, rgba(70, 55, 35, .2))
+        css/block-renderer.css(1)
+   1x  0 1px 3px rgba(0,0,0,0.04)
+        css/workbench.css(1)
+   1x  0 1px 3px var(--shadow-card-color)
+        css/components/forms.css(1)
+   1x  0 20px 70px #000b
+        css/board.css(1)
+   1x  0 2px 4px rgba(192, 57, 43, 0.4)
+        css/board-generator.css(1)
+   1x  0 2px 6px rgba(0, 0, 0, .35)
+        css/methodology.css(1)
+   1x  0 2px 8px rgb(var(--accent-gold-rgb) / 0.3)
+        css/scripture-reader.css(1)
+   1x  0 2px 8px rgba(192, 57, 43, 0.12)
+        css/components/forms.css(1)
+   1x  0 2px 8px rgba(44, 24, 16, .08)
+        css/research-library.css(1)
+   1x  0 2px 8px rgba(44, 24, 16, 0.15)
+        css/board-generator.css(1)
+   1x  0 2px 8px var(--shadow-card-hover-color)
+        css/components/forms.css(1)
+   1x  0 3px 10px rgba(71, 48, 22, 0.05)
+        css/generators-checkers.css(1)
+   1x  0 3px 12px rgba(44, 24, 16, .07)
+        css/section-renderer.css(1)
+   1x  0 3px 8px rgba(44, 24, 16, .12)
+        css/cartography.css(1)
+   1x  0 4px 12px rgba(44, 24, 16, .06)
+        css/cartography.css(1)
+   1x  0 4px 12px rgba(44, 24, 16, 0.2)
+        css/board-generator.css(1)
+   1x  0 4px 16px rgba(0, 0, 0, 0.08)
+        css/theme-parchment.css(1)
+   1x  0 5px 14px rgb(var(--accent-gold-rgb) / 0.2)
+        css/dashboard.css(1)
+   1x  0 5px 14px rgba(117, 82, 27, 0.16)
+        css/paleo-builder.css(1)
+   1x  0 6px 16px rgba(44, 24, 16, .08)
+        css/cartography.css(1)
+   1x  0 6px 18px rgba(44, 24, 16, 0.08)
+        css/states.css(1)
+   1x  0 6px 20px rgba(0,0,0,0.12)
+        css/states.css(1)
+   1x  0 6px 20px rgba(44, 24, 16, 0.14)
+        css/scripture-reader.css(1)
+   1x  0 7px 18px rgba(44, 24, 16, .08)
+        css/cartography.css(1)
+   1x  0 8px 18px var(--shadow-card-hover-color)
+        css/investigation.css(1)
+   1x  0 8px 20px rgba(44, 24, 16, .14)
+        css/cartography.css(1)
+   1x  0 8px 22px rgba(0,0,0,.34)
+        css/board.css(1)
+   1x  0 8px 22px rgba(30, 16, 8, .18)
+        css/prompt-generator.css(1)
+   1x  0 8px 22px rgba(44, 24, 16, 0.08)
+        css/cartography.css(1)
+   1x  0 8px 24px #0008
+        css/board.css(1)
+   1x  0 8px 24px rgba(44, 24, 16, 0.3)
+        css/board-generator.css(1)
+   1x  0 8px 32px rgba(0, 0, 0, 0.25)
+        css/linear-timeline.css(1)
+   1x  0 8px 32px rgba(0,0,0,.25)
+        css/components/dashboard.css(1)
+   1x  2px 2px 12px var(--shadow-card-hover-color)
+        css/root-dictionary.css(1)
+   1x  inset 0 0 0 1px var(--accent-gold), var(--shadow-card)
+        css/manifest.css(1)
+   1x  inset 0 0 0 3px rgba(194, 147, 55, 0.12)
+        css/paleo-builder.css(1)
+   1x  inset 0 0 0 3px var(--bg-tertiary), var(--shadow-soft)
+        css/components/paleo-keyboard.css(1)
+   1x  inset 0 1px 0 rgb(255 255 255 / 0.45), inset 0 -1px 0 rgb(44 24 16 / 0.22), 0 2px 10px rgb(var(--accent-gold-rgb) / 0.30)
+        css/lab.css(1)
+   1x  inset 0 1px 0 rgb(255 255 255 / 0.50), inset 0 -1px 0 rgb(44 24 16 / 0.22), 0 5px 16px rgb(var(--accent-gold-rgb) / 0.42)
+        css/lab.css(1)
+   1x  inset 0 1px 0 var(--glass-edge-top), inset 0 -1px 0 var(--glass-edge-bottom), var(--glass-shadow)
+        css/lab.css(1)
+   1x  inset 0 1px 0 var(--glass-edge-top), inset 0 -1px 0 var(--glass-edge-bottom), var(--shadow-floating)
+        css/lab.css(1)
+   1x  inset 3px 0 0 var(--accent-gold)
+        css/layout.css(1)
+   1x  var(--shadow-hover), var(--ring-focus)
+        css/components/cards.css(1)
+   1x  var(--shadow-soft, 0 4px 12px rgba(44, 24, 16, .08))
+        css/agent-server.css(1)
+
+=== box-shadow: форма (цвет вырезан) ===
+ 128x  C  [цветовых вариантов: 7]
+  27x  none  [цветовых вариантов: 1]
+   8x  0 0 0 3px C  [цветовых вариантов: 8]
+   6x  C)  [цветовых вариантов: 3]
+   5x  0 0 0 1px C  [цветовых вариантов: 3]
+   5x  0 8px 22px C  [цветовых вариантов: 4]
+   4x  0 4px 12px C  [цветовых вариантов: 3]
+   4x  0 6px 20px C  [цветовых вариантов: 3]
+   4x  0 2px 8px C  [цветовых вариантов: 4]
+   3x  0 2px 12px C  [цветовых вариантов: 1]
+   3x  0 2px 6px C  [цветовых вариантов: 2]
+   3x  0 3px 12px C  [цветовых вариантов: 2]
+   3x  0 4px 16px C  [цветовых вариантов: 2]
+   2x  0 0 0 0 C / 0)  [цветовых вариантов: 1]
+   2x  0 0 0 2px C, 0 12px 28px C  [цветовых вариантов: 1]
+   2x  0 0 0 4px C / 0.30)  [цветовых вариантов: 1]
+   2x  0 0 4px C  [цветовых вариантов: 1]
+   2x  4px 0 16px C  [цветовых вариантов: 1]
+   2x  0 0 0 2px C, C)  [цветовых вариантов: 2]
+   2x  0 10px 28px C  [цветовых вариантов: 2]
+   2x  0 1px 3px C  [цветовых вариантов: 2]
+   2x  0 8px 24px C  [цветовых вариантов: 2]
+   2x  0 8px 32px C  [цветовых вариантов: 2]
+   2x  inset 0 1px 0 C, inset 0 -1px 0 C, C  [цветовых вариантов: 2]
+   1x  -8px 0 24px C  [цветовых вариантов: 1]
+   1x  0 -4px 14px C  [цветовых вариантов: 1]
+   1x  0 0 0 1px C / 0.20), C  [цветовых вариантов: 1]
+   1x  0 0 0 1px C / 0.35)  [цветовых вариантов: 1]
+   1x  0 0 0 2px C / .15)  [цветовых вариантов: 1]
+   1x  0 0 0 2px C / 0.15)  [цветовых вариантов: 1]
+   1x  0 0 0 2px C / 0.3)  [цветовых вариантов: 1]
+   1x  0 0 0 2px C / 0.40)  [цветовых вариантов: 1]
+   1x  0 0 0 2px C,C  [цветовых вариантов: 1]
+   1x  0 0 0 3px C / .14)  [цветовых вариантов: 1]
+   1x  0 0 0 4px color-mix(in srgb, C 13%, transparent)  [цветовых вариантов: 1]
+   1x  0 0 0 4px color-mix(in srgb, C 15%, transparent)  [цветовых вариантов: 1]
+   1x  0 0 0 4px C / .18)  [цветовых вариантов: 1]
+   1x  0 0 0 5px C / 0.16)  [цветовых вариантов: 1]
+   1x  0 0 0 7px C / .14)  [цветовых вариантов: 1]
+   1x  0 0 0 9px color-mix(in srgb, C 10%, transparent), 0 12px 28px C  [цветовых вариантов: 1]
+   1x  0 10px 22px C  [цветовых вариантов: 1]
+   1x  0 12px 26px C / .18)  [цветовых вариантов: 1]
+   1x  0 12px 30px C  [цветовых вариантов: 1]
+   1x  0 18px 50px C  [цветовых вариантов: 1]
+   1x  0 1px 0 C)  [цветовых вариантов: 1]
+   1x  0 20px 70px C  [цветовых вариантов: 1]
+   1x  0 2px 4px C  [цветовых вариантов: 1]
+   1x  0 2px 8px C / 0.3)  [цветовых вариантов: 1]
+   1x  0 3px 10px C  [цветовых вариантов: 1]
+   1x  0 3px 8px C  [цветовых вариантов: 1]
+   1x  0 5px 14px C / 0.2)  [цветовых вариантов: 1]
+   1x  0 5px 14px C  [цветовых вариантов: 1]
+   1x  0 6px 16px C  [цветовых вариантов: 1]
+   1x  0 6px 18px C  [цветовых вариантов: 1]
+   1x  0 7px 18px C  [цветовых вариантов: 1]
+   1x  0 8px 18px C  [цветовых вариантов: 1]
+   1x  0 8px 20px C  [цветовых вариантов: 1]
+   1x  2px 2px 12px C  [цветовых вариантов: 1]
+   1x  inset 0 0 0 1px C, C  [цветовых вариантов: 1]
+   1x  inset 0 0 0 3px C  [цветовых вариантов: 1]
+   1x  inset 0 0 0 3px C, C  [цветовых вариантов: 1]
+   1x  inset 0 1px 0 C, inset 0 -1px 0 C, 0 2px 10px C / 0.30)  [цветовых вариантов: 1]
+   1x  inset 0 1px 0 C, inset 0 -1px 0 C, 0 5px 16px C / 0.42)  [цветовых вариантов: 1]
+   1x  inset 3px 0 0 C  [цветовых вариантов: 1]
+   1x  C, C  [цветовых вариантов: 1]
+
+=== text-shadow ===
+   1x  1px 1px 2px rgb(var(--accent-gold-rgb) / 0.2)
+        css/board-generator.css(1)
+   1x  var(--glow-glyph)
+        css/lab.css(1)
+
+=== backdrop-filter ===
+   6x  none
+        css/lab.css(5), css/redesign.css(1)
+   2x  blur(12px) saturate(1.2)
+        css/lab.css(1), css/redesign.css(1)
+   2x  blur(2px)
+        css/linear-timeline.css(1), css/manuscript.css(1)
+   2x  blur(4px)
+        css/components/modal.css(1), css/responsive.css(1)
+   1x  blur(12px) saturate(var(--glass-saturate))
+        css/lab.css(1)
+   1x  blur(1px)) or (-webkit-backdrop-filter: blur(1px)))
+        css/lab.css(1)
+   1x  blur(8px)
+        css/manifest.css(1)
+   1x  blur(var(--glass-blur)) saturate(var(--glass-saturate))
+        css/lab.css(1)
+
+=== border-radius ===
+ 118x  var(--radius-sm)
+        css/components/dashboard.css(18), css/states.css(10), css/admin.css(8), css/club.css(6), css/user-preferences.css(6), css/redesign.css(5) +31 файлов
+  59x  var(--radius-xs)
+        css/scripture-reader.css(14), css/manifest.css(9), css/heraldry.css(7), css/states.css(4), css/board-generator.css(3), css/linear-timeline.css(3) +13 файлов
+  55x  50%
+        css/club.css(7), css/states.css(7), css/cartography.css(4), css/components/dashboard.css(4), css/manifest.css(4), css/admin.css(3) +18 файлов
+  55x  8px
+        css/cartography.css(6), css/learn.css(6), css/admin.css(5), css/generators-checkers.css(3), css/linguistic-tensor.css(3), css/components/paleo-mechanics.css(2) +21 файлов
+  32x  var(--radius-md)
+        css/components/dashboard.css(6), css/redesign.css(5), css/timeline.css(4), css/states.css(3), css/cartography.css(2), css/linear-timeline.css(2) +9 файлов
+  25x  3px
+        css/components/dashboard.css(4), css/admin.css(3), css/exposure-editor.css(3), css/manifest.css(3), css/base.css(2), css/components/modal.css(2) +6 файлов
+  21x  4px
+        css/root-dictionary.css(4), css/dashboard.css(3), css/etymology-lab.css(2), css/prompt-generator.css(2), css/board.css(1), css/cartography.css(1) +8 файлов
+  20x  10px
+        css/learn.css(9), css/workbench.css(5), css/generators-checkers.css(2), css/analyzers.css(1), css/board.css(1), css/cartography.css(1) +1 файлов
+  18x  6px
+        css/etymology-lab.css(4), css/cartography.css(2), css/prompt-generator.css(2), css/tree-checker.css(2), css/analyzers.css(1), css/board.css(1) +6 файлов
+  17x  var(--radius-pill)
+        css/components/dashboard.css(4), css/research-library.css(3), css/scripture-reader.css(3), css/redesign.css(2), css/components/modal.css(1), css/lab.css(1) +3 файлов
+  16x  7px
+        css/analyzers.css(4), css/learn.css(4), css/agent-map.css(2), css/cartography.css(2), css/section-renderer.css(2), css/board.css(1) +1 файлов
+  16x  999px
+        css/workbench.css(5), css/club.css(4), css/generators-checkers.css(2), css/learn.css(2), css/analyzers.css(1), css/lab-hero.css(1) +1 файлов
+  12x  2px
+        css/components/highlight-export.css(4), css/states.css(4), css/linear-timeline.css(2), css/components/paleo-keyboard.css(1), css/responsive.css(1)
+   9x  12px
+        css/learn.css(3), css/etymology-lab.css(1), css/lab-hero.css(1), css/manuscript.css(1), css/responsive.css(1), css/user-preferences.css(1) +1 файлов
+   9x  var(--radius)
+        css/club.css(6), css/user-preferences.css(2), css/admin.css(1)
+   7x  99px
+        css/learn.css(5), css/scripture-reader.css(1), css/tree-checker.css(1)
+   6x  5px
+        css/research-library.css(2), css/board.css(1), css/components/research-json.css(1), css/methodology.css(1), css/prompt-generator.css(1)
+   6x  inherit
+        css/learn.css(2), css/analyzers.css(1), css/club.css(1), css/linguistic-tensor.css(1), css/scripture-reader.css(1)
+   5x  0
+        css/club.css(1), css/components/modal.css(1), css/layout.css(1), css/research-library.css(1), css/responsive.css(1)
+   5x  14px
+        css/learn.css(5)
+   4x  var(--radius-lg, 8px)
+        css/club.css(4)
+   4x  var(--radius-md, 6px)
+        css/club.css(4)
+   3x  0 var(--radius-sm) var(--radius-sm) 0
+        css/heraldry.css(2), css/states.css(1)
+   3x  16px
+        css/layout.css(1), css/learn.css(1), css/paleo-linguistics.css(1)
+   3x  var(--radius-lg)
+        css/cartography.css(1), css/components/modal.css(1), css/states.css(1)
+   2x  0 8px 8px 0
+        css/generators-checkers.css(1), css/learn.css(1)
+   1x  0 2px 2px 0
+        css/states.css(1)
+   1x  0 7px 7px 0
+        css/analyzers.css(1)
+   1x  20px
+        css/learn.css(1)
+   1x  24px
+        css/admin.css(1)
+   1x  2px 0 0 2px
+        css/states.css(1)
+   1x  2px 2px 0 0
+        css/club.css(1)
+   1x  8px 0 0 8px
+        css/section-renderer.css(1)
+   1x  8px 8px 0 0
+        css/admin.css(1)
+   1x  var(--radius-md, 10px)
+        css/club.css(1)
+   1x  var(--radius-pill, 999px)
+        css/research-library.css(1)
+   1x  var(--radius-sm, 6px)
+        css/club.css(1)
+   1x  var(--radius-sm) var(--radius-sm) 0 0
+        css/components/data.css(1)
+
+=== z-index ===
+  22x  1
+        css/lab-hero.css(5), css/investigation.css(3), css/club.css(2), css/components/dashboard.css(2), css/admin.css(1), css/agent-map.css(1) +8 файлов
+   7x  2
+        css/components/dashboard.css(2), css/states.css(2), css/agent-map.css(1), css/board.css(1), css/cartography.css(1)
+   5x  1000
+        css/board.css(1), css/components/dashboard.css(1), css/components/utilities.css(1), css/layout.css(1), css/scripture-reader.css(1)
+   4x  9999
+        css/admin.css(1), css/components/paleo-keyboard.css(1), css/exposure-editor.css(1), css/manuscript.css(1)
+   3x  -1
+        css/base.css(2), css/states.css(1)
+   3x  999
+        css/components/modal.css(1), css/layout.css(1), css/redesign.css(1)
+   2x  20
+        css/scripture-reader.css(2)
+   2x  9998
+        css/components/modal.css(1), css/manuscript.css(1)
+   1x  0
+        css/investigation.css(1)
+   1x  10
+        css/board.css(1)
+   1x  100
+        css/club.css(1)
+   1x  10000
+        css/linear-timeline.css(1)
+   1x  3
+        css/board.css(1)
+   1x  4
+        css/agent-map.css(1)
+   1x  40
+        css/manifest.css(1)
+   1x  5
+        css/investigation.css(1)
+   1x  50
+        css/manifest.css(1)
+   1x  9995
+        css/responsive.css(1)
+   1x  9996
+        css/responsive.css(1)
+
+=== font-size ===
+ 104x  14px
+        css/manifest.css(11), css/learn.css(8), css/admin.css(6), css/linguistic-tensor.css(6), css/workbench.css(6), css/analyzers.css(5) +28 файлов
+  70x  var(--text-sm)
+        css/states.css(10), css/admin.css(9), css/user-preferences.css(7), css/exposure-editor.css(6), css/layout.css(6), css/scripture-reader.css(6) +11 файлов
+  59x  13px
+        css/club.css(9), css/manifest.css(7), css/cartography.css(5), css/workbench.css(5), css/linguistic-tensor.css(4), css/paleo-linguistics.css(4) +14 файлов
+  53x  var(--text-xs)
+        css/scripture-reader.css(10), css/admin.css(8), css/dashboard.css(8), css/exposure-editor.css(4), css/layout.css(3), css/board-generator.css(2) +14 файлов
+  40x  var(--text-md)
+        css/manifest.css(6), css/states.css(5), css/timeline.css(4), css/religionisms.css(3), css/admin.css(2), css/club.css(2) +14 файлов
+  38x  11px
+        css/cartography.css(3), css/components/dashboard.css(3), css/heraldry.css(3), css/scripture-reader.css(3), css/admin.css(2), css/board.css(2) +16 файлов
+  38x  12px
+        css/workbench.css(6), css/etymology-lab.css(3), css/paleo-linguistics.css(3), css/analyzers.css(2), css/dashboard.css(2), css/lab-hero.css(2) +16 файлов
+  35x  var(--text-base)
+        css/responsive.css(7), css/states.css(5), css/heraldry.css(4), css/cartography.css(3), css/exposure-editor.css(3), css/components/forms.css(2) +9 файлов
+  30x  15px
+        css/manifest.css(9), css/investigation.css(3), css/language-map.css(3), css/redesign.css(3), css/dashboard.css(2), css/learn.css(2) +7 файлов
+  28x  20px
+        css/cartography.css(3), css/states.css(3), css/admin.css(2), css/components/dashboard.css(2), css/dashboard.css(2), css/exposure-editor.css(2) +13 файлов
+  26x  16px
+        css/manifest.css(5), css/redesign.css(5), css/analyzers.css(3), css/learn.css(3), css/etymology-lab.css(2), css/root-dictionary.css(2) +6 файлов
+  26x  var(--text-lg)
+        css/states.css(5), css/responsive.css(4), css/heraldry.css(3), css/board-generator.css(2), css/components/dict-term-doc.css(2), css/admin.css(1) +9 файлов
+  20x  24px
+        css/scripture-reader.css(4), css/board-generator.css(2), css/components/paleo-keyboard.css(2), css/etymology-lab.css(2), css/states.css(2), css/linguistic-tensor.css(1) +7 файлов
+  17x  17px
+        css/manifest.css(5), css/checkers-comparator.css(3), css/cartography.css(1), css/club.css(1), css/components/dashboard.css(1), css/investigation.css(1) +5 файлов
+  17x  18px
+        css/components/dashboard.css(2), css/etymology-lab.css(2), css/learn.css(2), css/manifest.css(2), css/analyzers.css(1), css/board.css(1) +7 файлов
+  17x  var(--text-2xl)
+        css/states.css(3), css/admin.css(2), css/cartography.css(2), css/heraldry.css(2), css/scripture-reader.css(2), css/components/paleo-keyboard.css(1) +5 файлов
+  15x  10px
+        css/states.css(5), css/agent-map.css(2), css/layout.css(2), css/scripture-reader.css(2), css/dashboard.css(1), css/manifest.css(1) +2 файлов
+  15x  22px
+        css/manifest.css(5), css/analyzers.css(2), css/cartography.css(2), css/checkers-comparator.css(2), css/club.css(2), css/components/neurochat.css(1) +1 файлов
+  15x  var(--text-xl)
+        css/states.css(3), css/club.css(2), css/admin.css(1), css/board-generator.css(1), css/components/modal.css(1), css/components/paleo-mechanics.css(1) +6 файлов
+  14x  21px
+        css/manifest.css(3), css/scripture-reader.css(3), css/checkers-comparator.css(2), css/agent-server.css(1), css/cartography.css(1), css/club.css(1) +3 файлов
+  12x  32px
+        css/manifest.css(3), css/paleo-linguistics.css(2), css/admin.css(1), css/board-generator.css(1), css/etymology-lab.css(1), css/responsive.css(1) +3 файлов
+   9x  28px
+        css/manifest.css(2), css/board.css(1), css/cartography.css(1), css/components/research.css(1), css/dashboard.css(1), css/etymology-lab.css(1) +2 файлов
+   9x  var(--ui-11)
+        css/linear-timeline.css(5), css/redesign.css(4)
+   8x  25px
+        css/scripture-reader.css(2), css/states.css(2), css/components/paleo-mechanics.css(1), css/dashboard.css(1), css/investigation.css(1), css/language-map.css(1)
+   8x  36px
+        css/manifest.css(4), css/admin.css(1), css/etymology-lab.css(1), css/states.css(1), css/word-analyzer.css(1)
+   8x  var(--ui-13)
+        css/redesign.css(6), css/linear-timeline.css(2)
+   7x  .78rem
+        css/research-library.css(5), css/tree-checker.css(2)
+   7x  30px
+        css/religionisms.css(2), css/scripture-reader.css(2), css/components/paleo-keyboard.css(1), css/layout.css(1), css/manifest.css(1)
+   6x  .9rem
+        css/research-library.css(3), css/block-renderer.css(1), css/section-renderer.css(1), css/tree-checker.css(1)
+   6x  0.85rem
+        css/components/paleo-mechanics.css(2), css/generators-checkers.css(1), css/manuscript.css(1), css/paleo-builder.css(1), css/timeline.css(1)
+   6x  19px
+        css/cartography.css(1), css/checkers-comparator.css(1), css/club.css(1), css/manifest.css(1), css/religionisms.css(1), css/scripture-reader.css(1)
+   6x  2rem
+        css/paleo-builder.css(3), css/heraldry.css(2), css/research-library.css(1)
+   6x  40px
+        css/manifest.css(2), css/components/dashboard.css(1), css/paleo-linguistics.css(1), css/responsive.css(1), css/scripture-reader.css(1)
+   5x  0.75rem
+        css/manuscript.css(2), css/cartography.css(1), css/heraldry.css(1), css/states.css(1)
+   5x  0.78rem
+        css/paleo-builder.css(3), css/components/research-json.css(1), css/research-library.css(1)
+   5x  0.7rem
+        css/dashboard.css(2), css/generators-checkers.css(1), css/paleo-builder.css(1), css/timeline.css(1)
+   5x  0.9rem
+        css/generators-checkers.css(2), css/manuscript.css(1), css/paleo-builder.css(1), css/research-library.css(1)
+   5x  1rem
+        css/research-library.css(3), css/heraldry.css(1), css/manuscript.css(1)
+   5x  38px
+        css/manifest.css(2), css/club.css(1), css/paleo-glossary.css(1), css/states.css(1)
+   4x  0.72rem
+        css/components/paleo-mechanics.css(1), css/generators-checkers.css(1), css/paleo-builder.css(1), css/research-library.css(1)
+   4x  0.95rem
+        css/generators-checkers.css(4)
+   4x  1.2rem
+        css/research-library.css(2), css/generators-checkers.css(1), css/section-renderer.css(1)
+   4x  23px
+        css/checkers-comparator.css(2), css/components/manifest.css(1), css/components/research.css(1)
+   4x  48px
+        css/components/dashboard.css(1), css/etymology-lab.css(1), css/manifest.css(1), css/states.css(1)
+   4x  64px
+        css/generators-checkers.css(1), css/paleo-linguistics.css(1), css/states.css(1), css/timeline.css(1)
+   4x  clamp(26px, 4vw, 36px)
+        css/timeline.css(3), css/analyzers.css(1)
+   4x  var(--ui-12, 12px)
+        css/timeline.css(4)
+   3x  0.8rem
+        css/generators-checkers.css(2), css/manuscript.css(1)
+   3x  1.15rem
+        css/generators-checkers.css(2), css/research-library.css(1)
+   3x  1.1rem
+        css/components/dict-term-doc.css(1), css/dashboard.css(1), css/research-library.css(1)
+   3x  26px
+        css/cartography.css(2), css/checkers-comparator.css(1)
+   3x  34px
+        css/cartography.css(1), css/manifest.css(1), css/scripture-reader.css(1)
+   3x  42px
+        css/manifest.css(2), css/cartography.css(1)
+   3x  56px
+        css/learn.css(1), css/manifest.css(1), css/states.css(1)
+   3x  var(--ui-10)
+        css/linear-timeline.css(3)
+   3x  var(--ui-11, 11px)
+        css/timeline.css(3)
+   3x  var(--ui-12)
+        css/linear-timeline.css(2), css/redesign.css(1)
+   2x  .72rem
+        css/generators-checkers.css(1), css/research-library.css(1)
+   2x  .74rem
+        css/research-library.css(2)
+   2x  .82rem
+        css/research-library.css(2)
+   2x  .86rem
+        css/research-library.css(2)
+   2x  .8rem
+        css/block-renderer.css(1), css/research-library.css(1)
+   2x  .92rem
+        css/research-library.css(2)
+   2x  0.65rem
+        css/dashboard.css(1), css/manuscript.css(1)
+   2x  1.25rem
+        css/block-renderer.css(1), css/paleo-builder.css(1)
+   2x  1.35rem
+        css/checkers-comparator.css(1), css/manuscript.css(1)
+   2x  1.3rem
+        css/components/research-json.css(1), css/paleo-builder.css(1)
+   2x  1.45rem
+        css/components/research-json.css(1), css/paleo-builder.css(1)
+   2x  1.6rem
+        css/components/dict-term-doc.css(1), css/research-library.css(1)
+   2x  100px
+        css/timeline.css(2)
+   2x  29px
+        css/club.css(1), css/dashboard.css(1)
+   2x  72px
+        css/manifest.css(1), css/states.css(1)
+   2x  8px
+        css/redesign.css(1), css/scripture-reader.css(1)
+   2x  92px
+        css/components/paleo-keyboard.css(2)
+   2x  clamp(30px, 5vw, 46px)
+        css/lab-hero.css(1), css/language-map.css(1)
+   2x  var(--ui-13, 13px)
+        css/timeline.css(2)
+   1x  .68rem
+        css/research-library.css(1)
+   1x  .75rem
+        css/research-library.css(1)
+   1x  .7rem
+        css/research-library.css(1)
+   1x  .88rem
+        css/section-renderer.css(1)
+   1x  0
+        css/components/paleo-keyboard.css(1)
+   1x  0.68rem
+        css/generators-checkers.css(1)
+   1x  0.6rem
+        css/dashboard.css(1)
+   1x  0.74rem
+        css/paleo-builder.css(1)
+   1x  0.82rem
+        css/generators-checkers.css(1)
+   1x  0.84rem
+        css/paleo-builder.css(1)
+   1x  0.86rem
+        css/generators-checkers.css(1)
+   1x  0.95em
+        css/components/research-json.css(1)
+   1x  1.04em
+        css/section-renderer.css(1)
+   1x  1.16em
+        css/section-renderer.css(1)
+   1x  1.35em
+        css/lab.css(1)
+   1x  1.4rem
+        css/components/dict-term-doc.css(1)
+   1x  1.75rem
+        css/generators-checkers.css(1)
+   1x  1.8rem
+        css/research-library.css(1)
+   1x  132px
+        css/learn.css(1)
+   1x  2.1rem
+        css/paleo-builder.css(1)
+   1x  2.5rem
+        css/heraldry.css(1)
+   1x  3.2rem
+        css/paleo-builder.css(1)
+   1x  3.5rem
+        css/generators-checkers.css(1)
+   1x  31px
+        css/investigation.css(1)
+   1x  3rem
+        css/paleo-builder.css(1)
+   1x  44px
+        css/cartography.css(1)
+   1x  46px
+        css/club.css(1)
+   1x  52px
+        css/paleo-glossary.css(1)
+   1x  54px
+        css/learn.css(1)
+   1x  55px
+        css/manifest.css(1)
+   1x  60px
+        css/learn.css(1)
+   1x  90px
+        css/timeline.css(1)
+   1x  96px
+        css/learn.css(1)
+   1x  clamp(1.4rem, 2.5vw, 2rem)
+        css/dashboard.css(1)
+   1x  clamp(1.5rem, 3vw, 2.5rem)
+        css/manuscript.css(1)
+   1x  clamp(18px, 2.3vw, 24px)
+        css/manifest.css(1)
+   1x  clamp(18px, 2vw, 24px)
+        css/redesign.css(1)
+   1x  clamp(19px, 2.4vw, 26px)
+        css/redesign.css(1)
+   1x  clamp(19px, 2.5vw, 27px)
+        css/linguistic-tensor.css(1)
+   1x  clamp(20px, 2.4vw, 26px)
+        css/redesign.css(1)
+   1x  clamp(20px, 3vw, 28px)
+        css/scripture-reader.css(1)
+   1x  clamp(24px, 3vw, 34px)
+        css/manifest.css(1)
+   1x  clamp(24px, 3vw, 36px)
+        css/board.css(1)
+   1x  clamp(26px, 9vw, 34px)
+        css/scripture-reader.css(1)
+   1x  clamp(28px, 4vw, 42px)
+        css/components/research.css(1)
+   1x  clamp(2rem, 4vw, 3rem)
+        css/research-library.css(1)
+   1x  clamp(30px, 6vw, 70px)
+        css/manifest.css(1)
+   1x  clamp(32px, 5vw, 58px)
+        css/manifest.css(1)
+   1x  clamp(36px, 6vw, 68px)
+        css/manifest.css(1)
+   1x  clamp(3rem, 6vw, 6rem)
+        css/manuscript.css(1)
+   1x  clamp(42px, 5vw, 64px)
+        css/paleo-glossary.css(1)
+   1x  clamp(42px, 7vw, 72px)
+        css/components/paleo-mechanics.css(1)
+   1x  clamp(80px,16vw,220px)
+        css/learn.css(1)
+   1x  clamp(80px,24vw,130px)
+        css/learn.css(1)
+   1x  var(--text-3xl)
+        css/layout.css(1)
+   1x  var(--ui-14, 14px)
+        css/linear-timeline.css(1)
+
+=== margin ===
+ 136x  0
+        css/manifest.css(18), css/research-library.css(13), css/learn.css(9), css/cartography.css(8), css/club.css(6), css/generators-checkers.css(5) +35 файлов
+  42x  0 auto
+        css/club.css(5), css/components/dashboard.css(3), css/learn.css(3), css/states.css(3), css/generators-checkers.css(2), css/timeline.css(2) +24 файлов
+  16x  0 0 10px
+        css/manifest.css(5), css/timeline.css(3), css/workbench.css(2), css/agent-server.css(1), css/checkers-comparator.css(1), css/components/dashboard.css(1) +3 файлов
+  15x  0 0 var(--space-2)
+        css/club.css(4), css/paleo-builder.css(2), css/timeline.css(2), css/user-preferences.css(2), css/admin.css(1), css/checkers-comparator.css(1) +3 файлов
+  12x  0 0 14px
+        css/research-library.css(2), css/agent-map.css(1), css/analyzers.css(1), css/cartography.css(1), css/checkers-comparator.css(1), css/components/neurochat.css(1) +5 файлов
+  12x  0 0 8px
+        css/generators-checkers.css(3), css/methodology.css(3), css/analyzers.css(1), css/components/modal.css(1), css/lab-hero.css(1), css/linguistic-tensor.css(1) +2 файлов
+   9x  0 0 6px
+        css/paleo-glossary.css(2), css/cartography.css(1), css/components/dashboard.css(1), css/generators-checkers.css(1), css/learn.css(1), css/prompt-generator.css(1) +2 файлов
+   8x  6px 0 0
+        css/learn.css(2), css/manifest.css(2), css/checkers-comparator.css(1), css/components/modal.css(1), css/generators-checkers.css(1), css/scripture-reader.css(1)
+   7x  0 0 16px
+        css/components/dashboard.css(2), css/manifest.css(2), css/components/research.css(1), css/research-library.css(1), css/tree-checker.css(1)
+   7x  0 0 18px
+        css/checkers-comparator.css(1), css/components/research-json.css(1), css/linguistic-tensor.css(1), css/manifest.css(1), css/paleo-glossary.css(1), css/research-library.css(1) +1 файлов
+   6x  0 0 var(--space-4)
+        css/club.css(2), css/manifest.css(1), css/paleo-builder.css(1), css/timeline.css(1), css/user-preferences.css(1)
+   6x  14px 0 0
+        css/learn.css(2), css/cartography.css(1), css/components/dashboard.css(1), css/scripture-reader.css(1), css/workbench.css(1)
+   5x  0 0 var(--space-3)
+        css/admin.css(2), css/club.css(1), css/components/research-json.css(1), css/scripture-reader.css(1)
+   5x  1rem 0
+        css/research-library.css(3), css/cartography.css(1), css/heraldry.css(1)
+   5x  4px 0 0
+        css/checkers-comparator.css(1), css/learn.css(1), css/manifest.css(1), css/redesign.css(1), css/states.css(1)
+   5x  5px 0 0
+        css/club.css(2), css/scripture-reader.css(2), css/components/dashboard.css(1)
+   5x  var(--space-2) 0 0
+        css/club.css(2), css/paleo-builder.css(1), css/scripture-reader.css(1), css/timeline.css(1)
+   4x  0 0 var(--space-5)
+        css/admin.css(1), css/manifest.css(1), css/scripture-reader.css(1), css/section-renderer.css(1)
+   4x  10px 0 0
+        css/analyzers.css(1), css/davar-checker.css(1), css/manifest.css(1), css/prompt-generator.css(1)
+   4x  14px 0
+        css/admin.css(1), css/components/modal.css(1), css/paleo-builder.css(1), css/scripture-reader.css(1)
+   4x  18px 0
+        css/clue-generator.css(1), css/components/research-json.css(1), css/components/research.css(1), css/learn.css(1)
+   4x  18px 0 0
+        css/manifest.css(2), css/checkers-comparator.css(1), css/linguistic-tensor.css(1)
+   4x  var(--space-2) 0
+        css/club.css(2), css/admin.css(1), css/paleo-builder.css(1)
+   4x  var(--space-4) 0
+        css/manifest.css(2), css/components/research-json.css(1), css/scripture-reader.css(1)
+   3x  0 0 12px
+        css/cartography.css(1), css/components/dashboard.css(1), css/generators-checkers.css(1)
+   3x  0 0 24px
+        css/cartography.css(1), css/checkers-comparator.css(1), css/lab-hero.css(1)
+   3x  0 0 28px
+        css/cartography.css(1), css/checkers-comparator.css(1), css/research-library.css(1)
+   3x  0 0 3px
+        css/redesign.css(2), css/prompt-generator.css(1)
+   3x  0 0 4px
+        css/components/dashboard.css(1), css/linguistic-tensor.css(1), css/timeline.css(1)
+   3x  0 0 5px
+        css/checkers-comparator.css(2), css/analyzers.css(1)
+   3x  0 auto 10px
+        css/components/feedback.css(1), css/root-dictionary.css(1), css/workbench.css(1)
+   3x  12px 0 0
+        css/analyzers.css(1), css/dashboard.css(1), css/etymology-lab.css(1)
+   3x  1rem 0 1.25rem
+        css/block-renderer.css(3)
+   3x  24px 0
+        css/learn.css(3)
+   3x  3px 0 0
+        css/board.css(1), css/paleo-builder.css(1), css/research-library.css(1)
+   3x  6px 0
+        css/paleo-builder.css(2), css/tree-checker.css(1)
+   3x  var(--space-3) 0 0
+        css/manifest.css(1), css/paleo-builder.css(1), css/scripture-reader.css(1)
+   3x  var(--space-3) 0 var(--space-2)
+        css/club.css(2), css/scripture-reader.css(1)
+   2x  0 var(--space-3)
+        css/layout.css(1), css/linear-timeline.css(1)
+   2x  1.25rem 0
+        css/block-renderer.css(2)
+
+=== gap ===
+  96x  10px
+        css/manifest.css(15), css/components/dashboard.css(8), css/learn.css(6), css/states.css(6), css/workbench.css(6), css/dashboard.css(5) +26 файлов
+  77x  var(--space-3)
+        css/club.css(14), css/manifest.css(8), css/admin.css(6), css/states.css(6), css/scripture-reader.css(5), css/responsive.css(4) +22 файлов
+  64x  var(--space-2)
+        css/scripture-reader.css(7), css/agent-map.css(5), css/exposure-editor.css(5), css/heraldry.css(5), css/states.css(4), css/timeline.css(4) +20 файлов
+  54x  8px
+        css/components/dashboard.css(5), css/learn.css(5), css/workbench.css(5), css/club.css(4), css/manifest.css(4), css/clue-generator.css(3) +22 файлов
+  50x  12px
+        css/components/dashboard.css(7), css/analyzers.css(6), css/learn.css(6), css/manifest.css(5), css/investigation.css(4), css/generators-checkers.css(3) +15 файлов
+  40x  14px
+        css/manifest.css(6), css/workbench.css(6), css/cartography.css(3), css/components/research-json.css(3), css/lab-hero.css(3), css/learn.css(3) +12 файлов
+  40x  6px
+        css/research-library.css(5), css/cartography.css(4), css/workbench.css(4), css/learn.css(3), css/manifest.css(3), css/components/dashboard.css(2) +15 файлов
+  32x  var(--space-4)
+        css/club.css(9), css/manifest.css(4), css/states.css(3), css/admin.css(1), css/board-generator.css(1), css/cartography.css(1) +13 файлов
+  23x  16px
+        css/learn.css(4), css/linguistic-tensor.css(3), css/components/dashboard.css(2), css/dashboard.css(2), css/root-dictionary.css(2), css/analyzers.css(1) +9 файлов
+  17x  4px
+        css/linear-timeline.css(4), css/components/dashboard.css(2), css/states.css(2), css/cartography.css(1), css/club.css(1), css/dashboard.css(1) +6 файлов
+  13x  18px
+        css/learn.css(3), css/analyzers.css(2), css/components/dashboard.css(2), css/manifest.css(2), css/board.css(1), css/cartography.css(1) +2 файлов
+  13x  2px
+        css/heraldry.css(2), css/manifest.css(2), css/responsive.css(2), css/admin.css(1), css/layout.css(1), css/linguistic-tensor.css(1) +4 файлов
+  11x  var(--space-5)
+        css/components/dashboard.css(2), css/components/manifest.css(1), css/components/neurochat.css(1), css/dashboard.css(1), css/exposure-editor.css(1), css/religionisms.css(1) +4 файлов
+  10x  20px
+        css/learn.css(3), css/agent-server.css(1), css/cartography.css(1), css/components/dashboard.css(1), css/etymology-lab.css(1), css/investigation.css(1) +2 файлов
+   8x  3px
+        css/club.css(3), css/paleo-builder.css(2), css/cartography.css(1), css/section-renderer.css(1), css/states.css(1)
+   8x  7px
+        css/components/dashboard.css(2), css/paleo-builder.css(2), css/investigation.css(1), css/linguistic-tensor.css(1), css/timeline.css(1), css/tree-checker.css(1)
+   7x  5px
+        css/dashboard.css(2), css/board.css(1), css/components/dashboard.css(1), css/generators-checkers.css(1), css/learn.css(1), css/states.css(1)
+   7x  var(--space-1)
+        css/admin.css(1), css/components/forms.css(1), css/manifest.css(1), css/scripture-reader.css(1), css/states.css(1), css/user-preferences.css(1) +1 файлов
+   6x  0.75rem
+        css/heraldry.css(3), css/states.css(2), css/cartography.css(1)
+   6x  9px
+        css/checkers-comparator.css(2), css/components/dashboard.css(1), css/paleo-builder.css(1), css/prompt-generator.css(1), css/research-library.css(1)
+   6x  var(--space-6)
+        css/cartography.css(1), css/components/dashboard.css(1), css/manifest.css(1), css/paleo-builder.css(1), css/prompt-generator.css(1), css/scripture-reader.css(1)
+   5x  0
+        css/components/data.css(1), css/lab-hero.css(1), css/linear-timeline.css(1), css/scripture-reader.css(1), css/section-renderer.css(1)
+   5x  24px
+        css/learn.css(2), css/clue-generator.css(1), css/investigation.css(1), css/linguistic-tensor.css(1)
+   4x  0.65rem
+        css/states.css(2), css/heraldry.css(1), css/research-library.css(1)
+   3x  .75rem
+        css/block-renderer.css(3)
+   3x  0.85rem
+        css/research-library.css(3)
+   2x  10px 18px
+        css/learn.css(1), css/research-library.css(1)
+   2x  6px 18px
+        css/manifest.css(1), css/research-library.css(1)
+   2x  8px 16px
+        css/cartography.css(1), css/components/dashboard.css(1)
+   2x  var(--space-1) var(--space-3)
+        css/research-library.css(2)
+   1x  .65rem
+        css/block-renderer.css(1)
+   1x  .8rem
+        css/block-renderer.css(1)
+   1x  0.35rem
+        css/research-library.css(1)
+   1x  0.3rem
+        css/research-library.css(1)
+   1x  0.7rem
+        css/cartography.css(1)
+   1x  0.8rem
+        css/research-library.css(1)
+   1x  10px var(--space-3)
+        css/components/manifest.css(1)
+   1x  12px 18px
+        css/learn.css(1)
+   1x  12px 20px
+        css/root-graph.css(1)
+   1x  12px 24px
+        css/checkers-comparator.css(1)
+
+=== padding-top ===
+   4x  0
+        css/scripture-reader.css(2), css/checkers-comparator.css(1), css/components/manifest.css(1)
+   3x  var(--space-3)
+        css/manifest.css(1), css/paleo-builder.css(1), css/redesign.css(1)
+   2x  10px
+        css/generators-checkers.css(1), css/redesign.css(1)
+   2x  16px
+        css/checkers-comparator.css(1), css/prompt-generator.css(1)
+   2x  var(--space-2)
+        css/admin.css(1), css/research-library.css(1)
+   2x  var(--space-4)
+        css/exposure-editor.css(1), css/timeline.css(1)
+   2x  var(--space-5)
+        css/admin.css(2)
+   1x  12px
+        css/linguistic-tensor.css(1)
+   1x  14px
+        css/components/dashboard.css(1)
+   1x  15vh
+        css/linear-timeline.css(1)
+   1x  18px
+        css/learn.css(1)
+   1x  1px
+        css/components/manifest.css(1)
+   1x  20px
+        css/investigation.css(1)
+   1x  28px
+        css/states.css(1)
+   1x  2px
+        css/components/paleo-mechanics.css(1)
+   1x  3px
+        css/components/manifest.css(1)
+   1x  42px
+        css/manifest.css(1)
+   1x  48px
+        css/manifest.css(1)
+   1x  52px
+        css/manifest.css(1)
+   1x  5px
+        css/investigation.css(1)
+   1x  72px
+        css/manifest.css(1)
+   1x  7px
+        css/language-map.css(1)
+   1x  8px
+        css/investigation.css(1)
+   1x  8vh
+        css/linear-timeline.css(1)
+   1x  9px
+        css/investigation.css(1)
+
+=== padding-right ===
+   3x  0
+        css/manifest.css(2), css/cartography.css(1)
+   1x  14px
+        css/cartography.css(1)
+   1x  20px
+        css/investigation.css(1)
+   1x  30px
+        css/board-generator.css(1)
+   1x  4px
+        css/prompt-generator.css(1)
+   1x  6px
+        css/cartography.css(1)
+   1x  72px
+        css/linear-timeline.css(1)
+   1x  clamp(16px, 3vw, 40px)
+        css/cartography.css(1)
+   1x  var(--space-1)
+        css/methodology.css(1)
+   1x  var(--space-4)
+        css/responsive.css(1)
+
+=== padding-bottom ===
+   5x  var(--space-2)
+        css/exposure-editor.css(3), css/components/cards.css(1), css/dashboard.css(1)
+   3x  0
+        css/admin.css(1), css/paleo-linguistics.css(1), css/scripture-reader.css(1)
+   3x  14px
+        css/components/research.css(1), css/generators-checkers.css(1), css/religionisms.css(1)
+   3x  var(--space-4)
+        css/board-generator.css(1), css/exposure-editor.css(1), css/user-preferences.css(1)
+   3x  var(--space-6)
+        css/research-library.css(2), css/heraldry.css(1)
+   2x  10px
+        css/dashboard.css(1), css/redesign.css(1)
+   2x  16px
+        css/components/modal.css(1), css/prompt-generator.css(1)
+   2x  6px
+        css/components/research.css(1), css/paleo-builder.css(1)
+   2x  var(--space-5)
+        css/cartography.css(1), css/club.css(1)
+   1x  12px
+        css/learn.css(1)
+   1x  28px
+        css/states.css(1)
+   1x  78px
+        css/scripture-reader.css(1)
+   1x  8px
+        css/etymology-lab.css(1)
+   1x  9px
+        css/investigation.css(1)
+   1x  var(--space-3)
+        css/layout.css(1)
+   1x  var(--space-8)
+        css/manifest.css(1)
+
+=== padding-left ===
+   7x  20px
+        css/manifest.css(2), css/analyzers.css(1), css/generators-checkers.css(1), css/research-library.css(1), css/root-dictionary.css(1), css/root-graph.css(1)
+   4x  0
+        css/manifest.css(2), css/club.css(1), css/components/dashboard.css(1)
+   4x  var(--space-5)
+        css/cartography.css(1), css/club.css(1), css/components/neurochat.css(1), css/heraldry.css(1)
+   3x  18px
+        css/paleo-builder.css(1), css/research-library.css(1), css/workbench.css(1)
+   3x  var(--space-4)
+        css/manifest.css(2), css/responsive.css(1)
+   2x  28px
+        css/components/research.css(1), css/layout.css(1)
+   1x  1.4em
+        css/methodology.css(1)
+   1x  1.75rem
+        css/block-renderer.css(1)
+   1x  14px
+        css/cartography.css(1)
+   1x  16px
+        css/research-library.css(1)
+   1x  1em
+        css/methodology.css(1)
+   1x  2.2rem
+        css/block-renderer.css(1)
+   1x  22px
+        css/components/dashboard.css(1)
+   1x  24px
+        css/components/dashboard.css(1)
+   1x  clamp(16px, 3vw, 40px)
+        css/cartography.css(1)
+   1x  var(--space-2)
+        css/research-library.css(1)
+
+=== margin-top ===
+  21x  6px
+        css/scripture-reader.css(3), css/workbench.css(3), css/components/dashboard.css(2), css/investigation.css(2), css/manifest.css(2), css/states.css(2) +7 файлов
+  20x  18px
+        css/components/dashboard.css(4), css/learn.css(3), css/analyzers.css(2), css/manifest.css(2), css/prompt-generator.css(2), css/cartography.css(1) +6 файлов
+  17x  14px
+        css/agent-server.css(3), css/learn.css(2), css/analyzers.css(1), css/board.css(1), css/components/dashboard.css(1), css/linguistic-tensor.css(1) +8 файлов
+  17x  4px
+        css/etymology-lab.css(5), css/investigation.css(3), css/components/dashboard.css(2), css/paleo-linguistics.css(2), css/dashboard.css(1), css/generators-checkers.css(1) +3 файлов
+  15x  0
+        css/components/dashboard.css(2), css/scripture-reader.css(2), css/block-renderer.css(1), css/components/research-json.css(1), css/components/research.css(1), css/dashboard.css(1) +7 файлов
+  14x  8px
+        css/manifest.css(4), css/components/dashboard.css(2), css/checkers-comparator.css(1), css/components/utilities.css(1), css/dashboard.css(1), css/language-map.css(1) +4 файлов
+  13x  10px
+        css/manifest.css(4), css/components/dashboard.css(2), css/analyzers.css(1), css/club.css(1), css/components/neurochat.css(1), css/generators-checkers.css(1) +3 файлов
+  13x  2px
+        css/states.css(4), css/admin.css(1), css/cartography.css(1), css/components/paleo-mechanics.css(1), css/etymology-lab.css(1), css/generators-checkers.css(1) +4 файлов
+  12x  12px
+        css/etymology-lab.css(3), css/manifest.css(2), css/prompt-generator.css(2), css/board.css(1), css/cartography.css(1), css/generators-checkers.css(1) +2 файлов
+  12x  var(--space-3)
+        css/scripture-reader.css(5), css/admin.css(4), css/club.css(2), css/user-preferences.css(1)
+  11x  var(--space-4)
+        css/scripture-reader.css(5), css/agent-map.css(1), css/club.css(1), css/components/research.css(1), css/exposure-editor.css(1), css/layout.css(1) +1 файлов
+  10x  auto
+        css/learn.css(2), css/club.css(1), css/components/dashboard.css(1), css/generators-checkers.css(1), css/heraldry.css(1), css/language-map.css(1) +3 файлов
+   9x  16px
+        css/learn.css(2), css/workbench.css(2), css/components/neurochat.css(1), css/components/utilities.css(1), css/manifest.css(1), css/prompt-generator.css(1) +1 файлов
+   8x  20px
+        css/generators-checkers.css(2), css/components/dashboard.css(1), css/investigation.css(1), css/lab-hero.css(1), css/learn.css(1), css/prompt-generator.css(1) +1 файлов
+   8x  var(--space-2)
+        css/exposure-editor.css(3), css/club.css(2), css/components/dashboard.css(1), css/redesign.css(1), css/research-library.css(1)
+   8x  var(--space-6)
+        css/manifest.css(2), css/states.css(2), css/admin.css(1), css/components/research.css(1), css/exposure-editor.css(1), css/scripture-reader.css(1)
+   7x  7px
+        css/agent-map.css(2), css/dashboard.css(1), css/etymology-lab.css(1), css/investigation.css(1), css/manifest.css(1), css/scripture-reader.css(1)
+   7x  var(--space-1)
+        css/heraldry.css(2), css/admin.css(1), css/cartography.css(1), css/manifest.css(1), css/research-library.css(1), css/responsive.css(1)
+   6x  24px
+        css/components/dashboard.css(2), css/manifest.css(2), css/components/utilities.css(1), css/root-graph.css(1)
+   6x  3px
+        css/investigation.css(2), css/club.css(1), css/heraldry.css(1), css/states.css(1), css/workbench.css(1)
+   5x  52px
+        css/manifest.css(5)
+   5x  5px
+        css/cartography.css(1), css/dashboard.css(1), css/investigation.css(1), css/manifest.css(1), css/section-renderer.css(1)
+   4x  22px
+        css/tree-checker.css(2), css/paleo-glossary.css(1), css/scripture-reader.css(1)
+   4x  var(--space-5)
+        css/club.css(2), css/davar-checker.css(1), css/word-analyzer.css(1)
+   2x  15px
+        css/investigation.css(1), css/learn.css(1)
+   2x  1px
+        css/methodology.css(1), css/states.css(1)
+   2x  26px
+        css/cartography.css(1), css/manifest.css(1)
+   2x  36px
+        css/manifest.css(2)
+   2x  44px
+        css/manifest.css(2)
+   2x  48px
+        css/manifest.css(2)
+   1x  -11px
+        css/states.css(1)
+   1x  -13px
+        css/states.css(1)
+   1x  -4px
+        css/states.css(1)
+   1x  .5rem
+        css/block-renderer.css(1)
+   1x  32px
+        css/learn.css(1)
+   1x  56px
+        css/responsive.css(1)
+   1x  58px
+        css/manifest.css(1)
+   1x  72px
+        css/manifest.css(1)
+   1x  var(--space-7)
+        css/exposure-editor.css(1)
+   1x  var(--space-8)
+        css/manifest.css(1)
+
+=== margin-right ===
+   6x  0
+        css/components/utilities.css(2), css/club.css(1), css/layout.css(1), css/responsive.css(1), css/states.css(1)
+   5x  auto
+        css/responsive.css(3), css/components/neurochat.css(1), css/states.css(1)
+   3x  6px
+        css/club.css(1), css/paleo-builder.css(1), css/root-graph.css(1)
+   1x  -12px
+        css/club.css(1)
+   1x  -20px
+        css/states.css(1)
+   1x  -8px
+        css/scripture-reader.css(1)
+   1x  10px
+        css/components/utilities.css(1)
+   1x  12px
+        css/section-renderer.css(1)
+   1x  14px
+        css/research-library.css(1)
+   1x  4px
+        css/components/utilities.css(1)
+   1x  5px
+        css/learn.css(1)
+   1x  7px
+        css/investigation.css(1)
+   1x  8px
+        css/generators-checkers.css(1)
+   1x  var(--space-2)
+        css/components/highlight-export.css(1)
+
+=== margin-bottom ===
+  37x  var(--space-4)
+        css/exposure-editor.css(5), css/admin.css(3), css/states.css(3), css/club.css(2), css/linear-timeline.css(2), css/research-library.css(2) +20 файлов
+  31x  var(--space-2)
+        css/states.css(5), css/admin.css(4), css/board-generator.css(4), css/manifest.css(4), css/exposure-editor.css(3), css/cartography.css(2) +7 файлов
+  26x  var(--space-6)
+        css/states.css(5), css/admin.css(3), css/board-generator.css(2), css/club.css(2), css/heraldry.css(2), css/religionisms.css(2) +9 файлов
+  25x  var(--space-5)
+        css/admin.css(4), css/club.css(3), css/components/data.css(3), css/cartography.css(2), css/scripture-reader.css(2), css/states.css(2) +9 файлов
+  23x  var(--space-3)
+        css/admin.css(6), css/exposure-editor.css(3), css/scripture-reader.css(2), css/states.css(2), css/agent-map.css(1), css/club.css(1) +8 файлов
+  22x  14px
+        css/workbench.css(4), css/paleo-glossary.css(3), css/analyzers.css(2), css/language-map.css(2), css/research-library.css(2), css/checkers-comparator.css(1) +8 файлов
+  20x  18px
+        css/cartography.css(4), css/learn.css(3), css/checkers-comparator.css(2), css/scripture-reader.css(2), css/analyzers.css(1), css/generators-checkers.css(1) +7 файлов
+  19x  6px
+        css/admin.css(4), css/paleo-linguistics.css(2), css/religionisms.css(2), css/cartography.css(1), css/checkers-comparator.css(1), css/etymology-lab.css(1) +8 файлов
+  19x  8px
+        css/clue-generator.css(2), css/learn.css(2), css/paleo-linguistics.css(2), css/root-dictionary.css(2), css/analyzers.css(1), css/board.css(1) +9 файлов
+  17x  16px
+        css/components/dashboard.css(4), css/learn.css(2), css/paleo-linguistics.css(2), css/analyzers.css(1), css/checkers-comparator.css(1), css/components/utilities.css(1) +6 файлов
+  15x  0
+        css/checkers-comparator.css(2), css/scripture-reader.css(2), css/admin.css(1), css/agent-map.css(1), css/block-renderer.css(1), css/cartography.css(1) +7 файлов
+  14x  var(--space-1)
+        css/exposure-editor.css(4), css/manifest.css(3), css/admin.css(2), css/board-generator.css(1), css/club.css(1), css/components/dict-term-doc.css(1) +2 файлов
+  13x  20px
+        css/learn.css(3), css/paleo-linguistics.css(2), css/analyzers.css(1), css/etymology-lab.css(1), css/language-map.css(1), css/manifest.css(1) +4 файлов
+  11x  10px
+        css/heraldry.css(2), css/admin.css(1), css/board.css(1), css/cartography.css(1), css/checkers-comparator.css(1), css/components/dashboard.css(1) +4 файлов
+  11x  12px
+        css/paleo-linguistics.css(3), css/etymology-lab.css(2), css/manifest.css(2), css/components/neurochat.css(1), css/generators-checkers.css(1), css/linguistic-tensor.css(1) +1 файлов
+  11x  22px
+        css/generators-checkers.css(2), css/cartography.css(1), css/components/dashboard.css(1), css/components/research-json.css(1), css/heraldry.css(1), css/investigation.css(1) +4 файлов
+  10x  4px
+        css/paleo-linguistics.css(2), css/checkers-comparator.css(1), css/generators-checkers.css(1), css/investigation.css(1), css/language-map.css(1), css/learn.css(1) +3 файлов
+   8x  28px
+        css/research-library.css(2), css/states.css(2), css/davar-checker.css(1), css/language-map.css(1), css/learn.css(1), css/linguistic-tensor.css(1)
+   6x  24px
+        css/components/utilities.css(1), css/etymology-lab.css(1), css/generators-checkers.css(1), css/learn.css(1), css/manifest.css(1), css/workbench.css(1)
+   5x  5px
+        css/agent-map.css(1), css/analyzers.css(1), css/club.css(1), css/clue-generator.css(1), css/research-library.css(1)
+   5x  var(--space-7)
+        css/states.css(3), css/board-generator.css(2)
+   3x  2px
+        css/admin.css(2), css/components/dashboard.css(1)
+   3x  30px
+        css/manifest.css(1), css/prompt-generator.css(1), css/research-library.css(1)
+   3x  3px
+        css/components/research-json.css(1), css/investigation.css(1), css/timeline.css(1)
+   3x  7px
+        css/checkers-comparator.css(1), css/investigation.css(1), css/scripture-reader.css(1)
+   1x  -2px
+        css/agent-server.css(1)
+   1x  34px
+        css/workbench.css(1)
+   1x  36px
+        css/components/dashboard.css(1)
+   1x  40px
+        css/dashboard.css(1)
+   1x  9px
+        css/manifest.css(1)
+
+=== margin-left ===
+  21x  auto
+        css/responsive.css(6), css/cartography.css(2), css/lab-hero.css(2), css/research-library.css(2), css/block-renderer.css(1), css/club.css(1) +7 файлов
+   8x  0
+        css/responsive.css(2), css/cartography.css(1), css/lab-hero.css(1), css/manifest.css(1), css/prompt-generator.css(1), css/redesign.css(1) +1 файлов
+   2x  var(--space-2)
+        css/layout.css(2)
+   1x  -20px
+        css/states.css(1)
+   1x  -8px
+        css/scripture-reader.css(1)
+   1x  12px
+        css/manifest.css(1)
+   1x  34px
+        css/scripture-reader.css(1)
+   1x  5px
+        css/states.css(1)
+   1x  var(--space-3)
+        css/club.css(1)
+   1x  var(--space-6)
+        css/agent-map.css(1)
+
+=== padding-inline ===
+   1x  0
+        css/cartography.css(1)
+   1x  10px
+        css/manifest.css(1)
+   1x  12px
+        css/manifest.css(1)
+   1x  8px
+        css/states.css(1)
+   1x  var(--space-3)
+        css/redesign.css(1)
+   1x  var(--space-4)
+        css/redesign.css(1)
+
+=== margin-inline ===
+   1x  auto
+        css/components/paleo-mechanics.css(1)
+
+=== row-gap ===
+   1x  6px
+        css/scripture-reader.css(1)
+   1x  var(--space-2)
+        css/scripture-reader.css(1)
+
+=== column-gap ===
+   1x  10px
+        css/manifest.css(1)
+   1x  var(--space-3)
+        css/scripture-reader.css(1)
+
+=== цвета: hex ===
+  81x  #2c1810
+        css/cartography.css(14), css/states.css(13), css/admin.css(11), css/tokens.css(10), css/heraldry.css(7), css/agent-server.css(5) +9 файлов
+  81x  #d4c4a8
+        css/states.css(22), css/cartography.css(14), css/research-library.css(13), css/admin.css(8), css/heraldry.css(6), css/board-generator.css(4) +6 файлов
+  30x  #faf3e0
+        css/states.css(8), css/board-generator.css(4), css/tokens.css(4), css/cartography.css(3), css/components/forms.css(2), css/theme-parchment.css(2) +7 файлов
+  29x  #4a3728
+        css/cartography.css(10), css/heraldry.css(10), css/states.css(9)
+  29x  #6b5b4e
+        css/states.css(15), css/cartography.css(8), css/heraldry.css(6)
+  25x  #f7f1e5
+        css/cartography.css(7), css/research-library.css(6), css/scripture-reader.css(3), css/agent-server.css(2), css/methodology.css(2), css/clue-generator.css(1) +4 файлов
+  20x  #f5f0e8
+        css/states.css(8), css/heraldry.css(7), css/cartography.css(3), css/admin.css(2)
+  18x  #ffffff
+        css/tokens.css(13), css/redesign.css(4), css/theme-white.css(1)
+  16x  #fff
+        css/user-preferences.css(4), css/heraldry.css(3), css/club.css(2), css/scripture-reader.css(2), css/components/dashboard.css(1), css/components/paleo-mechanics.css(1) +3 файлов
+  15x  #675848
+        css/research-library.css(10), css/section-renderer.css(3), css/scripture-reader.css(2)
+  13x  #2e2e35
+        css/admin.css(13)
+  13x  #3a2a1a
+        css/timeline.css(7), css/linear-timeline.css(6)
+  13x  #8a5a2b
+        css/research-library.css(4), css/cartography.css(3), css/heraldry.css(3), css/states.css(3)
+  10x  #1b1b1f
+        css/admin.css(10)
+  10x  #9a8a7a
+        css/timeline.css(10)
+  10x  #f0f0f2
+        css/admin.css(10)
+  10x  #f5edd5
+        css/tokens.css(4), css/timeline.css(3), css/theme-parchment.css(2), css/states.css(1)
+   9x  #8a7a6a
+        css/board-generator.css(2), css/tokens.css(2), css/admin.css(1), css/cartography.css(1), css/components/dashboard.css(1), css/research-library.css(1) +1 файлов
+   9x  #fffaf0
+        css/tokens.css(3), css/agent-map.css(2), css/research-library.css(2), css/clue-generator.css(1), css/heraldry.css(1)
+   9x  #fffdf8
+        css/states.css(6), css/cartography.css(3)
+   8x  #c0392b
+        css/board-generator.css(7), css/tokens.css(1)
+   8x  #d9a441
+        css/board.css(8)
+   8x  #ede0c8
+        css/tokens.css(4), css/admin.css(2), css/board-generator.css(1), css/components/paleo-keyboard.css(1)
+   7x  #1a1410
+        css/timeline.css(4), css/linear-timeline.css(3)
+   7x  #211b17
+        css/section-renderer.css(3), css/research-library.css(2), css/generators-checkers.css(1), css/scripture-reader.css(1)
+   7x  #897866
+        css/research-library.css(7)
+   7x  #b8860b
+        css/dashboard.css(3), css/tokens.css(3), css/agent-server.css(1)
+   7x  #e0a83a
+        css/prompt-generator.css(7)
+   6x  #2a2218
+        css/linear-timeline.css(4), css/timeline.css(2)
+   6x  #8a8a92
+        css/admin.css(6)
+   6x  #8b6508
+        css/tokens.css(6)
+   5x  #3a2b17
+        css/tokens.css(5)
+   5x  #3a3228
+        css/linear-timeline.css(5)
+   5x  #6a6a72
+        css/admin.css(5)
+   5x  #76532d
+        css/prompt-generator.css(5)
+   5x  #d59b31
+        css/prompt-generator.css(5)
+   5x  #d8c8a8
+        css/scripture-reader.css(3), css/generators-checkers.css(2)
+   5x  #e0e0e0
+        css/tokens.css(5)
+   4x  #1f2933
+        css/tokens.css(4)
+   4x  #221a10
+        css/redesign.css(2), css/tokens.css(2)
+   4x  #2a1d16
+        css/prompt-generator.css(4)
+   4x  #2a6a2a
+        css/etymology-lab.css(3), css/tokens.css(1)
+   4x  #2e7d32
+        css/workbench.css(2), css/admin.css(1), css/checkers-comparator.css(1)
+   4x  #543823
+        css/prompt-generator.css(4)
+   4x  #5c4a3a
+        css/board-generator.css(2), css/tokens.css(2)
+   4x  #6a5a4a
+        css/admin.css(4)
+   4x  #a34d3f
+        css/agent-server.css(4)
+   4x  #d8cdbb
+        css/agent-map.css(4)
+   4x  #efe6d4
+        css/research-library.css(2), css/section-renderer.css(2)
+   4x  #f5e2b7
+        css/board.css(4)
+   4x  #f7f3eb
+        css/research-library.css(2), css/heraldry.css(1), css/states.css(1)
+   4x  #faf6ee
+        css/admin.css(4)
+   4x  #fff8ea
+        css/tokens.css(4)
+   3x  #202020
+        css/tokens.css(3)
+   3x  #2a2a30
+        css/admin.css(3)
+   3x  #514234
+        css/research-library.css(2), css/section-renderer.css(1)
+   3x  #52606d
+        css/tokens.css(3)
+   3x  #6a563a
+        css/tokens.css(3)
+   3x  #8e2f25
+        css/research-library.css(2), css/section-renderer.css(1)
+   3x  #9d8870
+        css/prompt-generator.css(3)
+   3x  #b3261e
+        css/workbench.css(3)
+   3x  #b85b4c
+        css/cartography.css(3)
+   3x  #c4c4c4
+        css/tokens.css(3)
+   3x  #d8c8b0
+        css/tokens.css(3)
+   3x  #e6dfd0
+        css/redesign.css(2), css/tokens.css(1)
+   3x  #e8dcc8
+        css/timeline.css(2), css/board-generator.css(1)
+   3x  #eadfc8
+        css/theme-parchment.css(2), css/tokens.css(1)
+   3x  #eadfc9
+        css/prompt-generator.css(3)
+   3x  #eee0bd
+        css/cartography.css(3)
+   3x  #f1e7d3
+        css/prompt-generator.css(3)
+   3x  #f2ead9
+        css/tokens.css(3)
+   3x  #f3e9d6
+        css/tokens.css(3)
+   3x  #f6efe0
+        css/tokens.css(3)
+   3x  #fbfaf6
+        css/tokens.css(2), css/redesign.css(1)
+   2x  #000
+        css/board-generator.css(1), css/checkers-comparator.css(1)
+   2x  #050505
+        css/tokens.css(2)
+   2x  #11100e
+        css/board.css(2)
+   2x  #111111
+        css/tokens.css(2)
+   2x  #131316
+        css/admin.css(2)
+   2x  #155724
+        css/club.css(1), css/user-preferences.css(1)
+   2x  #191007
+        css/tokens.css(2)
+   2x  #1b1b1b
+        css/tokens.css(2)
+   2x  #1d1410
+        css/prompt-generator.css(2)
+   2x  #211812
+        css/investigation.css(2)
+   2x  #211b14
+        css/board.css(2)
+   2x  #221710
+        css/timeline.css(1), css/tokens.css(1)
+   2x  #241707
+        css/tokens.css(2)
+   2x  #286828
+        css/tokens.css(2)
+   2x  #2a1f18
+        css/board-generator.css(2)
+   2x  #2a5c2a
+        css/tokens.css(2)
+   2x  #2b211b
+        css/investigation.css(2)
+   2x  #2e8b57
+        css/methodology.css(2)
+   2x  #2f6b1f
+        css/generators-checkers.css(1), css/research-library.css(1)
+   2x  #302820
+        css/heraldry.css(1), css/research-library.css(1)
+   2x  #34c759
+        css/linear-timeline.css(1), css/tokens.css(1)
+   2x  #3a2c1c
+        css/redesign.css(1), css/tokens.css(1)
+   2x  #3d2e24
+        css/board-generator.css(2)
+   2x  #3d3429
+        css/agent-map.css(2)
+   2x  #4a3020
+        css/cartography.css(1), css/tokens.css(1)
+   2x  #4b3022
+        css/investigation.css(2)
+   2x  #4d8b52
+        css/tree-checker.css(2)
+   2x  #557a4d
+        css/agent-server.css(2)
+   2x  #5a4a3a
+        css/timeline.css(2)
+   2x  #665542
+        css/tokens.css(2)
+   2x  #666666
+        css/tokens.css(2)
+   2x  #6f5006
+        css/tokens.css(2)
+   2x  #6f675d
+        css/research-library.css(2)
+   2x  #6f9f62
+        css/cartography.css(2)
+   2x  #70462f
+        css/cartography.css(2)
+   2x  #721c24
+        css/club.css(1), css/user-preferences.css(1)
+   2x  #757575
+        css/checkers-comparator.css(2)
+   2x  #766b5d
+        css/block-renderer.css(2)
+   2x  #786f61
+        css/agent-map.css(2)
+   2x  #7a7a82
+        css/admin.css(2)
+   2x  #8d8271
+        css/tokens.css(2)
+   2x  #8e8e93
+        css/linear-timeline.css(1), css/tokens.css(1)
+   2x  #92251d
+        css/tokens.css(2)
+   2x  #93620a
+        css/research-library.css(1), css/scripture-reader.css(1)
+   2x  #9a6f15
+        css/tokens.css(2)
+   2x  #a83232
+        css/methodology.css(2)
+
+=== цвета: rgb/hsl ===
+   5x  rgba(44, 24, 16, 0.08)
+        css/cartography.css(1), css/generators-checkers.css(1), css/research-library.css(1), css/scripture-reader.css(1), css/states.css(1)
+   5x  rgba(90, 70, 45, 0.2)
+        css/research-library.css(2), css/cartography.css(1), css/heraldry.css(1), css/states.css(1)
+   4x  rgba(0,0,0,0.35)
+        css/tokens.css(4)
+   4x  rgba(255, 255, 255, 0.4)
+        css/heraldry.css(2), css/states.css(2)
+   4x  rgba(44, 24, 16, .08)
+        css/cartography.css(2), css/agent-server.css(1), css/research-library.css(1)
+   4x  rgba(60, 45, 25, .12)
+        css/agent-map.css(4)
+   4x  rgba(70, 55, 35, .2)
+        css/block-renderer.css(4)
+   4x  rgba(90, 70, 45, 0.25)
+        css/cartography.css(1), css/heraldry.css(1), css/research-library.css(1), css/states.css(1)
+   3x  rgba(0,0,0,0.04)
+        css/tokens.css(2), css/workbench.css(1)
+   3x  rgba(0,0,0,0.06)
+        css/tokens.css(3)
+   3x  rgba(0,0,0,0.10)
+        css/tokens.css(3)
+   3x  rgba(0,0,0,0.15)
+        css/timeline.css(3)
+   3x  rgba(0,0,0,0.30)
+        css/tokens.css(3)
+   3x  rgba(0,0,0,0.55)
+        css/tokens.css(2), css/components/modal.css(1)
+   3x  rgba(138, 122, 106, 0.1)
+        css/components/dashboard.css(1), css/research-library.css(1), css/scripture-reader.css(1)
+   3x  rgba(255, 255, 255, 0.06)
+        css/heraldry.css(1), css/research-library.css(1), css/states.css(1)
+   3x  rgba(44,24,16,0.10)
+        css/tokens.css(3)
+   2x  rgba(0, 0, 0, 0.06)
+        css/board-generator.css(2)
+   2x  rgba(0, 0, 0, 0.25)
+        css/board-generator.css(1), css/linear-timeline.css(1)
+   2x  rgba(0,0,0,.48)
+        css/board.css(2)
+   2x  rgba(0,0,0,0.1)
+        css/cartography.css(1), css/heraldry.css(1)
+   2x  rgba(0,0,0,0.5)
+        css/responsive.css(1), css/tokens.css(1)
+   2x  rgba(0,0,0,0.60)
+        css/tokens.css(2)
+   2x  rgba(120, 100, 70, .08)
+        css/agent-map.css(2)
+   2x  rgba(158, 54, 54, 0.08)
+        css/components/paleo-mechanics.css(2)
+   2x  rgba(180, 150, 100, 0.04)
+        css/board-generator.css(2)
+   2x  rgba(192, 57, 43, 0.12)
+        css/components/forms.css(2)
+   2x  rgba(192, 57, 43, 0.6)
+        css/board-generator.css(2)
+   2x  rgba(210,180,140,0.06)
+        css/base.css(2)
+   2x  rgba(217,164,65,.42)
+        css/board.css(2)
+   2x  rgba(217,164,65,.45)
+        css/board.css(2)
+   2x  rgba(255, 215, 0, 0.06)
+        css/timeline.css(2)
+   2x  rgba(31,41,51,0.05)
+        css/tokens.css(2)
+   2x  rgba(31,41,51,0.07)
+        css/tokens.css(2)
+   2x  rgba(31,41,51,0.08)
+        css/tokens.css(2)
+   2x  rgba(31,41,51,0.12)
+        css/tokens.css(2)
+   2x  rgba(44, 24, 16, .14)
+        css/cartography.css(1), css/states.css(1)
+   2x  rgba(44, 24, 16, 0.1)
+        css/board-generator.css(2)
+   2x  rgba(44,24,16,0.08)
+        css/tokens.css(2)
+   2x  rgba(61, 40, 22, 0.08)
+        css/checkers-comparator.css(2)
+   2x  rgba(90,68,30,0.08)
+        css/tokens.css(2)
+   1x  rgba(0, 0, 0, .18)
+        css/davar-checker.css(1)
+   1x  rgba(0, 0, 0, .35)
+        css/methodology.css(1)
+   1x  rgba(0, 0, 0, .45)
+        css/prompt-generator.css(1)
+   1x  rgba(0, 0, 0, 0.025)
+        css/scripture-reader.css(1)
+   1x  rgba(0, 0, 0, 0.08)
+        css/theme-parchment.css(1)
+   1x  rgba(0, 0, 0, 0.09)
+        css/scripture-reader.css(1)
+   1x  rgba(0, 0, 0, 0.18)
+        css/paleo-linguistics.css(1)
+   1x  rgba(0, 0, 0, 0.2)
+        css/board-generator.css(1)
+   1x  rgba(0, 0, 0, 0.4)
+        css/manuscript.css(1)
+   1x  rgba(0, 0, 0, 0.5)
+        css/linear-timeline.css(1)
+   1x  rgba(0,0,0,.25)
+        css/components/dashboard.css(1)
+   1x  rgba(0,0,0,.34)
+        css/board.css(1)
+   1x  rgba(0,0,0,0.08)
+        css/tokens.css(1)
+   1x  rgba(0,0,0,0.12)
+        css/states.css(1)
+   1x  rgba(0,0,0,0.14)
+        css/tokens.css(1)
+   1x  rgba(0,0,0,0.16)
+        css/tokens.css(1)
+   1x  rgba(0,0,0,0.20)
+        css/tokens.css(1)
+   1x  rgba(0,0,0,0.22)
+        css/tokens.css(1)
+   1x  rgba(0,0,0,0.24)
+        css/responsive.css(1)
+   1x  rgba(0,0,0,0.25)
+        css/tokens.css(1)
+   1x  rgba(0,0,0,0.3)
+        css/tokens.css(1)
+   1x  rgba(0,0,0,0.45)
+        css/tokens.css(1)
+   1x  rgba(10, 7, 5, .72)
+        css/prompt-generator.css(1)
+   1x  rgba(108, 72, 8, 0.30)
+        css/components/dashboard.css(1)
+   1x  rgba(117, 82, 27, 0.16)
+        css/paleo-builder.css(1)
+   1x  rgba(138,122,106,.1)
+        css/components/dashboard.css(1)
+   1x  rgba(138,122,106,.12)
+        css/components/dashboard.css(1)
+   1x  rgba(158,209,138,0.5)
+        css/components/dashboard.css(1)
+   1x  rgba(165, 121, 50, .2)
+        css/agent-map.css(1)
+   1x  rgba(168, 50, 50, 0.12)
+        css/methodology.css(1)
+   1x  rgba(177, 138, 69, .08)
+        css/block-renderer.css(1)
+   1x  rgba(177, 138, 69, .1)
+        css/block-renderer.css(1)
+   1x  rgba(177, 138, 69, .12)
+        css/block-renderer.css(1)
+   1x  rgba(180, 60, 60, 0.1)
+        css/heraldry.css(1)
+   1x  rgba(180, 60, 60, 0.2)
+        css/heraldry.css(1)
+   1x  rgba(180, 60, 60, 0.22)
+        css/research-library.css(1)
+   1x  rgba(192, 57, 43, 0.06)
+        css/components/forms.css(1)
+   1x  rgba(192, 57, 43, 0.4)
+        css/board-generator.css(1)
+   1x  rgba(192,57,43,.1)
+        css/components/dashboard.css(1)
+
+=== max-width ===
+  1x  max-width: 1200px  [css/components/research-json.css(1)]
+        1x  /* =============================================
+   components/res...
+  1x  max-width: 1180px  [css/club.css(1)]
+        1x  /* Лента клуба и деталь исследования */
+.club-feed
+  3x  max-width: 1120px  [css/components/dashboard.css(3)]
+        1x  .agent-pipelines-view
+        1x  .pipeline-detail-page
+        1x  .agent-detail-page
+  5x  max-width: 980px  [css/club.css(3), css/generators-checkers.css(1), css/tree-checker.css(1)]
+        1x  .club-sessions-page
+        1x  .club-create-form
+        1x  .club-detail
+        1x  /* ==== ЧЕКЕР СТРАН (State Checker) ==== */
+.state-checker-page
+  1x  max-width: 960px  [css/admin.css(1)]
+        1x  /* ─── ADMIN PANEL ────────────────────────────────────────────────...
+  9x  max-width: 920px  [css/manifest.css(8), css/components/research.css(1)]
+        1x  .research-preview
+        1x  .manifest-mizraim
+        1x  /* ===== РџР РРќР¦РРџ РџРћРўРћРљРђ ===== */
+.manifest-flow
+        1x  /* ===== Р­РњР•Рў / РЁР•РљР•Р  ===== */
+.manifest-es
+  1x  max-width: 900px  [css/board-generator.css(1)]
+        1x  /* Research Board Generator Styles */
+
+/* ===== BOARD CONTAINER ===...
+  1x  max-width: 880px  [css/learn.css(1)]
+        1x  .lesson-list
+  1x  max-width: 860px  [css/davar-checker.css(1)]
+        1x  .davar-checker-shell
+  1x  max-width: 850px  [css/manifest.css(1)]
+        1x  .manifest-quote
+  1x  max-width: 820px  [css/manifest.css(1)]
+        1x  .manifest-hero h1
+  1x  max-width: 800px  [css/language-map.css(1)]
+        1x  .language-map-head
+  3x  max-width: 780px  [css/components/dashboard.css(1), css/learn.css(1), css/manifest.css(1)]
+        1x  .agent-detail-role
+        1x  .learn-game
+        1x  .manifest-hero h1
+  7x  max-width: 760px  [css/manifest.css(4), css/linguistic-tensor.css(2), css/lab-hero.css(1)]
+        2x  .manifest-loss-map
+        1x  .lab-hero__subtitle
+        1x  .tensor-head
+        1x  .tensor-verdict h2
+  1x  max-width: 750px  [css/components/manifest.css(1)]
+        1x  .lab-content .module p,
+.lab-content .module li,
+.lab-content .mo...
+  2x  max-width: 720px  [css/learn.css(2)]
+        1x  .learn-lesson
+        1x  /* ===== ПАЛЕО-ТРЕНАЖЁР ===== */
+.learn-trainer
+  4x  max-width: 700px  [css/manifest.css(2), css/heraldry.css(1), css/tree-checker.css(1)]
+        1x  /* ===== ДЕТАЛЬНЫЙ ПРОСМОТР (МОДАЛКА) ===== */
+.heraldry-detail
+        1x  .manifest-act-application .manifest-story-copy
+        1x  /* ===== РђРљРў IV: РџР РђРљРўРРљРђ ===== */
+.manifest-practice-copy
+        1x  .tree-checker-svg-wrap
+  7x  max-width: 680px  [css/club.css(2), css/timeline.css(2), css/language-map.css(1), css/learn.css(1), css/manifest.css(1)]
+        1x  .club-session-archive-subtitle
+        1x  .club-sessions-intro p
+        1x  .language-map-detail-notes
+        1x  .learn-review
+  1x  max-width: 640px  [css/states.css(1)]
+        1x  /* ===== ДИАГНОСТИКА ===== */
+.diagnostic-page
+  2x  max-width: 620px  [css/cartography.css(1), css/learn.css(1)]
+        1x  /* ===== ДЕТАЛЬНЫЙ ПРОСМОТР (МОДАЛКА) ===== */
+.cartography-detail
+        1x  .learn-trainer-answer
+  3x  max-width: 600px  [css/components/modal.css(1), css/manifest.css(1), css/states.css(1)]
+        1x  .modal-window
+        1x  .manifest-lead
+        1x  .state-detail-hero .physics
+  3x  max-width: 560px  [css/learn.css(2), css/workbench.css(1)]
+        1x  .learn-trainer-reading
+        1x  .learn-trainer-author-meaning
+        1x  .wb-viewer-stub p
+  4x  max-width: 520px  [css/learn.css(2), css/cartography.css(1), css/linear-timeline.css(1)]
+        1x  .cartography-state-search
+        1x  .learn-trainer-chain
+        1x  .learn-trainer-note
+        1x  .tl-cp-modal
+  3x  max-width: 480px  [css/checkers-comparator.css(1), css/club.css(1), css/generators-checkers.css(1)]
+        1x  .tc-map svg
+        1x  .club-form
+        1x  .gc-lead
+  1x  max-width: 440px  [css/learn.css(1)]
+        1x  .learn-trainer-answer
+  1x  max-width: 420px  [css/responsive.css(1)]
+        1x  .header-search
+  1x  max-width: 380px  [css/admin.css(1)]
+        1x  .gate-card
+  1x  max-width: 280px  [css/agent-map.css(1)]
+        1x  .agent-map-panel
+  1x  max-width: 220px  [css/scripture-reader.css(1)]
+        1x  /* Канон модуля: единое базовое правило кнопок навигации.
+   Бывшие...
+  1x  max-width: 180px  [css/heraldry.css(1)]
+        1x  .heraldry-asset-text
+  2x  max-width: 120px  [css/scripture-reader.css(2)]
+        1x  .scripture-tool:hover span,
+.scripture-tool:focus-visible span
+        1x  .scripture-tool span
+  1x  max-width: 112px  [css/cartography.css(1)]
+        1x  .cartography-map-controls button:last-child
+ 24x  max-width: 100%  [css/responsive.css(7), css/components/dashboard.css(4), css/workbench.css(4), css/linear-timeline.css(2), css/admin.css(1), css/block-renderer.css(1), css/checkers-comparator.css(1), css/components/neurochat.css(1)]
+        1x  .research-item-image
+        1x  .br-figure img
+        1x  .tc-map svg
+        1x  .agent-pipelines-view, #pipelines
+  1x  max-width: var(--user-content-width, 980px)  [css/club.css(1)]
+        1x  /* club.css — стили для модуля «Палео-клуб» */
+
+.club-content
+  1x  max-width: 86%  [css/components/neurochat.css(1)]
+        1x  #ed-chat .ec-message
+  1x  max-width: var(--shell-page, 1200px)  [css/components/paleo-mechanics.css(1)]
+        1x  /* Page wrapper */
+.paleo-mechanics-page
+  1x  max-width: min(480px, 92vw)  [css/lab.css(1)]
+        1x  /* Стеклянная модалка (подтверждения, command palette).
+   Специфич...
+  1x  max-width: calc(100vw - 32px)  [css/layout.css(1)]
+        1x  .header-search .search-results,
+.glass-search-panel .search-results
+  1x  max-width: 80px  [css/states.css(1)]
+        1x  .paleo-breakdown-item .paleo-func
+  1x  max-width: 60ch  [css/redesign.css(1)]
+        1x  .module .subtitle
+  1x  max-width: 52ch  [css/redesign.css(1)]
+        1x  [data-lab-hero] .lab-hero__subtitle,
+.module .lab-hero__subtitle
+  1x  max-width: 48ch  [css/manuscript.css(1)]
+        1x  [data-lab-hero] .lab-hero__subtitle
+  1x  max-width: min(280px, calc(100vw - 16px))  [css/scripture-reader.css(1)]
+        1x  .scripture-glyph-popover
+  2x  max-width: var(--shell-read, 980px)  [css/timeline.css(2)]
+        1x  /* ===== КАТАЛОГ КОНТЕЙНЕРОВ ===== */
+/* Linear-плотность: одна кол...
+        1x  /* ===== ДЕТАЛЬНЫЙ СЛОЙ ТАЙМЛАЙНА ===== */
+.tl-detail
+  1x  max-width: calc(100% - 100px)  [css/timeline.css(1)]
+        1x  .tl-detail-hero h1
+  1x  max-width: calc(100% - 54px)  [css/timeline.css(1)]
+        1x  .tl-detail-hero h1
+  1x  max-width: var(--user-content-width, 1100px)  [css/user-preferences.css(1)]
+        1x  .up-panel
+
+=== @media breakpoints ===
+ 33x  (prefers-reduced-motion: reduce)  [css/manifest.css(5), css/lab.css(3), css/redesign.css(3), css/cartography.css(2), css/heraldry.css(2)]
+ 24x  (max-width: 640px)  [css/research-library.css(4), css/heraldry.css(3), css/cartography.css(2), css/block-renderer.css(1), css/components/paleo-mechanics.css(1)]
+ 14x  (max-width: 768px)  [css/redesign.css(3), css/admin.css(1), css/board-generator.css(1), css/cartography.css(1), css/components/dashboard.css(1)]
+ 13x  (max-width: 720px)  [css/club.css(3), css/scripture-reader.css(2), css/workbench.css(2), css/checkers-comparator.css(1), css/components/dashboard.css(1)]
+ 11x  (max-width: 900px)  [css/manifest.css(6), css/analyzers.css(2), css/components/neurochat.css(1), css/paleo-glossary.css(1), css/responsive.css(1)]
+ 11x  (max-width: 767px)  [css/lab.css(2), css/linear-timeline.css(2), css/timeline.css(2), css/components/modal.css(1), css/manifest.css(1)]
+  7x  (max-width: 760px)  [css/responsive.css(2), css/agent-server.css(1), css/investigation.css(1), css/prompt-generator.css(1), css/research-library.css(1)]
+  7x  (max-width: 620px)  [css/manifest.css(6), css/components/manifest.css(1)]
+  6x  (max-width:600px)  [css/learn.css(5), css/root-graph.css(1)]
+  5x  (max-width: 480px)  [css/cartography.css(2), css/heraldry.css(1), css/paleo-linguistics.css(1), css/states.css(1)]
+  4x  (max-width: 560px)  [css/components/dashboard.css(3), css/analyzers.css(1)]
+  4x  (prefers-color-scheme: dark)  [css/cartography.css(1), css/heraldry.css(1), css/research-library.css(1), css/states.css(1)]
+  4x  (max-width: 1100px)  [css/exposure-editor.css(3), css/paleo-builder.css(1)]
+  3x  (max-width: 700px)  [css/agent-map.css(1), css/components/dashboard.css(1), css/paleo-builder.css(1)]
+  3x  (max-width: 600px)  [css/scripture-reader.css(2), css/components/neurochat.css(1)]
+  3x  (max-width: 400px)  [css/manifest.css(3)]
+  2x  print  [css/board-generator.css(1), css/components/paleo-keyboard.css(1)]
+  2x  (max-width: 800px)  [css/board.css(1), css/components/dashboard.css(1)]
+  2x  (max-width: 1100px) and (min-width: 769px)  [css/cartography.css(1), css/heraldry.css(1)]
+  2x  (max-width: 1024px)  [css/components/dashboard.css(1), css/scripture-reader.css(1)]
+  1x  (max-width:760px)  [css/clue-generator.css(1)]
+  1x  (max-width: 520px)  [css/dashboard.css(1)]
+  1x  (min-width: 1024px)  [css/lab-hero.css(1)]
+  1x  (max-width:800px)  [css/learn.css(1)]
+  1x  (prefers-reduced-motion:reduce)  [css/learn.css(1)]
+  1x  (max-width: 820px)  [css/linguistic-tensor.css(1)]
+  1x  (min-width: 641px) and (max-width: 980px)  [css/methodology.css(1)]
+  1x  (max-width: 1120px)  [css/research-library.css(1)]
+  1x  (max-width: 420px)  [css/research-library.css(1)]
+  1x  (min-width: 768px)  [css/root-dictionary.css(1)]
+  1x  (min-width: 1025px)  [css/root-dictionary.css(1)]
+  1x  (max-width: 900px) and (min-width: 601px)  [css/scripture-reader.css(1)]
+  1x  (max-width: 380px)  [css/scripture-reader.css(1)]
+
+=== inline-стили JS/HTML ===
+--- width (27x, 18 unique) ---
+   6x  100%
+        js/board-generator.js(3), js/page-controller.js(3)
+   4x  0%
+        js/admin-settings.js(4)
+   2x  ' + percent + '%
+        js/workbench.js(2)
+   1x  auto
+        index.html(1)
+   1x  85%
+        js/admin-settings.js(1)
+   1x  ' + item.percentage + '%
+        js/analyzers.js(1)
+   1x  ' + session.progress + '%
+        js/club.js(1)
+   1x  ' + item.percent + '%
+        js/dashboard.js(1)
+   1x  ' + pct + '%
+        js/dashboard.js(1)
+   1x  ' + (item.percent || 0) + '%
+        js/dashboard.js(1)
+   1x  ' + (completed / 22 * 100) + '%
+        js/learn.js(1)
+   1x  ' + (lessons.length ? done / lessons.length * 100 : 0) + '%
+        js/learn.js(1)
+   1x  ' + score + '%
+        js/linguistic-tensor.js(1)
+   1x  ' + layer.value + '%
+        js/scripture-reader.js(1)
+   1x  ' + (s.intensity * 100) + '%
+        js/states.js(1)
+   1x  ' + visualPercent + '%
+        js/states.js(1)
+   1x  ' + progressPercent + '%
+        js/states.js(1)
+   1x  ' + Math.min(100, count * 20) + '%
+        js/timeline.js(1)
+--- animation-delay (19x, 17 unique) ---
+   2x  ' + (index * 30) + 'ms
+        js/methodology.js(1), js/page-controller.js(1)
+   2x  ' + (i * 50) + 'ms
+        js/page-controller.js(2)
+   1x  ' + (index * 70) + 'ms
+        js/cartography.js(1)
+   1x  ' + (index * 35) + 'ms
+        js/cartography.js(1)
+   1x  ' + (index * 60) + 'ms
+        js/cartography.js(1)
+   1x  ' + (index * 80) + 'ms
+        js/heraldry.js(1)
+   1x  ' + index * 60 + 'ms
+        js/learn.js(1)
+   1x  ' + index * 70 + 'ms
+        js/learn.js(1)
+   1x  ' + index * 25 + 'ms
+        js/learn.js(1)
+   1x  ' + (idx * 40) + 'ms
+        js/modules/religionisms.js(1)
+   1x  0ms
+        js/page-controller.js(1)
+   1x  50ms
+        js/page-controller.js(1)
+   1x  ' + ((index + 2) * 50) + 'ms
+        js/page-controller.js(1)
+   1x  ' + (index * 50) + 'ms
+        js/page-controller.js(1)
+   1x  ' + ((grp.items.length - 1) * 40) + 'ms
+        js/page-controller.js(1)
+   1x  ' + (i * 60) + 'ms
+        js/paleo-linguistics.js(1)
+   1x  ' + (i * 70) + 'ms
+        js/states.js(1)
+--- font-size (24x, 11 unique) ---
+   6x  14px
+        js/board-generator.js(5), js/page-controller.js(1)
+   4x  12px
+        js/board-generator.js(2), js/exposure-editor.js(1), js/paleo-keyboard.js(1)
+   4x  16px
+        js/page-controller.js(3), js/board-library.js(1)
+   3x  18px
+        js/page-controller.js(2), index.html(1)
+   1x  36px
+        index.html(1)
+   1x  13px
+        js/board-library.js(1)
+   1x  21px
+        js/learn.js(1)
+   1x  20px
+        js/page-controller.js(1)
+   1x  24px
+        js/page-controller.js(1)
+   1x  40px
+        js/paleo-keyboard.js(1)
+   1x  17px
+        js/religionism-checker.js(1)
+--- background (17x, 9 unique) ---
+   5x  var(--bg-card)
+        js/board-generator.js(5)
+   3x  var(--bg-primary)
+        js/page-controller.js(3)
+   2x  var(--accent-red)
+        js/board-generator.js(2)
+   2x  ' + color + '
+        js/states.js(2)
+   1x  ' + (user.color || '#b8860b') + '
+        js/avatar-stack.js(1)
+   1x  ' + (author.color || '#999') + '
+        js/club.js(1)
+   1x  var(--bg-dark)
+        js/page-controller.js(1)
+   1x  ' + COLORS[STATES.indexOf(s) % COLORS.length] + '
+        js/state-checker.js(1)
+   1x  var(--bg-tertiary)
+        js/timeline.js(1)
+--- color (19x, 8 unique) ---
+   7x  var(--text-primary)
+        js/board-generator.js(5), js/page-controller.js(2)
+   4x  var(--text-muted)
+        index.html(1), js/exposure-editor.js(1), js/page-controller.js(1), js/states.js(1)
+   2x  #faf3e0
+        js/board-generator.js(2)
+   2x  var(--accent-red)
+        js/page-controller.js(2)
+   1x  var(--text-light)
+        js/page-controller.js(1)
+   1x  #b8860b
+        js/page-controller.js(1)
+   1x  #2c1810
+        js/page-controller.js(1)
+   1x  #8a7a6a
+        js/paleo-keyboard.js(1)
+--- padding (13x, 7 unique) ---
+   5x  8px 10px
+        js/board-generator.js(5)
+   2x  8px 12px
+        js/board-generator.js(2)
+   2x  10px 12px
+        js/page-controller.js(2)
+   1x  16px
+        js/page-controller.js(1)
+   1x  60px 20px
+        js/page-controller.js(1)
+   1x  10px 24px
+        js/page-controller.js(1)
+   1x  14px
+        js/page-controller.js(1)
+--- margin-top (12x, 6 unique) ---
+   4x  8px
+        js/page-controller.js(3), index.html(1)
+   2x  16px
+        index.html(1), js/admin-settings.js(1)
+   2x  4px
+        index.html(2)
+   2x  12px
+        js/exposure-editor.js(1), js/religionism-checker.js(1)
+   1x  0
+        js/agent-map.js(1)
+   1x  24px
+        js/page-controller.js(1)
+--- font-family (13x, 6 unique) ---
+   5x  'EB Garamond', Georgia, serif
+        js/board-generator.js(5)
+   3x  \'EB Garamond\',Georgia,serif
+        js/page-controller.js(3)
+   2x  \'Cormorant Garamond\',Georgia,serif
+        js/page-controller.js(2)
+   1x  var(--font-heading)
+        index.html(1)
+   1x  monospace
+        js/board-library.js(1)
+   1x  \'Times New Roman\',serif
+        js/paleo-keyboard.js(1)
+--- display (118x, 5 unique) ---
+  77x  none
+        js/page-controller.js(19), js/admin-settings.js(12), js/scripture-reader.js(7), index.html(5), js/board-generator.js(5), js/vision-ui.js(5) +12 файлов
+  32x  block
+        js/page-controller.js(5), js/board-generator.js(4), js/vision-ui.js(4), js/checkers-comparator.js(3), js/access-gate.js(2), js/admin-settings.js(2) +10 файлов
+   7x  flex
+        js/board-generator.js(3), js/page-controller.js(2), index.html(1), js/exposure-editor.js(1)
+   1x  inline-block
+        js/board-generator.js(1)
+   1x  grid
+        js/scripture-reader.js(1)
+--- margin-bottom (18x, 5 unique) ---
+   5x  8px
+        js/board-generator.js(3), js/page-controller.js(2)
+   5x  20px
+        js/page-controller.js(5)
+   3x  16px
+        js/page-controller.js(2), index.html(1)
+   3x  12px
+        js/page-controller.js(2), js/exposure-editor.js(1)
+   2x  6px
+        js/page-controller.js(2)
+--- css-text (6x, 5 unique) ---
+   2x  margin-bottom: 12px; padding: 12px; background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: 4px;
+        js/board-generator.js(2)
+   1x  position:fixed;top:24px;left:50%;transform:translateX(-50%);opacity:0;pointer-events:none;z-index:9999;transition:opacity 0.4s;
+        index.html(1)
+   1x  position:fixed;opacity:0
+        js/methodology.js(1)
+   1x  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+        js/timeline.js(1)
+   1x  position:fixed;top:24px;left:50%;transform:translateX(-50%);background:#2c1810;color:#ede0c8;padding:10px 24px;font-size:14px;font-family:"EB Garamond",serif;opacity:0;pointer-events:none;z-index:9999;border-radius:4px;border:1px solid #b8860b;transition:opacity 0.4s;
+        js/vision-ui.js(1)
+--- max-width (5x, 5 unique) ---
+   1x  360px
+        js/admin-settings.js(1)
+   1x  200px
+        js/admin-settings.js(1)
+   1x  400px
+        js/page-controller.js(1)
+   1x  100%
+        js/page-controller.js(1)
+   1x  300px
+        js/states.js(1)
+--- --section-delay (5x, 5 unique) ---
+   1x  80ms
+        js/investigation.js(1)
+   1x  150ms
+        js/investigation.js(1)
+   1x  220ms
+        js/investigation.js(1)
+   1x  290ms
+        js/investigation.js(1)
+   1x  360ms
+        js/investigation.js(1)
+--- margin-left (5x, 4 unique) ---
+   2x  auto
+        js/exposure-editor.js(2)
+   1x  ' + (i === 0 ? '0' : '-8px') + '
+        js/avatar-stack.js(1)
+   1x  -8px
+        js/avatar-stack.js(1)
+   1x  8px
+        js/paleo-keyboard.js(1)
+--- border (12x, 4 unique) ---
+   8x  1px solid var(--border-light)
+        js/board-generator.js(5), js/page-controller.js(3)
+   2x  none
+        js/board-generator.js(2)
+   1x  1px solid var(--accent-gold)
+        js/page-controller.js(1)
+   1x  1px solid #d4c4a8
+        js/page-controller.js(1)
+--- margin-right (27x, 3 unique) ---
+  24x  6px
+        js/page-controller.js(16), index.html(6), js/board-library.js(2)
+   2x  8px
+        js/exposure-editor.js(1), js/methodology.js(1)
+   1x  12px
+        js/paleo-keyboard.js(1)
+--- gap (4x, 3 unique) ---
+   2x  8px
+        js/board-generator.js(2)
+   1x  12px
+        js/page-controller.js(1)
+   1x  10px
+        js/page-controller.js(1)
+--- height (2x, 2 unique) ---
+   1x  40px
+        index.html(1)
+   1x  ' + Math.max(18, value * 8) + '%
+        js/club.js(1)
+--- cursor (5x, 2 unique) ---
+   4x  pointer
+        js/board-generator.js(2), js/board-library.js(1), js/page-controller.js(1)
+   1x  default
+        index.html(1)
+--- opacity (12x, 2 unique) ---
+   9x  0
+        index.html(1), js/agent-server.js(1), js/analyzers.js(1), js/board-generator.js(1), js/linguistic-tensor.js(1), js/page-controller.js(1) +3 файлов
+   3x  1
+        index.html(1), js/board-generator.js(1), js/vision-ui.js(1)
+--- transform (3x, 2 unique) ---
+   2x  translate(
+        js/agent-map.js(2)
+   1x  translateX(-50%)
+        js/page-controller.js(1)
+--- border-color (10x, 2 unique) ---
+   5x  var(--accent-gold)
+        js/board-generator.js(5)
+   5x  var(--border-light)
+        js/board-generator.js(5)
+--- line-height (2x, 2 unique) ---
+   1x  1.6
+        js/board-library.js(1)
+   1x  2.2
+        js/religionism-checker.js(1)
+--- justify-content (2x, 2 unique) ---
+   1x  space-between
+        js/exposure-editor.js(1)
+   1x  center
+        js/page-controller.js(1)
+--- max-height (2x, 2 unique) ---
+   1x  300px
+        js/page-controller.js(1)
+   1x  0px
+        js/scripture-reader.js(1)
+--- vertical-align (27x, 1 unique) ---
+  27x  middle
+        js/page-controller.js(16), index.html(6), js/board-library.js(2), js/exposure-editor.js(1), js/methodology.js(1), js/paleo-keyboard.js(1)
+--- text-align (6x, 1 unique) ---
+   6x  center
+        js/page-controller.js(3), js/states.js(2), index.html(1)
+--- position (6x, 1 unique) ---
+   6x  fixed
+        js/agent-server.js(1), js/analyzers.js(1), js/linguistic-tensor.js(1), js/page-controller.js(1), js/scripture-reader.js(1), js/timeline.js(1)
+--- flex (3x, 1 unique) ---
+   3x  1
+        js/board-generator.js(2), js/page-controller.js(1)
+--- border-radius (12x, 1 unique) ---
+  12x  4px
+        js/board-generator.js(7), js/page-controller.js(5)
+--- outline (7x, 1 unique) ---
+   7x  none
+        js/board-generator.js(5), js/page-controller.js(2)
+--- font-weight (9x, 1 unique) ---
+   9x  600
+        js/page-controller.js(7), js/board-generator.js(2)
+--- resize (3x, 1 unique) ---
+   3x  vertical
+        js/board-generator.js(2), js/page-controller.js(1)
+--- white-space (2x, 1 unique) ---
+   2x  pre-wrap
+        js/board-library.js(1), js/page-controller.js(1)
+--- --i (3x, 1 unique) ---
+   3x  ' + i + '
+        js/club.js(1), js/dashboard.js(1), js/load-researches.js(1)
+--- align-items (1x, 1 unique) ---
+   1x  center
+        js/exposure-editor.js(1)
+--- flex-wrap (2x, 1 unique) ---
+   2x  wrap
+        js/page-controller.js(2)
+--- min-width (1x, 1 unique) ---
+   1x  200px
+        js/page-controller.js(1)
+--- font-style (2x, 1 unique) ---
+   2x  italic
+        js/page-controller.js(1), js/states.js(1)
+--- top (1x, 1 unique) ---
+   1x  24px
+        js/page-controller.js(1)
+--- left (1x, 1 unique) ---
+   1x  50%
+        js/page-controller.js(1)
+--- pointer-events (1x, 1 unique) ---
+   1x  none
+        js/page-controller.js(1)
+--- z-index (1x, 1 unique) ---
+   1x  999
+        js/page-controller.js(1)
+--- transition (1x, 1 unique) ---
+   1x  opacity 0.4s
+        js/page-controller.js(1)
+--- margin (2x, 1 unique) ---
+   2x  4px 0
+        js/paleo-keyboard.js(2)
+--- --state-color (1x, 1 unique) ---
+   1x  ' + color + '
+        js/states.js(1)
+--- border-bottom-color (1x, 1 unique) ---
+   1x  ' + color + '33
+        js/states.js(1)
+--- --landscape-color (1x, 1 unique) ---
+   1x  #8a613c
+        js/states.js(1)
+--- --node-color (1x, 1 unique) ---
+   1x  #8a613c
+        js/states.js(1)
+--- --tl-index (1x, 1 unique) ---
+   1x  ' + idx + '
+        js/timeline.js(1)
+--- --tl-event-index (1x, 1 unique) ---
+   1x  ' + index + '
+        js/timeline.js(1)
+
+=== токены: определения (все) ===
+--accent-gold = #b8860b  [css/tokens.css]
+--accent-gold-hover = #8b6508  [css/tokens.css]
+--accent-gold-rgb = 184 134 11  [css/tokens.css]
+--accent-green = #2a6a2a  [css/tokens.css]
+--accent-red = #c0392b  [css/tokens.css]
+--accent-red-hover = #a93226  [css/tokens.css]
+--bg-card = #faf3e0  [css/tokens.css]
+--bg-dark = #2c1810  [css/tokens.css]
+--bg-dark-hover = #3a2215  [css/tokens.css]
+--bg-hover = #f5edd5  [css/theme-parchment.css,css/theme-white.css]
+--bg-paper = #faf3e0  [css/theme-parchment.css,css/theme-white.css]
+--bg-primary = #ede0c8  [css/tokens.css]
+--bg-secondary = #faf3e0  [css/tokens.css]
+--bg-subtle = #faf3e0  [css/theme-parchment.css,css/theme-white.css]
+--bg-tertiary = #f5edd5  [css/tokens.css]
+--border-dark = #4a3020  [css/tokens.css]
+--border-gold = var(--accent-gold)  [css/tokens.css]
+--border-light = #d4c4a8  [css/tokens.css]
+--br-accent = var(--accent-gold)  [css/block-renderer.css]
+--card-border = 1px solid var(--line)  [css/tokens.css]
+--card-spacing = 16px  [css/tokens.css]
+--card-spacing-lg = 24px  [css/tokens.css]
+--control-gap = 6px  [css/tokens.css]
+--control-h = 28px  [css/tokens.css]
+--control-h-sm = 24px  [css/tokens.css]
+--dur-1 = 120ms  [css/tokens.css]
+--dur-2 = 180ms  [css/tokens.css]
+--dur-3 = 480ms  [css/tokens.css]
+--ease-out = cubic-bezier(0.2, 0, 0, 1)  [css/tokens.css]
+--ease-standard = cubic-bezier(0.4, 0, 0.2, 1)  [css/tokens.css]
+--error-bg = #fff0f0  [css/tokens.css]
+--error-border = #e0a0a0  [css/tokens.css]
+--error-text = #5c2a2a  [css/tokens.css]
+--focus-outline = 1px solid var(--accent-gold)  [css/tokens.css]
+--font-hand = 'Caveat', cursive  [css/tokens.css]
+--font-heading = 'Cormorant Garamond', Georgia, serif  [css/tokens.css]
+--font-hebrew = 'Noto Serif Hebrew', 'Times New Roman', serif  [css/tokens.css]
+--font-mono = 'JetBrains Mono', 'Consolas', 'Courier New', monospace  [css/tokens.css]
+--font-paleo = 'Noto Sans Phoenician', 'Segoe UI Historic', 'Arial Unicode MS', 'Times New Roman', serif  [css/tokens.css]
+--font-serif = 'EB Garamond', Georgia, 'Times New Roman', serif  [css/tokens.css]
+--font-ui = 'DM Sans', -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif  [css/tokens.css]
+--glass-blur = 14px  [css/lab.css]
+--glass-border = color-mix(in srgb, var(--border-light) 65%, transparent)  [css/lab.css]
+--glass-edge-bottom = rgb(20 10 4 / 0.12)  [css/lab.css]
+--glass-edge-top = rgb(255 255 255 / 0.42)  [css/lab.css]
+--glass-fallback = var(--bg-card)  [css/lab.css]
+--glass-saturate = 1.3  [css/lab.css]
+--glass-shadow = 0 24px 64px rgb(0 0 0 / 0.18), 0 4px 16px rgb(0 0 0 / 0.10)  [css/lab.css]
+--glass-tint = 74%  [css/lab.css]
+--glow-edge = none  [css/tokens.css]
+--glow-glyph = none  [css/tokens.css]
+--glyph-hero = clamp(4rem, 10vw, 8rem)  [css/tokens.css]
+--grad-dark = linear-gradient(160deg, var(--bg-dark), var(--bg-dark-hover))  [css/tokens.css]
+--grad-gold-cta = linear-gradient(135deg, #8b6508 0%, #b8860b 50%, #d4a030 115%)  [css/tokens.css]
+--grad-parchment = linear-gradient(135deg, var(--bg-secondary), var(--bg-primary) 55%, var(--bg-tertiary))  [css/tokens.css]
+--header-bg = #2c1810  [css/tokens.css]
+--header-muted = #d8c8b0  [css/tokens.css]
+--header-text = #fff8ea  [css/tokens.css]
+--info-bg = #e8f0e0  [css/tokens.css]
+--info-border = #b8d0a0  [css/tokens.css]
+--info-text = #2c4a1a  [css/tokens.css]
+--landscape-color = var(--accent-gold)  [css/states.css]
+--leading-read = 1.8  [css/tokens.css]
+--leading-ui = 1.5  [css/tokens.css]
+--line = var(--border-light)  [css/tokens.css]
+--line-strong = var(--border-dark)  [css/tokens.css]
+--loss-color = var(--accent-gold)  [css/components/manifest.css]
+--motion-base = var(--dur-2) var(--ease-out)  [css/tokens.css]
+--motion-fast = var(--dur-1) var(--ease-out)  [css/tokens.css]
+--motion-lift = 300ms var(--ease-standard)  [css/tokens.css]
+--motion-reveal = var(--dur-3) var(--ease-out)  [css/tokens.css]
+--paleo-highlight-color = var(--accent-gold)  [css/components/manifest.css]
+--radius-lg = 14px  [css/tokens.css]
+--radius-md = 10px  [css/tokens.css]
+--radius-pill = 999px  [css/tokens.css]
+--radius-sm = 6px  [css/tokens.css]
+--radius-xl = 20px  [css/tokens.css]
+--radius-xs = 4px  [css/tokens.css]
+--ring-focus = 0 0 0 2px rgb(var(--accent-gold-rgb) / 0.40)  [css/tokens.css]
+--shadow-card = 0 1px 3px rgba(44,24,16,0.10), 0 2px 8px rgba(44,24,16,0.06)  [css/tokens.css]
+--shadow-card-color = rgba(44,24,16,0.08)  [css/tokens.css]
+--shadow-card-hover = var(--shadow-hover)  [css/tokens.css]
+--shadow-card-hover-color = rgba(44,24,16,0.15)  [css/tokens.css]
+--shadow-floating = 0 12px 32px rgba(44,24,16,0.24), 0 4px 12px rgba(44,24,16,0.12)  [css/tokens.css]
+--shadow-hover = 0 4px 12px rgba(44,24,16,0.14), 0 2px 4px rgba(44,24,16,0.08)  [css/tokens.css]
+--shadow-modal = 0 8px 24px rgba(44,24,16,0.20), 0 2px 8px rgba(44,24,16,0.10)  [css/tokens.css]
+--shadow-soft = 0 2px 12px rgba(44,24,16,0.10)  [css/tokens.css]
+--shell-frame = 1400px  [css/tokens.css]
+--shell-page = 1120px  [css/tokens.css]
+--shell-read = 1000px  [css/tokens.css]
+--shell-wide = 1480px  [css/tokens.css]
+--space-1 = 4px  [css/tokens.css]
+--space-2 = 8px  [css/tokens.css]
+--space-3 = 12px  [css/tokens.css]
+--space-4 = 16px  [css/tokens.css]
+--space-5 = 20px  [css/tokens.css]
+--space-6 = 24px  [css/tokens.css]
+--space-7 = 32px  [css/tokens.css]
+--space-8 = 48px  [css/tokens.css]
+--status-amber = #ff9f0a  [css/tokens.css]
+--status-danger = var(--accent-red)  [css/tokens.css]
+--status-gray = #8e8e93  [css/tokens.css]
+--status-green = #34c759  [css/tokens.css]
+--status-neutral = var(--text-muted)  [css/tokens.css]
+--status-ok = var(--accent-green)  [css/tokens.css]
+--status-red = #ff3b30  [css/tokens.css]
+--status-warn = var(--accent-gold)  [css/tokens.css]
+--success-bg = #e8f5e0  [css/tokens.css]
+--success-border = #a0d0a0  [css/tokens.css]
+--success-text = #2a5c2a  [css/tokens.css]
+--surface = var(--bg-card)  [css/tokens.css]
+--surface-2 = var(--bg-secondary)  [css/tokens.css]
+--surface-hover = var(--bg-tertiary)  [css/tokens.css]
+--text-2xl = 28px  [css/tokens.css]
+--text-3xl = 38px  [css/tokens.css]
+--text-base = 16px  [css/tokens.css]
+--text-gold = #b8860b  [css/tokens.css]
+--text-hero = clamp(2.25rem, 5vw, 3.5rem)  [css/tokens.css]
+--text-lg = 18px  [css/tokens.css]
+--text-light = #ede0c8  [css/tokens.css]
+--text-md = 15px  [css/tokens.css]
+--text-muted = #8a7a6a  [css/tokens.css]
+--text-muted-on-dark = #d8c8b0  [css/tokens.css]
+--text-on-accent = #fffaf0  [css/tokens.css]
+--text-on-dark = #fff8ea  [css/tokens.css]
+--text-on-light = #2c1810  [css/tokens.css]
+--text-primary = #2c1810  [css/tokens.css]
+--text-secondary = #5c4a3a  [css/tokens.css]
+--text-section = clamp(1.75rem, 3vw, 2.5rem)  [css/tokens.css]
+--text-sm = 13px  [css/tokens.css]
+--text-xl = 22px  [css/tokens.css]
+--text-xs = 12px  [css/tokens.css]
+--texture-noise = url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E")  [css/tokens.css]
+--tracking-caps = 0.08em  [css/tokens.css]
+--transition = 0.2s ease  [css/tokens.css]
+--transition-fast = 0.15s ease  [css/tokens.css]
+--ui-11 = 11px  [css/tokens.css]
+--ui-12 = 12px  [css/tokens.css]
+--ui-13 = 13px  [css/tokens.css]
+--warn-bg = #fff5e0  [css/tokens.css]
+--warn-border = #e0c8a0  [css/tokens.css]
+--warn-text = #6a4a1a  [css/tokens.css]
+
+=== токены: top-60 по использованию ===
+ 613x  --accent-gold
+ 387x  --border-light
+ 302x  --text-primary
+ 271x  --text-muted
+ 228x  --space-3
+ 218x  --text-secondary
+ 215x  --space-2
+ 210x  --space-4
+ 198x  --font-heading
+ 196x  --bg-card
+ 172x  --motion-base
+ 134x  --space-5
+ 127x  --radius-sm
+ 104x  --bg-secondary
+  92x  --accent-gold-rgb
+  87x  --space-6
+  86x  --bg-tertiary
+  83x  --font-mono
+  73x  --shadow-soft
+  70x  --text-sm
+  59x  --radius-xs
+  56x  --space-1
+  54x  --text-xs
+  50x  --bg-primary
+  50x  --accent-red
+  43x  --accent-green
+  42x  --bg-dark
+  41x  --text-gold
+  40x  --text-md
+  39x  --font-ui
+  37x  --radius-md
+  37x  --border-dark
+  36x  --font-serif
+  35x  --text-base
+  35x  --font-paleo
+  35x  --border-gold
+  34x  --shadow-card
+  29x  --motion-fast
+  27x  --text-lg
+  25x  --dur-2
+  25x  --text-light
+  22x  --space-7
+  22x  --shadow-card-hover-color
+  21x  --leading-ui
+  21x  --bg-subtle
+  20x  --tracking-caps
+  20x  --landscape-color
+  18x  --accent-gold-hover
+  18x  --radius-pill
+  17x  --text-2xl
+  15x  --text-xl
+  15x  --shell-page
+  15x  --shadow-hover
+  14x  --font-hebrew
+  12x  --ui-11
+  11x  --br-accent
+  11x  --ease-standard
+  11x  --font-body
+  11x  --border-color
+  11x  --bg-dark-hover
+
+=== lab-container ===
+(нет)
