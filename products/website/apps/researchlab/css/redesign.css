@@ -156,7 +156,7 @@ textarea:focus-visible,
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  background: color-mix(in srgb, var(--header-bg) 74%, transparent);
+  background: color-mix(in srgb, var(--header-bg) var(--header-glass-mix), transparent);
   border-bottom: 1px solid transparent;
   transition: height 200ms ease, opacity 200ms ease, border-color 200ms ease;
 }
@@ -182,7 +182,7 @@ textarea:focus-visible,
   border: 1px solid var(--border-dark);
   border-radius: var(--radius-sm);
   background: var(--bg-dark-hover);
-  color: var(--header-text);
+  color: var(--header-ink);
   font-family: var(--font-serif);
   font-size: var(--text-sm);
   outline: none;
@@ -661,7 +661,7 @@ html[data-theme="beige"] .lab-header .logo img[src*="alephy-logo"] {
   border: 1px solid var(--border-dark);
   border-radius: var(--radius-md);
   background: var(--bg-dark-hover);
-  color: var(--header-text);
+  color: var(--header-ink);
   cursor: pointer;
   flex: 0 0 auto;
   transition: background-color var(--motion-base), border-color var(--motion-base), color var(--motion-base), transform var(--motion-fast);
@@ -674,8 +674,8 @@ html[data-theme="beige"] .lab-header .logo img[src*="alephy-logo"] {
 }
 
 .lab-header .icon-btn:hover {
-  background: color-mix(in srgb, var(--bg-dark-hover) 76%, var(--header-text));
-  border-color: var(--header-muted);
+  background: color-mix(in srgb, var(--bg-dark-hover) 76%, var(--header-ink));
+  border-color: var(--header-ink-muted);
 }
 
 .lab-header .icon-btn:active { transform: scale(0.96); }

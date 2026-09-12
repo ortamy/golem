@@ -264,13 +264,13 @@
 /* Шапка-витрина: сплошная сверху, стекло при скролле (.is-scrolled от JS).
    Исключение из правила «backdrop-filter < 500px» (§6.3): единственный
    полноширинный хром-элемент, один blur на страницу, санкционирован реестром.
-   Тонировка от --header-bg, а не --bg-card: текст шапки --header-text
+   Тонировка от --header-bg, а не --bg-card: текст шапки --header-ink
    рассчитан на тёмную подложку — контраст сохраняется во всех темах. */
 .lab-header.glass-topbar {
   transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
 }
 .lab-header.glass-topbar.is-scrolled {
-  background: color-mix(in srgb, var(--header-bg) 74%, transparent);
+  background: color-mix(in srgb, var(--header-bg) var(--header-glass-mix), transparent);
   -webkit-backdrop-filter: blur(12px) saturate(1.2);
   backdrop-filter: blur(12px) saturate(1.2);
   border-bottom-color: rgb(var(--accent-gold-rgb) / 0.15);
